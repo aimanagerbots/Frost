@@ -56,5 +56,12 @@ All data access goes through TanStack Query hooks in `src/modules/[module]/hooks
 2. **Structured Memory** — Postgres tables (memories, interactions, decisions, preferences)
 3. **Semantic Memory** — pgvector embeddings for RAG retrieval of transcripts/documents
 
-## Skills Available
-@.claude/rules/skills.md
+## Skills Installed
+You have 5 skill packages installed. Check `.claude/rules/skills.md` for full details and when to use each.
+- **frontend-design** — ALWAYS use when building UI. Bold choices, no generic output.
+- **ui-ux-pro-max** — Design recommendations for new modules.
+- **superpowers** — Structured brainstorm → plan → execute for complex features.
+- **interface-design** — Extract patterns after module 1, audit all subsequent modules.
+- **GSD** — Prevents context rot in long multi-module sessions.
+
+When in doubt: `frontend-design` is the default for any visual work. The others are situational.
