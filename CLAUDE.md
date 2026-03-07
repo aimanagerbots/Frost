@@ -1,82 +1,56 @@
-# Frost — AI-Powered Assistant with Open Integration Layer & Long-Term RAG Memory
+# Frost — AI-Powered Cannabis Operations Platform
 
 ## Project
-Frost is an AI-powered personal assistant with a massive open integration layer and a RAG memory system designed to capture and retain user data for years without corruption. Currently in POC phase — frontend runs entirely on mock data. Backend (FastAPI) and Supabase integration come after the frontend POC is validated.
+Single-tenant, multi-user operations platform for a cannabis company. 29 module routes, dark-themed dashboard, role-based access. Currently Phase 0 (scaffold). Frontend only with mock data.
 
 ## Stack
-- Next.js (App Router) + TypeScript — frontend, hosted on Vercel
-- Tailwind CSS + shadcn/ui — styling and component primitives
-- Zustand — client-only UI state (sidebar, modals, layout)
-- TanStack Query — server state, data fetching, caching
-- @dnd-kit — drag-and-drop (Kanban boards, reorderable lists)
-- Recharts — data visualization
-- React Hook Form + Zod — forms with schema validation
-- lucide-react — icons
-- Supabase — database, auth, realtime, storage, pgvector (future)
-- FastAPI + Python — backend API, agent orchestration (future)
+- Next.js (App Router) + TypeScript on Vercel
+- Tailwind CSS + shadcn/ui (dark theme, CSS variables)
+- Zustand (UI state) + TanStack Query (server state)
+- @dnd-kit (drag-and-drop), Recharts (charts), React Hook Form + Zod (forms)
+- lucide-react (icons)
 
 ## Architecture
-- Routes: `src/app/(modules)/[module-name]/page.tsx` — thin wrappers, no business logic
-- Module logic: `src/modules/[module-name]/` with `components/`, `hooks/`, `types/`, `store.ts`, `utils/`
-- Shared components: `src/components/` — barrel export from `index.ts`
-- Design tokens: `src/design/tokens.css` — all colors via CSS custom properties
-- Mock data: `src/mocks/` — one file per module, factory functions with realistic data
-- Global types: `src/types/`
-- Hooks: `src/hooks/` — shared hooks (useAuth, useTheme, etc.)
-- Utilities: `src/lib/` — API client, constants, helpers
-- Brand assets: `assets/brand/` — logos (PNG, AI source). Copy web assets to `public/brand/` after Next.js scaffold.
+- Routes: src/app/(modules)/[module]/page.tsx — thin wrappers
+- Module logic: src/modules/[module]/ — components/, hooks/, types/, utils/
+- Shared components: src/components/ — barrel export from index.ts
+- Design tokens: src/design/tokens.css — all colors via CSS variables
+- Mock data: src/mocks/ — factory functions, realistic data
+- Data hooks: TanStack Query wrappers — components never fetch directly
 
 ## Commands
-- Dev: `npm run dev`
-- Build: `npm run build`
-- Lint: `npm run lint`
-- Type check: `npx tsc --noEmit`
+- Dev: npm run dev
+- Build: npm run build
+- Lint: npm run lint
+- Type check: npx tsc --noEmit
 
-## Workflow Rules
-- ALWAYS present a detailed plan before executing. Do not build until approved.
-- ALWAYS run `npm run build` and `npm run lint` after completing work. Zero errors required.
-- Format all completion reports as a single markdown code block.
-- Use shared components from `src/components/` — never recreate StatusBadge, DrawerPanel, DataTable, etc.
-- Mock data must feel like a real person's life. Never "Test Item 1" or "Lorem ipsum".
-- All components fully typed. No `any` in public-facing props.
-- All modals/drawers: focus trap, Escape to close, ARIA attributes.
-- Do not install new dependencies without stating why.
-- Do not refactor code you weren't asked to change.
-- Do not create tests unless explicitly asked.
-- Do not put business logic in `page.tsx` files — import from modules.
-- Do not override design tokens with hardcoded colors — use CSS custom properties.
+## Workflow
+- ALWAYS present a plan before making changes
+- ALWAYS run build + lint after work — zero errors
+- Use shared components from src/components/ — never recreate
+- Mock data must feel real — consistent cannabis dispensary personas
+- No any in public component props
+- No business logic in page.tsx — import from modules
 
-## Data Layer
-All data access goes through TanStack Query hooks in `src/modules/[module]/hooks/`.
-- POC phase: hooks return mock data with simulated delays (`setTimeout`)
-- Production: only the `queryFn` internals change — components never change
-- This is the single most important architectural decision. Never bypass it.
+## Key Domain Rules
+- Product taxonomy: 6 categories (flower, preroll, vaporizer, concentrate, edible, beverage)
+- Readiness states track inventory through pipeline (see docs/OPERATIONS_PIPELINE.md)
+- CRM is the gravity well — every customer-facing module writes back to CRM
+- Pipeline: Cultivation → Manufacturing → Packaging → Fulfillment → Delivery
 
-## Memory Architecture (Three Layers)
-1. **System Identity** — static user context loaded into every LLM call
-2. **Structured Memory** — Postgres tables (memories, interactions, decisions, preferences)
-3. **Semantic Memory** — pgvector embeddings for RAG retrieval of transcripts/documents
+## Module Accent Colors
+Dashboard #667EEA, CRM #F59E0B, Tasks #8B5CF6, Calendar #3B82F6,
+Agents #06B6D4, Orders #F59E0B, VMI #EF4444, Content #EC4899,
+Competitors #F97316, Cultivation #22C55E, Manufacturing #10B981,
+Packaging #84CC16, Inventory #8B5CF6, Fulfillment #14B8A6,
+Delivery #0EA5E9, COA #9333EA, Approvals #FBBF24, Council #6366F1,
+Memory #8B5CF6, Insights #06B6D4, Projects #7C3AED, Products #DB2777,
+Meetings #2563EB, Docs #64748B, Team #0D9488, Finance #059669,
+Reports #475569, Settings #94A3B8, System #64748B
 
-## Skills Installed
-Check `.claude/rules/skills.md` for full details, install commands, and when to use each.
-
-**Core (always relevant):**
-- **frontend-design** — ALWAYS use when building UI. Bold choices, no generic output.
-- **ui-ux-pro-max** — Design recommendations for new modules.
-- **superpowers** — Structured brainstorm → plan → execute for complex features.
-- **interface-design** — Extract patterns after module 1, audit all subsequent modules.
-- **GSD** — Prevents context rot. USE when context is above 50%.
-
-**Planning & Architecture:**
-- **Deep Trilogy** — `/deep-project` → `/deep-plan` → `/deep-implement` for vague ideas → working code.
-
-**Quality & Security:**
-- **Code Review** — `/code-review` before commits. Parallel diff analysis.
-- **Trail of Bits Security** — Security audits, vulnerability detection, CodeQL/Semgrep.
-- **Vercel Skills Suite** — 12+ skills: react/next-best-practices, web-design-guidelines, vercel-deploy, ai-sdk, composition-patterns, next-upgrade, and more.
-
-**Productivity:**
-- **Context7** — Up-to-date library docs. Use when working with external APIs.
-- **Ralph Loop** — Autonomous coding loops for repetitive/batch tasks.
-
-Full reference: `docs/claude-code-skills-reference.md`
+## Do NOT
+- Install dependencies without stating why
+- Refactor code you weren't asked to change
+- Create tests unless explicitly asked
+- Put business logic in page.tsx files
+- Use any type in public component props

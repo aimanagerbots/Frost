@@ -1,12 +1,10 @@
 # Component Patterns
-
-- Import shared components: `import { StatusBadge, DrawerPanel } from '@/components'`
-- Every module page starts with `SectionHeader` using the module's accent color
-- Data hooks use TanStack Query with descriptive `queryKey` arrays and simulated delays
-- Loading states: use `LoadingSkeleton` with appropriate variant (card/list/table/chart/text/avatar)
-- Empty states: use `EmptyState` with module accent color — welcoming tone, not error-like
-- Forms: React Hook Form + Zod schema validation — always
-- Responsive: desktop-first with Tailwind breakpoints (`lg:grid-cols-3 md:grid-cols-2 grid-cols-1`)
-- Card styling: `rounded-xl border border-default bg-card` — see `src/design/tokens.css` for values
-- Sidebar: glassmorphism (backdrop-blur-xl with slight transparency)
-- Each module gets its own accent color for SectionHeader, active states, progress indicators, charts
+- Import shared components: import { ComponentName } from '@/components'
+- Every module page starts with SectionHeader using module accent color
+- Data hooks: TanStack Query with queryKey arrays and simulated delays
+- Loading states: LoadingSkeleton with appropriate variant
+- Empty states: EmptyState with module accent color
+- Forms: React Hook Form + Zod schema validation
+- Responsive: desktop-first (lg:grid-cols-3 md:grid-cols-2 grid-cols-1)
+- Cards: rounded-xl, border border-default, bg-card
+- Modals/drawers: focus trap, Escape to close, ARIA attributes

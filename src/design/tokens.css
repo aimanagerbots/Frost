@@ -1,0 +1,26 @@
+:root {
+  /* Backgrounds */
+  --bg-base: #08090F;
+  --bg-card: #0F1219;
+  --bg-card-hover: #141925;
+  --bg-elevated: #1A1F2E;
+
+  /* Borders */
+  --border-default: #1A1F2E;
+  --border-hover: #2A3040;
+
+  /* Accent */
+  --accent-primary: #667EEA;
+  --accent-gradient: linear-gradient(135deg, #667EEA, #764BA2, #F093FB);
+
+  /* Text */
+  --text-default: #C8D0E0;
+  --text-muted: #6B7A99;
+  --text-bright: #FFFFFF;
+
+  /* Status */
+  --success: #00E5A0;
+  --warning: #FBBF24;
+  --danger: #FB7185;
+  --info: #38BDF8;
+}
