@@ -2,15 +2,18 @@
 
 Accent color: #10B981
 
-Manages cannabis processing through multiple pipelines (flower, preroll, vaporizer, concentrate). Tracks work orders, batches, production lines, and readiness state transitions. The vaporizer pipeline has three branching paths: distillate, live resin, and solventless.
+Production pipeline command center. Manages cannabis processing through 6 production lines (Flower, Preroll, Extraction, Vape Fill, Concentrate, Solventless). Tracks work orders, batches, equipment, and throughput. 5-tab architecture: Dashboard, Work Orders, Production Lines, Batch Tracker, Equipment.
 
 ## Key Components
-- ManufacturingPage — Main page with metrics, production lines, pipeline visualization, work queue
-- ProductionLines — Row of 5 production line cards with capacity bars
-- ManufacturingPipeline — Tabbed pipeline visualization with state flow and branching vape paths
-- WorkOrderDrawer — Detailed work order view with materials BOM, readiness transition, actions
+- ManufacturingLayout — Tab container with SectionHeader + Nav + dynamic content
+- ManufacturingNav — 5 tabs with URL sync
+- ManufacturingDashboard — Metrics, donut chart, throughput chart, active orders, alerts
+- WorkOrderBoard — Kanban (Pending/In Progress/Complete) using KanbanBase
+- ProductionLines — 6 production line cards with status, throughput, workers
+- BatchTracker — Searchable batch list with pipeline progress visualization
+- EquipmentList — Equipment grouped by line with maintenance schedule
 
 ## Data Shape
-- WorkOrder, WorkOrderMaterial, ManufacturingBatch, ManufacturingMetrics, PipelineState, ProductionLine (src/modules/manufacturing/types/)
-- Mock data in src/mocks/manufacturing.ts (30 work orders, 25 batches, 22 pipeline states, 5 production lines)
-- TanStack Query hooks in src/modules/manufacturing/hooks/ (6 hooks)
+- WorkOrder, ManufacturingBatch, ProductionLine, Equipment, ManufacturingAlert, ThroughputDataPoint, ProductionDistribution (types/)
+- Mock data in src/mocks/manufacturing.ts (20 work orders, 18 batches, 6 production lines, 24 equipment items)
+- 11 TanStack Query hooks in hooks/

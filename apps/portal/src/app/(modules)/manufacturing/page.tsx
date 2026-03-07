@@ -1,5 +1,5 @@
-import { ManufacturingPage } from '@/modules/manufacturing/components';
+import { ManufacturingLayout } from '@/modules/manufacturing/components';
 
 export default function Page() {
-  return <ManufacturingPage />;
+  return <ManufacturingLayout />;
 }

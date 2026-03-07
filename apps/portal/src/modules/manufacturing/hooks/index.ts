@@ -4,3 +4,8 @@ export { useManufacturingBatches } from './useManufacturingBatches';
 export { useProductionLines } from './useProductionLines';
 export { useManufacturingMetrics } from './useManufacturingMetrics';
 export { usePipelineStates } from './usePipelineStates';
+export { useManufacturingDashboard } from './useManufacturingDashboard';
+export { useEquipment } from './useEquipment';
+export { useThroughputHistory } from './useThroughputHistory';
+export { useManufacturingAlerts } from './useManufacturingAlerts';
+export { useProductionDistribution } from './useProductionDistribution';
