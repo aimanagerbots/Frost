@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { ClipboardList } from 'lucide-react';
 import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { useOrders } from '@/modules/orders/hooks/useOrders';
@@ -33,8 +34,17 @@ const selectClass =
   'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-text-default outline-none focus:border-hover';
 
 export function OrdersPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const accountParam = searchParams.get('account');
   const [filters, setFilters] = useState<OrderFilter>({});
   const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (accountParam) {
+      setFilters((prev) => ({ ...prev, accountId: accountParam }));
+    }
+  }, [accountParam]);
 
   const { data: orders, isLoading: ordersLoading, error: ordersError, refetch: refetchOrders } = useOrders(filters);
   const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useOrderMetrics();
@@ -84,6 +94,17 @@ export function OrdersPage() {
       header: 'Account',
       accessor: 'accountName' as const,
       sortable: true,
+      render: (row: Order) => (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            router.push(`/crm?account=${row.accountId}`);
+          }}
+          className="text-sm text-[#F59E0B] hover:underline"
+        >
+          {row.accountName}
+        </button>
+      ),
     },
     {
       header: 'Items',

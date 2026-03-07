@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { StatusBadge } from '@/components';
 import {
   ArrowLeft,
@@ -10,6 +11,9 @@ import {
   Mail,
   ClipboardList,
   MapPin,
+  ShoppingCart,
+  Truck,
+  DollarSign,
 } from 'lucide-react';
 import type { Account, PipelineStatus } from '../../types';
 import { PIPELINE_PHASE_LABELS } from '../../types';
@@ -55,6 +59,8 @@ interface AccountDetailHeaderProps {
 }
 
 export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProps) {
+  const router = useRouter();
+
   return (
     <div className="rounded-xl border border-default bg-card p-4 md:p-6">
       <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: CRM_ACCENT }} />
@@ -124,6 +130,23 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
           ].map(({ icon: Icon, label }) => (
             <button
               key={label}
+              className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+            >
+              <Icon className="h-3.5 w-3.5" />
+              {label}
+            </button>
+          ))}
+
+          <div className="mx-1 h-6 w-px bg-default" />
+
+          {[
+            { icon: ShoppingCart, label: 'View Orders', href: `/orders?account=${account.id}` },
+            { icon: Truck, label: 'View Deliveries', href: `/delivery?account=${account.id}` },
+            { icon: DollarSign, label: 'View Invoices', href: `/finance?account=${account.id}` },
+          ].map(({ icon: Icon, label, href }) => (
+            <button
+              key={label}
+              onClick={() => router.push(href)}
               className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
             >
               <Icon className="h-3.5 w-3.5" />

@@ -93,6 +93,7 @@ export function PipelineFunnel({ cells }: PipelineFunnelProps) {
                       {shown.map((acct) => (
                         <PipelineAccountCard
                           key={acct.id}
+                          id={acct.id}
                           name={acct.name}
                           healthScore={acct.healthScore}
                           thirtyDayRevenue={acct.thirtyDayRevenue}

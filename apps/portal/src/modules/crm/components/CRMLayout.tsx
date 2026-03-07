@@ -1,6 +1,7 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Users } from 'lucide-react';
 import { SectionHeader, LoadingSkeleton } from '@/components';
 import { CRMNavigation } from './CRMNavigation';
@@ -38,6 +39,17 @@ function CRMContent() {
 }
 
 export function CRMLayout() {
+  const searchParams = useSearchParams();
+  const accountParam = searchParams.get('account');
+  const { setSelectedAccountId, setActiveTab } = useCRMStore();
+
+  useEffect(() => {
+    if (accountParam) {
+      setActiveTab('accounts');
+      setSelectedAccountId(accountParam);
+    }
+  }, [accountParam, setActiveTab, setSelectedAccountId]);
+
   return (
     <div className="space-y-4">
       <SectionHeader
