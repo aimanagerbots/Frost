@@ -1,0 +1,1 @@
+export { PaidAdsPage } from './PaidAdsPage';

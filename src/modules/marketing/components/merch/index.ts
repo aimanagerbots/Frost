@@ -1,0 +1,1 @@
+export { MerchPage } from './MerchPage';
