@@ -8,6 +8,8 @@ import {
   MetricCard,
   StatusBadge,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useVMIAccounts, useVMIMetrics } from '../hooks';
 import { useVMIDailyEmails } from '../hooks/useVMIAccounts';
@@ -138,15 +140,36 @@ function DailyEmailCard({ email }: { email: VMIDailyEmail }) {
 export function VMIPage() {
   const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null);
 
-  const { data: accounts, isLoading: accountsLoading } = useVMIAccounts();
-  const { data: metrics, isLoading: metricsLoading } = useVMIMetrics();
+  const { data: accounts, isLoading: accountsLoading, error: accountsError, refetch: refetchAccounts } = useVMIAccounts();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useVMIMetrics();
 
-  const { data: dailyEmails } = useVMIDailyEmails();
+  const { data: dailyEmails, error: emailsError, refetch: refetchEmails } = useVMIDailyEmails();
 
   const selectedAccount = accounts?.find((a) => a.accountId === selectedAccountId);
 
   if (metricsLoading || accountsLoading) {
     return <LoadingSkeleton variant="card" count={3} />;
+  }
+
+  if (accountsError || metricsError || emailsError) {
+    return (
+      <ErrorState
+        title="Failed to load VMI data"
+        message={(accountsError || metricsError || emailsError)?.message}
+        onRetry={() => { refetchAccounts(); refetchMetrics(); refetchEmails(); }}
+      />
+    );
+  }
+
+  if (!accounts?.length) {
+    return (
+      <EmptyState
+        icon={BarChart3}
+        title="No VMI accounts"
+        description="No vendor managed inventory accounts are enrolled yet."
+        accentColor={ACCENT}
+      />
+    );
   }
 
   return (

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { FlaskConical, FileSearch } from 'lucide-react';
-import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton } from '@/components';
+import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { useCOASubmissions, useCOAMetrics } from '../hooks';
 import { COADrawer } from './COADrawer';
 import type { COAStatus, COASubmission } from '../types';
@@ -44,11 +44,11 @@ export function COAManagerPage() {
   const [selectedStatus, setSelectedStatus] = useState<COAStatus | null>(null);
   const [selectedSubmissionId, setSelectedSubmissionId] = useState<string | null>(null);
 
-  const { data: submissions, isLoading: subsLoading } = useCOASubmissions(
+  const { data: submissions, isLoading: subsLoading, error: subsError, refetch: refetchSubs } = useCOASubmissions(
     selectedStatus ? { status: selectedStatus } : undefined
   );
-  const { data: metrics, isLoading: metricsLoading } = useCOAMetrics();
-  const { data: allSubmissions } = useCOASubmissions();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useCOAMetrics();
+  const { data: allSubmissions, error: allSubsError, refetch: refetchAllSubs } = useCOASubmissions();
 
   const pipelineCounts = useMemo(() => {
     if (!allSubmissions) return new Map<COAStatus, number>();
@@ -65,6 +65,7 @@ export function COAManagerPage() {
   );
 
   if (metricsLoading) return <LoadingSkeleton variant="card" count={3} />;
+  if (subsError || metricsError || allSubsError) return <ErrorState title="Failed to load COA data" message={(subsError || metricsError || allSubsError)?.message} onRetry={() => { refetchSubs(); refetchMetrics(); refetchAllSubs(); }} />;
 
   const columns = [
     {

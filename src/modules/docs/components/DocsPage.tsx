@@ -9,6 +9,8 @@ import {
   StatusBadge,
   DrawerPanel,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useDocuments } from '../hooks';
 import type { DocType, Document } from '../types';
@@ -72,8 +74,8 @@ export function DocsPage() {
     [typeFilter]
   );
 
-  const { data: documents, isLoading } = useDocuments(filters);
-  const { data: allDocs } = useDocuments();
+  const { data: documents, isLoading, error: docsError, refetch: refetchDocs } = useDocuments(filters);
+  const { data: allDocs, error: allDocsError, refetch: refetchAllDocs } = useDocuments();
 
   const sopCount = useMemo(
     () => allDocs?.filter((d) => d.type === 'sop').length ?? 0,
@@ -88,6 +90,27 @@ export function DocsPage() {
   }, [allDocs]);
 
   if (isLoading && !documents) return <LoadingSkeleton variant="card" count={3} />;
+
+  if (docsError || allDocsError) {
+    return (
+      <ErrorState
+        title="Failed to load documents"
+        message={(docsError || allDocsError)?.message}
+        onRetry={() => { refetchDocs(); refetchAllDocs(); }}
+      />
+    );
+  }
+
+  if (!allDocs?.length) {
+    return (
+      <EmptyState
+        icon={FileText}
+        title="No documents"
+        description="No documents have been uploaded yet. Upload documents to manage them here."
+        accentColor={ACCENT}
+      />
+    );
+  }
 
   const columns = [
     {

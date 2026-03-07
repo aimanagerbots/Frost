@@ -19,6 +19,8 @@ import {
   DrawerPanel,
   TimelineView,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useAgents } from '../hooks/useAgents';
 import { useAgentActions } from '../hooks/useAgentActions';
@@ -61,11 +63,13 @@ function formatActionType(type: AgentAction['type']): string {
 export function AgentHubPage() {
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
 
-  const { data: agents, isLoading: agentsLoading } = useAgents();
-  const { data: allActions, isLoading: actionsLoading } = useAgentActions();
+  const { data: agents, isLoading: agentsLoading, error: agentsError, refetch: refetchAgents } = useAgents();
+  const { data: allActions, isLoading: actionsLoading, error: actionsError, refetch: refetchActions } = useAgentActions();
   const { data: conversation } = useAgentConversation(selectedAgentId ?? undefined);
 
   const isLoading = agentsLoading || actionsLoading;
+
+  const error = agentsError || actionsError;
 
   if (isLoading) {
     return (
@@ -73,6 +77,35 @@ export function AgentHubPage() {
         <LoadingSkeleton variant="text" />
         <LoadingSkeleton variant="card" count={4} />
         <LoadingSkeleton variant="card" count={6} />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load agent data"
+        message={error.message}
+        onRetry={() => { refetchAgents(); refetchActions(); }}
+      />
+    );
+  }
+
+  if (!agents?.length) {
+    return (
+      <div className="space-y-6 p-6">
+        <SectionHeader
+          icon={Bot}
+          title="Agent Hub"
+          subtitle="AI agents working across your operation"
+          accentColor={AGENTS_ACCENT}
+        />
+        <EmptyState
+          icon={Bot}
+          title="No agents configured"
+          description="No AI agents have been set up yet. Agents will appear here once configured."
+          accentColor={AGENTS_ACCENT}
+        />
       </div>
     );
   }

@@ -19,6 +19,8 @@ import {
   StatusBadge,
   DrawerPanel,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useKnowledgeBase, useCouncilSessions } from '../hooks';
 import type { KnowledgeEntry, CouncilSession } from '../types';
@@ -203,10 +205,10 @@ export function CouncilPage() {
   const [demoLoading, setDemoLoading] = useState(false);
   const [demoSessionId, setDemoSessionId] = useState<string | null>(null);
 
-  const { data: entries, isLoading: entriesLoading } = useKnowledgeBase(
+  const { data: entries, isLoading: entriesLoading, error: entriesError, refetch: refetchEntries } = useKnowledgeBase(
     activeCategory === 'all' ? undefined : activeCategory
   );
-  const { data: sessions, isLoading: sessionsLoading } = useCouncilSessions();
+  const { data: sessions, isLoading: sessionsLoading, error: sessionsError, refetch: refetchSessions } = useCouncilSessions();
 
   const toggleSession = useCallback((id: string) => {
     setExpandedSessions((prev) => {
@@ -228,6 +230,37 @@ export function CouncilPage() {
       setCouncilInput('');
     }, 2000);
   }, [councilInput, sessions]);
+
+  const error = entriesError || sessionsError;
+
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load council data"
+        message={error.message}
+        onRetry={() => { refetchEntries(); refetchSessions(); }}
+      />
+    );
+  }
+
+  if (!entriesLoading && !sessionsLoading && !entries?.length && !sessions?.length) {
+    return (
+      <div className="space-y-6">
+        <SectionHeader
+          icon={BookOpen}
+          title="Council"
+          subtitle="AI-powered knowledge base and multi-agent decision engine"
+          accentColor={ACCENT}
+        />
+        <EmptyState
+          icon={BookOpen}
+          title="No knowledge entries or sessions"
+          description="The knowledge base is empty and no council sessions have been recorded yet."
+          accentColor={ACCENT}
+        />
+      </div>
+    );
+  }
 
   // Client-side search filter
   const filteredEntries = (entries ?? []).filter((entry) => {

@@ -1,7 +1,7 @@
 'use client';
 
-import { LayoutDashboard } from 'lucide-react';
-import { SectionHeader, MetricCard, LoadingSkeleton } from '@/components';
+import { LayoutDashboard, Activity } from 'lucide-react';
+import { SectionHeader, MetricCard, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useDashboardAlerts } from '@/modules/dashboard/hooks/useDashboardAlerts';
 import { useDashboardMetrics } from '@/modules/dashboard/hooks/useDashboardMetrics';
 import { useDashboardCharts } from '@/modules/dashboard/hooks/useDashboardCharts';
@@ -28,9 +28,9 @@ function formatDate(): string {
 }
 
 export function DashboardPage() {
-  const { data: alerts, isLoading: alertsLoading } = useDashboardAlerts();
-  const { data: metrics, isLoading: metricsLoading } = useDashboardMetrics();
-  const { data: charts, isLoading: chartsLoading } = useDashboardCharts();
+  const { data: alerts, isLoading: alertsLoading, error: alertsError, refetch: refetchAlerts } = useDashboardAlerts();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useDashboardMetrics();
+  const { data: charts, isLoading: chartsLoading, error: chartsError, refetch: refetchCharts } = useDashboardCharts();
 
   const isLoading = alertsLoading || metricsLoading || chartsLoading;
 
@@ -41,6 +41,17 @@ export function DashboardPage() {
         <LoadingSkeleton variant="card" count={4} />
         <LoadingSkeleton variant="chart" count={2} />
       </div>
+    );
+  }
+
+  const error = alertsError || metricsError || chartsError;
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load dashboard"
+        message={error.message}
+        onRetry={() => { refetchAlerts(); refetchMetrics(); refetchCharts(); }}
+      />
     );
   }
 
@@ -77,7 +88,10 @@ export function DashboardPage() {
       {alerts && <AlertsRow alerts={alerts} />}
 
       {/* KPI Metrics */}
-      {metrics && (
+      {metrics?.length === 0 && (
+        <EmptyState icon={Activity} title="No metrics" description="No dashboard metrics available yet." accentColor={DASHBOARD_ACCENT} />
+      )}
+      {metrics && metrics.length > 0 && (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map((metric) => (
             <MetricCard

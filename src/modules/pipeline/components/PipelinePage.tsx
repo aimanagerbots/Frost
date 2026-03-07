@@ -1,7 +1,7 @@
 'use client';
 
 import { GitBranch } from 'lucide-react';
-import { SectionHeader, LoadingSkeleton } from '@/components';
+import { SectionHeader, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { usePipelineData } from '../hooks/usePipelineData';
 import { PipelineMetricsRow } from './PipelineMetricsRow';
 import { PipelineFunnel } from './PipelineFunnel';
@@ -10,9 +10,9 @@ import { PipelineTransitionLog } from './PipelineTransitionLog';
 const ACCENT = '#F59E0B';
 
 export function PipelinePage() {
-  const { data, isLoading } = usePipelineData();
+  const { data, isLoading, error, refetch } = usePipelineData();
 
-  if (isLoading || !data) {
+  if (isLoading || (!data && !error)) {
     return (
       <div className="space-y-6">
         <LoadingSkeleton variant="card" />
@@ -22,6 +22,35 @@ export function PipelinePage() {
           ))}
         </div>
         <LoadingSkeleton variant="card" className="h-[400px]" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load pipeline data"
+        message={error.message}
+        onRetry={refetch}
+      />
+    );
+  }
+
+  if (!data || (!data.cells?.length && !data.recentTransitions?.length)) {
+    return (
+      <div className="space-y-6">
+        <SectionHeader
+          icon={GitBranch}
+          title="Pipeline"
+          subtitle="A/I/R account pipeline — Active, Inactive & Recovery tracking"
+          accentColor={ACCENT}
+        />
+        <EmptyState
+          icon={GitBranch}
+          title="No pipeline data"
+          description="No accounts are in the pipeline yet. Data will appear as accounts are tracked through the A/I/R stages."
+          accentColor={ACCENT}
+        />
       </div>
     );
   }

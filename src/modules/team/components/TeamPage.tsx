@@ -9,6 +9,7 @@ import {
   StatusBadge,
   DrawerPanel,
   LoadingSkeleton,
+  ErrorState,
 } from '@/components';
 import { useTeamMembers, useTeamMetrics } from '@/modules/team/hooks';
 import type { TeamMember, Division } from '@/modules/team/types';
@@ -114,13 +115,25 @@ export function TeamPage() {
   const [division, setDivision] = useState<Division | undefined>(undefined);
   const [selected, setSelected] = useState<TeamMember | null>(null);
 
-  const { data: members, isLoading: membersLoading } = useTeamMembers({ division });
-  const { data: metrics, isLoading: metricsLoading } = useTeamMetrics();
+  const { data: members, isLoading: membersLoading, error: membersError, refetch: refetchMembers } = useTeamMembers({ division });
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useTeamMetrics();
 
   if (membersLoading || metricsLoading) {
     return (
       <div className="space-y-6 p-6">
         <LoadingSkeleton variant="table" />
+      </div>
+    );
+  }
+
+  if (membersError || metricsError) {
+    return (
+      <div className="p-6">
+        <ErrorState
+          title="Failed to load team data"
+          message={(membersError || metricsError)?.message}
+          onRetry={() => { refetchMembers(); refetchMetrics(); }}
+        />
       </div>
     );
   }

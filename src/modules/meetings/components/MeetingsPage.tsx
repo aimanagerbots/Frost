@@ -9,6 +9,8 @@ import {
   DrawerPanel,
   LoadingSkeleton,
   AvatarGroup,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useMeetings, useMeetingMetrics } from '@/modules/meetings/hooks';
 import type { Meeting, MeetingType } from '@/modules/meetings/types';
@@ -57,8 +59,29 @@ export function MeetingsPage() {
   const [typeFilter, setTypeFilter] = useState<MeetingType | 'all'>('all');
 
   const filters = typeFilter === 'all' ? undefined : { type: typeFilter };
-  const { data: meetings, isLoading } = useMeetings(filters);
-  const { data: metrics } = useMeetingMetrics();
+  const { data: meetings, isLoading, error: meetingsError, refetch: refetchMeetings } = useMeetings(filters);
+  const { data: metrics, error: metricsError, refetch: refetchMetrics } = useMeetingMetrics();
+
+  if (meetingsError || metricsError) {
+    return (
+      <ErrorState
+        title="Failed to load meetings"
+        message={(meetingsError || metricsError)?.message}
+        onRetry={() => { refetchMeetings(); refetchMetrics(); }}
+      />
+    );
+  }
+
+  if (!isLoading && !meetings?.length) {
+    return (
+      <EmptyState
+        icon={Video}
+        title="No meetings"
+        description="No meetings have been scheduled yet. Create a meeting to get started."
+        accentColor={ACCENT}
+      />
+    );
+  }
 
   const upcoming = meetings?.filter((m) => m.status === 'scheduled') ?? [];
   const recent = meetings?.filter((m) => m.status === 'completed') ?? [];

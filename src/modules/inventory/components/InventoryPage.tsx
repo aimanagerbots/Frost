@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Warehouse } from 'lucide-react';
-import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton } from '@/components';
+import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { useInventory } from '@/modules/inventory/hooks/useInventory';
 import { useInventoryMetrics } from '@/modules/inventory/hooks/useInventoryMetrics';
 import { useInventoryByCategory } from '@/modules/inventory/hooks/useInventoryByCategory';
@@ -29,10 +29,10 @@ export function InventoryPage() {
   const [filters, setFilters] = useState<InventoryFilter>({});
   const [selectedItem, setSelectedItem] = useState<InventoryItem | null>(null);
 
-  const { data: items, isLoading: itemsLoading } = useInventory(filters);
-  const { data: metrics, isLoading: metricsLoading } = useInventoryMetrics();
-  const { data: categories, isLoading: categoriesLoading } = useInventoryByCategory();
-  const { data: pipeline, isLoading: pipelineLoading } = useInventoryPipeline();
+  const { data: items, isLoading: itemsLoading, error: itemsError, refetch: refetchItems } = useInventory(filters);
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useInventoryMetrics();
+  const { data: categories, isLoading: categoriesLoading, error: categoriesError, refetch: refetchCategories } = useInventoryByCategory();
+  const { data: pipeline, isLoading: pipelineLoading, error: pipelineError, refetch: refetchPipeline } = useInventoryPipeline();
 
   const isLoading = itemsLoading || metricsLoading || categoriesLoading || pipelineLoading;
 
@@ -43,6 +43,17 @@ export function InventoryPage() {
         <LoadingSkeleton variant="card" count={4} />
         <LoadingSkeleton variant="table" />
       </div>
+    );
+  }
+
+  const error = itemsError || metricsError || categoriesError || pipelineError;
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load inventory"
+        message={error.message}
+        onRetry={() => { refetchItems(); refetchMetrics(); refetchCategories(); refetchPipeline(); }}
+      />
     );
   }
 

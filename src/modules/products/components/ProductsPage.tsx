@@ -8,6 +8,8 @@ import {
   StatusBadge,
   DrawerPanel,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useProductConcepts, useRDMetrics } from '@/modules/products/hooks';
 import type { ProductConcept, ProductCategory, ProductStage } from '@/modules/products/types';
@@ -38,8 +40,8 @@ const CATEGORY_VARIANT: Record<
 export function ProductsPage() {
   const [selectedConcept, setSelectedConcept] = useState<ProductConcept | null>(null);
 
-  const { data: concepts, isLoading: conceptsLoading } = useProductConcepts();
-  const { data: metrics, isLoading: metricsLoading } = useRDMetrics();
+  const { data: concepts, isLoading: conceptsLoading, error: conceptsError, refetch: refetchConcepts } = useProductConcepts();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useRDMetrics();
 
   const isLoading = conceptsLoading || metricsLoading;
 
@@ -51,6 +53,18 @@ export function ProductsPage() {
           <LoadingSkeleton variant="card" count={4} />
         </div>
         <LoadingSkeleton variant="card" count={6} />
+      </div>
+    );
+  }
+
+  if (conceptsError || metricsError) {
+    return (
+      <div className="p-6">
+        <ErrorState
+          title="Failed to load products data"
+          message={(conceptsError || metricsError)?.message}
+          onRetry={() => { refetchConcepts(); refetchMetrics(); }}
+        />
       </div>
     );
   }
@@ -92,8 +106,18 @@ export function ProductsPage() {
         />
       </div>
 
+      {/* Empty state */}
+      {(!concepts || concepts.length === 0) && (
+        <EmptyState
+          icon={Lightbulb}
+          title="No product concepts"
+          description="Start by adding a new product concept to the pipeline."
+          accentColor={ACCENT}
+        />
+      )}
+
       {/* Pipeline grid */}
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+      {concepts && concepts.length > 0 && <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {STAGES.map((stage) => {
           const stageConcepts = conceptsByStage(stage.key);
           return (
@@ -167,7 +191,7 @@ export function ProductsPage() {
             </div>
           );
         })}
-      </div>
+      </div>}
 
       {/* Detail drawer */}
       <DrawerPanel

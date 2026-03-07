@@ -8,6 +8,8 @@ import {
   StatusBadge,
   DataTable,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useApprovalRequests } from '../hooks/useApprovalRequests';
 import type { ApprovalRequest } from '../types';
@@ -60,7 +62,7 @@ export function ApprovalsPage() {
   const [expandedPreview, setExpandedPreview] = useState<string | null>(null);
   const [localStatuses, setLocalStatuses] = useState<Record<string, ApprovalRequest['status']>>({});
 
-  const { data: requests, isLoading } = useApprovalRequests();
+  const { data: requests, isLoading, error, refetch } = useApprovalRequests();
 
   const filteredRequests = useMemo(() => {
     if (!requests) return [];
@@ -80,6 +82,35 @@ export function ApprovalsPage() {
         <LoadingSkeleton variant="text" />
         <LoadingSkeleton variant="card" count={4} />
         <LoadingSkeleton variant="card" count={6} />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load approvals"
+        message={error.message}
+        onRetry={refetch}
+      />
+    );
+  }
+
+  if (!requests?.length) {
+    return (
+      <div className="space-y-6 p-6">
+        <SectionHeader
+          icon={ShieldCheck}
+          title="Approvals"
+          subtitle="Review and approve AI agent actions"
+          accentColor={APPROVALS_ACCENT}
+        />
+        <EmptyState
+          icon={ShieldCheck}
+          title="No approval requests"
+          description="There are no pending or historical approval requests. Requests will appear here when agents propose actions."
+          accentColor={APPROVALS_ACCENT}
+        />
       </div>
     );
   }

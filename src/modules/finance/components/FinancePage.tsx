@@ -12,6 +12,8 @@ import {
   ChartWrapper,
   CHART_THEME,
   CHART_COLORS,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import {
   BarChart,
@@ -74,15 +76,37 @@ export function FinancePage() {
   const [statusFilter, setStatusFilter] = useState<InvoiceStatus | undefined>(undefined);
   const [selected, setSelected] = useState<Invoice | null>(null);
 
-  const { data: invoices, isLoading: invoicesLoading } = useInvoices(
+  const { data: invoices, isLoading: invoicesLoading, error: invoicesError, refetch: refetchInvoices } = useInvoices(
     statusFilter ? { status: statusFilter } : undefined
   );
-  const { data: arAging, isLoading: arLoading } = useARaging();
-  const { data: metrics, isLoading: metricsLoading } = useFinanceMetrics();
-  const { data: revenueData, isLoading: revenueLoading } = useRevenueByPeriod();
-  const { data: categoryData, isLoading: categoryLoading } = useRevenueByCategory();
+  const { data: arAging, isLoading: arLoading, error: arError, refetch: refetchAR } = useARaging();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useFinanceMetrics();
+  const { data: revenueData, isLoading: revenueLoading, error: revenueError, refetch: refetchRevenue } = useRevenueByPeriod();
+  const { data: categoryData, isLoading: categoryLoading, error: categoryError, refetch: refetchCategory } = useRevenueByCategory();
 
   const isLoading = metricsLoading || arLoading || revenueLoading || categoryLoading;
+
+  const anyError = invoicesError || arError || metricsError || revenueError || categoryError;
+  if (anyError) {
+    return (
+      <ErrorState
+        title="Failed to load finance data"
+        message={anyError.message}
+        onRetry={() => { refetchInvoices(); refetchAR(); refetchMetrics(); refetchRevenue(); refetchCategory(); }}
+      />
+    );
+  }
+
+  if (!isLoading && !invoices?.length && !arAging?.length) {
+    return (
+      <EmptyState
+        icon={DollarSign}
+        title="No financial data"
+        description="No invoices or financial records are available yet."
+        accentColor={ACCENT}
+      />
+    );
+  }
 
   const revenueChange = metrics
     ? ((metrics.revenueThisMonth - metrics.revenuePriorMonth) / metrics.revenuePriorMonth) * 100

@@ -11,7 +11,7 @@ import {
   ChevronDown,
   ChevronRight,
 } from 'lucide-react';
-import { SectionHeader, StatusBadge, LoadingSkeleton, DrawerPanel } from '@/components';
+import { SectionHeader, StatusBadge, LoadingSkeleton, DrawerPanel, ErrorState, EmptyState } from '@/components';
 import { useMemoryFacts } from '../hooks/useMemoryFacts';
 import { useMemoryPatterns } from '../hooks/useMemoryPatterns';
 import { useMemoryLayers } from '../hooks/useMemoryLayers';
@@ -70,9 +70,9 @@ export function MemoryPage() {
   const [selectedFact, setSelectedFact] = useState<MemoryFact | null>(null);
   const [expandedPatterns, setExpandedPatterns] = useState<Set<string>>(new Set());
 
-  const { data: layers, isLoading: layersLoading } = useMemoryLayers();
-  const { data: allFacts, isLoading: factsLoading } = useMemoryFacts();
-  const { data: patterns, isLoading: patternsLoading } = useMemoryPatterns();
+  const { data: layers, isLoading: layersLoading, error: layersError, refetch: refetchLayers } = useMemoryLayers();
+  const { data: allFacts, isLoading: factsLoading, error: factsError, refetch: refetchFacts } = useMemoryFacts();
+  const { data: patterns, isLoading: patternsLoading, error: patternsError, refetch: refetchPatterns } = useMemoryPatterns();
 
   const filteredFacts = useMemo(() => {
     if (!allFacts) return [];
@@ -105,6 +105,7 @@ export function MemoryPage() {
   };
 
   const isLoading = layersLoading || factsLoading || patternsLoading;
+  const error = layersError || factsError || patternsError;
 
   if (isLoading) {
     return (
@@ -117,6 +118,35 @@ export function MemoryPage() {
         />
         <LoadingSkeleton variant="card" count={3} />
         <LoadingSkeleton variant="list" count={6} />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load memory data"
+        message={error.message}
+        onRetry={() => { refetchLayers(); refetchFacts(); refetchPatterns(); }}
+      />
+    );
+  }
+
+  if (!allFacts?.length && !layers?.length && !patterns?.length) {
+    return (
+      <div className="space-y-6">
+        <SectionHeader
+          icon={Brain}
+          title="Memory"
+          subtitle="AI knowledge base and learned patterns"
+          accentColor={MEMORY_ACCENT}
+        />
+        <EmptyState
+          icon={Brain}
+          title="No memories yet"
+          description="The AI hasn't learned any facts or patterns yet. Data will appear as the system processes information."
+          accentColor={MEMORY_ACCENT}
+        />
       </div>
     );
   }

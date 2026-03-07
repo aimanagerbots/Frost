@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { Package } from 'lucide-react';
-import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton } from '@/components';
+import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { usePackagingOrders, usePackagingMetrics } from '../hooks';
 import { MaterialAlerts } from './MaterialAlerts';
 import { PackagingDrawer } from './PackagingDrawer';
@@ -101,8 +101,8 @@ const columns = [
 ];
 
 export function PackagingPage() {
-  const { data: orders, isLoading: ordersLoading } = usePackagingOrders();
-  const { data: metrics, isLoading: metricsLoading } = usePackagingMetrics();
+  const { data: orders, isLoading: ordersLoading, error: ordersError, refetch: refetchOrders } = usePackagingOrders();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = usePackagingMetrics();
   const [selectedOrder, setSelectedOrder] = useState<PackagingOrder | null>(null);
   const [statusFilter, setStatusFilter] = useState<string | null>(null);
 
@@ -113,6 +113,17 @@ export function PackagingPage() {
   }, [orders, statusFilter]);
 
   if (metricsLoading) return <LoadingSkeleton variant="card" count={3} />;
+
+  const error = ordersError || metricsError;
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load packaging data"
+        message={error.message}
+        onRetry={() => { refetchOrders(); refetchMetrics(); }}
+      />
+    );
+  }
 
   const statuses = ['queued', 'in-progress', 'completed', 'blocked-material'];
 

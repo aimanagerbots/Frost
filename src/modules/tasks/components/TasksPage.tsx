@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { CheckSquare, LayoutGrid, List } from 'lucide-react';
-import { SectionHeader, DataTable, StatusBadge, LoadingSkeleton } from '@/components';
+import { SectionHeader, DataTable, StatusBadge, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useTasks } from '@/modules/tasks/hooks/useTasks';
 import { TaskBoard } from './TaskBoard';
 import { TaskFilters } from './TaskFilters';
@@ -30,7 +30,7 @@ export function TasksPage() {
   const [filters, setFilters] = useState<TaskFilter>({});
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
-  const { data: tasks, isLoading } = useTasks(filters);
+  const { data: tasks, isLoading, error, refetch } = useTasks(filters);
 
   const todoCount = tasks?.filter((t) => t.status === 'todo').length ?? 0;
   const inProgressCount = tasks?.filter((t) => t.status === 'in-progress').length ?? 0;
@@ -42,6 +42,16 @@ export function TasksPage() {
         <LoadingSkeleton variant="text" />
         <LoadingSkeleton variant="card" count={4} />
       </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load tasks"
+        message={error.message}
+        onRetry={refetch}
+      />
     );
   }
 
@@ -157,6 +167,10 @@ export function TasksPage() {
       />
 
       <TaskFilters filters={filters} onChange={setFilters} />
+
+      {tasks?.length === 0 && (
+        <EmptyState icon={CheckSquare} title="No tasks" description="No tasks match your current filters." accentColor={TASKS_ACCENT} />
+      )}
 
       {viewMode === 'board' ? (
         <TaskBoard tasks={tasks ?? []} onTaskClick={setSelectedTask} />

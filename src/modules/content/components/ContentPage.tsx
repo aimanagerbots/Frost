@@ -9,6 +9,8 @@ import {
   StatusBadge,
   DrawerPanel,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useContentPosts, useContentMetrics } from '@/modules/content/hooks';
 import type { ContentPost, ContentStatus } from '@/modules/content/types';
@@ -47,10 +49,10 @@ export function ContentPage() {
   const [statusFilter, setStatusFilter] = useState<ContentStatus | 'all'>('all');
   const [selectedPost, setSelectedPost] = useState<ContentPost | null>(null);
 
-  const { data: posts, isLoading: postsLoading } = useContentPosts(
+  const { data: posts, isLoading: postsLoading, error: postsError, refetch: refetchPosts } = useContentPosts(
     statusFilter === 'all' ? undefined : { status: statusFilter }
   );
-  const { data: metrics, isLoading: metricsLoading } = useContentMetrics();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useContentMetrics();
 
   if (postsLoading || metricsLoading) {
     return (
@@ -59,6 +61,27 @@ export function ContentPage() {
         <LoadingSkeleton variant="card" count={4} />
         <LoadingSkeleton variant="table" />
       </div>
+    );
+  }
+
+  if (postsError || metricsError) {
+    return (
+      <ErrorState
+        title="Failed to load content"
+        message={(postsError || metricsError)?.message}
+        onRetry={() => { refetchPosts(); refetchMetrics(); }}
+      />
+    );
+  }
+
+  if (!posts?.length) {
+    return (
+      <EmptyState
+        icon={Megaphone}
+        title="No content found"
+        description="No marketing content has been created yet. Start creating posts to see them here."
+        accentColor={ACCENT}
+      />
     );
   }
 

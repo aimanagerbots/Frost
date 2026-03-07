@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { BoxSelect, Package } from 'lucide-react';
-import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton } from '@/components';
+import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { useFulfillmentOrders, useFulfillmentMetrics } from '../hooks';
 import { FulfillmentDrawer } from './FulfillmentDrawer';
 import type { FulfillmentStatus, FulfillmentOrder } from '../types';
@@ -46,12 +46,12 @@ export function FulfillmentPage() {
   const [selectedStatus, setSelectedStatus] = useState<FulfillmentStatus | null>(null);
   const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
 
-  const { data: orders, isLoading: ordersLoading } = useFulfillmentOrders(
+  const { data: orders, isLoading: ordersLoading, error: ordersError, refetch: refetchOrders } = useFulfillmentOrders(
     selectedStatus ? { status: selectedStatus } : undefined
   );
-  const { data: metrics, isLoading: metricsLoading } = useFulfillmentMetrics();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useFulfillmentMetrics();
 
-  const { data: allOrders } = useFulfillmentOrders();
+  const { data: allOrders, error: allOrdersError, refetch: refetchAllOrders } = useFulfillmentOrders();
   const pipelineCounts = useMemo(() => {
     if (!allOrders) return new Map<FulfillmentStatus, number>();
     const counts = new Map<FulfillmentStatus, number>();
@@ -67,6 +67,7 @@ export function FulfillmentPage() {
   );
 
   if (metricsLoading) return <LoadingSkeleton variant="card" count={3} />;
+  if (ordersError || metricsError || allOrdersError) return <ErrorState title="Failed to load fulfillment data" message={(ordersError || metricsError || allOrdersError)?.message} onRetry={() => { refetchOrders(); refetchMetrics(); refetchAllOrders(); }} />;
 
   const columns = [
     {

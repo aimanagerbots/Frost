@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Leaf, AlertTriangle } from 'lucide-react';
-import { SectionHeader, MetricCard, LoadingSkeleton } from '@/components';
+import { SectionHeader, MetricCard, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useCultivationMetrics, useGrowRooms } from '../hooks';
 import { GrowRoomCard } from './GrowRoomCard';
 import { HarvestTimeline } from './HarvestTimeline';
@@ -11,11 +11,12 @@ import { RoomDrawer } from './RoomDrawer';
 const ACCENT = '#22C55E';
 
 export function CultivationPage() {
-  const { data: metrics, isLoading: metricsLoading } = useCultivationMetrics();
-  const { data: rooms, isLoading: roomsLoading } = useGrowRooms();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useCultivationMetrics();
+  const { data: rooms, isLoading: roomsLoading, error: roomsError, refetch: refetchRooms } = useGrowRooms();
   const [selectedRoomId, setSelectedRoomId] = useState<string | null>(null);
 
   if (metricsLoading) return <LoadingSkeleton variant="card" count={4} />;
+  if (metricsError || roomsError) return <ErrorState title="Failed to load cultivation data" message={(metricsError || roomsError)?.message} onRetry={() => { refetchMetrics(); refetchRooms(); }} />;
 
   return (
     <div className="space-y-6">
@@ -99,10 +100,7 @@ export function CultivationPage() {
             ))}
           </div>
         ) : (
-          <div className="rounded-xl border border-default bg-card p-8 text-center">
-            <Leaf className="mx-auto h-8 w-8 text-text-muted" />
-            <p className="mt-2 text-sm text-text-muted">No grow rooms configured</p>
-          </div>
+          <EmptyState icon={Leaf} title="No grow rooms" description="No grow rooms configured" accentColor={ACCENT} />
         )}
       </div>
 

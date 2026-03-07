@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ClipboardList } from 'lucide-react';
-import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton } from '@/components';
+import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { useOrders } from '@/modules/orders/hooks/useOrders';
 import { useOrderMetrics } from '@/modules/orders/hooks/useOrderMetrics';
 import { useOrderPipeline } from '@/modules/orders/hooks/useOrderPipeline';
@@ -36,9 +36,9 @@ export function OrdersPage() {
   const [filters, setFilters] = useState<OrderFilter>({});
   const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
 
-  const { data: orders, isLoading: ordersLoading } = useOrders(filters);
-  const { data: metrics, isLoading: metricsLoading } = useOrderMetrics();
-  const { data: pipeline, isLoading: pipelineLoading } = useOrderPipeline();
+  const { data: orders, isLoading: ordersLoading, error: ordersError, refetch: refetchOrders } = useOrders(filters);
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useOrderMetrics();
+  const { data: pipeline, isLoading: pipelineLoading, error: pipelineError, refetch: refetchPipeline } = useOrderPipeline();
 
   const isLoading = ordersLoading || metricsLoading || pipelineLoading;
 
@@ -49,6 +49,17 @@ export function OrdersPage() {
         <LoadingSkeleton variant="card" count={3} />
         <LoadingSkeleton variant="table" />
       </div>
+    );
+  }
+
+  const error = ordersError || metricsError || pipelineError;
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load orders"
+        message={error.message}
+        onRetry={() => { refetchOrders(); refetchMetrics(); refetchPipeline(); }}
+      />
     );
   }
 

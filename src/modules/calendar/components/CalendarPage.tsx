@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { CalendarDays, ChevronLeft, ChevronRight, Clock, Users, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { SectionHeader, StatusBadge, LoadingSkeleton, DrawerPanel } from '@/components';
+import { SectionHeader, StatusBadge, LoadingSkeleton, DrawerPanel, ErrorState, EmptyState } from '@/components';
 import { useCalendarEvents } from '../hooks';
 import { MonthView } from './MonthView';
 import { WeekView } from './WeekView';
@@ -68,7 +68,7 @@ export function CalendarPage() {
     new Set(EVENT_TYPES.map((t) => t.value))
   );
 
-  const { data: allEvents, isLoading } = useCalendarEvents();
+  const { data: allEvents, isLoading, error, refetch } = useCalendarEvents();
 
   const filteredEvents = useMemo(() => {
     if (!allEvents) return [];
@@ -99,6 +99,8 @@ export function CalendarPage() {
       </div>
     );
   }
+
+  if (error) return <ErrorState title="Failed to load calendar events" message={error.message} onRetry={refetch} />;
 
   return (
     <div className="space-y-6 p-6">
@@ -181,6 +183,11 @@ export function CalendarPage() {
           })}
         </div>
       </div>
+
+      {/* Empty State */}
+      {allEvents && allEvents.length === 0 && (
+        <EmptyState icon={CalendarDays} title="No events" description="No calendar events to display" accentColor={CALENDAR_ACCENT} />
+      )}
 
       {/* Calendar View */}
       {view === 'month' && (

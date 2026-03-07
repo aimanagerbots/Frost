@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { PieChart as PieChartIcon, FileText, Download, Clock, Play } from 'lucide-react';
-import { SectionHeader, MetricCard, StatusBadge, DrawerPanel, LoadingSkeleton } from '@/components';
+import { SectionHeader, MetricCard, StatusBadge, DrawerPanel, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useReports } from '@/modules/reports/hooks';
 import type { Report, ReportType } from '@/modules/reports/types';
 
@@ -35,7 +35,7 @@ export function ReportsPage() {
   const [typeFilter, setTypeFilter] = useState<ReportType | undefined>(undefined);
   const [selected, setSelected] = useState<Report | null>(null);
 
-  const { data: reports, isLoading } = useReports(typeFilter ? { type: typeFilter } : undefined);
+  const { data: reports, isLoading, error, refetch } = useReports(typeFilter ? { type: typeFilter } : undefined);
 
   const totalReports = reports?.length ?? 0;
   const scheduledCount = reports?.filter((r) => r.schedule).length ?? 0;
@@ -51,6 +51,18 @@ export function ReportsPage() {
         year: 'numeric',
       })
     : '--';
+
+  if (error) {
+    return (
+      <div className="p-6">
+        <ErrorState
+          title="Failed to load reports"
+          message={error.message}
+          onRetry={refetch}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -93,6 +105,16 @@ export function ReportsPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {reports?.length === 0 && (
+            <div className="col-span-full">
+              <EmptyState
+                icon={FileText}
+                title="No reports found"
+                description="No reports match the current filter."
+                accentColor={ACCENT}
+              />
+            </div>
+          )}
           {reports?.map((report) => (
             <div
               key={report.id}

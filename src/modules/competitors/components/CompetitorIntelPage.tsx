@@ -19,6 +19,8 @@ import {
   CHART_THEME,
   CHART_COLORS,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import {
   BarChart,
@@ -212,12 +214,33 @@ function MarketShareTooltip({
 export function CompetitorIntelPage() {
   const [selectedCompetitor, setSelectedCompetitor] = useState<Competitor | null>(null);
 
-  const { data: competitors, isLoading: competitorsLoading } = useCompetitors();
-  const { data: metrics, isLoading: metricsLoading } = useCompetitorMetrics();
-  const { data: alerts, isLoading: alertsLoading } = useCompetitorAlerts();
+  const { data: competitors, isLoading: competitorsLoading, error: competitorsError, refetch: refetchCompetitors } = useCompetitors();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useCompetitorMetrics();
+  const { data: alerts, isLoading: alertsLoading, error: alertsError, refetch: refetchAlerts } = useCompetitorAlerts();
 
   if (metricsLoading || competitorsLoading) {
     return <LoadingSkeleton variant="card" count={3} />;
+  }
+
+  if (competitorsError || metricsError || alertsError) {
+    return (
+      <ErrorState
+        title="Failed to load competitor data"
+        message={(competitorsError || metricsError || alertsError)?.message}
+        onRetry={() => { refetchCompetitors(); refetchMetrics(); refetchAlerts(); }}
+      />
+    );
+  }
+
+  if (!competitors?.length) {
+    return (
+      <EmptyState
+        icon={Target}
+        title="No competitors tracked"
+        description="No competitor data is available yet. Start tracking competitors to see intel here."
+        accentColor={ACCENT}
+      />
+    );
   }
 
   const recentAlerts = (alerts ?? []).slice(0, 6);

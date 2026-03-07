@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { Factory } from 'lucide-react';
-import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton } from '@/components';
+import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { useWorkOrders, useManufacturingMetrics } from '../hooks';
 import { ProductionLines } from './ProductionLines';
 import { ManufacturingPipeline } from './ManufacturingPipeline';
@@ -103,8 +103,8 @@ const columns = [
 ];
 
 export function ManufacturingPage() {
-  const { data: workOrders, isLoading: woLoading } = useWorkOrders();
-  const { data: metrics, isLoading: metricsLoading } = useManufacturingMetrics();
+  const { data: workOrders, isLoading: woLoading, error: woError, refetch: refetchWO } = useWorkOrders();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useManufacturingMetrics();
   const [selectedWO, setSelectedWO] = useState<WorkOrder | null>(null);
   const [pipelineFilter, setPipelineFilter] = useState<string | null>(null);
 
@@ -117,6 +117,17 @@ export function ManufacturingPage() {
   }, [workOrders, pipelineFilter]);
 
   if (metricsLoading) return <LoadingSkeleton variant="card" count={3} />;
+
+  const error = woError || metricsError;
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to load manufacturing data"
+        message={error.message}
+        onRetry={() => { refetchWO(); refetchMetrics(); }}
+      />
+    );
+  }
 
   return (
     <div className="space-y-6">

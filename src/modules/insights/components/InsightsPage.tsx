@@ -22,6 +22,8 @@ import {
   CHART_THEME,
   CHART_COLORS,
   LoadingSkeleton,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import {
   BarChart,
@@ -209,11 +211,11 @@ export function InsightsPage() {
     [typeFilter, severityFilter, actionableOnly]
   );
 
-  const { data: insights, isLoading } = useInsights(filters);
+  const { data: insights, isLoading, error, refetch } = useInsights(filters);
   const { result: queryResult, isLoading: queryLoading, submitQuery, clearResult } = useInsightQuery();
 
   // All insights for metrics (unfiltered)
-  const { data: allInsights } = useInsights();
+  const { data: allInsights, error: allInsightsError, refetch: refetchAll } = useInsights();
 
   const handleQuerySubmit = () => {
     if (!queryInput.trim()) return;
@@ -247,6 +249,35 @@ export function InsightsPage() {
 
   if (isLoading) {
     return <LoadingSkeleton variant="card" count={6} />;
+  }
+
+  if (error || allInsightsError) {
+    return (
+      <ErrorState
+        title="Failed to load insights"
+        message={(error || allInsightsError)?.message}
+        onRetry={() => { refetch(); refetchAll(); }}
+      />
+    );
+  }
+
+  if (!insights?.length && !allInsights?.length) {
+    return (
+      <div className="space-y-6">
+        <SectionHeader
+          icon={Sparkles}
+          title="Insights"
+          subtitle="AI-generated intelligence across your entire operation"
+          accentColor={ACCENT}
+        />
+        <EmptyState
+          icon={Sparkles}
+          title="No insights generated"
+          description="The AI hasn't generated any insights yet. Insights will appear as the system analyzes your operational data."
+          accentColor={ACCENT}
+        />
+      </div>
+    );
   }
 
   return (

@@ -12,6 +12,8 @@ import {
   ChartWrapper,
   CHART_THEME,
   CHART_COLORS,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useSystemHealth, useBackgroundJobs, useAIModelUsage, useFeatureFlags } from '../hooks';
 import type { SystemTab, HealthStatus, JobStatus } from '../types';
@@ -103,6 +105,19 @@ export function SystemPage() {
 
   const donutData = aiQuery.data?.map((m) => ({ name: m.model, value: m.tokensToday })) ?? [];
 
+  const systemError = healthQuery.error || jobsQuery.error || aiQuery.error || flagsQuery.error;
+  if (systemError) {
+    return (
+      <div className="p-6">
+        <ErrorState
+          title="Failed to load system data"
+          message={systemError.message}
+          onRetry={() => { healthQuery.refetch(); jobsQuery.refetch(); aiQuery.refetch(); flagsQuery.refetch(); }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       <SectionHeader
@@ -134,6 +149,13 @@ export function SystemPage() {
         <div>
           {healthQuery.isLoading ? (
             <LoadingSkeleton variant="card" count={5} />
+          ) : healthQuery.data?.length === 0 ? (
+            <EmptyState
+              icon={Server}
+              title="No health data"
+              description="System health metrics are not available."
+              accentColor={ACCENT}
+            />
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               {healthQuery.data?.map((h) => {
@@ -175,6 +197,13 @@ export function SystemPage() {
         <div>
           {jobsQuery.isLoading ? (
             <LoadingSkeleton variant="table" />
+          ) : jobsQuery.data?.length === 0 ? (
+            <EmptyState
+              icon={Server}
+              title="No background jobs"
+              description="There are no background jobs to display."
+              accentColor={ACCENT}
+            />
           ) : (
             <DataTable
               data={jobsQuery.data ?? []}

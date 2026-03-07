@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Truck } from 'lucide-react';
-import { SectionHeader, MetricCard, LoadingSkeleton } from '@/components';
+import { Truck, PackageX } from 'lucide-react';
+import { SectionHeader, MetricCard, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useDeliveryRuns, useDeliveryMetrics, useDrivers } from '../hooks';
 import { ActiveRoutes } from './ActiveRoutes';
 import { DriverCards } from './DriverCards';
@@ -13,13 +13,14 @@ const ACCENT = '#0EA5E9';
 export function DeliveryPage() {
   const [selectedRunId, setSelectedRunId] = useState<string | null>(null);
 
-  const { data: runs, isLoading: runsLoading } = useDeliveryRuns();
-  const { data: metrics, isLoading: metricsLoading } = useDeliveryMetrics();
-  const { data: drivers, isLoading: driversLoading } = useDrivers();
+  const { data: runs, isLoading: runsLoading, error: runsError, refetch: refetchRuns } = useDeliveryRuns();
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useDeliveryMetrics();
+  const { data: drivers, isLoading: driversLoading, error: driversError, refetch: refetchDrivers } = useDrivers();
 
   const selectedRun = runs?.find((r) => r.id === selectedRunId) ?? null;
 
   if (metricsLoading) return <LoadingSkeleton variant="card" count={3} />;
+  if (runsError || metricsError || driversError) return <ErrorState title="Failed to load delivery data" message={(runsError || metricsError || driversError)?.message} onRetry={() => { refetchRuns(); refetchMetrics(); refetchDrivers(); }} />;
 
   return (
     <div className="space-y-6">
@@ -38,15 +39,23 @@ export function DeliveryPage() {
       )}
 
       {/* Active Routes */}
-      <ActiveRoutes
-        runs={runs ?? []}
-        loading={runsLoading}
-        onSelectRun={setSelectedRunId}
-        selectedRunId={selectedRunId}
-      />
+      {!runsLoading && runs && runs.length === 0 ? (
+        <EmptyState icon={Truck} title="No delivery runs" description="No active delivery runs to display" accentColor={ACCENT} />
+      ) : (
+        <ActiveRoutes
+          runs={runs ?? []}
+          loading={runsLoading}
+          onSelectRun={setSelectedRunId}
+          selectedRunId={selectedRunId}
+        />
+      )}
 
       {/* Drivers */}
-      <DriverCards drivers={drivers ?? []} loading={driversLoading} />
+      {!driversLoading && drivers && drivers.length === 0 ? (
+        <EmptyState icon={PackageX} title="No drivers" description="No drivers available" accentColor={ACCENT} />
+      ) : (
+        <DriverCards drivers={drivers ?? []} loading={driversLoading} />
+      )}
 
       {/* Route Drawer */}
       <RouteDrawer

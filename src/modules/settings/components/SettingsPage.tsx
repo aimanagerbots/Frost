@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Settings, Building2, Plug, MessageSquare, Bell, Key, ExternalLink, RefreshCw, Check, X } from 'lucide-react';
-import { SectionHeader, StatusBadge, LoadingSkeleton } from '@/components';
+import { SectionHeader, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { useCompanyProfile, useIntegrations, useNotificationPreferences, useCommunicationChannels } from '../hooks';
 import type { SettingsTab, IntegrationStatus } from '../types';
 
@@ -36,6 +36,19 @@ export function SettingsPage() {
   const integrations = useIntegrations();
   const notifications = useNotificationPreferences();
   const channels = useCommunicationChannels();
+
+  const settingsError = company.error || integrations.error || notifications.error || channels.error;
+  if (settingsError) {
+    return (
+      <div className="p-6">
+        <ErrorState
+          title="Failed to load settings"
+          message={settingsError.message}
+          onRetry={() => { company.refetch(); integrations.refetch(); notifications.refetch(); channels.refetch(); }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

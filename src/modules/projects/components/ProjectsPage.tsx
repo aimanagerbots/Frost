@@ -9,6 +9,8 @@ import {
   DrawerPanel,
   LoadingSkeleton,
   AvatarGroup,
+  ErrorState,
+  EmptyState,
 } from '@/components';
 import { useProjects, useProjectMetrics } from '@/modules/projects/hooks';
 import type { Project, ProjectStatus } from '@/modules/projects/types';
@@ -72,8 +74,8 @@ export function ProjectsPage() {
     [statusFilter]
   );
 
-  const { data: projects, isLoading: projectsLoading } = useProjects(filters);
-  const { data: metrics, isLoading: metricsLoading } = useProjectMetrics();
+  const { data: projects, isLoading: projectsLoading, error: projectsError, refetch: refetchProjects } = useProjects(filters);
+  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useProjectMetrics();
 
   if (projectsLoading || metricsLoading) {
     return (
@@ -81,6 +83,18 @@ export function ProjectsPage() {
         <LoadingSkeleton variant="text" />
         <LoadingSkeleton variant="card" count={4} />
         <LoadingSkeleton variant="card" count={4} />
+      </div>
+    );
+  }
+
+  if (projectsError || metricsError) {
+    return (
+      <div className="p-6">
+        <ErrorState
+          title="Failed to load projects data"
+          message={(projectsError || metricsError)?.message}
+          onRetry={() => { refetchProjects(); refetchMetrics(); }}
+        />
       </div>
     );
   }
@@ -217,12 +231,12 @@ export function ProjectsPage() {
 
       {/* Empty state */}
       {projects?.length === 0 && (
-        <div className="flex flex-col items-center justify-center py-16 text-center">
-          <FolderKanban className="h-12 w-12 text-[var(--text-text-muted)]" />
-          <p className="mt-3 text-sm text-[var(--text-text-muted)]">
-            No projects match the current filter.
-          </p>
-        </div>
+        <EmptyState
+          icon={FolderKanban}
+          title="No projects found"
+          description="No projects match the current filter."
+          accentColor={ACCENT}
+        />
       )}
 
       {/* Drawer Panel */}
