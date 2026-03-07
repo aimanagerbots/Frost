@@ -144,7 +144,7 @@ export function PurchasesTab({ accountId, account }: PurchasesTabProps) {
             <YAxis tick={{ fill: CHART_THEME.axisColor, fontSize: 12 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
             <Tooltip
               contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
-              formatter={(value: number) => formatCurrency(value)}
+              formatter={(value) => formatCurrency(Number(value))}
             />
             {account.categoryMix.map((cm) => (
               <Area

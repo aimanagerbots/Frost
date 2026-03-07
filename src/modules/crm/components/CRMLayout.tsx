@@ -6,15 +6,26 @@ import { SectionHeader, EmptyState, LoadingSkeleton } from '@/components';
 import { CRMNavigation } from './CRMNavigation';
 import { useCRMStore, CRM_TABS } from '../store';
 import { CRMDashboard } from './dashboard';
+import { AccountsList } from './accounts';
+import { AccountDetail } from './account-detail';
 
 const CRM_ACCENT = '#F59E0B';
 
 function CRMContent() {
-  const { activeTab, activeSubModule } = useCRMStore();
+  const { activeTab, activeSubModule, selectedAccountId } = useCRMStore();
 
-  // Only Dashboard is built in this build
   if (activeTab === 'overview' && activeSubModule === 'dashboard') {
     return <CRMDashboard />;
+  }
+
+  // Account Detail takes priority when an account is selected
+  if (activeTab === 'accounts' && selectedAccountId) {
+    return <AccountDetail />;
+  }
+
+  // Accounts List
+  if (activeTab === 'accounts' && activeSubModule === 'accounts') {
+    return <AccountsList />;
   }
 
   // Find display name for the active sub-module
@@ -26,7 +37,7 @@ function CRMContent() {
     <EmptyState
       icon={Construction}
       title={subLabel}
-      description={`Coming in Build 2-6. This sub-module will be available in a future release.`}
+      description={`Coming in Build 3-6. This sub-module will be available in a future release.`}
       accentColor={CRM_ACCENT}
     />
   );

@@ -1,0 +1,10 @@
+export { ProfileTab } from './ProfileTab';
+export { PurchasesTab } from './PurchasesTab';
+export { HealthTab } from './HealthTab';
+export { VMITab } from './VMITab';
+export { InteractionsTab } from './InteractionsTab';
+export { OpportunitiesTab } from './OpportunitiesTab';
+export { PaymentsTab } from './PaymentsTab';
+export { DeliveriesTab } from './DeliveriesTab';
+export { FilesTab } from './FilesTab';
+export { NotesTab } from './NotesTab';
