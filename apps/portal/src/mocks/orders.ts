@@ -4,6 +4,9 @@ import type {
   OrderMetrics,
   OrderFilter,
   OrderPipelineStage,
+  OrderVolumeWeek,
+  CategoryRevenue,
+  TopAccount,
 } from '@/modules/orders/types';
 
 // --- Line Item Templates ---
@@ -501,5 +504,57 @@ export function getOrderMetrics(): Promise<OrderMetrics> {
 export function getOrderPipeline(): Promise<OrderPipelineStage[]> {
   return new Promise((resolve) => {
     setTimeout(() => resolve([...ORDER_PIPELINE]), 200);
+  });
+}
+
+// --- Order Volume Chart (12 weeks) ---
+
+const ORDER_VOLUME: OrderVolumeWeek[] = [
+  { week: 'Dec 15', pending: 4, confirmed: 5, inProduction: 6, fulfilled: 5, delivered: 7, paid: 5 },
+  { week: 'Dec 22', pending: 3, confirmed: 6, inProduction: 5, fulfilled: 6, delivered: 6, paid: 6 },
+  { week: 'Dec 29', pending: 5, confirmed: 4, inProduction: 7, fulfilled: 4, delivered: 5, paid: 4 },
+  { week: 'Jan 5', pending: 6, confirmed: 5, inProduction: 4, fulfilled: 5, delivered: 6, paid: 5 },
+  { week: 'Jan 12', pending: 4, confirmed: 7, inProduction: 5, fulfilled: 6, delivered: 5, paid: 6 },
+  { week: 'Jan 19', pending: 5, confirmed: 6, inProduction: 6, fulfilled: 4, delivered: 7, paid: 4 },
+  { week: 'Jan 26', pending: 3, confirmed: 5, inProduction: 7, fulfilled: 5, delivered: 6, paid: 5 },
+  { week: 'Feb 2', pending: 6, confirmed: 4, inProduction: 5, fulfilled: 7, delivered: 5, paid: 6 },
+  { week: 'Feb 9', pending: 4, confirmed: 6, inProduction: 6, fulfilled: 5, delivered: 7, paid: 4 },
+  { week: 'Feb 16', pending: 5, confirmed: 5, inProduction: 5, fulfilled: 6, delivered: 6, paid: 5 },
+  { week: 'Feb 23', pending: 4, confirmed: 7, inProduction: 4, fulfilled: 5, delivered: 7, paid: 6 },
+  { week: 'Mar 3', pending: 5, confirmed: 6, inProduction: 5, fulfilled: 3, delivered: 6, paid: 4 },
+];
+
+const CATEGORY_REVENUE: CategoryRevenue[] = [
+  { category: 'Flower', revenue: 433800, percentage: 35, color: '#22C55E' },
+  { category: 'Preroll', revenue: 223020, percentage: 18, color: '#84CC16' },
+  { category: 'Vaporizer', revenue: 272580, percentage: 22, color: '#06B6D4' },
+  { category: 'Concentrate', revenue: 148680, percentage: 12, color: '#F59E0B' },
+  { category: 'Edible', revenue: 99120, percentage: 8, color: '#EC4899' },
+  { category: 'Beverage', revenue: 62400, percentage: 5, color: '#8B5CF6' },
+];
+
+const TOP_ACCOUNTS: TopAccount[] = [
+  { accountId: 'acct-greenfield', accountName: 'Greenfield Dispensary', orderCount: 6, totalRevenue: 34951.20, avgOrderValue: 5825.20 },
+  { accountId: 'acct-pacific-leaf', accountName: 'Pacific Leaf', orderCount: 4, totalRevenue: 12787.20, avgOrderValue: 3196.80 },
+  { accountId: 'acct-capitol-hill', accountName: 'Capitol Hill Collective', orderCount: 3, totalRevenue: 14169.60, avgOrderValue: 4723.20 },
+  { accountId: 'acct-olympic', accountName: 'Olympic Greens', orderCount: 3, totalRevenue: 9547.20, avgOrderValue: 3182.40 },
+  { accountId: 'acct-summit', accountName: 'Summit Cannabis Co.', orderCount: 2, totalRevenue: 8164.80, avgOrderValue: 4082.40 },
+];
+
+export function getOrderVolumeChart(): Promise<OrderVolumeWeek[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve([...ORDER_VOLUME]), 300);
+  });
+}
+
+export function getRevenueByCategory(): Promise<CategoryRevenue[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve([...CATEGORY_REVENUE]), 250);
+  });
+}
+
+export function getTopAccounts(): Promise<TopAccount[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve([...TOP_ACCOUNTS]), 200);
   });
 }

@@ -62,4 +62,18 @@ export interface DeliveryMetrics {
   avgDeliveryTime: number;
   onTimeRate: number;
   driversActive: number;
+  revenueDeliveredToday: number;
+  paymentsCollectedToday: number;
+}
+
+export interface ScheduleEntry {
+  id: string;
+  time: string;
+  accountName: string;
+  city: string;
+  status: 'completed' | 'in-transit' | 'loading' | 'upcoming';
+  orderValue: number;
+  paymentMethod: string;
+  driverName: string;
+  routeName: string;
 }

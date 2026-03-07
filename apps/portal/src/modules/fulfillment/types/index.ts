@@ -16,6 +16,8 @@ export interface PickItem {
   quantity: number;
   shelfLocation: string;
   picked: boolean;
+  pickListId?: string;
+  batchNumber?: string;
 }
 
 export interface FulfillmentOrder {
@@ -43,4 +45,33 @@ export interface FulfillmentMetrics {
   avgPickTime: number;
   accuracyRate: number;
   itemsPerHour: number;
+}
+
+export interface FulfillmentProgress {
+  stages: { status: FulfillmentStatus; count: number; label: string }[];
+  totalUnitsToday: number;
+  unitsPicked: number;
+  unitsPacked: number;
+  unitsReady: number;
+  throughputTarget: number;
+}
+
+export interface PackingOperation {
+  id: string;
+  orderId: string;
+  orderNumber: string;
+  accountName: string;
+  status: 'verifying' | 'boxing' | 'labeling' | 'sealed';
+  itemsPacked: number;
+  totalItems: number;
+  boxCount: number;
+  weight: string;
+  packerName: string;
+  startedAt: string;
+}
+
+export interface QCChecklist {
+  id: string;
+  label: string;
+  checked: boolean;
 }

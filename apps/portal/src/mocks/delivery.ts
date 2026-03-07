@@ -1,376 +1,261 @@
+import { PIPELINE_DRIVERS, PIPELINE_ACCOUNTS } from './shared-pipeline';
 import type {
   DeliveryRun,
   DeliveryDriver,
   DeliveryMetrics,
   DeliveryRunStatus,
+  ScheduleEntry,
 } from '@/modules/delivery/types';
 
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// — Helpers —
+
+const acct = (id: string) => {
+  const a = PIPELINE_ACCOUNTS.find((x) => x.id === id);
+  if (!a) throw new Error(`Unknown account: ${id}`);
+  return a;
+};
+
+const drv = (id: string) => {
+  const d = PIPELINE_DRIVERS.find((x) => x.id === id);
+  if (!d) throw new Error(`Unknown driver: ${id}`);
+  return d;
+};
+
 // — Drivers —
+
+const greenfield = acct('acct-greenfield');
+const capitolHill = acct('acct-capitol-hill');
+const emeraldCity = acct('acct-emerald-city');
+const pacificLeaf = acct('acct-pacific-leaf');
+const rainier = acct('acct-rainier');
+const olympic = acct('acct-olympic');
+const pugetSound = acct('acct-puget-sound');
+
+const james = drv('drv-001');
+const roberto = drv('drv-002');
+const carlos = drv('drv-003');
+const sarah = drv('drv-004');
 
 const drivers: DeliveryDriver[] = [
   {
-    id: 'drv-001',
-    name: 'Mike Torres',
-    phone: '(206) 555-0147',
-    vehicleId: 'veh-001',
-    vehicleName: '2023 Ford Transit — WA-FRT-001',
+    id: james.id,
+    name: james.name,
+    phone: james.phone,
+    vehicleId: james.vehicleId,
+    vehicleName: james.vehicleName,
     status: 'on-route',
-    deliveriesToday: 5,
+    deliveriesToday: 3,
+    onTimeRate: 97,
+  },
+  {
+    id: roberto.id,
+    name: roberto.name,
+    phone: roberto.phone,
+    vehicleId: roberto.vehicleId,
+    vehicleName: roberto.vehicleName,
+    status: 'on-route',
+    deliveriesToday: 2,
     onTimeRate: 94,
   },
   {
-    id: 'drv-002',
-    name: 'Chris Petersen',
-    phone: '(206) 555-0283',
-    vehicleId: 'veh-002',
-    vehicleName: '2022 Mercedes Sprinter — WA-SPR-002',
-    status: 'on-route',
-    deliveriesToday: 4,
-    onTimeRate: 88,
+    id: carlos.id,
+    name: carlos.name,
+    phone: carlos.phone,
+    vehicleId: carlos.vehicleId,
+    vehicleName: carlos.vehicleName,
+    status: 'available',
+    deliveriesToday: 3,
+    onTimeRate: 96,
   },
   {
-    id: 'drv-003',
-    name: 'Amy Nakamura',
-    phone: '(509) 555-0391',
-    vehicleId: 'veh-003',
-    vehicleName: '2024 RAM ProMaster — WA-RPM-003',
-    status: 'off-duty',
+    id: sarah.id,
+    name: sarah.name,
+    phone: sarah.phone,
+    vehicleId: sarah.vehicleId,
+    vehicleName: sarah.vehicleName,
+    status: 'on-route',
     deliveriesToday: 0,
-    onTimeRate: 96,
+    onTimeRate: 98,
   },
 ];
 
 // — Delivery Runs —
 
 const runs: DeliveryRun[] = [
-  // Route A — Seattle North (in-transit, 3 of 5 delivered)
+  // Route 1 — Seattle Metro (James Cooper): 3 stops, 2/3 delivered
   {
     id: 'run-001',
-    driverId: 'drv-001',
-    driverName: 'Mike Torres',
+    driverId: james.id,
+    driverName: james.name,
     status: 'in-transit',
-    routeName: 'Route A — Seattle North',
-    vehicleId: 'veh-001',
-    totalStops: 5,
-    completedStops: 3,
-    estimatedDuration: '4h 30m',
-    startedAt: '2024-12-15T08:00:00Z',
+    routeName: 'Seattle Metro',
+    vehicleId: james.vehicleId,
+    totalStops: 3,
+    completedStops: 2,
+    estimatedDuration: '4h 00m',
+    startedAt: '2026-03-07T08:00:00Z',
     stops: [
       {
         id: 'stop-a1',
-        orderId: 'ord-2024-0301',
-        orderNumber: 'ORD-0301',
-        accountName: 'Greenfield Dispensary',
-        address: '4521 University Way NE',
-        city: 'Seattle',
+        orderId: 'ord-2026-0401',
+        orderNumber: 'ORD-0401',
+        accountName: greenfield.name,
+        address: greenfield.address,
+        city: greenfield.city,
         estimatedArrival: '8:30 AM',
         actualArrival: '8:28 AM',
         status: 'delivered',
-        paymentCollected: { method: 'ACH', amount: 4250.00 },
+        paymentCollected: { method: 'COD', amount: 4200.00 },
       },
       {
         id: 'stop-a2',
-        orderId: 'ord-2024-0302',
-        orderNumber: 'ORD-0302',
-        accountName: 'Ballard Buds',
-        address: '5432 Ballard Ave NW',
-        city: 'Seattle',
-        estimatedArrival: '9:15 AM',
-        actualArrival: '9:22 AM',
+        orderId: 'ord-2026-0402',
+        orderNumber: 'ORD-0402',
+        accountName: capitolHill.name,
+        address: capitolHill.address,
+        city: capitolHill.city,
+        estimatedArrival: '9:30 AM',
+        actualArrival: '9:35 AM',
         status: 'delivered',
-        paymentCollected: { method: 'ACH', amount: 2180.00 },
-        notes: 'Delivered to back entrance per account preference',
+        paymentCollected: { method: 'ACH', amount: 2100.00 },
       },
       {
         id: 'stop-a3',
-        orderId: 'ord-2024-0303',
-        orderNumber: 'ORD-0303',
-        accountName: 'Fremont Flowers',
-        address: '3601 Fremont Ave N',
-        city: 'Seattle',
-        estimatedArrival: '10:00 AM',
-        actualArrival: '9:55 AM',
-        status: 'delivered',
-        paymentCollected: { method: 'COD', amount: 3120.00, checkNumber: 'CHK-8847' },
-      },
-      {
-        id: 'stop-a4',
-        orderId: 'ord-2024-0304',
-        orderNumber: 'ORD-0304',
-        accountName: 'Green Lake Gardens',
-        address: '7201 E Green Lake Dr N',
-        city: 'Seattle',
-        estimatedArrival: '10:45 AM',
-        status: 'pending',
-      },
-      {
-        id: 'stop-a5',
-        orderId: 'ord-2024-0305',
-        orderNumber: 'ORD-0305',
-        accountName: 'Capitol Hill Collective',
-        address: '1520 Broadway',
-        city: 'Seattle',
-        estimatedArrival: '11:30 AM',
+        orderId: 'ord-2026-0403',
+        orderNumber: 'ORD-0403',
+        accountName: emeraldCity.name,
+        address: emeraldCity.address,
+        city: emeraldCity.city,
+        estimatedArrival: '11:00 AM',
         status: 'pending',
       },
     ],
   },
 
-  // Route B — Seattle South/Tacoma (loading)
+  // Route 2 — Tacoma Run (Roberto Flores): 2 stops, in transit to stop 1
   {
     id: 'run-002',
-    driverId: 'drv-002',
-    driverName: 'Chris Petersen',
-    status: 'loading',
-    routeName: 'Route B — Seattle South / Tacoma',
-    vehicleId: 'veh-002',
-    totalStops: 4,
+    driverId: roberto.id,
+    driverName: roberto.name,
+    status: 'in-transit',
+    routeName: 'Tacoma Run',
+    vehicleId: roberto.vehicleId,
+    totalStops: 2,
     completedStops: 0,
-    estimatedDuration: '5h 15m',
+    estimatedDuration: '3h 30m',
+    startedAt: '2026-03-07T10:30:00Z',
     stops: [
       {
         id: 'stop-b1',
-        orderId: 'ord-2024-0306',
-        orderNumber: 'ORD-0306',
-        accountName: 'Puget Sound Wellness',
-        address: '2815 S Jackson St',
-        city: 'Seattle',
-        estimatedArrival: '10:00 AM',
+        orderId: 'ord-2026-0404',
+        orderNumber: 'ORD-0404',
+        accountName: pacificLeaf.name,
+        address: pacificLeaf.address,
+        city: pacificLeaf.city,
+        estimatedArrival: '11:30 AM',
         status: 'pending',
       },
       {
         id: 'stop-b2',
-        orderId: 'ord-2024-0307',
-        orderNumber: 'ORD-0307',
-        accountName: 'Rainier Remedies',
-        address: '5601 Rainier Ave S',
-        city: 'Seattle',
-        estimatedArrival: '10:45 AM',
-        status: 'pending',
-      },
-      {
-        id: 'stop-b3',
-        orderId: 'ord-2024-0308',
-        orderNumber: 'ORD-0308',
-        accountName: 'Tacoma Treehouse',
-        address: '1932 Pacific Ave',
-        city: 'Tacoma',
-        estimatedArrival: '12:00 PM',
-        status: 'pending',
-      },
-      {
-        id: 'stop-b4',
-        orderId: 'ord-2024-0309',
-        orderNumber: 'ORD-0309',
-        accountName: 'Cascade Cannabis Co.',
-        address: '3408 6th Ave',
-        city: 'Tacoma',
+        orderId: 'ord-2026-0405',
+        orderNumber: 'ORD-0405',
+        accountName: rainier.name,
+        address: rainier.address,
+        city: rainier.city,
         estimatedArrival: '1:00 PM',
         status: 'pending',
       },
     ],
   },
 
-  // Route C — Eastside (completed this morning)
+  // Route 3 — Eastside AM (Carlos Mendez): 3 stops, completed earlier today
   {
     id: 'run-003',
-    driverId: 'drv-001',
-    driverName: 'Mike Torres',
+    driverId: carlos.id,
+    driverName: carlos.name,
     status: 'completed',
-    routeName: 'Route C — Eastside',
-    vehicleId: 'veh-001',
+    routeName: 'Eastside AM',
+    vehicleId: carlos.vehicleId,
     totalStops: 3,
     completedStops: 3,
     estimatedDuration: '3h 00m',
     actualDuration: '2h 45m',
-    startedAt: '2024-12-15T05:00:00Z',
-    completedAt: '2024-12-15T07:45:00Z',
+    startedAt: '2026-03-07T05:00:00Z',
+    completedAt: '2026-03-07T07:45:00Z',
     stops: [
       {
         id: 'stop-c1',
-        orderId: 'ord-2024-0310',
-        orderNumber: 'ORD-0310',
-        accountName: 'Summit Therapeutics',
-        address: '10230 NE 10th St',
-        city: 'Bellevue',
+        orderId: 'ord-2026-0406',
+        orderNumber: 'ORD-0406',
+        accountName: greenfield.name,
+        address: greenfield.address,
+        city: greenfield.city,
         estimatedArrival: '5:30 AM',
         actualArrival: '5:25 AM',
         status: 'delivered',
-        paymentCollected: { method: 'ACH', amount: 5890.00 },
+        paymentCollected: { method: 'ACH', amount: 3200.00 },
       },
       {
         id: 'stop-c2',
-        orderId: 'ord-2024-0311',
-        orderNumber: 'ORD-0311',
-        accountName: 'Rainier Remedies',
-        address: '15600 NE 8th St',
-        city: 'Bellevue',
+        orderId: 'ord-2026-0407',
+        orderNumber: 'ORD-0407',
+        accountName: emeraldCity.name,
+        address: emeraldCity.address,
+        city: emeraldCity.city,
         estimatedArrival: '6:15 AM',
-        actualArrival: '6:30 AM',
+        actualArrival: '6:20 AM',
         status: 'delivered',
-        paymentCollected: { method: 'COD', amount: 2750.00, checkNumber: 'CHK-9012' },
-        notes: 'Payment received — check post-dated to 12/20. Manager aware.',
+        paymentCollected: { method: 'ACH', amount: 2800.00 },
       },
       {
         id: 'stop-c3',
-        orderId: 'ord-2024-0312',
-        orderNumber: 'ORD-0312',
-        accountName: 'Emerald City Cannabis',
-        address: '8401 164th Ave NE',
-        city: 'Redmond',
+        orderId: 'ord-2026-0408',
+        orderNumber: 'ORD-0408',
+        accountName: capitolHill.name,
+        address: capitolHill.address,
+        city: capitolHill.city,
         estimatedArrival: '7:00 AM',
         actualArrival: '6:55 AM',
         status: 'delivered',
-        paymentCollected: { method: 'ACH', amount: 1620.00 },
+        paymentCollected: { method: 'COD', amount: 1000.00, checkNumber: 'CHK-9201' },
       },
     ],
   },
 
-  // Route D — Olympia/South Sound (scheduled tomorrow)
+  // Route 4 — Olympia Afternoon (Sarah Kim): 2 stops, loading
   {
     id: 'run-004',
-    driverId: 'drv-003',
-    driverName: 'Amy Nakamura',
+    driverId: sarah.id,
+    driverName: sarah.name,
     status: 'loading',
-    routeName: 'Route D — Olympia / South Sound',
-    vehicleId: 'veh-003',
-    totalStops: 3,
-    completedStops: 0,
-    estimatedDuration: '4h 00m',
-    stops: [
-      {
-        id: 'stop-d1',
-        orderId: 'ord-2024-0313',
-        orderNumber: 'ORD-0313',
-        accountName: 'Olympia Organic',
-        address: '521 Capitol Way S',
-        city: 'Olympia',
-        estimatedArrival: '9:00 AM',
-        status: 'pending',
-      },
-      {
-        id: 'stop-d2',
-        orderId: 'ord-2024-0314',
-        orderNumber: 'ORD-0314',
-        accountName: 'Tumwater Terpenes',
-        address: '330 Israel Rd SW',
-        city: 'Tumwater',
-        estimatedArrival: '10:00 AM',
-        status: 'pending',
-      },
-      {
-        id: 'stop-d3',
-        orderId: 'ord-2024-0315',
-        orderNumber: 'ORD-0315',
-        accountName: 'Centralia Cannabis',
-        address: '1218 Harrison Ave',
-        city: 'Centralia',
-        estimatedArrival: '11:30 AM',
-        status: 'pending',
-      },
-    ],
-  },
-
-  // Route E — Spokane (completed yesterday)
-  {
-    id: 'run-005',
-    driverId: 'drv-003',
-    driverName: 'Amy Nakamura',
-    status: 'completed',
-    routeName: 'Route E — Spokane',
-    vehicleId: 'veh-003',
-    totalStops: 4,
-    completedStops: 4,
-    estimatedDuration: '5h 30m',
-    actualDuration: '5h 10m',
-    startedAt: '2024-12-14T06:00:00Z',
-    completedAt: '2024-12-14T11:10:00Z',
-    stops: [
-      {
-        id: 'stop-e1',
-        orderId: 'ord-2024-0290',
-        orderNumber: 'ORD-0290',
-        accountName: 'Spokane Stems',
-        address: '1303 N Washington St',
-        city: 'Spokane',
-        estimatedArrival: '9:00 AM',
-        actualArrival: '8:55 AM',
-        status: 'delivered',
-        paymentCollected: { method: 'ACH', amount: 3450.00 },
-      },
-      {
-        id: 'stop-e2',
-        orderId: 'ord-2024-0291',
-        orderNumber: 'ORD-0291',
-        accountName: 'Inland Empire Greens',
-        address: '4727 E Sprague Ave',
-        city: 'Spokane',
-        estimatedArrival: '9:45 AM',
-        actualArrival: '9:50 AM',
-        status: 'delivered',
-        paymentCollected: { method: 'COD', amount: 2100.00, checkNumber: 'CHK-7733' },
-      },
-      {
-        id: 'stop-e3',
-        orderId: 'ord-2024-0292',
-        orderNumber: 'ORD-0292',
-        accountName: 'Liberty Lake Leaf',
-        address: '1328 N Liberty Lake Rd',
-        city: 'Liberty Lake',
-        estimatedArrival: '10:30 AM',
-        actualArrival: '10:25 AM',
-        status: 'delivered',
-        paymentCollected: { method: 'ACH', amount: 1880.00 },
-      },
-      {
-        id: 'stop-e4',
-        orderId: 'ord-2024-0293',
-        orderNumber: 'ORD-0293',
-        accountName: 'Valley Vapor Lounge',
-        address: '12505 E Sprague Ave',
-        city: 'Spokane Valley',
-        estimatedArrival: '11:15 AM',
-        actualArrival: '11:10 AM',
-        status: 'delivered',
-        paymentCollected: { method: 'ACH', amount: 950.00 },
-      },
-    ],
-  },
-
-  // Route F — Bellingham (scheduled next week)
-  {
-    id: 'run-006',
-    driverId: 'drv-002',
-    driverName: 'Chris Petersen',
-    status: 'loading',
-    routeName: 'Route F — Bellingham',
-    vehicleId: 'veh-002',
+    routeName: 'Olympia Afternoon',
+    vehicleId: sarah.vehicleId,
     totalStops: 2,
     completedStops: 0,
     estimatedDuration: '3h 30m',
     stops: [
       {
-        id: 'stop-f1',
-        orderId: 'ord-2024-0350',
-        orderNumber: 'ORD-0350',
-        accountName: 'Bellingham Botanicals',
-        address: '1200 Harris Ave',
-        city: 'Bellingham',
-        estimatedArrival: '10:00 AM',
+        id: 'stop-d1',
+        orderId: 'ord-2026-0409',
+        orderNumber: 'ORD-0409',
+        accountName: olympic.name,
+        address: olympic.address,
+        city: olympic.city,
+        estimatedArrival: '2:00 PM',
         status: 'pending',
       },
       {
-        id: 'stop-f2',
-        orderId: 'ord-2024-0351',
-        orderNumber: 'ORD-0351',
-        accountName: 'Whatcom Wellness',
-        address: '4189 Meridian St',
-        city: 'Bellingham',
-        estimatedArrival: '11:00 AM',
+        id: 'stop-d2',
+        orderId: 'ord-2026-0410',
+        orderNumber: 'ORD-0410',
+        accountName: pugetSound.name,
+        address: pugetSound.address,
+        city: pugetSound.city,
+        estimatedArrival: '3:30 PM',
         status: 'pending',
       },
     ],
@@ -378,12 +263,14 @@ const runs: DeliveryRun[] = [
 ];
 
 const metrics: DeliveryMetrics = {
-  totalDeliveries: 6,
-  completedToday: 12,
+  totalDeliveries: 4,
+  completedToday: 5,
   inTransit: 2,
-  avgDeliveryTime: 35,
-  onTimeRate: 93,
+  avgDeliveryTime: 52,
+  onTimeRate: 96,
   driversActive: 3,
+  revenueDeliveredToday: 18400,
+  paymentsCollectedToday: 7200,
 };
 
 // — Export functions —
@@ -422,4 +309,17 @@ export async function getDrivers(): Promise<DeliveryDriver[]> {
 export async function getDeliveryMetrics(): Promise<DeliveryMetrics> {
   await delay(300);
   return metrics;
+}
+
+export async function getDeliverySchedule(): Promise<ScheduleEntry[]> {
+  await delay(300);
+  return [
+    { id: 'sched-1', time: '8:00 AM', accountName: 'Greenfield Dispensary', city: 'Seattle', status: 'completed', orderValue: 4200, paymentMethod: 'COD', driverName: 'James Cooper', routeName: 'Seattle Metro' },
+    { id: 'sched-2', time: '9:30 AM', accountName: 'Capitol Hill Collective', city: 'Seattle', status: 'completed', orderValue: 2100, paymentMethod: 'ACH', driverName: 'James Cooper', routeName: 'Seattle Metro' },
+    { id: 'sched-3', time: '11:00 AM', accountName: 'Emerald City Cannabis', city: 'Redmond', status: 'in-transit', orderValue: 3800, paymentMethod: 'ACH', driverName: 'James Cooper', routeName: 'Seattle Metro' },
+    { id: 'sched-4', time: '11:30 AM', accountName: 'Pacific Leaf', city: 'Tacoma', status: 'in-transit', orderValue: 5100, paymentMethod: 'COD', driverName: 'Roberto Flores', routeName: 'Tacoma Run' },
+    { id: 'sched-5', time: '1:00 PM', accountName: 'Rainier Remedies', city: 'Tacoma', status: 'upcoming', orderValue: 3200, paymentMethod: 'Check', driverName: 'Roberto Flores', routeName: 'Tacoma Run' },
+    { id: 'sched-6', time: '2:00 PM', accountName: 'Olympic Greens', city: 'Olympia', status: 'loading', orderValue: 4800, paymentMethod: 'COD', driverName: 'Sarah Kim', routeName: 'Olympia Afternoon' },
+    { id: 'sched-7', time: '3:30 PM', accountName: 'Puget Sound Provisions', city: 'Olympia', status: 'loading', orderValue: 3600, paymentMethod: 'ACH', driverName: 'Sarah Kim', routeName: 'Olympia Afternoon' },
+  ];
 }

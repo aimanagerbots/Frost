@@ -44,6 +44,8 @@ export interface Order {
   assignedRep: string;
   paymentMethod: PaymentMethod;
   paymentStatus: PaymentStatus;
+  priority?: OrderPriority;
+  dueDate?: string;
   notes?: string;
 }
 
@@ -70,4 +72,31 @@ export interface OrderPipelineStage {
   label: string;
   count: number;
   color: string;
+}
+
+export type OrderPriority = 'standard' | 'rush';
+
+export interface OrderVolumeWeek {
+  week: string;
+  pending: number;
+  confirmed: number;
+  inProduction: number;
+  fulfilled: number;
+  delivered: number;
+  paid: number;
+}
+
+export interface CategoryRevenue {
+  category: string;
+  revenue: number;
+  percentage: number;
+  color: string;
+}
+
+export interface TopAccount {
+  accountId: string;
+  accountName: string;
+  orderCount: number;
+  totalRevenue: number;
+  avgOrderValue: number;
 }

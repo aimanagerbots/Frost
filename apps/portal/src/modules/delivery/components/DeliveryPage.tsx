@@ -1,68 +1,51 @@
 'use client';
 
 import { useState } from 'react';
-import { Truck, PackageX } from 'lucide-react';
-import { SectionHeader, MetricCard, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
-import { useDeliveryRuns, useDeliveryMetrics, useDrivers } from '../hooks';
-import { ActiveRoutes } from './ActiveRoutes';
-import { DriverCards } from './DriverCards';
-import { RouteDrawer } from './RouteDrawer';
+import { Truck, LayoutDashboard, Route, Users } from 'lucide-react';
+import { SectionHeader } from '@/components';
+import { DeliveryDashboard } from './DeliveryDashboard';
+import { DeliveryRoutes } from './DeliveryRoutes';
+import { DriverBoard } from './DriverBoard';
 
 const ACCENT = '#0EA5E9';
 
+type DeliveryTab = 'dashboard' | 'routes' | 'drivers';
+
+const TABS: { key: DeliveryTab; label: string; icon: typeof LayoutDashboard }[] = [
+  { key: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { key: 'routes', label: 'Routes', icon: Route },
+  { key: 'drivers', label: 'Driver Board', icon: Users },
+];
+
 export function DeliveryPage() {
-  const [selectedRunId, setSelectedRunId] = useState<string | null>(null);
-
-  const { data: runs, isLoading: runsLoading, error: runsError, refetch: refetchRuns } = useDeliveryRuns();
-  const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useDeliveryMetrics();
-  const { data: drivers, isLoading: driversLoading, error: driversError, refetch: refetchDrivers } = useDrivers();
-
-  const selectedRun = runs?.find((r) => r.id === selectedRunId) ?? null;
-
-  if (metricsLoading) return <LoadingSkeleton variant="card" count={3} />;
-  if (runsError || metricsError || driversError) return <ErrorState title="Failed to load delivery data" message={(runsError || metricsError || driversError)?.message} onRetry={() => { refetchRuns(); refetchMetrics(); refetchDrivers(); }} />;
+  const [activeTab, setActiveTab] = useState<DeliveryTab>('dashboard');
 
   return (
     <div className="space-y-6">
       <SectionHeader icon={Truck} title="Delivery" accentColor={ACCENT} />
 
-      {/* Metrics Row */}
-      {metrics && (
-        <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-          <MetricCard label="Total Runs" value={metrics.totalDeliveries} accentColor={ACCENT} />
-          <MetricCard label="Completed Today" value={metrics.completedToday} accentColor={ACCENT} trend={{ value: 8, direction: 'up' }} />
-          <MetricCard label="In Transit" value={metrics.inTransit} accentColor={ACCENT} />
-          <MetricCard label="Avg Delivery Time" value={`${metrics.avgDeliveryTime}m`} accentColor={ACCENT} />
-          <MetricCard label="On-Time Rate" value={`${metrics.onTimeRate}%`} accentColor={ACCENT} trend={{ value: 2, direction: 'up' }} />
-          <MetricCard label="Drivers Active" value={metrics.driversActive} accentColor={ACCENT} />
-        </div>
-      )}
+      {/* Tab Bar */}
+      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
+        {TABS.map(({ key, label, icon: Icon }) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key)}
+            className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
+              activeTab === key
+                ? 'bg-elevated text-text-bright'
+                : 'text-text-muted hover:text-text-default'
+            }`}
+          >
+            <Icon size={14} />
+            <span className="hidden sm:inline">{label}</span>
+          </button>
+        ))}
+      </div>
 
-      {/* Active Routes */}
-      {!runsLoading && runs && runs.length === 0 ? (
-        <EmptyState icon={Truck} title="No delivery runs" description="No active delivery runs to display" accentColor={ACCENT} />
-      ) : (
-        <ActiveRoutes
-          runs={runs ?? []}
-          loading={runsLoading}
-          onSelectRun={setSelectedRunId}
-          selectedRunId={selectedRunId}
-        />
-      )}
-
-      {/* Drivers */}
-      {!driversLoading && drivers && drivers.length === 0 ? (
-        <EmptyState icon={PackageX} title="No drivers" description="No drivers available" accentColor={ACCENT} />
-      ) : (
-        <DriverCards drivers={drivers ?? []} loading={driversLoading} />
-      )}
-
-      {/* Route Drawer */}
-      <RouteDrawer
-        run={selectedRun}
-        open={!!selectedRunId}
-        onClose={() => setSelectedRunId(null)}
-      />
+      {/* Tab Content */}
+      {activeTab === 'dashboard' && <DeliveryDashboard />}
+      {activeTab === 'routes' && <DeliveryRoutes />}
+      {activeTab === 'drivers' && <DriverBoard />}
     </div>
   );
 }
