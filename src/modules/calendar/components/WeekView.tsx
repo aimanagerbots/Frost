@@ -75,11 +75,11 @@ export function WeekView({ currentDate, events, onSelectEvent }: WeekViewProps) 
               isToday(d) && 'bg-[#3B82F6]/10'
             )}
           >
-            <span className="text-[10px] uppercase text-muted">{DAY_NAMES[d.getDay()]}</span>
+            <span className="text-[10px] uppercase text-text-muted">{DAY_NAMES[d.getDay()]}</span>
             <span
               className={cn(
                 'mt-0.5 flex h-7 w-7 items-center justify-center rounded-full text-sm font-medium',
-                isToday(d) ? 'bg-[#3B82F6] text-white' : 'text-default'
+                isToday(d) ? 'bg-[#3B82F6] text-white' : 'text-text-default'
               )}
             >
               {d.getDate()}
@@ -94,7 +94,7 @@ export function WeekView({ currentDate, events, onSelectEvent }: WeekViewProps) 
         style={{ gridTemplateColumns: '56px repeat(7, 1fr)' }}
       >
         <div className="flex items-center justify-end border-r border-default pr-2">
-          <span className="text-[10px] text-muted">ALL DAY</span>
+          <span className="text-[10px] text-text-muted">ALL DAY</span>
         </div>
         {weekDates.map((d, i) => {
           const ds = toDateStr(d);
@@ -127,7 +127,7 @@ export function WeekView({ currentDate, events, onSelectEvent }: WeekViewProps) 
               style={{ gridTemplateColumns: '56px repeat(7, 1fr)', height: `${HOUR_HEIGHT}px` }}
             >
               <div className="flex items-start justify-end border-r border-default pr-2 pt-0.5">
-                <span className="text-[10px] text-muted">
+                <span className="text-[10px] text-text-muted">
                   {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
                 </span>
               </div>

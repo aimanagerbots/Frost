@@ -43,36 +43,36 @@ export function OpportunityDrawer({ opportunity, accountName, open, onClose }: O
           <div className="mb-2 flex items-center gap-2">
             <StatusBadge variant={typeVariant(opportunity.type)} label={opportunity.type.replace(/-/g, ' ')} />
           </div>
-          <h3 className="text-lg font-semibold text-bright">{opportunity.title}</h3>
+          <h3 className="text-lg font-semibold text-text-bright">{opportunity.title}</h3>
           {accountName && (
-            <p className="mt-1 text-sm text-muted">{accountName}</p>
+            <p className="mt-1 text-sm text-text-muted">{accountName}</p>
           )}
         </div>
 
         {/* Key metrics */}
         <div className="grid grid-cols-2 gap-3">
           <div className="rounded-lg bg-elevated p-3">
-            <div className="text-xs text-muted">Estimated Value</div>
-            <div className="text-lg font-bold text-bright">{formatCurrency(opportunity.estimatedValue)}</div>
+            <div className="text-xs text-text-muted">Estimated Value</div>
+            <div className="text-lg font-bold text-text-bright">{formatCurrency(opportunity.estimatedValue)}</div>
           </div>
           <div className="rounded-lg bg-elevated p-3">
-            <div className="text-xs text-muted">Probability</div>
-            <div className="text-lg font-bold text-bright">{opportunity.probability}%</div>
+            <div className="text-xs text-text-muted">Probability</div>
+            <div className="text-lg font-bold text-text-bright">{opportunity.probability}%</div>
           </div>
           <div className="rounded-lg bg-elevated p-3">
-            <div className="text-xs text-muted">Stage</div>
-            <div className="text-sm font-medium text-bright">{opportunity.stage}</div>
+            <div className="text-xs text-text-muted">Stage</div>
+            <div className="text-sm font-medium text-text-bright">{opportunity.stage}</div>
           </div>
           <div className="rounded-lg bg-elevated p-3">
-            <div className="text-xs text-muted">Days in Stage</div>
-            <div className="text-lg font-bold text-bright">{daysInStage}</div>
+            <div className="text-xs text-text-muted">Days in Stage</div>
+            <div className="text-lg font-bold text-text-bright">{daysInStage}</div>
           </div>
         </div>
 
         {/* Expected close */}
         <div className="rounded-lg border border-default p-3">
-          <div className="text-xs text-muted">Expected Close Date</div>
-          <div className="text-sm font-medium text-bright">
+          <div className="text-xs text-text-muted">Expected Close Date</div>
+          <div className="text-sm font-medium text-text-bright">
             {new Date(opportunity.expectedCloseDate).toLocaleDateString('en-US', {
               month: 'long',
               day: 'numeric',
@@ -83,7 +83,7 @@ export function OpportunityDrawer({ opportunity, accountName, open, onClose }: O
 
         {/* Stage timeline */}
         <div>
-          <h4 className="mb-2 text-sm font-medium text-bright">Stage Progress</h4>
+          <h4 className="mb-2 text-sm font-medium text-text-bright">Stage Progress</h4>
           <div className="flex items-center gap-1">
             {['Prospect', 'Contacted', 'Engaged', 'Committed', 'Won'].map((stage, i) => {
               const currentIdx = ['Prospect', 'Contacted', 'Engaged', 'Committed', 'Won'].indexOf(opportunity.stage);
@@ -94,7 +94,7 @@ export function OpportunityDrawer({ opportunity, accountName, open, onClose }: O
                     className={`h-1.5 w-full rounded-full ${isActive ? '' : 'bg-elevated'}`}
                     style={isActive ? { backgroundColor: CRM_ACCENT } : undefined}
                   />
-                  <span className="mt-1 text-[9px] text-muted">{stage}</span>
+                  <span className="mt-1 text-[9px] text-text-muted">{stage}</span>
                 </div>
               );
             })}
@@ -104,19 +104,19 @@ export function OpportunityDrawer({ opportunity, accountName, open, onClose }: O
         {/* Notes */}
         {opportunity.notes && (
           <div>
-            <h4 className="mb-2 text-sm font-medium text-bright">Notes</h4>
-            <p className="text-sm text-muted">{opportunity.notes}</p>
+            <h4 className="mb-2 text-sm font-medium text-text-bright">Notes</h4>
+            <p className="text-sm text-text-muted">{opportunity.notes}</p>
           </div>
         )}
 
         {/* Add note */}
         <div>
-          <h4 className="mb-2 text-sm font-medium text-bright">Add Note</h4>
+          <h4 className="mb-2 text-sm font-medium text-text-bright">Add Note</h4>
           <textarea
             value={note}
             onChange={(e) => setNote(e.target.value)}
             placeholder="Add a note about this opportunity..."
-            className="w-full rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-default placeholder:text-muted outline-none focus:border-hover"
+            className="w-full rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default placeholder:text-text-muted outline-none focus:border-hover"
             rows={3}
           />
           <button

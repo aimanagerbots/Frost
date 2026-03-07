@@ -62,13 +62,13 @@ export function ConfirmationDialog({
         className="mx-4 w-full max-w-md rounded-xl border border-default bg-card p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-lg font-semibold text-bright">{title}</h2>
-        {description && <p className="mt-2 text-sm text-muted">{description}</p>}
+        <h2 className="text-lg font-semibold text-text-bright">{title}</h2>
+        {description && <p className="mt-2 text-sm text-text-muted">{description}</p>}
         <div className="mt-6 flex justify-end gap-3">
           <button
             onClick={onCancel}
             disabled={loading}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-muted hover:bg-elevated hover:text-default transition-colors disabled:opacity-50"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-text-muted hover:bg-elevated hover:text-text-default transition-colors disabled:opacity-50"
           >
             {cancelLabel}
           </button>

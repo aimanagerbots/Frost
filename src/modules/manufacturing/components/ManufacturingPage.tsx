@@ -41,7 +41,7 @@ const columns = [
     header: 'Title',
     accessor: 'title' as const,
     sortable: true,
-    render: (row: WORow) => <span className="font-medium text-bright">{row.title}</span>,
+    render: (row: WORow) => <span className="font-medium text-text-bright">{row.title}</span>,
   },
   {
     header: 'Type',
@@ -154,10 +154,10 @@ export function ManufacturingPage() {
       {/* Work Queue */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-bright">
+          <h2 className="text-sm font-semibold text-text-bright">
             Daily Work Queue
             {pipelineFilter && (
-              <span className="ml-2 text-xs text-muted">
+              <span className="ml-2 text-xs text-text-muted">
                 Filtered by: {pipelineFilter}
                 <button
                   onClick={() => setPipelineFilter(null)}

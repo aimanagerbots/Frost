@@ -21,14 +21,14 @@ const columns = [
     header: 'Material',
     accessor: 'name' as const,
     sortable: true,
-    render: (row: InvRow) => <span className="font-medium text-bright">{row.name}</span>,
+    render: (row: InvRow) => <span className="font-medium text-text-bright">{row.name}</span>,
   },
   {
     header: 'Type',
     accessor: 'type' as const,
     sortable: true,
     render: (row: InvRow) => (
-      <span className="inline-flex items-center rounded-full bg-elevated px-2 py-0.5 text-xs text-muted">
+      <span className="inline-flex items-center rounded-full bg-elevated px-2 py-0.5 text-xs text-text-muted">
         {row.type}
       </span>
     ),
@@ -43,7 +43,7 @@ const columns = [
     accessor: 'currentStock' as const,
     sortable: true,
     render: (row: InvRow) => (
-      <span className={row.status === 'critical' || row.status === 'out-of-stock' ? 'text-danger font-medium' : row.status === 'low' ? 'text-warning' : 'text-default'}>
+      <span className={row.status === 'critical' || row.status === 'out-of-stock' ? 'text-danger font-medium' : row.status === 'low' ? 'text-warning' : 'text-text-default'}>
         {row.currentStock.toLocaleString()}
       </span>
     ),
@@ -85,7 +85,7 @@ export function MaterialsInventory() {
 
   return (
     <div className="space-y-3">
-      <h2 className="text-sm font-semibold text-bright">Non-Cannabis Inventory</h2>
+      <h2 className="text-sm font-semibold text-text-bright">Non-Cannabis Inventory</h2>
       <DataTable<InvRow>
         data={sorted as InvRow[]}
         columns={columns}

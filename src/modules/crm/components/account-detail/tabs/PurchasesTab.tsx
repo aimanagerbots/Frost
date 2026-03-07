@@ -93,14 +93,14 @@ export function PurchasesTab({ accountId, account }: PurchasesTabProps) {
       header: 'Order #',
       accessor: 'orderNumber' as const,
       sortable: true,
-      render: (row: OrderRow) => <span className="font-medium text-bright">{row.orderNumber}</span>,
+      render: (row: OrderRow) => <span className="font-medium text-text-bright">{row.orderNumber}</span>,
     },
     {
       header: 'Date',
       accessor: 'date' as const,
       sortable: true,
       render: (row: OrderRow) => (
-        <span className="text-default">
+        <span className="text-text-default">
           {new Date(row.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
         </span>
       ),
@@ -111,7 +111,7 @@ export function PurchasesTab({ accountId, account }: PurchasesTabProps) {
       header: 'Total',
       accessor: 'total' as const,
       sortable: true,
-      render: (row: OrderRow) => <span className="font-medium text-default">{formatCurrency(row.total)}</span>,
+      render: (row: OrderRow) => <span className="font-medium text-text-default">{formatCurrency(row.total)}</span>,
     },
     {
       header: 'Status',

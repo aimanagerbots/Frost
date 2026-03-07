@@ -43,9 +43,9 @@ export function CategoryCards({ categories, activeCategory, onCategoryClick }: C
               <Icon className="h-5 w-5" style={{ color: config.color }} />
             </div>
             <div className="text-center">
-              <p className="text-sm font-medium text-bright">{cat.label}</p>
-              <p className="text-xs text-muted">{cat.count} items</p>
-              <p className="text-[10px] text-muted">
+              <p className="text-sm font-medium text-text-bright">{cat.label}</p>
+              <p className="text-xs text-text-muted">{cat.count} items</p>
+              <p className="text-[10px] text-text-muted">
                 ${cat.value >= 1000 ? `${(cat.value / 1000).toFixed(1)}K` : cat.value}
               </p>
               <p className="text-[10px] font-medium" style={{ color: config.color }}>

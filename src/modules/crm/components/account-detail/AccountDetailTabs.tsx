@@ -52,8 +52,8 @@ export function AccountDetailTabs({ activeTab, onTabChange, vmiEnrolled }: Accou
               isActive
                 ? 'text-black'
                 : isVmiDisabled
-                  ? 'text-muted/50 cursor-default'
-                  : 'text-muted hover:bg-elevated hover:text-default'
+                  ? 'text-text-muted/50 cursor-default'
+                  : 'text-text-muted hover:bg-elevated hover:text-text-default'
             )}
             style={isActive ? { backgroundColor: CRM_ACCENT } : undefined}
           >

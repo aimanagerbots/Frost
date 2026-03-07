@@ -51,11 +51,11 @@ function RepCard({ rep, expanded, onToggle }: { rep: LeaderboardRep; expanded: b
         {/* Rank */}
         <div className="flex w-12 shrink-0 flex-col items-center">
           {isManager ? (
-            <span className="text-xs font-medium text-muted">MGR</span>
+            <span className="text-xs font-medium text-text-muted">MGR</span>
           ) : (
             <>
               <span className="text-2xl">{MEDALS[rep.rank] || ''}</span>
-              <span className="text-lg font-bold text-bright">#{rep.rank}</span>
+              <span className="text-lg font-bold text-text-bright">#{rep.rank}</span>
             </>
           )}
         </div>
@@ -69,36 +69,36 @@ function RepCard({ rep, expanded, onToggle }: { rep: LeaderboardRep; expanded: b
             {rep.name.split(' ').map((n) => n[0]).join('')}
           </div>
           <div>
-            <div className="font-semibold text-bright">{rep.name}</div>
-            <div className="text-xs text-muted">{rep.territory}</div>
+            <div className="font-semibold text-text-bright">{rep.name}</div>
+            <div className="text-xs text-text-muted">{rep.territory}</div>
           </div>
         </div>
 
         {/* Revenue */}
         <div className="ml-auto text-right">
-          <div className="text-xl font-bold text-bright">{formatCurrency(rep.periodRevenue)}</div>
+          <div className="text-xl font-bold text-text-bright">{formatCurrency(rep.periodRevenue)}</div>
           <div className="flex items-center gap-1 text-xs">
-            <span className={rep.trend === 'up' ? 'text-success' : rep.trend === 'down' ? 'text-danger' : 'text-muted'}>
+            <span className={rep.trend === 'up' ? 'text-success' : rep.trend === 'down' ? 'text-danger' : 'text-text-muted'}>
               {rep.trend === 'up' ? '\u2191' : rep.trend === 'down' ? '\u2193' : '\u2192'}
             </span>
-            <span className="text-muted">vs prior</span>
+            <span className="text-text-muted">vs prior</span>
           </div>
         </div>
       </button>
 
       {/* Secondary metrics */}
-      <div className="flex gap-4 border-t border-default/50 px-4 py-2.5 text-xs text-muted">
-        <span><span className="font-medium text-default">{rep.periodOrders}</span> orders</span>
-        <span><span className="font-medium text-default">{rep.newAccounts}</span> new accounts</span>
-        <span><span className="font-medium text-default">{rep.proposalAcceptRate}%</span> accept rate</span>
-        {!isManager && <span><span className="font-medium text-default">{rep.streakDays}d</span> streak</span>}
+      <div className="flex gap-4 border-t border-default/50 px-4 py-2.5 text-xs text-text-muted">
+        <span><span className="font-medium text-text-default">{rep.periodOrders}</span> orders</span>
+        <span><span className="font-medium text-text-default">{rep.newAccounts}</span> new accounts</span>
+        <span><span className="font-medium text-text-default">{rep.proposalAcceptRate}%</span> accept rate</span>
+        {!isManager && <span><span className="font-medium text-text-default">{rep.streakDays}d</span> streak</span>}
       </div>
 
       {/* Goal progress */}
       {!isManager && (
         <div className="px-4 pb-3">
           <div className="mb-1 flex items-center justify-between text-xs">
-            <span className="text-muted">Goal Progress</span>
+            <span className="text-text-muted">Goal Progress</span>
             <span className={`font-semibold ${rep.goalProgress >= 90 ? 'text-success' : rep.goalProgress >= 70 ? 'text-warning' : 'text-danger'}`}>
               {rep.goalProgress}%
             </span>
@@ -135,15 +135,15 @@ function RepCard({ rep, expanded, onToggle }: { rep: LeaderboardRep; expanded: b
 
           {/* Top accounts */}
           <div>
-            <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">Top 5 Accounts</h4>
+            <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-text-muted">Top 5 Accounts</h4>
             <div className="space-y-1.5">
               {rep.topAccounts.map((acct, i) => (
                 <div key={acct.name} className="flex items-center justify-between text-sm">
-                  <span className="text-default">
-                    <span className="mr-2 text-xs text-muted">{i + 1}.</span>
+                  <span className="text-text-default">
+                    <span className="mr-2 text-xs text-text-muted">{i + 1}.</span>
                     {acct.name}
                   </span>
-                  <span className="font-medium text-bright">{formatCurrency(acct.revenue)}</span>
+                  <span className="font-medium text-text-bright">{formatCurrency(acct.revenue)}</span>
                 </div>
               ))}
             </div>
@@ -151,19 +151,19 @@ function RepCard({ rep, expanded, onToggle }: { rep: LeaderboardRep; expanded: b
 
           {/* Activity metrics */}
           <div>
-            <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">Activity This Period</h4>
+            <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-text-muted">Activity This Period</h4>
             <div className="grid grid-cols-3 gap-2">
               <div className="rounded-lg bg-elevated p-2 text-center">
-                <div className="text-lg font-bold text-bright">{Math.round(rep.periodOrders * 0.8)}</div>
-                <div className="text-[10px] text-muted">Calls</div>
+                <div className="text-lg font-bold text-text-bright">{Math.round(rep.periodOrders * 0.8)}</div>
+                <div className="text-[10px] text-text-muted">Calls</div>
               </div>
               <div className="rounded-lg bg-elevated p-2 text-center">
-                <div className="text-lg font-bold text-bright">{Math.round(rep.periodOrders * 1.2)}</div>
-                <div className="text-[10px] text-muted">Emails</div>
+                <div className="text-lg font-bold text-text-bright">{Math.round(rep.periodOrders * 1.2)}</div>
+                <div className="text-[10px] text-text-muted">Emails</div>
               </div>
               <div className="rounded-lg bg-elevated p-2 text-center">
-                <div className="text-lg font-bold text-bright">{Math.round(rep.periodOrders * 0.3)}</div>
-                <div className="text-[10px] text-muted">Meetings</div>
+                <div className="text-lg font-bold text-text-bright">{Math.round(rep.periodOrders * 0.3)}</div>
+                <div className="text-[10px] text-text-muted">Meetings</div>
               </div>
             </div>
           </div>
@@ -207,8 +207,8 @@ export function Leaderboard() {
             onClick={() => setPeriod(p.value)}
             className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
               period === p.value
-                ? 'bg-card text-bright shadow-sm'
-                : 'text-muted hover:text-default'
+                ? 'bg-card text-text-bright shadow-sm'
+                : 'text-text-muted hover:text-text-default'
             }`}
           >
             {p.label}

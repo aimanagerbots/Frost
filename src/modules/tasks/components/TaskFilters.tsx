@@ -9,7 +9,7 @@ interface TaskFiltersProps {
 }
 
 const selectClass =
-  'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-default outline-none focus:border-hover';
+  'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-text-default outline-none focus:border-hover';
 
 export function TaskFilters({ filters, onChange }: TaskFiltersProps) {
   function update(patch: Partial<TaskFilter>) {
@@ -20,13 +20,13 @@ export function TaskFilters({ filters, onChange }: TaskFiltersProps) {
     <div className="flex flex-wrap items-center gap-2">
       {/* Search */}
       <div className="relative">
-        <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted" />
+        <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-text-muted" />
         <input
           type="text"
           placeholder="Search tasks..."
           value={filters.search ?? ''}
           onChange={(e) => update({ search: e.target.value || undefined })}
-          className="rounded-lg border border-default bg-elevated py-1.5 pl-8 pr-3 text-xs text-default outline-none focus:border-hover w-48"
+          className="rounded-lg border border-default bg-elevated py-1.5 pl-8 pr-3 text-xs text-text-default outline-none focus:border-hover w-48"
         />
       </div>
 

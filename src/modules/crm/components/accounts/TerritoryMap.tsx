@@ -94,7 +94,7 @@ export function TerritoryMap() {
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-3">
-        <span className="text-xs font-medium text-muted">Filters:</span>
+        <span className="text-xs font-medium text-text-muted">Filters:</span>
 
         {/* Health tier toggles */}
         {HEALTH_TIERS.map((tier) => (
@@ -103,8 +103,8 @@ export function TerritoryMap() {
             onClick={() => toggleHealthTier(tier.key)}
             className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition-colors ${
               healthFilter.size === 0 || healthFilter.has(tier.key)
-                ? 'border-default bg-base text-default'
-                : 'border-transparent bg-transparent text-muted/50'
+                ? 'border-default bg-base text-text-default'
+                : 'border-transparent bg-transparent text-text-muted/50'
             }`}
           >
             <div
@@ -127,7 +127,7 @@ export function TerritoryMap() {
           className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition-colors ${
             vmiFilter !== null
               ? 'border-[#F59E0B]/30 bg-[#F59E0B]/10 text-[#F59E0B]'
-              : 'border-default bg-base text-muted'
+              : 'border-default bg-base text-text-muted'
           }`}
         >
           {vmiFilter === true ? 'VMI Only' : vmiFilter === false ? 'Non-VMI' : 'VMI: All'}
@@ -139,7 +139,7 @@ export function TerritoryMap() {
           className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition-colors ${
             scaleByRevenue
               ? 'border-[#F59E0B]/30 bg-[#F59E0B]/10 text-[#F59E0B]'
-              : 'border-default bg-base text-muted'
+              : 'border-default bg-base text-text-muted'
           }`}
         >
           {scaleByRevenue ? (
@@ -177,12 +177,12 @@ export function TerritoryMap() {
 
           {/* Legend */}
           <div className="absolute bottom-4 left-4 rounded-lg border border-default bg-card/90 p-2.5 backdrop-blur-sm">
-            <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
+            <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
               Health
             </p>
             <div className="space-y-1">
               {HEALTH_TIERS.map((tier) => (
-                <div key={tier.key} className="flex items-center gap-1.5 text-[10px] text-muted">
+                <div key={tier.key} className="flex items-center gap-1.5 text-[10px] text-text-muted">
                   <div
                     className="h-2.5 w-2.5 rounded-full"
                     style={{ backgroundColor: tier.color }}
@@ -192,13 +192,13 @@ export function TerritoryMap() {
               ))}
             </div>
             <div className="mt-2 border-t border-default pt-1.5">
-              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-muted">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
                 Reps
               </p>
               {territories
                 .filter((t) => t.bounds.length > 0)
                 .map((t) => (
-                  <div key={t.repId} className="flex items-center gap-1.5 text-[10px] text-muted">
+                  <div key={t.repId} className="flex items-center gap-1.5 text-[10px] text-text-muted">
                     <div
                       className="h-2.5 w-2.5 rounded"
                       style={{ backgroundColor: t.color, opacity: 0.5 }}

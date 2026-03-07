@@ -59,11 +59,11 @@ export function DashboardPage() {
 
       {/* Welcome Header */}
       <div className="rounded-xl border border-default bg-card p-5">
-        <h2 className="text-xl font-bold text-bright">
+        <h2 className="text-xl font-bold text-text-bright">
           {getGreeting()}, Team
         </h2>
-        <p className="mt-1 text-sm text-muted">{formatDate()}</p>
-        <p className="mt-3 text-sm text-default leading-relaxed">
+        <p className="mt-1 text-sm text-text-muted">{formatDate()}</p>
+        <p className="mt-3 text-sm text-text-default leading-relaxed">
           <span
             className="mr-2 inline-block h-2 w-2 rounded-full"
             style={{ backgroundColor: DASHBOARD_ACCENT }}

@@ -62,14 +62,14 @@ export function VendorDayCalendar({ vendorDays, onSelect }: VendorDayCalendarPro
       <div className="mb-4 flex items-center justify-between">
         <button
           onClick={() => setCurrentDate(new Date(year, month - 1, 1))}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-muted hover:bg-elevated hover:text-default"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted hover:bg-elevated hover:text-text-default"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
-        <h3 className="text-sm font-semibold text-bright">{monthName}</h3>
+        <h3 className="text-sm font-semibold text-text-bright">{monthName}</h3>
         <button
           onClick={() => setCurrentDate(new Date(year, month + 1, 1))}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-muted hover:bg-elevated hover:text-default"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted hover:bg-elevated hover:text-text-default"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
@@ -78,7 +78,7 @@ export function VendorDayCalendar({ vendorDays, onSelect }: VendorDayCalendarPro
       {/* Day headers */}
       <div className="grid grid-cols-7 gap-1 mb-1">
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => (
-          <div key={d} className="py-1 text-center text-xs font-medium text-muted">
+          <div key={d} className="py-1 text-center text-xs font-medium text-text-muted">
             {d}
           </div>
         ))}
@@ -94,13 +94,13 @@ export function VendorDayCalendar({ vendorDays, onSelect }: VendorDayCalendarPro
             <div
               key={i}
               className={`relative flex min-h-[48px] flex-col items-center rounded-lg p-1 text-xs transition-colors ${
-                day ? 'text-default' : 'text-transparent'
+                day ? 'text-text-default' : 'text-transparent'
               } ${hasVD ? 'cursor-pointer hover:bg-elevated' : ''}`}
               onClick={() => {
                 if (dayVDs.length > 0) onSelect(dayVDs[0]);
               }}
             >
-              <span className={`${hasVD ? 'font-bold text-bright' : ''}`}>{day || ''}</span>
+              <span className={`${hasVD ? 'font-bold text-text-bright' : ''}`}>{day || ''}</span>
               {dayVDs.length > 0 && (
                 <div className="mt-1 flex gap-0.5">
                   {dayVDs.map((vd) => (
@@ -123,7 +123,7 @@ export function VendorDayCalendar({ vendorDays, onSelect }: VendorDayCalendarPro
         {Object.entries(STATUS_COLORS).map(([status, color]) => (
           <div key={status} className="flex items-center gap-1.5">
             <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: color }} />
-            <span className="text-xs capitalize text-muted">{status}</span>
+            <span className="text-xs capitalize text-text-muted">{status}</span>
           </div>
         ))}
       </div>

@@ -136,7 +136,7 @@ export function InteractionsHub() {
 
       {/* Filter bar + action */}
       <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-4">
-        <Filter className="h-4 w-4 text-muted" />
+        <Filter className="h-4 w-4 text-text-muted" />
 
         {/* Channel multi-select */}
         <div className="flex flex-wrap gap-1.5">
@@ -147,7 +147,7 @@ export function InteractionsHub() {
               className={`rounded-md px-2 py-1 text-xs capitalize transition-colors ${
                 channelFilter.size === 0 || channelFilter.has(ch)
                   ? 'bg-amber-500/20 text-amber-400'
-                  : 'bg-elevated text-muted hover:text-default'
+                  : 'bg-elevated text-text-muted hover:text-text-default'
               }`}
             >
               {ch}
@@ -166,7 +166,7 @@ export function InteractionsHub() {
               className={`rounded-md px-2 py-1 text-xs capitalize transition-colors ${
                 directionFilter === d
                   ? 'bg-amber-500/20 text-amber-400'
-                  : 'bg-elevated text-muted hover:text-default'
+                  : 'bg-elevated text-text-muted hover:text-text-default'
               }`}
             >
               {d}
@@ -180,7 +180,7 @@ export function InteractionsHub() {
         <select
           value={accountFilter}
           onChange={(e) => setAccountFilter(e.target.value)}
-          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-default focus:outline-none"
+          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-text-default focus:outline-none"
         >
           <option value="">All Accounts</option>
           {accounts?.map((a) => (
@@ -192,7 +192,7 @@ export function InteractionsHub() {
         <select
           value={repFilter}
           onChange={(e) => setRepFilter(e.target.value)}
-          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-default focus:outline-none"
+          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-text-default focus:outline-none"
         >
           <option value="">All Reps</option>
           {reps?.map((r) => (
@@ -214,9 +214,9 @@ export function InteractionsHub() {
 
       {/* Timeline */}
       <div className="rounded-xl border border-default bg-card p-4">
-        <h3 className="mb-4 text-sm font-medium text-bright">
+        <h3 className="mb-4 text-sm font-medium text-text-bright">
           Activity Timeline
-          <span className="ml-2 text-xs text-muted">({filtered.length} interactions)</span>
+          <span className="ml-2 text-xs text-text-muted">({filtered.length} interactions)</span>
         </h3>
         <TimelineView items={timelineItems} loading={isLoading} />
       </div>

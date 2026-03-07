@@ -110,10 +110,10 @@ export function FulfillmentDrawer({ order, open, onClose }: FulfillmentDrawerPro
         {/* Header info */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-lg font-semibold text-default">{order.accountName}</span>
+            <span className="text-lg font-semibold text-text-default">{order.accountName}</span>
             <StatusBadge label={effectiveStatus.replace(/-/g, ' ')} variant={statusVariant(effectiveStatus)} />
           </div>
-          <div className="flex flex-wrap gap-3 text-sm text-muted">
+          <div className="flex flex-wrap gap-3 text-sm text-text-muted">
             <span>Priority: <StatusBadge label={order.priority} variant={priorityVariant(order.priority)} size="sm" /></span>
             <span>Assignee: {order.assignee}</span>
             <span>Est: {order.estimatedMinutes}m</span>
@@ -124,7 +124,7 @@ export function FulfillmentDrawer({ order, open, onClose }: FulfillmentDrawerPro
         {/* Progress bar */}
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-muted">Pick Progress</span>
+            <span className="text-text-muted">Pick Progress</span>
             <span className="font-medium" style={{ color: ACCENT }}>
               {pickedCount} / {totalItems} items
             </span>
@@ -139,11 +139,11 @@ export function FulfillmentDrawer({ order, open, onClose }: FulfillmentDrawerPro
 
         {/* Pick list */}
         <div className="space-y-1">
-          <h4 className="text-sm font-medium text-muted mb-2">Pick List</h4>
+          <h4 className="text-sm font-medium text-text-muted mb-2">Pick List</h4>
           <div className="rounded-lg border border-default overflow-hidden">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-elevated text-muted">
+                <tr className="bg-elevated text-text-muted">
                   <th className="px-3 py-2 text-left w-8"></th>
                   <th className="px-3 py-2 text-left">Product</th>
                   <th className="px-3 py-2 text-left">SKU</th>
@@ -164,15 +164,15 @@ export function FulfillmentDrawer({ order, open, onClose }: FulfillmentDrawerPro
                         {isPicked ? (
                           <CheckSquare className="h-4 w-4" style={{ color: ACCENT }} />
                         ) : (
-                          <Square className="h-4 w-4 text-muted" />
+                          <Square className="h-4 w-4 text-text-muted" />
                         )}
                       </td>
-                      <td className={`px-3 py-2 ${isPicked ? 'line-through text-muted' : 'text-default'}`}>
+                      <td className={`px-3 py-2 ${isPicked ? 'line-through text-text-muted' : 'text-text-default'}`}>
                         {item.productName}
                       </td>
-                      <td className="px-3 py-2 text-muted font-mono text-xs">{item.sku}</td>
-                      <td className="px-3 py-2 text-right text-default">{item.quantity}</td>
-                      <td className="px-3 py-2 text-muted text-xs">{item.shelfLocation}</td>
+                      <td className="px-3 py-2 text-text-muted font-mono text-xs">{item.sku}</td>
+                      <td className="px-3 py-2 text-right text-text-default">{item.quantity}</td>
+                      <td className="px-3 py-2 text-text-muted text-xs">{item.shelfLocation}</td>
                     </tr>
                   );
                 })}
@@ -186,10 +186,10 @@ export function FulfillmentDrawer({ order, open, onClose }: FulfillmentDrawerPro
           <div className="rounded-xl border border-default bg-elevated p-4 space-y-2">
             <div className="flex items-center gap-2">
               <FileText className="h-4 w-4" style={{ color: ACCENT }} />
-              <h4 className="text-sm font-medium text-default">Manifest</h4>
+              <h4 className="text-sm font-medium text-text-default">Manifest</h4>
             </div>
-            <p className="text-sm text-muted">
-              Manifest #: <span className="font-mono text-default">{order.manifestNumber ?? 'MAN-2024-XXXX'}</span>
+            <p className="text-sm text-text-muted">
+              Manifest #: <span className="font-mono text-text-default">{order.manifestNumber ?? 'MAN-2024-XXXX'}</span>
             </p>
             <button className="text-sm underline" style={{ color: ACCENT }}>
               View Manifest Document

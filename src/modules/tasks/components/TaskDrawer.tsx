@@ -54,33 +54,33 @@ export function TaskDrawer({ task, open, onClose }: TaskDrawerProps) {
           />
           <StatusBadge variant={PRIORITY_VARIANT[task.priority]} label={task.priority} />
           <div className="flex items-center gap-1 rounded-full bg-elevated px-2 py-0.5">
-            <SourceIcon className="h-3 w-3 text-muted" />
-            <span className="text-[11px] text-muted">{SOURCE_LABEL[task.source]}</span>
+            <SourceIcon className="h-3 w-3 text-text-muted" />
+            <span className="text-[11px] text-text-muted">{SOURCE_LABEL[task.source]}</span>
           </div>
         </div>
 
         {/* Description */}
         <div>
-          <h4 className="text-xs font-semibold uppercase text-muted tracking-wider">Description</h4>
-          <p className="mt-1.5 text-sm text-default leading-relaxed">{task.description}</p>
+          <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Description</h4>
+          <p className="mt-1.5 text-sm text-text-default leading-relaxed">{task.description}</p>
         </div>
 
         {/* Details Grid */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <h4 className="text-xs font-semibold uppercase text-muted tracking-wider">Assignee</h4>
+            <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Assignee</h4>
             <div className="mt-1.5 flex items-center gap-2">
-              <User className="h-3.5 w-3.5 text-muted" />
-              <span className="text-sm text-default">{task.assignee}</span>
+              <User className="h-3.5 w-3.5 text-text-muted" />
+              <span className="text-sm text-text-default">{task.assignee}</span>
             </div>
           </div>
 
           {task.dueDate && (
             <div>
-              <h4 className="text-xs font-semibold uppercase text-muted tracking-wider">Due Date</h4>
+              <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Due Date</h4>
               <div className="mt-1.5 flex items-center gap-2">
-                <Calendar className="h-3.5 w-3.5 text-muted" />
-                <span className="text-sm text-default">
+                <Calendar className="h-3.5 w-3.5 text-text-muted" />
+                <span className="text-sm text-text-default">
                   {new Date(task.dueDate).toLocaleDateString('en-US', {
                     month: 'short',
                     day: 'numeric',
@@ -93,17 +93,17 @@ export function TaskDrawer({ task, open, onClose }: TaskDrawerProps) {
 
           {task.module && (
             <div>
-              <h4 className="text-xs font-semibold uppercase text-muted tracking-wider">Module</h4>
+              <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Module</h4>
               <div className="mt-1.5 flex items-center gap-2">
-                <Link2 className="h-3.5 w-3.5 text-muted" />
-                <span className="text-sm text-default">{task.module}</span>
+                <Link2 className="h-3.5 w-3.5 text-text-muted" />
+                <span className="text-sm text-text-default">{task.module}</span>
               </div>
             </div>
           )}
 
           <div>
-            <h4 className="text-xs font-semibold uppercase text-muted tracking-wider">Created</h4>
-            <p className="mt-1.5 text-sm text-default">
+            <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Created</h4>
+            <p className="mt-1.5 text-sm text-text-default">
               {new Date(task.createdAt).toLocaleDateString('en-US', {
                 month: 'short',
                 day: 'numeric',
@@ -116,12 +116,12 @@ export function TaskDrawer({ task, open, onClose }: TaskDrawerProps) {
         {/* Tags */}
         {task.tags.length > 0 && (
           <div>
-            <h4 className="text-xs font-semibold uppercase text-muted tracking-wider">Tags</h4>
+            <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Tags</h4>
             <div className="mt-1.5 flex flex-wrap gap-1.5">
               {task.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="flex items-center gap-1 rounded-full bg-elevated px-2 py-0.5 text-[11px] text-muted"
+                  className="flex items-center gap-1 rounded-full bg-elevated px-2 py-0.5 text-[11px] text-text-muted"
                 >
                   <Tag className="h-2.5 w-2.5" />
                   {tag}
@@ -147,9 +147,9 @@ export function TaskDrawer({ task, open, onClose }: TaskDrawerProps) {
 
         {/* Notes Placeholder */}
         <div>
-          <h4 className="text-xs font-semibold uppercase text-muted tracking-wider">Notes</h4>
+          <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Notes</h4>
           <div className="mt-1.5 rounded-lg border border-default bg-elevated p-3">
-            <p className="text-xs text-muted italic">No notes yet. Notes and comments coming soon.</p>
+            <p className="text-xs text-text-muted italic">No notes yet. Notes and comments coming soon.</p>
           </div>
         </div>
       </div>

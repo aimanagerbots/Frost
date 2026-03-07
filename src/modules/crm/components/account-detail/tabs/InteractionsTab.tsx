@@ -30,7 +30,7 @@ const CHANNEL_ICONS: Record<string, LucideIcon> = {
 
 const SENTIMENT_COLORS: Record<string, string> = {
   positive: '#00E5A0',
-  neutral: 'var(--text-muted)',
+  neutral: 'var(--text-text-muted)',
   negative: '#FB7185',
 };
 
@@ -74,8 +74,8 @@ export function InteractionsTab({ accountId }: InteractionsTabProps) {
       >
         <div className="space-y-4">
           <div>
-            <label className="mb-1 block text-sm text-muted">Channel</label>
-            <select className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-default focus:border-hover focus:outline-none">
+            <label className="mb-1 block text-sm text-text-muted">Channel</label>
+            <select className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:border-hover focus:outline-none">
               <option>Phone</option>
               <option>Email</option>
               <option>SMS</option>
@@ -84,10 +84,10 @@ export function InteractionsTab({ accountId }: InteractionsTabProps) {
             </select>
           </div>
           <div>
-            <label className="mb-1 block text-sm text-muted">Summary</label>
+            <label className="mb-1 block text-sm text-text-muted">Summary</label>
             <textarea
               rows={4}
-              className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-default placeholder:text-muted focus:border-hover focus:outline-none"
+              className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-hover focus:outline-none"
               placeholder="What was discussed..."
             />
           </div>

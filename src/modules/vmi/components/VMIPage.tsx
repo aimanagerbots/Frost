@@ -37,8 +37,8 @@ function AccountCard({
     >
       <div className="flex items-start justify-between">
         <div>
-          <h3 className="font-semibold text-bright">{account.accountName}</h3>
-          <p className="mt-0.5 text-xs text-muted">
+          <h3 className="font-semibold text-text-bright">{account.accountName}</h3>
+          <p className="mt-0.5 text-xs text-text-muted">
             Enrolled {new Date(account.enrolledDate).toLocaleDateString()}
           </p>
         </div>
@@ -54,21 +54,21 @@ function AccountCard({
       </div>
       <div className="mt-3 grid grid-cols-3 gap-2">
         <div>
-          <div className="text-lg font-bold text-bright">{account.skuCount}</div>
-          <div className="text-xs text-muted">SKUs</div>
+          <div className="text-lg font-bold text-text-bright">{account.skuCount}</div>
+          <div className="text-xs text-text-muted">SKUs</div>
         </div>
         <div>
-          <div className="text-lg font-bold text-bright">{account.totalVelocity}</div>
-          <div className="text-xs text-muted">Units/Day</div>
+          <div className="text-lg font-bold text-text-bright">{account.totalVelocity}</div>
+          <div className="text-xs text-text-muted">Units/Day</div>
         </div>
         <div>
-          <div className={cn('text-lg font-bold', account.reorderAlerts > 0 ? 'text-danger' : 'text-bright')}>
+          <div className={cn('text-lg font-bold', account.reorderAlerts > 0 ? 'text-danger' : 'text-text-bright')}>
             {account.reorderAlerts}
           </div>
-          <div className="text-xs text-muted">Reorders</div>
+          <div className="text-xs text-text-muted">Reorders</div>
         </div>
       </div>
-      <div className="mt-2 text-xs text-muted">
+      <div className="mt-2 text-xs text-text-muted">
         Last restock: {new Date(account.lastRestockDate).toLocaleDateString()}
       </div>
     </button>
@@ -81,9 +81,9 @@ function DailyEmailCard({ email }: { email: VMIDailyEmail }) {
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Mail className="h-4 w-4" style={{ color: ACCENT }} />
-          <h4 className="text-sm font-semibold text-bright">{email.accountName}</h4>
+          <h4 className="text-sm font-semibold text-text-bright">{email.accountName}</h4>
         </div>
-        <span className="text-xs text-muted">Rep: {email.repName}</span>
+        <span className="text-xs text-text-muted">Rep: {email.repName}</span>
       </div>
 
       {/* Reorder Items */}
@@ -99,7 +99,7 @@ function DailyEmailCard({ email }: { email: VMIDailyEmail }) {
                 key={item.sku}
                 className="flex items-center justify-between rounded-lg bg-elevated px-2.5 py-1.5 text-xs"
               >
-                <span className="text-default">{item.productName}</span>
+                <span className="text-text-default">{item.productName}</span>
                 <span className="font-semibold text-danger">+{item.reorderQty} units</span>
               </div>
             ))}
@@ -118,7 +118,7 @@ function DailyEmailCard({ email }: { email: VMIDailyEmail }) {
             {email.competitiveAlerts.map((alert, i) => (
               <div
                 key={i}
-                className="rounded-lg bg-elevated px-2.5 py-1.5 text-xs text-muted"
+                className="rounded-lg bg-elevated px-2.5 py-1.5 text-xs text-text-muted"
               >
                 {alert}
               </div>
@@ -127,7 +127,7 @@ function DailyEmailCard({ email }: { email: VMIDailyEmail }) {
         </div>
       )}
 
-      <div className="mt-3 flex items-center gap-1 text-xs text-muted">
+      <div className="mt-3 flex items-center gap-1 text-xs text-text-muted">
         <Clock className="h-3 w-3" />
         Generated {new Date(email.generatedAt).toLocaleTimeString()}
       </div>
@@ -194,7 +194,7 @@ export function VMIPage() {
 
       {/* Account Cards */}
       <div>
-        <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-bright">
+        <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-text-bright">
           <Package className="h-4 w-4" style={{ color: ACCENT }} />
           Enrolled Accounts
         </h2>
@@ -225,11 +225,11 @@ export function VMIPage() {
 
       {/* Daily Email Preview */}
       <div>
-        <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-bright">
+        <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-text-bright">
           <Mail className="h-4 w-4" style={{ color: ACCENT }} />
           Daily Email Preview
         </h2>
-        <p className="mb-3 text-xs text-muted">
+        <p className="mb-3 text-xs text-text-muted">
           Automated morning briefing sent to account reps with reorder recommendations and competitive intelligence.
         </p>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

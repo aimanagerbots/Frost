@@ -37,12 +37,12 @@ export function ChatMessage({ message, isRevealing }: ChatMessageProps) {
         <div
           className={`inline-block rounded-xl px-4 py-3 text-sm leading-relaxed ${
             isUser
-              ? 'bg-[#F59E0B]/10 text-default'
-              : 'bg-card border border-default text-default'
+              ? 'bg-[#F59E0B]/10 text-text-default'
+              : 'bg-card border border-default text-text-default'
           } ${isRevealing ? 'copilot-reveal' : ''}`}
         >
           {/* Render markdown-like content with line breaks */}
-          <div className="whitespace-pre-wrap [&_strong]:font-semibold [&_strong]:text-bright">
+          <div className="whitespace-pre-wrap [&_strong]:font-semibold [&_strong]:text-text-bright">
             {message.content.split('\n').map((line, i) => {
               // Bold text
               const parts = line.split(/(\*\*[^*]+\*\*)/g);
@@ -69,7 +69,7 @@ export function ChatMessage({ message, isRevealing }: ChatMessageProps) {
               return (
                 <span
                   key={source.label}
-                  className="inline-flex items-center gap-1 rounded-full bg-base border border-default px-2 py-0.5 text-xs text-muted"
+                  className="inline-flex items-center gap-1 rounded-full bg-base border border-default px-2 py-0.5 text-xs text-text-muted"
                 >
                   <Icon className="h-3 w-3" />
                   {source.label}

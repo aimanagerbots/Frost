@@ -51,7 +51,7 @@ export function TasksPage() {
       accessor: 'title' as const,
       sortable: true,
       render: (row: Task) => (
-        <span className="text-sm font-medium text-bright">{row.title}</span>
+        <span className="text-sm font-medium text-text-bright">{row.title}</span>
       ),
     },
     {
@@ -96,7 +96,7 @@ export function TasksPage() {
       accessor: 'source' as const,
       sortable: true,
       render: (row: Task) => (
-        <span className="text-xs text-muted capitalize">{row.source.replace('-', ' ')}</span>
+        <span className="text-xs text-text-muted capitalize">{row.source.replace('-', ' ')}</span>
       ),
     },
     {
@@ -105,7 +105,7 @@ export function TasksPage() {
       sortable: true,
       render: (row: Task) =>
         row.module ? (
-          <span className="rounded-full bg-elevated px-2 py-0.5 text-[10px] text-muted">
+          <span className="rounded-full bg-elevated px-2 py-0.5 text-[10px] text-text-muted">
             {row.module}
           </span>
         ) : (
@@ -132,8 +132,8 @@ export function TasksPage() {
               onClick={() => setViewMode('board')}
               className={`rounded-md p-1.5 transition-colors ${
                 viewMode === 'board'
-                  ? 'bg-card text-bright'
-                  : 'text-muted hover:text-default'
+                  ? 'bg-card text-text-bright'
+                  : 'text-text-muted hover:text-text-default'
               }`}
               aria-label="Board view"
             >
@@ -143,8 +143,8 @@ export function TasksPage() {
               onClick={() => setViewMode('list')}
               className={`rounded-md p-1.5 transition-colors ${
                 viewMode === 'list'
-                  ? 'bg-card text-bright'
-                  : 'text-muted hover:text-default'
+                  ? 'bg-card text-text-bright'
+                  : 'text-text-muted hover:text-text-default'
               }`}
               aria-label="List view"
             >

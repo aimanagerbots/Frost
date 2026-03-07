@@ -37,8 +37,8 @@ function HarvestCard({ harvest }: HarvestCardProps) {
     <div className="min-w-[220px] shrink-0 rounded-xl border border-default bg-card p-4">
       <div className="flex items-start justify-between">
         <div>
-          <h4 className="text-sm font-semibold text-bright">{harvest.strainName}</h4>
-          <div className="mt-1 flex items-center gap-1 text-xs text-muted">
+          <h4 className="text-sm font-semibold text-text-bright">{harvest.strainName}</h4>
+          <div className="mt-1 flex items-center gap-1 text-xs text-text-muted">
             <Calendar className="h-3 w-3" />
             {formatDate(harvest.harvestDate)}
           </div>
@@ -50,7 +50,7 @@ function HarvestCard({ harvest }: HarvestCardProps) {
         />
       </div>
 
-      <div className="mt-3 flex items-center gap-1 text-xs text-muted">
+      <div className="mt-3 flex items-center gap-1 text-xs text-text-muted">
         <Leaf className="h-3 w-3" />
         {harvest.plantCount} plants
       </div>
@@ -58,19 +58,19 @@ function HarvestCard({ harvest }: HarvestCardProps) {
       {harvest.status === 'complete' && (
         <div className="mt-3 space-y-1.5 border-t border-default pt-3">
           <div className="flex items-center justify-between text-xs">
-            <span className="flex items-center gap-1 text-muted">
+            <span className="flex items-center gap-1 text-text-muted">
               <Scale className="h-3 w-3" />
               Dry Weight
             </span>
-            <span className="font-medium text-bright">{formatWeight(harvest.dryWeight)}</span>
+            <span className="font-medium text-text-bright">{formatWeight(harvest.dryWeight)}</span>
           </div>
           <div className="flex items-center justify-between text-xs">
-            <span className="text-muted">Yield / Plant</span>
-            <span className="font-medium text-bright">{harvest.yieldPerPlant} g</span>
+            <span className="text-text-muted">Yield / Plant</span>
+            <span className="font-medium text-text-bright">{harvest.yieldPerPlant} g</span>
           </div>
           <div className="flex items-center justify-between text-xs">
-            <span className="text-muted">Dry Ratio</span>
-            <span className="font-medium text-bright">{harvest.dryRatio}%</span>
+            <span className="text-text-muted">Dry Ratio</span>
+            <span className="font-medium text-text-bright">{harvest.dryRatio}%</span>
           </div>
         </div>
       )}
@@ -78,8 +78,8 @@ function HarvestCard({ harvest }: HarvestCardProps) {
       {harvest.status === 'drying' && harvest.wetWeight > 0 && (
         <div className="mt-3 border-t border-default pt-3">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-muted">Wet Weight</span>
-            <span className="font-medium text-bright">{formatWeight(harvest.wetWeight)}</span>
+            <span className="text-text-muted">Wet Weight</span>
+            <span className="font-medium text-text-bright">{formatWeight(harvest.wetWeight)}</span>
           </div>
         </div>
       )}
@@ -105,7 +105,7 @@ export function HarvestTimeline() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-sm font-semibold text-bright">Harvest Timeline</h2>
+      <h2 className="text-sm font-semibold text-text-bright">Harvest Timeline</h2>
       {sections.map((section) =>
         section.items.length > 0 ? (
           <div key={section.label}>
@@ -114,7 +114,7 @@ export function HarvestTimeline() {
                 className="h-2 w-2 rounded-full"
                 style={{ backgroundColor: section.accent }}
               />
-              <span className="text-xs font-medium text-muted">
+              <span className="text-xs font-medium text-text-muted">
                 {section.label} ({section.items.length})
               </span>
             </div>

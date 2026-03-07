@@ -72,7 +72,7 @@ export function PriceBook() {
       accessor: 'productName' as const,
       sortable: true,
       render: (row) => (
-        <span className="font-medium text-bright">{row.productName as string}</span>
+        <span className="font-medium text-text-bright">{row.productName as string}</span>
       ),
     },
     {
@@ -97,7 +97,7 @@ export function PriceBook() {
       accessor: 'defaultPrice' as const,
       sortable: true,
       render: (row) => (
-        <span className="text-right font-medium text-bright">{formatCurrency(row.defaultPrice as number)}</span>
+        <span className="text-right font-medium text-text-bright">{formatCurrency(row.defaultPrice as number)}</span>
       ),
     },
     {
@@ -105,7 +105,7 @@ export function PriceBook() {
       accessor: 'cost' as const,
       sortable: true,
       render: (row) => (
-        <span className="text-right text-default">{formatCurrency(row.cost as number)}</span>
+        <span className="text-right text-text-default">{formatCurrency(row.cost as number)}</span>
       ),
     },
     {
@@ -122,21 +122,21 @@ export function PriceBook() {
       header: 'Tier 1',
       accessor: 'tier1Price' as const,
       render: (row) => (
-        <span className="text-right text-muted">{formatCurrency(row.tier1Price as number)}</span>
+        <span className="text-right text-text-muted">{formatCurrency(row.tier1Price as number)}</span>
       ),
     },
     {
       header: 'Tier 2',
       accessor: 'tier2Price' as const,
       render: (row) => (
-        <span className="text-right text-default">{formatCurrency(row.tier2Price as number)}</span>
+        <span className="text-right text-text-default">{formatCurrency(row.tier2Price as number)}</span>
       ),
     },
     {
       header: 'Tier 3',
       accessor: 'tier3Price' as const,
       render: (row) => (
-        <span className="text-right text-bright">{formatCurrency(row.tier3Price as number)}</span>
+        <span className="text-right text-text-bright">{formatCurrency(row.tier3Price as number)}</span>
       ),
     },
   ];
@@ -149,7 +149,7 @@ export function PriceBook() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search products..."
-          className="w-64 rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-default placeholder:text-muted outline-none focus:border-hover"
+          className="w-64 rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-text-default placeholder:text-text-muted outline-none focus:border-hover"
         />
         <div className="flex flex-wrap gap-1">
           {CATEGORIES.map((cat) => (
@@ -158,8 +158,8 @@ export function PriceBook() {
               onClick={() => toggleCategory(cat)}
               className={`rounded-md px-2.5 py-1 text-xs font-medium capitalize transition-colors ${
                 selectedCategories.includes(cat)
-                  ? 'bg-elevated text-bright'
-                  : 'text-muted hover:text-default'
+                  ? 'bg-elevated text-text-bright'
+                  : 'text-text-muted hover:text-text-default'
               }`}
             >
               {cat}

@@ -12,7 +12,7 @@ interface PipelineVisualizationProps {
 export function PipelineVisualization({ groups, activeState, onStateClick }: PipelineVisualizationProps) {
   return (
     <div className="rounded-xl border border-default bg-card p-4">
-      <h3 className="mb-4 text-sm font-semibold text-bright">Production Pipeline</h3>
+      <h3 className="mb-4 text-sm font-semibold text-text-bright">Production Pipeline</h3>
       <div className="space-y-3">
         {groups.map((group) => (
           <div key={group.division} className="flex items-start gap-3">
@@ -23,9 +23,9 @@ export function PipelineVisualization({ groups, activeState, onStateClick }: Pip
                   className="h-2.5 w-2.5 rounded-full flex-shrink-0"
                   style={{ backgroundColor: group.color }}
                 />
-                <span className="text-xs font-medium text-bright">{group.label}</span>
+                <span className="text-xs font-medium text-text-bright">{group.label}</span>
               </div>
-              <span className="ml-[18px] text-[10px] text-muted">{group.totalItems} items</span>
+              <span className="ml-[18px] text-[10px] text-text-muted">{group.totalItems} items</span>
             </div>
 
             {/* State nodes */}
@@ -46,12 +46,12 @@ export function PipelineVisualization({ groups, activeState, onStateClick }: Pip
                     >
                       {state.count}
                     </div>
-                    <span className="text-[9px] text-muted whitespace-nowrap leading-tight text-center max-w-[70px] truncate">
+                    <span className="text-[9px] text-text-muted whitespace-nowrap leading-tight text-center max-w-[70px] truncate">
                       {state.label}
                     </span>
                   </button>
                   {i < group.states.length - 1 && (
-                    <ChevronRight className="h-3 w-3 flex-shrink-0 text-muted/30" />
+                    <ChevronRight className="h-3 w-3 flex-shrink-0 text-text-muted/30" />
                   )}
                 </div>
               ))}
@@ -61,7 +61,7 @@ export function PipelineVisualization({ groups, activeState, onStateClick }: Pip
       </div>
 
       {/* Division flow arrows */}
-      <div className="mt-3 flex items-center justify-center gap-2 text-[10px] text-muted">
+      <div className="mt-3 flex items-center justify-center gap-2 text-[10px] text-text-muted">
         <span>Cultivation</span>
         <ChevronRight className="h-3 w-3" />
         <span>Manufacturing</span>

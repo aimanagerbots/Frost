@@ -41,11 +41,11 @@ export function WinLossDrawer({ entry, onClose }: WinLossDrawerProps) {
 
         {/* Key info */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="flex items-center gap-2 text-sm text-muted">
+          <div className="flex items-center gap-2 text-sm text-text-muted">
             <Calendar className="h-4 w-4" />
             <span>{new Date(entry.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-muted">
+          <div className="flex items-center gap-2 text-sm text-text-muted">
             <DollarSign className="h-4 w-4" />
             <span className={`font-medium ${entry.outcome === 'won' ? 'text-success' : 'text-danger'}`}>
               {entry.outcome === 'won' ? '+' : '-'}${entry.revenueImpact.toLocaleString()}/mo
@@ -55,13 +55,13 @@ export function WinLossDrawer({ entry, onClose }: WinLossDrawerProps) {
 
         {/* Reason */}
         <div className="rounded-xl border border-default bg-base p-4">
-          <h4 className="mb-2 text-sm font-medium text-bright">Reason</h4>
-          <p className="text-sm text-default leading-relaxed">{entry.reason}</p>
+          <h4 className="mb-2 text-sm font-medium text-text-bright">Reason</h4>
+          <p className="text-sm text-text-default leading-relaxed">{entry.reason}</p>
         </div>
 
         {/* Products affected */}
         <div>
-          <h4 className="mb-2 flex items-center gap-2 text-sm font-medium text-bright">
+          <h4 className="mb-2 flex items-center gap-2 text-sm font-medium text-text-bright">
             <Package className="h-4 w-4" /> Products Affected
           </h4>
           <div className="flex flex-wrap gap-1.5">
@@ -74,19 +74,19 @@ export function WinLossDrawer({ entry, onClose }: WinLossDrawerProps) {
         {/* Competitor analysis */}
         {entry.competitor && (
           <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
-            <h4 className="mb-2 flex items-center gap-2 text-sm font-medium text-bright">
+            <h4 className="mb-2 flex items-center gap-2 text-sm font-medium text-text-bright">
               <Building2 className="h-4 w-4 text-danger" /> Competitor
             </h4>
-            <p className="text-sm text-default">{entry.competitor}</p>
+            <p className="text-sm text-text-default">{entry.competitor}</p>
           </div>
         )}
 
         {/* Detailed notes */}
         <div>
-          <h4 className="mb-2 flex items-center gap-2 text-sm font-medium text-bright">
+          <h4 className="mb-2 flex items-center gap-2 text-sm font-medium text-text-bright">
             <FileText className="h-4 w-4" /> Notes & Lessons Learned
           </h4>
-          <p className="text-sm text-muted leading-relaxed">{entry.notes}</p>
+          <p className="text-sm text-text-muted leading-relaxed">{entry.notes}</p>
         </div>
       </div>
     </DrawerPanel>

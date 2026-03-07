@@ -104,7 +104,7 @@ export function ProductsPage() {
                 style={{ borderTopColor: stage.color, borderTopWidth: 3 }}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-text-muted)]">
                     {stage.label}
                   </span>
                   <span
@@ -125,7 +125,7 @@ export function ProductsPage() {
                     onClick={() => setSelectedConcept(concept)}
                     className="w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] p-3 text-left transition-colors hover:border-[#DB2777] cursor-pointer"
                   >
-                    <h4 className="text-sm font-medium leading-snug text-[var(--text-default)]">
+                    <h4 className="text-sm font-medium leading-snug text-[var(--text-text-default)]">
                       {concept.name}
                     </h4>
                     <div className="mt-2">
@@ -135,11 +135,11 @@ export function ProductsPage() {
                         size="sm"
                       />
                     </div>
-                    <div className="mt-2 flex items-center gap-1 text-xs text-[var(--text-muted)]">
+                    <div className="mt-2 flex items-center gap-1 text-xs text-[var(--text-text-muted)]">
                       <User className="h-3 w-3" />
                       <span>{concept.assignee}</span>
                     </div>
-                    <div className="mt-1 flex items-center gap-1 text-xs text-[var(--text-muted)]">
+                    <div className="mt-1 flex items-center gap-1 text-xs text-[var(--text-text-muted)]">
                       <Calendar className="h-3 w-3" />
                       <span>
                         {new Date(concept.targetLaunch).toLocaleDateString('en-US', {
@@ -150,7 +150,7 @@ export function ProductsPage() {
                       </span>
                     </div>
                     {concept.estimatedMargin != null && (
-                      <div className="mt-1 flex items-center gap-1 text-xs text-[var(--text-muted)]">
+                      <div className="mt-1 flex items-center gap-1 text-xs text-[var(--text-text-muted)]">
                         <TrendingUp className="h-3 w-3" />
                         <span>{concept.estimatedMargin}% margin</span>
                       </div>
@@ -159,7 +159,7 @@ export function ProductsPage() {
                 ))}
 
                 {stageConcepts.length === 0 && (
-                  <div className="rounded-lg border border-dashed border-[var(--border-default)] px-3 py-6 text-center text-xs text-[var(--text-muted)]">
+                  <div className="rounded-lg border border-dashed border-[var(--border-default)] px-3 py-6 text-center text-xs text-[var(--text-text-muted)]">
                     No concepts
                   </div>
                 )}
@@ -193,20 +193,20 @@ export function ProductsPage() {
             </div>
 
             <div>
-              <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
+              <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">
                 Description
               </label>
-              <p className="mt-1 text-sm leading-relaxed text-[var(--text-default)]">
+              <p className="mt-1 text-sm leading-relaxed text-[var(--text-text-default)]">
                 {selectedConcept.description}
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
+                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">
                   Target Launch
                 </label>
-                <p className="mt-1 text-sm text-[var(--text-default)]">
+                <p className="mt-1 text-sm text-[var(--text-text-default)]">
                   {new Date(selectedConcept.targetLaunch).toLocaleDateString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -215,10 +215,10 @@ export function ProductsPage() {
                 </p>
               </div>
               <div>
-                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
+                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">
                   Assignee
                 </label>
-                <p className="mt-1 text-sm text-[var(--text-default)]">
+                <p className="mt-1 text-sm text-[var(--text-text-default)]">
                   {selectedConcept.assignee}
                 </p>
               </div>
@@ -226,10 +226,10 @@ export function ProductsPage() {
 
             {selectedConcept.estimatedMargin != null && (
               <div>
-                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
+                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">
                   Estimated Margin
                 </label>
-                <p className="mt-1 text-sm text-[var(--text-default)]">
+                <p className="mt-1 text-sm text-[var(--text-text-default)]">
                   {selectedConcept.estimatedMargin}%
                 </p>
               </div>
@@ -237,10 +237,10 @@ export function ProductsPage() {
 
             {selectedConcept.strainName && (
               <div>
-                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
+                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">
                   Strain
                 </label>
-                <p className="mt-1 text-sm text-[var(--text-default)]">
+                <p className="mt-1 text-sm text-[var(--text-text-default)]">
                   {selectedConcept.strainName}
                 </p>
               </div>
@@ -248,14 +248,14 @@ export function ProductsPage() {
 
             {selectedConcept.targetAccounts && selectedConcept.targetAccounts.length > 0 && (
               <div>
-                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
+                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">
                   Target Accounts
                 </label>
                 <div className="mt-1 flex flex-wrap gap-1.5">
                   {selectedConcept.targetAccounts.map((account) => (
                     <span
                       key={account}
-                      className="rounded-full bg-[var(--bg-elevated)] px-2.5 py-0.5 text-xs text-[var(--text-muted)]"
+                      className="rounded-full bg-[var(--bg-elevated)] px-2.5 py-0.5 text-xs text-[var(--text-text-muted)]"
                     >
                       {account}
                     </span>
@@ -266,10 +266,10 @@ export function ProductsPage() {
 
             {selectedConcept.notes && (
               <div>
-                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
+                <label className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">
                   Notes
                 </label>
-                <p className="mt-1 text-sm leading-relaxed text-[var(--text-default)]">
+                <p className="mt-1 text-sm leading-relaxed text-[var(--text-text-default)]">
                   {selectedConcept.notes}
                 </p>
               </div>

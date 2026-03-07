@@ -72,7 +72,7 @@ export function VendorDays() {
       accessor: 'accountName' as const,
       sortable: true,
       render: (row: VendorDayRow) => (
-        <span className="font-medium text-bright">{row.accountName as string}</span>
+        <span className="font-medium text-text-bright">{row.accountName as string}</span>
       ),
     },
     {
@@ -103,7 +103,7 @@ export function VendorDays() {
       header: 'Report',
       accessor: ((row: VendorDayRow) => row.report ? 'yes' : 'no') as (row: VendorDayRow) => unknown,
       render: (row: VendorDayRow) => {
-        if ((row.status as string) !== 'completed') return <span className="text-muted">—</span>;
+        if ((row.status as string) !== 'completed') return <span className="text-text-muted">—</span>;
         return row.report ? (
           <span className="text-success">&#10003;</span>
         ) : (
@@ -128,7 +128,7 @@ export function VendorDays() {
         <button
           onClick={() => setView('calendar')}
           className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm transition-colors ${
-            view === 'calendar' ? 'bg-amber-500/20 text-amber-400' : 'bg-elevated text-muted hover:text-default'
+            view === 'calendar' ? 'bg-amber-500/20 text-amber-400' : 'bg-elevated text-text-muted hover:text-text-default'
           }`}
         >
           <Calendar className="h-4 w-4" />
@@ -137,7 +137,7 @@ export function VendorDays() {
         <button
           onClick={() => setView('list')}
           className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm transition-colors ${
-            view === 'list' ? 'bg-amber-500/20 text-amber-400' : 'bg-elevated text-muted hover:text-default'
+            view === 'list' ? 'bg-amber-500/20 text-amber-400' : 'bg-elevated text-text-muted hover:text-text-default'
           }`}
         >
           <List className="h-4 w-4" />

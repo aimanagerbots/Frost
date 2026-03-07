@@ -34,8 +34,8 @@ function getDueDateDisplay(dueDate?: string): { text: string; className: string 
 
   if (diffDays < 0) return { text: `${Math.abs(diffDays)}d overdue`, className: 'text-danger' };
   if (diffDays === 0) return { text: 'Due today', className: 'text-warning' };
-  if (diffDays === 1) return { text: 'Due tomorrow', className: 'text-muted' };
-  return { text: `Due in ${diffDays}d`, className: 'text-muted' };
+  if (diffDays === 1) return { text: 'Due tomorrow', className: 'text-text-muted' };
+  return { text: `Due in ${diffDays}d`, className: 'text-text-muted' };
 }
 
 export function TaskCard({ task, onClick }: TaskCardProps) {
@@ -50,12 +50,12 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === 'Enter') onClick(task); }}
     >
-      <p className="text-sm font-medium text-bright line-clamp-2 leading-snug">{task.title}</p>
+      <p className="text-sm font-medium text-text-bright line-clamp-2 leading-snug">{task.title}</p>
 
       <div className="mt-2 flex items-center gap-2">
         <StatusBadge variant={PRIORITY_VARIANT[task.priority]} label={task.priority} size="sm" />
         {task.module && (
-          <span className="rounded-full bg-elevated px-1.5 py-0.5 text-[10px] text-muted">
+          <span className="rounded-full bg-elevated px-1.5 py-0.5 text-[10px] text-text-muted">
             {task.module}
           </span>
         )}
@@ -63,8 +63,8 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
 
       <div className="mt-2 flex items-center justify-between">
         <div className="flex items-center gap-1.5">
-          <SourceIcon className="h-3 w-3 text-muted" />
-          <span className="text-[11px] text-muted">{task.assignee.split(' ')[0]}</span>
+          <SourceIcon className="h-3 w-3 text-text-muted" />
+          <span className="text-[11px] text-text-muted">{task.assignee.split(' ')[0]}</span>
         </div>
         {dueDisplay && (
           <div className={cn('flex items-center gap-1 text-[11px]', dueDisplay.className)}>

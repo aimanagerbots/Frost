@@ -91,25 +91,25 @@ export function TimelineView({
               >
                 <Icon
                   className="h-3.5 w-3.5"
-                  style={{ color: item.iconColor || 'var(--text-muted)' }}
+                  style={{ color: item.iconColor || 'var(--text-text-muted)' }}
                 />
               </div>
 
               {/* Content */}
               <div className="min-w-0 flex-1">
                 <div className="flex items-start justify-between gap-2">
-                  <p className="text-sm text-default">{item.title}</p>
-                  <span className="shrink-0 text-xs text-muted">
+                  <p className="text-sm text-text-default">{item.title}</p>
+                  <span className="shrink-0 text-xs text-text-muted">
                     {formatTimestamp(item.timestamp)}
                   </span>
                 </div>
                 {item.description && (
-                  <p className="mt-0.5 text-xs text-muted line-clamp-2">
+                  <p className="mt-0.5 text-xs text-text-muted line-clamp-2">
                     {item.description}
                   </p>
                 )}
                 {(item.user || item.channel) && (
-                  <div className="mt-1 flex items-center gap-2 text-xs text-muted">
+                  <div className="mt-1 flex items-center gap-2 text-xs text-text-muted">
                     {item.user && <span>{item.user}</span>}
                     {item.user && item.channel && <span>·</span>}
                     {item.channel && <span>{item.channel}</span>}

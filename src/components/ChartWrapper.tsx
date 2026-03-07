@@ -67,10 +67,10 @@ export function ChartWrapper({
       {(title || subtitle) && (
         <div className="mb-4">
           {title && (
-            <h3 className="text-sm font-semibold text-bright">{title}</h3>
+            <h3 className="text-sm font-semibold text-text-bright">{title}</h3>
           )}
           {subtitle && (
-            <p className="mt-0.5 text-xs text-muted">{subtitle}</p>
+            <p className="mt-0.5 text-xs text-text-muted">{subtitle}</p>
           )}
         </div>
       )}

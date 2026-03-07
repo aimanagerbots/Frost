@@ -128,8 +128,8 @@ export function ProjectsPage() {
             onClick={() => setStatusFilter(opt.value)}
             className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
               statusFilter === opt.value
-                ? 'bg-[var(--bg-elevated)] text-[var(--text-bright)]'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-default)]'
+                ? 'bg-[var(--bg-elevated)] text-[var(--text-text-bright)]'
+                : 'text-[var(--text-text-muted)] hover:text-[var(--text-text-default)]'
             }`}
           >
             {opt.label}
@@ -152,7 +152,7 @@ export function ProjectsPage() {
             >
               {/* Header row */}
               <div className="flex items-start justify-between gap-3">
-                <h3 className="text-sm font-semibold text-[var(--text-bright)] leading-snug">
+                <h3 className="text-sm font-semibold text-[var(--text-text-bright)] leading-snug">
                   {project.name}
                 </h3>
                 <StatusBadge
@@ -163,12 +163,12 @@ export function ProjectsPage() {
               </div>
 
               {/* Description */}
-              <p className="mt-2 line-clamp-2 text-xs text-[var(--text-muted)] leading-relaxed">
+              <p className="mt-2 line-clamp-2 text-xs text-[var(--text-text-muted)] leading-relaxed">
                 {project.description}
               </p>
 
               {/* Lead */}
-              <div className="mt-3 flex items-center gap-1.5 text-xs text-[var(--text-muted)]">
+              <div className="mt-3 flex items-center gap-1.5 text-xs text-[var(--text-text-muted)]">
                 <User className="h-3.5 w-3.5" />
                 <span>{project.lead}</span>
               </div>
@@ -184,8 +184,8 @@ export function ProjectsPage() {
               {/* Progress Bar */}
               <div className="mt-4">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-[var(--text-muted)]">Progress</span>
-                  <span className="font-medium text-[var(--text-default)]">
+                  <span className="text-[var(--text-text-muted)]">Progress</span>
+                  <span className="font-medium text-[var(--text-text-default)]">
                     {project.progress}%
                   </span>
                 </div>
@@ -201,7 +201,7 @@ export function ProjectsPage() {
               </div>
 
               {/* Footer */}
-              <div className="mt-3 flex items-center justify-between text-xs text-[var(--text-muted)]">
+              <div className="mt-3 flex items-center justify-between text-xs text-[var(--text-text-muted)]">
                 <span>
                   {done} of {total} milestones
                 </span>
@@ -218,8 +218,8 @@ export function ProjectsPage() {
       {/* Empty state */}
       {projects?.length === 0 && (
         <div className="flex flex-col items-center justify-center py-16 text-center">
-          <FolderKanban className="h-12 w-12 text-[var(--text-muted)]" />
-          <p className="mt-3 text-sm text-[var(--text-muted)]">
+          <FolderKanban className="h-12 w-12 text-[var(--text-text-muted)]" />
+          <p className="mt-3 text-sm text-[var(--text-text-muted)]">
             No projects match the current filter.
           </p>
         </div>
@@ -241,27 +241,27 @@ export function ProjectsPage() {
                 label={STATUS_LABEL[selectedProject.status]}
                 dot
               />
-              <span className="text-sm text-[var(--text-muted)]">
-                Lead: <span className="text-[var(--text-default)]">{selectedProject.lead}</span>
+              <span className="text-sm text-[var(--text-text-muted)]">
+                Lead: <span className="text-[var(--text-text-default)]">{selectedProject.lead}</span>
               </span>
             </div>
 
             {/* Description */}
-            <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+            <p className="text-sm leading-relaxed text-[var(--text-text-muted)]">
               {selectedProject.description}
             </p>
 
             {/* Dates */}
             <div className="flex flex-wrap gap-6 text-sm">
               <div>
-                <span className="text-[var(--text-muted)]">Start: </span>
-                <span className="text-[var(--text-default)]">
+                <span className="text-[var(--text-text-muted)]">Start: </span>
+                <span className="text-[var(--text-text-default)]">
                   {formatDate(selectedProject.startDate)}
                 </span>
               </div>
               <div>
-                <span className="text-[var(--text-muted)]">Target: </span>
-                <span className="text-[var(--text-default)]">
+                <span className="text-[var(--text-text-muted)]">Target: </span>
+                <span className="text-[var(--text-text-default)]">
                   {formatDate(selectedProject.targetDate)}
                 </span>
               </div>
@@ -270,8 +270,8 @@ export function ProjectsPage() {
             {/* Progress Bar (larger) */}
             <div>
               <div className="flex items-center justify-between text-sm">
-                <span className="font-medium text-[var(--text-default)]">Progress</span>
-                <span className="font-semibold text-[var(--text-bright)]">
+                <span className="font-medium text-[var(--text-text-default)]">Progress</span>
+                <span className="font-semibold text-[var(--text-text-bright)]">
                   {selectedProject.progress}%
                 </span>
               </div>
@@ -288,7 +288,7 @@ export function ProjectsPage() {
 
             {/* Milestones */}
             <div>
-              <h3 className="mb-3 text-sm font-semibold text-[var(--text-bright)]">
+              <h3 className="mb-3 text-sm font-semibold text-[var(--text-text-bright)]">
                 Milestones ({completedMilestones(selectedProject)} / {selectedProject.milestones.length})
               </h3>
               <div className="space-y-3">
@@ -305,17 +305,17 @@ export function ProjectsPage() {
                       ) : overdue ? (
                         <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#EF4444]" />
                       ) : (
-                        <Circle className="mt-0.5 h-5 w-5 shrink-0 text-[var(--text-muted)]" />
+                        <Circle className="mt-0.5 h-5 w-5 shrink-0 text-[var(--text-text-muted)]" />
                       )}
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between gap-2">
                           <span
                             className={`text-sm font-medium ${
                               milestone.completed
-                                ? 'text-[var(--text-muted)] line-through'
+                                ? 'text-[var(--text-text-muted)] line-through'
                                 : overdue
                                   ? 'text-[#EF4444]'
-                                  : 'text-[var(--text-default)]'
+                                  : 'text-[var(--text-text-default)]'
                             }`}
                           >
                             {milestone.title}
@@ -324,14 +324,14 @@ export function ProjectsPage() {
                             className={`shrink-0 text-xs ${
                               overdue
                                 ? 'font-medium text-[#EF4444]'
-                                : 'text-[var(--text-muted)]'
+                                : 'text-[var(--text-text-muted)]'
                             }`}
                           >
                             {formatDate(milestone.dueDate)}
                           </span>
                         </div>
                         {milestone.description && (
-                          <p className="mt-1 text-xs text-[var(--text-muted)]">
+                          <p className="mt-1 text-xs text-[var(--text-text-muted)]">
                             {milestone.description}
                           </p>
                         )}
@@ -344,14 +344,14 @@ export function ProjectsPage() {
 
             {/* Team Members */}
             <div>
-              <h3 className="mb-3 text-sm font-semibold text-[var(--text-bright)]">
+              <h3 className="mb-3 text-sm font-semibold text-[var(--text-text-bright)]">
                 Team ({selectedProject.members.length})
               </h3>
               <div className="flex flex-wrap gap-2">
                 {selectedProject.members.map((member) => (
                   <span
                     key={member}
-                    className="rounded-full bg-[var(--bg-elevated)] px-3 py-1 text-sm text-[var(--text-default)]"
+                    className="rounded-full bg-[var(--bg-elevated)] px-3 py-1 text-sm text-[var(--text-text-default)]"
                   >
                     {member}
                   </span>

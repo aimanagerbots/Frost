@@ -95,7 +95,7 @@ export function MonthView({ currentDate, events, onSelectDate, onSelectEvent }: 
         {DAY_HEADERS.map((day) => (
           <div
             key={day}
-            className="px-2 py-2 text-center text-xs font-medium text-muted uppercase tracking-wide"
+            className="px-2 py-2 text-center text-xs font-medium text-text-muted uppercase tracking-wide"
           >
             {day}
           </div>
@@ -123,8 +123,8 @@ export function MonthView({ currentDate, events, onSelectDate, onSelectEvent }: 
                     cell.isToday
                       ? 'bg-[#3B82F6] font-bold text-white'
                       : cell.isCurrentMonth
-                        ? 'text-default'
-                        : 'text-muted/50'
+                        ? 'text-text-default'
+                        : 'text-text-muted/50'
                   )}
                 >
                   {cell.date.getDate()}
@@ -144,7 +144,7 @@ export function MonthView({ currentDate, events, onSelectDate, onSelectEvent }: 
                     />
                   ))}
                   {overflow > 0 && (
-                    <span className="mt-0.5 text-[10px] font-medium text-muted px-1">
+                    <span className="mt-0.5 text-[10px] font-medium text-text-muted px-1">
                       +{overflow} more
                     </span>
                   )}

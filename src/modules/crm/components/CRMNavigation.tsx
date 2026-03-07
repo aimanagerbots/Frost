@@ -122,16 +122,16 @@ export function CRMNavigation() {
       <div className="flex items-center gap-2 rounded-lg border border-default bg-card px-3 py-2">
         <button
           onClick={toggleTabBar}
-          className="flex items-center gap-1 text-xs text-muted hover:text-default transition-colors"
+          className="flex items-center gap-1 text-xs text-text-muted hover:text-text-default transition-colors"
         >
           <ChevronDown className="h-3.5 w-3.5" />
           <span>Expand</span>
         </button>
-        <ChevronRight className="h-3 w-3 text-muted" />
-        <span className="text-xs font-medium text-default">
+        <ChevronRight className="h-3 w-3 text-text-muted" />
+        <span className="text-xs font-medium text-text-default">
           {activeTabConfig?.label}
         </span>
-        <ChevronRight className="h-3 w-3 text-muted" />
+        <ChevronRight className="h-3 w-3 text-text-muted" />
         <span className="text-xs" style={{ color: CRM_ACCENT }}>
           {activeSubConfig?.label}
         </span>
@@ -154,7 +154,7 @@ export function CRMNavigation() {
                 onClick={() => handleTabClick(tab.id)}
                 className={cn(
                   'flex items-center gap-1.5 px-3 py-2.5 text-sm font-medium transition-colors',
-                  isActive ? 'text-bright' : 'text-muted hover:text-default'
+                  isActive ? 'text-text-bright' : 'text-text-muted hover:text-text-default'
                 )}
               >
                 {tab.label}
@@ -186,8 +186,8 @@ export function CRMNavigation() {
                         className={cn(
                           'flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm transition-colors',
                           isActiveSub
-                            ? 'text-bright'
-                            : 'text-muted hover:bg-card-hover hover:text-default'
+                            ? 'text-text-bright'
+                            : 'text-text-muted hover:bg-card-hover hover:text-text-default'
                         )}
                         style={
                           isActiveSub
@@ -209,7 +209,7 @@ export function CRMNavigation() {
         {/* Collapse toggle */}
         <button
           onClick={toggleTabBar}
-          className="ml-auto flex items-center gap-1 px-2 py-1 text-xs text-muted hover:text-default transition-colors"
+          className="ml-auto flex items-center gap-1 px-2 py-1 text-xs text-text-muted hover:text-text-default transition-colors"
         >
           <ChevronUp className="h-3.5 w-3.5" />
         </button>
@@ -217,14 +217,14 @@ export function CRMNavigation() {
 
       {/* Breadcrumb trail */}
       {breadcrumbs.length > 0 && (
-        <div className="flex items-center gap-1.5 px-1 text-xs text-muted">
-          <span className="font-medium text-default">
+        <div className="flex items-center gap-1.5 px-1 text-xs text-text-muted">
+          <span className="font-medium text-text-default">
             {activeTabConfig?.label}
           </span>
           {breadcrumbs.map((crumb, i) => (
             <span key={i} className="flex items-center gap-1.5">
               <ChevronRight className="h-3 w-3" />
-              <span className={i === breadcrumbs.length - 1 ? 'text-default' : ''}>
+              <span className={i === breadcrumbs.length - 1 ? 'text-text-default' : ''}>
                 {crumb.label}
               </span>
             </span>

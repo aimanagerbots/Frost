@@ -129,7 +129,7 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
       accessor: 'daysOnHand' as keyof VMISellThrough,
       sortable: true,
       render: (row: VMISellThrough) => (
-        <span className={cn(row.daysOnHand < 3 ? 'font-bold text-danger' : 'text-default')}>
+        <span className={cn(row.daysOnHand < 3 ? 'font-bold text-danger' : 'text-text-default')}>
           {row.daysOnHand.toFixed(1)}
         </span>
       ),
@@ -141,7 +141,7 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
         row.reorderRecommended ? (
           <StatusBadge label={`+${row.reorderQty ?? 0}`} variant="danger" size="sm" dot pulse />
         ) : (
-          <span className="text-muted">-</span>
+          <span className="text-text-muted">-</span>
         ),
     },
   ];
@@ -158,15 +158,15 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
             <Package className="h-5 w-5" style={{ color: ACCENT }} />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-bright">{accountName}</h2>
-            <p className="text-xs text-muted">
+            <h2 className="text-lg font-semibold text-text-bright">{accountName}</h2>
+            <p className="text-xs text-text-muted">
               {items.length} SKUs tracked &middot; {reorderItems.length} reorder alerts
             </p>
           </div>
         </div>
         <button
           onClick={onClose}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-muted transition-colors hover:bg-elevated hover:text-default"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
           aria-label="Close detail"
         >
           <X className="h-5 w-5" />
@@ -176,14 +176,14 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
       {/* Sell-Through Table */}
       <div>
         <div className="mb-3 flex items-center justify-between">
-          <h3 className="text-sm font-semibold text-bright">Sell-Through Data</h3>
+          <h3 className="text-sm font-semibold text-text-bright">Sell-Through Data</h3>
           <button
             onClick={() => setShowReorderOnly((v) => !v)}
             className={cn(
               'rounded-lg px-3 py-1.5 text-xs font-medium transition-colors',
               showReorderOnly
                 ? 'bg-danger/20 text-danger'
-                : 'bg-elevated text-muted hover:text-default'
+                : 'bg-elevated text-text-muted hover:text-text-default'
             )}
           >
             {showReorderOnly ? 'Showing Reorders Only' : 'Filter Reorders'}
@@ -289,11 +289,11 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
                 className="flex items-center justify-between rounded-lg bg-card px-3 py-2 text-sm"
               >
                 <div>
-                  <span className="font-medium text-bright">{item.productName}</span>
-                  <span className="ml-2 text-xs text-muted">({item.sku})</span>
+                  <span className="font-medium text-text-bright">{item.productName}</span>
+                  <span className="ml-2 text-xs text-text-muted">({item.sku})</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="text-xs text-muted">
+                  <span className="text-xs text-text-muted">
                     {item.daysOnHand.toFixed(1)} days left
                   </span>
                   <span className="text-xs font-semibold text-danger">

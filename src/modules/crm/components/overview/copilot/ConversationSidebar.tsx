@@ -45,7 +45,7 @@ export function ConversationSidebar({
       <div className="flex w-10 flex-col items-center border-r border-default bg-base py-3">
         <button
           onClick={onToggleCollapse}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-muted hover:bg-card hover:text-default transition-colors"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted hover:bg-card hover:text-text-default transition-colors"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
@@ -66,7 +66,7 @@ export function ConversationSidebar({
         </button>
         <button
           onClick={onToggleCollapse}
-          className="flex h-7 w-7 items-center justify-center rounded-lg text-muted hover:bg-card hover:text-default transition-colors"
+          className="flex h-7 w-7 items-center justify-center rounded-lg text-text-muted hover:bg-card hover:text-text-default transition-colors"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
@@ -75,7 +75,7 @@ export function ConversationSidebar({
       {/* Conversation History */}
       <div className="flex-1 overflow-y-auto">
         <div className="px-3 py-2">
-          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted">
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
             Recent Conversations
           </p>
           <div className="space-y-1">
@@ -86,7 +86,7 @@ export function ConversationSidebar({
                 className={`flex w-full items-start gap-2 rounded-lg px-2.5 py-2 text-left text-xs transition-colors ${
                   activeConversationId === conv.id
                     ? 'bg-[#F59E0B]/10 text-[#F59E0B]'
-                    : 'text-muted hover:bg-card hover:text-default'
+                    : 'text-text-muted hover:bg-card hover:text-text-default'
                 }`}
               >
                 <MessageSquare className="mt-0.5 h-3.5 w-3.5 shrink-0" />
@@ -98,13 +98,13 @@ export function ConversationSidebar({
 
         {/* Suggested Prompts */}
         <div className="border-t border-default px-3 py-2">
-          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted">
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
             Suggested Prompts
           </p>
           <div className="space-y-3">
             {Object.entries(grouped).map(([category, items]) => (
               <div key={category}>
-                <p className="mb-1 text-[10px] font-medium text-muted/70">
+                <p className="mb-1 text-[10px] font-medium text-text-muted/70">
                   {CATEGORY_LABELS[category] ?? category}
                 </p>
                 <div className="space-y-0.5">
@@ -112,7 +112,7 @@ export function ConversationSidebar({
                     <button
                       key={s.id}
                       onClick={() => onSuggestionClick(s.text)}
-                      className="w-full rounded-md px-2 py-1 text-left text-[11px] text-muted hover:bg-card hover:text-default transition-colors"
+                      className="w-full rounded-md px-2 py-1 text-left text-[11px] text-text-muted hover:bg-card hover:text-text-default transition-colors"
                     >
                       {s.text}
                     </button>

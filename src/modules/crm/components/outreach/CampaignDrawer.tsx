@@ -92,19 +92,19 @@ export function CampaignDrawer({ campaignId, onClose }: CampaignDrawerProps) {
           <StatusBadge variant={STATUS_VARIANT[campaign.status]} label={campaign.status} />
           <StatusBadge variant="info" label={TYPE_LABELS[campaign.type] || campaign.type} />
           <StatusBadge variant="muted" label={campaign.channel} />
-          <span className="text-xs text-muted">by {campaign.createdBy}</span>
+          <span className="text-xs text-text-muted">by {campaign.createdBy}</span>
         </div>
 
         {/* Performance funnel */}
         <div className="rounded-xl border border-default bg-base p-4">
-          <h4 className="mb-3 text-sm font-medium text-bright">Conversion Funnel</h4>
+          <h4 className="mb-3 text-sm font-medium text-text-bright">Conversion Funnel</h4>
           <div className="flex items-end gap-3">
             {funnelStages.map((stage, i) => {
               const maxCount = Math.max(...funnelStages.map((s) => s.count), 1);
               const height = Math.max(20, (stage.count / maxCount) * 100);
               return (
                 <div key={stage.label} className="flex flex-1 flex-col items-center gap-1">
-                  <span className="text-lg font-bold text-bright">{stage.count}</span>
+                  <span className="text-lg font-bold text-text-bright">{stage.count}</span>
                   <div
                     className="w-full rounded-t-md transition-all"
                     style={{
@@ -112,9 +112,9 @@ export function CampaignDrawer({ campaignId, onClose }: CampaignDrawerProps) {
                       backgroundColor: `${CRM_ACCENT}${Math.round(30 + (i * 20)).toString(16).padStart(2, '0')}`,
                     }}
                   />
-                  <span className="text-xs text-muted">{stage.label}</span>
+                  <span className="text-xs text-text-muted">{stage.label}</span>
                   {i > 0 && funnelStages[i - 1].count > 0 && (
-                    <span className="text-xs text-muted">
+                    <span className="text-xs text-text-muted">
                       {((stage.count / funnelStages[i - 1].count) * 100).toFixed(0)}%
                     </span>
                   )}
@@ -127,30 +127,30 @@ export function CampaignDrawer({ campaignId, onClose }: CampaignDrawerProps) {
         {/* Metrics */}
         <div className="grid grid-cols-3 gap-3">
           <div className="rounded-lg border border-default bg-base p-3 text-center">
-            <div className="text-lg font-bold text-bright">{campaign.openRate}%</div>
-            <div className="text-xs text-muted">Open Rate</div>
+            <div className="text-lg font-bold text-text-bright">{campaign.openRate}%</div>
+            <div className="text-xs text-text-muted">Open Rate</div>
           </div>
           <div className="rounded-lg border border-default bg-base p-3 text-center">
-            <div className="text-lg font-bold text-bright">{campaign.responseRate}%</div>
-            <div className="text-xs text-muted">Response Rate</div>
+            <div className="text-lg font-bold text-text-bright">{campaign.responseRate}%</div>
+            <div className="text-xs text-text-muted">Response Rate</div>
           </div>
           <div className="rounded-lg border border-default bg-base p-3 text-center">
-            <div className="text-lg font-bold text-bright">${campaign.revenueAttributed.toLocaleString()}</div>
-            <div className="text-xs text-muted">Revenue</div>
+            <div className="text-lg font-bold text-text-bright">${campaign.revenueAttributed.toLocaleString()}</div>
+            <div className="text-xs text-text-muted">Revenue</div>
           </div>
         </div>
 
         {/* Message template */}
         <div>
-          <h4 className="mb-2 text-sm font-medium text-bright">Message Template</h4>
-          <div className="whitespace-pre-wrap rounded-xl border border-default bg-base p-4 text-xs text-muted leading-relaxed">
+          <h4 className="mb-2 text-sm font-medium text-text-bright">Message Template</h4>
+          <div className="whitespace-pre-wrap rounded-xl border border-default bg-base p-4 text-xs text-text-muted leading-relaxed">
             {renderTemplate(campaign.messageTemplate)}
           </div>
         </div>
 
         {/* Recipients */}
         <div>
-          <h4 className="mb-2 text-sm font-medium text-bright">Recipients ({campaign.recipients.length})</h4>
+          <h4 className="mb-2 text-sm font-medium text-text-bright">Recipients ({campaign.recipients.length})</h4>
           <DataTable
             data={campaign.recipients.map((r) => ({ ...r })) as (CampaignRecipient & Record<string, unknown>)[]}
             columns={recipientColumns}
@@ -170,7 +170,7 @@ export function CampaignDrawer({ campaignId, onClose }: CampaignDrawerProps) {
               Resume
             </button>
           )}
-          <button className="rounded-lg bg-elevated px-3 py-1.5 text-sm text-muted hover:text-default">
+          <button className="rounded-lg bg-elevated px-3 py-1.5 text-sm text-text-muted hover:text-text-default">
             Duplicate
           </button>
         </div>

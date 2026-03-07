@@ -33,11 +33,11 @@ export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisp
     <div className="space-y-5">
       {/* Cannabinoid bars */}
       <div className="rounded-xl border border-default bg-card p-4 space-y-3">
-        <h4 className="text-sm font-medium text-muted">Cannabinoid Profile</h4>
+        <h4 className="text-sm font-medium text-text-muted">Cannabinoid Profile</h4>
         {cannabinoids.map((c) => (
           <div key={c.label} className="space-y-1">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-default">{c.label}</span>
+              <span className="text-text-default">{c.label}</span>
               <span className="font-semibold" style={{ color: c.color }}>{c.value}%</span>
             </div>
             <div className="h-2 rounded-full bg-elevated overflow-hidden">
@@ -91,11 +91,11 @@ export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisp
 
       {/* Contaminant table */}
       <div className="rounded-xl border border-default bg-card p-4 space-y-3">
-        <h4 className="text-sm font-medium text-muted">Contaminant Testing</h4>
+        <h4 className="text-sm font-medium text-text-muted">Contaminant Testing</h4>
         <div className="rounded-lg border border-default overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-elevated text-muted">
+              <tr className="bg-elevated text-text-muted">
                 <th className="px-3 py-2 text-left">Test</th>
                 <th className="px-3 py-2 text-left">Result</th>
                 <th className="px-3 py-2 text-left">Details</th>
@@ -110,7 +110,7 @@ export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisp
                     className="border-t border-default"
                     style={highlightFailures && isFail ? { backgroundColor: 'rgba(239, 68, 68, 0.1)' } : undefined}
                   >
-                    <td className="px-3 py-2 text-default">{c.type}</td>
+                    <td className="px-3 py-2 text-text-default">{c.type}</td>
                     <td className="px-3 py-2">
                       <StatusBadge
                         label={c.result}
@@ -118,7 +118,7 @@ export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisp
                         size="sm"
                       />
                     </td>
-                    <td className="px-3 py-2 text-muted text-xs">{c.value ?? '—'}</td>
+                    <td className="px-3 py-2 text-text-muted text-xs">{c.value ?? '—'}</td>
                   </tr>
                 );
               })}
@@ -128,11 +128,11 @@ export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisp
 
         {/* Moisture */}
         <div className="flex items-center justify-between text-sm pt-1">
-          <span className="text-muted">Moisture Content</span>
+          <span className="text-text-muted">Moisture Content</span>
           <span
             className="font-medium"
             style={{
-              color: highlightFailures && results.moistureContent > 13 ? '#EF4444' : 'var(--text-default)',
+              color: highlightFailures && results.moistureContent > 13 ? '#EF4444' : 'var(--text-text-default)',
             }}
           >
             {results.moistureContent}%

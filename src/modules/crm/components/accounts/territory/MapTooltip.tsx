@@ -31,11 +31,11 @@ export function MapTooltip({ account, repName, x, y }: MapTooltipProps) {
       style={{ left: x + 12, top: y - 20 }}
     >
       <div className="mb-2 flex items-center justify-between">
-        <p className="text-sm font-semibold text-bright">{account.name}</p>
+        <p className="text-sm font-semibold text-text-bright">{account.name}</p>
       </div>
       <div className="space-y-1.5 text-xs">
         <div className="flex items-center justify-between">
-          <span className="text-muted">Health</span>
+          <span className="text-text-muted">Health</span>
           <div className="flex items-center gap-1.5">
             <div
               className="h-2 w-2 rounded-full"
@@ -45,14 +45,14 @@ export function MapTooltip({ account, repName, x, y }: MapTooltipProps) {
           </div>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-muted">30-Day Revenue</span>
-          <span className="font-medium text-default">
+          <span className="text-text-muted">30-Day Revenue</span>
+          <span className="font-medium text-text-default">
             ${account.revenue30d.toLocaleString()}
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-muted">Assigned Rep</span>
-          <span className="text-default">{repName}</span>
+          <span className="text-text-muted">Assigned Rep</span>
+          <span className="text-text-default">{repName}</span>
         </div>
       </div>
     </div>

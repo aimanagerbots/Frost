@@ -57,7 +57,7 @@ export function PaymentsTab({ accountId }: PaymentsTabProps) {
       header: 'Invoice',
       accessor: 'invoiceNumber' as const,
       sortable: true,
-      render: (row: PaymentRow) => <span className="font-medium text-bright">{row.invoiceNumber}</span>,
+      render: (row: PaymentRow) => <span className="font-medium text-text-bright">{row.invoiceNumber}</span>,
     },
     {
       header: 'Date',
@@ -75,7 +75,7 @@ export function PaymentsTab({ accountId }: PaymentsTabProps) {
       header: 'Amount',
       accessor: 'amount' as const,
       sortable: true,
-      render: (row: PaymentRow) => <span className="font-medium text-default">{formatCurrency(row.amount)}</span>,
+      render: (row: PaymentRow) => <span className="font-medium text-text-default">{formatCurrency(row.amount)}</span>,
     },
     {
       header: 'Status',
@@ -91,15 +91,15 @@ export function PaymentsTab({ accountId }: PaymentsTabProps) {
       sortable: true,
       render: (row: PaymentRow) => row.paidDate
         ? new Date(row.paidDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-        : <span className="text-muted">—</span>,
+        : <span className="text-text-muted">—</span>,
     },
     {
       header: 'Method',
       accessor: 'method' as const,
       sortable: false,
       render: (row: PaymentRow) => row.method
-        ? <span className="uppercase text-default">{row.method}</span>
-        : <span className="text-muted">—</span>,
+        ? <span className="uppercase text-text-default">{row.method}</span>
+        : <span className="text-text-muted">—</span>,
     },
   ], []);
 

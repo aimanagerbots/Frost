@@ -64,7 +64,7 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
       <div className="space-y-5">
         {/* Channel */}
         <div>
-          <label className="mb-1.5 block text-xs font-medium text-muted">Channel</label>
+          <label className="mb-1.5 block text-xs font-medium text-text-muted">Channel</label>
           <div className="flex flex-wrap gap-2">
             {CHANNELS.map((ch) => (
               <button
@@ -73,7 +73,7 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
                 className={`rounded-lg px-3 py-1.5 text-sm capitalize transition-colors ${
                   channel === ch
                     ? 'bg-amber-500/20 text-amber-400 ring-1 ring-amber-500/40'
-                    : 'bg-elevated text-muted hover:text-default'
+                    : 'bg-elevated text-text-muted hover:text-text-default'
                 }`}
               >
                 {ch}
@@ -84,11 +84,11 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
 
         {/* Account search */}
         <div>
-          <label className="mb-1.5 block text-xs font-medium text-muted">Account</label>
+          <label className="mb-1.5 block text-xs font-medium text-text-muted">Account</label>
           {selectedAccount ? (
             <div className="flex items-center justify-between rounded-lg border border-default bg-elevated px-3 py-2">
-              <span className="text-sm text-default">{selectedAccount.name}</span>
-              <button onClick={() => { setAccountId(''); setAccountSearch(''); }} className="text-muted hover:text-default">
+              <span className="text-sm text-text-default">{selectedAccount.name}</span>
+              <button onClick={() => { setAccountId(''); setAccountSearch(''); }} className="text-text-muted hover:text-text-default">
                 <X className="h-4 w-4" />
               </button>
             </div>
@@ -99,7 +99,7 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
                 value={accountSearch}
                 onChange={(e) => setAccountSearch(e.target.value)}
                 placeholder="Search accounts..."
-                className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-default placeholder:text-muted focus:border-hover focus:outline-none"
+                className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-hover focus:outline-none"
               />
               {filteredAccounts.length > 0 && (
                 <div className="absolute z-20 mt-1 w-full rounded-lg border border-default bg-card shadow-lg">
@@ -107,7 +107,7 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
                     <button
                       key={a.id}
                       onClick={() => { setAccountId(a.id); setAccountSearch(''); }}
-                      className="w-full px-3 py-2 text-left text-sm text-default hover:bg-elevated"
+                      className="w-full px-3 py-2 text-left text-sm text-text-default hover:bg-elevated"
                     >
                       {a.name}
                     </button>
@@ -121,11 +121,11 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
         {/* Contact */}
         {selectedAccount && (
           <div>
-            <label className="mb-1.5 block text-xs font-medium text-muted">Contact</label>
+            <label className="mb-1.5 block text-xs font-medium text-text-muted">Contact</label>
             <select
               value={contactName}
               onChange={(e) => setContactName(e.target.value)}
-              className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-default focus:border-hover focus:outline-none"
+              className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:border-hover focus:outline-none"
             >
               <option value="">Select contact...</option>
               {selectedAccount.contacts.map((c) => (
@@ -138,32 +138,32 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
         {/* Subject (email only) */}
         {channel === 'email' && (
           <div>
-            <label className="mb-1.5 block text-xs font-medium text-muted">Subject</label>
+            <label className="mb-1.5 block text-xs font-medium text-text-muted">Subject</label>
             <input
               type="text"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               placeholder="Email subject line..."
-              className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-default placeholder:text-muted focus:border-hover focus:outline-none"
+              className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-hover focus:outline-none"
             />
           </div>
         )}
 
         {/* Summary */}
         <div>
-          <label className="mb-1.5 block text-xs font-medium text-muted">Summary</label>
+          <label className="mb-1.5 block text-xs font-medium text-text-muted">Summary</label>
           <textarea
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
             placeholder="Describe the interaction..."
             rows={4}
-            className="w-full resize-none rounded-lg border border-default bg-base px-3 py-2 text-sm text-default placeholder:text-muted focus:border-hover focus:outline-none"
+            className="w-full resize-none rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-hover focus:outline-none"
           />
         </div>
 
         {/* Sentiment */}
         <div>
-          <label className="mb-1.5 block text-xs font-medium text-muted">Sentiment</label>
+          <label className="mb-1.5 block text-xs font-medium text-text-muted">Sentiment</label>
           <div className="flex gap-2">
             {(['positive', 'neutral', 'negative'] as const).map((s) => (
               <button
@@ -174,7 +174,7 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
                     ? s === 'positive' ? 'bg-success/20 text-success ring-1 ring-success/40'
                     : s === 'negative' ? 'bg-danger/20 text-danger ring-1 ring-danger/40'
                     : 'bg-info/20 text-info ring-1 ring-info/40'
-                    : 'bg-elevated text-muted hover:text-default'
+                    : 'bg-elevated text-text-muted hover:text-text-default'
                 }`}
               >
                 {s}
@@ -197,17 +197,17 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
             <button
               onMouseEnter={() => setShowTooltip(true)}
               onMouseLeave={() => setShowTooltip(false)}
-              className="rounded-lg border border-default bg-elevated px-4 py-2 text-sm text-muted"
+              className="rounded-lg border border-default bg-elevated px-4 py-2 text-sm text-text-muted"
             >
               AI Draft
             </button>
             {showTooltip && (
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 rounded bg-base px-2 py-1 text-xs text-muted shadow-lg whitespace-nowrap">
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 rounded bg-base px-2 py-1 text-xs text-text-muted shadow-lg whitespace-nowrap">
                 Coming soon
               </div>
             )}
           </div>
-          <button onClick={onClose} className="text-sm text-muted hover:text-default">Cancel</button>
+          <button onClick={onClose} className="text-sm text-text-muted hover:text-text-default">Cancel</button>
         </div>
       </div>
     </DrawerPanel>

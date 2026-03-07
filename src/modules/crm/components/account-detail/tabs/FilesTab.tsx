@@ -41,7 +41,7 @@ export function FilesTab({ accountId }: FilesTabProps) {
   return (
     <div className="space-y-4">
       <div className="flex justify-end">
-        <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-sm text-muted transition-colors hover:bg-elevated hover:text-default">
+        <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-sm text-text-muted transition-colors hover:bg-elevated hover:text-text-default">
           <Upload className="h-4 w-4" />
           Upload File
         </button>
@@ -56,17 +56,17 @@ export function FilesTab({ accountId }: FilesTabProps) {
               className={`flex items-center gap-3 px-4 py-3 ${i > 0 ? 'border-t border-default/50' : ''}`}
             >
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-elevated">
-                <Icon className="h-4 w-4 text-muted" />
+                <Icon className="h-4 w-4 text-text-muted" />
               </div>
               <div className="min-w-0 flex-1">
-                <div className="text-sm font-medium text-default">{file.name}</div>
-                <div className="text-xs text-muted">
+                <div className="text-sm font-medium text-text-default">{file.name}</div>
+                <div className="text-xs text-text-muted">
                   {file.uploadedBy} &middot;{' '}
                   {new Date(file.uploadedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </div>
               </div>
               <StatusBadge variant={fileTypeVariant(file.type)} label={file.type.toUpperCase()} size="sm" />
-              <span className="text-xs text-muted">{formatFileSize(file.size)}</span>
+              <span className="text-xs text-text-muted">{formatFileSize(file.size)}</span>
             </div>
           );
         })}

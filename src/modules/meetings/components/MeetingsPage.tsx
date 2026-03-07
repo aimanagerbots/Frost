@@ -86,7 +86,7 @@ export function MeetingsPage() {
             className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
               typeFilter === f.value
                 ? 'text-white'
-                : 'bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-default)]'
+                : 'bg-[var(--bg-elevated)] text-[var(--text-text-muted)] hover:text-[var(--text-text-default)]'
             }`}
             style={typeFilter === f.value ? { backgroundColor: ACCENT } : undefined}
           >
@@ -102,7 +102,7 @@ export function MeetingsPage() {
           {/* Upcoming Section */}
           {upcoming.length > 0 && (
             <section>
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--text-text-muted)]">
                 Upcoming
               </h2>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -113,10 +113,10 @@ export function MeetingsPage() {
                     className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] p-4 text-left transition-colors hover:bg-[var(--bg-card-hover)]"
                   >
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="font-medium text-[var(--text-bright)]">{meeting.title}</h3>
+                      <h3 className="font-medium text-[var(--text-text-bright)]">{meeting.title}</h3>
                       <StatusBadge label={TYPE_LABELS[meeting.type]} variant={TYPE_VARIANTS[meeting.type]} size="sm" />
                     </div>
-                    <div className="mt-2 flex items-center gap-3 text-sm text-[var(--text-muted)]">
+                    <div className="mt-2 flex items-center gap-3 text-sm text-[var(--text-text-muted)]">
                       <span className="flex items-center gap-1">
                         <Calendar className="h-3.5 w-3.5" />
                         {formatDate(meeting.date)}
@@ -143,7 +143,7 @@ export function MeetingsPage() {
           {/* Recent Section */}
           {recent.length > 0 && (
             <section>
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--text-text-muted)]">
                 Recent
               </h2>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -154,22 +154,22 @@ export function MeetingsPage() {
                     className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] p-4 text-left transition-colors hover:bg-[var(--bg-card-hover)]"
                   >
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="font-medium text-[var(--text-bright)]">{meeting.title}</h3>
+                      <h3 className="font-medium text-[var(--text-text-bright)]">{meeting.title}</h3>
                       <StatusBadge label={TYPE_LABELS[meeting.type]} variant={TYPE_VARIANTS[meeting.type]} size="sm" />
                     </div>
-                    <div className="mt-2 flex items-center gap-3 text-sm text-[var(--text-muted)]">
+                    <div className="mt-2 flex items-center gap-3 text-sm text-[var(--text-text-muted)]">
                       <span className="flex items-center gap-1">
                         <Calendar className="h-3.5 w-3.5" />
                         {formatDate(meeting.date)}
                       </span>
                     </div>
                     {meeting.notes && (
-                      <p className="mt-2 line-clamp-2 text-sm text-[var(--text-muted)]">{meeting.notes}</p>
+                      <p className="mt-2 line-clamp-2 text-sm text-[var(--text-text-muted)]">{meeting.notes}</p>
                     )}
                     {meeting.actionItems.length > 0 && (
                       <div className="mt-3 flex items-center gap-1.5">
-                        <CheckSquare className="h-3.5 w-3.5 text-[var(--text-muted)]" />
-                        <span className="text-xs text-[var(--text-muted)]">
+                        <CheckSquare className="h-3.5 w-3.5 text-[var(--text-text-muted)]" />
+                        <span className="text-xs text-[var(--text-text-muted)]">
                           {openActionCount(meeting)} open / {meeting.actionItems.length} total
                         </span>
                       </div>
@@ -203,20 +203,20 @@ export function MeetingsPage() {
 
             {/* Date & Time */}
             <div className="space-y-1">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Date & Time</h4>
-              <p className="text-sm text-[var(--text-default)]">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-text-muted)]">Date & Time</h4>
+              <p className="text-sm text-[var(--text-text-default)]">
                 {formatDate(selectedMeeting.date)} &middot; {formatTime(selectedMeeting.startTime)} – {formatTime(selectedMeeting.endTime)}
               </p>
             </div>
 
             {/* Attendees */}
             <div className="space-y-2">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Attendees</h4>
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-text-muted)]">Attendees</h4>
               <div className="space-y-1.5">
                 {selectedMeeting.attendees.map((name) => (
                   <div key={name} className="flex items-center gap-2">
-                    <Users className="h-3.5 w-3.5 text-[var(--text-muted)]" />
-                    <span className="text-sm text-[var(--text-default)]">{name}</span>
+                    <Users className="h-3.5 w-3.5 text-[var(--text-text-muted)]" />
+                    <span className="text-sm text-[var(--text-text-default)]">{name}</span>
                   </div>
                 ))}
               </div>
@@ -225,8 +225,8 @@ export function MeetingsPage() {
             {/* Notes */}
             {selectedMeeting.notes && (
               <div className="space-y-2">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Notes</h4>
-                <p className="whitespace-pre-wrap text-sm leading-relaxed text-[var(--text-default)]">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-text-muted)]">Notes</h4>
+                <p className="whitespace-pre-wrap text-sm leading-relaxed text-[var(--text-text-default)]">
                   {selectedMeeting.notes}
                 </p>
               </div>
@@ -235,7 +235,7 @@ export function MeetingsPage() {
             {/* Action Items */}
             {selectedMeeting.actionItems.length > 0 && (
               <div className="space-y-2">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Action Items</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-text-muted)]">Action Items</h4>
                 <div className="space-y-2">
                   {selectedMeeting.actionItems.map((item) => (
                     <div
@@ -249,10 +249,10 @@ export function MeetingsPage() {
                         className="mt-0.5 h-4 w-4 rounded border-[var(--border-default)] accent-[#2563EB]"
                       />
                       <div className="flex-1">
-                        <p className={`text-sm ${item.completed ? 'text-[var(--text-muted)] line-through' : 'text-[var(--text-default)]'}`}>
+                        <p className={`text-sm ${item.completed ? 'text-[var(--text-text-muted)] line-through' : 'text-[var(--text-text-default)]'}`}>
                           {item.text}
                         </p>
-                        <div className="mt-1 flex items-center gap-3 text-xs text-[var(--text-muted)]">
+                        <div className="mt-1 flex items-center gap-3 text-xs text-[var(--text-text-muted)]">
                           <span>{item.assignee}</span>
                           <span>Due {formatDate(item.dueDate)}</span>
                         </div>
@@ -276,7 +276,7 @@ export function MeetingsPage() {
                 View Recording
               </a>
             ) : selectedMeeting.status === 'completed' ? (
-              <p className="text-xs italic text-[var(--text-muted)]">No recording available</p>
+              <p className="text-xs italic text-[var(--text-text-muted)]">No recording available</p>
             ) : null}
           </div>
         )}

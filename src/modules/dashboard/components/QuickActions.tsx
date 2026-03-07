@@ -13,7 +13,7 @@ const actions = [
 export function QuickActions() {
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-bright">Quick Actions</h3>
+      <h3 className="text-sm font-semibold text-text-bright">Quick Actions</h3>
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {actions.map((action) => {
           const Icon = action.icon;
@@ -30,8 +30,8 @@ export function QuickActions() {
                 <Icon className="h-5 w-5" style={{ color: action.color }} />
               </div>
               <div className="min-w-0">
-                <p className="text-sm font-medium text-bright">{action.label}</p>
-                <p className="text-[10px] text-muted truncate">{action.description}</p>
+                <p className="text-sm font-medium text-text-bright">{action.label}</p>
+                <p className="text-[10px] text-text-muted truncate">{action.description}</p>
               </div>
             </Link>
           );

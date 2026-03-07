@@ -323,7 +323,7 @@ export function FinancePage() {
             className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
               statusFilter === f.value
                 ? 'text-white'
-                : 'bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-default)]'
+                : 'bg-[var(--bg-elevated)] text-[var(--text-text-muted)] hover:text-[var(--text-text-default)]'
             }`}
             style={statusFilter === f.value ? { backgroundColor: ACCENT } : undefined}
           >
@@ -362,21 +362,21 @@ export function FinancePage() {
             </div>
 
             <div>
-              <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Account</h4>
-              <p className="text-sm text-[var(--text-default)]">{selected.accountName}</p>
+              <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Account</h4>
+              <p className="text-sm text-[var(--text-text-default)]">{selected.accountName}</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Amount</h4>
-                <p className="text-sm font-semibold text-[var(--text-default)]">
+                <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Amount</h4>
+                <p className="text-sm font-semibold text-[var(--text-text-default)]">
                   {fmt.format(selected.amount)}
                 </p>
               </div>
               {selected.paidAmount !== undefined && (
                 <div>
-                  <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Paid Amount</h4>
-                  <p className="text-sm font-semibold text-[var(--text-default)]">
+                  <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Paid Amount</h4>
+                  <p className="text-sm font-semibold text-[var(--text-text-default)]">
                     {fmt.format(selected.paidAmount)}
                   </p>
                 </div>
@@ -385,8 +385,8 @@ export function FinancePage() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Issued</h4>
-                <p className="text-sm text-[var(--text-default)]">
+                <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Issued</h4>
+                <p className="text-sm text-[var(--text-text-default)]">
                   {new Date(selected.issuedDate + 'T00:00:00').toLocaleDateString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -395,8 +395,8 @@ export function FinancePage() {
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Due</h4>
-                <p className="text-sm text-[var(--text-default)]">
+                <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Due</h4>
+                <p className="text-sm text-[var(--text-text-default)]">
                   {new Date(selected.dueDate + 'T00:00:00').toLocaleDateString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -408,8 +408,8 @@ export function FinancePage() {
 
             {selected.paidDate && (
               <div>
-                <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Paid Date</h4>
-                <p className="text-sm text-[var(--text-default)]">
+                <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Paid Date</h4>
+                <p className="text-sm text-[var(--text-text-default)]">
                   {new Date(selected.paidDate + 'T00:00:00').toLocaleDateString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -421,21 +421,21 @@ export function FinancePage() {
 
             {selected.method && (
               <div>
-                <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Payment Method</h4>
-                <p className="text-sm text-[var(--text-default)]">{selected.method}</p>
+                <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Payment Method</h4>
+                <p className="text-sm text-[var(--text-text-default)]">{selected.method}</p>
               </div>
             )}
 
             <div>
-              <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Days Outstanding</h4>
-              <p className={`text-sm font-medium ${selected.daysOutstanding > 30 ? 'text-[var(--text-danger)]' : 'text-[var(--text-default)]'}`}>
+              <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Days Outstanding</h4>
+              <p className={`text-sm font-medium ${selected.daysOutstanding > 30 ? 'text-[var(--text-danger)]' : 'text-[var(--text-text-default)]'}`}>
                 {selected.daysOutstanding} days
               </p>
             </div>
 
             {selected.status === 'partial' && selected.paidAmount !== undefined && (
               <div>
-                <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Payment Progress</h4>
+                <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Payment Progress</h4>
                 <div className="mt-1 h-2 rounded-full bg-[var(--bg-elevated)] overflow-hidden">
                   <div
                     className="h-full rounded-full"
@@ -445,7 +445,7 @@ export function FinancePage() {
                     }}
                   />
                 </div>
-                <p className="mt-1 text-xs text-[var(--text-muted)]">
+                <p className="mt-1 text-xs text-[var(--text-text-muted)]">
                   {Math.round((selected.paidAmount / selected.amount) * 100)}% paid
                   ({fmt.format(selected.amount - selected.paidAmount)} remaining)
                 </p>

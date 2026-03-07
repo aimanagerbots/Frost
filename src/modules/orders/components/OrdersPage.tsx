@@ -30,7 +30,7 @@ const PAYMENT_VARIANT: Record<PaymentStatus, 'muted' | 'success' | 'danger'> = {
 };
 
 const selectClass =
-  'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-default outline-none focus:border-hover';
+  'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-text-default outline-none focus:border-hover';
 
 export function OrdersPage() {
   const [filters, setFilters] = useState<OrderFilter>({});
@@ -58,7 +58,7 @@ export function OrdersPage() {
       accessor: 'orderNumber' as const,
       sortable: true,
       render: (row: Order) => (
-        <span className="text-sm font-medium text-bright">{row.orderNumber}</span>
+        <span className="text-sm font-medium text-text-bright">{row.orderNumber}</span>
       ),
     },
     {
@@ -77,14 +77,14 @@ export function OrdersPage() {
       header: 'Items',
       accessor: (row: Order) => row.items.length,
       sortable: true,
-      render: (row: Order) => <span className="text-muted">{row.items.length}</span>,
+      render: (row: Order) => <span className="text-text-muted">{row.items.length}</span>,
     },
     {
       header: 'Total',
       accessor: 'total' as const,
       sortable: true,
       render: (row: Order) => (
-        <span className="font-medium text-bright">${row.total.toLocaleString()}</span>
+        <span className="font-medium text-text-bright">${row.total.toLocaleString()}</span>
       ),
     },
     {
@@ -116,7 +116,7 @@ export function OrdersPage() {
       accessor: 'assignedRep' as const,
       sortable: true,
       render: (row: Order) => (
-        <span className="text-xs text-muted">{row.assignedRep.split(' ')[0]}</span>
+        <span className="text-xs text-text-muted">{row.assignedRep.split(' ')[0]}</span>
       ),
     },
   ];

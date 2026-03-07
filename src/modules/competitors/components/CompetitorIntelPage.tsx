@@ -44,7 +44,7 @@ const TREND_ICONS = {
 
 const TREND_COLORS = {
   growing: 'text-success',
-  stable: 'text-muted',
+  stable: 'text-text-muted',
   declining: 'text-danger',
 } as const;
 
@@ -104,7 +104,7 @@ function AlertCard({ alert }: { alert: CompetitorAlert }) {
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-bright">
+            <span className="text-sm font-semibold text-text-bright">
               {alert.competitorName}
             </span>
             <StatusBadge
@@ -113,10 +113,10 @@ function AlertCard({ alert }: { alert: CompetitorAlert }) {
               size="sm"
             />
           </div>
-          <p className="mt-1 text-sm text-default">{alert.details}</p>
-          <p className="mt-0.5 text-xs text-muted">{alert.accountName}</p>
+          <p className="mt-1 text-sm text-text-default">{alert.details}</p>
+          <p className="mt-0.5 text-xs text-text-muted">{alert.accountName}</p>
         </div>
-        <span className="shrink-0 text-xs text-muted">
+        <span className="shrink-0 text-xs text-text-muted">
           {new Date(alert.date).toLocaleDateString()}
         </span>
       </div>
@@ -138,8 +138,8 @@ function CompetitorCard({
     <div className="rounded-xl border border-default bg-card p-4 transition-all duration-200 hover:bg-card-hover">
       <div className="flex items-start justify-between">
         <div>
-          <h3 className="font-semibold text-bright">{competitor.name}</h3>
-          <p className="mt-0.5 line-clamp-2 text-xs text-muted">
+          <h3 className="font-semibold text-text-bright">{competitor.name}</h3>
+          <p className="mt-0.5 line-clamp-2 text-xs text-text-muted">
             {competitor.description}
           </p>
         </div>
@@ -151,14 +151,14 @@ function CompetitorCard({
       <div className="mt-3 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div>
-            <div className="text-lg font-bold text-bright">
+            <div className="text-lg font-bold text-text-bright">
               {competitor.marketShare}%
             </div>
-            <div className="text-xs text-muted">Market Share</div>
+            <div className="text-xs text-text-muted">Market Share</div>
           </div>
           <div className="flex items-center gap-1">
-            <Store className="h-3.5 w-3.5 text-muted" />
-            <span className="text-sm text-default">{competitor.storeCount}</span>
+            <Store className="h-3.5 w-3.5 text-text-muted" />
+            <span className="text-sm text-text-default">{competitor.storeCount}</span>
           </div>
         </div>
       </div>
@@ -171,7 +171,7 @@ function CompetitorCard({
 
       <button
         onClick={onViewDetails}
-        className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg border border-default py-1.5 text-xs font-medium text-muted transition-colors hover:bg-elevated hover:text-default"
+        className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg border border-default py-1.5 text-xs font-medium text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
       >
         <Eye className="h-3.5 w-3.5" />
         View Details
@@ -262,7 +262,7 @@ export function CompetitorIntelPage() {
 
       {/* Alerts Section */}
       <div>
-        <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-bright">
+        <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-text-bright">
           <AlertCircle className="h-4 w-4" style={{ color: ACCENT }} />
           Recent Alerts
         </h2>
@@ -279,7 +279,7 @@ export function CompetitorIntelPage() {
 
       {/* Competitor Cards */}
       <div>
-        <h2 className="mb-3 text-sm font-semibold text-bright">Competitors</h2>
+        <h2 className="mb-3 text-sm font-semibold text-text-bright">Competitors</h2>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {(competitors ?? []).map((competitor) => (
             <CompetitorCard

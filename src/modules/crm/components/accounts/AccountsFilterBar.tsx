@@ -70,7 +70,7 @@ function SelectFilter({
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="rounded-lg border border-default bg-base px-3 py-1.5 text-sm text-default focus:border-hover focus:outline-none"
+      className="rounded-lg border border-default bg-base px-3 py-1.5 text-sm text-text-default focus:border-hover focus:outline-none"
     >
       {options.map((o) => (
         <option key={o.value} value={o.value}>
@@ -103,7 +103,7 @@ export function AccountsFilterBar({
           'flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors',
           visible
             ? 'border-[#F59E0B]/40 bg-[#F59E0B]/10 text-[#F59E0B]'
-            : 'border-default bg-card text-muted hover:text-default'
+            : 'border-default bg-card text-text-muted hover:text-text-default'
         )}
       >
         <Filter className="h-4 w-4" />
@@ -160,7 +160,7 @@ export function AccountsFilterBar({
           {activeCount > 0 && (
             <button
               onClick={() => onFiltersChange(DEFAULT_FILTERS)}
-              className="flex items-center gap-1 rounded-lg px-2 py-1.5 text-xs text-muted hover:text-default"
+              className="flex items-center gap-1 rounded-lg px-2 py-1.5 text-xs text-text-muted hover:text-text-default"
             >
               <X className="h-3.5 w-3.5" />
               Clear

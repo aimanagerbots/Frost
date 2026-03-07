@@ -51,7 +51,7 @@ function Avatar({ user, className }: { user: AvatarUser; className?: string }) {
   ) : (
     <div
       className={cn(
-        'flex h-8 w-8 items-center justify-center rounded-full border-2 border-card text-xs font-medium text-bright',
+        'flex h-8 w-8 items-center justify-center rounded-full border-2 border-card text-xs font-medium text-text-bright',
         className
       )}
       style={{ backgroundColor: hashColor(user.name) }}
@@ -78,13 +78,13 @@ export function AvatarGroup({ users, max = 3, className }: AvatarGroupProps) {
           onMouseEnter={() => setShowTooltip(true)}
           onMouseLeave={() => setShowTooltip(false)}
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-card bg-elevated text-xs font-medium text-muted">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-card bg-elevated text-xs font-medium text-text-muted">
             +{remaining.length}
           </div>
           {showTooltip && (
             <div className="absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 rounded-lg bg-elevated px-3 py-2 text-xs shadow-lg">
               {remaining.map((u) => (
-                <div key={u.name} className="whitespace-nowrap text-default">
+                <div key={u.name} className="whitespace-nowrap text-text-default">
                   {u.name}
                 </div>
               ))}

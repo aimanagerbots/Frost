@@ -76,20 +76,20 @@ export function AIBriefingCard({ items, userName = 'Jake' }: AIBriefingCardProps
             <Sparkles className="h-4.5 w-4.5" style={{ color: CRM_ACCENT }} />
           </div>
           <div className="text-left">
-            <h2 className="text-base font-semibold text-bright">
+            <h2 className="text-base font-semibold text-text-bright">
               {greeting}, {userName}
             </h2>
-            <p className="text-xs text-muted">{dateStr}</p>
+            <p className="text-xs text-text-muted">{dateStr}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-muted">
+          <span className="text-xs text-text-muted">
             {items.length} action item{items.length !== 1 ? 's' : ''}
           </span>
           {collapsed ? (
-            <ChevronDown className="h-4 w-4 text-muted" />
+            <ChevronDown className="h-4 w-4 text-text-muted" />
           ) : (
-            <ChevronUp className="h-4 w-4 text-muted" />
+            <ChevronUp className="h-4 w-4 text-text-muted" />
           )}
         </div>
       </button>
@@ -109,7 +109,7 @@ export function AIBriefingCard({ items, userName = 'Jake' }: AIBriefingCardProps
                   style={{ color: CRM_ACCENT }}
                 />
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm text-default">{item.message}</p>
+                  <p className="text-sm text-text-default">{item.message}</p>
                   <div className="mt-2 flex flex-wrap items-center gap-2">
                     <StatusBadge
                       variant={SEVERITY_VARIANT[item.severity]}
@@ -121,7 +121,7 @@ export function AIBriefingCard({ items, userName = 'Jake' }: AIBriefingCardProps
                       return (
                         <button
                           key={action.label}
-                          className="flex items-center gap-1 rounded-md bg-elevated px-2 py-1 text-xs text-muted transition-colors hover:bg-card-hover hover:text-default"
+                          className="flex items-center gap-1 rounded-md bg-elevated px-2 py-1 text-xs text-text-muted transition-colors hover:bg-card-hover hover:text-text-default"
                         >
                           <ActionIcon className="h-3 w-3" />
                           {action.label}

@@ -60,7 +60,7 @@ export function Playbooks() {
       {/* Active Executions */}
       {activeExecutions.length > 0 && (
         <div>
-          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">Active Playbooks</h3>
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Active Playbooks</h3>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {activeExecutions.map((exec) => {
               const pb = getPlaybook(exec.playbookId);
@@ -74,14 +74,14 @@ export function Playbooks() {
               return (
                 <div key={exec.id} className="rounded-xl border border-amber-500/30 bg-card p-4">
                   <div className="mb-2 flex items-start justify-between">
-                    <h4 className="text-sm font-medium text-bright">{pb.name}</h4>
+                    <h4 className="text-sm font-medium text-text-bright">{pb.name}</h4>
                     <StatusBadge variant="success" label="Active" size="sm" pulse />
                   </div>
-                  <p className="mb-2 text-xs text-muted">{exec.accountName}</p>
+                  <p className="mb-2 text-xs text-text-muted">{exec.accountName}</p>
 
                   {/* Progress */}
                   <div className="mb-2">
-                    <div className="flex items-center justify-between text-xs text-muted">
+                    <div className="flex items-center justify-between text-xs text-text-muted">
                       <span>{exec.completedSteps.length}/{pb.steps.length} steps</span>
                       <span>{daysActive}d active</span>
                     </div>
@@ -91,8 +91,8 @@ export function Playbooks() {
                   </div>
 
                   {currentStep && (
-                    <p className="mb-3 text-xs text-muted">
-                      Current: <span className="text-default">{currentStep.title}</span>
+                    <p className="mb-3 text-xs text-text-muted">
+                      Current: <span className="text-text-default">{currentStep.title}</span>
                     </p>
                   )}
 
@@ -112,7 +112,7 @@ export function Playbooks() {
 
       {/* Available Playbooks */}
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">Available Playbooks</h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Available Playbooks</h3>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {playbooks.map((pb) => (
             <div key={pb.id} className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-card-hover">
@@ -122,14 +122,14 @@ export function Playbooks() {
               </div>
 
               <h4
-                className="mb-1 cursor-pointer text-sm font-medium text-bright hover:underline"
+                className="mb-1 cursor-pointer text-sm font-medium text-text-bright hover:underline"
                 onClick={() => handleViewDetail(pb)}
               >
                 {pb.name}
               </h4>
-              <p className="mb-3 text-xs text-muted line-clamp-2">{pb.description}</p>
+              <p className="mb-3 text-xs text-text-muted line-clamp-2">{pb.description}</p>
 
-              <div className="mb-3 flex items-center gap-3 text-xs text-muted">
+              <div className="mb-3 flex items-center gap-3 text-xs text-text-muted">
                 <span className="flex items-center gap-1">
                   <BookOpen className="h-3 w-3" /> {pb.steps.length} steps
                 </span>
@@ -143,7 +143,7 @@ export function Playbooks() {
 
               <button
                 onClick={() => handleViewDetail(pb)}
-                className="w-full rounded-lg border border-default bg-elevated py-1.5 text-sm text-default transition-colors hover:bg-card-hover"
+                className="w-full rounded-lg border border-default bg-elevated py-1.5 text-sm text-text-default transition-colors hover:bg-card-hover"
               >
                 View & Start
               </button>

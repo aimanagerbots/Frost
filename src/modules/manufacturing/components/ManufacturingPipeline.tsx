@@ -36,19 +36,19 @@ function StateNode({ state, isActive, onClick }: { state: PipelineState; isActiv
       )}
     >
       <span
-        className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-bright"
+        className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-text-bright"
         style={{ backgroundColor: `${state.color}30`, color: state.color }}
       >
         {state.count}
       </span>
-      <span className="text-[10px] text-muted whitespace-nowrap">{state.state}</span>
+      <span className="text-[10px] text-text-muted whitespace-nowrap">{state.state}</span>
     </button>
   );
 }
 
 function Arrow() {
   return (
-    <div className="flex items-center px-1 text-muted">
+    <div className="flex items-center px-1 text-text-muted">
       <svg width="20" height="12" viewBox="0 0 20 12">
         <line x1="0" y1="6" x2="14" y2="6" stroke="currentColor" strokeWidth="1.5" />
         <polyline points="12,2 18,6 12,10" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -83,7 +83,7 @@ function VaporizerPipeline({ states, activeState, onStateClick }: { states: Pipe
 
     return (
       <div className="flex items-center gap-1">
-        <span className="w-24 text-right text-[10px] text-muted pr-2">{label}</span>
+        <span className="w-24 text-right text-[10px] text-text-muted pr-2">{label}</span>
         {pathStates.map((s, i) => (
           <div key={s.stateCode + label} className="flex items-center">
             <StateNode
@@ -126,7 +126,7 @@ export function ManufacturingPipeline({ onStateClick }: PipelineProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-sm font-semibold text-bright">Pipeline Overview</h2>
+        <h2 className="text-sm font-semibold text-text-bright">Pipeline Overview</h2>
         <div className="flex gap-1">
           {CATEGORIES.map((cat) => (
             <button
@@ -135,8 +135,8 @@ export function ManufacturingPipeline({ onStateClick }: PipelineProps) {
               className={cn(
                 'rounded-lg px-3 py-1.5 text-xs font-medium transition-colors',
                 activeCategory === cat.key
-                  ? 'text-bright'
-                  : 'text-muted hover:text-default hover:bg-elevated'
+                  ? 'text-text-bright'
+                  : 'text-text-muted hover:text-text-default hover:bg-elevated'
               )}
               style={activeCategory === cat.key ? { backgroundColor: `${ACCENT}20`, color: ACCENT } : undefined}
             >
@@ -152,7 +152,7 @@ export function ManufacturingPipeline({ onStateClick }: PipelineProps) {
           <div className="space-y-4">
             {Object.entries(grouped).map(([cat, catStates]) => (
               <div key={cat}>
-                <div className="mb-2 text-xs font-medium text-muted capitalize">{cat}</div>
+                <div className="mb-2 text-xs font-medium text-text-muted capitalize">{cat}</div>
                 {cat === 'vaporizer' ? (
                   <VaporizerPipeline states={catStates} activeState={activeState} onStateClick={handleStateClick} />
                 ) : (

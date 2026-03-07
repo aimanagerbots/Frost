@@ -120,8 +120,8 @@ export function SystemPage() {
             onClick={() => setActiveTab(tab.key)}
             className={`px-4 py-2 text-sm font-medium transition-colors border-b-2 ${
               activeTab === tab.key
-                ? 'border-[#64748B] text-[var(--text-bright)]'
-                : 'border-transparent text-[var(--text-muted)] hover:text-[var(--text-default)]'
+                ? 'border-[#64748B] text-[var(--text-text-bright)]'
+                : 'border-transparent text-[var(--text-text-muted)] hover:text-[var(--text-text-default)]'
             }`}
           >
             {tab.label}
@@ -144,7 +144,7 @@ export function SystemPage() {
                     className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] p-4"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-semibold text-[var(--text-bright)]">
+                      <span className="text-sm font-semibold text-[var(--text-text-bright)]">
                         {h.component}
                       </span>
                       <StatusBadge
@@ -155,10 +155,10 @@ export function SystemPage() {
                         pulse={badge.pulse}
                       />
                     </div>
-                    <div className="text-xs text-[var(--text-muted)] mb-1">{h.metric}</div>
-                    <div className="text-lg font-bold text-[var(--text-bright)]">{h.value}</div>
+                    <div className="text-xs text-[var(--text-text-muted)] mb-1">{h.metric}</div>
+                    <div className="text-lg font-bold text-[var(--text-text-bright)]">{h.value}</div>
                     {h.threshold && (
-                      <div className="mt-1 text-xs text-[var(--text-muted)]">
+                      <div className="mt-1 text-xs text-[var(--text-text-muted)]">
                         Threshold: {h.threshold}
                       </div>
                     )}
@@ -185,7 +185,7 @@ export function SystemPage() {
                   sortable: true,
                   render: (row) => (
                     <div>
-                      <span className="font-medium text-[var(--text-bright)]">{row.name}</span>
+                      <span className="font-medium text-[var(--text-text-bright)]">{row.name}</span>
                       {row.error && (
                         <div className="mt-1 text-xs text-[var(--color-danger)]">{row.error}</div>
                       )}
@@ -226,7 +226,7 @@ export function SystemPage() {
                   accessor: 'lastRun',
                   sortable: true,
                   render: (row) => (
-                    <span className="text-[var(--text-muted)]">
+                    <span className="text-[var(--text-text-muted)]">
                       {formatRelativeTime(row.lastRun)}
                     </span>
                   ),
@@ -235,7 +235,7 @@ export function SystemPage() {
                   header: 'Next Run',
                   accessor: (row) => row.nextRun ?? '',
                   render: (row) => (
-                    <span className="text-[var(--text-muted)]">
+                    <span className="text-[var(--text-text-muted)]">
                       {row.nextRun ? formatFutureTime(row.nextRun) : '—'}
                     </span>
                   ),
@@ -244,7 +244,7 @@ export function SystemPage() {
                   header: 'Duration',
                   accessor: (row) => row.duration ?? '',
                   render: (row) => (
-                    <span className="text-[var(--text-muted)]">{row.duration ?? '—'}</span>
+                    <span className="text-[var(--text-text-muted)]">{row.duration ?? '—'}</span>
                   ),
                 },
               ]}
@@ -329,38 +329,38 @@ export function SystemPage() {
                           className="h-3 w-3 rounded-full"
                           style={{ backgroundColor: DONUT_COLORS[i % DONUT_COLORS.length] }}
                         />
-                        <span className="text-sm font-semibold text-[var(--text-bright)]">
+                        <span className="text-sm font-semibold text-[var(--text-text-bright)]">
                           {model.model}
                         </span>
                       </div>
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
-                          <span className="text-[var(--text-muted)]">Tokens</span>
-                          <span className="text-[var(--text-default)]">
+                          <span className="text-[var(--text-text-muted)]">Tokens</span>
+                          <span className="text-[var(--text-text-default)]">
                             {model.tokensToday.toLocaleString()}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-[var(--text-muted)]">Cost</span>
-                          <span className="text-[var(--text-default)]">
+                          <span className="text-[var(--text-text-muted)]">Cost</span>
+                          <span className="text-[var(--text-text-default)]">
                             ${model.costToday.toFixed(2)}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-[var(--text-muted)]">Requests</span>
-                          <span className="text-[var(--text-default)]">{model.requestsToday}</span>
+                          <span className="text-[var(--text-text-muted)]">Requests</span>
+                          <span className="text-[var(--text-text-default)]">{model.requestsToday}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-[var(--text-muted)]">Avg Latency</span>
-                          <span className="text-[var(--text-default)]">{model.avgLatency}ms</span>
+                          <span className="text-[var(--text-text-muted)]">Avg Latency</span>
+                          <span className="text-[var(--text-text-default)]">{model.avgLatency}ms</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-[var(--text-muted)]">Error Rate</span>
+                          <span className="text-[var(--text-text-muted)]">Error Rate</span>
                           <span
                             className={
                               model.errorRate > 1
                                 ? 'text-[var(--color-danger)]'
-                                : 'text-[var(--text-default)]'
+                                : 'text-[var(--text-text-default)]'
                             }
                           >
                             {model.errorRate}%
@@ -390,12 +390,12 @@ export function SystemPage() {
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-sm font-semibold text-[var(--text-bright)]">
+                      <span className="text-sm font-semibold text-[var(--text-text-bright)]">
                         {flag.name}
                       </span>
                       <StatusBadge variant="default" label={flag.module} size="sm" />
                     </div>
-                    <p className="text-xs text-[var(--text-muted)] line-clamp-1">
+                    <p className="text-xs text-[var(--text-text-muted)] line-clamp-1">
                       {flag.description}
                     </p>
                   </div>

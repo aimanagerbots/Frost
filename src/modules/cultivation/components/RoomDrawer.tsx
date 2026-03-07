@@ -55,7 +55,7 @@ function EnvCard({ icon: Icon, label, value, status }: EnvCardProps) {
     <div className={cn('rounded-lg border p-3', STATUS_BG[status])}>
       <div className="flex items-center gap-2">
         <Icon className={cn('h-4 w-4', STATUS_TEXT[status])} />
-        <span className="text-xs text-muted">{label}</span>
+        <span className="text-xs text-text-muted">{label}</span>
       </div>
       <div className={cn('mt-1 text-lg font-bold', STATUS_TEXT[status])}>{value}</div>
     </div>
@@ -94,8 +94,8 @@ export function RoomDrawer({ roomId, onClose }: RoomDrawerProps) {
           {/* Room Header */}
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-sm text-muted">Strain</p>
-              <p className="text-lg font-semibold text-bright">{room.strainName}</p>
+              <p className="text-sm text-text-muted">Strain</p>
+              <p className="text-lg font-semibold text-text-bright">{room.strainName}</p>
             </div>
             <div className="text-right">
               <StatusBadge
@@ -104,7 +104,7 @@ export function RoomDrawer({ roomId, onClose }: RoomDrawerProps) {
                 dot
                 pulse={room.stage === 'flower'}
               />
-              <p className="mt-1 text-xs text-muted">
+              <p className="mt-1 text-xs text-text-muted">
                 Day {room.dayInStage} of {room.expectedStageDays}
               </p>
             </div>
@@ -125,14 +125,14 @@ export function RoomDrawer({ roomId, onClose }: RoomDrawerProps) {
 
           {/* Environment Readings */}
           <div>
-            <h3 className="mb-3 text-sm font-semibold text-bright">Environment</h3>
+            <h3 className="mb-3 text-sm font-semibold text-text-bright">Environment</h3>
             <div className="grid grid-cols-2 gap-3">
               <EnvCard icon={Thermometer} label="Temperature" value={`${room.environment.temperature}°F`} status={room.environment.status} />
               <EnvCard icon={Droplets} label="Humidity" value={`${room.environment.humidity}%`} status={room.environment.status} />
               <EnvCard icon={Wind} label="CO2" value={`${room.environment.co2} ppm`} status={room.environment.status} />
               <EnvCard icon={Sun} label="Light Cycle" value={`${room.environment.lightHours}h`} status={room.environment.status} />
             </div>
-            <div className="mt-2 flex items-center gap-4 text-xs text-muted">
+            <div className="mt-2 flex items-center gap-4 text-xs text-text-muted">
               <span>VPD: {room.environment.vpd} kPa</span>
               <span className={cn('font-medium', STATUS_TEXT[room.environment.status])}>
                 {room.environment.status.charAt(0).toUpperCase() + room.environment.status.slice(1)}
@@ -209,20 +209,20 @@ export function RoomDrawer({ roomId, onClose }: RoomDrawerProps) {
 
           {/* Plant Info */}
           <div className="rounded-xl border border-default bg-elevated p-4">
-            <h3 className="mb-2 text-sm font-semibold text-bright">Plant Info</h3>
+            <h3 className="mb-2 text-sm font-semibold text-text-bright">Plant Info</h3>
             <div className="grid grid-cols-2 gap-y-2 text-sm">
-              <span className="text-muted">Plant Count</span>
-              <span className="text-right font-medium text-bright">{room.plantCount}</span>
+              <span className="text-text-muted">Plant Count</span>
+              <span className="text-right font-medium text-text-bright">{room.plantCount}</span>
               {room.estimatedYield && (
                 <>
-                  <span className="text-muted">Est. Yield</span>
-                  <span className="text-right font-medium text-bright">{room.estimatedYield}</span>
+                  <span className="text-text-muted">Est. Yield</span>
+                  <span className="text-right font-medium text-text-bright">{room.estimatedYield}</span>
                 </>
               )}
               {room.estimatedHarvest && (
                 <>
-                  <span className="text-muted">Est. Harvest</span>
-                  <span className="text-right font-medium text-bright">{room.estimatedHarvest}</span>
+                  <span className="text-text-muted">Est. Harvest</span>
+                  <span className="text-right font-medium text-text-bright">{room.estimatedHarvest}</span>
                 </>
               )}
             </div>
@@ -231,13 +231,13 @@ export function RoomDrawer({ roomId, onClose }: RoomDrawerProps) {
           {/* Actions */}
           <div className="flex gap-3">
             <button
-              className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-default bg-elevated px-4 py-2.5 text-sm font-medium text-bright transition-colors hover:bg-card-hover"
+              className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-default bg-elevated px-4 py-2.5 text-sm font-medium text-text-bright transition-colors hover:bg-card-hover"
             >
               <Scissors className="h-4 w-4" />
               Schedule Harvest
             </button>
             <button
-              className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-default bg-elevated px-4 py-2.5 text-sm font-medium text-bright transition-colors hover:bg-card-hover"
+              className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-default bg-elevated px-4 py-2.5 text-sm font-medium text-text-bright transition-colors hover:bg-card-hover"
             >
               <ClipboardCheck className="h-4 w-4" />
               Log Inspection

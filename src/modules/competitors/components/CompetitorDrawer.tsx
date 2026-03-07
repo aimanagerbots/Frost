@@ -21,7 +21,7 @@ const TREND_ICONS = {
 
 const TREND_COLORS = {
   growing: 'text-success',
-  stable: 'text-muted',
+  stable: 'text-text-muted',
   declining: 'text-danger',
 } as const;
 
@@ -80,7 +80,7 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
       header: 'Sub-Category',
       accessor: 'subCategory' as keyof CompetitorProduct,
       render: (row: CompetitorProduct) => (
-        <span className="text-xs text-muted">{row.subCategory}</span>
+        <span className="text-xs text-text-muted">{row.subCategory}</span>
       ),
     },
     {
@@ -88,7 +88,7 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
       accessor: 'price' as keyof CompetitorProduct,
       sortable: true,
       render: (row: CompetitorProduct) => (
-        <span className="font-medium text-default">${row.price}</span>
+        <span className="font-medium text-text-default">${row.price}</span>
       ),
     },
     {
@@ -96,9 +96,9 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
       accessor: 'ourComparable' as keyof CompetitorProduct,
       render: (row: CompetitorProduct) =>
         row.ourComparable ? (
-          <span className="text-xs text-default">{row.ourComparable}</span>
+          <span className="text-xs text-text-default">{row.ourComparable}</span>
         ) : (
-          <span className="text-xs text-muted">-</span>
+          <span className="text-xs text-text-muted">-</span>
         ),
     },
     {
@@ -106,9 +106,9 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
       accessor: 'ourPrice' as keyof CompetitorProduct,
       render: (row: CompetitorProduct) =>
         row.ourPrice ? (
-          <span className="font-medium text-default">${row.ourPrice}</span>
+          <span className="font-medium text-text-default">${row.ourPrice}</span>
         ) : (
-          <span className="text-xs text-muted">-</span>
+          <span className="text-xs text-text-muted">-</span>
         ),
     },
     {
@@ -116,7 +116,7 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
       accessor: ((row: CompetitorProduct) =>
         row.ourPrice ? row.ourPrice - row.price : 0) as (row: CompetitorProduct) => unknown,
       render: (row: CompetitorProduct) => {
-        if (!row.ourPrice) return <span className="text-xs text-muted">-</span>;
+        if (!row.ourPrice) return <span className="text-xs text-text-muted">-</span>;
         const delta = row.ourPrice - row.price;
         const isGood = delta <= 0;
         return (
@@ -144,27 +144,27 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
         <div className="space-y-6">
           {/* Overview */}
           <div>
-            <p className="text-sm text-muted">{competitor.description}</p>
+            <p className="text-sm text-text-muted">{competitor.description}</p>
             <div className="mt-4 grid grid-cols-3 gap-4">
               <div className="rounded-lg bg-elevated p-3 text-center">
-                <div className="text-xl font-bold text-bright">
+                <div className="text-xl font-bold text-text-bright">
                   {competitor.marketShare}%
                 </div>
-                <div className="text-xs text-muted">Market Share</div>
+                <div className="text-xs text-text-muted">Market Share</div>
               </div>
               <div className="rounded-lg bg-elevated p-3 text-center">
                 <div className={cn('flex items-center justify-center gap-1 text-xl font-bold', trendColor)}>
                   <TrendIcon className="h-5 w-5" />
                   {competitor.trend.charAt(0).toUpperCase() + competitor.trend.slice(1)}
                 </div>
-                <div className="text-xs text-muted">Trend</div>
+                <div className="text-xs text-text-muted">Trend</div>
               </div>
               <div className="rounded-lg bg-elevated p-3 text-center">
-                <div className="flex items-center justify-center gap-1 text-xl font-bold text-bright">
+                <div className="flex items-center justify-center gap-1 text-xl font-bold text-text-bright">
                   <Store className="h-4 w-4" />
                   {competitor.storeCount}
                 </div>
-                <div className="text-xs text-muted">Stores</div>
+                <div className="text-xs text-text-muted">Stores</div>
               </div>
             </div>
             <div className="mt-3 flex flex-wrap gap-1.5">
@@ -176,7 +176,7 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
 
           {/* Products Table */}
           <div>
-            <h3 className="mb-2 text-sm font-semibold text-bright">Products</h3>
+            <h3 className="mb-2 text-sm font-semibold text-text-bright">Products</h3>
             {productsLoading ? (
               <LoadingSkeleton variant="table" />
             ) : (
@@ -193,7 +193,7 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
           {/* Alert History */}
           {competitorAlerts.length > 0 && (
             <div>
-              <h3 className="mb-2 flex items-center gap-1.5 text-sm font-semibold text-bright">
+              <h3 className="mb-2 flex items-center gap-1.5 text-sm font-semibold text-text-bright">
                 <AlertCircle className="h-4 w-4" style={{ color: ACCENT }} />
                 Alert History ({competitorAlerts.length})
               </h3>
@@ -212,12 +212,12 @@ export function CompetitorDrawer({ competitor, onClose }: CompetitorDrawerProps)
                         variant={ALERT_TYPE_VARIANTS[alert.type] ?? 'default'}
                         size="sm"
                       />
-                      <span className="text-xs text-muted">
+                      <span className="text-xs text-text-muted">
                         {new Date(alert.date).toLocaleDateString()}
                       </span>
                     </div>
-                    <p className="mt-1 text-xs text-default">{alert.details}</p>
-                    <p className="mt-0.5 text-xs text-muted">{alert.accountName}</p>
+                    <p className="mt-1 text-xs text-text-default">{alert.details}</p>
+                    <p className="mt-0.5 text-xs text-text-muted">{alert.accountName}</p>
                   </div>
                 ))}
               </div>

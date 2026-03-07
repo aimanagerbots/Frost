@@ -79,17 +79,17 @@ export function HealthModelView({ model }: HealthModelViewProps) {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-default">
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted">Factor</th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted">Weight</th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted">Description</th>
+              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted">Factor</th>
+              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted">Weight</th>
+              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted">Description</th>
             </tr>
           </thead>
           <tbody>
             {model.factors.map((f) => (
               <tr key={f.name} className="border-b border-default/50">
-                <td className="px-4 py-3 font-medium text-bright">{f.name}</td>
-                <td className="px-4 py-3 text-default">{f.weight}%</td>
-                <td className="px-4 py-3 text-muted">{f.description}</td>
+                <td className="px-4 py-3 font-medium text-text-bright">{f.name}</td>
+                <td className="px-4 py-3 text-text-default">{f.weight}%</td>
+                <td className="px-4 py-3 text-text-muted">{f.description}</td>
               </tr>
             ))}
           </tbody>
@@ -98,14 +98,14 @@ export function HealthModelView({ model }: HealthModelViewProps) {
 
       {/* Correlations */}
       <div className="rounded-xl border border-default bg-card p-4">
-        <h4 className="mb-3 text-sm font-medium text-bright">Key Correlations</h4>
+        <h4 className="mb-3 text-sm font-medium text-text-bright">Key Correlations</h4>
         <div className="space-y-2">
           {model.correlations.map((c) => (
             <div key={c.factor} className="flex items-start gap-3 rounded-lg bg-base p-3">
               <span className={`mt-0.5 inline-block h-2 w-2 shrink-0 rounded-full ${c.impact === 'high' ? 'bg-success' : 'bg-info'}`} />
               <div>
-                <span className="text-sm font-medium text-default">{c.factor}</span>
-                <p className="text-xs text-muted">{c.description}</p>
+                <span className="text-sm font-medium text-text-default">{c.factor}</span>
+                <p className="text-xs text-text-muted">{c.description}</p>
               </div>
             </div>
           ))}

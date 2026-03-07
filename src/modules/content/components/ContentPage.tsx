@@ -68,7 +68,7 @@ export function ContentPage() {
       accessor: 'title' as const,
       sortable: true,
       render: (row: ContentPost) => (
-        <span className="text-sm font-medium text-bright">{row.title}</span>
+        <span className="text-sm font-medium text-text-bright">{row.title}</span>
       ),
     },
     {
@@ -111,9 +111,9 @@ export function ContentPage() {
       sortable: true,
       render: (row: ContentPost) => {
         const date = row.scheduledDate ?? row.publishedDate;
-        if (!date) return <span className="text-muted">--</span>;
+        if (!date) return <span className="text-text-muted">--</span>;
         return (
-          <span className="text-sm text-default">
+          <span className="text-sm text-text-default">
             {new Date(date).toLocaleDateString('en-US', {
               month: 'short',
               day: 'numeric',
@@ -128,9 +128,9 @@ export function ContentPage() {
         row.performance?.impressions ?? 0) as (row: ContentPost) => unknown,
       sortable: true,
       render: (row: ContentPost) => {
-        if (!row.performance) return <span className="text-muted">--</span>;
+        if (!row.performance) return <span className="text-text-muted">--</span>;
         return (
-          <span className="text-sm text-default">
+          <span className="text-sm text-text-default">
             {row.performance.impressions.toLocaleString()} imp
           </span>
         );
@@ -180,7 +180,7 @@ export function ContentPage() {
             className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
               statusFilter === f.value
                 ? 'text-white'
-                : 'bg-elevated text-muted hover:text-default'
+                : 'bg-elevated text-text-muted hover:text-text-default'
             }`}
             style={
               statusFilter === f.value ? { backgroundColor: ACCENT } : undefined
@@ -236,9 +236,9 @@ export function ContentPage() {
             {/* Dates */}
             <div className="space-y-1">
               {selectedPost.publishedDate && (
-                <p className="text-sm text-muted">
+                <p className="text-sm text-text-muted">
                   Published:{' '}
-                  <span className="text-default">
+                  <span className="text-text-default">
                     {new Date(selectedPost.publishedDate).toLocaleDateString('en-US', {
                       month: 'long',
                       day: 'numeric',
@@ -248,9 +248,9 @@ export function ContentPage() {
                 </p>
               )}
               {selectedPost.scheduledDate && (
-                <p className="text-sm text-muted">
+                <p className="text-sm text-text-muted">
                   Scheduled:{' '}
-                  <span className="text-default">
+                  <span className="text-text-default">
                     {new Date(selectedPost.scheduledDate).toLocaleDateString('en-US', {
                       month: 'long',
                       day: 'numeric',
@@ -263,10 +263,10 @@ export function ContentPage() {
 
             {/* Content */}
             <div>
-              <h3 className="mb-2 text-xs font-medium uppercase tracking-wider text-muted">
+              <h3 className="mb-2 text-xs font-medium uppercase tracking-wider text-text-muted">
                 Content
               </h3>
-              <div className="whitespace-pre-wrap rounded-lg border border-default bg-base p-4 text-sm text-default">
+              <div className="whitespace-pre-wrap rounded-lg border border-default bg-base p-4 text-sm text-text-default">
                 {selectedPost.content}
               </div>
             </div>
@@ -274,33 +274,33 @@ export function ContentPage() {
             {/* Performance Metrics */}
             {selectedPost.performance && (
               <div>
-                <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-muted">
+                <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-text-muted">
                   Performance
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="rounded-lg border border-default bg-base p-3">
-                    <div className="text-lg font-bold text-bright">
+                    <div className="text-lg font-bold text-text-bright">
                       {selectedPost.performance.impressions.toLocaleString()}
                     </div>
-                    <div className="text-xs text-muted">Impressions</div>
+                    <div className="text-xs text-text-muted">Impressions</div>
                   </div>
                   <div className="rounded-lg border border-default bg-base p-3">
-                    <div className="text-lg font-bold text-bright">
+                    <div className="text-lg font-bold text-text-bright">
                       {selectedPost.performance.engagement}%
                     </div>
-                    <div className="text-xs text-muted">Engagement Rate</div>
+                    <div className="text-xs text-text-muted">Engagement Rate</div>
                   </div>
                   <div className="rounded-lg border border-default bg-base p-3">
-                    <div className="text-lg font-bold text-bright">
+                    <div className="text-lg font-bold text-text-bright">
                       {selectedPost.performance.clicks.toLocaleString()}
                     </div>
-                    <div className="text-xs text-muted">Clicks</div>
+                    <div className="text-xs text-text-muted">Clicks</div>
                   </div>
                   <div className="rounded-lg border border-default bg-base p-3">
-                    <div className="text-lg font-bold text-bright">
+                    <div className="text-lg font-bold text-text-bright">
                       {selectedPost.performance.conversions}
                     </div>
-                    <div className="text-xs text-muted">Conversions</div>
+                    <div className="text-xs text-text-muted">Conversions</div>
                   </div>
                 </div>
               </div>

@@ -12,7 +12,7 @@ interface OrderPipelineProps {
 export function OrderPipeline({ stages, activeStatus, onStageClick }: OrderPipelineProps) {
   return (
     <div className="rounded-xl border border-default bg-card p-4">
-      <h3 className="mb-3 text-sm font-semibold text-bright">Order Pipeline</h3>
+      <h3 className="mb-3 text-sm font-semibold text-text-bright">Order Pipeline</h3>
       <div className="flex items-center gap-1 overflow-x-auto pb-2">
         {stages.map((stage, i) => (
           <div key={stage.status} className="flex items-center">
@@ -30,10 +30,10 @@ export function OrderPipeline({ stages, activeStatus, onStageClick }: OrderPipel
               >
                 {stage.count}
               </div>
-              <span className="text-[10px] text-muted whitespace-nowrap">{stage.label}</span>
+              <span className="text-[10px] text-text-muted whitespace-nowrap">{stage.label}</span>
             </button>
             {i < stages.length - 1 && (
-              <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-muted/40" />
+              <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-text-muted/40" />
             )}
           </div>
         ))}

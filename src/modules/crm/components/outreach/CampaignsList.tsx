@@ -67,7 +67,7 @@ export function CampaignsList() {
       accessor: 'name' as const,
       sortable: true,
       render: (row: CampaignRow) => (
-        <span className="font-medium text-bright">{row.name as string}</span>
+        <span className="font-medium text-text-bright">{row.name as string}</span>
       ),
     },
     {
@@ -100,7 +100,7 @@ export function CampaignsList() {
       accessor: 'openRate' as const,
       sortable: true,
       render: (row: CampaignRow) => (
-        <span className={Number(row.openRate) >= 50 ? 'text-success' : 'text-default'}>
+        <span className={Number(row.openRate) >= 50 ? 'text-success' : 'text-text-default'}>
           {Number(row.openRate).toFixed(1)}%
         </span>
       ),
@@ -110,7 +110,7 @@ export function CampaignsList() {
       accessor: 'responseRate' as const,
       sortable: true,
       render: (row: CampaignRow) => (
-        <span className={Number(row.responseRate) >= 25 ? 'text-success' : 'text-default'}>
+        <span className={Number(row.responseRate) >= 25 ? 'text-success' : 'text-text-default'}>
           {Number(row.responseRate).toFixed(1)}%
         </span>
       ),
@@ -152,7 +152,7 @@ export function CampaignsList() {
 
       {/* Filter bar */}
       <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-4">
-        <Filter className="h-4 w-4 text-muted" />
+        <Filter className="h-4 w-4 text-text-muted" />
 
         {/* Type multi-select */}
         <div className="flex flex-wrap gap-1.5">
@@ -163,7 +163,7 @@ export function CampaignsList() {
               className={`rounded-md px-2 py-1 text-xs transition-colors ${
                 typeFilter.size === 0 || typeFilter.has(t)
                   ? 'bg-amber-500/20 text-amber-400'
-                  : 'bg-elevated text-muted hover:text-default'
+                  : 'bg-elevated text-text-muted hover:text-text-default'
               }`}
             >
               {TYPE_LABELS[t]}
@@ -176,7 +176,7 @@ export function CampaignsList() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-default focus:outline-none"
+          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-text-default focus:outline-none"
         >
           <option value="">All Status</option>
           {STATUSES.map((s) => (
@@ -187,7 +187,7 @@ export function CampaignsList() {
         <select
           value={channelFilter}
           onChange={(e) => setChannelFilter(e.target.value)}
-          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-default focus:outline-none"
+          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-text-default focus:outline-none"
         >
           <option value="">All Channels</option>
           {CHANNELS.map((c) => (

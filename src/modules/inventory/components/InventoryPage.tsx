@@ -23,7 +23,7 @@ const STRAIN_COLOR: Record<StrainType, string> = {
 };
 
 const selectClass =
-  'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-default outline-none focus:border-hover';
+  'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-text-default outline-none focus:border-hover';
 
 export function InventoryPage() {
   const [filters, setFilters] = useState<InventoryFilter>({});
@@ -71,7 +71,7 @@ export function InventoryPage() {
             className="h-2 w-2 rounded-full flex-shrink-0"
             style={{ backgroundColor: STRAIN_COLOR[row.strainType] }}
           />
-          <span className="text-sm font-medium text-bright">{row.productName}</span>
+          <span className="text-sm font-medium text-text-bright">{row.productName}</span>
         </div>
       ),
     },
@@ -80,7 +80,7 @@ export function InventoryPage() {
       accessor: 'category' as const,
       sortable: true,
       render: (row: InventoryItem) => (
-        <span className="rounded-full bg-elevated px-2 py-0.5 text-[10px] text-muted capitalize">
+        <span className="rounded-full bg-elevated px-2 py-0.5 text-[10px] text-text-muted capitalize">
           {row.category}
         </span>
       ),
@@ -116,7 +116,7 @@ export function InventoryPage() {
       accessor: 'quantity' as const,
       sortable: true,
       render: (row: InventoryItem) => (
-        <span className="text-default">{row.quantity.toLocaleString()} {row.unit}</span>
+        <span className="text-text-default">{row.quantity.toLocaleString()} {row.unit}</span>
       ),
     },
     {
@@ -124,7 +124,7 @@ export function InventoryPage() {
       accessor: 'thcPercent' as const,
       sortable: true,
       render: (row: InventoryItem) => (
-        <span className="text-muted">{row.thcPercent != null ? `${row.thcPercent}%` : '—'}</span>
+        <span className="text-text-muted">{row.thcPercent != null ? `${row.thcPercent}%` : '—'}</span>
       ),
     },
     {
@@ -132,7 +132,7 @@ export function InventoryPage() {
       accessor: 'batchNumber' as const,
       sortable: true,
       render: (row: InventoryItem) => (
-        <span className="text-[11px] text-muted font-mono">{row.batchNumber}</span>
+        <span className="text-[11px] text-text-muted font-mono">{row.batchNumber}</span>
       ),
     },
     {
@@ -140,7 +140,7 @@ export function InventoryPage() {
       accessor: 'value' as const,
       sortable: true,
       render: (row: InventoryItem) => (
-        <span className="font-medium text-bright">${row.value.toLocaleString()}</span>
+        <span className="font-medium text-text-bright">${row.value.toLocaleString()}</span>
       ),
     },
   ];

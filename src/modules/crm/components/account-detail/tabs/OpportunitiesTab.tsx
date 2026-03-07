@@ -45,27 +45,27 @@ export function OpportunitiesTab({ accountId }: OpportunitiesTabProps) {
         <div key={opp.id} className="rounded-xl border border-default bg-card p-4">
           <div className="mb-2 flex items-start justify-between">
             <StatusBadge variant={typeVariant(opp.type)} label={opp.type.replace('-', ' ')} size="sm" />
-            <span className="text-lg font-bold text-bright">{formatCurrency(opp.estimatedValue)}</span>
+            <span className="text-lg font-bold text-text-bright">{formatCurrency(opp.estimatedValue)}</span>
           </div>
-          <h4 className="text-sm font-medium text-bright">{opp.title}</h4>
-          <div className="mt-2 space-y-1 text-xs text-muted">
+          <h4 className="text-sm font-medium text-text-bright">{opp.title}</h4>
+          <div className="mt-2 space-y-1 text-xs text-text-muted">
             <div className="flex justify-between">
               <span>Probability</span>
-              <span className="text-default">{opp.probability}%</span>
+              <span className="text-text-default">{opp.probability}%</span>
             </div>
             <div className="flex justify-between">
               <span>Stage</span>
-              <span className="text-default">{opp.stage}</span>
+              <span className="text-text-default">{opp.stage}</span>
             </div>
             <div className="flex justify-between">
               <span>Expected Close</span>
-              <span className="text-default">
+              <span className="text-text-default">
                 {new Date(opp.expectedCloseDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
               </span>
             </div>
           </div>
           {opp.notes && (
-            <p className="mt-3 border-t border-default/50 pt-2 text-xs text-muted">{opp.notes}</p>
+            <p className="mt-3 border-t border-default/50 pt-2 text-xs text-text-muted">{opp.notes}</p>
           )}
         </div>
       ))}

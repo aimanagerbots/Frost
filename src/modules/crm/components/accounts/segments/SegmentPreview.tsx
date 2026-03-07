@@ -56,12 +56,12 @@ export function SegmentPreview({ accounts, totalCount, totalRevenue }: SegmentPr
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-4 text-xs text-muted">
+      <div className="flex items-center gap-4 text-xs text-text-muted">
         <span>
-          <span className="font-medium text-default">{totalCount}</span> accounts match
+          <span className="font-medium text-text-default">{totalCount}</span> accounts match
         </span>
         <span>
-          Total revenue: <span className="font-medium text-default">${totalRevenue.toLocaleString()}</span>
+          Total revenue: <span className="font-medium text-text-default">${totalRevenue.toLocaleString()}</span>
         </span>
       </div>
       <DataTable

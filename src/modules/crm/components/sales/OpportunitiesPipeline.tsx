@@ -141,8 +141,8 @@ export function OpportunitiesPipeline() {
             onClick={() => setViewType(opt.value)}
             className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
               viewType === opt.value
-                ? 'bg-card text-bright shadow-sm'
-                : 'text-muted hover:text-default'
+                ? 'bg-card text-text-bright shadow-sm'
+                : 'text-text-muted hover:text-text-default'
             }`}
           >
             {opt.label}

@@ -103,7 +103,7 @@ export function ReorderCenter() {
       accessor: 'accountName' as const,
       sortable: true,
       render: (row) => (
-        <span className="font-medium text-bright">{row.accountName as string}</span>
+        <span className="font-medium text-text-bright">{row.accountName as string}</span>
       ),
     },
     {
@@ -116,8 +116,8 @@ export function ReorderCenter() {
         const products = row.proposedProducts as ReorderProposal['proposedProducts'];
         return (
           <div>
-            <span className="text-default">{products.length} items</span>
-            <div className="truncate text-xs text-muted">{products[0]?.name}</div>
+            <span className="text-text-default">{products.length} items</span>
+            <div className="truncate text-xs text-text-muted">{products[0]?.name}</div>
           </div>
         );
       },
@@ -127,7 +127,7 @@ export function ReorderCenter() {
       accessor: 'totalValue' as const,
       sortable: true,
       render: (row) => (
-        <span className="font-medium text-bright">{formatCurrency(row.totalValue as number)}</span>
+        <span className="font-medium text-text-bright">{formatCurrency(row.totalValue as number)}</span>
       ),
     },
     {
@@ -183,7 +183,7 @@ export function ReorderCenter() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value as FilterStatus)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-default outline-none"
+          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-text-default outline-none"
         >
           <option value="all">All Statuses</option>
           <option value="pending">Pending</option>
@@ -195,7 +195,7 @@ export function ReorderCenter() {
         <select
           value={filterSource}
           onChange={(e) => setFilterSource(e.target.value as FilterSource)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-default outline-none"
+          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-text-default outline-none"
         >
           <option value="all">All Sources</option>
           <option value="vmi-velocity">VMI Velocity</option>
@@ -205,7 +205,7 @@ export function ReorderCenter() {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as SortField)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-default outline-none"
+          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-text-default outline-none"
         >
           <option value="confidence">Sort: Confidence</option>
           <option value="totalValue">Sort: Value</option>

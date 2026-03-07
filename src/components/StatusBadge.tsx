@@ -3,12 +3,12 @@
 import { cn } from '@/lib/utils';
 
 const VARIANT_STYLES = {
-  default: { bg: 'bg-elevated', text: 'text-default', dot: 'bg-default' },
+  default: { bg: 'bg-elevated', text: 'text-text-default', dot: 'bg-default' },
   success: { bg: 'bg-success/15', text: 'text-success', dot: 'bg-success' },
   warning: { bg: 'bg-warning/15', text: 'text-warning', dot: 'bg-warning' },
   danger: { bg: 'bg-danger/15', text: 'text-danger', dot: 'bg-danger' },
   info: { bg: 'bg-info/15', text: 'text-info', dot: 'bg-info' },
-  muted: { bg: 'bg-elevated', text: 'text-muted', dot: 'bg-muted' },
+  muted: { bg: 'bg-elevated', text: 'text-text-muted', dot: 'bg-muted' },
 } as const;
 
 type BadgeVariant = keyof typeof VARIANT_STYLES;

@@ -35,7 +35,7 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
           placeholder="Ask about any account, product, or market trend..."
           rows={1}
           disabled={disabled}
-          className="flex-1 resize-none rounded-xl border border-default bg-base px-4 py-3 text-sm text-default placeholder:text-muted focus:border-[#F59E0B]/50 focus:outline-none focus:ring-1 focus:ring-[#F59E0B]/30 disabled:opacity-50"
+          className="flex-1 resize-none rounded-xl border border-default bg-base px-4 py-3 text-sm text-text-default placeholder:text-text-muted focus:border-[#F59E0B]/50 focus:outline-none focus:ring-1 focus:ring-[#F59E0B]/30 disabled:opacity-50"
           style={{ minHeight: '44px', maxHeight: '120px' }}
         />
         <button

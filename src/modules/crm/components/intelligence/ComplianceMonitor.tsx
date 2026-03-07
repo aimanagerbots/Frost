@@ -66,7 +66,7 @@ export function ComplianceMonitor() {
           {(row.daysRemaining as number) <= 30 && (row.daysRemaining as number) >= 0 && (
             <AlertTriangle className="h-3.5 w-3.5 text-danger" />
           )}
-          <span className="font-medium text-bright">{row.accountName as string}</span>
+          <span className="font-medium text-text-bright">{row.accountName as string}</span>
         </div>
       ),
     },
@@ -84,7 +84,7 @@ export function ComplianceMonitor() {
       render: (row: LicenseRow) => {
         const days = row.daysRemaining as number;
         return (
-          <span className={days < 0 ? 'text-danger font-bold' : days <= 30 ? 'text-danger' : days <= 180 ? 'text-warning' : 'text-default'}>
+          <span className={days < 0 ? 'text-danger font-bold' : days <= 30 ? 'text-danger' : days <= 180 ? 'text-warning' : 'text-text-default'}>
             {days < 0 ? `${Math.abs(days)}d overdue` : `${days}d`}
           </span>
         );
@@ -109,7 +109,7 @@ export function ComplianceMonitor() {
       header: 'Account',
       accessor: 'accountName' as const,
       sortable: true,
-      render: (row: PaymentRow) => <span className="font-medium text-bright">{row.accountName as string}</span>,
+      render: (row: PaymentRow) => <span className="font-medium text-text-bright">{row.accountName as string}</span>,
     },
     { header: 'Order #', accessor: 'orderNumber' as const },
     {
@@ -144,7 +144,7 @@ export function ComplianceMonitor() {
                 }}
               />
             </div>
-            <span className={`text-xs ${days > max ? 'text-danger font-bold' : 'text-default'}`}>
+            <span className={`text-xs ${days > max ? 'text-danger font-bold' : 'text-text-default'}`}>
               {days}/{max}
             </span>
           </div>
@@ -162,14 +162,14 @@ export function ComplianceMonitor() {
 
   type HistoryRow = typeof accountHistory[number] & Record<string, unknown>;
   const historyColumns = [
-    { header: 'Account', accessor: 'name' as const, sortable: true, render: (row: HistoryRow) => <span className="font-medium text-bright">{row.name}</span> },
+    { header: 'Account', accessor: 'name' as const, sortable: true, render: (row: HistoryRow) => <span className="font-medium text-text-bright">{row.name}</span> },
     { header: 'Avg Days to Payment', accessor: 'avgDays' as const, sortable: true },
     {
       header: 'Violations',
       accessor: 'overdueCount' as const,
       sortable: true,
       render: (row: HistoryRow) => (
-        <span className={(row.overdueCount as number) > 0 ? 'text-danger font-bold' : 'text-default'}>
+        <span className={(row.overdueCount as number) > 0 ? 'text-danger font-bold' : 'text-text-default'}>
           {row.overdueCount as number}
         </span>
       ),
@@ -188,7 +188,7 @@ export function ComplianceMonitor() {
 
       {/* License Tracking */}
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">License Tracking</h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">License Tracking</h3>
         <DataTable
           data={sortedLicenses as LicenseRow[]}
           columns={licenseColumns}
@@ -200,7 +200,7 @@ export function ComplianceMonitor() {
 
       {/* Payment Compliance */}
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">Payment Compliance</h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Payment Compliance</h3>
         <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-4">
           <MetricCard label="Total Outstanding AR" value={`$${totalOutstanding.toLocaleString()}`} accentColor="#3B82F6" />
           <MetricCard label="Overdue Count" value={overduePayments.length} accentColor="#EF4444" />
@@ -216,7 +216,7 @@ export function ComplianceMonitor() {
 
       {/* Compliance History */}
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">Compliance History</h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Compliance History</h3>
         <DataTable
           data={accountHistory as HistoryRow[]}
           columns={historyColumns}

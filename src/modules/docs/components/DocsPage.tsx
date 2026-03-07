@@ -95,7 +95,7 @@ export function DocsPage() {
       accessor: 'name' as const,
       sortable: true,
       render: (row: Document) => (
-        <span className="font-medium text-bright">{row.name}</span>
+        <span className="font-medium text-text-bright">{row.name}</span>
       ),
     },
     {
@@ -121,7 +121,7 @@ export function DocsPage() {
       accessor: 'uploadedAt' as const,
       sortable: true,
       render: (row: Document) => (
-        <span className="text-muted">{formatDate(row.uploadedAt)}</span>
+        <span className="text-text-muted">{formatDate(row.uploadedAt)}</span>
       ),
     },
     {
@@ -129,7 +129,7 @@ export function DocsPage() {
       accessor: 'size' as const,
       sortable: true,
       render: (row: Document) => (
-        <span className="text-muted">{formatFileSize(row.size)}</span>
+        <span className="text-text-muted">{formatFileSize(row.size)}</span>
       ),
     },
     {
@@ -137,7 +137,7 @@ export function DocsPage() {
       accessor: 'version' as const,
       sortable: true,
       render: (row: Document) => (
-        <span className="font-mono text-xs text-muted">v{row.version}</span>
+        <span className="font-mono text-xs text-text-muted">v{row.version}</span>
       ),
     },
   ];
@@ -164,7 +164,7 @@ export function DocsPage() {
               className="rounded-lg px-3 py-1.5 text-sm font-medium transition-colors"
               style={{
                 backgroundColor: isActive ? `${ACCENT}20` : 'var(--bg-elevated)',
-                color: isActive ? ACCENT : 'var(--text-muted)',
+                color: isActive ? ACCENT : 'var(--text-text-muted)',
                 border: `1px solid ${isActive ? ACCENT : 'var(--border-default)'}`,
               }}
             >
@@ -200,11 +200,11 @@ export function DocsPage() {
         width="md"
         footer={
           <div className="flex gap-3">
-            <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors bg-elevated text-default hover:bg-card-hover">
+            <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors bg-elevated text-text-default hover:bg-card-hover">
               <Download className="h-4 w-4" />
               Download
             </button>
-            <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors bg-elevated text-default hover:bg-card-hover">
+            <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors bg-elevated text-text-default hover:bg-card-hover">
               <Share2 className="h-4 w-4" />
               Share
             </button>
@@ -219,44 +219,44 @@ export function DocsPage() {
             {/* Description */}
             {selected.description && (
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider text-muted mb-2">Description</h4>
-                <p className="text-sm text-default leading-relaxed">{selected.description}</p>
+                <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted mb-2">Description</h4>
+                <p className="text-sm text-text-default leading-relaxed">{selected.description}</p>
               </div>
             )}
 
             {/* Metadata Grid */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider text-muted mb-1">Uploaded By</h4>
-                <p className="text-sm text-default">{selected.uploadedBy}</p>
+                <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted mb-1">Uploaded By</h4>
+                <p className="text-sm text-text-default">{selected.uploadedBy}</p>
               </div>
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider text-muted mb-1">Date</h4>
-                <p className="text-sm text-default">{formatDate(selected.uploadedAt)}</p>
+                <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted mb-1">Date</h4>
+                <p className="text-sm text-text-default">{formatDate(selected.uploadedAt)}</p>
               </div>
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider text-muted mb-1">File Size</h4>
-                <p className="text-sm text-default">{formatFileSize(selected.size)}</p>
+                <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted mb-1">File Size</h4>
+                <p className="text-sm text-text-default">{formatFileSize(selected.size)}</p>
               </div>
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider text-muted mb-1">Version</h4>
-                <p className="text-sm text-default">v{selected.version}</p>
+                <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted mb-1">Version</h4>
+                <p className="text-sm text-text-default">v{selected.version}</p>
               </div>
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider text-muted mb-1">Category</h4>
-                <p className="text-sm text-default">{selected.category}</p>
+                <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted mb-1">Category</h4>
+                <p className="text-sm text-text-default">{selected.category}</p>
               </div>
             </div>
 
             {/* Tags */}
             {selected.tags.length > 0 && (
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider text-muted mb-2">Tags</h4>
+                <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted mb-2">Tags</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {selected.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-elevated px-2.5 py-0.5 text-xs font-medium text-muted"
+                      className="rounded-full bg-elevated px-2.5 py-0.5 text-xs font-medium text-text-muted"
                     >
                       {tag}
                     </span>
@@ -268,7 +268,7 @@ export function DocsPage() {
             {/* Linked Module */}
             {selected.linkedModule && (
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider text-muted mb-2">Linked Module</h4>
+                <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted mb-2">Linked Module</h4>
                 <span
                   className="inline-block rounded-full px-3 py-1 text-xs font-medium"
                   style={{ backgroundColor: `${ACCENT}20`, color: ACCENT }}

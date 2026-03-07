@@ -59,7 +59,7 @@ const columns = [
     accessor: 'name' as const,
     sortable: true,
     render: (row: TeamMember) => (
-      <span className="font-medium text-bright">{row.name}</span>
+      <span className="font-medium text-text-bright">{row.name}</span>
     ),
   },
   {
@@ -105,7 +105,7 @@ const columns = [
     accessor: 'startDate' as const,
     sortable: true,
     render: (row: TeamMember) => (
-      <span className="text-muted">{formatDate(String(row.startDate))}</span>
+      <span className="text-text-muted">{formatDate(String(row.startDate))}</span>
     ),
   },
 ];
@@ -153,7 +153,7 @@ export function TeamPage() {
               className={
                 isActive
                   ? 'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors'
-                  : 'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors text-muted hover:text-default hover:bg-elevated'
+                  : 'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors text-text-muted hover:text-text-default hover:bg-elevated'
               }
               style={isActive ? { backgroundColor: `${ACCENT}20`, color: ACCENT } : undefined}
             >
@@ -200,8 +200,8 @@ export function TeamPage() {
                   .join('')}
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-bright">{selected.name}</h3>
-                <p className="text-sm text-muted">{selected.role}</p>
+                <h3 className="text-lg font-semibold text-text-bright">{selected.name}</h3>
+                <p className="text-sm text-text-muted">{selected.role}</p>
               </div>
             </div>
 
@@ -220,20 +220,20 @@ export function TeamPage() {
 
             {/* Contact Info */}
             <div className="space-y-3 rounded-xl border border-default bg-base p-4">
-              <h4 className="text-xs font-medium uppercase tracking-wider text-muted">
+              <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted">
                 Contact
               </h4>
               <div className="flex items-center gap-3 text-sm">
-                <Mail className="h-4 w-4 text-muted" />
-                <span className="text-default">{selected.email}</span>
+                <Mail className="h-4 w-4 text-text-muted" />
+                <span className="text-text-default">{selected.email}</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Phone className="h-4 w-4 text-muted" />
-                <span className="text-default">{selected.phone}</span>
+                <Phone className="h-4 w-4 text-text-muted" />
+                <span className="text-text-default">{selected.phone}</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Calendar className="h-4 w-4 text-muted" />
-                <span className="text-default">
+                <Calendar className="h-4 w-4 text-text-muted" />
+                <span className="text-text-default">
                   Started {formatDate(selected.startDate)}
                 </span>
               </div>
@@ -241,7 +241,7 @@ export function TeamPage() {
 
             {/* Modules */}
             <div className="space-y-3 rounded-xl border border-default bg-base p-4">
-              <h4 className="text-xs font-medium uppercase tracking-wider text-muted">
+              <h4 className="text-xs font-medium uppercase tracking-wider text-text-muted">
                 <Shield className="mr-1.5 inline h-3.5 w-3.5" />
                 Module Access
               </h4>
@@ -249,7 +249,7 @@ export function TeamPage() {
                 {selected.modules.map((mod) => (
                   <span
                     key={mod}
-                    className="rounded-full bg-elevated px-3 py-1 text-xs font-medium text-default"
+                    className="rounded-full bg-elevated px-3 py-1 text-xs font-medium text-text-default"
                   >
                     {mod}
                   </span>

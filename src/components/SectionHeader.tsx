@@ -48,9 +48,9 @@ export function SectionHeader({
             <Icon className="h-5 w-5" style={{ color: accentColor }} />
           </div>
           <div>
-            <h1 className="text-xl font-semibold text-bright">{title}</h1>
+            <h1 className="text-xl font-semibold text-text-bright">{title}</h1>
             {subtitle && (
-              <p className="mt-0.5 text-sm text-muted">{subtitle}</p>
+              <p className="mt-0.5 text-sm text-text-muted">{subtitle}</p>
             )}
             {stats && stats.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-2">
@@ -59,8 +59,8 @@ export function SectionHeader({
                     key={stat.label}
                     className="inline-flex items-center gap-1.5 rounded-full bg-elevated px-2.5 py-0.5 text-xs"
                   >
-                    <span className="text-muted">{stat.label}</span>
-                    <span className="font-medium text-bright">{stat.value}</span>
+                    <span className="text-text-muted">{stat.label}</span>
+                    <span className="font-medium text-text-bright">{stat.value}</span>
                   </span>
                 ))}
               </div>

@@ -32,7 +32,7 @@ export function TerritoryPanel({
     <div className="flex w-[300px] shrink-0 flex-col border-l border-default bg-base">
       {/* Rep selector */}
       <div className="border-b border-default p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
           Territory Rep
         </p>
         <div className="space-y-1">
@@ -41,7 +41,7 @@ export function TerritoryPanel({
             className={`flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-xs transition-colors ${
               selectedRepId === null
                 ? 'bg-[#F59E0B]/10 text-[#F59E0B]'
-                : 'text-muted hover:bg-card hover:text-default'
+                : 'text-text-muted hover:bg-card hover:text-text-default'
             }`}
           >
             <Users className="h-3.5 w-3.5" />
@@ -59,7 +59,7 @@ export function TerritoryPanel({
                 className={`flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-xs transition-colors ${
                   selectedRepId === t.repId
                     ? 'bg-[#F59E0B]/10 text-[#F59E0B]'
-                    : 'text-muted hover:bg-card hover:text-default'
+                    : 'text-text-muted hover:bg-card hover:text-text-default'
                 }`}
               >
                 <div
@@ -77,7 +77,7 @@ export function TerritoryPanel({
 
       {/* Account list */}
       <div className="flex-1 overflow-y-auto p-3">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
           Accounts ({filteredAccounts.length})
         </p>
         <div className="space-y-1">
@@ -87,7 +87,7 @@ export function TerritoryPanel({
               <button
                 key={account.id}
                 onClick={() => onSelectAccount(account.id)}
-                className="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-xs text-muted hover:bg-card hover:text-default transition-colors"
+                className="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-xs text-text-muted hover:bg-card hover:text-text-default transition-colors"
               >
                 <MapPin className="h-3 w-3 shrink-0" />
                 <span className="flex-1 truncate">{account.name}</span>

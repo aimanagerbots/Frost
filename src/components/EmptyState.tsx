@@ -37,15 +37,15 @@ export function EmptyState({
       >
         <Icon
           className="h-8 w-8"
-          style={{ color: accentColor || 'var(--text-muted)' }}
+          style={{ color: accentColor || 'var(--text-text-muted)' }}
         />
       </div>
-      <h3 className="mb-1 text-lg font-semibold text-bright">{title}</h3>
-      <p className="mb-6 max-w-sm text-sm text-muted">{description}</p>
+      <h3 className="mb-1 text-lg font-semibold text-text-bright">{title}</h3>
+      <p className="mb-6 max-w-sm text-sm text-text-muted">{description}</p>
       {actionLabel && onAction && (
         <button
           onClick={onAction}
-          className="rounded-lg px-4 py-2 text-sm font-medium text-bright transition-colors"
+          className="rounded-lg px-4 py-2 text-sm font-medium text-text-bright transition-colors"
           style={{
             backgroundColor: accentColor || 'var(--accent-primary)',
           }}

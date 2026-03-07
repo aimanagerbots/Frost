@@ -37,13 +37,13 @@ export function OpportunityCard({ opportunity, accountName, onClick }: Opportuni
     >
       <div className="mb-2 flex items-start justify-between gap-2">
         <StatusBadge variant={typeVariant(opportunity.type)} label={opportunity.type.replace(/-/g, ' ')} size="sm" />
-        <span className="text-sm font-bold text-bright">{formatCurrency(opportunity.estimatedValue)}</span>
+        <span className="text-sm font-bold text-text-bright">{formatCurrency(opportunity.estimatedValue)}</span>
       </div>
       {accountName && (
-        <div className="mb-1 text-xs font-semibold text-bright">{accountName}</div>
+        <div className="mb-1 text-xs font-semibold text-text-bright">{accountName}</div>
       )}
-      <h4 className="mb-2 truncate text-xs text-muted">{opportunity.title}</h4>
-      <div className="flex items-center justify-between text-[11px] text-muted">
+      <h4 className="mb-2 truncate text-xs text-text-muted">{opportunity.title}</h4>
+      <div className="flex items-center justify-between text-[11px] text-text-muted">
         <span>{opportunity.probability}% prob</span>
         <span>{daysInStage}d in stage</span>
       </div>

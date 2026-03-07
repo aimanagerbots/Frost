@@ -35,8 +35,8 @@ function EnvReading({ label, value, status }: EnvReadingProps) {
   return (
     <div className="flex items-center gap-1.5">
       <span className={cn('h-1.5 w-1.5 rounded-full', ENV_DOT[status])} />
-      <span className="text-[11px] text-muted">{label}</span>
-      <span className="ml-auto text-[11px] font-medium text-bright">{value}</span>
+      <span className="text-[11px] text-text-muted">{label}</span>
+      <span className="ml-auto text-[11px] font-medium text-text-bright">{value}</span>
     </div>
   );
 }
@@ -85,8 +85,8 @@ export function GrowRoomCard({ room, onClick }: GrowRoomCardProps) {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-bright">{room.name}</h3>
-          <p className="mt-0.5 text-xs text-muted">{room.strainName}</p>
+          <h3 className="text-sm font-semibold text-text-bright">{room.name}</h3>
+          <p className="mt-0.5 text-xs text-text-muted">{room.strainName}</p>
         </div>
         <StatusBadge
           variant={STAGE_VARIANT[room.stage]}
@@ -99,8 +99,8 @@ export function GrowRoomCard({ room, onClick }: GrowRoomCardProps) {
       {/* Day Progress */}
       <div className="mt-3">
         <div className="flex items-center justify-between text-[11px]">
-          <span className="text-muted">Day {room.dayInStage} / {room.expectedStageDays}</span>
-          <span className="font-medium text-bright">{progress}%</span>
+          <span className="text-text-muted">Day {room.dayInStage} / {room.expectedStageDays}</span>
+          <span className="font-medium text-text-bright">{progress}%</span>
         </div>
         <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-elevated">
           <div
@@ -123,8 +123,8 @@ export function GrowRoomCard({ room, onClick }: GrowRoomCardProps) {
 
       {/* Footer */}
       <div className="mt-3 flex items-center gap-1.5 border-t border-default pt-2.5">
-        <Sprout className="h-3.5 w-3.5 text-muted" />
-        <span className="text-xs text-muted">{room.plantCount} plants</span>
+        <Sprout className="h-3.5 w-3.5 text-text-muted" />
+        <span className="text-xs text-text-muted">{room.plantCount} plants</span>
       </div>
     </div>
   );

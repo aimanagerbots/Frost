@@ -43,18 +43,18 @@ export function ForecastView({ forecasts, monthlyRevenue }: ForecastViewProps) {
       <div className="grid gap-4 md:grid-cols-3">
         {forecasts.map((f) => (
           <div key={f.period} className="rounded-xl border border-default bg-card p-4">
-            <div className="mb-1 text-xs font-medium uppercase text-muted">{f.period} Forecast</div>
-            <div className="text-2xl font-bold text-bright">${(f.predicted / 1000).toFixed(0)}K</div>
+            <div className="mb-1 text-xs font-medium uppercase text-text-muted">{f.period} Forecast</div>
+            <div className="text-2xl font-bold text-text-bright">${(f.predicted / 1000).toFixed(0)}K</div>
             <div className="mt-1 flex items-center gap-2">
-              <span className="text-xs text-muted">Range:</span>
-              <span className="text-xs text-default">${(f.lower / 1000).toFixed(0)}K – ${(f.upper / 1000).toFixed(0)}K</span>
+              <span className="text-xs text-text-muted">Range:</span>
+              <span className="text-xs text-text-default">${(f.lower / 1000).toFixed(0)}K – ${(f.upper / 1000).toFixed(0)}K</span>
             </div>
             <div className="mt-1">
               <span className={`text-xs ${f.confidence >= 80 ? 'text-success' : f.confidence >= 70 ? 'text-warning' : 'text-danger'}`}>
                 {f.confidence}% confidence
               </span>
             </div>
-            <p className="mt-2 text-xs text-muted leading-relaxed">{f.basis}</p>
+            <p className="mt-2 text-xs text-text-muted leading-relaxed">{f.basis}</p>
           </div>
         ))}
       </div>

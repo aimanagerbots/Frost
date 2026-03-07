@@ -45,13 +45,13 @@ export function Analytics() {
       header: 'Product',
       accessor: 'name' as const,
       sortable: true,
-      render: (row: ProductRow) => <span className="font-medium text-bright">{row.name}</span>,
+      render: (row: ProductRow) => <span className="font-medium text-text-bright">{row.name}</span>,
     },
     {
       header: 'Category',
       accessor: 'category' as const,
       render: (row: ProductRow) => (
-        <span className="rounded-md bg-elevated px-2 py-0.5 text-xs capitalize text-muted">{row.category}</span>
+        <span className="rounded-md bg-elevated px-2 py-0.5 text-xs capitalize text-text-muted">{row.category}</span>
       ),
     },
     {
@@ -83,7 +83,7 @@ export function Analytics() {
             className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
               period === p.value
                 ? 'bg-amber-500/20 text-amber-400 ring-1 ring-amber-500/40'
-                : 'bg-elevated text-muted hover:text-default'
+                : 'bg-elevated text-text-muted hover:text-text-default'
             }`}
           >
             {p.label}
@@ -93,7 +93,7 @@ export function Analytics() {
 
       {/* Revenue Metrics */}
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">Revenue</h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Revenue</h3>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           <MetricCard
             label="Total Revenue"
@@ -124,19 +124,19 @@ export function Analytics() {
 
       {/* Health Model */}
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">Account Health</h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Account Health</h3>
         <HealthModelView model={healthModel} />
       </div>
 
       {/* Forecasting */}
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">Forecasting</h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Forecasting</h3>
         <ForecastView forecasts={forecasts} monthlyRevenue={analytics.monthlyRevenue} />
       </div>
 
       {/* Top Products */}
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">Top Products</h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Top Products</h3>
         <DataTable
           data={productRows}
           columns={productColumns}

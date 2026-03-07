@@ -35,7 +35,7 @@ export function DayView({ currentDate, events, onSelectEvent }: DayViewProps) {
       {/* All-day section */}
       {allDayEvents.length > 0 && (
         <div className="border-b border-default p-3">
-          <span className="mb-2 block text-[10px] uppercase tracking-wide text-muted">All Day</span>
+          <span className="mb-2 block text-[10px] uppercase tracking-wide text-text-muted">All Day</span>
           <div className="flex flex-wrap gap-2">
             {allDayEvents.map((ev) => (
               <button
@@ -62,7 +62,7 @@ export function DayView({ currentDate, events, onSelectEvent }: DayViewProps) {
               style={{ gridTemplateColumns: '64px 1fr', height: `${HOUR_HEIGHT}px` }}
             >
               <div className="flex items-start justify-end border-r border-default pr-2 pt-1">
-                <span className="text-[11px] text-muted">
+                <span className="text-[11px] text-text-muted">
                   {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
                 </span>
               </div>

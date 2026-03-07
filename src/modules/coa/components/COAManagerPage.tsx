@@ -150,7 +150,7 @@ export function COAManagerPage() {
 
       {/* Status Pipeline */}
       <div className="rounded-xl border border-default bg-card p-4">
-        <h3 className="text-sm font-medium text-muted mb-3">Testing Pipeline</h3>
+        <h3 className="text-sm font-medium text-text-muted mb-3">Testing Pipeline</h3>
         <div className="flex items-center gap-1 overflow-x-auto">
           {STATUS_PIPELINE.map((stage, i) => {
             const count = pipelineCounts.get(stage.key) || 0;
@@ -160,10 +160,10 @@ export function COAManagerPage() {
               <div key={stage.key} className="flex items-center">
                 {/* Branch visual for passed/failed */}
                 {stage.key === 'passed' && (
-                  <span className="text-muted mr-1 text-xs">↗</span>
+                  <span className="text-text-muted mr-1 text-xs">↗</span>
                 )}
                 {stage.key === 'failed' && (
-                  <span className="text-muted mr-1 text-xs">↘</span>
+                  <span className="text-text-muted mr-1 text-xs">↘</span>
                 )}
                 <button
                   onClick={() => setSelectedStatus(isActive ? null : stage.key)}
@@ -175,19 +175,19 @@ export function COAManagerPage() {
                     color: isActive ? ACCENT : undefined,
                   }}
                 >
-                  <span className={isActive ? 'font-semibold' : 'text-muted'}>{stage.label}</span>
+                  <span className={isActive ? 'font-semibold' : 'text-text-muted'}>{stage.label}</span>
                   <span
                     className="rounded-full px-2 py-0.5 text-xs font-medium"
                     style={{
                       backgroundColor: isActive ? `${ACCENT}30` : 'var(--bg-elevated)',
-                      color: isActive ? ACCENT : 'var(--text-muted)',
+                      color: isActive ? ACCENT : 'var(--text-text-muted)',
                     }}
                   >
                     {count}
                   </span>
                 </button>
-                {i < 1 && <span className="text-muted ml-1">→</span>}
-                {stage.key === 'failed' && <span className="text-muted ml-1">→</span>}
+                {i < 1 && <span className="text-text-muted ml-1">→</span>}
+                {stage.key === 'failed' && <span className="text-text-muted ml-1">→</span>}
               </div>
             );
           })}

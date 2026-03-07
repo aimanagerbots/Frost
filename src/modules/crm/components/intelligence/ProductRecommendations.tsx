@@ -93,11 +93,11 @@ export function ProductRecommendations() {
 
       {/* Filter bar */}
       <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-4">
-        <Filter className="h-4 w-4 text-muted" />
+        <Filter className="h-4 w-4 text-text-muted" />
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
-          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-default focus:outline-none"
+          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-text-default focus:outline-none"
         >
           <option value="">All Categories</option>
           {['flower', 'preroll', 'vaporizer', 'concentrate', 'edible', 'beverage'].map((c) => (
@@ -107,7 +107,7 @@ export function ProductRecommendations() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-default focus:outline-none"
+          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-text-default focus:outline-none"
         >
           <option value="">All Status</option>
           {['new', 'pitched', 'accepted', 'dismissed'].map((s) => (
@@ -124,7 +124,7 @@ export function ProductRecommendations() {
               key={key}
               onClick={() => setAggView(key)}
               className={`rounded-md px-2 py-1 text-xs transition-colors ${
-                aggView === key ? 'bg-amber-500/20 text-amber-400' : 'bg-elevated text-muted hover:text-default'
+                aggView === key ? 'bg-amber-500/20 text-amber-400' : 'bg-elevated text-text-muted hover:text-text-default'
               }`}
             >
               {label}
@@ -145,8 +145,8 @@ export function ProductRecommendations() {
               >
                 <div className="mb-2 flex items-start justify-between">
                   <div>
-                    <h4 className="text-sm font-medium text-bright">{rec.productName}</h4>
-                    <span className="text-xs text-muted">{rec.accountName}</span>
+                    <h4 className="text-sm font-medium text-text-bright">{rec.productName}</h4>
+                    <span className="text-xs text-text-muted">{rec.accountName}</span>
                   </div>
                   <span
                     className="rounded-md px-2 py-0.5 text-xs capitalize"
@@ -158,7 +158,7 @@ export function ProductRecommendations() {
 
                 {/* Confidence bar */}
                 <div className="mb-2">
-                  <div className="flex items-center justify-between text-xs text-muted">
+                  <div className="flex items-center justify-between text-xs text-text-muted">
                     <span>Confidence</span>
                     <span>{rec.confidence}%</span>
                   </div>
@@ -175,7 +175,7 @@ export function ProductRecommendations() {
 
                 <div className="mb-2 text-sm font-medium text-success">${rec.estimatedRevenue.toLocaleString()}/mo est.</div>
 
-                <p className="mb-2 text-xs text-muted leading-relaxed line-clamp-3">{rec.reason}</p>
+                <p className="mb-2 text-xs text-text-muted leading-relaxed line-clamp-3">{rec.reason}</p>
 
                 {rec.competitorContext && (
                   <p className="mb-3 rounded-lg bg-danger/5 p-2 text-xs text-danger/80">{rec.competitorContext}</p>
@@ -193,7 +193,7 @@ export function ProductRecommendations() {
                       </button>
                       <button
                         onClick={() => handleDismiss(rec.id)}
-                        className="flex items-center gap-1 rounded-md bg-elevated px-2 py-1 text-xs text-muted hover:text-default"
+                        className="flex items-center gap-1 rounded-md bg-elevated px-2 py-1 text-xs text-text-muted hover:text-text-default"
                       >
                         <X className="h-3 w-3" />
                       </button>

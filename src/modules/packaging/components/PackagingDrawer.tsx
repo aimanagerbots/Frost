@@ -40,31 +40,31 @@ export function PackagingDrawer({ order, open, onClose }: PackagingDrawerProps) 
         <div className="flex flex-wrap gap-2">
           <StatusBadge variant={STATUS_MAP[status] ?? 'default'} label={status} size="sm" dot pulse={status === 'in-progress'} />
           <StatusBadge variant={PRIORITY_MAP[order.priority] ?? 'muted'} label={order.priority} size="sm" />
-          <span className="inline-flex items-center rounded-full bg-elevated px-2.5 py-0.5 text-xs text-muted">
+          <span className="inline-flex items-center rounded-full bg-elevated px-2.5 py-0.5 text-xs text-text-muted">
             {order.sku}
           </span>
-          <span className="inline-flex items-center rounded-full bg-elevated px-2.5 py-0.5 text-xs text-muted">
+          <span className="inline-flex items-center rounded-full bg-elevated px-2.5 py-0.5 text-xs text-text-muted">
             {order.category}
           </span>
         </div>
 
         {/* Quantity */}
         <div className="rounded-lg border border-default bg-base p-3">
-          <div className="text-xs text-muted">Quantity</div>
-          <div className="text-lg font-bold text-bright">{order.quantity} units</div>
+          <div className="text-xs text-text-muted">Quantity</div>
+          <div className="text-lg font-bold text-text-bright">{order.quantity} units</div>
         </div>
 
         {/* Cannabis Materials */}
         <div>
-          <h3 className="text-xs font-medium text-muted mb-2">Cannabis Materials</h3>
+          <h3 className="text-xs font-medium text-text-muted mb-2">Cannabis Materials</h3>
           <div className="rounded-lg border border-default overflow-hidden">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-default bg-base">
-                  <th className="px-3 py-2 text-left text-xs font-medium text-muted">Material</th>
-                  <th className="px-3 py-2 text-right text-xs font-medium text-muted">Required</th>
-                  <th className="px-3 py-2 text-right text-xs font-medium text-muted">Available</th>
-                  <th className="px-3 py-2 text-center text-xs font-medium text-muted">Status</th>
+                  <th className="px-3 py-2 text-left text-xs font-medium text-text-muted">Material</th>
+                  <th className="px-3 py-2 text-right text-xs font-medium text-text-muted">Required</th>
+                  <th className="px-3 py-2 text-right text-xs font-medium text-text-muted">Available</th>
+                  <th className="px-3 py-2 text-center text-xs font-medium text-text-muted">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -72,9 +72,9 @@ export function PackagingDrawer({ order, open, onClose }: PackagingDrawerProps) 
                   const short = m.available < m.required;
                   return (
                     <tr key={i} className="border-b border-default/50">
-                      <td className="px-3 py-2 text-default">{m.name}</td>
-                      <td className="px-3 py-2 text-right text-default">{m.required} {m.unit}</td>
-                      <td className="px-3 py-2 text-right text-default">{m.available} {m.unit}</td>
+                      <td className="px-3 py-2 text-text-default">{m.name}</td>
+                      <td className="px-3 py-2 text-right text-text-default">{m.required} {m.unit}</td>
+                      <td className="px-3 py-2 text-right text-text-default">{m.available} {m.unit}</td>
                       <td className="px-3 py-2 text-center">
                         {short ? (
                           <span className="text-danger">&#10007;</span>
@@ -92,23 +92,23 @@ export function PackagingDrawer({ order, open, onClose }: PackagingDrawerProps) 
 
         {/* Non-Cannabis Materials */}
         <div>
-          <h3 className="text-xs font-medium text-muted mb-2">Non-Cannabis Materials</h3>
+          <h3 className="text-xs font-medium text-text-muted mb-2">Non-Cannabis Materials</h3>
           <div className="rounded-lg border border-default overflow-hidden">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-default bg-base">
-                  <th className="px-3 py-2 text-left text-xs font-medium text-muted">Material</th>
-                  <th className="px-3 py-2 text-right text-xs font-medium text-muted">Required</th>
-                  <th className="px-3 py-2 text-right text-xs font-medium text-muted">Available</th>
-                  <th className="px-3 py-2 text-center text-xs font-medium text-muted">Status</th>
+                  <th className="px-3 py-2 text-left text-xs font-medium text-text-muted">Material</th>
+                  <th className="px-3 py-2 text-right text-xs font-medium text-text-muted">Required</th>
+                  <th className="px-3 py-2 text-right text-xs font-medium text-text-muted">Available</th>
+                  <th className="px-3 py-2 text-center text-xs font-medium text-text-muted">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {order.nonCannabisMaterials.map((m, i) => (
                   <tr key={i} className="border-b border-default/50">
-                    <td className="px-3 py-2 text-default">{m.name}</td>
-                    <td className="px-3 py-2 text-right text-default">{m.required} {m.unit}</td>
-                    <td className="px-3 py-2 text-right text-default">{m.available} {m.unit}</td>
+                    <td className="px-3 py-2 text-text-default">{m.name}</td>
+                    <td className="px-3 py-2 text-right text-text-default">{m.required} {m.unit}</td>
+                    <td className="px-3 py-2 text-right text-text-default">{m.available} {m.unit}</td>
                     <td className="px-3 py-2 text-center">
                       {!m.inStock ? (
                         <StatusBadge variant="danger" label="Shortage" size="sm" />
@@ -126,20 +126,20 @@ export function PackagingDrawer({ order, open, onClose }: PackagingDrawerProps) 
         {/* Assignment */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <div className="text-xs text-muted mb-1">Assigned To</div>
-            <div className="text-sm text-bright">{order.assignee}</div>
+            <div className="text-xs text-text-muted mb-1">Assigned To</div>
+            <div className="text-sm text-text-bright">{order.assignee}</div>
           </div>
           <div>
-            <div className="text-xs text-muted mb-1">Estimated Time</div>
-            <div className="text-sm text-bright">{order.estimatedMinutes} min</div>
+            <div className="text-xs text-text-muted mb-1">Estimated Time</div>
+            <div className="text-sm text-text-bright">{order.estimatedMinutes} min</div>
           </div>
         </div>
 
         {/* Linked Order */}
         {order.linkedOrderId && (
           <div>
-            <div className="text-xs text-muted mb-1">Linked Order</div>
-            <span className="rounded-md bg-elevated px-2 py-0.5 text-xs text-default">{order.linkedOrderId}</span>
+            <div className="text-xs text-text-muted mb-1">Linked Order</div>
+            <span className="rounded-md bg-elevated px-2 py-0.5 text-xs text-text-default">{order.linkedOrderId}</span>
           </div>
         )}
       </div>
@@ -149,7 +149,7 @@ export function PackagingDrawer({ order, open, onClose }: PackagingDrawerProps) 
         {status === 'queued' && (
           <button
             onClick={() => setLocalStatus('in-progress')}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-bright transition-colors"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-text-bright transition-colors"
             style={{ backgroundColor: ACCENT }}
           >
             Start

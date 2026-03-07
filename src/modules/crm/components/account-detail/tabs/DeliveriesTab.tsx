@@ -59,7 +59,7 @@ export function DeliveriesTab({ accountId }: DeliveriesTabProps) {
       header: 'Order',
       accessor: 'orderNumber' as const,
       sortable: true,
-      render: (row: DeliveryRow) => <span className="font-medium text-bright">{row.orderNumber}</span>,
+      render: (row: DeliveryRow) => <span className="font-medium text-text-bright">{row.orderNumber}</span>,
     },
     {
       header: 'Status',
@@ -77,7 +77,7 @@ export function DeliveriesTab({ accountId }: DeliveriesTabProps) {
       sortable: true,
       render: (row: DeliveryRow) => row.deliveredAt
         ? new Date(row.deliveredAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
-        : <span className="text-muted">—</span>,
+        : <span className="text-text-muted">—</span>,
     },
     { header: 'Items', accessor: 'items' as const, sortable: true },
   ], []);

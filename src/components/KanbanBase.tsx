@@ -79,7 +79,7 @@ function DroppableColumn({
     >
       {children}
       {!children || (Array.isArray(children) && children.length === 0) ? (
-        <div className="flex flex-1 items-center justify-center py-8 text-xs text-muted">
+        <div className="flex flex-1 items-center justify-center py-8 text-xs text-text-muted">
           {emptyMessage || 'No items'}
         </div>
       ) : null}
@@ -165,7 +165,7 @@ export function KanbanBase<T extends { id: string }>({
                   className="h-2.5 w-2.5 rounded-full"
                   style={{ backgroundColor: col.color }}
                 />
-                <span className="text-sm font-medium text-bright">{col.title}</span>
+                <span className="text-sm font-medium text-text-bright">{col.title}</span>
                 <span
                   className="rounded-full px-1.5 py-0.5 text-[10px] font-semibold"
                   style={{

@@ -116,7 +116,7 @@ export function SearchOverlay({ open, onClose, onSelect, groups }: SearchOverlay
       >
         {/* Search input */}
         <div className="flex items-center gap-3 border-b border-default px-4 py-3">
-          <Search size={18} className="shrink-0 text-muted" />
+          <Search size={18} className="shrink-0 text-text-muted" />
           <input
             ref={inputRef}
             value={query}
@@ -125,14 +125,14 @@ export function SearchOverlay({ open, onClose, onSelect, groups }: SearchOverlay
               setHighlightIndex(0);
             }}
             placeholder="Search modules, accounts, actions..."
-            className="flex-1 bg-transparent text-sm text-default placeholder:text-muted outline-none"
+            className="flex-1 bg-transparent text-sm text-text-default placeholder:text-text-muted outline-none"
           />
           {query && (
-            <button onClick={() => setQuery('')} className="text-muted hover:text-default">
+            <button onClick={() => setQuery('')} className="text-text-muted hover:text-text-default">
               <X size={16} />
             </button>
           )}
-          <kbd className="hidden rounded bg-elevated px-1.5 py-0.5 text-[10px] font-medium text-muted sm:inline-block">
+          <kbd className="hidden rounded bg-elevated px-1.5 py-0.5 text-[10px] font-medium text-text-muted sm:inline-block">
             ESC
           </kbd>
         </div>
@@ -140,11 +140,11 @@ export function SearchOverlay({ open, onClose, onSelect, groups }: SearchOverlay
         {/* Results */}
         <div ref={listRef} className="max-h-[60vh] overflow-y-auto p-2">
           {filtered.length === 0 ? (
-            <div className="py-12 text-center text-sm text-muted">No results found</div>
+            <div className="py-12 text-center text-sm text-text-muted">No results found</div>
           ) : (
             filtered.map((group) => (
               <div key={group.label} className="mb-2">
-                <div className="px-2 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                <div className="px-2 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-text-muted">
                   {group.label}
                 </div>
                 {group.items.map((item) => {
@@ -158,14 +158,14 @@ export function SearchOverlay({ open, onClose, onSelect, groups }: SearchOverlay
                       onClick={() => onSelect(item)}
                       onMouseEnter={() => setHighlightIndex(idx)}
                       className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                        isHighlighted ? 'bg-elevated text-bright' : 'text-default hover:bg-elevated/50'
+                        isHighlighted ? 'bg-elevated text-text-bright' : 'text-text-default hover:bg-elevated/50'
                       }`}
                     >
-                      {Icon && <Icon size={16} className="shrink-0 text-muted" />}
+                      {Icon && <Icon size={16} className="shrink-0 text-text-muted" />}
                       <div className="min-w-0 flex-1">
                         <div className="truncate font-medium">{item.title}</div>
                         {item.subtitle && (
-                          <div className="truncate text-xs text-muted">{item.subtitle}</div>
+                          <div className="truncate text-xs text-text-muted">{item.subtitle}</div>
                         )}
                       </div>
                     </button>
@@ -177,7 +177,7 @@ export function SearchOverlay({ open, onClose, onSelect, groups }: SearchOverlay
         </div>
 
         {/* Footer */}
-        <div className="flex items-center gap-4 border-t border-default px-4 py-2 text-[11px] text-muted">
+        <div className="flex items-center gap-4 border-t border-default px-4 py-2 text-[11px] text-text-muted">
           <span>
             <kbd className="rounded bg-elevated px-1 py-0.5 font-medium">↑↓</kbd> navigate
           </span>

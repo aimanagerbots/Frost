@@ -83,7 +83,7 @@ export function FulfillmentPage() {
       header: 'Items',
       accessor: 'id' as const,
       render: (row: FulfillmentOrder) => (
-        <span className="text-muted">{row.items.length} items</span>
+        <span className="text-text-muted">{row.items.length} items</span>
       ),
     },
     {
@@ -111,7 +111,7 @@ export function FulfillmentPage() {
       header: 'Est. Time',
       accessor: 'estimatedMinutes' as const,
       render: (row: FulfillmentOrder) => (
-        <span className="text-muted">{row.estimatedMinutes}m</span>
+        <span className="text-text-muted">{row.estimatedMinutes}m</span>
       ),
     },
   ];
@@ -134,7 +134,7 @@ export function FulfillmentPage() {
 
       {/* Status Pipeline */}
       <div className="rounded-xl border border-default bg-card p-4">
-        <h3 className="text-sm font-medium text-muted mb-3">Fulfillment Pipeline</h3>
+        <h3 className="text-sm font-medium text-text-muted mb-3">Fulfillment Pipeline</h3>
         <div className="flex items-center gap-1 overflow-x-auto">
           {STATUS_PIPELINE.map((stage, i) => {
             const count = pipelineCounts.get(stage.key) || 0;
@@ -151,18 +151,18 @@ export function FulfillmentPage() {
                   color: isActive ? ACCENT : undefined,
                 }}
               >
-                <span className={isActive ? 'font-semibold' : 'text-muted'}>{stage.label}</span>
+                <span className={isActive ? 'font-semibold' : 'text-text-muted'}>{stage.label}</span>
                 <span
                   className="rounded-full px-2 py-0.5 text-xs font-medium"
                   style={{
                     backgroundColor: isActive ? `${ACCENT}30` : 'var(--bg-elevated)',
-                    color: isActive ? ACCENT : 'var(--text-muted)',
+                    color: isActive ? ACCENT : 'var(--text-text-muted)',
                   }}
                 >
                   {count}
                 </span>
                 {i < STATUS_PIPELINE.length - 1 && (
-                  <span className="text-muted ml-1">→</span>
+                  <span className="text-text-muted ml-1">→</span>
                 )}
               </button>
             );

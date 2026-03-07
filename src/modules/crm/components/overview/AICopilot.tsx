@@ -120,8 +120,8 @@ export function AICopilot() {
                 <Bot className="h-8 w-8 text-[#F59E0B]" />
               </div>
               <div className="text-center">
-                <h3 className="text-lg font-semibold text-bright">Frost AI Copilot</h3>
-                <p className="mt-1 max-w-md text-sm text-muted">
+                <h3 className="text-lg font-semibold text-text-bright">Frost AI Copilot</h3>
+                <p className="mt-1 max-w-md text-sm text-text-muted">
                   Ask me about any account, product, or market trend. I can draft emails,
                   forecast reorders, compare accounts, and suggest strategies.
                 </p>
@@ -132,7 +132,7 @@ export function AICopilot() {
                   <button
                     key={s.id}
                     onClick={() => handleSuggestionClick(s.text)}
-                    className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-muted hover:border-[#F59E0B]/30 hover:text-default transition-colors"
+                    className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#F59E0B]/30 hover:text-text-default transition-colors"
                   >
                     {s.text}
                   </button>

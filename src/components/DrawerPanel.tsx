@@ -76,10 +76,10 @@ export function DrawerPanel({
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-default px-6 py-4">
-          <h2 className="text-lg font-semibold text-bright">{title}</h2>
+          <h2 className="text-lg font-semibold text-text-bright">{title}</h2>
           <button
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted transition-colors hover:bg-elevated hover:text-default"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
             aria-label="Close"
           >
             <X className="h-5 w-5" />

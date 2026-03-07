@@ -41,7 +41,7 @@ export function ActiveRoutes({ runs, loading, onSelectRun, selectedRunId }: Acti
 
   return (
     <div className="space-y-3">
-      <h3 className="text-sm font-medium text-muted">Active Routes</h3>
+      <h3 className="text-sm font-medium text-text-muted">Active Routes</h3>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {sortedRuns.map((run) => {
           const isActive = run.status === 'in-transit' || run.status === 'delivering';
@@ -60,8 +60,8 @@ export function ActiveRoutes({ runs, loading, onSelectRun, selectedRunId }: Acti
             >
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h4 className="text-sm font-semibold text-default">{run.routeName}</h4>
-                  <p className="text-xs text-muted mt-0.5">{run.driverName}</p>
+                  <h4 className="text-sm font-semibold text-text-default">{run.routeName}</h4>
+                  <p className="text-xs text-text-muted mt-0.5">{run.driverName}</p>
                 </div>
                 <div className="flex items-center gap-1.5">
                   {isActive && (
@@ -77,11 +77,11 @@ export function ActiveRoutes({ runs, loading, onSelectRun, selectedRunId }: Acti
               {/* Progress */}
               <div className="space-y-1.5 mb-3">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-muted flex items-center gap-1">
+                  <span className="text-text-muted flex items-center gap-1">
                     <MapPin className="h-3 w-3" />
                     {run.completedStops} of {run.totalStops} stops
                   </span>
-                  <span className="text-muted flex items-center gap-1">
+                  <span className="text-text-muted flex items-center gap-1">
                     <Clock className="h-3 w-3" />
                     {run.estimatedDuration}
                   </span>
@@ -94,7 +94,7 @@ export function ActiveRoutes({ runs, loading, onSelectRun, selectedRunId }: Acti
                 </div>
               </div>
 
-              <p className="text-xs text-muted">Vehicle: {run.vehicleId}</p>
+              <p className="text-xs text-text-muted">Vehicle: {run.vehicleId}</p>
             </button>
           );
         })}

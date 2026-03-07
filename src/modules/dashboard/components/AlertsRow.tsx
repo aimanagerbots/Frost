@@ -24,7 +24,7 @@ export function AlertsRow({ alerts }: AlertsRowProps) {
 
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-bright">Alerts</h3>
+      <h3 className="text-sm font-semibold text-text-bright">Alerts</h3>
       <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
         {visibleAlerts.map((alert) => {
           const config = SEVERITY_CONFIG[alert.severity];
@@ -41,10 +41,10 @@ export function AlertsRow({ alerts }: AlertsRowProps) {
               <div className="flex items-start gap-3">
                 <Icon className={cn('mt-0.5 h-4 w-4 flex-shrink-0', config.iconColor)} />
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium text-bright leading-snug">{alert.title}</p>
-                  <p className="mt-1 text-xs text-muted line-clamp-2">{alert.description}</p>
+                  <p className="text-sm font-medium text-text-bright leading-snug">{alert.title}</p>
+                  <p className="mt-1 text-xs text-text-muted line-clamp-2">{alert.description}</p>
                   <div className="mt-3 flex items-center gap-2">
-                    <span className="rounded-full bg-elevated px-2 py-0.5 text-[10px] font-medium text-muted">
+                    <span className="rounded-full bg-elevated px-2 py-0.5 text-[10px] font-medium text-text-muted">
                       {alert.module}
                     </span>
                     <a
@@ -57,7 +57,7 @@ export function AlertsRow({ alerts }: AlertsRowProps) {
                 </div>
                 <button
                   onClick={() => setDismissedIds((prev) => new Set([...prev, alert.id]))}
-                  className="flex-shrink-0 rounded-md p-1 text-muted hover:bg-elevated hover:text-default transition-colors"
+                  className="flex-shrink-0 rounded-md p-1 text-text-muted hover:bg-elevated hover:text-text-default transition-colors"
                   aria-label="Dismiss alert"
                 >
                   <X className="h-3.5 w-3.5" />

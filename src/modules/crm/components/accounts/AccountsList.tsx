@@ -131,7 +131,7 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
       accessor: 'name' as const,
       sortable: true,
       render: (row: AccountRow) => (
-        <span className="font-semibold text-bright">{row.name}</span>
+        <span className="font-semibold text-text-bright">{row.name}</span>
       ),
     },
     {
@@ -145,14 +145,14 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
       sortable: true,
       render: (row: AccountRow) => {
         const rep = repMap.get(row.assignedRepId);
-        if (!rep) return <span className="text-muted">—</span>;
+        if (!rep) return <span className="text-text-muted">—</span>;
         const initials = rep.name.split(' ').map((n) => n[0]).join('').toUpperCase();
         return (
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-elevated text-[10px] font-medium text-muted">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-elevated text-[10px] font-medium text-text-muted">
               {initials}
             </div>
-            <span className="text-default">{rep.name}</span>
+            <span className="text-text-default">{rep.name}</span>
           </div>
         );
       },
@@ -162,7 +162,7 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
       accessor: 'lastOrderDate' as const,
       sortable: true,
       render: (row: AccountRow) => (
-        <span className={row.lastOrderDate ? 'text-default' : 'text-muted'}>
+        <span className={row.lastOrderDate ? 'text-text-default' : 'text-text-muted'}>
           {formatDate(row.lastOrderDate)}
         </span>
       ),
@@ -172,7 +172,7 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
       accessor: 'thirtyDayRevenue' as const,
       sortable: true,
       render: (row: AccountRow) => (
-        <span className="font-medium text-default">
+        <span className="font-medium text-text-default">
           {formatCurrency(row.thirtyDayRevenue)}
         </span>
       ),
@@ -197,7 +197,7 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
         row.vmiEnrolled ? (
           <StatusBadge variant="success" label="VMI" size="sm" />
         ) : (
-          <span className="text-muted">—</span>
+          <span className="text-text-muted">—</span>
         ),
     },
     {
@@ -268,7 +268,7 @@ export function AccountsList() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search accounts, contacts, license..."
-              className="w-64 rounded-lg border border-default bg-base py-2 pl-3 pr-3 text-sm text-default placeholder:text-muted focus:border-hover focus:outline-none"
+              className="w-64 rounded-lg border border-default bg-base py-2 pl-3 pr-3 text-sm text-text-default placeholder:text-text-muted focus:border-hover focus:outline-none"
             />
           </div>
           <AccountsFilterBar
@@ -280,7 +280,7 @@ export function AccountsList() {
             onToggle={() => setFiltersVisible(!filtersVisible)}
           />
         </div>
-        <span className="text-sm text-muted">{rows.length} accounts</span>
+        <span className="text-sm text-text-muted">{rows.length} accounts</span>
       </div>
 
       <DataTable<AccountRow>

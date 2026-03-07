@@ -21,7 +21,7 @@ export function SegmentCard({ segment, isSelected, onClick }: SegmentCardProps) 
       }`}
     >
       <div className="mb-2 flex items-start justify-between">
-        <h4 className="text-sm font-semibold text-bright">{segment.name}</h4>
+        <h4 className="text-sm font-semibold text-text-bright">{segment.name}</h4>
         <StatusBadge
           variant={segment.isPrebuilt ? 'info' : 'success'}
           label={segment.isPrebuilt ? 'Pre-built' : 'Custom'}
@@ -29,16 +29,16 @@ export function SegmentCard({ segment, isSelected, onClick }: SegmentCardProps) 
         />
       </div>
 
-      <p className="mb-3 text-xs text-muted line-clamp-2">{segment.description}</p>
+      <p className="mb-3 text-xs text-text-muted line-clamp-2">{segment.description}</p>
 
       <div className="flex items-center gap-3 text-xs">
-        <div className="flex items-center gap-1 text-muted">
+        <div className="flex items-center gap-1 text-text-muted">
           <Users className="h-3 w-3" />
-          <span className="font-medium text-default">{segment.accountCount}</span>
+          <span className="font-medium text-text-default">{segment.accountCount}</span>
           <span>accounts</span>
         </div>
-        <div className="text-muted">
-          <span className="font-medium text-default">
+        <div className="text-text-muted">
+          <span className="font-medium text-text-default">
             ${segment.totalRevenue >= 1000
               ? `${(segment.totalRevenue / 1000).toFixed(1)}k`
               : segment.totalRevenue.toLocaleString()}
@@ -47,7 +47,7 @@ export function SegmentCard({ segment, isSelected, onClick }: SegmentCardProps) 
         </div>
       </div>
 
-      <div className="mt-2 flex items-center gap-1 text-[10px] text-muted/70">
+      <div className="mt-2 flex items-center gap-1 text-[10px] text-text-muted/70">
         <Calendar className="h-3 w-3" />
         Updated {new Date(segment.updatedAt).toLocaleDateString()}
       </div>

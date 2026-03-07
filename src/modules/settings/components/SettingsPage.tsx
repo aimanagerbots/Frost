@@ -52,8 +52,8 @@ export function SettingsPage() {
               onClick={() => setActiveTab(tab.key)}
               className={`flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-colors ${
                 isActive
-                  ? 'border-b-2 text-[var(--text-bright)]'
-                  : 'border-b-2 border-transparent text-[var(--text-muted)] hover:text-[var(--text-default)]'
+                  ? 'border-b-2 text-[var(--text-text-bright)]'
+                  : 'border-b-2 border-transparent text-[var(--text-text-muted)] hover:text-[var(--text-text-default)]'
               }`}
               style={isActive ? { borderBottomColor: ACCENT } : undefined}
             >
@@ -90,16 +90,16 @@ function CompanyTab({ data, isLoading }: { data: ReturnType<typeof useCompanyPro
   return (
     <div className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] p-5">
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-[var(--text-bright)]">Company Information</h2>
-        <button className="rounded-lg border border-[var(--border-default)] px-4 py-1.5 text-sm text-[var(--text-muted)] transition-colors hover:bg-[var(--bg-elevated)] hover:text-[var(--text-default)]">
+        <h2 className="text-lg font-semibold text-[var(--text-text-bright)]">Company Information</h2>
+        <button className="rounded-lg border border-[var(--border-default)] px-4 py-1.5 text-sm text-[var(--text-text-muted)] transition-colors hover:bg-[var(--bg-elevated)] hover:text-[var(--text-text-default)]">
           Edit
         </button>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {fields.map((field) => (
           <div key={field.label}>
-            <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">{field.label}</p>
-            <p className="mt-1 text-sm text-[var(--text-default)]">{field.value}</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">{field.label}</p>
+            <p className="mt-1 text-sm text-[var(--text-text-default)]">{field.value}</p>
           </div>
         ))}
       </div>
@@ -119,7 +119,7 @@ function IntegrationsTab({ data, isLoading }: { data: ReturnType<typeof useInteg
           className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] p-5"
         >
           <div className="mb-2 flex items-start justify-between">
-            <h3 className="text-sm font-semibold text-[var(--text-bright)]">{integration.name}</h3>
+            <h3 className="text-sm font-semibold text-[var(--text-text-bright)]">{integration.name}</h3>
             <StatusBadge
               variant={STATUS_VARIANT[integration.status]}
               label={integration.status}
@@ -127,14 +127,14 @@ function IntegrationsTab({ data, isLoading }: { data: ReturnType<typeof useInteg
               dot
             />
           </div>
-          <p className="mb-3 line-clamp-1 text-xs text-[var(--text-muted)]">{integration.description}</p>
+          <p className="mb-3 line-clamp-1 text-xs text-[var(--text-text-muted)]">{integration.description}</p>
           {integration.lastSync && (
-            <div className="mb-3 flex items-center gap-1.5 text-xs text-[var(--text-muted)]">
+            <div className="mb-3 flex items-center gap-1.5 text-xs text-[var(--text-text-muted)]">
               <RefreshCw className="h-3 w-3" />
               <span>Synced {integration.lastSync}</span>
             </div>
           )}
-          <button className="flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] px-3 py-1.5 text-xs text-[var(--text-muted)] transition-colors hover:bg-[var(--bg-elevated)] hover:text-[var(--text-default)]">
+          <button className="flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] px-3 py-1.5 text-xs text-[var(--text-text-muted)] transition-colors hover:bg-[var(--bg-elevated)] hover:text-[var(--text-text-default)]">
             <ExternalLink className="h-3 w-3" />
             {integration.status === 'disconnected' ? 'Connect' : 'Configure'}
           </button>
@@ -156,17 +156,17 @@ function CommunicationsTab({ data, isLoading }: { data: ReturnType<typeof useCom
           className="flex items-center justify-between rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] p-4"
         >
           <div className="flex items-center gap-4">
-            <span className={`h-2.5 w-2.5 rounded-full ${channel.enabled ? 'bg-[var(--color-success)]' : 'bg-[var(--text-muted)]'}`} />
+            <span className={`h-2.5 w-2.5 rounded-full ${channel.enabled ? 'bg-[var(--color-success)]' : 'bg-[var(--text-text-muted)]'}`} />
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-sm font-semibold text-[var(--text-bright)]">{channel.name}</h3>
+                <h3 className="text-sm font-semibold text-[var(--text-text-bright)]">{channel.name}</h3>
                 <StatusBadge
                   variant={CHANNEL_STATUS_VARIANT[channel.status] as 'success' | 'warning' | 'info' | 'muted'}
                   label={channel.status}
                   size="sm"
                 />
               </div>
-              <p className="mt-0.5 text-xs text-[var(--text-muted)]">
+              <p className="mt-0.5 text-xs text-[var(--text-text-muted)]">
                 {channel.type}{channel.details ? ` — ${channel.details}` : ''}
               </p>
             </div>
@@ -199,9 +199,9 @@ function NotificationsTab({ data, isLoading }: { data: ReturnType<typeof useNoti
     <div className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] overflow-hidden">
       {/* Header row */}
       <div className="grid grid-cols-5 gap-4 border-b border-[var(--border-default)] bg-[var(--bg-elevated)] px-5 py-3">
-        <div className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">Category</div>
+        <div className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">Category</div>
         {columns.map((col) => (
-          <div key={col} className="text-center text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">{col}</div>
+          <div key={col} className="text-center text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">{col}</div>
         ))}
       </div>
       {/* Data rows */}
@@ -210,7 +210,7 @@ function NotificationsTab({ data, isLoading }: { data: ReturnType<typeof useNoti
           key={pref.category}
           className={`grid grid-cols-5 gap-4 px-5 py-3 ${idx < data.length - 1 ? 'border-b border-[var(--border-default)]' : ''}`}
         >
-          <div className="text-sm text-[var(--text-default)]">{pref.category}</div>
+          <div className="text-sm text-[var(--text-text-default)]">{pref.category}</div>
           {columns.map((col) => {
             const enabled = pref[fieldMap[col]];
             return (
@@ -221,7 +221,7 @@ function NotificationsTab({ data, isLoading }: { data: ReturnType<typeof useNoti
                   </div>
                 ) : (
                   <div className="flex h-5 w-5 items-center justify-center rounded bg-[var(--bg-elevated)]">
-                    <X className="h-3.5 w-3.5 text-[var(--text-muted)]" />
+                    <X className="h-3.5 w-3.5 text-[var(--text-text-muted)]" />
                   </div>
                 )}
               </div>
@@ -238,27 +238,27 @@ function ApiKeysTab() {
   return (
     <div className="space-y-4">
       <div className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] p-5">
-        <h2 className="mb-4 text-lg font-semibold text-[var(--text-bright)]">API Key</h2>
+        <h2 className="mb-4 text-lg font-semibold text-[var(--text-text-bright)]">API Key</h2>
         <div className="mb-4 flex items-center gap-3">
-          <code className="flex-1 rounded-lg bg-[var(--bg-elevated)] px-4 py-2.5 font-mono text-sm text-[var(--text-default)]">
+          <code className="flex-1 rounded-lg bg-[var(--bg-elevated)] px-4 py-2.5 font-mono text-sm text-[var(--text-text-default)]">
             sk-frost-••••••••••••••••••••••••x8f2
           </code>
-          <button className="rounded-lg border border-[var(--border-default)] px-4 py-2 text-sm text-[var(--text-muted)] transition-colors hover:bg-[var(--bg-elevated)] hover:text-[var(--text-default)]">
+          <button className="rounded-lg border border-[var(--border-default)] px-4 py-2 text-sm text-[var(--text-text-muted)] transition-colors hover:bg-[var(--bg-elevated)] hover:text-[var(--text-text-default)]">
             Regenerate
           </button>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">Created</p>
-            <p className="mt-1 text-sm text-[var(--text-default)]">Jan 15, 2026</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">Created</p>
+            <p className="mt-1 text-sm text-[var(--text-text-default)]">Jan 15, 2026</p>
           </div>
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">Last Used</p>
-            <p className="mt-1 text-sm text-[var(--text-default)]">Mar 6, 2026 at 2:14 PM</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">Last Used</p>
+            <p className="mt-1 text-sm text-[var(--text-text-default)]">Mar 6, 2026 at 2:14 PM</p>
           </div>
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">Usage Today</p>
-            <p className="mt-1 text-sm text-[var(--text-default)]">142 requests</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-text-muted)]">Usage Today</p>
+            <p className="mt-1 text-sm text-[var(--text-text-default)]">142 requests</p>
           </div>
         </div>
       </div>

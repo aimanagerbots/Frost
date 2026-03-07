@@ -16,7 +16,7 @@ export function ProductionLines() {
 
   return (
     <div className="space-y-3">
-      <h2 className="text-sm font-semibold text-bright">Production Lines</h2>
+      <h2 className="text-sm font-semibold text-text-bright">Production Lines</h2>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-5">
         {lines.map((line) => {
           const pct = Math.round((line.currentBatches / line.capacity) * 100);
@@ -27,7 +27,7 @@ export function ProductionLines() {
               className="rounded-xl border border-default bg-card p-4"
             >
               <div className="flex items-start justify-between">
-                <h3 className="text-sm font-medium text-bright">{line.name}</h3>
+                <h3 className="text-sm font-medium text-text-bright">{line.name}</h3>
                 <StatusBadge
                   variant={line.category === 'flower' ? 'success' : line.category === 'vaporizer' ? 'info' : line.category === 'preroll' ? 'warning' : 'default'}
                   label={line.category}
@@ -35,7 +35,7 @@ export function ProductionLines() {
                 />
               </div>
               <div className="mt-3">
-                <div className="flex items-center justify-between text-xs text-muted">
+                <div className="flex items-center justify-between text-xs text-text-muted">
                   <span>{line.currentBatches} / {line.capacity}</span>
                   <span style={{ color }}>{pct}%</span>
                 </div>
@@ -46,7 +46,7 @@ export function ProductionLines() {
                   />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-muted">
+              <div className="mt-2 text-xs text-text-muted">
                 {line.states.join(' → ')}
               </div>
             </div>

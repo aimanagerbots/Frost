@@ -32,20 +32,20 @@ const columns = [
     header: 'Product',
     accessor: 'product' as const,
     sortable: true,
-    render: (row: PkgRow) => <span className="font-medium text-bright">{row.product}</span>,
+    render: (row: PkgRow) => <span className="font-medium text-text-bright">{row.product}</span>,
   },
   {
     header: 'SKU',
     accessor: 'sku' as const,
     sortable: true,
-    render: (row: PkgRow) => <span className="text-xs text-muted">{row.sku}</span>,
+    render: (row: PkgRow) => <span className="text-xs text-text-muted">{row.sku}</span>,
   },
   {
     header: 'Category',
     accessor: 'category' as const,
     sortable: true,
     render: (row: PkgRow) => (
-      <span className="inline-flex items-center rounded-full bg-elevated px-2 py-0.5 text-xs text-muted capitalize">
+      <span className="inline-flex items-center rounded-full bg-elevated px-2 py-0.5 text-xs text-text-muted capitalize">
         {row.category}
       </span>
     ),
@@ -148,12 +148,12 @@ export function PackagingPage() {
       {/* Packaging Orders */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-bright">Packaging Orders</h2>
+          <h2 className="text-sm font-semibold text-text-bright">Packaging Orders</h2>
           <div className="flex gap-1">
             <button
               onClick={() => setStatusFilter(null)}
               className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                !statusFilter ? 'text-bright' : 'text-muted hover:text-default hover:bg-elevated'
+                !statusFilter ? 'text-text-bright' : 'text-text-muted hover:text-text-default hover:bg-elevated'
               }`}
               style={!statusFilter ? { backgroundColor: `${ACCENT}20`, color: ACCENT } : undefined}
             >
@@ -164,7 +164,7 @@ export function PackagingPage() {
                 key={s}
                 onClick={() => setStatusFilter(prev => prev === s ? null : s)}
                 className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                  statusFilter === s ? 'text-bright' : 'text-muted hover:text-default hover:bg-elevated'
+                  statusFilter === s ? 'text-text-bright' : 'text-text-muted hover:text-text-default hover:bg-elevated'
                 }`}
                 style={statusFilter === s ? { backgroundColor: `${ACCENT}20`, color: ACCENT } : undefined}
               >

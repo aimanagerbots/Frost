@@ -53,8 +53,8 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
         {/* Account summary */}
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-bright">{proposal.accountName}</h3>
-            <p className="text-sm text-muted">{proposal.daysSinceLastOrder} days since last order</p>
+            <h3 className="text-lg font-semibold text-text-bright">{proposal.accountName}</h3>
+            <p className="text-sm text-text-muted">{proposal.daysSinceLastOrder} days since last order</p>
           </div>
           <div className="flex items-center gap-2">
             <StatusBadge variant={statusVariant(proposal.status)} label={proposal.status} />
@@ -65,7 +65,7 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
         {/* Confidence bar */}
         <div>
           <div className="mb-1 flex items-center justify-between text-xs">
-            <span className="text-muted">Confidence</span>
+            <span className="text-text-muted">Confidence</span>
             <span className={`font-semibold ${proposal.confidence >= 80 ? 'text-success' : proposal.confidence >= 60 ? 'text-warning' : 'text-danger'}`}>
               {proposal.confidence}%
             </span>
@@ -83,17 +83,17 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
 
         {/* AI Reasoning */}
         <div className="rounded-lg border border-default bg-elevated p-4">
-          <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">AI Reasoning</h4>
-          <p className="text-sm leading-relaxed text-default">{proposal.reasoning}</p>
+          <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-text-muted">AI Reasoning</h4>
+          <p className="text-sm leading-relaxed text-text-default">{proposal.reasoning}</p>
         </div>
 
         {/* Line items */}
         <div>
-          <h4 className="mb-2 text-sm font-medium text-bright">Proposed Products</h4>
+          <h4 className="mb-2 text-sm font-medium text-text-bright">Proposed Products</h4>
           <div className="overflow-hidden rounded-lg border border-default">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-default bg-elevated text-xs text-muted">
+                <tr className="border-b border-default bg-elevated text-xs text-text-muted">
                   <th className="px-3 py-2 text-left">Product</th>
                   <th className="px-3 py-2 text-right">Qty</th>
                   <th className="px-3 py-2 text-right">Unit Price</th>
@@ -107,20 +107,20 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
                   return (
                     <tr key={p.sku} className="border-b border-default/50">
                       <td className="px-3 py-2">
-                        <div className="font-medium text-default">{p.name}</div>
-                        <div className="text-xs text-muted">{p.sku}</div>
+                        <div className="font-medium text-text-default">{p.name}</div>
+                        <div className="text-xs text-text-muted">{p.sku}</div>
                       </td>
-                      <td className="px-3 py-2 text-right text-default">{p.qty}</td>
-                      <td className="px-3 py-2 text-right text-default">{formatCurrency(p.unitPrice)}</td>
+                      <td className="px-3 py-2 text-right text-text-default">{p.qty}</td>
+                      <td className="px-3 py-2 text-right text-text-default">{formatCurrency(p.unitPrice)}</td>
                       <td className="px-3 py-2 text-right">
-                        <span className="text-default">{formatCurrency(p.lastOrderPrice)}</span>
+                        <span className="text-text-default">{formatCurrency(p.lastOrderPrice)}</span>
                         {delta !== 0 && (
                           <span className={`ml-1 text-xs ${delta > 0 ? 'text-danger' : 'text-success'}`}>
                             {delta > 0 ? '+' : ''}{formatCurrency(delta)}
                           </span>
                         )}
                       </td>
-                      <td className="px-3 py-2 text-right font-medium text-bright">
+                      <td className="px-3 py-2 text-right font-medium text-text-bright">
                         {formatCurrency(p.qty * p.unitPrice)}
                       </td>
                     </tr>
@@ -129,8 +129,8 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
               </tbody>
               <tfoot>
                 <tr className="bg-elevated">
-                  <td colSpan={4} className="px-3 py-2 text-right text-xs font-semibold text-muted">Total</td>
-                  <td className="px-3 py-2 text-right text-sm font-bold text-bright">
+                  <td colSpan={4} className="px-3 py-2 text-right text-xs font-semibold text-text-muted">Total</td>
+                  <td className="px-3 py-2 text-right text-sm font-bold text-text-bright">
                     {formatCurrency(proposal.totalValue)}
                   </td>
                 </tr>
@@ -141,8 +141,8 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
 
         {/* Draft email */}
         <div>
-          <h4 className="mb-2 text-sm font-medium text-bright">Draft Email</h4>
-          <div className="whitespace-pre-wrap rounded-lg border border-default bg-elevated p-4 text-sm leading-relaxed text-default">
+          <h4 className="mb-2 text-sm font-medium text-text-bright">Draft Email</h4>
+          <div className="whitespace-pre-wrap rounded-lg border border-default bg-elevated p-4 text-sm leading-relaxed text-text-default">
             {proposal.draftEmail}
           </div>
         </div>
@@ -173,7 +173,7 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
                         onReject?.(proposal.id, reason);
                         setShowRejectMenu(false);
                       }}
-                      className="w-full rounded-md px-3 py-1.5 text-left text-sm text-default hover:bg-elevated transition-colors"
+                      className="w-full rounded-md px-3 py-1.5 text-left text-sm text-text-default hover:bg-elevated transition-colors"
                     >
                       {reason}
                     </button>

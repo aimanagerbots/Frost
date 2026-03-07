@@ -45,15 +45,15 @@ export function COADrawer({ submission, open, onClose }: COADrawerProps) {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-semibold text-default">{submission.productName}</h3>
-              <p className="text-sm text-muted">{submission.strainName} — {submission.category}</p>
+              <h3 className="text-lg font-semibold text-text-default">{submission.productName}</h3>
+              <p className="text-sm text-text-muted">{submission.strainName} — {submission.category}</p>
             </div>
             <StatusBadge
               label={submission.status.replace(/-/g, ' ')}
               variant={statusVariant(submission.status)}
             />
           </div>
-          <div className="flex flex-wrap gap-4 text-sm text-muted">
+          <div className="flex flex-wrap gap-4 text-sm text-text-muted">
             <span className="flex items-center gap-1">
               <Building2 className="h-3.5 w-3.5" />
               {submission.labName}
@@ -75,7 +75,7 @@ export function COADrawer({ submission, open, onClose }: COADrawerProps) {
                 <FileText className="h-4 w-4" />
                 View COA PDF
               </button>
-              <button className="flex items-center gap-2 rounded-lg border border-default px-4 py-2 text-sm font-medium text-default hover:bg-elevated transition-colors">
+              <button className="flex items-center gap-2 rounded-lg border border-default px-4 py-2 text-sm font-medium text-text-default hover:bg-elevated transition-colors">
                 <Share2 className="h-4 w-4" />
                 Share with Account
               </button>
@@ -93,7 +93,7 @@ export function COADrawer({ submission, open, onClose }: COADrawerProps) {
                   <AlertTriangle className="h-4 w-4 text-red-400" />
                   <h4 className="text-sm font-medium text-red-400">Failure Details</h4>
                 </div>
-                <p className="text-sm text-default">{submission.remediationNotes}</p>
+                <p className="text-sm text-text-default">{submission.remediationNotes}</p>
               </div>
             )}
             <button
@@ -116,7 +116,7 @@ export function COADrawer({ submission, open, onClose }: COADrawerProps) {
                   <AlertTriangle className="h-4 w-4 text-amber-400" />
                   <h4 className="text-sm font-medium text-amber-400">Remediation In Progress</h4>
                 </div>
-                <p className="text-sm text-default">{submission.remediationNotes}</p>
+                <p className="text-sm text-text-default">{submission.remediationNotes}</p>
               </div>
             )}
           </>
@@ -128,16 +128,16 @@ export function COADrawer({ submission, open, onClose }: COADrawerProps) {
             <div className="rounded-xl border border-default bg-elevated p-4 space-y-3">
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" style={{ color: ACCENT }} />
-                <h4 className="text-sm font-medium text-default">Awaiting Results</h4>
+                <h4 className="text-sm font-medium text-text-default">Awaiting Results</h4>
               </div>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <span className="text-muted">Expected Return</span>
-                  <p className="text-default font-medium">{submission.expectedReturn}</p>
+                  <span className="text-text-muted">Expected Return</span>
+                  <p className="text-text-default font-medium">{submission.expectedReturn}</p>
                 </div>
                 <div>
-                  <span className="text-muted">Lab Contact</span>
-                  <p className="text-default font-medium">{labContact[submission.labName] ?? 'N/A'}</p>
+                  <span className="text-text-muted">Lab Contact</span>
+                  <p className="text-text-default font-medium">{labContact[submission.labName] ?? 'N/A'}</p>
                 </div>
               </div>
             </div>

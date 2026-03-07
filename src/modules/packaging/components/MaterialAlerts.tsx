@@ -14,7 +14,7 @@ export function MaterialAlerts() {
 
   return (
     <div className="space-y-2">
-      <h2 className="text-sm font-semibold text-bright">Material Alerts</h2>
+      <h2 className="text-sm font-semibold text-text-bright">Material Alerts</h2>
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
         {alerts.map((item) => {
           const isOut = item.status === 'out-of-stock';
@@ -30,12 +30,12 @@ export function MaterialAlerts() {
             >
               <AlertTriangle className={`mt-0.5 h-4 w-4 shrink-0 ${textColor}`} />
               <div className="min-w-0 flex-1">
-                <div className="text-sm font-medium text-bright">{item.name}</div>
-                <div className="mt-0.5 text-xs text-muted">
+                <div className="text-sm font-medium text-text-bright">{item.name}</div>
+                <div className="mt-0.5 text-xs text-text-muted">
                   Stock: <span className={textColor}>{item.currentStock}</span>
                   {' / '}Reorder at: {item.reorderPoint}
                 </div>
-                <div className="mt-0.5 text-xs text-muted">
+                <div className="mt-0.5 text-xs text-text-muted">
                   Supplier: {item.supplier}
                 </div>
                 <button className={`mt-1.5 rounded-md px-2 py-0.5 text-xs font-medium ${textColor} ${isOut || isCritical ? 'bg-danger/10' : 'bg-warning/10'} transition-colors hover:opacity-80`}>

@@ -77,7 +77,7 @@ export function ReportsPage() {
             className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
               typeFilter === f.value
                 ? 'text-white'
-                : 'bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-default)]'
+                : 'bg-[var(--bg-elevated)] text-[var(--text-text-muted)] hover:text-[var(--text-text-default)]'
             }`}
             style={typeFilter === f.value ? { backgroundColor: ACCENT } : undefined}
           >
@@ -105,17 +105,17 @@ export function ReportsPage() {
               className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)] p-5 cursor-pointer transition-all duration-200 hover:bg-[var(--bg-card-hover)] hover:-translate-y-0.5"
             >
               <div className="flex items-start justify-between mb-2">
-                <FileText className="h-5 w-5 text-[var(--text-muted)]" />
+                <FileText className="h-5 w-5 text-[var(--text-text-muted)]" />
                 <StatusBadge variant={TYPE_VARIANT[report.type]} label={report.type} size="sm" />
               </div>
-              <h3 className="text-sm font-semibold text-[var(--text-default)] mb-1">{report.name}</h3>
-              <p className="text-xs text-[var(--text-muted)] line-clamp-2 mb-3">{report.description}</p>
+              <h3 className="text-sm font-semibold text-[var(--text-text-default)] mb-1">{report.name}</h3>
+              <p className="text-xs text-[var(--text-text-muted)] line-clamp-2 mb-3">{report.description}</p>
 
               <div className="flex flex-wrap gap-1.5 mb-3">
                 {report.format.map((fmt) => (
                   <span
                     key={fmt}
-                    className="rounded bg-[var(--bg-elevated)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--text-muted)] uppercase"
+                    className="rounded bg-[var(--bg-elevated)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--text-text-muted)] uppercase"
                   >
                     {FORMAT_LABELS[fmt] ?? fmt}
                   </span>
@@ -123,7 +123,7 @@ export function ReportsPage() {
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1 text-xs text-[var(--text-muted)]">
+                <div className="flex items-center gap-1 text-xs text-[var(--text-text-muted)]">
                   {report.schedule && (
                     <>
                       <Clock className="h-3 w-3" />
@@ -132,7 +132,7 @@ export function ReportsPage() {
                   )}
                 </div>
                 {report.lastRun && (
-                  <span className="text-[10px] text-[var(--text-muted)]">
+                  <span className="text-[10px] text-[var(--text-text-muted)]">
                     Last: {new Date(report.lastRun + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                   </span>
                 )}
@@ -143,7 +143,7 @@ export function ReportsPage() {
                   e.stopPropagation();
                   console.log(`Running report: ${report.name}`);
                 }}
-                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg py-1.5 text-xs font-medium transition-colors bg-[var(--bg-elevated)] text-[var(--text-default)] hover:bg-[var(--bg-base)]"
+                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg py-1.5 text-xs font-medium transition-colors bg-[var(--bg-elevated)] text-[var(--text-text-default)] hover:bg-[var(--bg-base)]"
               >
                 <Play className="h-3 w-3" />
                 Run Report
@@ -162,21 +162,21 @@ export function ReportsPage() {
             </div>
 
             <div>
-              <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Description</h4>
-              <p className="text-sm text-[var(--text-default)]">{selected.description}</p>
+              <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Description</h4>
+              <p className="text-sm text-[var(--text-text-default)]">{selected.description}</p>
             </div>
 
             {selected.schedule && (
               <div>
-                <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Schedule</h4>
-                <p className="text-sm text-[var(--text-default)] capitalize">{selected.schedule}</p>
+                <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Schedule</h4>
+                <p className="text-sm text-[var(--text-text-default)] capitalize">{selected.schedule}</p>
               </div>
             )}
 
             {selected.lastRun && (
               <div>
-                <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Last Run</h4>
-                <p className="text-sm text-[var(--text-default)]">
+                <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Last Run</h4>
+                <p className="text-sm text-[var(--text-text-default)]">
                   {new Date(selected.lastRun + 'T00:00:00').toLocaleDateString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -187,12 +187,12 @@ export function ReportsPage() {
             )}
 
             <div>
-              <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Formats</h4>
+              <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Formats</h4>
               <div className="flex gap-2">
                 {selected.format.map((fmt) => (
                   <span
                     key={fmt}
-                    className="rounded bg-[var(--bg-elevated)] px-2 py-1 text-xs font-medium text-[var(--text-default)] uppercase"
+                    className="rounded bg-[var(--bg-elevated)] px-2 py-1 text-xs font-medium text-[var(--text-text-default)] uppercase"
                   >
                     {FORMAT_LABELS[fmt] ?? fmt}
                   </span>
@@ -201,7 +201,7 @@ export function ReportsPage() {
             </div>
 
             <div>
-              <h4 className="text-xs font-medium text-[var(--text-muted)] mb-1">Modules</h4>
+              <h4 className="text-xs font-medium text-[var(--text-text-muted)] mb-1">Modules</h4>
               <div className="flex flex-wrap gap-2">
                 {selected.modules.map((mod) => (
                   <StatusBadge key={mod} variant="default" label={mod} size="sm" />
@@ -220,14 +220,14 @@ export function ReportsPage() {
               </button>
               <button
                 onClick={() => console.log(`Scheduling report: ${selected.name}`)}
-                className="flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 py-2 text-sm font-medium text-[var(--text-default)] transition-colors hover:bg-[var(--bg-base)]"
+                className="flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 py-2 text-sm font-medium text-[var(--text-text-default)] transition-colors hover:bg-[var(--bg-base)]"
               >
                 <Clock className="h-4 w-4" />
                 Schedule
               </button>
               <button
                 onClick={() => console.log(`Downloading report: ${selected.name}`)}
-                className="flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 py-2 text-sm font-medium text-[var(--text-default)] transition-colors hover:bg-[var(--bg-base)]"
+                className="flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 py-2 text-sm font-medium text-[var(--text-text-default)] transition-colors hover:bg-[var(--bg-base)]"
               >
                 <Download className="h-4 w-4" />
                 Export

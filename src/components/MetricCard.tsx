@@ -26,7 +26,7 @@ interface MetricCardProps {
 const TREND_CONFIG = {
   up: { icon: TrendingUp, color: 'text-success' },
   down: { icon: TrendingDown, color: 'text-danger' },
-  flat: { icon: Minus, color: 'text-muted' },
+  flat: { icon: Minus, color: 'text-text-muted' },
 } as const;
 
 export function MetricCard({
@@ -60,10 +60,10 @@ export function MetricCard({
       <div className="pl-2">
         <div className="flex items-start justify-between">
           <div>
-            <div className="text-[28px] font-bold leading-tight text-bright">
+            <div className="text-[28px] font-bold leading-tight text-text-bright">
               {value}
             </div>
-            <div className="mt-1 text-xs text-muted">{label}</div>
+            <div className="mt-1 text-xs text-text-muted">{label}</div>
           </div>
           {sparklineData && sparklineData.length > 1 && (
             <div className="h-10 w-20">

@@ -90,7 +90,7 @@ export function WinLossLog() {
       header: 'Account',
       accessor: 'accountName' as const,
       sortable: true,
-      render: (row: WLRow) => <span className="font-medium text-bright">{row.accountName as string}</span>,
+      render: (row: WLRow) => <span className="font-medium text-text-bright">{row.accountName as string}</span>,
     },
     {
       header: 'Outcome',
@@ -107,7 +107,7 @@ export function WinLossLog() {
     {
       header: 'Competitor',
       accessor: 'competitor' as const,
-      render: (row: WLRow) => <span className="text-muted">{(row.competitor as string) || '—'}</span>,
+      render: (row: WLRow) => <span className="text-text-muted">{(row.competitor as string) || '—'}</span>,
     },
     {
       header: 'Revenue Impact',
@@ -127,7 +127,7 @@ export function WinLossLog() {
       accessor: ((row: WLRow) => (row.productsAffected as string[]).join(', ')) as (row: WLRow) => unknown,
       render: (row: WLRow) => {
         const products = row.productsAffected as string[];
-        return <span className="text-xs text-muted">{products.length > 2 ? `${products[0]} +${products.length - 1}` : products.join(', ')}</span>;
+        return <span className="text-xs text-text-muted">{products.length > 2 ? `${products[0]} +${products.length - 1}` : products.join(', ')}</span>;
       },
     },
   ];
@@ -174,11 +174,11 @@ export function WinLossLog() {
 
       {/* Filter bar */}
       <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-4">
-        <Filter className="h-4 w-4 text-muted" />
+        <Filter className="h-4 w-4 text-text-muted" />
         <select
           value={outcomeFilter}
           onChange={(e) => setOutcomeFilter(e.target.value)}
-          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-default focus:outline-none"
+          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-text-default focus:outline-none"
         >
           <option value="">All Outcomes</option>
           <option value="won">Won</option>
@@ -188,7 +188,7 @@ export function WinLossLog() {
         <select
           value={reasonFilter}
           onChange={(e) => setReasonFilter(e.target.value)}
-          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-default focus:outline-none"
+          className="rounded-lg border border-default bg-base px-2 py-1 text-xs text-text-default focus:outline-none"
         >
           <option value="">All Reasons</option>
           {Object.entries(REASON_LABELS).map(([k, v]) => (

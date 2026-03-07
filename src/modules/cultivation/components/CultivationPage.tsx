@@ -73,10 +73,10 @@ export function CultivationPage() {
         >
           <AlertTriangle className="h-5 w-5 shrink-0" style={{ color: '#F59E0B' }} />
           <div>
-            <p className="text-sm font-medium text-bright">
+            <p className="text-sm font-medium text-text-bright">
               Harvest approaching: {metrics.nextHarvestStrain}
             </p>
-            <p className="text-xs text-muted">
+            <p className="text-xs text-text-muted">
               Scheduled in {metrics.daysToNextHarvest} day{metrics.daysToNextHarvest !== 1 ? 's' : ''}
             </p>
           </div>
@@ -85,7 +85,7 @@ export function CultivationPage() {
 
       {/* Grow Room Grid */}
       <div>
-        <h2 className="mb-3 text-sm font-semibold text-bright">Grow Rooms</h2>
+        <h2 className="mb-3 text-sm font-semibold text-text-bright">Grow Rooms</h2>
         {roomsLoading ? (
           <LoadingSkeleton variant="card" count={8} />
         ) : rooms && rooms.length > 0 ? (
@@ -100,8 +100,8 @@ export function CultivationPage() {
           </div>
         ) : (
           <div className="rounded-xl border border-default bg-card p-8 text-center">
-            <Leaf className="mx-auto h-8 w-8 text-muted" />
-            <p className="mt-2 text-sm text-muted">No grow rooms configured</p>
+            <Leaf className="mx-auto h-8 w-8 text-text-muted" />
+            <p className="mt-2 text-sm text-text-muted">No grow rooms configured</p>
           </div>
         )}
       </div>

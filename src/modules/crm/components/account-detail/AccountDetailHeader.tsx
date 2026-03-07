@@ -19,7 +19,7 @@ function trendIcon(trend: Account['healthTrend']) {
   switch (trend) {
     case 'improving': return <TrendingUp className="h-4 w-4 text-success" />;
     case 'declining': return <TrendingDown className="h-4 w-4 text-danger" />;
-    default: return <Minus className="h-4 w-4 text-muted" />;
+    default: return <Minus className="h-4 w-4 text-text-muted" />;
   }
 }
 
@@ -55,13 +55,13 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
         <div className="flex items-start gap-3">
           <button
             onClick={onBack}
-            className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-default text-muted transition-colors hover:bg-elevated hover:text-default"
+            className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
           >
             <ArrowLeft className="h-4 w-4" />
           </button>
           <div className="min-w-0 flex-1">
-            <h1 className="text-xl font-semibold text-bright">{account.name}</h1>
-            <p className="text-sm text-muted">
+            <h1 className="text-xl font-semibold text-text-bright">{account.name}</h1>
+            <p className="text-sm text-text-muted">
               {account.address.city}, {account.address.state}
               {account.dba && account.dba !== account.name && (
                 <span> &middot; DBA: {account.dba}</span>
@@ -94,7 +94,7 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
         </div>
 
         {/* Info row */}
-        <div className="flex flex-wrap items-center gap-4 text-xs text-muted">
+        <div className="flex flex-wrap items-center gap-4 text-xs text-text-muted">
           <span>Account since {new Date(account.createdAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
           <span>&middot;</span>
           <span>{account.region}</span>
@@ -110,7 +110,7 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
           ].map(({ icon: Icon, label }) => (
             <button
               key={label}
-              className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-muted transition-colors hover:bg-elevated hover:text-default"
+              className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
             >
               <Icon className="h-3.5 w-3.5" />
               {label}

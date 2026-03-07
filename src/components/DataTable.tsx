@@ -112,13 +112,13 @@ export function DataTable<T extends Record<string, unknown>>({
       {searchable && (
         <div className="border-b border-default p-3">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
             <input
               type="text"
               value={search}
               onChange={(e) => { setSearch(e.target.value); setPage(0); }}
               placeholder={searchPlaceholder}
-              className="w-full rounded-lg border border-default bg-base py-2 pl-9 pr-3 text-sm text-default placeholder:text-muted focus:border-hover focus:outline-none"
+              className="w-full rounded-lg border border-default bg-base py-2 pl-9 pr-3 text-sm text-text-default placeholder:text-text-muted focus:border-hover focus:outline-none"
             />
           </div>
         </div>
@@ -141,8 +141,8 @@ export function DataTable<T extends Record<string, unknown>>({
                     <th
                       key={i}
                       className={cn(
-                        'px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted',
-                        col.sortable && 'cursor-pointer select-none hover:text-default',
+                        'px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted',
+                        col.sortable && 'cursor-pointer select-none hover:text-text-default',
                         i === 0 && 'sticky left-0 bg-card z-10'
                       )}
                       onClick={col.sortable ? () => handleSort(i) : undefined}
@@ -179,7 +179,7 @@ export function DataTable<T extends Record<string, unknown>>({
                       <td
                         key={colIdx}
                         className={cn(
-                          'px-4 py-3 text-default',
+                          'px-4 py-3 text-text-default',
                           colIdx === 0 && 'sticky left-0 bg-card z-10'
                         )}
                       >
@@ -196,24 +196,24 @@ export function DataTable<T extends Record<string, unknown>>({
 
           {/* Pagination */}
           <div className="flex items-center justify-between border-t border-default px-4 py-3">
-            <span className="text-xs text-muted">
+            <span className="text-xs text-text-muted">
               {sorted.length} result{sorted.length !== 1 ? 's' : ''}
             </span>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setPage((p) => Math.max(0, p - 1))}
                 disabled={page === 0}
-                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-muted transition-colors hover:bg-elevated disabled:opacity-30"
+                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-elevated disabled:opacity-30"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
-              <span className="text-xs text-muted">
+              <span className="text-xs text-text-muted">
                 {page + 1} / {totalPages}
               </span>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
                 disabled={page >= totalPages - 1}
-                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-muted transition-colors hover:bg-elevated disabled:opacity-30"
+                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-elevated disabled:opacity-30"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>

@@ -34,7 +34,7 @@ export function EventCard({ event, compact = false, onClick }: EventCardProps) {
       <button
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        className="flex w-full items-center gap-1.5 rounded px-1 py-0.5 text-left text-[11px] leading-tight text-default transition-colors hover:bg-elevated"
+        className="flex w-full items-center gap-1.5 rounded px-1 py-0.5 text-left text-[11px] leading-tight text-text-default transition-colors hover:bg-elevated"
       >
         <span
           className="h-1.5 w-1.5 shrink-0 rounded-full"
@@ -55,10 +55,10 @@ export function EventCard({ event, compact = false, onClick }: EventCardProps) {
       )}
       style={{ borderLeftColor: event.color }}
     >
-      <span className="text-sm font-medium text-bright">{event.title}</span>
+      <span className="text-sm font-medium text-text-bright">{event.title}</span>
       <div className="flex items-center gap-2">
         {event.startTime && (
-          <span className="flex items-center gap-1 text-xs text-muted">
+          <span className="flex items-center gap-1 text-xs text-text-muted">
             <Clock className="h-3 w-3" />
             {event.startTime}
             {event.endTime && <> &ndash; {event.endTime}</>}

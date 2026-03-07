@@ -106,8 +106,8 @@ export function Segments() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-semibold text-bright">Segments</h3>
-          <p className="text-sm text-muted">{allSegments.length} saved segments</p>
+          <h3 className="text-lg font-semibold text-text-bright">Segments</h3>
+          <p className="text-sm text-text-muted">{allSegments.length} saved segments</p>
         </div>
         <button
           onClick={() => setBuilderOpen(true)}
@@ -139,24 +139,24 @@ export function Segments() {
         <div className="rounded-xl border border-default bg-card p-4">
           <div className="mb-4 flex items-center justify-between">
             <div>
-              <h4 className="text-sm font-semibold text-bright">
+              <h4 className="text-sm font-semibold text-text-bright">
                 {selectedSegment.name}
               </h4>
-              <p className="text-xs text-muted">
+              <p className="text-xs text-text-muted">
                 {previewData.totalCount} accounts — $
                 {previewData.totalRevenue.toLocaleString()} total revenue
               </p>
             </div>
             <div className="flex items-center gap-1.5">
-              <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-muted hover:text-default transition-colors">
+              <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:text-text-default transition-colors">
                 <MapPin className="h-3 w-3" />
                 View on Map
               </button>
-              <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-muted hover:text-default transition-colors">
+              <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:text-text-default transition-colors">
                 <Download className="h-3 w-3" />
                 Export
               </button>
-              <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-muted hover:text-default transition-colors">
+              <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:text-text-default transition-colors">
                 <Megaphone className="h-3 w-3" />
                 Launch Campaign
               </button>
