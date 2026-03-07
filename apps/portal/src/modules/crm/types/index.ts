@@ -12,30 +12,43 @@ export interface PipelineTransition {
   trigger: string;
 }
 
+export interface PipelineInfo {
+  status: PipelineStatus;
+  phase: PipelinePhase;
+  code: string;
+  name: string;
+  enteredDate: string;
+  previousCode?: string;
+  previousDate?: string;
+  assignedRep: string;
+  nextReviewDate?: string;
+  notes?: string;
+}
+
 export const PIPELINE_PHASE_LABELS: Record<
   PipelineStatus,
   Record<PipelinePhase, string>
 > = {
   active: {
-    1: 'Onboarding',
-    2: 'Growing',
-    3: 'Stable',
-    4: 'Declining',
-    5: 'Critical',
+    1: 'New Buyer',
+    2: 'Established',
+    3: 'Growing',
+    4: 'Premium',
+    5: 'Strategic Partner',
   },
   inactive: {
-    1: 'Recently Lapsed',
-    2: 'Cooling',
-    3: 'Dormant',
-    4: 'Disengaged',
-    5: 'Lost',
+    1: 'Cold Lead',
+    2: 'Contacted',
+    3: 'Engaged',
+    4: 'Sampling',
+    5: 'Converting',
   },
   recovery: {
-    1: 'Re-engaged',
-    2: 'Rebuilding',
-    3: 'Stabilizing',
-    4: 'Strengthening',
-    5: 'Graduated',
+    1: 'Signal Detected',
+    2: 'Confirmed Decline',
+    3: 'Active Recovery',
+    4: 'Re-engaging',
+    5: 'Recovered',
   },
 };
 
@@ -79,6 +92,7 @@ export interface Account {
   pipelineStatus: PipelineStatus;
   pipelinePhase: PipelinePhase;
   pipelineHistory: PipelineTransition[];
+  pipeline: PipelineInfo;
   paymentReliability: 'excellent' | 'good' | 'fair' | 'poor';
   preferredPaymentMethod: 'cod' | 'ach' | 'mail';
   deliveryPreferences: {

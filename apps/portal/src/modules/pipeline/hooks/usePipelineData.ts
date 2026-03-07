@@ -15,7 +15,6 @@ function buildPipelineData() {
   const statuses: PipelineStatus[] = ['active', 'inactive', 'recovery'];
   const phases: PipelinePhase[] = [1, 2, 3, 4, 5];
 
-  // Build 15-cell grid
   const cells: PipelineCellData[] = [];
   for (const status of statuses) {
     for (const phase of phases) {
@@ -33,38 +32,35 @@ function buildPipelineData() {
           thirtyDayRevenue: a.thirtyDayRevenue,
         })),
         count: matching.length,
+        totalRevenue: matching.reduce((sum, a) => sum + a.thirtyDayRevenue, 0),
       });
     }
   }
 
-  // Compute metrics
   const totalActive = accounts.filter((a) => a.pipelineStatus === 'active').length;
   const totalInactive = accounts.filter((a) => a.pipelineStatus === 'inactive').length;
   const totalRecovery = accounts.filter((a) => a.pipelineStatus === 'recovery').length;
 
-  // Recovery rate: accounts that graduated (recovery phase 5) / total that entered recovery
+  const activeAccounts = accounts.filter((a) => a.pipelineStatus === 'active');
+  const activeRevenue = activeAccounts.reduce((sum, a) => sum + a.thirtyDayRevenue, 0);
+
   const recoveryAccounts = accounts.filter((a) => a.pipelineStatus === 'recovery');
-  const graduatedCount = recoveryAccounts.filter((a) => a.pipelinePhase === 5).length;
+  const recoveredCount = recoveryAccounts.filter((a) => a.pipelinePhase === 5).length;
   const recoveryRate = recoveryAccounts.length > 0
-    ? Math.round((graduatedCount / recoveryAccounts.length) * 100)
+    ? Math.round((recoveredCount / recoveryAccounts.length) * 100)
     : 0;
-
-  // Pipeline velocity: avg accounts moving through phases per month (simulated)
-  const pipelineVelocity = 4.2;
-
-  // Avg days to churn (simulated)
-  const avgDaysToChurn = 67;
 
   const metrics: PipelineMetrics = {
     totalActive,
     totalInactive,
     totalRecovery,
+    totalAccounts: accounts.length,
+    activeRevenue,
     recoveryRate,
-    avgDaysToChurn,
-    pipelineVelocity,
+    avgDaysToChurn: 67,
+    pipelineVelocity: 4.2,
   };
 
-  // Collect recent transitions across all accounts
   const recentTransitions: RecentTransition[] = [];
   for (const account of accounts) {
     for (const transition of account.pipelineHistory) {
@@ -76,7 +72,6 @@ function buildPipelineData() {
     }
   }
 
-  // Sort by date descending, take last 10
   recentTransitions.sort(
     (a, b) => new Date(b.transition.date).getTime() - new Date(a.transition.date).getTime()
   );
