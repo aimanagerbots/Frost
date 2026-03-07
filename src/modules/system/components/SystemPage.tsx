@@ -14,7 +14,7 @@ import {
   CHART_COLORS,
 } from '@/components';
 import { useSystemHealth, useBackgroundJobs, useAIModelUsage, useFeatureFlags } from '../hooks';
-import type { SystemTab, HealthStatus, JobStatus, FeatureFlag } from '../types';
+import type { SystemTab, HealthStatus, JobStatus } from '../types';
 
 const ACCENT = '#64748B';
 

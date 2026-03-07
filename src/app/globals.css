@@ -68,7 +68,9 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-:root {
+:root,
+.dark,
+.light {
   --background: var(--bg-base);
   --foreground: var(--text-default);
   --card: var(--bg-card);

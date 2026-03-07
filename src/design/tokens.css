@@ -1,4 +1,6 @@
-:root {
+/* Dark theme (default) */
+:root,
+.dark {
   /* Backgrounds */
   --bg-base: #08090F;
   --bg-card: #0F1219;
@@ -13,9 +15,9 @@
   --accent-primary: #667EEA;
   --accent-gradient: linear-gradient(135deg, #667EEA, #764BA2, #F093FB);
 
-  /* Text */
-  --text-default: #C8D0E0;
-  --text-muted: #6B7A99;
+  /* Text — improved contrast */
+  --text-default: #E2E8F0;
+  --text-muted: #8B9DC3;
   --text-bright: #FFFFFF;
 
   /* Status */
@@ -23,4 +25,32 @@
   --warning: #FBBF24;
   --danger: #FB7185;
   --info: #38BDF8;
+}
+
+/* Light theme */
+.light {
+  /* Backgrounds */
+  --bg-base: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F1F5F9;
+  --bg-elevated: #E2E8F0;
+
+  /* Borders */
+  --border-default: #E2E8F0;
+  --border-hover: #CBD5E1;
+
+  /* Accent */
+  --accent-primary: #667EEA;
+  --accent-gradient: linear-gradient(135deg, #667EEA, #764BA2, #F093FB);
+
+  /* Text */
+  --text-default: #1E293B;
+  --text-muted: #64748B;
+  --text-bright: #0F172A;
+
+  /* Status */
+  --success: #059669;
+  --warning: #D97706;
+  --danger: #E11D48;
+  --info: #0284C7;
 }

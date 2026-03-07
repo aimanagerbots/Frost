@@ -1,29 +1,18 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { Menu, Search, Bell } from 'lucide-react';
-import { useSidebarStore, useCommandPaletteStore } from './store';
-import { navGroups } from './nav-data';
-
-function getPageName(pathname: string): string {
-  for (const group of navGroups) {
-    for (const item of group.items) {
-      if (item.href === pathname) return item.label;
-    }
-  }
-  return 'Frost';
-}
+import Image from 'next/image';
+import { Menu, Search, Bell, Sun, Moon } from 'lucide-react';
+import { useSidebarStore, useCommandPaletteStore, useThemeStore } from './store';
 
 export function Topbar() {
-  const pathname = usePathname();
   const { setMobileOpen } = useSidebarStore();
   const { setCommandPaletteOpen } = useCommandPaletteStore();
-  const pageName = getPageName(pathname);
+  const { theme, toggleTheme } = useThemeStore();
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-border-default bg-card px-4">
-      {/* Left */}
-      <div className="flex items-center gap-3">
+    <header className="sticky top-0 z-30 flex h-14 items-center border-b border-border-default bg-card px-4">
+      {/* Left — mobile menu */}
+      <div className="flex items-center">
         <button
           onClick={() => setMobileOpen(true)}
           className="p-1.5 text-text-muted hover:text-text-default lg:hidden"
@@ -31,11 +20,29 @@ export function Topbar() {
         >
           <Menu size={22} />
         </button>
-        <h1 className="text-base font-semibold text-text-bright">{pageName}</h1>
       </div>
 
-      {/* Right */}
+      {/* Center — snowflake logo */}
+      <div className="flex-1 flex items-center justify-center">
+        <Image
+          src="/FrostLogo_SnowflakeOnly.png"
+          alt="Frost"
+          width={160}
+          height={160}
+          className="h-10 w-10"
+          priority
+        />
+      </div>
+
+      {/* Right — actions */}
       <div className="flex items-center gap-2">
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-md text-text-muted hover:text-text-default hover:bg-elevated transition-colors"
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
         <button
           onClick={() => setCommandPaletteOpen(true)}
           className="flex items-center gap-2 rounded-md px-2 py-1.5 text-text-muted hover:text-text-default hover:bg-elevated transition-colors"
