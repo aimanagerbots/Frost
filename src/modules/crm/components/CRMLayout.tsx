@@ -1,61 +1,40 @@
 'use client';
 
 import { Suspense } from 'react';
-import { Users, Construction } from 'lucide-react';
-import { SectionHeader, EmptyState, LoadingSkeleton } from '@/components';
+import { Users } from 'lucide-react';
+import { SectionHeader, LoadingSkeleton } from '@/components';
 import { CRMNavigation } from './CRMNavigation';
-import { useCRMStore, CRM_TABS } from '../store';
+import { useCRMStore } from '../store';
 import { CRMDashboard } from './dashboard';
-import { AccountsList } from './accounts';
+import { AccountsList, TerritoryMap, Segments } from './accounts';
 import { AccountDetail } from './account-detail';
 import { OpportunitiesPipeline, ReorderCenter, PriceBook, Leaderboard } from './sales';
+import { AICopilot } from './overview';
+import { InteractionsHub, CampaignsList, VendorDays } from './outreach';
+import { Analytics, ProductRecommendations, ComplianceMonitor, WinLossLog } from './intelligence';
+import { Playbooks } from './tools';
 
 const CRM_ACCENT = '#F59E0B';
 
+const ROUTES: Record<string, Record<string, React.ComponentType>> = {
+  overview: { dashboard: CRMDashboard, 'ai-copilot': AICopilot },
+  accounts: { accounts: AccountsList, 'territory-map': TerritoryMap, segments: Segments },
+  sales: { opportunities: OpportunitiesPipeline, 'reorder-center': ReorderCenter, 'price-book': PriceBook, leaderboard: Leaderboard },
+  outreach: { interactions: InteractionsHub, campaigns: CampaignsList, 'vendor-days': VendorDays },
+  intelligence: { analytics: Analytics, 'product-recommendations': ProductRecommendations, 'compliance-monitor': ComplianceMonitor, 'win-loss-log': WinLossLog },
+  tools: { playbooks: Playbooks },
+};
+
 function CRMContent() {
   const { activeTab, activeSubModule, selectedAccountId } = useCRMStore();
-
-  if (activeTab === 'overview' && activeSubModule === 'dashboard') {
-    return <CRMDashboard />;
-  }
 
   // Account Detail takes priority when an account is selected
   if (activeTab === 'accounts' && selectedAccountId) {
     return <AccountDetail />;
   }
 
-  // Accounts List
-  if (activeTab === 'accounts' && activeSubModule === 'accounts') {
-    return <AccountsList />;
-  }
-
-  // Sales sub-modules
-  if (activeTab === 'sales' && activeSubModule === 'opportunities') {
-    return <OpportunitiesPipeline />;
-  }
-  if (activeTab === 'sales' && activeSubModule === 'reorder-center') {
-    return <ReorderCenter />;
-  }
-  if (activeTab === 'sales' && activeSubModule === 'price-book') {
-    return <PriceBook />;
-  }
-  if (activeTab === 'sales' && activeSubModule === 'leaderboard') {
-    return <Leaderboard />;
-  }
-
-  // Find display name for the active sub-module
-  const tabConfig = CRM_TABS.find((t) => t.id === activeTab);
-  const subConfig = tabConfig?.subModules.find((s) => s.id === activeSubModule);
-  const subLabel = subConfig?.label || activeSubModule;
-
-  return (
-    <EmptyState
-      icon={Construction}
-      title={subLabel}
-      description={`Coming in Build 4-6. This sub-module will be available in a future release.`}
-      accentColor={CRM_ACCENT}
-    />
-  );
+  const Component = ROUTES[activeTab]?.[activeSubModule];
+  return Component ? <Component /> : null;
 }
 
 export function CRMLayout() {
