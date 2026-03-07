@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Menu, Search, Bell } from 'lucide-react';
-import { useSidebarStore } from './store';
+import { useSidebarStore, useCommandPaletteStore } from './store';
 import { navGroups } from './nav-data';
 
 function getPageName(pathname: string): string {
@@ -17,6 +17,7 @@ function getPageName(pathname: string): string {
 export function Topbar() {
   const pathname = usePathname();
   const { setMobileOpen } = useSidebarStore();
+  const { setCommandPaletteOpen } = useCommandPaletteStore();
   const pageName = getPageName(pathname);
 
   return (
@@ -36,10 +37,14 @@ export function Topbar() {
       {/* Right */}
       <div className="flex items-center gap-2">
         <button
-          className="p-2 rounded-md text-text-muted hover:text-text-default hover:bg-elevated transition-colors"
-          aria-label="Search"
+          onClick={() => setCommandPaletteOpen(true)}
+          className="flex items-center gap-2 rounded-md px-2 py-1.5 text-text-muted hover:text-text-default hover:bg-elevated transition-colors"
+          aria-label="Search (Ctrl+K)"
         >
           <Search size={18} />
+          <kbd className="hidden rounded bg-elevated px-1.5 py-0.5 text-[10px] font-medium sm:inline-block">
+            Ctrl+K
+          </kbd>
         </button>
         <button
           className="p-2 rounded-md text-text-muted hover:text-text-default hover:bg-elevated transition-colors"

@@ -9,3 +9,7 @@ export { ChartWrapper, CHART_COLORS, CHART_THEME } from './ChartWrapper';
 export { TimelineView } from './TimelineView';
 export { DrawerPanel } from './DrawerPanel';
 export { AvatarGroup } from './AvatarGroup';
+export { ConfirmationDialog } from './ConfirmationDialog';
+export { SearchOverlay } from './SearchOverlay';
+export type { SearchItem, SearchGroup } from './SearchOverlay';
+export { CommandPalette } from './CommandPalette';
