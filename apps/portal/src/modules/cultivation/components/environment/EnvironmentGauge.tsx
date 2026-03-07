@@ -24,24 +24,23 @@ const STATUS_BORDER: Record<EnvironmentStatus, string> = {
 
 interface EnvironmentGaugeProps {
   label: string;
-  value: number;
-  target: number;
+  value: number | string;
   unit: string;
   status: EnvironmentStatus;
   icon: LucideIcon;
+  targetRange?: string;
+  subtitle?: string;
 }
 
 export function EnvironmentGauge({
   label,
   value,
-  target,
   unit,
   status,
   icon: Icon,
+  targetRange,
+  subtitle,
 }: EnvironmentGaugeProps) {
-  // Bar fill: ratio of current to target, clamped 0-100
-  const ratio = target > 0 ? Math.min(100, Math.round((value / target) * 100)) : 50;
-
   return (
     <div
       className={cn(
@@ -50,7 +49,6 @@ export function EnvironmentGauge({
         STATUS_BORDER[status]
       )}
     >
-      {/* Icon + Label */}
       <Icon
         className="h-5 w-5 mb-1"
         style={{ color: STATUS_COLOR[status] }}
@@ -59,7 +57,6 @@ export function EnvironmentGauge({
         {label}
       </span>
 
-      {/* Current Value */}
       <span
         className="mt-2 text-2xl font-bold leading-none"
         style={{ color: STATUS_COLOR[status] }}
@@ -68,21 +65,16 @@ export function EnvironmentGauge({
       </span>
       <span className="text-[11px] text-text-muted">{unit}</span>
 
-      {/* Target */}
-      <span className="mt-1.5 text-[10px] text-text-muted">
-        Target: {target} {unit}
-      </span>
-
-      {/* Bar */}
-      <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-elevated">
-        <div
-          className="h-full rounded-full transition-all duration-500"
-          style={{
-            width: `${ratio}%`,
-            backgroundColor: STATUS_COLOR[status],
-          }}
-        />
-      </div>
+      {targetRange && (
+        <span className="mt-1.5 text-[10px] text-text-muted">
+          {targetRange}
+        </span>
+      )}
+      {subtitle && (
+        <span className="mt-1 text-[10px] text-text-muted">
+          {subtitle}
+        </span>
+      )}
     </div>
   );
 }

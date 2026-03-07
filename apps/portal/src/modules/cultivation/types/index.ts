@@ -2,21 +2,40 @@
 
 export type RoomStatus = 'active' | 'drying' | 'empty' | 'cleaning' | 'transition';
 
-export type GrowStage = 'clone' | 'veg' | 'flower' | 'harvest' | 'dry' | 'cure';
+export type GrowStage = 'clone' | 'veg' | 'flower' | 'harvest' | 'dry' | 'cure' | 'propagation' | 'mother' | 'maintenance';
 
 export type EnvironmentStatus = 'optimal' | 'warning' | 'critical';
+
+export type AlertSource = 'trollmaster' | 'growlink' | 'anderson' | 'system';
 
 export interface RoomEnvironment {
   temperature: number;
   temperatureTarget: number;
+  temperatureMin: number;
+  temperatureMax: number;
   humidity: number;
   humidityTarget: number;
+  humidityMin: number;
+  humidityMax: number;
   co2: number;
   co2Target: number;
+  co2Min: number;
+  co2Max: number;
   lightHours: number;
   lightIntensity: number;
   vpd: number;
   vpdTarget: number;
+  vpdMin: number;
+  vpdMax: number;
+  ppfd: number;
+  ppfdTarget: number;
+  ppfdMin: number;
+  ppfdMax: number;
+  dli: number;
+  dliTarget: number;
+  dliMin: number;
+  dliMax: number;
+  darkHours: number;
   waterEC?: number;
   waterPH?: number;
   soilMoisture?: number;
@@ -30,7 +49,87 @@ export interface EnvironmentReading {
   co2: number;
   vpd: number;
   lightIntensity: number;
+  ppfd: number;
 }
+
+// ─── Irrigation & Fertigation (GrowLink) ─────────────────────
+
+export interface IrrigationData {
+  ph: number;
+  phMin: number;
+  phMax: number;
+  ec: number;
+  ecMin: number;
+  ecMax: number;
+  runoffPh: number;
+  runoffPhMin: number;
+  runoffPhMax: number;
+  runoffEc: number;
+  runoffEcMin: number;
+  runoffEcMax: number;
+  waterTemp: number;
+  waterTempMin: number;
+  waterTempMax: number;
+  flowRate: number;
+  reservoirLevel: number;
+  reservoirCapacity: number;
+  lastIrrigationTime: string;
+  nextIrrigationTime: string;
+  irrigationIntervalHours: number;
+}
+
+export interface IrrigationEvent {
+  id: string;
+  roomId: string;
+  startTime: string;
+  durationMinutes: number;
+  volumeGallons: number;
+  ph: number;
+  ec: number;
+  type: 'scheduled' | 'manual';
+  recipeName: string;
+  completed: boolean;
+}
+
+export interface NutrientComponent {
+  name: string;
+  amount: string;
+  brand: string;
+}
+
+export interface NutrientRecipe {
+  id: string;
+  name: string;
+  stage: GrowStage;
+  components: NutrientComponent[];
+  targetEc: number;
+  targetPh: number;
+  npk: string;
+  notes: string;
+}
+
+// ─── HVAC System (H.E. Anderson) ─────────────────────────────
+
+export type EquipmentStatus = 'running' | 'idle' | 'fault';
+
+export interface HvacData {
+  supplyAirTemp: number;
+  returnAirTemp: number;
+  supplyAirTempTarget: number;
+  damperPosition: number;
+  damperMode: 'auto' | 'manual';
+  compressorStatus: EquipmentStatus;
+  compressorStage: number;
+  compressorStagesTotal: number;
+  dehumidifierStatus: EquipmentStatus;
+  dehumidifierCapacity: number;
+  energyUsageKwh: number;
+  filterLifePercent: number;
+  filterReplacementDate?: string;
+  lastMaintenanceDate: string;
+}
+
+// ─── Alerts ──────────────────────────────────────────────────
 
 export type AlertType =
   | 'temperature'
@@ -42,7 +141,11 @@ export type AlertType =
   | 'disease'
   | 'nutrient'
   | 'equipment'
-  | 'schedule';
+  | 'schedule'
+  | 'ph'
+  | 'reservoir'
+  | 'filter'
+  | 'irrigation';
 
 export type AlertSeverity = 'critical' | 'warning' | 'info';
 
@@ -50,7 +153,11 @@ export interface RoomAlert {
   id: string;
   type: AlertType;
   severity: AlertSeverity;
+  source: AlertSource;
   message: string;
+  metric?: string;
+  currentValue?: string;
+  threshold?: string;
   timestamp: string;
   acknowledged: boolean;
   acknowledgedBy?: string;
@@ -73,6 +180,9 @@ export interface GrowRoom {
   layout?: { rows: number; columns: number };
   notes?: string;
   alerts: RoomAlert[];
+  irrigation?: IrrigationData;
+  hvac?: HvacData;
+  capacity?: number;
 }
 
 // ─── Harvest Records ───────────────────────────────────────────
@@ -91,7 +201,7 @@ export interface HarvestRecord {
   status: 'upcoming' | 'drying' | 'complete';
 }
 
-// ─── Cultivation Tasks (Production Calendar) ───────────────────
+// ─── Cultivation Tasks (Kanban + Calendar) ───────────────────
 
 export type TaskCategory =
   | 'feeding'
@@ -105,7 +215,9 @@ export type TaskCategory =
   | 'cleaning'
   | 'inspection';
 
-export type TaskPriority = 'high' | 'medium' | 'low';
+export type TaskPriority = 'urgent' | 'high' | 'medium' | 'low';
+
+export type TaskStatus = 'todo' | 'in-progress' | 'done';
 
 export interface CultivationTask {
   id: string;
@@ -122,6 +234,9 @@ export interface CultivationTask {
   completedBy?: string;
   notes?: string;
   priority: TaskPriority;
+  status: TaskStatus;
+  dueDate?: string;
+  tags?: string[];
 }
 
 // ─── Grow Supplies ─────────────────────────────────────────────
@@ -189,21 +304,21 @@ export interface Strain {
 
 // ─── AI Chat ───────────────────────────────────────────────────
 
-export type CultivationChatMode = 'cultivation-ai' | 'translator';
+export type CultivationChatMode = 'cultivation-ai';
 
 export interface CultivationMessage {
   id: string;
   role: 'user' | 'assistant';
   content: string;
   timestamp: string;
-  language: 'en' | 'es';
+  language?: 'en' | 'es';
   translatedContent?: string;
 }
 
 export interface CultivationSuggestion {
   id: string;
   text: string;
-  language: 'en' | 'es';
+  language?: 'en' | 'es';
 }
 
 // ─── Metrics ───────────────────────────────────────────────────
@@ -225,9 +340,8 @@ export interface CultivationMetrics {
 // ─── View State ────────────────────────────────────────────────
 
 export type CultivationView =
-  | 'dashboard'
-  | 'rooms'
-  | 'room'
+  | 'environment'
+  | 'tasks'
   | 'calendar'
   | 'supplies'
   | 'genetics'

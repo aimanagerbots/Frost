@@ -5,9 +5,8 @@ import { Leaf } from 'lucide-react';
 import { SectionHeader, LoadingSkeleton } from '@/components';
 import { useCultivationStore } from '../store';
 import { CultivationNav } from './CultivationNav';
-import { CultivationDashboard } from './dashboard';
-import { AllRoomsView } from './rooms';
-import { RoomDetail } from './room-detail';
+import { EnvironmentTab } from './environment';
+import { TasksKanban } from './tasks';
 import { ProductionCalendar } from './calendar';
 import { GrowSupplies } from './supplies';
 import { GeneticsLibrary } from './genetics';
@@ -16,9 +15,8 @@ import { CultivationChat } from './chat';
 const ACCENT = '#22C55E';
 
 const ROUTES: Record<string, React.ComponentType> = {
-  dashboard: CultivationDashboard,
-  rooms: AllRoomsView,
-  room: RoomDetail,
+  environment: EnvironmentTab,
+  tasks: TasksKanban,
   calendar: ProductionCalendar,
   supplies: GrowSupplies,
   genetics: GeneticsLibrary,
@@ -32,18 +30,12 @@ function CultivationContent() {
 }
 
 export function CultivationLayout() {
-  const { language } = useCultivationStore();
-
   return (
     <div className="space-y-4">
       <SectionHeader
         icon={Leaf}
-        title={language === 'es' ? 'Cultivo' : 'Cultivation'}
-        subtitle={
-          language === 'es'
-            ? 'Operaciones de cultivo — cuartos, genética, calendario y más'
-            : 'Grow operations — rooms, genetics, calendar, and more'
-        }
+        title="Cultivation"
+        subtitle="Grow operations — environment, tasks, genetics, and more"
         accentColor={ACCENT}
       />
       <Suspense fallback={<LoadingSkeleton variant="list" />}>

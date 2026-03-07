@@ -1,24 +1,20 @@
 import { create } from 'zustand';
-import type { CultivationView, CultivationChatMode } from './types';
+import type { CultivationView } from './types';
 
 interface CultivationStore {
   activeView: CultivationView;
   selectedRoomId: string | null;
-  chatMode: CultivationChatMode;
-  language: 'en' | 'es';
+  selectedEnvironmentRoomId: string | null;
   setView: (view: CultivationView) => void;
   navigateToRoom: (id: string) => void;
-  setChatMode: (mode: CultivationChatMode) => void;
-  setLanguage: (lang: 'en' | 'es') => void;
+  setEnvironmentRoom: (id: string | null) => void;
 }
 
 export const useCultivationStore = create<CultivationStore>((set) => ({
-  activeView: 'dashboard',
+  activeView: 'environment',
   selectedRoomId: null,
-  chatMode: 'cultivation-ai',
-  language: 'en',
+  selectedEnvironmentRoomId: null,
   setView: (view) => set({ activeView: view, selectedRoomId: null }),
-  navigateToRoom: (id) => set({ activeView: 'room', selectedRoomId: id }),
-  setChatMode: (mode) => set({ chatMode: mode }),
-  setLanguage: (lang) => set({ language: lang }),
+  navigateToRoom: (id) => set({ activeView: 'environment', selectedRoomId: id, selectedEnvironmentRoomId: id }),
+  setEnvironmentRoom: (id) => set({ selectedEnvironmentRoomId: id }),
 }));

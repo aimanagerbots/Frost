@@ -16,7 +16,6 @@ import { LoadingSkeleton, ErrorState } from '@/components';
 import { useCultivationTasks } from '../../hooks';
 import { useGrowRooms } from '../../hooks';
 import { useCultivationMetrics } from '../../hooks';
-import { useCultivationStore } from '../../store';
 import type { CultivationTask, TaskCategory } from '../../types';
 
 // ─── Constants ──────────────────────────────────────────────────
@@ -37,9 +36,7 @@ const CATEGORY_COLORS: Record<TaskCategory, string> = {
 };
 
 const DAY_NAMES_EN = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-const DAY_NAMES_ES = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
 const DAY_SHORT_EN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const DAY_SHORT_ES = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
 
 type CalendarViewMode = 'week' | 'room';
 
@@ -76,7 +73,6 @@ function isToday(dayIndex: number, weekStart: Date): boolean {
 // ─── Component ──────────────────────────────────────────────────
 
 export function ProductionCalendar() {
-  const { language } = useCultivationStore();
   const { data: tasks, isLoading: tasksLoading, error: tasksError } = useCultivationTasks();
   const { data: rooms, isLoading: roomsLoading } = useGrowRooms();
   const { data: metrics, isLoading: metricsLoading } = useCultivationMetrics();
@@ -85,8 +81,8 @@ export function ProductionCalendar() {
   const [weekOffset, setWeekOffset] = useState(0);
   const [selectedCell, setSelectedCell] = useState<{ roomId: string; day: number } | null>(null);
 
-  const dayNames = language === 'es' ? DAY_NAMES_ES : DAY_NAMES_EN;
-  const dayShort = language === 'es' ? DAY_SHORT_ES : DAY_SHORT_EN;
+  const dayNames = DAY_NAMES_EN;
+  const dayShort = DAY_SHORT_EN;
 
   const weekStart = useMemo(() => {
     const base = getWeekStart(new Date());
@@ -221,7 +217,7 @@ export function ProductionCalendar() {
             className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm font-medium text-default hover:bg-card/80 transition-colors"
           >
             {weekOffset === 0
-              ? language === 'es' ? 'Esta Semana' : 'This Week'
+              ? 'This Week'
               : formatDateRange(weekStart)}
           </button>
           <button
@@ -239,7 +235,7 @@ export function ProductionCalendar() {
           {/* Completion rate */}
           <div className="flex items-center gap-2 text-sm">
             <span className="text-muted-foreground">
-              {language === 'es' ? 'Esta semana' : 'This week'}:{' '}
+              {'This week'}:{' '}
               <span className="text-default font-medium">
                 {completionStats.completed}/{completionStats.total}
               </span>{' '}
@@ -265,7 +261,7 @@ export function ProductionCalendar() {
               )}
             >
               <CalendarDays className="h-3.5 w-3.5" />
-              {language === 'es' ? 'Semana' : 'Week'}
+              {'Week'}
             </button>
             <button
               onClick={() => setViewMode('room')}
@@ -277,7 +273,7 @@ export function ProductionCalendar() {
               )}
             >
               <LayoutGrid className="h-3.5 w-3.5" />
-              {language === 'es' ? 'Sala' : 'Room'}
+              {'Room'}
             </button>
           </div>
         </div>
@@ -303,7 +299,7 @@ export function ProductionCalendar() {
                 <div className="flex-1 rounded-b-lg border border-default bg-card/50 p-1.5 space-y-1.5 min-h-[180px]">
                   {dayTasks.length === 0 && (
                     <p className="text-[10px] text-muted-foreground text-center mt-6">
-                      {language === 'es' ? 'Sin tareas' : 'No tasks'}
+                      {'No tasks'}
                     </p>
                   )}
                   {dayTasks.map((task) => {
@@ -356,7 +352,7 @@ export function ProductionCalendar() {
           <div className="grid grid-cols-[160px_repeat(7,1fr)]">
             {/* Header row */}
             <div className="px-3 py-2 border-b border-r border-default bg-surface text-xs font-semibold text-muted-foreground">
-              {language === 'es' ? 'Sala' : 'Room'}
+              {'Room'}
             </div>
             {dayShort.map((d, i) => {
               const today = weekOffset === 0 && isToday(i, weekStart);

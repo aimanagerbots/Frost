@@ -1,33 +1,22 @@
 'use client';
 
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { Leaf, Languages, Send, Bot } from 'lucide-react';
+import { Leaf, Send, Bot } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { LoadingSkeleton } from '@/components';
 import { matchCultivationChat, getCultivationFallback, getCultivationChat } from '@/mocks/cultivation';
 import type { CultivationMessage } from '../../types';
-import { useCultivationStore } from '../../store';
 
-// ─── Accent ────────────────────────────────────────────────────
 const ACCENT = '#22C55E';
 
-// ─── Suggested Prompts ────────────────────────────────────────
 const advisorPrompts = [
-  "What's the feeding schedule for Bloom A this week?",
-  'Room 2 humidity is high, what should I do?',
-  'When should we harvest Room 3?',
+  "What's the optimal VPD for Week 6 of flower?",
+  'Room 3 humidity is trending high, what should I adjust?',
+  'When should I switch Room 4 from veg to flower?',
   'What strains should we consider for next quarter?',
-  'Show me environment trends for Bloom A',
+  'How do I optimize DLI for our flowering rooms?',
 ];
 
-const translatorPrompts = [
-  { en: 'The plants in Room 2 need more nitrogen', es: 'Las plantas del cuarto 2 necesitan más nitrógeno' },
-  { en: 'Increase airflow — humidity is too high', es: 'Aumenta la circulación — la humedad está muy alta' },
-  { en: 'Harvest Room 3 on Friday', es: 'Cosechar el cuarto 3 el viernes' },
-  { en: 'Check the trichomes before cutting', es: 'Revisa los tricomas antes de cortar' },
-];
-
-// ─── Markdown-lite renderer ───────────────────────────────────
 function renderContent(text: string) {
   return text.split('\n').map((line, li) => {
     const parts = line.split(/(\*\*[^*]+\*\*)/g);
@@ -44,14 +33,12 @@ function renderContent(text: string) {
   });
 }
 
-// ─── Message Bubble ───────────────────────────────────────────
 interface MessageBubbleProps {
   message: CultivationMessage;
-  isTranslator: boolean;
   isRevealing: boolean;
 }
 
-function MessageBubble({ message, isTranslator, isRevealing }: MessageBubbleProps) {
+function MessageBubble({ message, isRevealing }: MessageBubbleProps) {
   const isUser = message.role === 'user';
   const timeStr = new Date(message.timestamp).toLocaleTimeString([], {
     hour: '2-digit',
@@ -66,7 +53,6 @@ function MessageBubble({ message, isTranslator, isRevealing }: MessageBubbleProp
         isRevealing && 'animate-in fade-in duration-500',
       )}
     >
-      {/* Avatar */}
       <div
         className={cn(
           'flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold',
@@ -75,33 +61,15 @@ function MessageBubble({ message, isTranslator, isRevealing }: MessageBubbleProp
             : 'bg-white/10 text-text-muted',
         )}
       >
-        {isUser ? (isTranslator ? 'W' : 'U') : (isTranslator ? 'M' : <Bot className="h-4 w-4" />)}
+        {isUser ? 'U' : <Bot className="h-4 w-4" />}
       </div>
 
-      {/* Bubble */}
       <div className={cn('max-w-[75%] space-y-1', isUser ? 'text-right' : 'text-left')}>
-        {/* Role label */}
         <div className="flex items-center gap-2 text-[11px] text-text-muted">
-          {isUser
-            ? <span>{isTranslator ? 'Worker' : 'You'}</span>
-            : <span>{isTranslator ? 'Manager' : 'Grow Advisor'}</span>
-          }
-          {isTranslator && (
-            <span
-              className={cn(
-                'rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase',
-                message.language === 'en'
-                  ? 'bg-blue-500/15 text-blue-400'
-                  : 'bg-orange-500/15 text-orange-400',
-              )}
-            >
-              {message.language === 'en' ? 'EN' : 'ES'}
-            </span>
-          )}
+          <span>{isUser ? 'You' : 'Grow Advisor'}</span>
           <span>{timeStr}</span>
         </div>
 
-        {/* Content */}
         <div
           className={cn(
             'inline-block rounded-xl px-4 py-2.5 text-sm leading-relaxed',
@@ -112,36 +80,11 @@ function MessageBubble({ message, isTranslator, isRevealing }: MessageBubbleProp
         >
           {renderContent(message.content)}
         </div>
-
-        {/* Translated content (translator mode only) */}
-        {isTranslator && message.translatedContent && (
-          <div className="mt-1">
-            <span
-              className={cn(
-                'mb-1 inline-block rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase',
-                message.language === 'en'
-                  ? 'bg-orange-500/15 text-orange-400'
-                  : 'bg-blue-500/15 text-blue-400',
-              )}
-            >
-              {message.language === 'en' ? 'ES' : 'EN'}
-            </span>
-            <div
-              className={cn(
-                'inline-block rounded-xl px-4 py-2.5 text-sm leading-relaxed',
-                'bg-white/[0.03] text-text-muted italic',
-              )}
-            >
-              {renderContent(message.translatedContent)}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
 }
 
-// ─── Typing Indicator ─────────────────────────────────────────
 function TypingIndicator() {
   return (
     <div className="flex items-center gap-3 px-4 py-3">
@@ -164,14 +107,12 @@ function TypingIndicator() {
   );
 }
 
-// ─── Chat Input ───────────────────────────────────────────────
 interface ChatInputProps {
   onSend: (text: string) => void;
   disabled: boolean;
-  placeholder: string;
 }
 
-function ChatInput({ onSend, disabled, placeholder }: ChatInputProps) {
+function ChatInput({ onSend, disabled }: ChatInputProps) {
   const [value, setValue] = useState('');
 
   const handleSend = useCallback(() => {
@@ -198,7 +139,7 @@ function ChatInput({ onSend, disabled, placeholder }: ChatInputProps) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder={placeholder}
+          placeholder="Ask about feeding, environment, harvest timing..."
           disabled={disabled}
           rows={1}
           className="flex-1 resize-none bg-transparent text-sm text-text-default placeholder:text-text-muted outline-none disabled:opacity-50"
@@ -220,11 +161,7 @@ function ChatInput({ onSend, disabled, placeholder }: ChatInputProps) {
   );
 }
 
-// ─── Main Component ───────────────────────────────────────────
 export function CultivationChat() {
-  const { chatMode, setChatMode } = useCultivationStore();
-  const isTranslator = chatMode === 'translator';
-
   const [messages, setMessages] = useState<CultivationMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [revealingId, setRevealingId] = useState<string | null>(null);
@@ -232,98 +169,48 @@ export function CultivationChat() {
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll on new messages
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, isTyping]);
 
-  // Load initial data when mode changes
-  const loadChat = useCallback((mode: typeof chatMode) => {
-    setIsLoading(true);
-    setMessages([]);
-
-    getCultivationChat(mode).then((data) => {
-      // Only pre-fill messages in translator mode (demo conversation)
-      if (mode === 'translator') {
-        setMessages(data.messages);
-      }
+  useEffect(() => {
+    getCultivationChat().then(() => {
       setIsLoading(false);
     });
   }, []);
 
-  // Trigger load on mount and mode change
-  const prevModeRef = useRef(chatMode);
-  useEffect(() => {
-    if (prevModeRef.current !== chatMode || messages.length === 0) {
-      prevModeRef.current = chatMode;
-      loadChat(chatMode);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chatMode]);
+  const handleSend = useCallback((text: string) => {
+    const userMessage: CultivationMessage = {
+      id: `msg-user-${Date.now()}`,
+      role: 'user',
+      content: text,
+      timestamp: new Date().toISOString(),
+    };
 
-  // ── Send handler ────────────────────────────────────────────
-  const handleSend = useCallback(
-    (text: string) => {
-      const detectLanguage = (input: string): 'en' | 'es' => {
-        const esIndicators = /[áéíóúñ¿¡]|(\b(el|la|los|las|de|del|en|que|por|para|con|una|uno|es|está|son|cuarto|plantas|alimentación)\b)/i;
-        return esIndicators.test(input) ? 'es' : 'en';
-      };
+    setMessages((prev) => [...prev, userMessage]);
+    setIsTyping(true);
 
-      const userLang = detectLanguage(text);
-      const userMessage: CultivationMessage = {
-        id: `msg-user-${Date.now()}`,
-        role: 'user',
-        content: text,
-        timestamp: new Date().toISOString(),
-        language: userLang,
-      };
+    setTimeout(() => {
+      const matched = matchCultivationChat(text);
+      const response = matched
+        ? { ...matched, id: `msg-assistant-${Date.now()}`, timestamp: new Date().toISOString() }
+        : { ...getCultivationFallback(text), id: `msg-assistant-${Date.now()}` };
 
-      setMessages((prev) => [...prev, userMessage]);
-      setIsTyping(true);
+      setIsTyping(false);
+      setRevealingId(response.id);
+      setMessages((prev) => [...prev, response]);
 
-      setTimeout(() => {
-        let response: CultivationMessage;
-
-        if (isTranslator) {
-          // In translator mode, respond with a "translation"
-          const responseLang: 'en' | 'es' = userLang === 'en' ? 'es' : 'en';
-          const fallback = getCultivationFallback(text);
-          response = {
-            ...fallback,
-            id: `msg-assistant-${Date.now()}`,
-            timestamp: new Date().toISOString(),
-            language: responseLang,
-            content: responseLang === 'es'
-              ? `Traducción: "${text}"\n\nEl mensaje ha sido traducido y enviado al equipo de cultivo.`
-              : `Translation: "${text}"\n\nThe message has been translated and sent to the grow team.`,
-            translatedContent: text,
-          };
-        } else {
-          // Grow advisor: try match first, then fallback
-          const matched = matchCultivationChat(text);
-          response = matched
-            ? { ...matched, id: `msg-assistant-${Date.now()}`, timestamp: new Date().toISOString() }
-            : { ...getCultivationFallback(text), id: `msg-assistant-${Date.now()}` };
-        }
-
-        setIsTyping(false);
-        setRevealingId(response.id);
-        setMessages((prev) => [...prev, response]);
-
-        setTimeout(() => setRevealingId(null), 800);
-      }, 1500);
-    },
-    [isTranslator],
-  );
+      setTimeout(() => setRevealingId(null), 800);
+    }, 1500);
+  }, []);
 
   const handleSuggestionClick = useCallback(
     (text: string) => handleSend(text),
     [handleSend],
   );
 
-  // ── Loading state ───────────────────────────────────────────
   if (isLoading) {
     return <LoadingSkeleton variant="card" count={3} />;
   }
@@ -332,85 +219,43 @@ export function CultivationChat() {
 
   return (
     <div className="flex h-[calc(100vh-220px)] min-h-[500px] flex-col rounded-xl border border-default bg-card overflow-hidden">
-      {/* ── Mode Toggle ───────────────────────────────────────── */}
-      <div className="flex items-center gap-1 border-b border-default p-3">
-        <button
-          onClick={() => setChatMode('cultivation-ai')}
-          className={cn(
-            'flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors',
-            !isTranslator
-              ? 'bg-[#22C55E]/15 text-[#22C55E]'
-              : 'text-text-muted hover:text-text-default hover:bg-white/5',
-          )}
-        >
+      {/* Header */}
+      <div className="flex items-center gap-2 border-b border-default p-3">
+        <div className="flex items-center gap-2 rounded-lg bg-[#22C55E]/15 px-4 py-2 text-sm font-medium text-[#22C55E]">
           <Leaf className="h-4 w-4" />
           Grow Advisor
-        </button>
-        <button
-          onClick={() => setChatMode('translator')}
-          className={cn(
-            'flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors',
-            isTranslator
-              ? 'bg-[#22C55E]/15 text-[#22C55E]'
-              : 'text-text-muted hover:text-text-default hover:bg-white/5',
-          )}
-        >
-          <Languages className="h-4 w-4" />
-          Translator
-        </button>
+        </div>
+        <span className="text-xs text-text-muted">Ask AI about cultivation</span>
       </div>
 
-      {/* ── Messages ──────────────────────────────────────────── */}
+      {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto">
         {!hasMessages ? (
           <div className="flex h-full flex-col items-center justify-center gap-4 p-8">
-            {/* Empty state icon */}
             <div
               className="flex h-16 w-16 items-center justify-center rounded-2xl"
               style={{ backgroundColor: `${ACCENT}15` }}
             >
-              {isTranslator
-                ? <Languages className="h-8 w-8" style={{ color: ACCENT }} />
-                : <Leaf className="h-8 w-8" style={{ color: ACCENT }} />
-              }
+              <Leaf className="h-8 w-8" style={{ color: ACCENT }} />
             </div>
 
-            {/* Description */}
             <div className="text-center">
-              <h3 className="text-lg font-semibold text-text-bright">
-                {isTranslator ? 'Cultivation Translator' : 'Grow Advisor'}
-              </h3>
+              <h3 className="text-lg font-semibold text-text-bright">Grow Advisor</h3>
               <p className="mt-1 max-w-md text-sm text-text-muted">
-                {isTranslator
-                  ? 'Bridge the language gap between managers and grow staff. Type in English or Spanish and get instant translations with cultivation context.'
-                  : 'Ask me about feeding schedules, environment troubleshooting, harvest timing, pest management, or strain recommendations.'}
+                Ask me about feeding schedules, environment troubleshooting, harvest timing, pest management, or strain recommendations.
               </p>
             </div>
 
-            {/* Suggested prompts */}
             <div className="mt-4 flex flex-wrap justify-center gap-2">
-              {isTranslator
-                ? translatorPrompts.map((p, i) => (
-                    <button
-                      key={i}
-                      onClick={() => handleSuggestionClick(p.en)}
-                      className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#22C55E]/30 hover:text-text-default transition-colors"
-                    >
-                      {p.en}
-                      <span className="mx-1.5 text-text-muted/40">|</span>
-                      <span className="italic">{p.es}</span>
-                    </button>
-                  ))
-                : advisorPrompts.map((prompt, i) => (
-                    <button
-                      key={i}
-                      onClick={() => handleSuggestionClick(prompt)}
-                      className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#22C55E]/30 hover:text-text-default transition-colors"
-                    >
-                      {prompt}
-                    </button>
-                  ))
-              }
+              {advisorPrompts.map((prompt, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleSuggestionClick(prompt)}
+                  className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#22C55E]/30 hover:text-text-default transition-colors"
+                >
+                  {prompt}
+                </button>
+              ))}
             </div>
           </div>
         ) : (
@@ -419,7 +264,6 @@ export function CultivationChat() {
               <MessageBubble
                 key={msg.id}
                 message={msg}
-                isTranslator={isTranslator}
                 isRevealing={msg.id === revealingId}
               />
             ))}
@@ -428,16 +272,7 @@ export function CultivationChat() {
         )}
       </div>
 
-      {/* ── Input ─────────────────────────────────────────────── */}
-      <ChatInput
-        onSend={handleSend}
-        disabled={isTyping}
-        placeholder={
-          isTranslator
-            ? 'Type in English or Spanish...'
-            : 'Ask about feeding, environment, harvest timing...'
-        }
-      />
+      <ChatInput onSend={handleSend} disabled={isTyping} />
     </div>
   );
 }

@@ -8,3 +8,5 @@ export { useGrowSupplies } from './useGrowSupplies';
 export { useGeneticsLibrary } from './useGeneticsLibrary';
 export { useStrain } from './useStrain';
 export { useEnvironmentHistory } from './useEnvironmentHistory';
+export { useIrrigationSchedule } from './useIrrigationSchedule';
+export { useNutrientRecipe } from './useNutrientRecipe';
