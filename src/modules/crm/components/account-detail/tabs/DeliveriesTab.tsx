@@ -69,12 +69,13 @@ export function DeliveriesTab({ accountId }: DeliveriesTabProps) {
         <StatusBadge variant={statusVariant(row.status as AccountDelivery['status'])} label={row.status} size="sm" />
       ),
     },
-    { header: 'Driver', accessor: 'driver' as const, sortable: true },
-    { header: 'Window', accessor: 'window' as const, sortable: false },
+    { header: 'Driver', accessor: 'driver' as const, sortable: true, hideBelow: 'md' as const },
+    { header: 'Window', accessor: 'window' as const, sortable: false, hideBelow: 'md' as const },
     {
       header: 'Delivered',
       accessor: 'deliveredAt' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: DeliveryRow) => row.deliveredAt
         ? new Date(row.deliveredAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
         : <span className="text-text-muted">—</span>,

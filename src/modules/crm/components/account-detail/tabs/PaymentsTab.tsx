@@ -69,6 +69,7 @@ export function PaymentsTab({ accountId }: PaymentsTabProps) {
       header: 'Due',
       accessor: 'dueDate' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: PaymentRow) => new Date(row.dueDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
     },
     {
@@ -89,6 +90,7 @@ export function PaymentsTab({ accountId }: PaymentsTabProps) {
       header: 'Paid',
       accessor: 'paidDate' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: PaymentRow) => row.paidDate
         ? new Date(row.paidDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
         : <span className="text-text-muted">—</span>,
@@ -97,6 +99,7 @@ export function PaymentsTab({ accountId }: PaymentsTabProps) {
       header: 'Method',
       accessor: 'method' as const,
       sortable: false,
+      hideBelow: 'lg' as const,
       render: (row: PaymentRow) => row.method
         ? <span className="uppercase text-text-default">{row.method}</span>
         : <span className="text-text-muted">—</span>,
