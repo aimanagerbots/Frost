@@ -48,6 +48,15 @@ Memory #8B5CF6, Insights #06B6D4, Projects #7C3AED, Products #DB2777,
 Meetings #2563EB, Docs #64748B, Team #0D9488, Finance #059669,
 Reports #475569, Settings #94A3B8, System #64748B
 
+## Git and Deployment
+- git add -A before every commit to capture ALL files (new, modified, deleted)
+- Commit after every completed phase or meaningful chunk of work
+- Use conventional commits: feat:, fix:, chore:, style:, refactor:
+- ALWAYS push to main after every commit: git push origin main
+- Vercel auto-deploys from main — every push goes to production
+- Never sit on uncommitted work. If you built it, commit and push it.
+- Always verify with git status before committing to make sure nothing is left behind
+
 ## Do NOT
 - Install dependencies without stating why
 - Refactor code you weren't asked to change
