@@ -1,0 +1,27 @@
+/* Frost color palette — raw values, not applied to semantic tokens.
+   Each app maps these to its own semantic variables (--bg-base, --text-default, etc.) */
+
+:root {
+  /* Slate scale (dark backgrounds) */
+  --frost-slate-950: #08090F;
+  --frost-slate-900: #0F1219;
+  --frost-slate-850: #141925;
+  --frost-slate-800: #1A1F2E;
+  --frost-slate-700: #2A3040;
+  --frost-slate-600: #3A4055;
+  --frost-slate-500: #64748B;
+  --frost-slate-400: #8B9DC3;
+  --frost-slate-300: #CBD5E1;
+  --frost-slate-200: #E2E8F0;
+  --frost-slate-100: #F1F5F9;
+  --frost-slate-50: #F8FAFC;
+  --frost-white: #FFFFFF;
+  --frost-black: #0F172A;
+
+  /* Chart palette */
+  --frost-chart-1: #667EEA;
+  --frost-chart-2: #764BA2;
+  --frost-chart-3: #F093FB;
+  --frost-chart-4: #00E5A0;
+  --frost-chart-5: #FBBF24;
+}

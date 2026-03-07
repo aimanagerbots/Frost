@@ -1,0 +1,49 @@
+/* Frost shared structural tokens — imported by both portal and website */
+
+:root {
+  /* Brand */
+  --frost-gradient: linear-gradient(135deg, #667EEA, #764BA2, #F093FB);
+  --frost-accent-primary: #667EEA;
+
+  /* Radius scale */
+  --frost-radius: 0.625rem;
+
+  /* Status colors (semantic — each app maps these to --success etc.) */
+  --frost-green: #00E5A0;
+  --frost-amber: #FBBF24;
+  --frost-red: #FB7185;
+  --frost-blue: #38BDF8;
+
+  /* Module accent colors */
+  --frost-accent-dashboard: #667EEA;
+  --frost-accent-crm: #F59E0B;
+  --frost-accent-tasks: #8B5CF6;
+  --frost-accent-calendar: #3B82F6;
+  --frost-accent-agents: #06B6D4;
+  --frost-accent-orders: #F59E0B;
+  --frost-accent-vmi: #EF4444;
+  --frost-accent-content: #EC4899;
+  --frost-accent-competitors: #F97316;
+  --frost-accent-cultivation: #22C55E;
+  --frost-accent-manufacturing: #10B981;
+  --frost-accent-packaging: #84CC16;
+  --frost-accent-inventory: #8B5CF6;
+  --frost-accent-fulfillment: #14B8A6;
+  --frost-accent-delivery: #0EA5E9;
+  --frost-accent-coa: #9333EA;
+  --frost-accent-approvals: #FBBF24;
+  --frost-accent-council: #6366F1;
+  --frost-accent-memory: #8B5CF6;
+  --frost-accent-insights: #06B6D4;
+  --frost-accent-projects: #7C3AED;
+  --frost-accent-products: #DB2777;
+  --frost-accent-meetings: #2563EB;
+  --frost-accent-docs: #64748B;
+  --frost-accent-team: #0D9488;
+  --frost-accent-finance: #059669;
+  --frost-accent-reports: #475569;
+  --frost-accent-settings: #94A3B8;
+  --frost-accent-system: #64748B;
+  --frost-accent-chat: #06B6D4;
+  --frost-accent-marketing: #EC4899;
+}

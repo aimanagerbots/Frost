@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../../src/design/tokens.css";
+
+@theme inline {
+  /* Fonts — premium editorial typography */
+  --font-sans: var(--font-sans);
+
+  /* Frost website colors */
+  --color-base: var(--bg-base);
+  --color-card: var(--bg-card);
+  --color-card-hover: var(--bg-card-hover);
+  --color-elevated: var(--bg-elevated);
+  --color-border-default: var(--border-default);
+  --color-border-hover: var(--border-hover);
+  --color-accent-primary: var(--accent-primary);
+  --color-text-default: var(--text-default);
+  --color-text-muted: var(--text-muted);
+  --color-text-bright: var(--text-bright);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.125rem;
+}
+
+@layer base {
+  * {
+    @apply border-border-default;
+  }
+  body {
+    @apply bg-base text-text-default antialiased;
+  }
+  html {
+    @apply font-sans;
+  }
+}

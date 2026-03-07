@@ -4,7 +4,7 @@ node_modules/
 .pnp.*
 
 # next.js
-.next/
+**/.next/
 /out/
 next-env.d.ts
 
@@ -29,6 +29,9 @@ yarn-debug.log*
 
 # testing
 /coverage
+
+# turbo
+.turbo/
 
 # vercel
 .vercel
