@@ -27,6 +27,7 @@ import {
   Package,
   BoxSelect,
   Truck,
+  FlaskConical,
   DollarSign,
   ArrowDownToLine,
   ArrowUpFromLine,
@@ -107,6 +108,7 @@ export const navGroups: NavGroup[] = [
       { label: 'Packaging', href: '/packaging', icon: Package, accent: '#84CC16' },
       { label: 'Fulfillment', href: '/fulfillment', icon: BoxSelect, accent: '#14B8A6' },
       { label: 'Delivery', href: '/delivery', icon: Truck, accent: '#0EA5E9' },
+      { label: 'Products & R&D', href: '/products', icon: FlaskConical, accent: '#DB2777' },
     ],
   },
   {
