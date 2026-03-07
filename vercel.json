@@ -1,6 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
+  "buildCommand": "turbo build --filter=@frost/portal",
+  "outputDirectory": "apps/portal/.next",
   "git": {
     "productionBranch": "main"
   }
