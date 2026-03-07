@@ -1,1 +1,1 @@
-export { CultivationPage } from './CultivationPage';
+export { CultivationLayout } from './CultivationLayout';
