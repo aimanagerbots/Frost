@@ -473,3 +473,111 @@ export interface SegmentPreview {
   totalCount: number;
   totalRevenue: number;
 }
+
+// --- Intelligence Types ---
+
+export interface RevenueAnalytics {
+  period: string;
+  totalRevenue: number;
+  revenueByCategory: { category: string; revenue: number; prevRevenue: number; change: number }[];
+  revenueByRep: { repId: string; name: string; revenue: number; target: number; pctOfTarget: number }[];
+  revenueByRegion: { region: string; revenue: number; accounts: number }[];
+  topProducts: { name: string; category: string; revenue: number; unitsSold: number }[];
+  monthlyRevenue: { month: string; flower: number; preroll: number; vaporizer: number; concentrate: number; edible: number; beverage: number }[];
+}
+
+export interface AccountHealthModel {
+  factors: { name: string; weight: number; description: string }[];
+  distribution: { tier: string; count: number; pctChange: number }[];
+  avgScore: number;
+  avgScoreTrend: number[];
+  correlations: { factor: string; impact: string; description: string }[];
+}
+
+export interface Forecast {
+  period: string;
+  predicted: number;
+  confidence: number;
+  lower: number;
+  upper: number;
+  basis: string;
+}
+
+export interface ProductRecommendation {
+  id: string;
+  accountId: string;
+  accountName: string;
+  productName: string;
+  category: string;
+  reason: string;
+  estimatedRevenue: number;
+  confidence: number;
+  competitorContext?: string;
+  status: 'new' | 'pitched' | 'accepted' | 'dismissed';
+}
+
+export interface ComplianceLicense {
+  accountId: string;
+  accountName: string;
+  licenseNumber: string;
+  expirationDate: string;
+  daysRemaining: number;
+  status: 'valid' | 'expiring' | 'expired';
+}
+
+export interface CompliancePayment {
+  accountId: string;
+  accountName: string;
+  orderNumber: string;
+  deliveryDate: string;
+  amount: number;
+  daysElapsed: number;
+  maxDays: number;
+  status: 'compliant' | 'approaching' | 'overdue';
+  method: string;
+}
+
+export interface WinLossEntry {
+  id: string;
+  accountId: string;
+  accountName: string;
+  outcome: 'won' | 'lost' | 'churned';
+  date: string;
+  reason: string;
+  reasonCategory: 'pricing' | 'product-quality' | 'delivery' | 'competitor' | 'relationship' | 'compliance' | 'closure' | 'other';
+  competitor?: string;
+  productsAffected: string[];
+  revenueImpact: number;
+  notes: string;
+}
+
+export interface PlaybookStep {
+  id: string;
+  title: string;
+  instructions: string;
+  aiPrompt?: string;
+  actionType: 'email' | 'call' | 'task' | 'meeting' | 'note' | 'wait';
+  estimatedTime: string;
+  order: number;
+}
+
+export interface Playbook {
+  id: string;
+  name: string;
+  description: string;
+  type: 'new-account' | 'win-back' | 'category-expansion' | 'product-launch' | 'payment-issue' | 'competitive-response';
+  steps: PlaybookStep[];
+  estimatedDuration: string;
+  successRate: number;
+}
+
+export interface PlaybookExecution {
+  id: string;
+  playbookId: string;
+  accountId: string;
+  accountName: string;
+  startedAt: string;
+  currentStep: number;
+  completedSteps: number[];
+  status: 'active' | 'completed' | 'abandoned';
+}
