@@ -6,24 +6,24 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border-default bg-dark">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+    <footer className="bg-dark">
+      <div className="mx-auto max-w-7xl px-6" style={{ paddingTop: '80px', paddingBottom: '48px' }}>
         {/* 4-column grid */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="space-y-4">
-            <Link href="/" className="font-display text-2xl tracking-wide text-text-default">
+            <Link href="/" className="font-display text-[28px] italic text-text-on-dark">
               Frost
             </Link>
-            <p className="text-sm leading-relaxed text-text-muted">
-              Craft cannabis cultivated with intention. Small-batch, sustainably grown, lab-tested.
+            <p className="text-base leading-relaxed text-text-on-dark-muted">
+              Craft cannabis cultivated with intention. Small-batch, sustainably grown in Washington State.
             </p>
             <div className="flex gap-4">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-muted transition-colors hover:text-text-default"
+                className="text-text-on-dark-muted transition-colors hover:text-text-on-dark"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -32,7 +32,7 @@ export function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-muted transition-colors hover:text-text-default"
+                className="text-text-on-dark-muted transition-colors hover:text-text-on-dark"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
@@ -42,7 +42,7 @@ export function Footer() {
 
           {/* Products column */}
           <div>
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-muted">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
               Products
             </h3>
             <ul className="space-y-3">
@@ -50,7 +50,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-muted transition-colors hover:text-text-default"
+                    className="text-sm text-text-on-dark-muted transition-colors hover:text-text-on-dark"
                   >
                     {link.label}
                   </Link>
@@ -61,7 +61,7 @@ export function Footer() {
 
           {/* Company column */}
           <div>
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-muted">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
               Company
             </h3>
             <ul className="space-y-3">
@@ -69,7 +69,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-muted transition-colors hover:text-text-default"
+                    className="text-sm text-text-on-dark-muted transition-colors hover:text-text-on-dark"
                   >
                     {link.label}
                   </Link>
@@ -80,7 +80,7 @@ export function Footer() {
 
           {/* Legal column */}
           <div>
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-muted">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
               Legal
             </h3>
             <ul className="space-y-3">
@@ -88,7 +88,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-muted transition-colors hover:text-text-default"
+                    className="text-sm text-text-on-dark-muted transition-colors hover:text-text-on-dark"
                   >
                     {link.label}
                   </Link>
@@ -98,14 +98,16 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Compliance text */}
-        <div className="mt-12 border-t border-border-default pt-8">
-          <p className="text-xs leading-relaxed text-text-muted">{COMPLIANCE_TEXT}</p>
+        {/* Compliance */}
+        <div className="mt-12 border-t border-text-on-dark/10 pt-8">
+          <p className="text-xs leading-relaxed text-text-on-dark-muted/60">
+            {COMPLIANCE_TEXT}
+          </p>
         </div>
 
         {/* Copyright */}
         <div className="mt-6">
-          <p className="text-xs text-text-muted">
+          <p className="text-xs text-text-on-dark-muted/60">
             &copy; {currentYear} Frost Cannabis Co. All rights reserved.
           </p>
         </div>

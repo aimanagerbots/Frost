@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { cn } from '@frost/ui';
 import { NAV_LINKS } from '@/lib/constants';
 import { MobileMenu } from './MobileMenu';
@@ -25,13 +25,19 @@ export function Header() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'bg-dark/90 backdrop-blur-md border-b border-border-default'
+            ? 'bg-base/95 backdrop-blur-md border-b border-border-default'
             : 'bg-transparent'
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           {/* Logo */}
-          <Link href="/" className="font-display text-2xl tracking-wide text-text-default">
+          <Link
+            href="/"
+            className={cn(
+              'font-display text-2xl italic tracking-wide transition-colors duration-300',
+              isScrolled ? 'text-text-default' : 'text-text-on-dark'
+            )}
+          >
             Frost
           </Link>
 
@@ -41,7 +47,13 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm tracking-wide text-text-muted transition-colors hover:text-text-default"
+                className={cn(
+                  'relative text-[13px] font-medium uppercase tracking-[0.05em] transition-colors duration-200',
+                  'after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:w-0 after:transition-all after:duration-200 hover:after:w-full',
+                  isScrolled
+                    ? 'text-text-muted hover:text-text-default after:bg-text-default'
+                    : 'text-text-on-dark-muted hover:text-text-on-dark after:bg-text-on-dark'
+                )}
               >
                 {link.label}
               </Link>
@@ -51,15 +63,25 @@ export function Header() {
           {/* CTA + hamburger */}
           <div className="flex items-center gap-4">
             <Link
-              href="/locations"
-              className="hidden rounded-full bg-accent-primary px-5 py-2 text-sm font-medium text-text-on-dark transition-colors hover:bg-accent-primary-hover md:inline-flex"
+              href="/find"
+              className={cn(
+                'hidden rounded-full px-6 py-2 text-[13px] font-medium uppercase tracking-[0.05em] transition-colors duration-200 md:inline-flex',
+                isScrolled
+                  ? 'bg-accent-primary text-text-on-dark hover:bg-accent-primary-hover'
+                  : 'bg-text-on-dark/20 text-text-on-dark backdrop-blur-sm hover:bg-text-on-dark/30'
+              )}
             >
               Find Near You
             </Link>
             <button
               type="button"
               onClick={() => setIsMobileOpen(true)}
-              className="text-text-muted transition-colors hover:text-text-default md:hidden"
+              className={cn(
+                'transition-colors duration-200 md:hidden',
+                isScrolled
+                  ? 'text-text-muted hover:text-text-default'
+                  : 'text-text-on-dark-muted hover:text-text-on-dark'
+              )}
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
