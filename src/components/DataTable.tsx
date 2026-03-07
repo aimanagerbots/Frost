@@ -20,6 +20,7 @@ interface Column<T> {
   accessor: keyof T | ((row: T) => unknown);
   sortable?: boolean;
   render?: (row: T) => React.ReactNode;
+  hideBelow?: 'sm' | 'md' | 'lg';
 }
 
 interface EmptyStateConfig {
@@ -40,6 +41,12 @@ interface DataTableProps<T> {
   pageSize?: number;
   className?: string;
 }
+
+const HIDE_BELOW: Record<string, string> = {
+  sm: 'hidden sm:table-cell',
+  md: 'hidden md:table-cell',
+  lg: 'hidden lg:table-cell',
+};
 
 type SortDir = 'asc' | 'desc' | null;
 
@@ -143,7 +150,8 @@ export function DataTable<T extends Record<string, unknown>>({
                       className={cn(
                         'px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted',
                         col.sortable && 'cursor-pointer select-none hover:text-text-default',
-                        i === 0 && 'sticky left-0 bg-card z-10'
+                        i === 0 && 'sticky left-0 bg-card z-10',
+                        col.hideBelow && HIDE_BELOW[col.hideBelow]
                       )}
                       onClick={col.sortable ? () => handleSort(i) : undefined}
                     >
@@ -180,7 +188,8 @@ export function DataTable<T extends Record<string, unknown>>({
                         key={colIdx}
                         className={cn(
                           'px-4 py-3 text-text-default',
-                          colIdx === 0 && 'sticky left-0 bg-card z-10'
+                          colIdx === 0 && 'sticky left-0 bg-card z-10',
+                          col.hideBelow && HIDE_BELOW[col.hideBelow]
                         )}
                       >
                         {col.render

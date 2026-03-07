@@ -28,13 +28,18 @@ export const CHART_COLORS = {
 
 export const CHART_THEME = {
   background: 'transparent',
-  gridColor: '#1A1F2E',
+  gridColor: '#1E293B',
   axisColor: '#E2E8F0',
   legendColor: '#E2E8F0',
-  tooltipBg: '#1A1F2E',
-  tooltipBorder: '#2A3040',
-  tooltipText: '#C8D0E0',
+  tooltipBg: '#1E293B',
+  tooltipBorder: '#334155',
+  tooltipText: '#E2E8F0',
 } as const;
+
+/** Forces light legend text regardless of series fill color */
+export const legendFormatter = (value: string) => (
+  <span style={{ color: '#E2E8F0' }}>{value}</span>
+);
 
 interface ChartWrapperProps {
   title?: string;

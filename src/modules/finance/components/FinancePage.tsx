@@ -294,7 +294,12 @@ export function FinancePage() {
               paddingAngle={2}
               label={(props: PieLabelRenderProps) => {
                 const d = props as PieLabelRenderProps & { category: string; percentage: number };
-                return `${d.category} ${d.percentage}%`;
+                const { x, y } = props;
+                return (
+                  <text x={x} y={y} fill="#E2E8F0" fontSize={11} textAnchor="middle" dominantBaseline="central">
+                    {d.category} {d.percentage}%
+                  </text>
+                );
               }}
             >
               {(categoryData ?? []).map((entry, idx) => (

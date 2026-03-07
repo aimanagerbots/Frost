@@ -72,7 +72,7 @@ const memoryFacts: MemoryFact[] = [
   },
   {
     id: 'fact-a05',
-    content: 'Emerald City Collective is at risk of churn',
+    content: 'Emerald City Cannabis is at risk of churn',
     source: 'Health Model',
     sourceModule: 'CRM',
     confidence: 72,

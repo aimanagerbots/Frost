@@ -44,7 +44,7 @@ export function RevenueCharts({ analytics }: RevenueChartsProps) {
               contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, color: CHART_THEME.tooltipText, borderRadius: 8 }}
               formatter={(value) => [`$${Number(value).toLocaleString()}`, '']}
             />
-            <Legend wrapperStyle={{ color: CHART_THEME.legendColor, fontSize: 11 }} />
+            <Legend wrapperStyle={{ fontSize: 11 }} formatter={(value: string) => <span style={{ color: CHART_THEME.legendColor }}>{value}</span>} />
             {Object.entries(CATEGORY_COLORS).map(([cat, color]) => (
               <Bar key={cat} dataKey={cat} stackId="revenue" fill={color} radius={cat === 'beverage' ? [2, 2, 0, 0] : undefined} />
             ))}
@@ -63,7 +63,7 @@ export function RevenueCharts({ analytics }: RevenueChartsProps) {
               contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, color: CHART_THEME.tooltipText, borderRadius: 8 }}
               formatter={(value) => [`$${Number(value).toLocaleString()}`, '']}
             />
-            <Legend wrapperStyle={{ color: CHART_THEME.legendColor, fontSize: 11 }} />
+            <Legend wrapperStyle={{ fontSize: 11 }} formatter={(value: string) => <span style={{ color: CHART_THEME.legendColor }}>{value}</span>} />
             <Bar dataKey="revenue" fill={CHART_COLORS.primary} name="Revenue" radius={[0, 4, 4, 0]} />
             <Bar dataKey="target" fill={CHART_COLORS.warning} name="Target" radius={[0, 4, 4, 0]} opacity={0.3} />
           </BarChart>

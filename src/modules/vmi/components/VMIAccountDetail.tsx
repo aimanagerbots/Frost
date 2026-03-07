@@ -264,7 +264,8 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
               />
               <Tooltip content={<CustomTooltip />} />
               <Legend
-                wrapperStyle={{ color: CHART_THEME.legendColor, fontSize: 12 }}
+                wrapperStyle={{ fontSize: 12 }}
+                formatter={(value: string) => <span style={{ color: CHART_THEME.legendColor }}>{value}</span>}
               />
               <Bar dataKey="Our Share" fill={ACCENT} radius={[4, 4, 0, 0]} />
               <Bar dataKey="Competitor Share" fill={CHART_COLORS.warning} radius={[4, 4, 0, 0]} />

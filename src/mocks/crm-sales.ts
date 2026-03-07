@@ -138,7 +138,7 @@ const reorderProposals: ReorderProposal[] = [
   {
     id: 'prop-008',
     accountId: 'acct-capitol-hill',
-    accountName: 'Capitol Hill Cannabis',
+    accountName: 'Capitol Hill Collective',
     proposedProducts: [
       { sku: 'VP-DISP-05G', name: 'Disposable Vape — 0.5g (Sativa)', category: 'vaporizer', qty: 36, unitPrice: 18, lastOrderPrice: 18 },
       { sku: 'ED-GUM-5PK', name: 'Sativa Gummies — 5pk (50mg)', category: 'edible', qty: 24, unitPrice: 10, lastOrderPrice: 10 },
@@ -445,7 +445,7 @@ const leaderboardData: LeaderboardRep[] = [
     topAccounts: [
       { name: 'Greenfield Dispensary', revenue: 89400 },
       { name: 'Pacific Leaf', revenue: 72100 },
-      { name: 'Capitol Hill Cannabis', revenue: 58300 },
+      { name: 'Capitol Hill Collective', revenue: 58300 },
       { name: 'Harbor Cannabis', revenue: 45200 },
       { name: 'Cascade Wellness', revenue: 41800 },
     ],

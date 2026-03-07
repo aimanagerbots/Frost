@@ -75,7 +75,7 @@ export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisp
                   backgroundColor: CHART_THEME.tooltipBg,
                   border: `1px solid ${CHART_THEME.tooltipBorder}`,
                   borderRadius: 8,
-                  color: '#fff',
+                  color: CHART_THEME.tooltipText,
                 }}
                 formatter={(value) => [`${value}%`, 'Content']}
               />

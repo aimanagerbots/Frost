@@ -89,11 +89,13 @@ export function InventoryPage() {
       header: 'Strain',
       accessor: 'strainName' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
     },
     {
       header: 'Type',
       accessor: 'strainType' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: InventoryItem) => (
         <span
           className="rounded-full px-2 py-0.5 text-[10px] font-medium capitalize"
@@ -123,6 +125,7 @@ export function InventoryPage() {
       header: 'THC%',
       accessor: 'thcPercent' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: InventoryItem) => (
         <span className="text-text-muted">{row.thcPercent != null ? `${row.thcPercent}%` : '—'}</span>
       ),
@@ -131,6 +134,7 @@ export function InventoryPage() {
       header: 'Batch',
       accessor: 'batchNumber' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: InventoryItem) => (
         <span className="text-[11px] text-text-muted font-mono">{row.batchNumber}</span>
       ),
@@ -161,7 +165,7 @@ export function InventoryPage() {
 
       {/* Metrics */}
       {metrics && (
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <MetricCard label="Total Items" value={metrics.totalItems} accentColor={INVENTORY_ACCENT} />
           <MetricCard
             label="Total Value"

@@ -61,7 +61,7 @@ const knowledgeEntries: KnowledgeEntry[] = [
     category: 'cultivation-sop',
     content: `Integrated Pest Management (IPM) is our first line of defense against pests and pathogens. We follow a prevention-first approach: beneficial insects, environmental controls, and cultural practices before any approved pesticide application.\n\nWeekly scouting is mandatory for all rooms. Scouts check undersides of leaves, stems, and soil/media surfaces. Findings are logged in the IPM tracker with photos. Any pest identification triggers a 24-hour response protocol.\n\nApproved biological controls include Stratiolaelaps scimitus (fungus gnat larvae), Amblyseius swirskii (thrips/whitefly), and Phytoseiulus persimilis (spider mites). Chemical controls are limited to WSLCB-approved products only, applied only after biological controls have been attempted.`,
     lastUpdated: getDateOffset(-20),
-    updatedBy: 'Priya Sharma',
+    updatedBy: 'Priya Patel',
     referencedCount: 19,
   },
 

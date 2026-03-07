@@ -148,7 +148,7 @@ export function getVMIDailyEmails(): VMIDailyEmail[] {
     );
     const reps: Record<string, string> = {
       'acc-greenfield': 'Jake Morrison',
-      'acc-summit': 'Priya Sharma',
+      'acc-summit': 'Priya Patel',
       'acc-capitol': 'Carlos Ruiz',
     };
     const alerts: Record<string, string[]> = {

@@ -57,7 +57,7 @@ const orders: FulfillmentOrder[] = [
     id: 'ful-003',
     orderId: 'ord-2024-0343',
     orderNumber: 'ORD-0343',
-    accountName: 'Capitol Hill Cannabis',
+    accountName: 'Capitol Hill Collective',
     status: 'queued',
     priority: 'urgent',
     items: pickItems([
@@ -91,7 +91,7 @@ const orders: FulfillmentOrder[] = [
     id: 'ful-005',
     orderId: 'ord-2024-0345',
     orderNumber: 'ORD-0345',
-    accountName: 'Emerald City Collective',
+    accountName: 'Emerald City Cannabis',
     status: 'queued',
     priority: 'low',
     items: pickItems([
@@ -340,7 +340,7 @@ const orders: FulfillmentOrder[] = [
     id: 'ful-018',
     orderId: 'ord-2024-0316',
     orderNumber: 'ORD-0316',
-    accountName: 'Capitol Hill Cannabis',
+    accountName: 'Capitol Hill Collective',
     status: 'ready-for-driver',
     priority: 'urgent',
     items: pickItems([

@@ -54,7 +54,7 @@ const INVOICES: Invoice[] = [
   {
     id: 'inv-004',
     orderNumber: 'ORD-2405',
-    accountName: 'Pacific Leaf Co.',
+    accountName: 'Pacific Leaf',
     accountId: 'acc-002',
     amount: 5400,
     status: 'paid',
@@ -68,7 +68,7 @@ const INVOICES: Invoice[] = [
   {
     id: 'inv-005',
     orderNumber: 'ORD-2418',
-    accountName: 'Pacific Leaf Co.',
+    accountName: 'Pacific Leaf',
     accountId: 'acc-002',
     amount: 9100,
     status: 'paid',
@@ -82,7 +82,7 @@ const INVOICES: Invoice[] = [
   {
     id: 'inv-006',
     orderNumber: 'ORD-2440',
-    accountName: 'Pacific Leaf Co.',
+    accountName: 'Pacific Leaf',
     accountId: 'acc-002',
     amount: 7300,
     status: 'paid',
@@ -152,7 +152,7 @@ const INVOICES: Invoice[] = [
   {
     id: 'inv-011',
     orderNumber: 'ORD-2415',
-    accountName: 'Capitol Hill Cannabis',
+    accountName: 'Capitol Hill Collective',
     accountId: 'acc-005',
     amount: 14800,
     status: 'paid',
@@ -166,7 +166,7 @@ const INVOICES: Invoice[] = [
   {
     id: 'inv-012',
     orderNumber: 'ORD-2442',
-    accountName: 'Capitol Hill Cannabis',
+    accountName: 'Capitol Hill Collective',
     accountId: 'acc-005',
     amount: 2900,
     status: 'paid',
@@ -234,7 +234,7 @@ const INVOICES: Invoice[] = [
   {
     id: 'inv-017',
     orderNumber: 'ORD-2455',
-    accountName: 'Capitol Hill Cannabis',
+    accountName: 'Capitol Hill Collective',
     accountId: 'acc-005',
     amount: 3400,
     status: 'pending',

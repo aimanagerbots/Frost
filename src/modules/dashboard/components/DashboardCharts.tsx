@@ -22,7 +22,7 @@ interface DashboardChartsProps {
 
 export function DashboardCharts({ data }: DashboardChartsProps) {
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {/* Revenue Trend */}
       <ChartWrapper title="Revenue Trend" subtitle="Last 30 days" height={260}>
         <ResponsiveContainer width="100%" height="100%">

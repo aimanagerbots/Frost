@@ -65,6 +65,7 @@ export function OrdersPage() {
       header: 'Date',
       accessor: 'createdAt' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: Order) =>
         new Date(row.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
     },
@@ -77,6 +78,7 @@ export function OrdersPage() {
       header: 'Items',
       accessor: (row: Order) => row.items.length,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: Order) => <span className="text-text-muted">{row.items.length}</span>,
     },
     {
@@ -103,6 +105,7 @@ export function OrdersPage() {
       header: 'Payment',
       accessor: 'paymentStatus' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: Order) => (
         <StatusBadge
           variant={PAYMENT_VARIANT[row.paymentStatus]}
@@ -115,6 +118,7 @@ export function OrdersPage() {
       header: 'Rep',
       accessor: 'assignedRep' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: Order) => (
         <span className="text-xs text-text-muted">{row.assignedRep.split(' ')[0]}</span>
       ),
@@ -144,7 +148,7 @@ export function OrdersPage() {
 
       {/* Metrics */}
       {metrics && (
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           <MetricCard label="Total Orders" value={metrics.totalOrders} accentColor={ORDERS_ACCENT} />
           <MetricCard label="Pending" value={metrics.pendingCount} accentColor="#94A3B8" />
           <MetricCard

@@ -45,7 +45,11 @@ export function HealthModelView({ model }: HealthModelViewProps) {
                 outerRadius={100}
                 paddingAngle={3}
                 dataKey="value"
-                label={({ name, value }) => `${name}: ${value}`}
+                label={({ name, value, x, y }: { name?: string; value?: number; x?: number; y?: number }) => (
+                  <text x={x} y={y} fill="#E2E8F0" fontSize={11} textAnchor="middle" dominantBaseline="central">
+                    {name}: {value}
+                  </text>
+                )}
               >
                 {pieData.map((entry) => (
                   <Cell key={entry.name} fill={entry.color} />

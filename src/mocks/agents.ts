@@ -157,9 +157,9 @@ const actions: AgentAction[] = [
     agentId: 'agent-sales',
     agentName: 'Frost Sales Agent',
     type: 'email-draft',
-    description: 'Drafted win-back email to Emerald City Collective — no orders in 45 days',
+    description: 'Drafted win-back email to Emerald City Cannabis — no orders in 45 days',
     status: 'pending-approval',
-    target: 'Emerald City Collective',
+    target: 'Emerald City Cannabis',
     timestamp: '2026-03-07T08:20:00Z',
   },
   {
@@ -394,7 +394,7 @@ const conversations: AgentConversation[] = [
       {
         role: 'agent',
         content:
-          'Based on my analysis, here are the accounts that need your attention this week:\n\n1. **Emerald City Collective** — No orders in 45 days. They typically reorder every 3 weeks. I\'ve drafted a win-back email for your review.\n\n2. **Pacific Leaf** — Outstanding payment of $3,200, now 18 days overdue. I\'ve created a follow-up task for Jake.\n\n3. **Greenfield Dispensary** — Their flower inventory should be running low based on purchase velocity. Reorder reminder sent this morning.\n\n4. **Olympic Greens** — Placed a smaller-than-usual order last cycle. Possible competitive pressure. Recommend a check-in call.',
+          'Based on my analysis, here are the accounts that need your attention this week:\n\n1. **Emerald City Cannabis** — No orders in 45 days. They typically reorder every 3 weeks. I\'ve drafted a win-back email for your review.\n\n2. **Pacific Leaf** — Outstanding payment of $3,200, now 18 days overdue. I\'ve created a follow-up task for Jake.\n\n3. **Greenfield Dispensary** — Their flower inventory should be running low based on purchase velocity. Reorder reminder sent this morning.\n\n4. **Olympic Greens** — Placed a smaller-than-usual order last cycle. Possible competitive pressure. Recommend a check-in call.',
         timestamp: '2026-03-07T09:00:15Z',
         references: ['CRM Account Health', 'Orders History', 'Payment Ledger'],
       },

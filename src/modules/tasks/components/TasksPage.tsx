@@ -95,6 +95,7 @@ export function TasksPage() {
       header: 'Source',
       accessor: 'source' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: Task) => (
         <span className="text-xs text-text-muted capitalize">{row.source.replace('-', ' ')}</span>
       ),
@@ -103,6 +104,7 @@ export function TasksPage() {
       header: 'Module',
       accessor: 'module' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: Task) =>
         row.module ? (
           <span className="rounded-full bg-elevated px-2 py-0.5 text-[10px] text-text-muted">

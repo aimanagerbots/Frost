@@ -17,7 +17,7 @@ interface MetricsRowProps {
 
 export function MetricsRow({ metrics }: MetricsRowProps) {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
       <MetricCard
         label="Total Revenue (MTD)"
         value={`$${(metrics.totalRevenue / 1000).toFixed(0)}K`}

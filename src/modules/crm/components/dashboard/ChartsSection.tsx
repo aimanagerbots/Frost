@@ -77,7 +77,7 @@ export function ChartsSection({
   topAccounts,
 }: ChartsSectionProps) {
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {/* Revenue by Category */}
       <ChartWrapper title="Revenue by Category" subtitle="Last 12 weeks">
         <ResponsiveContainer width="100%" height="100%">

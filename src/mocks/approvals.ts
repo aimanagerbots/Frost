@@ -56,10 +56,10 @@ const approvalRequests: ApprovalRequest[] = [
     priority: 'normal',
     title: 'Draft win-back email to Emerald City',
     description:
-      'Emerald City Collective has not placed an order in 45 days, well above their typical 21-day cycle. This win-back email offers a 5% discount on their next order.',
+      'Emerald City Cannabis has not placed an order in 45 days, well above their typical 21-day cycle. This win-back email offers a 5% discount on their next order.',
     preview:
       'Hi Jordan,\n\nWe\'ve missed you at Emerald City! It\'s been a while since your last order and I wanted to check in.\n\nWe\'ve got some exciting new strains from our spring harvest, including a limited-edition Rainier Haze that\'s been getting great feedback.\n\nAs a valued partner, I\'d like to offer 5% off your next order if placed by March 15. Want me to send over our updated menu?\n\nLooking forward to reconnecting.\n\nBest,\nFrost Cannabis Team',
-    target: 'Emerald City Collective',
+    target: 'Emerald City Cannabis',
     createdAt: '2026-03-07T08:20:00Z',
   },
   {

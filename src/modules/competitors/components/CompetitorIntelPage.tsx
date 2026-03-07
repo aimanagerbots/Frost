@@ -324,7 +324,8 @@ export function CompetitorIntelPage() {
             />
             <Tooltip content={<MarketShareTooltip />} />
             <Legend
-              wrapperStyle={{ color: CHART_THEME.legendColor, fontSize: 11 }}
+              wrapperStyle={{ fontSize: 11 }}
+              formatter={(value: string) => <span style={{ color: CHART_THEME.legendColor }}>{value}</span>}
             />
             {competitorNames.map((name, i) => (
               <Bar

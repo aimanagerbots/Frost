@@ -76,22 +76,26 @@ const columns = [
     header: 'Assignee',
     accessor: 'assignee' as const,
     sortable: true,
+    hideBelow: 'md' as const,
   },
   {
     header: 'Batch #',
     accessor: 'batchNumber' as const,
     sortable: true,
+    hideBelow: 'lg' as const,
   },
   {
     header: 'Est. Time',
     accessor: 'estimatedMinutes' as const,
     sortable: true,
+    hideBelow: 'md' as const,
     render: (row: WORow) => <span>{row.estimatedMinutes} min</span>,
   },
   {
     header: 'Actual',
     accessor: ((row: WORow) => row.actualMinutes ?? '') as (row: WORow) => unknown,
     sortable: true,
+    hideBelow: 'lg' as const,
     render: (row: WORow) => (
       <span>{row.actualMinutes ? `${row.actualMinutes} min` : '—'}</span>
     ),

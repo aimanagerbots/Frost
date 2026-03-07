@@ -5,9 +5,9 @@ import { X } from 'lucide-react';
 import { useEffect, useRef, useCallback, type ReactNode } from 'react';
 
 const WIDTH_MAP = {
-  sm: 'max-w-sm', // 384px
-  md: 'max-w-md', // 512px (approx)
-  lg: 'max-w-2xl', // 672px (approx)
+  sm: 'md:max-w-sm', // full on mobile, 384px on md+
+  md: 'md:max-w-md', // full on mobile, 512px on md+
+  lg: 'md:max-w-2xl', // full on mobile, 672px on md+
 } as const;
 
 interface DrawerPanelProps {
