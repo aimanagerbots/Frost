@@ -72,8 +72,14 @@ const calendarEvents: CalendarEvent[] = [
   { id: 'cal-misc-4', title: 'Q2 Product Launch Planning', type: 'meeting', date: getDateOffset(11), startTime: '10:00', endTime: '12:00', allDay: false, module: 'Projects', moduleRoute: '/projects', color: EVENT_COLORS.meeting, description: 'Cross-functional launch readiness review' },
 ];
 
+// --- Helpers ---
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // --- Export Functions ---
-export function getCalendarEvents(filters?: { types?: string[]; modules?: string[] }): CalendarEvent[] {
+export async function getCalendarEvents(filters?: { types?: string[]; modules?: string[] }): Promise<CalendarEvent[]> {
+  await delay(300);
   let events = calendarEvents;
   if (filters?.types && filters.types.length > 0) {
     events = events.filter((e) => filters.types!.includes(e.type));

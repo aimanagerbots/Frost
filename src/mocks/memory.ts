@@ -593,18 +593,25 @@ const memoryPatterns: MemoryPattern[] = [
   },
 ];
 
+// --- Helpers ---
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // --- Export functions ---
 
-export function getMemoryLayers(): MemoryLayer[] {
+export async function getMemoryLayers(): Promise<MemoryLayer[]> {
+  await delay(300);
   return memoryLayers;
 }
 
-export function getMemoryFacts(filters?: {
+export async function getMemoryFacts(filters?: {
   category?: string;
   verifiedOnly?: boolean;
   minConfidence?: number;
   search?: string;
-}): MemoryFact[] {
+}): Promise<MemoryFact[]> {
+  await delay(300);
   let result = [...memoryFacts];
 
   if (filters?.category) {
@@ -630,6 +637,7 @@ export function getMemoryFacts(filters?: {
   return result;
 }
 
-export function getMemoryPatterns(): MemoryPattern[] {
+export async function getMemoryPatterns(): Promise<MemoryPattern[]> {
+  await delay(300);
   return memoryPatterns;
 }

@@ -12,8 +12,7 @@ const operators = {
   james: { name: 'James Park', role: 'Extraction Tech' },
   lisa: { name: 'Lisa Chen', role: 'Pen Filling Specialist' },
   marcus: { name: 'Marcus Johnson', role: 'Preroll Lead' },
-  sarah: { name: 'Sarah Williams', role: 'Cultivation Tech' },
-  devon: { name: 'Devon Brooks', role: 'Concentrate Tech' },
+  sarah: { name: 'Sarah Williams', role: 'Cultivation Manager' },
 };
 
 // ── Work Orders (30) ──────────────────────────────────────
@@ -599,8 +598,8 @@ const workOrders: WorkOrder[] = [
     priority: 'medium',
     title: 'Press 500g Zkittlez Rosin — Solventless',
     description: 'Rosin press 500g Zkittlez bubble hash at 185°F, 90 second press.',
-    assignee: operators.devon.name,
-    assigneeRole: operators.devon.role,
+    assignee: operators.james.name,
+    assigneeRole: operators.james.role,
     estimatedMinutes: 240,
     actualMinutes: 255,
     batchNumber: 'VP-2024-013',
@@ -628,8 +627,8 @@ const workOrders: WorkOrder[] = [
     priority: 'high',
     title: 'Extract 10 lbs GSC for Shatter',
     description: 'BHO extraction of GSC trim for shatter production. Closed-loop system.',
-    assignee: operators.devon.name,
-    assigneeRole: operators.devon.role,
+    assignee: operators.james.name,
+    assigneeRole: operators.james.role,
     estimatedMinutes: 300,
     batchNumber: 'CN-2024-012',
     inputMaterials: [
@@ -652,8 +651,8 @@ const workOrders: WorkOrder[] = [
     priority: 'high',
     title: 'Purge & Clean Wedding Cake Wax',
     description: 'Vacuum purge Wedding Cake extract at 95°F for 72 hours. Target: <500 ppm residual solvent.',
-    assignee: operators.devon.name,
-    assigneeRole: operators.devon.role,
+    assignee: operators.james.name,
+    assigneeRole: operators.james.role,
     estimatedMinutes: 60,
     actualMinutes: 55,
     batchNumber: 'CN-2024-010',
@@ -678,8 +677,8 @@ const workOrders: WorkOrder[] = [
     priority: 'medium',
     title: 'Portion 800g Blue Dream Shatter',
     description: 'Break and weigh Blue Dream shatter into 1g portions for packaging.',
-    assignee: operators.devon.name,
-    assigneeRole: operators.devon.role,
+    assignee: operators.james.name,
+    assigneeRole: operators.james.role,
     estimatedMinutes: 120,
     batchNumber: 'CN-2024-009',
     inputMaterials: [
@@ -701,8 +700,8 @@ const workOrders: WorkOrder[] = [
     priority: 'medium',
     title: 'Submit COA — Gelato Wax CN-2024-008',
     description: 'Submit Gelato wax samples for potency and contaminant testing.',
-    assignee: operators.devon.name,
-    assigneeRole: operators.devon.role,
+    assignee: operators.james.name,
+    assigneeRole: operators.james.role,
     estimatedMinutes: 25,
     batchNumber: 'CN-2024-008',
     inputMaterials: [
@@ -725,8 +724,8 @@ const workOrders: WorkOrder[] = [
     priority: 'high',
     title: 'Extract 8 lbs Purple Punch for Live Badder',
     description: 'Fresh-frozen extraction for live badder. BLOCKED: Fresh material not yet harvested.',
-    assignee: operators.devon.name,
-    assigneeRole: operators.devon.role,
+    assignee: operators.james.name,
+    assigneeRole: operators.james.role,
     estimatedMinutes: 280,
     batchNumber: 'CN-2024-013',
     inputMaterials: [
@@ -749,8 +748,8 @@ const workOrders: WorkOrder[] = [
     priority: 'medium',
     title: 'Portion 600g OG Kush Wax',
     description: 'Weigh and portion OG Kush wax into 0.5g and 1g containers.',
-    assignee: operators.devon.name,
-    assigneeRole: operators.devon.role,
+    assignee: operators.james.name,
+    assigneeRole: operators.james.role,
     estimatedMinutes: 90,
     actualMinutes: 85,
     batchNumber: 'CN-2024-007',
@@ -792,14 +791,14 @@ const batches: ManufacturingBatch[] = [
   { id: 'batch-vp-04', batchNumber: 'VP-2024-014', category: 'vaporizer', strainName: 'Gelato', currentState: 'Pen Filled', previousStates: [{ state: 'Extracted', timestamp: '2024-11-18T00:00:00Z', operator: 'James Park' }, { state: 'Crude', timestamp: '2024-11-20T00:00:00Z', operator: 'James Park' }, { state: 'Distillate', timestamp: '2024-11-23T00:00:00Z', operator: 'James Park' }, { state: 'Flavored', timestamp: '2024-11-26T00:00:00Z', operator: 'James Park' }], quantity: 150, unit: 'carts', startDate: '2024-11-17T00:00:00Z', location: 'Fill Station' },
   { id: 'batch-vp-05', batchNumber: 'VP-2024-012', category: 'vaporizer', strainName: 'Purple Punch', currentState: 'Loose Filled', previousStates: [{ state: 'Extracted', timestamp: '2024-11-10T00:00:00Z', operator: 'James Park' }, { state: 'Crude', timestamp: '2024-11-12T00:00:00Z', operator: 'James Park' }, { state: 'Distillate', timestamp: '2024-11-15T00:00:00Z', operator: 'James Park' }, { state: 'Flavored', timestamp: '2024-11-18T00:00:00Z', operator: 'James Park' }, { state: 'Pen Filled', timestamp: '2024-11-20T00:00:00Z', operator: 'Lisa Chen' }], quantity: 200, unit: 'carts', startDate: '2024-11-08T00:00:00Z', location: 'QC Station' },
   { id: 'batch-vp-06', batchNumber: 'VP-2024-019', category: 'vaporizer', strainName: 'Blue Dream', currentState: 'Extracted', previousStates: [], quantity: 1200, unit: 'g', startDate: '2024-12-01T00:00:00Z', location: 'Extraction Lab' },
-  { id: 'batch-vp-07', batchNumber: 'VP-2024-013', category: 'vaporizer', strainName: 'Zkittlez', currentState: 'Pen Filled', previousStates: [{ state: 'Extracted', timestamp: '2024-11-29T00:00:00Z', operator: 'Devon Brooks' }], quantity: 350, unit: 'g', startDate: '2024-11-28T00:00:00Z', location: 'Fill Station' },
+  { id: 'batch-vp-07', batchNumber: 'VP-2024-013', category: 'vaporizer', strainName: 'Zkittlez', currentState: 'Pen Filled', previousStates: [{ state: 'Extracted', timestamp: '2024-11-29T00:00:00Z', operator: 'James Park' }], quantity: 350, unit: 'g', startDate: '2024-11-28T00:00:00Z', location: 'Fill Station' },
   { id: 'batch-vp-08', batchNumber: 'VP-2024-011', category: 'vaporizer', strainName: 'Wedding Cake', currentState: 'Loose Filled', previousStates: [{ state: 'Extracted', timestamp: '2024-11-05T00:00:00Z', operator: 'James Park' }, { state: 'Crude', timestamp: '2024-11-07T00:00:00Z', operator: 'James Park' }, { state: 'Distillate', timestamp: '2024-11-10T00:00:00Z', operator: 'James Park' }, { state: 'Flavored', timestamp: '2024-11-13T00:00:00Z', operator: 'James Park' }, { state: 'Pen Filled', timestamp: '2024-11-15T00:00:00Z', operator: 'Lisa Chen' }], quantity: 180, unit: 'carts', startDate: '2024-11-03T00:00:00Z', location: 'QC Station' },
 
   // Concentrate batches (4)
   { id: 'batch-cn-01', batchNumber: 'CN-2024-012', category: 'concentrate', strainName: 'GSC', currentState: 'Processing', previousStates: [], quantity: 1400, unit: 'g', startDate: '2024-12-01T00:00:00Z', location: 'Extraction Lab' },
-  { id: 'batch-cn-02', batchNumber: 'CN-2024-010', category: 'concentrate', strainName: 'Wedding Cake', currentState: 'Clean Bulk', previousStates: [{ state: 'Processing', timestamp: '2024-11-27T00:00:00Z', operator: 'Devon Brooks' }], quantity: 1100, unit: 'g', startDate: '2024-11-26T00:00:00Z', location: 'Vacuum Oven Room' },
-  { id: 'batch-cn-03', batchNumber: 'CN-2024-009', category: 'concentrate', strainName: 'Blue Dream', currentState: 'Clean Bulk', previousStates: [{ state: 'Processing', timestamp: '2024-11-20T00:00:00Z', operator: 'Devon Brooks' }], quantity: 800, unit: 'g', startDate: '2024-11-19T00:00:00Z', location: 'Vault C' },
-  { id: 'batch-cn-04', batchNumber: 'CN-2024-008', category: 'concentrate', strainName: 'Gelato', currentState: 'COA Pending', previousStates: [{ state: 'Processing', timestamp: '2024-11-15T00:00:00Z', operator: 'Devon Brooks' }, { state: 'Clean Bulk', timestamp: '2024-11-22T00:00:00Z', operator: 'Devon Brooks' }], quantity: 700, unit: 'g', startDate: '2024-11-14T00:00:00Z', location: 'Vault C' },
+  { id: 'batch-cn-02', batchNumber: 'CN-2024-010', category: 'concentrate', strainName: 'Wedding Cake', currentState: 'Clean Bulk', previousStates: [{ state: 'Processing', timestamp: '2024-11-27T00:00:00Z', operator: 'James Park' }], quantity: 1100, unit: 'g', startDate: '2024-11-26T00:00:00Z', location: 'Vacuum Oven Room' },
+  { id: 'batch-cn-03', batchNumber: 'CN-2024-009', category: 'concentrate', strainName: 'Blue Dream', currentState: 'Clean Bulk', previousStates: [{ state: 'Processing', timestamp: '2024-11-20T00:00:00Z', operator: 'James Park' }], quantity: 800, unit: 'g', startDate: '2024-11-19T00:00:00Z', location: 'Vault C' },
+  { id: 'batch-cn-04', batchNumber: 'CN-2024-008', category: 'concentrate', strainName: 'Gelato', currentState: 'COA Pending', previousStates: [{ state: 'Processing', timestamp: '2024-11-15T00:00:00Z', operator: 'James Park' }, { state: 'Clean Bulk', timestamp: '2024-11-22T00:00:00Z', operator: 'James Park' }], quantity: 700, unit: 'g', startDate: '2024-11-14T00:00:00Z', location: 'Vault C' },
 
   // Preroll batches (3)
   { id: 'batch-pr-01', batchNumber: 'PR-2024-031', category: 'preroll', strainName: 'Blue Dream', currentState: 'Rolling', previousStates: [], quantity: 500, unit: 'units', startDate: '2024-12-01T00:00:00Z', location: 'Preroll Station' },
@@ -860,8 +859,14 @@ const metrics: ManufacturingMetrics = {
   capacityUtilization: 82,
 };
 
+// ── Helpers ──────────────────────────────────────────────────
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // ── Exports ─────────────────────────────────────────────────
-export function getWorkOrders(filters?: { type?: string; status?: string; priority?: string }): WorkOrder[] {
+export async function getWorkOrders(filters?: { type?: string; status?: string; priority?: string }): Promise<WorkOrder[]> {
+  await delay(300);
   let result = workOrders;
   if (filters?.type) result = result.filter((wo) => wo.type === filters.type);
   if (filters?.status) result = result.filter((wo) => wo.status === filters.status);
@@ -869,24 +874,29 @@ export function getWorkOrders(filters?: { type?: string; status?: string; priori
   return result;
 }
 
-export function getWorkOrder(id: string): WorkOrder | undefined {
+export async function getWorkOrder(id: string): Promise<WorkOrder | undefined> {
+  await delay(300);
   return workOrders.find((wo) => wo.id === id);
 }
 
-export function getManufacturingBatches(filters?: { category?: string }): ManufacturingBatch[] {
+export async function getManufacturingBatches(filters?: { category?: string }): Promise<ManufacturingBatch[]> {
+  await delay(300);
   if (filters?.category) return batches.filter((b) => b.category === filters.category);
   return batches;
 }
 
-export function getPipelineStates(category?: string): PipelineState[] {
+export async function getPipelineStates(category?: string): Promise<PipelineState[]> {
+  await delay(300);
   if (category) return pipelineStates.filter((s) => s.category === category);
   return pipelineStates;
 }
 
-export function getProductionLines(): ProductionLine[] {
+export async function getProductionLines(): Promise<ProductionLine[]> {
+  await delay(300);
   return productionLines;
 }
 
-export function getManufacturingMetrics(): ManufacturingMetrics {
+export async function getManufacturingMetrics(): Promise<ManufacturingMetrics> {
+  await delay(300);
   return metrics;
 }

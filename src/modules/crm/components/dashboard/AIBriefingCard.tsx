@@ -25,6 +25,7 @@ const TYPE_ICONS: Record<BriefingItem['type'], typeof Sparkles> = {
   health: TrendingDown,
   competitive: ShieldAlert,
   opportunity: Sparkles,
+  pipeline: AlertTriangle,
 };
 
 const SEVERITY_VARIANT: Record<BriefingItem['severity'], 'danger' | 'warning' | 'info'> = {

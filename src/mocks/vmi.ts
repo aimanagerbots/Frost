@@ -107,22 +107,31 @@ const marketShareData: VMIMarketShare[] = [
   { accountId: 'acc-capitol', category: 'edible', ourShare: 22, ourRevenue: 8400, topCompetitor: 'Green State Co', competitorShare: 30 },
 ];
 
+// --- Helpers ---
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // --- Export Functions ---
-export function getVMIAccounts(): VMIAccount[] {
+export async function getVMIAccounts(): Promise<VMIAccount[]> {
+  await delay(300);
   return vmiAccounts;
 }
 
-export function getVMISellThrough(accountId?: string): VMISellThrough[] {
+export async function getVMISellThrough(accountId?: string): Promise<VMISellThrough[]> {
+  await delay(300);
   if (accountId) return sellThroughData.filter((s) => s.accountId === accountId);
   return sellThroughData;
 }
 
-export function getVMIMarketShare(accountId?: string): VMIMarketShare[] {
+export async function getVMIMarketShare(accountId?: string): Promise<VMIMarketShare[]> {
+  await delay(300);
   if (accountId) return marketShareData.filter((m) => m.accountId === accountId);
   return marketShareData;
 }
 
-export function getVMIMetrics(): VMIMetrics {
+export async function getVMIMetrics(): Promise<VMIMetrics> {
+  await delay(300);
   const totalAlerts = vmiAccounts.reduce((s, a) => s + a.reorderAlerts, 0);
   const totalVelocity = vmiAccounts.reduce((s, a) => s + a.totalVelocity, 0);
   const allShares = marketShareData.map((m) => m.ourShare);
@@ -141,7 +150,8 @@ export function getVMIMetrics(): VMIMetrics {
   };
 }
 
-export function getVMIDailyEmails(): VMIDailyEmail[] {
+export async function getVMIDailyEmails(): Promise<VMIDailyEmail[]> {
+  await delay(300);
   return vmiAccounts.filter((a) => a.enrolled).map((account) => {
     const reorderItems = sellThroughData.filter(
       (s) => s.accountId === account.accountId && s.reorderRecommended

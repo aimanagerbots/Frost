@@ -282,12 +282,17 @@ const demoQueries: InsightQueryResult[] = [
   },
 ];
 
-export function getInsights(filters?: {
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function getInsights(filters?: {
   type?: string;
   severity?: string;
   module?: string;
   actionable?: boolean;
-}): Insight[] {
+}): Promise<Insight[]> {
+  await delay(300);
   let filtered = [...insights];
 
   if (filters?.type && filters.type !== 'all') {

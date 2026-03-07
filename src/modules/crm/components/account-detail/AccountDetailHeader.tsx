@@ -11,7 +11,8 @@ import {
   ClipboardList,
   MapPin,
 } from 'lucide-react';
-import type { Account } from '../../types';
+import type { Account, PipelineStatus } from '../../types';
+import { PIPELINE_PHASE_LABELS } from '../../types';
 
 const CRM_ACCENT = '#F59E0B';
 
@@ -37,6 +38,14 @@ function statusVariant(status: Account['status']) {
     case 'churning': return 'danger' as const;
     case 'prospect': return 'info' as const;
     default: return 'muted' as const;
+  }
+}
+
+function pipelineVariant(ps: PipelineStatus) {
+  switch (ps) {
+    case 'active': return 'success' as const;
+    case 'inactive': return 'danger' as const;
+    case 'recovery': return 'warning' as const;
   }
 }
 
@@ -78,6 +87,11 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
             size="sm"
           />
           {trendIcon(account.healthTrend)}
+          <StatusBadge
+            variant={pipelineVariant(account.pipelineStatus)}
+            label={`${account.pipelineStatus.toUpperCase()} P${account.pipelinePhase} — ${PIPELINE_PHASE_LABELS[account.pipelineStatus][account.pipelinePhase]}`}
+            size="sm"
+          />
           <StatusBadge
             variant={statusVariant(account.status)}
             label={account.status}

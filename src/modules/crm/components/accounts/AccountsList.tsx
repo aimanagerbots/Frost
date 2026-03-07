@@ -138,11 +138,13 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
       header: 'City',
       accessor: 'city' as const,
       sortable: true,
+      hideBelow: 'md' as const,
     },
     {
       header: 'Rep',
       accessor: 'assignedRepId' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: AccountRow) => {
         const rep = repMap.get(row.assignedRepId);
         if (!rep) return <span className="text-text-muted">—</span>;
@@ -161,6 +163,7 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
       header: 'Last Order',
       accessor: 'lastOrderDate' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: AccountRow) => (
         <span className={row.lastOrderDate ? 'text-text-default' : 'text-text-muted'}>
           {formatDate(row.lastOrderDate)}
@@ -193,6 +196,7 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
       header: 'VMI',
       accessor: 'vmiEnrolled' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: AccountRow) =>
         row.vmiEnrolled ? (
           <StatusBadge variant="success" label="VMI" size="sm" />
@@ -204,6 +208,7 @@ function getRepColumns(repMap: Map<string, SalesRep>) {
       header: 'Payment',
       accessor: 'paymentReliability' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: AccountRow) => (
         <StatusBadge
           variant={paymentVariant(row.paymentReliability)}

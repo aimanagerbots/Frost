@@ -221,13 +221,19 @@ const councilSessions: CouncilSession[] = [
   },
 ];
 
-export function getKnowledgeEntries(category?: string): KnowledgeEntry[] {
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function getKnowledgeEntries(category?: string): Promise<KnowledgeEntry[]> {
+  await delay(300);
   if (category && category !== 'all') {
     return knowledgeEntries.filter((e) => e.category === category);
   }
   return knowledgeEntries;
 }
 
-export function getCouncilSessions(): CouncilSession[] {
+export async function getCouncilSessions(): Promise<CouncilSession[]> {
+  await delay(300);
   return councilSessions.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
 }

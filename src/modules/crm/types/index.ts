@@ -1,5 +1,44 @@
 // CRM Domain Types
 
+// --- Pipeline Types ---
+
+export type PipelineStatus = 'active' | 'inactive' | 'recovery';
+export type PipelinePhase = 1 | 2 | 3 | 4 | 5;
+
+export interface PipelineTransition {
+  from: { status: PipelineStatus; phase: PipelinePhase };
+  to: { status: PipelineStatus; phase: PipelinePhase };
+  date: string;
+  trigger: string;
+}
+
+export const PIPELINE_PHASE_LABELS: Record<
+  PipelineStatus,
+  Record<PipelinePhase, string>
+> = {
+  active: {
+    1: 'Onboarding',
+    2: 'Growing',
+    3: 'Stable',
+    4: 'Declining',
+    5: 'Critical',
+  },
+  inactive: {
+    1: 'Recently Lapsed',
+    2: 'Cooling',
+    3: 'Dormant',
+    4: 'Disengaged',
+    5: 'Lost',
+  },
+  recovery: {
+    1: 'Re-engaged',
+    2: 'Rebuilding',
+    3: 'Stabilizing',
+    4: 'Strengthening',
+    5: 'Graduated',
+  },
+};
+
 export interface Contact {
   id: string;
   name: string;
@@ -37,6 +76,9 @@ export interface Account {
   thirtyDayRevenue: number;
   avgOrderValue: number;
   orderCount: number;
+  pipelineStatus: PipelineStatus;
+  pipelinePhase: PipelinePhase;
+  pipelineHistory: PipelineTransition[];
   paymentReliability: 'excellent' | 'good' | 'fair' | 'poor';
   preferredPaymentMethod: 'cod' | 'ach' | 'mail';
   deliveryPreferences: {
@@ -108,10 +150,45 @@ export interface CRMDashboardMetrics {
 export interface BriefingItem {
   id: string;
   message: string;
-  type: 'reorder' | 'payment' | 'health' | 'competitive' | 'opportunity';
+  type:
+    | 'reorder'
+    | 'payment'
+    | 'health'
+    | 'competitive'
+    | 'opportunity'
+    | 'pipeline';
   severity: 'high' | 'medium' | 'low';
   accountId: string | null;
   actions: { label: string; action: string }[];
+}
+
+export interface KPIMetric {
+  label: string;
+  value: number;
+  unit: string;
+  trend: number;
+  category:
+    | 'order'
+    | 'basket'
+    | 'sell-through'
+    | 'revenue'
+    | 'payment'
+    | 'relationship'
+    | 'competitive';
+}
+
+export interface PipelineDistribution {
+  phase: number;
+  phaseLabel: string;
+  active: number;
+  inactive: number;
+  recovery: number;
+}
+
+export interface RecoveryFunnel {
+  phase: string;
+  count: number;
+  conversionRate: number;
 }
 
 export interface RevenueByCategoryWeek {
@@ -162,6 +239,9 @@ export interface CRMDashboardData {
   orderVolume: OrderVolume[];
   topAccounts: TopAccount[];
   recentActivity: ActivityItem[];
+  kpiMetrics: KPIMetric[];
+  pipelineDistribution: PipelineDistribution[];
+  recoveryFunnel: RecoveryFunnel[];
 }
 
 // --- Account Detail Types ---

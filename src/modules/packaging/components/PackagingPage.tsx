@@ -67,6 +67,7 @@ const columns = [
     header: 'Priority',
     accessor: 'priority' as const,
     sortable: true,
+    hideBelow: 'md' as const,
     render: (row: PkgRow) => (
       <StatusBadge variant={PRIORITY_MAP[row.priority] ?? 'muted'} label={row.priority} size="sm" />
     ),
@@ -88,11 +89,13 @@ const columns = [
     header: 'Assignee',
     accessor: 'assignee' as const,
     sortable: true,
+    hideBelow: 'md' as const,
   },
   {
     header: 'Est. Time',
     accessor: 'estimatedMinutes' as const,
     sortable: true,
+    hideBelow: 'lg' as const,
     render: (row: PkgRow) => <span>{row.estimatedMinutes} min</span>,
   },
 ];

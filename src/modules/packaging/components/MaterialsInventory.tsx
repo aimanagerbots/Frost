@@ -27,6 +27,7 @@ const columns = [
     header: 'Type',
     accessor: 'type' as const,
     sortable: true,
+    hideBelow: 'md' as const,
     render: (row: InvRow) => (
       <span className="inline-flex items-center rounded-full bg-elevated px-2 py-0.5 text-xs text-text-muted">
         {row.type}
@@ -37,6 +38,7 @@ const columns = [
     header: 'Size',
     accessor: 'size' as const,
     sortable: true,
+    hideBelow: 'lg' as const,
   },
   {
     header: 'Stock',
@@ -52,6 +54,7 @@ const columns = [
     header: 'Reorder At',
     accessor: 'reorderPoint' as const,
     sortable: true,
+    hideBelow: 'md' as const,
   },
   {
     header: 'Status',
@@ -65,12 +68,14 @@ const columns = [
     header: 'Cost/Unit',
     accessor: 'costPerUnit' as const,
     sortable: true,
+    hideBelow: 'lg' as const,
     render: (row: InvRow) => <span>${row.costPerUnit.toFixed(2)}</span>,
   },
   {
     header: 'Supplier',
     accessor: 'supplier' as const,
     sortable: true,
+    hideBelow: 'lg' as const,
   },
 ];
 

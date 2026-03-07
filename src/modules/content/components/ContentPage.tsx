@@ -87,6 +87,7 @@ export function ContentPage() {
       header: 'Type',
       accessor: 'type' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: ContentPost) => (
         <StatusBadge variant="default" label={TYPE_LABELS[row.type] ?? row.type} size="sm" />
       ),
@@ -127,6 +128,7 @@ export function ContentPage() {
       accessor: ((row: ContentPost) =>
         row.performance?.impressions ?? 0) as (row: ContentPost) => unknown,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: ContentPost) => {
         if (!row.performance) return <span className="text-text-muted">--</span>;
         return (

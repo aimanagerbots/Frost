@@ -44,7 +44,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 100, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 60,
-    assignee: 'Derek Chen',
+    assignee: 'Rachel Kim',
     createdAt: '2024-11-30T07:00:00Z',
     completedAt: '2024-11-30T08:05:00Z',
   },
@@ -64,7 +64,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 80, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 75,
-    assignee: 'Jordan Martinez',
+    assignee: 'David Okonkwo',
     linkedOrderId: 'ord-2024-039',
     createdAt: '2024-11-30T06:00:00Z',
     completedAt: '2024-11-30T07:20:00Z',
@@ -126,7 +126,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 300, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 100,
-    assignee: 'Derek Chen',
+    assignee: 'Rachel Kim',
     createdAt: '2024-12-01T08:30:00Z',
   },
   {
@@ -144,7 +144,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 100, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 45,
-    assignee: 'Jordan Martinez',
+    assignee: 'David Okonkwo',
     linkedOrderId: 'ord-2024-061',
     createdAt: '2024-12-01T09:00:00Z',
   },
@@ -182,7 +182,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 120, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 50,
-    assignee: 'Derek Chen',
+    assignee: 'Rachel Kim',
     createdAt: '2024-12-01T10:00:00Z',
   },
   {
@@ -200,7 +200,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 200, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 65,
-    assignee: 'Jordan Martinez',
+    assignee: 'David Okonkwo',
     linkedOrderId: 'ord-2024-050',
     createdAt: '2024-12-01T10:30:00Z',
   },
@@ -222,7 +222,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 150, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 100,
-    assignee: 'Jordan Martinez',
+    assignee: 'David Okonkwo',
     linkedOrderId: 'ord-2024-058',
     createdAt: '2024-12-01T07:00:00Z',
   },
@@ -241,7 +241,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 100, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 40,
-    assignee: 'Derek Chen',
+    assignee: 'Rachel Kim',
     createdAt: '2024-12-01T07:30:00Z',
   },
 
@@ -281,7 +281,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 30, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 25,
-    assignee: 'Derek Chen',
+    assignee: 'Rachel Kim',
     createdAt: '2024-12-01T11:30:00Z',
   },
   {
@@ -300,7 +300,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 100, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 65,
-    assignee: 'Jordan Martinez',
+    assignee: 'David Okonkwo',
     createdAt: '2024-12-01T12:00:00Z',
   },
   {
@@ -337,7 +337,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 120, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 55,
-    assignee: 'Derek Chen',
+    assignee: 'Rachel Kim',
     createdAt: '2024-12-01T13:00:00Z',
   },
   {
@@ -355,7 +355,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 200, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 70,
-    assignee: 'Jordan Martinez',
+    assignee: 'David Okonkwo',
     createdAt: '2024-12-01T13:30:00Z',
   },
   {
@@ -392,7 +392,7 @@ const packagingOrders: PackagingOrder[] = [
       { name: 'Shrink Wrap Band', required: 15, available: 8000, unit: 'units', inStock: true },
     ],
     estimatedMinutes: 20,
-    assignee: 'Jordan Martinez',
+    assignee: 'David Okonkwo',
     createdAt: '2024-12-01T14:30:00Z',
   },
 ];
@@ -460,8 +460,14 @@ const metrics: PackagingMetrics = {
   topSKU: 'FL-WC-35',
 };
 
+// ── Helpers ──────────────────────────────────────────────────
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // ── Exports ─────────────────────────────────────────────────
-export function getPackagingOrders(filters?: { status?: string; category?: string; priority?: string }): PackagingOrder[] {
+export async function getPackagingOrders(filters?: { status?: string; category?: string; priority?: string }): Promise<PackagingOrder[]> {
+  await delay(300);
   let result = packagingOrders;
   if (filters?.status) result = result.filter((o) => o.status === filters.status);
   if (filters?.category) result = result.filter((o) => o.category === filters.category);
@@ -469,17 +475,20 @@ export function getPackagingOrders(filters?: { status?: string; category?: strin
   return result;
 }
 
-export function getPackagingOrder(id: string): PackagingOrder | undefined {
+export async function getPackagingOrder(id: string): Promise<PackagingOrder | undefined> {
+  await delay(300);
   return packagingOrders.find((o) => o.id === id);
 }
 
-export function getNonCannabisInventory(filters?: { type?: string; status?: string }): NonCannabisInventory[] {
+export async function getNonCannabisInventory(filters?: { type?: string; status?: string }): Promise<NonCannabisInventory[]> {
+  await delay(300);
   let result = nonCannabisInventory;
   if (filters?.type) result = result.filter((i) => i.type === filters.type);
   if (filters?.status) result = result.filter((i) => i.status === filters.status);
   return result;
 }
 
-export function getPackagingMetrics(): PackagingMetrics {
+export async function getPackagingMetrics(): Promise<PackagingMetrics> {
+  await delay(300);
   return metrics;
 }

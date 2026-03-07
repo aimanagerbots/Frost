@@ -4,6 +4,7 @@ export { MetricCard } from './MetricCard';
 export { StatusBadge } from './StatusBadge';
 export { LoadingSkeleton } from './LoadingSkeleton';
 export { EmptyState } from './EmptyState';
+export { ErrorState } from './ErrorState';
 export { DataTable } from './DataTable';
 export { ChartWrapper, CHART_COLORS, CHART_THEME, legendFormatter } from './ChartWrapper';
 export { TimelineView } from './TimelineView';

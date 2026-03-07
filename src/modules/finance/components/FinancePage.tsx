@@ -119,6 +119,7 @@ export function FinancePage() {
       header: 'Issued',
       accessor: 'issuedDate' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: Invoice) =>
         new Date(row.issuedDate + 'T00:00:00').toLocaleDateString('en-US', {
           month: 'short',
@@ -129,6 +130,7 @@ export function FinancePage() {
       header: 'Due',
       accessor: 'dueDate' as const,
       sortable: true,
+      hideBelow: 'md' as const,
       render: (row: Invoice) =>
         new Date(row.dueDate + 'T00:00:00').toLocaleDateString('en-US', {
           month: 'short',
@@ -138,6 +140,7 @@ export function FinancePage() {
     {
       header: 'Paid Date',
       accessor: 'paidDate' as const,
+      hideBelow: 'lg' as const,
       render: (row: Invoice) =>
         row.paidDate
           ? new Date(row.paidDate + 'T00:00:00').toLocaleDateString('en-US', {
@@ -150,6 +153,7 @@ export function FinancePage() {
       header: 'Days Out',
       accessor: 'daysOutstanding' as const,
       sortable: true,
+      hideBelow: 'lg' as const,
       render: (row: Invoice) => (
         <span className={row.daysOutstanding > 30 ? 'text-[var(--text-danger)]' : ''}>
           {row.daysOutstanding}

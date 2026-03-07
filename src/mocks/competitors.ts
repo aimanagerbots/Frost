@@ -139,21 +139,30 @@ const competitorAlerts: CompetitorAlert[] = [
   { id: 'alert-15', type: 'new-product', competitorName: 'Kush Gardens', accountName: '10 stores', details: 'Kush Kones Infused 1g pre-roll at $15. Live resin-infused. New premium pre-roll sub-category for them.', date: getDateOffset(-18), severity: 'medium' },
 ];
 
+// --- Helpers ---
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // --- Export Functions ---
-export function getCompetitors(): Competitor[] {
+export async function getCompetitors(): Promise<Competitor[]> {
+  await delay(300);
   return competitors;
 }
 
-export function getCompetitorProducts(competitorId?: string): CompetitorProduct[] {
+export async function getCompetitorProducts(competitorId?: string): Promise<CompetitorProduct[]> {
+  await delay(300);
   if (competitorId) return competitorProducts.filter((p) => p.competitorId === competitorId);
   return competitorProducts;
 }
 
-export function getCompetitorAlerts(): CompetitorAlert[] {
+export async function getCompetitorAlerts(): Promise<CompetitorAlert[]> {
+  await delay(300);
   return competitorAlerts.sort((a, b) => b.date.localeCompare(a.date));
 }
 
-export function getCompetitorMetrics(): CompetitorMetrics {
+export async function getCompetitorMetrics(): Promise<CompetitorMetrics> {
+  await delay(300);
   const highAlerts = competitorAlerts.filter((a) => {
     const daysAgo = (Date.now() - new Date(a.date).getTime()) / 86400000;
     return daysAgo <= 30;

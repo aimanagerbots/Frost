@@ -352,20 +352,29 @@ function getDateOffset(days: number): string {
   return d.toISOString().slice(0, 10);
 }
 
+// --- Helpers ---
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // --- Export Functions ---
-export function getGrowRooms(): GrowRoom[] {
+export async function getGrowRooms(): Promise<GrowRoom[]> {
+  await delay(300);
   return growRooms;
 }
 
-export function getGrowRoom(id: string): GrowRoom | undefined {
+export async function getGrowRoom(id: string): Promise<GrowRoom | undefined> {
+  await delay(300);
   return growRooms.find((r) => r.id === id);
 }
 
-export function getHarvestRecords(): HarvestRecord[] {
+export async function getHarvestRecords(): Promise<HarvestRecord[]> {
+  await delay(300);
   return harvestRecords;
 }
 
-export function getCultivationMetrics(): CultivationMetrics {
+export async function getCultivationMetrics(): Promise<CultivationMetrics> {
+  await delay(300);
   const activeRooms = growRooms.filter((r) => r.status === 'active' || r.status === 'drying').length;
   const flowerRooms = growRooms.filter((r) => r.stage === 'flower');
   const vegRooms = growRooms.filter((r) => r.stage === 'veg');
