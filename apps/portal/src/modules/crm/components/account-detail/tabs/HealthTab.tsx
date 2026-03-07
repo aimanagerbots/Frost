@@ -11,6 +11,8 @@ import {
 } from 'recharts';
 import { ChartWrapper, CHART_THEME, StatusBadge, LoadingSkeleton } from '@/components';
 import { useAccountHealth } from '../../../hooks';
+import { InteractionOrderOverlay } from '../../dashboard/charts/InteractionOrderOverlay';
+import { getInteractionOrderData } from '@/mocks/crm-kpi-charts';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
 interface HealthTabProps {
@@ -116,6 +118,9 @@ export function HealthTab({ accountId }: HealthTabProps) {
           ))}
         </div>
       </div>
+
+      {/* Interaction vs Order Overlay */}
+      <InteractionOrderOverlay data={getInteractionOrderData(accountId)} />
 
       {/* AI Recommendations */}
       <div className="rounded-xl border border-default bg-card p-4">

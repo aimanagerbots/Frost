@@ -1,6 +1,16 @@
 'use client';
 
 import { ChartWrapper, CHART_COLORS, CHART_THEME } from '@/components';
+import { ReorderCadenceHistogram } from './charts/ReorderCadenceHistogram';
+import { CategoryCoverageHeatMap } from './charts/CategoryCoverageHeatMap';
+import { RevenueConcentrationDonut } from './charts/RevenueConcentrationDonut';
+import { PaymentComplianceTrafficLight } from './charts/PaymentComplianceTrafficLight';
+import {
+  getReorderCadenceData,
+  getCategoryCoverageData,
+  getRevenueConcentrationData,
+  getPaymentComplianceData,
+} from '@/mocks/crm-kpi-charts';
 import type {
   RevenueByCategoryWeek,
   HealthDistribution,
@@ -469,6 +479,20 @@ export function ChartsSection({
           </BarChart>
         </ResponsiveContainer>
       </ChartWrapper>
+
+      {/* Reorder Cadence Histogram */}
+      <ReorderCadenceHistogram data={getReorderCadenceData()} />
+
+      {/* Revenue Concentration Donut */}
+      <RevenueConcentrationDonut data={getRevenueConcentrationData()} />
+
+      {/* Payment Compliance Traffic Light */}
+      <PaymentComplianceTrafficLight data={getPaymentComplianceData()} />
+
+      {/* Category Coverage Heat Map — full width */}
+      <div className="md:col-span-2">
+        <CategoryCoverageHeatMap data={getCategoryCoverageData()} />
+      </div>
     </div>
   );
 }
