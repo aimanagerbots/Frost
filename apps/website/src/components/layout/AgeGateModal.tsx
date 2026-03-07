@@ -1,34 +1,38 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useSyncExternalStore, useCallback } from 'react';
 
 const AGE_GATE_KEY = 'frost-age-verified';
 
-export function AgeGateModal() {
-  const [mounted, setMounted] = useState(false);
-  const [verified, setVerified] = useState(false);
+function getSnapshot(): boolean {
+  return localStorage.getItem(AGE_GATE_KEY) === 'true';
+}
 
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem(AGE_GATE_KEY);
-    if (stored === 'true') {
-      setVerified(true);
-    }
+function getServerSnapshot(): boolean {
+  return false;
+}
+
+function subscribe(callback: () => void): () => void {
+  window.addEventListener('storage', callback);
+  return () => window.removeEventListener('storage', callback);
+}
+
+export function AgeGateModal() {
+  const isVerifiedInStorage = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const [dismissed, setDismissed] = useState(false);
+
+  const handleConfirm = useCallback(() => {
+    localStorage.setItem(AGE_GATE_KEY, 'true');
+    setDismissed(true);
   }, []);
 
-  // Don't render on server or if already verified
-  if (!mounted || verified) {
+  const handleDeny = useCallback(() => {
+    window.location.href = 'https://www.google.com';
+  }, []);
+
+  if (isVerifiedInStorage || dismissed) {
     return null;
   }
-
-  const handleConfirm = () => {
-    localStorage.setItem(AGE_GATE_KEY, 'true');
-    setVerified(true);
-  };
-
-  const handleDeny = () => {
-    window.location.href = 'https://www.google.com';
-  };
 
   return (
     <div

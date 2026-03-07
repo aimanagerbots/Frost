@@ -4,7 +4,6 @@ import Link from "next/link";
 import { CATEGORIES, CATEGORY_SLUGS } from "@/lib/constants";
 import { getProductBySlug, getProductsByCategory } from "@/mocks/products";
 import { Badge } from "@/components/ui/Badge";
-import { CTAButton } from "@/components/ui/CTAButton";
 import { ComplianceWarning } from "@/components/ui/ComplianceWarning";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";

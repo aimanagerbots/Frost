@@ -1,18 +1,29 @@
-import Link from "next/link";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { getAllPosts } from "@/mocks/blog-posts";
+import { BlogPageClient } from "./BlogPageClient";
 
 export default function BlogPage() {
+  const posts = getAllPosts();
   return (
-    <main className="min-h-screen px-6 py-24 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold tracking-tight text-text-bright mb-4">
-        Blog
-      </h1>
-      <p className="text-lg text-text-muted mb-8">
-        Articles, strain spotlights, and industry insights from the Frost team.
-        Stay up to date with the latest in craft cannabis.
-      </p>
-      <Link href="/" className="text-accent-primary hover:underline">
-        Back to Home
-      </Link>
-    </main>
+    <div>
+      {/* Header section */}
+      <div className="pt-32 pb-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="font-display text-[64px] leading-[1.1] tracking-[-0.02em] text-text-default">
+            The Frost Journal
+          </h1>
+          <p className="mt-4 text-lg text-text-muted font-sans max-w-2xl">
+            Stories, strain spotlights, and insights from the world of craft cannabis.
+          </p>
+        </div>
+      </div>
+      <ScrollReveal>
+        <section className="section-pad px-6">
+          <div className="max-w-7xl mx-auto">
+            <BlogPageClient posts={posts} />
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
   );
 }

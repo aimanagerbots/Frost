@@ -1,14 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Badge } from "./Badge";
-
-type BlogCategory =
-  | "flower"
-  | "concentrate"
-  | "vape"
-  | "preroll"
-  | "edible"
-  | "beverage";
 
 interface BlogPostCardProps {
   title: string;
@@ -16,8 +7,8 @@ interface BlogPostCardProps {
   excerpt: string;
   author: string;
   date: string;
-  readTime: string;
-  category: BlogCategory;
+  readTime: number;
+  category: string;
   imageUrl: string;
 }
 
@@ -34,22 +25,23 @@ export function BlogPostCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group block rounded-xl border border-border-default bg-card overflow-hidden transition-colors hover:border-border-hover"
+      className="group block rounded-xl border border-border-default bg-card overflow-hidden hover-lift"
     >
       <div className="relative aspect-[16/9] overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover img-hover"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
+        <span className="absolute top-3 left-3 bg-accent-primary/90 text-text-on-dark text-xs uppercase tracking-wider rounded-full px-3 py-1 font-sans font-medium">
+          {category}
+        </span>
       </div>
 
       <div className="p-5 space-y-3">
-        <Badge label={category} variant={category} />
-
-        <h3 className="font-display text-xl text-text-default leading-snug">
+        <h3 className="font-display text-[22px] leading-snug text-text-default">
           {title}
         </h3>
 
@@ -57,8 +49,8 @@ export function BlogPostCard({
           {excerpt}
         </p>
 
-        <p className="text-xs text-text-muted font-sans">
-          {author} &middot; {date} &middot; {readTime}
+        <p className="text-[13px] text-text-muted font-sans">
+          {author} &middot; {date} &middot; {readTime} min read
         </p>
       </div>
     </Link>

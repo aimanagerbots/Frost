@@ -202,3 +202,15 @@ export const blogPosts: BlogPost[] = [
     tags: ["food pairing", "cuisine", "pacific northwest", "culture", "terpenes"],
   },
 ];
+
+export function getAllPosts(): BlogPost[] {
+  return blogPosts;
+}
+
+export function getPostBySlug(slug: string): BlogPost | undefined {
+  return blogPosts.find((post) => post.slug === slug);
+}
+
+export function getPostsByCategory(category: string): BlogPost[] {
+  return blogPosts.filter((post) => post.category === category);
+}
