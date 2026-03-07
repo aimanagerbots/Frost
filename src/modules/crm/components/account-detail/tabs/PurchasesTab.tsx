@@ -105,8 +105,8 @@ export function PurchasesTab({ accountId, account }: PurchasesTabProps) {
         </span>
       ),
     },
-    { header: 'SKUs', accessor: 'skuCount' as const, sortable: true },
-    { header: 'Categories', accessor: 'categories' as const, sortable: false },
+    { header: 'SKUs', accessor: 'skuCount' as const, sortable: true, hideBelow: 'md' as const },
+    { header: 'Categories', accessor: 'categories' as const, sortable: false, hideBelow: 'lg' as const },
     {
       header: 'Total',
       accessor: 'total' as const,

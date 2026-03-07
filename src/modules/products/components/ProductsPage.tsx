@@ -93,7 +93,7 @@ export function ProductsPage() {
       </div>
 
       {/* Pipeline grid */}
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {STAGES.map((stage) => {
           const stageConcepts = conceptsByStage(stage.key);
           return (
