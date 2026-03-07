@@ -53,7 +53,9 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Commit after every completed phase or meaningful chunk of work
 - Use conventional commits: feat:, fix:, chore:, style:, refactor:
 - ALWAYS push to main after every commit: git push origin main
-- Vercel auto-deploys from main — every push goes to production
+- ALSO push to Vercel production branch: git push origin main:claude/research-claude-md-jau3A
+- Vercel production branch is currently claude/research-claude-md-jau3A (change to main in Vercel Dashboard when ready)
+- Domain: frost-orcin.vercel.app
 - Never sit on uncommitted work. If you built it, commit and push it.
 - Always verify with git status before committing to make sure nothing is left behind
 

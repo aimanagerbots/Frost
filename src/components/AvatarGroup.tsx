@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface AvatarUser {
@@ -37,9 +38,11 @@ function hashColor(name: string): string {
 
 function Avatar({ user, className }: { user: AvatarUser; className?: string }) {
   return user.imageUrl ? (
-    <img
+    <Image
       src={user.imageUrl}
       alt={user.name}
+      width={32}
+      height={32}
       className={cn(
         'h-8 w-8 rounded-full border-2 border-card object-cover',
         className
