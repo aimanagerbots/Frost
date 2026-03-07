@@ -281,3 +281,195 @@ export type AccountDetailTab =
   | 'profile' | 'purchases' | 'health' | 'vmi'
   | 'interactions' | 'opportunities' | 'payments'
   | 'deliveries' | 'files' | 'notes';
+
+// --- Outreach Types ---
+
+export interface Campaign {
+  id: string;
+  name: string;
+  type: 'morning-reorder' | 'product-launch' | 'win-back' | 'seasonal' | 'custom';
+  status: 'draft' | 'scheduled' | 'active' | 'completed' | 'paused';
+  targetSegment: string;
+  targetCount: number;
+  channel: 'email' | 'sms' | 'multi';
+  sentCount: number;
+  openRate: number;
+  responseRate: number;
+  ordersGenerated: number;
+  revenueAttributed: number;
+  scheduledAt: string | null;
+  completedAt: string | null;
+  createdBy: string;
+  messageTemplate: string;
+}
+
+export interface CampaignRecipient {
+  accountId: string;
+  accountName: string;
+  status: 'sent' | 'opened' | 'responded' | 'ordered';
+  sentAt: string;
+  openedAt: string | null;
+  respondedAt: string | null;
+  orderPlaced: boolean;
+}
+
+export interface CampaignDetail extends Campaign {
+  recipients: CampaignRecipient[];
+}
+
+export interface VendorDayReport {
+  attendance: string;
+  productsShowcased: string[];
+  budtenderFeedback: string;
+  competitorObservations: string;
+  followUpActions: string[];
+  photos: number;
+}
+
+export interface VendorDay {
+  id: string;
+  accountId: string;
+  accountName: string;
+  date: string;
+  ambassador: string;
+  purpose: 'product-education' | 'new-product-intro' | 'relationship-building' | 'promotional';
+  status: 'scheduled' | 'completed' | 'cancelled';
+  report?: VendorDayReport;
+}
+
+export interface VendorDayImpact {
+  accountId: string;
+  preVisitRevenue: number;
+  postVisitRevenue: number;
+  lift: number;
+  preVisitCategories: number;
+  postVisitCategories: number;
+}
+
+// --- Sales Types ---
+
+export interface ProposedProduct {
+  sku: string;
+  name: string;
+  category: string;
+  qty: number;
+  unitPrice: number;
+  lastOrderPrice: number;
+}
+
+export interface ReorderProposal {
+  id: string;
+  accountId: string;
+  accountName: string;
+  proposedProducts: ProposedProduct[];
+  totalValue: number;
+  confidence: number;
+  source: 'vmi-velocity' | 'cadence-analysis' | 'manual';
+  reasoning: string;
+  daysSinceLastOrder: number;
+  status: 'pending' | 'approved' | 'sent' | 'ordered' | 'rejected';
+  createdAt: string;
+  modifiedAt: string;
+  draftEmail: string;
+}
+
+export interface PriceBookEntry {
+  id: string;
+  productName: string;
+  category: string;
+  subCategory: string;
+  packageSize: string;
+  defaultPrice: number;
+  cost: number;
+  margin: number;
+  tier1Price: number;
+  tier2Price: number;
+  tier3Price: number;
+}
+
+export interface LeaderboardRep extends SalesRep {
+  rank: number;
+  periodRevenue: number;
+  periodOrders: number;
+  newAccounts: number;
+  healthImprovement: number;
+  proposalAcceptRate: number;
+  trend: 'up' | 'down' | 'flat';
+  streakDays: number;
+  goalProgress: number;
+  topAccounts: { name: string; revenue: number }[];
+}
+
+// --- AI Copilot Types ---
+
+export interface CopilotMessage {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: string;
+  sources?: { type: string; label: string }[];
+  suggestedActions?: { label: string; action: string }[];
+}
+
+export interface CopilotSuggestion {
+  id: string;
+  text: string;
+  category: 'account-briefing' | 'comparative' | 'communication' | 'forecasting' | 'strategy' | 'data-query';
+}
+
+// --- Territory Types ---
+
+export interface TerritoryAccount {
+  id: string;
+  name: string;
+  lat: number;
+  lng: number;
+  health: number;
+  revenue30d: number;
+  status: 'active' | 'at-risk' | 'churning' | 'prospect' | 'inactive';
+  vmiEnrolled: boolean;
+}
+
+export interface TerritoryData {
+  repId: string;
+  repName: string;
+  color: string;
+  bounds: { lat: number; lng: number }[][];
+  accounts: TerritoryAccount[];
+}
+
+export interface TerritoryMetrics {
+  repId: string;
+  repName: string;
+  totalAccounts: number;
+  totalRevenue: number;
+  avgHealth: number;
+  atRiskCount: number;
+}
+
+// --- Segment Types ---
+
+export interface SegmentCriterion {
+  field: string;
+  operator: 'equals' | 'not_equals' | 'greater_than' | 'less_than' | 'contains' | 'in' | 'not_in' | 'between';
+  value: string | number | string[];
+  label: string;
+}
+
+export interface Segment {
+  id: string;
+  name: string;
+  description: string;
+  criteria: SegmentCriterion[];
+  accountCount: number;
+  totalRevenue: number;
+  createdAt: string;
+  updatedAt: string;
+  isPrebuilt: boolean;
+}
+
+export interface SegmentPreview {
+  accounts: { id: string; name: string; health: number; revenue30d: number; city: string }[];
+  totalCount: number;
+  totalRevenue: number;
+}
