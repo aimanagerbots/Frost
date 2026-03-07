@@ -260,6 +260,262 @@ const pugetSound: Account = {
   ],
 };
 
+const summitCannabis: Account = {
+  id: 'acct-summit',
+  name: 'Summit Cannabis Co.',
+  dba: 'Summit Cannabis LLC',
+  licenseNumber: 'WA-CCB-420780',
+  licenseExpiration: '2027-04-10',
+  address: { street: '1204 Cornwall Ave', city: 'Bellingham', state: 'WA', zip: '98225', lat: 48.7516, lng: -122.4783 },
+  region: 'NW Washington',
+  assignedRepId: 'rep-jake',
+  healthScore: 75,
+  healthTrend: 'stable',
+  vmiEnrolled: true,
+  status: 'active',
+  segments: ['mid-tier', 'vmi'],
+  createdAt: '2025-04-15',
+  lastOrderDate: '2026-03-02',
+  totalRevenue: 168400,
+  thirtyDayRevenue: 14200,
+  avgOrderValue: 2800,
+  orderCount: 60,
+  paymentReliability: 'excellent',
+  preferredPaymentMethod: 'ach',
+  deliveryPreferences: { window: 'Mon/Thu 9am-1pm', instructions: 'Rear loading bay, call on arrival', contactName: 'Grant Holloway', contactPhone: '(360) 555-0440' },
+  categoryMix: [
+    { category: 'flower', percentage: 45, revenue: 75780 },
+    { category: 'concentrate', percentage: 30, revenue: 50520 },
+    { category: 'preroll', percentage: 10, revenue: 16840 },
+    { category: 'edible', percentage: 8, revenue: 13472 },
+    { category: 'vaporizer', percentage: 5, revenue: 8420 },
+    { category: 'beverage', percentage: 2, revenue: 3368 },
+  ],
+  contacts: [
+    { id: 'contact-grant-holloway', name: 'Grant Holloway', role: 'owner', phone: '(360) 555-0440', email: 'grant@summitcannabis.com', preferredChannel: 'email', isPrimary: true },
+    { id: 'contact-beth-simon', name: 'Beth Simon', role: 'buyer', phone: '(360) 555-0441', email: 'beth@summitcannabis.com', preferredChannel: 'email', isPrimary: false },
+  ],
+};
+
+const rainierRemedies: Account = {
+  id: 'acct-rainier',
+  name: 'Rainier Remedies',
+  dba: 'Rainier Remedies Inc',
+  licenseNumber: 'WA-CCB-420512',
+  licenseExpiration: '2026-09-30',
+  address: { street: '4510 S Tacoma Way', city: 'Tacoma', state: 'WA', zip: '98409', lat: 47.2182, lng: -122.4735 },
+  region: 'Tacoma',
+  assignedRepId: 'rep-priya',
+  healthScore: 45,
+  healthTrend: 'declining',
+  vmiEnrolled: false,
+  status: 'at-risk',
+  segments: ['at-risk', 'payment-issues'],
+  createdAt: '2024-08-01',
+  lastOrderDate: '2026-02-10',
+  totalRevenue: 112600,
+  thirtyDayRevenue: 0,
+  avgOrderValue: 2100,
+  orderCount: 54,
+  paymentReliability: 'poor',
+  preferredPaymentMethod: 'cod',
+  deliveryPreferences: { window: 'Tue/Fri 10am-3pm', instructions: 'Main entrance, ask for front desk', contactName: 'Victor Almeida', contactPhone: '(253) 555-0520' },
+  categoryMix: [
+    { category: 'flower', percentage: 35, revenue: 39410 },
+    { category: 'preroll', percentage: 20, revenue: 22520 },
+    { category: 'edible', percentage: 18, revenue: 20268 },
+    { category: 'vaporizer', percentage: 12, revenue: 13512 },
+    { category: 'concentrate', percentage: 10, revenue: 11260 },
+    { category: 'beverage', percentage: 5, revenue: 5630 },
+  ],
+  contacts: [
+    { id: 'contact-victor-almeida', name: 'Victor Almeida', role: 'owner', phone: '(253) 555-0520', email: 'victor@rainierremedies.com', preferredChannel: 'phone', isPrimary: true },
+    { id: 'contact-jenny-wu', name: 'Jenny Wu', role: 'buyer', phone: '(253) 555-0521', email: 'jenny@rainierremedies.com', preferredChannel: 'sms', isPrimary: false },
+  ],
+};
+
+const olympicGreens: Account = {
+  id: 'acct-olympic',
+  name: 'Olympic Greens',
+  dba: 'Olympic Greens Dispensary LLC',
+  licenseNumber: 'WA-CCB-420634',
+  licenseExpiration: '2027-02-28',
+  address: { street: '815 4th Ave E', city: 'Olympia', state: 'WA', zip: '98501', lat: 47.0453, lng: -122.8932 },
+  region: 'Olympia',
+  assignedRepId: 'rep-priya',
+  healthScore: 82,
+  healthTrend: 'stable',
+  vmiEnrolled: false,
+  status: 'active',
+  segments: ['preroll-heavy', 'reliable'],
+  createdAt: '2024-10-20',
+  lastOrderDate: '2026-03-04',
+  totalRevenue: 194200,
+  thirtyDayRevenue: 18600,
+  avgOrderValue: 2700,
+  orderCount: 72,
+  paymentReliability: 'excellent',
+  preferredPaymentMethod: 'ach',
+  deliveryPreferences: { window: 'Wed/Fri 8am-12pm', instructions: 'Side entrance on 4th Ave, buzzer code 2247', contactName: 'Dana Reyes', contactPhone: '(360) 555-0634' },
+  categoryMix: [
+    { category: 'preroll', percentage: 60, revenue: 116520 },
+    { category: 'flower', percentage: 25, revenue: 48550 },
+    { category: 'edible', percentage: 8, revenue: 15536 },
+    { category: 'vaporizer', percentage: 4, revenue: 7768 },
+    { category: 'concentrate', percentage: 2, revenue: 3884 },
+    { category: 'beverage', percentage: 1, revenue: 1942 },
+  ],
+  contacts: [
+    { id: 'contact-dana-reyes', name: 'Dana Reyes', role: 'buyer', phone: '(360) 555-0634', email: 'dana@olympicgreens.com', preferredChannel: 'email', isPrimary: true },
+  ],
+};
+
+const spokaneValley: Account = {
+  id: 'acct-spokane-valley',
+  name: 'Spokane Valley Dispensary',
+  dba: 'SVD Cannabis Inc',
+  licenseNumber: 'WA-CCB-421045',
+  licenseExpiration: '2027-05-15',
+  address: { street: '12014 E Sprague Ave', city: 'Spokane Valley', state: 'WA', zip: '99206', lat: 47.6535, lng: -117.3533 },
+  region: 'Spokane',
+  assignedRepId: 'rep-carlos',
+  healthScore: 65,
+  healthTrend: 'stable',
+  vmiEnrolled: false,
+  status: 'active',
+  segments: ['mid-tier'],
+  createdAt: '2025-02-10',
+  lastOrderDate: '2026-02-25',
+  totalRevenue: 48600,
+  thirtyDayRevenue: 4200,
+  avgOrderValue: 1620,
+  orderCount: 30,
+  paymentReliability: 'good',
+  preferredPaymentMethod: 'cod',
+  deliveryPreferences: { window: 'Thu 10am-4pm', instructions: 'Front door, parking in rear lot', contactName: 'Paul Hernandez', contactPhone: '(509) 555-1045' },
+  categoryMix: [
+    { category: 'flower', percentage: 30, revenue: 14580 },
+    { category: 'preroll', percentage: 20, revenue: 9720 },
+    { category: 'vaporizer', percentage: 18, revenue: 8748 },
+    { category: 'edible', percentage: 15, revenue: 7290 },
+    { category: 'concentrate', percentage: 12, revenue: 5832 },
+    { category: 'beverage', percentage: 5, revenue: 2430 },
+  ],
+  contacts: [
+    { id: 'contact-paul-hernandez', name: 'Paul Hernandez', role: 'manager', phone: '(509) 555-1045', email: 'paul@spokanevalleydispensary.com', preferredChannel: 'phone', isPrimary: true },
+  ],
+};
+
+const capitolHillCollective: Account = {
+  id: 'acct-capitol-hill',
+  name: 'Capitol Hill Collective',
+  dba: 'CHC Cannabis LLC',
+  licenseNumber: 'WA-CCB-420188',
+  licenseExpiration: '2027-07-31',
+  address: { street: '1532 Broadway E', city: 'Seattle', state: 'WA', zip: '98102', lat: 47.6148, lng: -122.3208 },
+  region: 'Seattle Metro',
+  assignedRepId: 'rep-jake',
+  healthScore: 88,
+  healthTrend: 'improving',
+  vmiEnrolled: true,
+  status: 'active',
+  segments: ['premium', 'trend-setter', 'vmi'],
+  createdAt: '2024-06-25',
+  lastOrderDate: '2026-03-05',
+  totalRevenue: 342800,
+  thirtyDayRevenue: 32400,
+  avgOrderValue: 3800,
+  orderCount: 90,
+  paymentReliability: 'excellent',
+  preferredPaymentMethod: 'ach',
+  deliveryPreferences: { window: 'Mon/Wed/Fri 7am-10am', instructions: 'Underground garage, bay 3, text on arrival', contactName: 'Naomi Chen', contactPhone: '(206) 555-0188' },
+  categoryMix: [
+    { category: 'concentrate', percentage: 35, revenue: 119980 },
+    { category: 'vaporizer', percentage: 30, revenue: 102840 },
+    { category: 'flower', percentage: 15, revenue: 51420 },
+    { category: 'edible', percentage: 10, revenue: 34280 },
+    { category: 'preroll', percentage: 5, revenue: 17140 },
+    { category: 'beverage', percentage: 5, revenue: 17140 },
+  ],
+  contacts: [
+    { id: 'contact-naomi-chen', name: 'Naomi Chen', role: 'owner', phone: '(206) 555-0188', email: 'naomi@capitolhillcollective.com', preferredChannel: 'email', isPrimary: true },
+    { id: 'contact-alex-rivera', name: 'Alex Rivera', role: 'buyer', phone: '(206) 555-0189', email: 'alex@capitolhillcollective.com', preferredChannel: 'sms', isPrimary: false },
+  ],
+};
+
+const harborCannabis: Account = {
+  id: 'acct-harbor',
+  name: 'Harbor Cannabis',
+  dba: 'Harbor Cannabis Co',
+  licenseNumber: 'WA-CCB-421200',
+  licenseExpiration: '2027-08-20',
+  address: { street: '302 E Wishkah St', city: 'Aberdeen', state: 'WA', zip: '98520', lat: 46.9754, lng: -123.8157 },
+  region: 'Coastal WA',
+  assignedRepId: 'rep-carlos',
+  healthScore: 50,
+  healthTrend: 'declining',
+  vmiEnrolled: false,
+  status: 'at-risk',
+  segments: ['rural', 'flower-focused', 'at-risk'],
+  createdAt: '2025-06-01',
+  lastOrderDate: '2026-02-05',
+  totalRevenue: 24800,
+  thirtyDayRevenue: 0,
+  avgOrderValue: 2480,
+  orderCount: 10,
+  paymentReliability: 'fair',
+  preferredPaymentMethod: 'mail',
+  deliveryPreferences: { window: 'Fri only, 11am-3pm', instructions: 'Highway 101 storefront, no loading dock — hand carry only', contactName: 'Earl Dawkins', contactPhone: '(360) 555-1200' },
+  categoryMix: [
+    { category: 'flower', percentage: 100, revenue: 24800 },
+    { category: 'preroll', percentage: 0, revenue: 0 },
+    { category: 'vaporizer', percentage: 0, revenue: 0 },
+    { category: 'concentrate', percentage: 0, revenue: 0 },
+    { category: 'edible', percentage: 0, revenue: 0 },
+    { category: 'beverage', percentage: 0, revenue: 0 },
+  ],
+  contacts: [
+    { id: 'contact-earl-dawkins', name: 'Earl Dawkins', role: 'owner', phone: '(360) 555-1200', email: 'earl@harborcannabis.com', preferredChannel: 'phone', isPrimary: true },
+  ],
+};
+
+const evergreenWellness: Account = {
+  id: 'acct-evergreen',
+  name: 'Evergreen Wellness',
+  dba: 'Evergreen Wellness Dispensary',
+  licenseNumber: 'WA-CCB-421088',
+  licenseExpiration: '2027-09-15',
+  address: { street: '1890 Jadwin Ave', city: 'Richland', state: 'WA', zip: '99352', lat: 46.2856, lng: -119.2834 },
+  region: 'Eastern WA',
+  assignedRepId: 'rep-carlos',
+  healthScore: 72,
+  healthTrend: 'improving',
+  vmiEnrolled: false,
+  status: 'active',
+  segments: ['growing', 'expanding-categories'],
+  createdAt: '2025-09-01',
+  lastOrderDate: '2026-03-01',
+  totalRevenue: 52400,
+  thirtyDayRevenue: 8600,
+  avgOrderValue: 2180,
+  orderCount: 24,
+  paymentReliability: 'good',
+  preferredPaymentMethod: 'cod',
+  deliveryPreferences: { window: 'Tue/Thu 10am-2pm', instructions: 'Main entrance, ring buzzer', contactName: 'Maria Santos', contactPhone: '(509) 555-1088' },
+  categoryMix: [
+    { category: 'flower', percentage: 50, revenue: 26200 },
+    { category: 'edible', percentage: 25, revenue: 13100 },
+    { category: 'preroll', percentage: 15, revenue: 7860 },
+    { category: 'vaporizer', percentage: 5, revenue: 2620 },
+    { category: 'concentrate', percentage: 3, revenue: 1572 },
+    { category: 'beverage', percentage: 2, revenue: 1048 },
+  ],
+  contacts: [
+    { id: 'contact-maria-santos', name: 'Maria Santos', role: 'buyer', phone: '(509) 555-1088', email: 'maria@evergreenwellness.com', preferredChannel: 'email', isPrimary: true },
+    { id: 'contact-raj-patel', name: 'Raj Patel', role: 'owner', phone: '(509) 555-1089', email: 'raj@evergreenwellness.com', preferredChannel: 'phone', isPrimary: false },
+  ],
+};
+
 // --- Generated Accounts ---
 
 function makeAccount(
@@ -317,6 +573,8 @@ const generatedAccounts: Account[] = [
 // --- All Accounts ---
 export const accounts: Account[] = [
   greenfield, pacificLeaf, emeraldCity, cascadeWellness, pugetSound,
+  summitCannabis, rainierRemedies, olympicGreens, spokaneValley,
+  capitolHillCollective, harborCannabis, evergreenWellness,
   ...generatedAccounts,
 ];
 
@@ -333,16 +591,131 @@ export const interactions: Interaction[] = [
   { id: 'int-008', accountId: 'acct-005', contactId: 'contact-acct-005', channel: 'email', direction: 'outbound', subject: 'Win-back offer', summary: 'Sent 10% discount on next 3 orders to re-engage declining account', content: 'Hi Steve, we value your business and wanted to offer...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-03T16:20:00Z', sentiment: 'neutral' },
   { id: 'int-009', accountId: 'acct-013', contactId: 'contact-acct-013', channel: 'note', direction: 'outbound', subject: 'Internal: escalation needed', summary: 'Account at risk — 2 invoices overdue, need manager review', content: 'Flagging Vancouver Vapor for Dana review...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-04T09:00:00Z', sentiment: 'negative' },
   { id: 'int-010', accountId: 'acct-004', contactId: 'contact-acct-004', channel: 'email', direction: 'inbound', subject: 'VMI enrollment interest', summary: 'Rachel inquiring about VMI program requirements and timeline', content: 'Hi Priya, I\'ve been hearing about your VMI program...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-05T07:45:00Z', sentiment: 'positive' },
+
+  // --- Greenfield Dispensary (12 more → total 14) ---
+  { id: 'int-011', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'email', direction: 'outbound', subject: 'Weekly order confirmation — Feb 25', summary: 'Confirmed Tue delivery of 22 SKUs, $3,640 order', content: 'Hi Sarah, your order for next Tuesday is locked in...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-25T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-012', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'phone', direction: 'inbound', subject: 'Delivery feedback', summary: 'Sarah called to report one damaged case of prerolls in last delivery', content: 'Sarah called regarding damaged packaging on 12-pack preroll case...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-24T14:20:00Z', sentiment: 'negative' },
+  { id: 'int-013', accountId: 'acct-greenfield', contactId: 'contact-mike-rodriguez', channel: 'meeting', direction: 'outbound', subject: 'Q1 business review', summary: 'Met with Mike to review Q1 performance. Revenue up 14%. Discussed Q2 growth targets.', content: 'Quarterly review with owner Mike Rodriguez...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-20T10:00:00Z', sentiment: 'positive' },
+  { id: 'int-014', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'agent', direction: 'outbound', subject: 'VMI reorder — Feb 18', summary: 'Automated VMI detected low vaporizer stock, generated reorder of 8 SKUs', content: 'VMI system triggered reorder for vaporizer category...', userId: 'rep-jake', agentId: 'agent-vmi-01', timestamp: '2026-02-18T06:00:00Z', sentiment: 'positive' },
+  { id: 'int-015', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'email', direction: 'outbound', subject: 'New edible line preview', summary: 'Sent product sheets for new gummy line launching in March', content: 'Hi Sarah, wanted to give you a sneak peek at our new gummy line...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-14T11:00:00Z', sentiment: 'positive' },
+  { id: 'int-016', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'email', direction: 'inbound', subject: 'Re: New edible line preview', summary: 'Sarah interested in gummy line, wants to add 4 SKUs to next order', content: 'These look great! Can we add the mango and mixed berry flavors...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-15T08:30:00Z', sentiment: 'positive' },
+  { id: 'int-017', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'phone', direction: 'outbound', subject: 'February check-in', summary: 'Monthly touch-base call. All metrics healthy. Sarah mentioned expanding beverage cooler.', content: 'Monthly check-in call with Sarah...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-10T15:00:00Z', sentiment: 'positive' },
+  { id: 'int-018', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'email', direction: 'outbound', subject: 'January invoice summary', summary: 'Sent consolidated January invoice breakdown — $38,400 total, all paid on time', content: 'Hi Sarah, attached is your January invoice summary...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-03T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-019', accountId: 'acct-greenfield', contactId: 'contact-mike-rodriguez', channel: 'email', direction: 'inbound', subject: 'License renewal confirmation', summary: 'Mike forwarded updated license — renewed through March 2027', content: 'Jake, FYI our license renewal went through. Attached updated copy...', userId: 'rep-jake', agentId: null, timestamp: '2026-01-28T10:15:00Z', sentiment: 'positive' },
+  { id: 'int-020', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'agent', direction: 'outbound', subject: 'VMI reorder — Jan 22', summary: 'Automated reorder triggered for flower and preroll categories', content: 'VMI auto-reorder: 14 SKUs across flower and preroll...', userId: 'rep-jake', agentId: 'agent-vmi-01', timestamp: '2026-01-22T06:00:00Z', sentiment: 'positive' },
+  { id: 'int-021', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'meeting', direction: 'outbound', subject: 'Holiday season debrief', summary: 'Reviewed holiday performance — 22% above target. Discussed spring promotions.', content: 'Post-holiday debrief meeting at Greenfield...', userId: 'rep-jake', agentId: null, timestamp: '2026-01-15T14:00:00Z', sentiment: 'positive' },
+  { id: 'int-022', accountId: 'acct-greenfield', contactId: 'contact-sarah-chen', channel: 'email', direction: 'outbound', subject: 'Holiday promo results', summary: 'Shared holiday campaign results — their store was top 3 in sell-through', content: 'Hi Sarah, the holiday numbers are in and Greenfield was #2...', userId: 'rep-jake', agentId: null, timestamp: '2025-12-28T10:00:00Z', sentiment: 'positive' },
+
+  // --- Pacific Leaf (8 more → total 9) ---
+  { id: 'int-023', accountId: 'acct-pacific-leaf', contactId: 'contact-david-kim', channel: 'email', direction: 'outbound', subject: 'Payment reminder — Invoice #1180', summary: 'Formal payment reminder sent for overdue invoice', content: 'Hi David, this is a reminder that invoice #1180 for $4,200 is now overdue...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-02T09:00:00Z', sentiment: 'neutral' },
+  { id: 'int-024', accountId: 'acct-pacific-leaf', contactId: 'contact-david-kim', channel: 'phone', direction: 'outbound', subject: 'Order follow-up', summary: 'Called David about next order. He said they\'re cautious due to cash flow from POS transition.', content: 'Spoke with David about upcoming orders...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-26T11:30:00Z', sentiment: 'negative' },
+  { id: 'int-025', accountId: 'acct-pacific-leaf', contactId: 'contact-david-kim', channel: 'email', direction: 'outbound', subject: 'Vape category review', summary: 'Sent analysis showing their vape sales dropped 40% QoQ — suggested merchandising changes', content: 'Hi David, I pulled your category data and noticed vape sales...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-18T10:00:00Z', sentiment: 'neutral' },
+  { id: 'int-026', accountId: 'acct-pacific-leaf', contactId: 'contact-david-kim', channel: 'meeting', direction: 'outbound', subject: 'POS migration check-in', summary: 'Met at Pacific Leaf to discuss POS migration timeline. Target completion mid-March.', content: 'In-store meeting with David about their POS migration...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-12T14:00:00Z', sentiment: 'neutral' },
+  { id: 'int-027', accountId: 'acct-pacific-leaf', contactId: 'contact-david-kim', channel: 'email', direction: 'inbound', subject: 'Re: Vape category review', summary: 'David acknowledged the vape decline — says customers shifting to concentrates', content: 'Thanks Priya, you\'re right about the vape numbers. Our customers are moving to...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-19T16:00:00Z', sentiment: 'neutral' },
+  { id: 'int-028', accountId: 'acct-pacific-leaf', contactId: 'contact-david-kim', channel: 'phone', direction: 'outbound', subject: 'January check-in', summary: 'Routine monthly call. David mentioned tight margins and considering reducing SKU count.', content: 'Monthly call with David at Pacific Leaf...', userId: 'rep-priya', agentId: null, timestamp: '2026-01-20T10:00:00Z', sentiment: 'negative' },
+  { id: 'int-029', accountId: 'acct-pacific-leaf', contactId: 'contact-david-kim', channel: 'email', direction: 'outbound', subject: 'Q4 performance recap', summary: 'Sent Q4 summary — revenue flat, AOV declining. Recommended focus on higher-margin products.', content: 'Hi David, here\'s your Q4 performance summary...', userId: 'rep-priya', agentId: null, timestamp: '2026-01-08T09:00:00Z', sentiment: 'neutral' },
+  { id: 'int-030', accountId: 'acct-pacific-leaf', contactId: 'contact-david-kim', channel: 'sms', direction: 'inbound', subject: 'Late payment heads up', summary: 'David texted that December payment will be a week late', content: 'Hey Priya, December payment going to be about a week late, apologies...', userId: 'rep-priya', agentId: null, timestamp: '2025-12-22T17:30:00Z', sentiment: 'negative' },
+
+  // --- Emerald City Cannabis (6 more → total 8, showing cooling) ---
+  { id: 'int-031', accountId: 'acct-emerald-city', contactId: 'contact-amanda-torres', channel: 'email', direction: 'outbound', subject: 'Win-back pricing proposal', summary: 'Sent competitive pricing sheet with 8% discount on top 10 SKUs', content: 'Hi Amanda, I put together a special pricing proposal for you...', userId: 'rep-jake', agentId: null, timestamp: '2026-03-01T10:00:00Z', sentiment: 'neutral' },
+  { id: 'int-032', accountId: 'acct-emerald-city', contactId: 'contact-amanda-torres', channel: 'phone', direction: 'outbound', subject: 'Follow-up on pricing proposal', summary: 'Called Amanda — no answer. Third unreturned call this month.', content: 'Attempted follow-up call on pricing proposal sent March 1...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-20T14:00:00Z', sentiment: 'negative' },
+  { id: 'int-033', accountId: 'acct-emerald-city', contactId: 'contact-amanda-torres', channel: 'email', direction: 'outbound', subject: 'Checking in — missed you lately', summary: 'Friendly check-in email noting we haven\'t connected in weeks', content: 'Hi Amanda, hope everything is going well at the store...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-10T09:30:00Z', sentiment: 'neutral' },
+  { id: 'int-034', accountId: 'acct-emerald-city', contactId: 'contact-amanda-torres', channel: 'note', direction: 'outbound', subject: 'Internal: competitor intel', summary: 'Heard from delivery driver that ECC now stocking Green Valley products on shelves that had ours', content: 'Driver reported competitor product placement at ECC location...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-05T16:00:00Z', sentiment: 'negative' },
+  { id: 'int-035', accountId: 'acct-emerald-city', contactId: 'contact-amanda-torres', channel: 'phone', direction: 'inbound', subject: 'Last regular order call', summary: 'Amanda called in a small order — sounded hesitant, mentioned exploring other suppliers', content: 'Amanda called for what turned out to be their last order...', userId: 'rep-jake', agentId: null, timestamp: '2026-01-18T11:00:00Z', sentiment: 'negative' },
+  { id: 'int-036', accountId: 'acct-emerald-city', contactId: 'contact-amanda-torres', channel: 'meeting', direction: 'outbound', subject: 'Quarterly account review — Q4', summary: 'In-store meeting. Amanda was cordial but noncommittal about Q1 plans. Red flag.', content: 'Met with Amanda for Q4 review at their Rainier Ave location...', userId: 'rep-jake', agentId: null, timestamp: '2025-12-18T14:00:00Z', sentiment: 'neutral' },
+
+  // --- Cascade Wellness (4 more → total 5) ---
+  { id: 'int-037', accountId: 'acct-cascade', contactId: 'contact-tom-wheeler', channel: 'email', direction: 'outbound', subject: 'Welcome aboard — first order details', summary: 'Sent welcome package with first order confirmation and delivery schedule', content: 'Hi Tom, welcome to Frost! Your first order is confirmed...', userId: 'rep-carlos', agentId: null, timestamp: '2026-01-15T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-038', accountId: 'acct-cascade', contactId: 'contact-tom-wheeler', channel: 'phone', direction: 'outbound', subject: 'Post-first-delivery check-in', summary: 'Called Tom after first delivery. Happy with product quality, wants to order again.', content: 'Follow-up call after Cascade Wellness first delivery...', userId: 'rep-carlos', agentId: null, timestamp: '2026-01-24T15:00:00Z', sentiment: 'positive' },
+  { id: 'int-039', accountId: 'acct-cascade', contactId: 'contact-tom-wheeler', channel: 'email', direction: 'inbound', subject: 'Second order — same as first', summary: 'Tom emailed to reorder same flower mix as first delivery', content: 'Hey Carlos, can we do the same order as last time? Everything sold well...', userId: 'rep-carlos', agentId: null, timestamp: '2026-02-20T08:00:00Z', sentiment: 'positive' },
+  { id: 'int-040', accountId: 'acct-cascade', contactId: 'contact-tom-wheeler', channel: 'email', direction: 'outbound', subject: 'Category expansion — preroll samples', summary: 'Sending preroll sample pack ahead of in-person pitch meeting', content: 'Hi Tom, I\'m sending over a sample pack of our top preroll SKUs...', userId: 'rep-carlos', agentId: null, timestamp: '2026-02-28T10:00:00Z', sentiment: 'positive' },
+
+  // --- Puget Sound Provisions (4 more → total 5) ---
+  { id: 'int-041', accountId: 'acct-puget-sound', contactId: 'contact-lisa-park', channel: 'email', direction: 'outbound', subject: 'Live rosin sample shipment', summary: 'Confirmed sample shipment of 4 live rosin SKUs arriving Wednesday', content: 'Hi Lisa, your live rosin samples are on their way...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-06T08:00:00Z', sentiment: 'positive' },
+  { id: 'int-042', accountId: 'acct-puget-sound', contactId: 'contact-lisa-park', channel: 'phone', direction: 'outbound', subject: 'February order confirmation', summary: 'Called to confirm February restock — $4,100, premium mix', content: 'Confirming Lisa\'s February order details...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-15T11:00:00Z', sentiment: 'positive' },
+  { id: 'int-043', accountId: 'acct-puget-sound', contactId: 'contact-lisa-park', channel: 'meeting', direction: 'outbound', subject: 'Store visit and product review', summary: 'Visited store to review shelf placement. Lisa curates beautifully — our premium line front and center.', content: 'In-store visit at Puget Sound Provisions...', userId: 'rep-priya', agentId: null, timestamp: '2026-01-22T13:00:00Z', sentiment: 'positive' },
+  { id: 'int-044', accountId: 'acct-puget-sound', contactId: 'contact-lisa-park', channel: 'email', direction: 'inbound', subject: 'Holiday order feedback', summary: 'Lisa emailed thanking us for fast holiday fulfillment — everything arrived intact', content: 'Hi Priya, just wanted to say the holiday orders were perfect...', userId: 'rep-priya', agentId: null, timestamp: '2025-12-30T09:00:00Z', sentiment: 'positive' },
+
+  // --- Summit Cannabis Co. (4) ---
+  { id: 'int-045', accountId: 'acct-summit', contactId: 'contact-grant-holloway', channel: 'email', direction: 'outbound', subject: 'March order confirmation', summary: 'Confirmed monthly order — flower and concentrate restock, $2,800', content: 'Hi Grant, your March order is confirmed for delivery Monday...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-28T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-046', accountId: 'acct-summit', contactId: 'contact-beth-simon', channel: 'phone', direction: 'outbound', subject: 'VMI calibration call', summary: 'Called Beth to fine-tune VMI thresholds — adjusted flower reorder point down 10%', content: 'VMI calibration call with Beth at Summit Cannabis...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-14T14:00:00Z', sentiment: 'positive' },
+  { id: 'int-047', accountId: 'acct-summit', contactId: 'contact-grant-holloway', channel: 'meeting', direction: 'outbound', subject: 'Quarterly business review', summary: 'Met with Grant. Steady account, no issues. Discussed possibility of adding vape SKUs in Q2.', content: 'QBR meeting with Grant at Summit Cannabis...', userId: 'rep-jake', agentId: null, timestamp: '2026-01-30T10:00:00Z', sentiment: 'positive' },
+  { id: 'int-048', accountId: 'acct-summit', contactId: 'contact-grant-holloway', channel: 'agent', direction: 'outbound', subject: 'VMI auto-reorder — Feb 1', summary: 'VMI system triggered concentrate restock — 6 SKUs', content: 'Automated VMI reorder for concentrate category at Summit Cannabis...', userId: 'rep-jake', agentId: 'agent-vmi-01', timestamp: '2026-02-01T06:00:00Z', sentiment: 'positive' },
+
+  // --- Rainier Remedies (5 — escalating payment arc) ---
+  { id: 'int-049', accountId: 'acct-rainier', contactId: 'contact-victor-almeida', channel: 'phone', direction: 'outbound', subject: 'Payment collection call — 3rd attempt', summary: 'Called Victor about two overdue invoices totaling $8,400. He promised payment by Friday.', content: 'Third attempt to reach Victor about overdue payments...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-05T15:00:00Z', sentiment: 'negative' },
+  { id: 'int-050', accountId: 'acct-rainier', contactId: 'contact-jenny-wu', channel: 'sms', direction: 'inbound', subject: 'Jenny — Victor is avoiding calls', summary: 'Jenny texted that Victor is dealing with personal issues and asked for patience', content: 'Hi Priya, I know Victor hasn\'t been picking up. He\'s dealing with some stuff...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-04T18:00:00Z', sentiment: 'negative' },
+  { id: 'int-051', accountId: 'acct-rainier', contactId: 'contact-victor-almeida', channel: 'email', direction: 'outbound', subject: 'Overdue notice — Invoice #1165 and #1172', summary: 'Formal overdue notice for two invoices, 15 and 22 days past due', content: 'Dear Victor, this is a formal notice that invoices #1165 and #1172...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-25T09:00:00Z', sentiment: 'negative' },
+  { id: 'int-052', accountId: 'acct-rainier', contactId: 'contact-victor-almeida', channel: 'phone', direction: 'outbound', subject: 'Order hold notification', summary: 'Informed Victor that new orders are on hold until outstanding balance is cleared', content: 'Called Victor to notify him that further orders are on hold...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-18T11:00:00Z', sentiment: 'negative' },
+  { id: 'int-053', accountId: 'acct-rainier', contactId: 'contact-victor-almeida', channel: 'note', direction: 'outbound', subject: 'Internal: escalation to Dana', summary: 'Flagged Rainier Remedies for manager review — payment pattern deteriorating over 60 days', content: 'Escalating Rainier Remedies to Dana. Two invoices overdue, orders on hold...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-01T09:00:00Z', sentiment: 'negative' },
+
+  // --- Olympic Greens (4) ---
+  { id: 'int-054', accountId: 'acct-olympic', contactId: 'contact-dana-reyes', channel: 'email', direction: 'outbound', subject: 'Weekly preroll restock confirmation', summary: 'Confirmed standing weekly preroll order — 48 units across 6 SKUs', content: 'Hi Dana, your weekly preroll restock is confirmed for Friday delivery...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-03T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-055', accountId: 'acct-olympic', contactId: 'contact-dana-reyes', channel: 'phone', direction: 'inbound', subject: 'Preroll display feedback', summary: 'Dana called to share that our new preroll display fixture increased her sales 15%', content: 'Dana called excited about the preroll display fixture we provided...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-20T16:00:00Z', sentiment: 'positive' },
+  { id: 'int-056', accountId: 'acct-olympic', contactId: 'contact-dana-reyes', channel: 'email', direction: 'outbound', subject: 'February invoice — paid in full', summary: 'Sent February invoice summary — $18,600, paid via ACH same day', content: 'Hi Dana, attached is your February invoice summary...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-28T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-057', accountId: 'acct-olympic', contactId: 'contact-dana-reyes', channel: 'meeting', direction: 'outbound', subject: 'Store walk and product review', summary: 'Visited Olympic Greens. Preroll section is dominant — 60% of display. Discussed adding flower endcap.', content: 'In-store visit at Olympic Greens in Olympia...', userId: 'rep-priya', agentId: null, timestamp: '2026-01-17T13:00:00Z', sentiment: 'positive' },
+
+  // --- Spokane Valley Dispensary (3) ---
+  { id: 'int-058', accountId: 'acct-spokane-valley', contactId: 'contact-paul-hernandez', channel: 'phone', direction: 'outbound', subject: 'Quarterly check-in', summary: 'Routine quarterly call with Paul. Steady volume, no complaints. Not interested in VMI yet.', content: 'Quarterly touch-base with Paul at Spokane Valley...', userId: 'rep-carlos', agentId: null, timestamp: '2026-02-24T10:00:00Z', sentiment: 'positive' },
+  { id: 'int-059', accountId: 'acct-spokane-valley', contactId: 'contact-paul-hernandez', channel: 'email', direction: 'outbound', subject: 'Order confirmation — February', summary: 'Confirmed February order, $1,620, broad category mix as usual', content: 'Hi Paul, your February order is confirmed...', userId: 'rep-carlos', agentId: null, timestamp: '2026-02-15T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-060', accountId: 'acct-spokane-valley', contactId: 'contact-paul-hernandez', channel: 'email', direction: 'inbound', subject: 'Question about new concentrate brands', summary: 'Paul asking about new concentrate options — considering adding a second brand', content: 'Hey Carlos, are there any new concentrate brands available?...', userId: 'rep-carlos', agentId: null, timestamp: '2025-12-10T11:00:00Z', sentiment: 'positive' },
+
+  // --- Capitol Hill Collective (5) ---
+  { id: 'int-061', accountId: 'acct-capitol-hill', contactId: 'contact-naomi-chen', channel: 'email', direction: 'outbound', subject: 'Trend report: Q1 concentrate insights', summary: 'Sent curated trend report on concentrate market — new solventless brands gaining share', content: 'Hi Naomi, here\'s the Q1 concentrate trend report I put together for you...', userId: 'rep-jake', agentId: null, timestamp: '2026-03-04T08:00:00Z', sentiment: 'positive' },
+  { id: 'int-062', accountId: 'acct-capitol-hill', contactId: 'contact-naomi-chen', channel: 'email', direction: 'inbound', subject: 'Re: Trend report — want exclusive on new brand', summary: 'Naomi wants first dibs on the new solventless line before competitors', content: 'Jake, this is exactly what I was looking for. Can we get exclusive placement...', userId: 'rep-jake', agentId: null, timestamp: '2026-03-04T12:00:00Z', sentiment: 'positive' },
+  { id: 'int-063', accountId: 'acct-capitol-hill', contactId: 'contact-alex-rivera', channel: 'sms', direction: 'inbound', subject: 'Beverage cooler install', summary: 'Alex texted that the new beverage cooler is installed and ready for product', content: 'Hey Jake, cooler is in! Ready for the cannabis beverages whenever you can deliver...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-22T17:00:00Z', sentiment: 'positive' },
+  { id: 'int-064', accountId: 'acct-capitol-hill', contactId: 'contact-naomi-chen', channel: 'meeting', direction: 'outbound', subject: 'VMI onboarding meeting', summary: 'Onboarding meeting for VMI enrollment. Set up initial thresholds for concentrate and vape categories.', content: 'VMI onboarding session at Capitol Hill Collective...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-10T10:00:00Z', sentiment: 'positive' },
+  { id: 'int-065', accountId: 'acct-capitol-hill', contactId: 'contact-naomi-chen', channel: 'agent', direction: 'outbound', subject: 'VMI first auto-reorder', summary: 'First VMI auto-reorder for Capitol Hill Collective — 10 SKUs concentrate + vape', content: 'VMI system generated first automated reorder for CHC...', userId: 'rep-jake', agentId: 'agent-vmi-01', timestamp: '2026-03-01T06:00:00Z', sentiment: 'positive' },
+
+  // --- Harbor Cannabis (3) ---
+  { id: 'int-066', accountId: 'acct-harbor', contactId: 'contact-earl-dawkins', channel: 'phone', direction: 'outbound', subject: 'Delivery logistics discussion', summary: 'Called Earl to discuss delivery challenges. 3-hour round trip from warehouse. Considering monthly bulk drops.', content: 'Spoke with Earl about the delivery logistics to Aberdeen...', userId: 'rep-carlos', agentId: null, timestamp: '2026-02-28T14:00:00Z', sentiment: 'neutral' },
+  { id: 'int-067', accountId: 'acct-harbor', contactId: 'contact-earl-dawkins', channel: 'email', direction: 'outbound', subject: 'February order — delayed', summary: 'Notified Earl that February delivery pushed to next week due to weather', content: 'Hi Earl, unfortunately we need to push your delivery to next Friday due to road conditions...', userId: 'rep-carlos', agentId: null, timestamp: '2026-02-06T10:00:00Z', sentiment: 'negative' },
+  { id: 'int-068', accountId: 'acct-harbor', contactId: 'contact-earl-dawkins', channel: 'phone', direction: 'inbound', subject: 'First contact — interested in wholesale', summary: 'Earl called after seeing us at a trade show. Interested in flower wholesale for his new store.', content: 'Inbound call from Earl Dawkins at Harbor Cannabis...', userId: 'rep-carlos', agentId: null, timestamp: '2025-06-15T11:00:00Z', sentiment: 'positive' },
+
+  // --- Evergreen Wellness (4) ---
+  { id: 'int-069', accountId: 'acct-evergreen', contactId: 'contact-maria-santos', channel: 'email', direction: 'outbound', subject: 'Edible category introduction', summary: 'Sent edible product catalog and suggested starter pack of 8 SKUs', content: 'Hi Maria, based on our conversation, here\'s the edible catalog...', userId: 'rep-carlos', agentId: null, timestamp: '2026-03-02T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-070', accountId: 'acct-evergreen', contactId: 'contact-maria-santos', channel: 'email', direction: 'inbound', subject: 'Re: Edible category introduction', summary: 'Maria wants to start with 4 gummy SKUs and 2 chocolate SKUs', content: 'Carlos, these look great. Let\'s start with the gummy 4-pack and the dark chocolate bar...', userId: 'rep-carlos', agentId: null, timestamp: '2026-03-03T08:30:00Z', sentiment: 'positive' },
+  { id: 'int-071', accountId: 'acct-evergreen', contactId: 'contact-raj-patel', channel: 'phone', direction: 'inbound', subject: 'Owner introduction call', summary: 'Raj called to introduce himself. Wants to grow the business beyond flower. Engaged and motivated.', content: 'Raj Patel, owner of Evergreen Wellness, called to introduce himself...', userId: 'rep-carlos', agentId: null, timestamp: '2025-11-15T10:00:00Z', sentiment: 'positive' },
+  { id: 'int-072', accountId: 'acct-evergreen', contactId: 'contact-maria-santos', channel: 'meeting', direction: 'outbound', subject: 'Onboarding and store tour', summary: 'First in-store visit. Clean, well-organized shop. Good potential for category expansion.', content: 'Initial store visit at Evergreen Wellness in Richland...', userId: 'rep-carlos', agentId: null, timestamp: '2025-09-20T13:00:00Z', sentiment: 'positive' },
+
+  // --- Generated accounts scattered interactions (10) ---
+  { id: 'int-073', accountId: 'acct-001', contactId: 'contact-acct-001', channel: 'email', direction: 'outbound', subject: 'VMI performance report', summary: 'Sent VMI metrics to Jen — 98% fill rate, $0 stockouts last quarter', content: 'Hi Jen, here\'s your VMI performance report for the quarter...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-28T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-074', accountId: 'acct-004', contactId: 'contact-acct-004', channel: 'meeting', direction: 'outbound', subject: 'VMI SLA negotiation', summary: 'Met with Rachel to finalize VMI SLA terms. Targeting April 1 go-live.', content: 'VMI SLA negotiation meeting with Bellevue Botanicals...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-01T10:00:00Z', sentiment: 'positive' },
+  { id: 'int-075', accountId: 'acct-003', contactId: 'contact-acct-003', channel: 'email', direction: 'inbound', subject: 'Spring seasonal order inquiry', summary: 'Olivia asking about spring seasonal SKUs — wants to pre-order flower strains', content: 'Hi Jake, do you have the spring seasonal menu ready yet?...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-22T08:00:00Z', sentiment: 'positive' },
+  { id: 'int-076', accountId: 'acct-005', contactId: 'contact-acct-005', channel: 'phone', direction: 'outbound', subject: 'Win-back follow-up', summary: 'Called Steve about the 10% discount offer. He said he\'ll think about it but sounded noncommittal.', content: 'Follow-up call with Steve at Kirkland Kush about win-back offer...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-05T14:00:00Z', sentiment: 'neutral' },
+  { id: 'int-077', accountId: 'acct-008', contactId: 'contact-acct-008', channel: 'email', direction: 'outbound', subject: 'Organic certification update', summary: 'Shared news about our new organic flower line — perfect fit for Olympia Organics brand', content: 'Hi Megan, exciting news — we now have certified organic flower available...', userId: 'rep-priya', agentId: null, timestamp: '2026-02-20T10:00:00Z', sentiment: 'positive' },
+  { id: 'int-078', accountId: 'acct-012', contactId: 'contact-acct-012', channel: 'phone', direction: 'outbound', subject: 'Monthly check-in', summary: 'Routine call with Claire at Bellingham Bloom. Steady account, no issues.', content: 'Monthly check-in with Claire at Bellingham Bloom...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-15T15:00:00Z', sentiment: 'positive' },
+  { id: 'int-079', accountId: 'acct-016', contactId: 'contact-acct-016', channel: 'email', direction: 'inbound', subject: 'Boutique curated box request', summary: 'Will wants a curated premium box for a private tasting event at the store', content: 'Hi Jake, we\'re hosting a private tasting event and need a curated selection...', userId: 'rep-jake', agentId: null, timestamp: '2026-02-25T11:00:00Z', sentiment: 'positive' },
+  { id: 'int-080', accountId: 'acct-009', contactId: 'contact-acct-009', channel: 'phone', direction: 'outbound', subject: 'Re-engagement attempt', summary: 'Called Tyler at Spokane Smoke Shop. Orders declining. Price sensitivity is the main concern.', content: 'Call with Tyler Reed at Spokane Smoke Shop to discuss declining orders...', userId: 'rep-carlos', agentId: null, timestamp: '2026-02-12T10:00:00Z', sentiment: 'negative' },
+  { id: 'int-081', accountId: 'acct-015', contactId: 'contact-acct-015', channel: 'email', direction: 'outbound', subject: 'New concentrate arrivals', summary: 'Sent Hannah a preview of 3 new concentrate SKUs arriving next week', content: 'Hi Hannah, we have 3 exciting new concentrate SKUs coming in...', userId: 'rep-jake', agentId: null, timestamp: '2026-03-02T09:00:00Z', sentiment: 'positive' },
+  { id: 'int-082', accountId: 'acct-013', contactId: 'contact-acct-013', channel: 'phone', direction: 'outbound', subject: 'Collections call — final warning', summary: 'Called Nina about overdue invoices. Given 7-day final notice before account suspension.', content: 'Final warning call to Nina at Vancouver Vapor about outstanding balance...', userId: 'rep-priya', agentId: null, timestamp: '2026-03-06T10:00:00Z', sentiment: 'negative' },
 ];
 
 // --- Opportunities ---
 
 export const opportunities: Opportunity[] = [
+  // --- Existing 5 (verbatim) ---
   { id: 'opp-001', accountId: 'acct-cascade', type: 'category-expansion', title: 'Cascade Wellness — Preroll & Edible Expansion', estimatedValue: 8500, probability: 60, stage: 'Proposal Sent', expectedCloseDate: '2026-03-20', assignedRepId: 'rep-carlos', createdAt: '2026-03-03', notes: 'Tom interested after meeting. Needs owner approval.' },
   { id: 'opp-002', accountId: 'acct-emerald-city', type: 'reorder', title: 'Emerald City Cannabis — Win-Back Reorder', estimatedValue: 4200, probability: 25, stage: 'Outreach', expectedCloseDate: '2026-03-25', assignedRepId: 'rep-jake', createdAt: '2026-03-04', notes: 'Competitor undercut us on pricing. Need to present value prop.' },
   { id: 'opp-003', accountId: 'acct-004', type: 'new-account', title: 'Bellevue Botanicals — VMI Enrollment', estimatedValue: 15000, probability: 75, stage: 'Negotiation', expectedCloseDate: '2026-03-15', assignedRepId: 'rep-priya', createdAt: '2026-02-20', notes: 'Rachel very interested. Working on SLA terms.' },
   { id: 'opp-004', accountId: 'acct-puget-sound', type: 'category-expansion', title: 'Puget Sound — Live Rosin Line', estimatedValue: 6200, probability: 70, stage: 'Sample Sent', expectedCloseDate: '2026-03-18', assignedRepId: 'rep-priya', createdAt: '2026-03-05', notes: 'Lisa requested samples of new live rosin. Premium positioning.' },
   { id: 'opp-005', accountId: 'acct-011', type: 'reorder', title: 'Yakima Valley Green — Q2 Restock', estimatedValue: 12000, probability: 80, stage: 'Verbal Commit', expectedCloseDate: '2026-03-12', assignedRepId: 'rep-carlos', createdAt: '2026-02-28', notes: 'Roberto confirmed he wants to increase Q2 order volume.' },
+
+  // --- New Account Acquisition (3 new) ---
+  { id: 'opp-006', accountId: 'acct-016', type: 'new-account', title: 'Bainbridge Botanics — Premium Partnership', estimatedValue: 9200, probability: 20, stage: 'Prospect', expectedCloseDate: '2026-04-15', assignedRepId: 'rep-jake', createdAt: '2026-03-02', notes: 'Will mentioned interest in becoming a flagship boutique partner. Early stage.' },
+  { id: 'opp-007', accountId: 'acct-harbor', type: 'new-account', title: 'Harbor Cannabis — Bulk Delivery Program', estimatedValue: 5600, probability: 40, stage: 'Meeting Scheduled', expectedCloseDate: '2026-04-01', assignedRepId: 'rep-carlos', createdAt: '2026-02-28', notes: 'Discussing monthly bulk drops to solve delivery logistics. Meeting Friday.' },
+  { id: 'opp-008', accountId: 'acct-007', type: 'new-account', title: 'Tacoma Treehouse — Category Upgrade', estimatedValue: 7800, probability: 35, stage: 'Contacted', expectedCloseDate: '2026-04-10', assignedRepId: 'rep-priya', createdAt: '2026-03-01', notes: 'Derek showed interest in upgrading from mid-tier to premium flower line.' },
+
+  // --- Reorder Proposals (5 new) ---
+  { id: 'opp-009', accountId: 'acct-greenfield', type: 'reorder', title: 'Greenfield — March Monthly Reorder', estimatedValue: 3800, probability: 95, stage: 'Approved', expectedCloseDate: '2026-03-08', assignedRepId: 'rep-jake', createdAt: '2026-03-05', notes: 'Standing monthly order. VMI auto-generated, Sarah confirmed.' },
+  { id: 'opp-010', accountId: 'acct-olympic', type: 'reorder', title: 'Olympic Greens — Preroll Restock Q2', estimatedValue: 8400, probability: 70, stage: 'Pending Review', expectedCloseDate: '2026-03-22', assignedRepId: 'rep-priya', createdAt: '2026-03-04', notes: 'Dana reviewing increased preroll order for spring demand.' },
+  { id: 'opp-011', accountId: 'acct-001', type: 'reorder', title: 'Ballard Buds — Spring Seasonal Order', estimatedValue: 6800, probability: 65, stage: 'Pending Review', expectedCloseDate: '2026-03-25', assignedRepId: 'rep-jake', createdAt: '2026-03-03', notes: 'Jen wants to add seasonal flower strains. Reviewing catalog.' },
+  { id: 'opp-012', accountId: 'acct-summit', type: 'reorder', title: 'Summit Cannabis — Flower & Concentrate Restock', estimatedValue: 5600, probability: 90, stage: 'Approved', expectedCloseDate: '2026-03-10', assignedRepId: 'rep-jake', createdAt: '2026-02-28', notes: 'Grant confirmed standard monthly restock. Shipping Monday.' },
+  { id: 'opp-013', accountId: 'acct-003', type: 'reorder', title: 'Fremont Flowers — Spring Mix Order', estimatedValue: 4500, probability: 60, stage: 'Pending Review', expectedCloseDate: '2026-03-28', assignedRepId: 'rep-jake', createdAt: '2026-03-02', notes: 'Olivia reviewing spring seasonal SKU list.' },
+
+  // --- Category Expansion (2 new) ---
+  { id: 'opp-014', accountId: 'acct-evergreen', type: 'category-expansion', title: 'Evergreen Wellness — Edible Category Launch', estimatedValue: 4800, probability: 45, stage: 'Identified', expectedCloseDate: '2026-03-30', assignedRepId: 'rep-carlos', createdAt: '2026-03-02', notes: 'Maria interested in gummies and chocolates. Sent catalog, awaiting selection.' },
+  { id: 'opp-015', accountId: 'acct-capitol-hill', type: 'category-expansion', title: 'Capitol Hill Collective — Cannabis Beverage Line', estimatedValue: 7200, probability: 95, stage: 'First Order Placed', expectedCloseDate: '2026-03-08', assignedRepId: 'rep-jake', createdAt: '2026-02-22', notes: 'Naomi placed first beverage order — 6 SKUs for new cooler. Delivering this week.' },
 ];
 
 // --- Dashboard Metrics ---
@@ -442,6 +815,28 @@ export const recentActivity: ActivityItem[] = [
   { id: 'act-018', timestamp: '2026-03-03T14:00:00Z', type: 'order', title: 'Order #1244 placed by Tacoma Treehouse', description: '$2,050 — flower and prerolls', accountId: 'acct-007', accountName: 'Tacoma Treehouse', user: 'Priya Patel' },
   { id: 'act-019', timestamp: '2026-03-03T12:00:00Z', type: 'payment', title: 'Overdue: Pacific Leaf invoice #1180', description: '$4,200 now 5 days past due', accountId: 'acct-pacific-leaf', accountName: 'Pacific Leaf' },
   { id: 'act-020', timestamp: '2026-03-03T10:00:00Z', type: 'order', title: 'Order #1243 placed by Everett Extracts', description: '$2,700 — concentrate-heavy mix', accountId: 'acct-015', accountName: 'Everett Extracts', user: 'Jake Morrison' },
+
+  // --- 20 additional activity items ---
+  { id: 'act-021', timestamp: '2026-03-06T10:00:00Z', type: 'interaction', title: 'Collections call to Vancouver Vapor', description: '7-day final notice before account suspension', accountId: 'acct-013', accountName: 'Vancouver Vapor', user: 'Priya Patel', channel: 'phone' },
+  { id: 'act-022', timestamp: '2026-03-06T09:00:00Z', type: 'order', title: 'Order #1248 placed by Capitol Hill Collective', description: '$3,800 — first beverage order + concentrate restock', accountId: 'acct-capitol-hill', accountName: 'Capitol Hill Collective', user: 'Jake Morrison' },
+  { id: 'act-023', timestamp: '2026-03-06T07:30:00Z', type: 'agent', title: 'VMI reorder triggered for Summit Cannabis Co.', description: '6 concentrate SKUs, estimated $2,200', accountId: 'acct-summit', accountName: 'Summit Cannabis Co.', channel: 'system' },
+  { id: 'act-024', timestamp: '2026-03-05T15:00:00Z', type: 'interaction', title: 'Payment collection call to Rainier Remedies', description: 'Victor promised payment by Friday — 3rd attempt', accountId: 'acct-rainier', accountName: 'Rainier Remedies', user: 'Priya Patel', channel: 'phone' },
+  { id: 'act-025', timestamp: '2026-03-05T13:00:00Z', type: 'order', title: 'Order #1249 placed by Olympic Greens', description: '$2,700 — weekly preroll restock, 48 units', accountId: 'acct-olympic', accountName: 'Olympic Greens', user: 'Priya Patel' },
+  { id: 'act-026', timestamp: '2026-03-04T18:00:00Z', type: 'interaction', title: 'SMS from Jenny Wu at Rainier Remedies', description: 'Asked for patience — Victor dealing with personal issues', accountId: 'acct-rainier', accountName: 'Rainier Remedies', user: 'Priya Patel', channel: 'sms' },
+  { id: 'act-027', timestamp: '2026-03-04T12:00:00Z', type: 'interaction', title: 'Naomi Chen wants exclusive on new solventless brand', description: 'Capitol Hill Collective requesting first-mover placement', accountId: 'acct-capitol-hill', accountName: 'Capitol Hill Collective', user: 'Jake Morrison', channel: 'email' },
+  { id: 'act-028', timestamp: '2026-03-04T08:00:00Z', type: 'health-change', title: 'Health score dropped: Rainier Remedies 52 → 45', description: 'Two overdue invoices, no orders in 24 days', accountId: 'acct-rainier', accountName: 'Rainier Remedies' },
+  { id: 'act-029', timestamp: '2026-03-03T17:00:00Z', type: 'order', title: 'Order #1250 placed by Redmond Relief', description: '$2,100 — standard mid-tier mix', accountId: 'acct-006', accountName: 'Redmond Relief', user: 'Priya Patel' },
+  { id: 'act-030', timestamp: '2026-03-03T15:30:00Z', type: 'payment', title: 'Payment received from Bellingham Bloom', description: '$2,400 via ACH — invoice #1195', accountId: 'acct-012', accountName: 'Bellingham Bloom', user: 'System' },
+  { id: 'act-031', timestamp: '2026-03-03T09:00:00Z', type: 'interaction', title: 'Weekly preroll restock confirmed for Olympic Greens', description: '48 units, 6 SKUs — standing weekly order', accountId: 'acct-olympic', accountName: 'Olympic Greens', user: 'Priya Patel', channel: 'email' },
+  { id: 'act-032', timestamp: '2026-03-02T16:00:00Z', type: 'health-change', title: 'Health score improved: Capitol Hill Collective 85 → 88', description: 'VMI enrolled, increased order frequency', accountId: 'acct-capitol-hill', accountName: 'Capitol Hill Collective' },
+  { id: 'act-033', timestamp: '2026-03-02T14:00:00Z', type: 'order', title: 'Order #1251 placed by Summit Cannabis Co.', description: '$2,800 — flower and concentrate monthly restock', accountId: 'acct-summit', accountName: 'Summit Cannabis Co.', user: 'Jake Morrison' },
+  { id: 'act-034', timestamp: '2026-03-02T11:00:00Z', type: 'interaction', title: 'Edible catalog sent to Evergreen Wellness', description: 'Maria reviewing 8-SKU starter pack proposal', accountId: 'acct-evergreen', accountName: 'Evergreen Wellness', user: 'Carlos Ruiz', channel: 'email' },
+  { id: 'act-035', timestamp: '2026-03-02T09:00:00Z', type: 'payment', title: 'Payment received from Summit Cannabis Co.', description: '$2,800 via ACH — invoice #1196', accountId: 'acct-summit', accountName: 'Summit Cannabis Co.', user: 'System' },
+  { id: 'act-036', timestamp: '2026-03-01T16:00:00Z', type: 'agent', title: 'VMI first auto-reorder for Capitol Hill Collective', description: '10 SKUs concentrate + vape, estimated $3,200', accountId: 'acct-capitol-hill', accountName: 'Capitol Hill Collective', channel: 'system' },
+  { id: 'act-037', timestamp: '2026-03-01T13:00:00Z', type: 'order', title: 'Order #1252 placed by Evergreen Wellness', description: '$2,180 — flower + first edible add-on', accountId: 'acct-evergreen', accountName: 'Evergreen Wellness', user: 'Carlos Ruiz' },
+  { id: 'act-038', timestamp: '2026-03-01T10:00:00Z', type: 'payment', title: 'Overdue: Rainier Remedies invoice #1165', description: '$4,200 now 22 days past due', accountId: 'acct-rainier', accountName: 'Rainier Remedies' },
+  { id: 'act-039', timestamp: '2026-03-01T09:00:00Z', type: 'interaction', title: 'Rainier Remedies escalated to manager', description: 'Priya flagged payment deterioration over 60 days', accountId: 'acct-rainier', accountName: 'Rainier Remedies', user: 'Priya Patel', channel: 'note' },
+  { id: 'act-040', timestamp: '2026-02-28T15:00:00Z', type: 'health-change', title: 'Health score improved: Evergreen Wellness 68 → 72', description: 'Growing order frequency, expanding categories', accountId: 'acct-evergreen', accountName: 'Evergreen Wellness' },
 ];
 
 // --- Revenue Sparkline Data (for metric cards) ---

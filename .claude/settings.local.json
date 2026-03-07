@@ -4,7 +4,8 @@
       "WebSearch",
       "Bash(source .env)",
       "Bash(curl -s https://api.openai.com/v1/images/generations -H \"Content-Type: application/json\" -H \"Authorization: Bearer $OPENAI_API_KEY\" -d '{:*)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(npx tsc --noEmit)"
     ]
   }
 }

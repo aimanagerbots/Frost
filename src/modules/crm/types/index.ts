@@ -163,3 +163,121 @@ export interface CRMDashboardData {
   topAccounts: TopAccount[];
   recentActivity: ActivityItem[];
 }
+
+// --- Account Detail Types ---
+
+export interface AccountOrder {
+  id: string;
+  date: string;
+  orderNumber: string;
+  skuCount: number;
+  categories: string[];
+  total: number;
+  status: 'delivered' | 'in-transit' | 'processing' | 'cancelled';
+}
+
+export interface HealthFactor {
+  label: string;
+  score: number;
+  impact: 'positive' | 'negative' | 'neutral';
+  weight: number;
+}
+
+export interface HealthRecommendation {
+  title: string;
+  description: string;
+  priority: 'high' | 'medium' | 'low';
+}
+
+export interface AccountHealthData {
+  score: number;
+  trend: 'improving' | 'stable' | 'declining';
+  factors: HealthFactor[];
+  recommendations: HealthRecommendation[];
+  history: { date: string; score: number }[];
+}
+
+export interface VMISellThrough {
+  week: string;
+  units: number;
+}
+
+export interface VMIInventoryLevel {
+  category: string;
+  current: number;
+  par: number;
+}
+
+export interface VMIDaysOnHand {
+  category: string;
+  days: number;
+}
+
+export interface AccountVMIData {
+  enrolled: boolean;
+  enrolledDate: string | null;
+  sellThrough: VMISellThrough[];
+  inventoryLevels: VMIInventoryLevel[];
+  daysOnHand: VMIDaysOnHand[];
+  lastReorderDate: string | null;
+  autoReorderCount: number;
+}
+
+export interface AccountPayment {
+  id: string;
+  invoiceNumber: string;
+  date: string;
+  dueDate: string;
+  amount: number;
+  status: 'paid' | 'pending' | 'overdue' | 'partial';
+  paidDate: string | null;
+  method: 'cod' | 'ach' | 'mail' | null;
+}
+
+export interface AccountPaymentSummary {
+  outstanding: number;
+  reliability: number;
+  avgDaysToPay: number;
+  payments: AccountPayment[];
+}
+
+export interface AccountDelivery {
+  id: string;
+  date: string;
+  orderNumber: string;
+  status: 'delivered' | 'in-transit' | 'scheduled' | 'failed';
+  driver: string;
+  window: string;
+  deliveredAt: string | null;
+  items: number;
+}
+
+export interface AccountDeliverySummary {
+  preferredWindow: string;
+  avgDeliveryMinutes: number;
+  onTimeRate: number;
+  deliveries: AccountDelivery[];
+}
+
+export interface AccountFile {
+  id: string;
+  name: string;
+  type: 'coa' | 'contract' | 'invoice' | 'license' | 'other';
+  uploadedBy: string;
+  uploadedAt: string;
+  size: number;
+  url: string;
+}
+
+export interface AccountNote {
+  id: string;
+  content: string;
+  author: string;
+  createdAt: string;
+  pinned: boolean;
+}
+
+export type AccountDetailTab =
+  | 'profile' | 'purchases' | 'health' | 'vmi'
+  | 'interactions' | 'opportunities' | 'payments'
+  | 'deliveries' | 'files' | 'notes';
