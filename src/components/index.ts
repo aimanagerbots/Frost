@@ -13,3 +13,4 @@ export { ConfirmationDialog } from './ConfirmationDialog';
 export { SearchOverlay } from './SearchOverlay';
 export type { SearchItem, SearchGroup } from './SearchOverlay';
 export { CommandPalette } from './CommandPalette';
+export { KanbanBase } from './KanbanBase';

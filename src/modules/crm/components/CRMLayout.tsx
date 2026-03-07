@@ -8,6 +8,7 @@ import { useCRMStore, CRM_TABS } from '../store';
 import { CRMDashboard } from './dashboard';
 import { AccountsList } from './accounts';
 import { AccountDetail } from './account-detail';
+import { OpportunitiesPipeline, ReorderCenter, PriceBook, Leaderboard } from './sales';
 
 const CRM_ACCENT = '#F59E0B';
 
@@ -28,6 +29,20 @@ function CRMContent() {
     return <AccountsList />;
   }
 
+  // Sales sub-modules
+  if (activeTab === 'sales' && activeSubModule === 'opportunities') {
+    return <OpportunitiesPipeline />;
+  }
+  if (activeTab === 'sales' && activeSubModule === 'reorder-center') {
+    return <ReorderCenter />;
+  }
+  if (activeTab === 'sales' && activeSubModule === 'price-book') {
+    return <PriceBook />;
+  }
+  if (activeTab === 'sales' && activeSubModule === 'leaderboard') {
+    return <Leaderboard />;
+  }
+
   // Find display name for the active sub-module
   const tabConfig = CRM_TABS.find((t) => t.id === activeTab);
   const subConfig = tabConfig?.subModules.find((s) => s.id === activeSubModule);
@@ -37,7 +52,7 @@ function CRMContent() {
     <EmptyState
       icon={Construction}
       title={subLabel}
-      description={`Coming in Build 3-6. This sub-module will be available in a future release.`}
+      description={`Coming in Build 4-6. This sub-module will be available in a future release.`}
       accentColor={CRM_ACCENT}
     />
   );

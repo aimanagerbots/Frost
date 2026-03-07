@@ -11,3 +11,6 @@ export { useAccountPayments } from './useAccountPayments';
 export { useAccountDeliveries } from './useAccountDeliveries';
 export { useAccountFiles } from './useAccountFiles';
 export { useAccountNotes } from './useAccountNotes';
+export { useReorderProposals } from './useReorderProposals';
+export { usePriceBook } from './usePriceBook';
+export { useLeaderboard } from './useLeaderboard';

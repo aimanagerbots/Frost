@@ -1,0 +1,1 @@
+export { CompetitorIntelPage } from './CompetitorIntelPage';

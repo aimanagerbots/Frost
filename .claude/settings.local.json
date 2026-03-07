@@ -5,7 +5,9 @@
       "Bash(source .env)",
       "Bash(curl -s https://api.openai.com/v1/images/generations -H \"Content-Type: application/json\" -H \"Authorization: Bearer $OPENAI_API_KEY\" -d '{:*)",
       "Read(//tmp/**)",
-      "Bash(npx tsc --noEmit)"
+      "Bash(npx tsc --noEmit)",
+      "Bash(npm run lint)",
+      "Bash(npm run build)"
     ]
   }
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PanelLeftClose, PanelLeft, X } from 'lucide-react';
@@ -34,9 +35,14 @@ export function Sidebar() {
         {/* Logo area */}
         <div className="flex h-14 items-center justify-between px-4 border-b border-border-default">
           {!collapsed && (
-            <span className="text-lg font-bold text-text-bright tracking-wide">
-              FROST
-            </span>
+            <Image
+              src="/FrostLogo_wordmark.png"
+              alt="Frost"
+              width={120}
+              height={32}
+              className="h-7 w-auto"
+              priority
+            />
           )}
           <button
             onClick={() => setMobileOpen(false)}
