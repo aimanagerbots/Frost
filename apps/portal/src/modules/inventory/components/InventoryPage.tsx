@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Warehouse, LayoutGrid, List, Package, FlaskConical, AlertTriangle } from 'lucide-react';
 import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
@@ -46,11 +46,6 @@ export function InventoryPage() {
   const [filters, setFilters] = useState<InventoryFilter>({});
   const [selectedItem, setSelectedItem] = useState<InventoryItem | null>(null);
 
-  useEffect(() => {
-    if (tabParam && TABS.some((t) => t.key === tabParam)) {
-      setActiveTab(tabParam);
-    }
-  }, [tabParam]);
 
   const { data: items, isLoading: itemsLoading, error: itemsError, refetch: refetchItems } = useInventory(filters);
   const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useInventoryMetrics();

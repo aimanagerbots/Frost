@@ -1,4 +1,5 @@
-import { MOCK_ACCOUNTS } from './crm';
+import { accounts } from './crm';
+import type { Account } from '@/modules/crm/types';
 
 // --- Reorder Cadence ---
 export interface ReorderCadenceBucket {
@@ -20,7 +21,7 @@ export function getReorderCadenceData(): ReorderCadenceBucket[] {
   return buckets.map(({ label, min, max, color }) => ({
     label,
     color,
-    count: MOCK_ACCOUNTS.filter((a) => {
+    count: accounts.filter((a) => {
       if (!a.lastOrderDate) return max === 9999;
       const diff = Math.floor((now.getTime() - new Date(a.lastOrderDate).getTime()) / 86400000);
       return diff >= min && diff <= max;
@@ -38,7 +39,7 @@ export interface CategoryCoverageRow {
 const CATEGORIES = ['flower', 'preroll', 'vaporizer', 'concentrate', 'edible', 'beverage'];
 
 export function getCategoryCoverageData(): CategoryCoverageRow[] {
-  return MOCK_ACCOUNTS
+  return [...accounts]
     .sort((a, b) => b.totalRevenue - a.totalRevenue)
     .slice(0, 12)
     .map((a) => {
@@ -59,7 +60,7 @@ export interface RevenueConcentrationSlice {
 }
 
 export function getRevenueConcentrationData(): RevenueConcentrationSlice[] {
-  const sorted = [...MOCK_ACCOUNTS].sort((a, b) => b.totalRevenue - a.totalRevenue);
+  const sorted = [...accounts].sort((a, b) => b.totalRevenue - a.totalRevenue);
   const top5 = sorted.slice(0, 5);
   const next5 = sorted.slice(5, 10);
   const rest = sorted.slice(10);
@@ -91,9 +92,9 @@ export interface PaymentComplianceCounts {
 
 export function getPaymentComplianceData(): PaymentComplianceCounts {
   return {
-    green: MOCK_ACCOUNTS.filter((a) => a.paymentReliability === 'excellent' || a.paymentReliability === 'good').length,
-    amber: MOCK_ACCOUNTS.filter((a) => a.paymentReliability === 'fair').length,
-    red: MOCK_ACCOUNTS.filter((a) => a.paymentReliability === 'poor').length,
+    green: accounts.filter((a) => a.paymentReliability === 'excellent' || a.paymentReliability === 'good').length,
+    amber: accounts.filter((a) => a.paymentReliability === 'fair').length,
+    red: accounts.filter((a) => a.paymentReliability === 'poor').length,
   };
 }
 

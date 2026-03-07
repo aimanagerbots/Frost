@@ -34,7 +34,7 @@ export function ReorderCadenceHistogram({ data }: ReorderCadenceHistogramProps) 
               color: CHART_THEME.tooltipText,
               fontSize: 12,
             }}
-            formatter={(value: number) => [`${value} accounts`, 'Count']}
+            formatter={(value) => [`${value} accounts`, 'Count']}
           />
           <Bar dataKey="count" radius={[4, 4, 0, 0]}>
             {data.map((entry, i) => (

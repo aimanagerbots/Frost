@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ClipboardList } from 'lucide-react';
 import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
@@ -37,14 +37,9 @@ export function OrdersPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const accountParam = searchParams.get('account');
-  const [filters, setFilters] = useState<OrderFilter>({});
+  const [filters, setFilters] = useState<OrderFilter>(accountParam ? { accountId: accountParam } : {});
   const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (accountParam) {
-      setFilters((prev) => ({ ...prev, accountId: accountParam }));
-    }
-  }, [accountParam]);
 
   const { data: orders, isLoading: ordersLoading, error: ordersError, refetch: refetchOrders } = useOrders(filters);
   const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useOrderMetrics();
