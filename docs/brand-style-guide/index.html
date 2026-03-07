@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frost Brand Style Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --frost-blue: #56C1E6;
+      --frost-indigo: #667EEA;
+      --frost-purple: #764BA2;
+      --frost-pink: #F093FB;
+      --frost-dark: #0F0F1A;
+      --frost-card: #1A1A2E;
+      --frost-surface: #16162A;
+      --frost-border: #2A2A4A;
+      --frost-text: #E8E8F0;
+      --frost-muted: #8888AA;
+      --frost-gradient: linear-gradient(135deg, #667EEA, #764BA2, #F093FB);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--frost-dark);
+      color: var(--frost-text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; }
+
+    /* Cover */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--frost-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(86, 193, 230, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .cover-logo { width: 120px; height: 120px; margin-bottom: 2rem; position: relative; }
+    .cover-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .cover h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: var(--frost-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cover .subtitle {
+      font-size: 1.25rem;
+      color: var(--frost-muted);
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+    .cover .version {
+      font-size: 0.85rem;
+      color: var(--frost-muted);
+      border: 1px solid var(--frost-border);
+      padding: 0.5rem 1.5rem;
+      border-radius: 100px;
+    }
+
+    /* Sections */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+    .section-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--frost-border);
+    }
+    .section-header h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--frost-blue);
+    }
+    .section-header p {
+      color: var(--frost-muted);
+      font-size: 1.05rem;
+    }
+    .section-number {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--frost-purple);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Divider */
+    .divider {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 1px;
+      background: var(--frost-border);
+    }
+
+    /* Logo Section */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .logo-card {
+      border: 1px solid var(--frost-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .logo-card img {
+      width: 100%;
+      display: block;
+    }
+    .logo-card .label {
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--frost-muted);
+      background: var(--frost-card);
+      border-top: 1px solid var(--frost-border);
+    }
+    .logo-originals {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .logo-original-card {
+      border: 1px solid var(--frost-border);
+      border-radius: 16px;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-original-card.dark { background: var(--frost-dark); }
+    .logo-original-card.light { background: #FFFFFF; }
+    .logo-original-card img { max-width: 200px; max-height: 120px; object-fit: contain; }
+
+    /* Clear Space */
+    .clearspace-note {
+      background: var(--frost-card);
+      border: 1px solid var(--frost-border);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+    }
+    .clearspace-note h4 { color: var(--frost-text); margin-bottom: 0.5rem; font-size: 1rem; }
+    .clearspace-note p { color: var(--frost-muted); font-size: 0.9rem; }
+
+    /* Color Palette */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .color-swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--frost-border);
+    }
+    .color-swatch .preview {
+      height: 120px;
+    }
+    .color-swatch .info {
+      padding: 1rem;
+      background: var(--frost-card);
+    }
+    .color-swatch .info .name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+    .color-swatch .info .hex {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.8rem;
+      color: var(--frost-muted);
+    }
+    .gradient-bar {
+      height: 80px;
+      border-radius: 12px;
+      background: var(--frost-gradient);
+      margin-bottom: 1rem;
+    }
+    .gradient-label {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.85rem;
+      color: var(--frost-muted);
+      margin-bottom: 2rem;
+    }
+    .generated-palette {
+      border: 1px solid var(--frost-border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .generated-palette img { width: 100%; display: block; }
+    .generated-palette .label {
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--frost-muted);
+      background: var(--frost-card);
+      border-top: 1px solid var(--frost-border);
+    }
+
+    /* Typography */
+    .type-specimen {
+      margin-bottom: 3rem;
+    }
+    .type-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .type-label {
+      font-size: 0.8rem;
+      color: var(--frost-muted);
+      margin-bottom: 1rem;
+      font-family: 'Space Grotesk', monospace;
+    }
+    .type-scale {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .type-scale-row {
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--frost-border);
+    }
+    .type-scale-row .size {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.8rem;
+      color: var(--frost-muted);
+      min-width: 100px;
+    }
+    .type-generated {
+      border: 1px solid var(--frost-border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .type-generated img { width: 100%; display: block; }
+    .type-generated .label {
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--frost-muted);
+      background: var(--frost-card);
+      border-top: 1px solid var(--frost-border);
+    }
+
+    /* Applications */
+    .app-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .app-card {
+      border: 1px solid var(--frost-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .app-card img { width: 100%; display: block; }
+    .app-card .label {
+      padding: 1rem 1.5rem;
+      background: var(--frost-card);
+      border-top: 1px solid var(--frost-border);
+    }
+    .app-card .label h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .app-card .label p { font-size: 0.85rem; color: var(--frost-muted); }
+
+    /* Voice & Tone */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .voice-card {
+      background: var(--frost-card);
+      border: 1px solid var(--frost-border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .voice-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+    .voice-card p {
+      color: var(--frost-muted);
+      font-size: 0.9rem;
+    }
+    .voice-card.do { border-left: 3px solid #4ADE80; }
+    .voice-card.do h4 { color: #4ADE80; }
+    .voice-card.dont { border-left: 3px solid #F87171; }
+    .voice-card.dont h4 { color: #F87171; }
+
+    /* Dark Theme */
+    .theme-rules {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .theme-rule {
+      background: var(--frost-card);
+      border: 1px solid var(--frost-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .theme-rule h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: var(--frost-blue);
+    }
+    .theme-rule p {
+      font-size: 0.85rem;
+      color: var(--frost-muted);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--frost-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--frost-border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .logo-grid, .logo-originals, .color-grid, .voice-grid, .theme-rules { grid-template-columns: 1fr; }
+      .cover h1 { font-size: 2.5rem; }
+      .type-scale-row { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cover -->
+  <section class="cover">
+    <div class="cover-logo">
+      <img src="../../assets/brand/FrostLogo_SnowflakeOnly.png" alt="Frost Logo">
+    </div>
+    <h1>Frost</h1>
+    <p class="subtitle">Brand Style Guide</p>
+    <span class="version">Version 1.0 &mdash; March 2026</span>
+  </section>
+
+  <!-- 01 Logo -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">01</p>
+      <h2>Logo</h2>
+      <p>The Frost logo consists of two elements: the snowflake icon mark and the wordmark. They can be used together or separately depending on context.</p>
+    </div>
+
+    <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Primary Assets</h3>
+    <div class="logo-originals">
+      <div class="logo-original-card dark">
+        <img src="../../assets/brand/FrostLogo_SnowflakeOnly.png" alt="Frost Icon Mark">
+      </div>
+      <div class="logo-original-card dark">
+        <img src="../../assets/brand/FrostLogo_wordmark.png" alt="Frost Wordmark">
+      </div>
+    </div>
+
+    <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Logo on Backgrounds</h3>
+    <div class="logo-grid">
+      <div class="logo-card">
+        <img src="images/logo-dark-bg.png" alt="Logo on dark background">
+        <div class="label">Dark background &mdash; primary usage</div>
+      </div>
+      <div class="logo-card">
+        <img src="images/logo-light-bg.png" alt="Logo on light background">
+        <div class="label">Light background &mdash; secondary usage</div>
+      </div>
+    </div>
+
+    <div class="clearspace-note">
+      <h4>Clear Space</h4>
+      <p>Maintain a minimum clear space around the logo equal to the height of one arm of the snowflake. Never place text, images, or other visual elements within this zone. The logo should always breathe.</p>
+    </div>
+  </section>
+
+  <!-- 02 Color Palette -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">02</p>
+      <h2>Color Palette</h2>
+      <p>Frost uses a cool-toned palette anchored by sky blue, with purple-to-pink gradients for accent and energy. The dark base provides contrast and modern elegance.</p>
+    </div>
+
+    <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Primary Colors</h3>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="preview" style="background: #56C1E6;"></div>
+        <div class="info"><div class="name">Frost Blue</div><div class="hex">#56C1E6</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="preview" style="background: #667EEA;"></div>
+        <div class="info"><div class="name">Indigo</div><div class="hex">#667EEA</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="preview" style="background: #764BA2;"></div>
+        <div class="info"><div class="name">Deep Purple</div><div class="hex">#764BA2</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="preview" style="background: #F093FB;"></div>
+        <div class="info"><div class="name">Soft Pink</div><div class="hex">#F093FB</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="preview" style="background: #1A1A2E;"></div>
+        <div class="info"><div class="name">Dark Base</div><div class="hex">#1A1A2E</div></div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Brand Gradient</h3>
+    <div class="gradient-bar"></div>
+    <p class="gradient-label">linear-gradient(135deg, #667EEA, #764BA2, #F093FB)</p>
+
+    <div class="generated-palette">
+      <img src="images/color-palette.png" alt="Generated color palette visualization">
+      <div class="label">AI-generated palette visualization &mdash; Nano Banana Pro</div>
+    </div>
+  </section>
+
+  <!-- 03 Typography -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">03</p>
+      <h2>Typography</h2>
+      <p>Frost pairs Space Grotesk for headings with Inter for body text. Both are geometric, clean, and highly legible at all sizes.</p>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-heading" style="font-size: 3rem; color: var(--frost-blue);">Space Grotesk</div>
+      <div class="type-label">Headings &middot; Bold / SemiBold &middot; Google Fonts</div>
+    </div>
+
+    <div class="type-specimen">
+      <div style="font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem;">Inter</div>
+      <div class="type-label">Body Text &middot; Regular / Medium &middot; Google Fonts</div>
+    </div>
+
+    <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Type Scale</h3>
+    <div class="type-scale">
+      <div class="type-scale-row">
+        <span class="size">4rem / 64px</span>
+        <span style="font-family: 'Space Grotesk'; font-size: 2.5rem; font-weight: 700;">Display Heading</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="size">2rem / 32px</span>
+        <span style="font-family: 'Space Grotesk'; font-size: 2rem; font-weight: 600;">Section Heading</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="size">1.25rem / 20px</span>
+        <span style="font-family: 'Space Grotesk'; font-size: 1.25rem; font-weight: 500;">Card Title</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="size">1rem / 16px</span>
+        <span style="font-size: 1rem;">Body text in Inter. Clean, legible, comfortable for reading.</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="size">0.875rem / 14px</span>
+        <span style="font-size: 0.875rem; color: var(--frost-muted);">Secondary text, labels, metadata</span>
+      </div>
+    </div>
+
+    <div class="type-generated">
+      <img src="images/typography.png" alt="Typography specimen">
+      <div class="label">AI-generated typography showcase &mdash; Nano Banana Pro</div>
+    </div>
+  </section>
+
+  <!-- 04 Brand Applications -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">04</p>
+      <h2>Brand Applications</h2>
+      <p>How the Frost brand comes to life across digital products, patterns, and interfaces.</p>
+    </div>
+
+    <div class="app-grid">
+      <div class="app-card">
+        <img src="images/ui-mockup.png" alt="Frost Dashboard UI Mockup">
+        <div class="label">
+          <h4>Dashboard Interface</h4>
+          <p>Dark-first design with glassmorphism, sky blue accents, and card-based layouts. The sidebar uses backdrop-blur for depth.</p>
+        </div>
+      </div>
+      <div class="app-card">
+        <img src="images/brand-pattern.png" alt="Brand pattern texture">
+        <div class="label">
+          <h4>Brand Pattern</h4>
+          <p>Snowflake-inspired geometric pattern using the brand gradient. Use as hero backgrounds, section dividers, or promotional materials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Dark Theme -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">05</p>
+      <h2>Dark Theme Guidelines</h2>
+      <p>Frost is a dark-first brand. The dark theme is the primary experience, not an afterthought.</p>
+    </div>
+
+    <div class="theme-rules">
+      <div class="theme-rule">
+        <h4>Backgrounds</h4>
+        <p>Use #0F0F1A for page base, #1A1A2E for cards and elevated surfaces, #16162A for intermediate layers.</p>
+      </div>
+      <div class="theme-rule">
+        <h4>Borders</h4>
+        <p>Subtle borders at #2A2A4A. Never use stark white or gray borders. Borders should separate, not dominate.</p>
+      </div>
+      <div class="theme-rule">
+        <h4>Text Hierarchy</h4>
+        <p>#E8E8F0 for primary text, #8888AA for muted/secondary text. Never use pure white (#FFF) for body text.</p>
+      </div>
+      <div class="theme-rule">
+        <h4>Accent Usage</h4>
+        <p>Frost Blue (#56C1E6) for interactive elements, active states, and primary actions. Use sparingly for maximum impact.</p>
+      </div>
+      <div class="theme-rule">
+        <h4>Glassmorphism</h4>
+        <p>Sidebar and overlays use backdrop-blur-xl with slight transparency. Creates depth without heavy shadows.</p>
+      </div>
+      <div class="theme-rule">
+        <h4>Cards</h4>
+        <p>rounded-xl (16px), 1px border, bg-card surface. Consistent across all modules. No drop shadows.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Voice & Tone -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">06</p>
+      <h2>Voice &amp; Tone</h2>
+      <p>Frost speaks like a brilliant, calm assistant who respects your time and intelligence.</p>
+    </div>
+
+    <div class="voice-grid">
+      <div class="voice-card do">
+        <h4>Do</h4>
+        <p>Be concise and direct. Lead with the answer. Use clear, confident language. Feel helpful without being servile. Sound like a trusted advisor.</p>
+      </div>
+      <div class="voice-card dont">
+        <h4>Don't</h4>
+        <p>Don't use filler words or corporate jargon. Don't be overly enthusiastic or robotic. Never say "I'm just an AI" or apologize unnecessarily.</p>
+      </div>
+      <div class="voice-card do">
+        <h4>Personality</h4>
+        <p>Cool, intelligent, helpful. Think of a brilliant friend who happens to know everything. Warm but not bubbly. Precise but not cold.</p>
+      </div>
+      <div class="voice-card dont">
+        <h4>Avoid</h4>
+        <p>Excessive emojis. Exclamation marks in every sentence. Generic AI phrases like "Great question!" or "I'd be happy to help!" Just help.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="divider"></div>
+  <footer class="footer">
+    <p>Frost Brand Style Guide v1.0 &mdash; March 2026</p>
+    <p style="margin-top: 0.5rem;">Images generated with Google Nano Banana Pro (Gemini 3 Pro Image)</p>
+    <p style="margin-top: 0.5rem;">AI-Powered Assistant with Open Integration Layer &amp; Long-Term RAG Memory</p>
+  </footer>
+
+</body>
+</html>

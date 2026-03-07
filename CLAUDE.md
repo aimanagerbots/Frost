@@ -24,6 +24,7 @@ Frost is an AI-powered personal assistant with a massive open integration layer 
 - Global types: `src/types/`
 - Hooks: `src/hooks/` — shared hooks (useAuth, useTheme, etc.)
 - Utilities: `src/lib/` — API client, constants, helpers
+- Brand assets: `assets/brand/` — logos (PNG, AI source). Copy web assets to `public/brand/` after Next.js scaffold.
 
 ## Commands
 - Dev: `npm run dev`
@@ -57,11 +58,25 @@ All data access goes through TanStack Query hooks in `src/modules/[module]/hooks
 3. **Semantic Memory** — pgvector embeddings for RAG retrieval of transcripts/documents
 
 ## Skills Installed
-You have 5 skill packages installed. Check `.claude/rules/skills.md` for full details and when to use each.
+Check `.claude/rules/skills.md` for full details, install commands, and when to use each.
+
+**Core (always relevant):**
 - **frontend-design** — ALWAYS use when building UI. Bold choices, no generic output.
 - **ui-ux-pro-max** — Design recommendations for new modules.
 - **superpowers** — Structured brainstorm → plan → execute for complex features.
 - **interface-design** — Extract patterns after module 1, audit all subsequent modules.
-- **GSD** — Prevents context rot in long multi-module sessions.
+- **GSD** — Prevents context rot. USE when context is above 50%.
 
-When in doubt: `frontend-design` is the default for any visual work. The others are situational.
+**Planning & Architecture:**
+- **Deep Trilogy** — `/deep-project` → `/deep-plan` → `/deep-implement` for vague ideas → working code.
+
+**Quality & Security:**
+- **Code Review** — `/code-review` before commits. Parallel diff analysis.
+- **Trail of Bits Security** — Security audits, vulnerability detection, CodeQL/Semgrep.
+- **Vercel Skills Suite** — 12+ skills: react/next-best-practices, web-design-guidelines, vercel-deploy, ai-sdk, composition-patterns, next-upgrade, and more.
+
+**Productivity:**
+- **Context7** — Up-to-date library docs. Use when working with external APIs.
+- **Ralph Loop** — Autonomous coding loops for repetitive/batch tasks.
+
+Full reference: `docs/claude-code-skills-reference.md`
