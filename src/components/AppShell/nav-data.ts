@@ -28,6 +28,7 @@ import {
   PieChart,
   Settings,
   Server,
+  GitBranch,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -56,6 +57,7 @@ export const navGroups: NavGroup[] = [
     title: 'SALES & CRM',
     items: [
       { label: 'CRM', href: '/crm', icon: Users, accent: '#F59E0B' },
+      { label: 'Pipeline', href: '/pipeline', icon: GitBranch, accent: '#F59E0B' },
       { label: 'Orders', href: '/orders', icon: ClipboardList, accent: '#F59E0B' },
       { label: 'VMI', href: '/vmi', icon: BarChart3, accent: '#EF4444' },
       { label: 'Competitor Intel', href: '/competitors', icon: Target, accent: '#F97316' },

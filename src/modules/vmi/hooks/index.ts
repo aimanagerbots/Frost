@@ -1,3 +1,3 @@
-export { useVMIAccounts, useVMIMetrics } from './useVMIAccounts';
+export { useVMIAccounts, useVMIMetrics, useVMIDailyEmails } from './useVMIAccounts';
 export { useVMISellThrough } from './useVMISellThrough';
 export { useVMIMarketShare } from './useVMIMarketShare';

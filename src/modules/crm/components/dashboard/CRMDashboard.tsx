@@ -23,12 +23,14 @@ export function CRMDashboard() {
   return (
     <div className="space-y-6">
       <AIBriefingCard items={data.briefingItems} />
-      <MetricsRow metrics={data.metrics} />
+      <MetricsRow metrics={data.metrics} kpiMetrics={data.kpiMetrics} />
       <ChartsSection
         revenueByCategoryWeeks={data.revenueByCategoryWeeks}
         healthDistribution={data.healthDistribution}
         orderVolume={data.orderVolume}
         topAccounts={data.topAccounts}
+        pipelineDistribution={data.pipelineDistribution}
+        recoveryFunnel={data.recoveryFunnel}
       />
       <ActivityFeed activities={data.recentActivity} />
     </div>

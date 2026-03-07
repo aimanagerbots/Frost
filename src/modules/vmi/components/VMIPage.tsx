@@ -10,7 +10,7 @@ import {
   LoadingSkeleton,
 } from '@/components';
 import { useVMIAccounts, useVMIMetrics } from '../hooks';
-import { getVMIDailyEmails } from '@/mocks/vmi';
+import { useVMIDailyEmails } from '../hooks/useVMIAccounts';
 import { VMIAccountDetail } from './VMIAccountDetail';
 import type { VMIAccount, VMIDailyEmail } from '../types';
 
@@ -141,7 +141,7 @@ export function VMIPage() {
   const { data: accounts, isLoading: accountsLoading } = useVMIAccounts();
   const { data: metrics, isLoading: metricsLoading } = useVMIMetrics();
 
-  const dailyEmails = getVMIDailyEmails();
+  const { data: dailyEmails } = useVMIDailyEmails();
 
   const selectedAccount = accounts?.find((a) => a.accountId === selectedAccountId);
 
@@ -233,7 +233,7 @@ export function VMIPage() {
           Automated morning briefing sent to account reps with reorder recommendations and competitive intelligence.
         </p>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {dailyEmails.map((email) => (
+          {dailyEmails?.map((email) => (
             <DailyEmailCard key={email.accountId} email={email} />
           ))}
         </div>

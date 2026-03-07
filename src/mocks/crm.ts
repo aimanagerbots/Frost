@@ -275,6 +275,12 @@ const pugetSound: Account = {
   thirtyDayRevenue: 6200,
   avgOrderValue: 4100,
   orderCount: 19,
+  pipelineStatus: 'active',
+  pipelinePhase: 3,
+  pipelineHistory: [
+    { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-02-01', trigger: 'Consistent monthly orders established' },
+    { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-08-15', trigger: 'Stable AOV and order cadence for 6 months' },
+  ],
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Wed 9am-12pm', instructions: 'Premium entrance, ask for Lisa', contactName: 'Lisa Park', contactPhone: '(360) 555-0221' },
@@ -311,6 +317,12 @@ const summitCannabis: Account = {
   thirtyDayRevenue: 14200,
   avgOrderValue: 2800,
   orderCount: 60,
+  pipelineStatus: 'active',
+  pipelinePhase: 3,
+  pipelineHistory: [
+    { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-07-01', trigger: 'VMI enrolled, order cadence accelerated' },
+    { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-12-15', trigger: 'Reliable biweekly ordering for 5 months' },
+  ],
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Mon/Thu 9am-1pm', instructions: 'Rear loading bay, call on arrival', contactName: 'Grant Holloway', contactPhone: '(360) 555-0440' },
@@ -348,6 +360,13 @@ const rainierRemedies: Account = {
   thirtyDayRevenue: 0,
   avgOrderValue: 2100,
   orderCount: 54,
+  pipelineStatus: 'active',
+  pipelinePhase: 5,
+  pipelineHistory: [
+    { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-03-01', trigger: 'Steady ordering pattern established' },
+    { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2025-11-01', trigger: 'Payment delays and declining order volume' },
+    { from: { status: 'active', phase: 4 }, to: { status: 'active', phase: 5 }, date: '2026-02-15', trigger: 'Two overdue invoices, no orders in 24 days' },
+  ],
   paymentReliability: 'poor',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Tue/Fri 10am-3pm', instructions: 'Main entrance, ask for front desk', contactName: 'Victor Almeida', contactPhone: '(253) 555-0520' },
@@ -385,6 +404,11 @@ const olympicGreens: Account = {
   thirtyDayRevenue: 18600,
   avgOrderValue: 2700,
   orderCount: 72,
+  pipelineStatus: 'active',
+  pipelinePhase: 2,
+  pipelineHistory: [
+    { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-04-01', trigger: 'Weekly preroll restock cadence established' },
+  ],
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Wed/Fri 8am-12pm', instructions: 'Side entrance on 4th Ave, buzzer code 2247', contactName: 'Dana Reyes', contactPhone: '(360) 555-0634' },
@@ -421,6 +445,11 @@ const spokaneValley: Account = {
   thirtyDayRevenue: 4200,
   avgOrderValue: 1620,
   orderCount: 30,
+  pipelineStatus: 'active',
+  pipelinePhase: 2,
+  pipelineHistory: [
+    { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-08-01', trigger: 'Monthly ordering cadence established after 6 months' },
+  ],
   paymentReliability: 'good',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Thu 10am-4pm', instructions: 'Front door, parking in rear lot', contactName: 'Paul Hernandez', contactPhone: '(509) 555-1045' },
@@ -457,6 +486,11 @@ const capitolHillCollective: Account = {
   thirtyDayRevenue: 32400,
   avgOrderValue: 3800,
   orderCount: 90,
+  pipelineStatus: 'active',
+  pipelinePhase: 2,
+  pipelineHistory: [
+    { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2024-12-01', trigger: 'Rapid growth — AOV increased 35%, VMI enrolled' },
+  ],
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Mon/Wed/Fri 7am-10am', instructions: 'Underground garage, bay 3, text on arrival', contactName: 'Naomi Chen', contactPhone: '(206) 555-0188' },
@@ -494,6 +528,13 @@ const harborCannabis: Account = {
   thirtyDayRevenue: 0,
   avgOrderValue: 2480,
   orderCount: 10,
+  pipelineStatus: 'recovery',
+  pipelinePhase: 1,
+  pipelineHistory: [
+    { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 4 }, date: '2025-12-01', trigger: 'Order frequency dropped sharply after 3 months' },
+    { from: { status: 'active', phase: 4 }, to: { status: 'inactive', phase: 1 }, date: '2026-01-15', trigger: 'No orders in 30 days' },
+    { from: { status: 'inactive', phase: 1 }, to: { status: 'recovery', phase: 1 }, date: '2026-03-01', trigger: 'Rep outreach successful — Earl agreed to trial order' },
+  ],
   paymentReliability: 'fair',
   preferredPaymentMethod: 'mail',
   deliveryPreferences: { window: 'Fri only, 11am-3pm', instructions: 'Highway 101 storefront, no loading dock — hand carry only', contactName: 'Earl Dawkins', contactPhone: '(360) 555-1200' },
@@ -530,6 +571,13 @@ const evergreenWellness: Account = {
   thirtyDayRevenue: 8600,
   avgOrderValue: 2180,
   orderCount: 24,
+  pipelineStatus: 'recovery',
+  pipelinePhase: 4,
+  pipelineHistory: [
+    { from: { status: 'active', phase: 2 }, to: { status: 'inactive', phase: 1 }, date: '2025-11-01', trigger: 'Orders stopped for 45 days' },
+    { from: { status: 'inactive', phase: 1 }, to: { status: 'recovery', phase: 1 }, date: '2025-12-15', trigger: 'Carlos re-engaged Maria with edible expansion pitch' },
+    { from: { status: 'recovery', phase: 1 }, to: { status: 'recovery', phase: 4 }, date: '2026-02-15', trigger: 'Consistent ordering resumed, category expansion underway' },
+  ],
   paymentReliability: 'good',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Tue/Thu 10am-2pm', instructions: 'Main entrance, ring buzzer', contactName: 'Maria Santos', contactPhone: '(509) 555-1088' },
@@ -557,6 +605,7 @@ function makeAccount(
   payment: Account['paymentReliability'], payMethod: Account['preferredPaymentMethod'],
   segments: string[], lastOrder: string | null, contactName: string, contactRole: Contact['role'],
   contactPhone: string, contactEmail: string, created: string,
+  pipStatus: PipelineStatus, pipPhase: PipelinePhase, pipHistory: PipelineTransition[],
 ): Account {
   return {
     id, name, dba, licenseNumber: license,
@@ -566,6 +615,7 @@ function makeAccount(
     healthScore: health, healthTrend: trend, vmiEnrolled: vmi, status, segments,
     createdAt: created, lastOrderDate: lastOrder,
     totalRevenue: totalRev, thirtyDayRevenue: thirtyRev, avgOrderValue: aov, orderCount: orders,
+    pipelineStatus: pipStatus, pipelinePhase: pipPhase, pipelineHistory: pipHistory,
     paymentReliability: payment, preferredPaymentMethod: payMethod,
     deliveryPreferences: { window: 'Weekdays 9am-5pm', instructions: 'Front door', contactName, contactPhone },
     categoryMix: [
@@ -583,22 +633,91 @@ function makeAccount(
 }
 
 const generatedAccounts: Account[] = [
-  makeAccount('acct-001', 'Ballard Buds', 'Ballard Buds LLC', 'WA-CCB-420301', '5412 Ballard Ave NW', 'Seattle', '98107', 47.6687, -122.3855, 'Seattle Metro', 'rep-jake', 88, 'stable', 'active', true, 312400, 28600, 3200, 98, 'excellent', 'ach', ['high-volume', 'vmi'], '2026-03-05', 'Jen Takahashi', 'buyer', '(206) 555-0301', 'jen@ballardbuds.com', '2024-07-15'),
-  makeAccount('acct-002', 'Capitol Hill Green', 'CHG Cannabis Inc', 'WA-CCB-420302', '1020 E Pike St', 'Seattle', '98122', 47.6144, -122.3197, 'Seattle Metro', 'rep-jake', 76, 'stable', 'active', false, 186900, 16400, 2600, 72, 'good', 'cod', ['mid-tier'], '2026-03-01', 'Marcus Bell', 'buyer', '(206) 555-0302', 'marcus@capitolhillgreen.com', '2024-08-22'),
-  makeAccount('acct-003', 'Fremont Flowers', 'Fremont Cannabis Co', 'WA-CCB-420303', '3501 Fremont Pl N', 'Seattle', '98103', 47.6512, -122.3506, 'Seattle Metro', 'rep-jake', 81, 'improving', 'active', false, 224600, 21000, 2950, 76, 'good', 'ach', ['premium'], '2026-03-02', 'Olivia Grant', 'buyer', '(206) 555-0303', 'olivia@fremontflowers.com', '2024-09-10'),
-  makeAccount('acct-004', 'Bellevue Botanicals', 'BB Wellness LLC', 'WA-CCB-420304', '890 Bellevue Way NE', 'Bellevue', '98004', 47.6153, -122.2026, 'Eastside', 'rep-priya', 91, 'stable', 'active', true, 267800, 24100, 3450, 78, 'excellent', 'ach', ['premium', 'vmi'], '2026-03-04', 'Rachel Nguyen', 'buyer', '(425) 555-0304', 'rachel@bellevuebotanicals.com', '2024-05-20'),
-  makeAccount('acct-005', 'Kirkland Kush', 'KK Enterprises', 'WA-CCB-420305', '12030 NE 85th St', 'Kirkland', '98033', 47.6808, -122.1965, 'Eastside', 'rep-priya', 64, 'declining', 'at-risk', false, 98700, 5600, 1800, 55, 'fair', 'cod', ['mid-tier', 'at-risk'], '2026-02-15', 'Steve Park', 'manager', '(425) 555-0305', 'steve@kirklandkush.com', '2025-01-10'),
-  makeAccount('acct-006', 'Redmond Relief', 'Redmond Relief Dispensary', 'WA-CCB-420306', '16420 Redmond Way', 'Redmond', '98052', 47.6740, -122.1215, 'Eastside', 'rep-priya', 73, 'stable', 'active', false, 145600, 12800, 2100, 69, 'good', 'cod', ['mid-tier'], '2026-02-28', 'Karen Osei', 'buyer', '(425) 555-0306', 'karen@redmondrelief.com', '2024-11-05'),
-  makeAccount('acct-007', 'Tacoma Treehouse', 'Treehouse Cannabis LLC', 'WA-CCB-420307', '2714 6th Ave', 'Tacoma', '98406', 47.2570, -122.4647, 'Tacoma', 'rep-priya', 69, 'stable', 'active', false, 118400, 10200, 2050, 58, 'good', 'cod', ['mid-tier'], '2026-03-01', 'Derek Johnson', 'buyer', '(253) 555-0307', 'derek@tacomaTreehouse.com', '2025-02-14'),
-  makeAccount('acct-008', 'Olympia Organics', 'Olympia Organics Corp', 'WA-CCB-420308', '522 4th Ave E', 'Olympia', '98501', 47.0462, -122.8966, 'Olympia', 'rep-priya', 82, 'improving', 'active', false, 167200, 15800, 2800, 60, 'excellent', 'ach', ['premium', 'organic'], '2026-03-03', 'Megan Fox', 'owner', '(360) 555-0308', 'megan@olympiaorganics.com', '2024-10-01'),
-  makeAccount('acct-009', 'Spokane Smoke Shop', 'SSS Holdings', 'WA-CCB-420309', '2104 N Monroe St', 'Spokane', '99205', 47.6728, -117.4281, 'Spokane', 'rep-carlos', 55, 'declining', 'at-risk', false, 67400, 3800, 1500, 45, 'fair', 'cod', ['budget', 'at-risk'], '2026-02-10', 'Tyler Reed', 'buyer', '(509) 555-0309', 'tyler@spokanesmoke.com', '2025-03-20'),
-  makeAccount('acct-010', 'Walla Walla Weed Co', 'WW Cannabis LLC', 'WA-CCB-420310', '15 E Main St', 'Walla Walla', '99362', 46.0646, -118.3387, 'Eastern WA', 'rep-carlos', 62, 'stable', 'active', false, 54200, 4600, 1700, 32, 'good', 'mail', ['rural'], '2026-02-20', 'Amy Collins', 'buyer', '(509) 555-0310', 'amy@wallawallaweed.com', '2025-04-15'),
-  makeAccount('acct-011', 'Yakima Valley Green', 'YVG Dispensary', 'WA-CCB-420311', '110 S 2nd St', 'Yakima', '98901', 46.6021, -120.5059, 'Eastern WA', 'rep-carlos', 71, 'improving', 'active', false, 78900, 7200, 1950, 41, 'good', 'cod', ['mid-tier'], '2026-03-01', 'Roberto Silva', 'buyer', '(509) 555-0311', 'roberto@yvgreen.com', '2025-05-01'),
-  makeAccount('acct-012', 'Bellingham Bloom', 'BB Cannabis Co', 'WA-CCB-420312', '1298 Railroad Ave', 'Bellingham', '98225', 48.7519, -122.4787, 'NW Washington', 'rep-jake', 77, 'stable', 'active', false, 134500, 11400, 2400, 56, 'good', 'ach', ['mid-tier'], '2026-03-02', 'Claire Dawson', 'buyer', '(360) 555-0312', 'claire@bellinghambloom.com', '2024-12-01'),
-  makeAccount('acct-013', 'Vancouver Vapor', 'VV Holdings', 'WA-CCB-420313', '1600 Main St', 'Vancouver', '98660', 45.6387, -122.6615, 'SW Washington', 'rep-priya', 44, 'declining', 'at-risk', false, 42100, 1800, 1400, 30, 'poor', 'cod', ['budget', 'at-risk'], '2026-01-30', 'Nina Walsh', 'buyer', '(360) 555-0313', 'nina@vancouvervapor.com', '2025-06-15'),
-  makeAccount('acct-014', 'Tri-Cities Terpenes', 'TCT Cannabis', 'WA-CCB-420314', '234 George Washington Way', 'Richland', '99352', 46.2804, -119.2752, 'Eastern WA', 'rep-carlos', 66, 'stable', 'active', false, 89300, 7800, 1850, 48, 'good', 'mail', ['mid-tier'], '2026-02-25', 'Jason Briggs', 'buyer', '(509) 555-0314', 'jason@tricitiesterp.com', '2025-01-20'),
-  makeAccount('acct-015', 'Everett Extracts', 'EE Dispensary LLC', 'WA-CCB-420315', '2930 Colby Ave', 'Everett', '98201', 47.9790, -122.2021, 'North Sound', 'rep-jake', 79, 'improving', 'active', false, 156800, 14200, 2700, 58, 'good', 'ach', ['premium'], '2026-03-03', 'Hannah Lee', 'buyer', '(425) 555-0315', 'hannah@everettextracts.com', '2024-08-10'),
-  makeAccount('acct-016', 'Bainbridge Botanics', 'Bainbridge Cannabis', 'WA-CCB-420316', '180 Winslow Way E', 'Bainbridge Island', '98110', 47.6265, -122.5091, 'Kitsap', 'rep-jake', 83, 'stable', 'active', false, 92100, 8400, 3070, 30, 'excellent', 'ach', ['boutique', 'premium'], '2026-03-02', 'Will Thornton', 'owner', '(206) 555-0316', 'will@bainbridgebotanics.com', '2025-03-01'),
+  makeAccount('acct-001', 'Ballard Buds', 'Ballard Buds LLC', 'WA-CCB-420301', '5412 Ballard Ave NW', 'Seattle', '98107', 47.6687, -122.3855, 'Seattle Metro', 'rep-jake', 88, 'stable', 'active', true, 312400, 28600, 3200, 98, 'excellent', 'ach', ['high-volume', 'vmi'], '2026-03-05', 'Jen Takahashi', 'buyer', '(206) 555-0301', 'jen@ballardbuds.com', '2024-07-15',
+    'active', 3, [
+      { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2024-11-01', trigger: 'Rapid order growth in first 4 months' },
+      { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-05-15', trigger: 'Consistent high-volume ordering for 6 months' },
+    ]),
+  makeAccount('acct-002', 'Capitol Hill Green', 'CHG Cannabis Inc', 'WA-CCB-420302', '1020 E Pike St', 'Seattle', '98122', 47.6144, -122.3197, 'Seattle Metro', 'rep-jake', 76, 'stable', 'active', false, 186900, 16400, 2600, 72, 'good', 'cod', ['mid-tier'], '2026-03-01', 'Marcus Bell', 'buyer', '(206) 555-0302', 'marcus@capitolhillgreen.com', '2024-08-22',
+    'active', 2, [
+      { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-03-01', trigger: 'Consistent biweekly ordering established' },
+    ]),
+  makeAccount('acct-003', 'Fremont Flowers', 'Fremont Cannabis Co', 'WA-CCB-420303', '3501 Fremont Pl N', 'Seattle', '98103', 47.6512, -122.3506, 'Seattle Metro', 'rep-jake', 81, 'improving', 'active', false, 224600, 21000, 2950, 76, 'good', 'ach', ['premium'], '2026-03-02', 'Olivia Grant', 'buyer', '(206) 555-0303', 'olivia@fremontflowers.com', '2024-09-10',
+    'active', 2, [
+      { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-04-01', trigger: 'AOV increasing, category mix expanding' },
+    ]),
+  makeAccount('acct-004', 'Bellevue Botanicals', 'BB Wellness LLC', 'WA-CCB-420304', '890 Bellevue Way NE', 'Bellevue', '98004', 47.6153, -122.2026, 'Eastside', 'rep-priya', 91, 'stable', 'active', true, 267800, 24100, 3450, 78, 'excellent', 'ach', ['premium', 'vmi'], '2026-03-04', 'Rachel Nguyen', 'buyer', '(425) 555-0304', 'rachel@bellevuebotanicals.com', '2024-05-20',
+    'active', 3, [
+      { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2024-09-15', trigger: 'VMI enrolled, strong initial growth' },
+      { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-04-01', trigger: 'Premium tier — stable high-value ordering' },
+    ]),
+  makeAccount('acct-005', 'Kirkland Kush', 'KK Enterprises', 'WA-CCB-420305', '12030 NE 85th St', 'Kirkland', '98033', 47.6808, -122.1965, 'Eastside', 'rep-priya', 64, 'declining', 'at-risk', false, 98700, 5600, 1800, 55, 'fair', 'cod', ['mid-tier', 'at-risk'], '2026-02-15', 'Steve Park', 'manager', '(425) 555-0305', 'steve@kirklandkush.com', '2025-01-10',
+    'active', 4, [
+      { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-08-01', trigger: 'Regular monthly ordering pattern' },
+      { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2026-01-15', trigger: 'Order frequency declined 35% over 8 weeks' },
+    ]),
+  makeAccount('acct-006', 'Redmond Relief', 'Redmond Relief Dispensary', 'WA-CCB-420306', '16420 Redmond Way', 'Redmond', '98052', 47.6740, -122.1215, 'Eastside', 'rep-priya', 73, 'stable', 'active', false, 145600, 12800, 2100, 69, 'good', 'cod', ['mid-tier'], '2026-02-28', 'Karen Osei', 'buyer', '(425) 555-0306', 'karen@redmondrelief.com', '2024-11-05',
+    'active', 3, [
+      { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-03-15', trigger: 'Biweekly ordering cadence established' },
+      { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-10-01', trigger: 'Consistent mid-tier ordering for 7 months' },
+    ]),
+  makeAccount('acct-007', 'Tacoma Treehouse', 'Treehouse Cannabis LLC', 'WA-CCB-420307', '2714 6th Ave', 'Tacoma', '98406', 47.2570, -122.4647, 'Tacoma', 'rep-priya', 69, 'stable', 'active', false, 118400, 10200, 2050, 58, 'good', 'cod', ['mid-tier'], '2026-03-01', 'Derek Johnson', 'buyer', '(253) 555-0307', 'derek@tacomaTreehouse.com', '2025-02-14',
+    'recovery', 3, [
+      { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2025-09-01', trigger: 'Order volume dropped after competitor opened nearby' },
+      { from: { status: 'active', phase: 4 }, to: { status: 'inactive', phase: 1 }, date: '2025-11-15', trigger: 'No orders for 30 days' },
+      { from: { status: 'inactive', phase: 1 }, to: { status: 'recovery', phase: 1 }, date: '2025-12-20', trigger: 'Win-back pricing accepted' },
+      { from: { status: 'recovery', phase: 1 }, to: { status: 'recovery', phase: 3 }, date: '2026-02-01', trigger: 'Resumed biweekly ordering, volume stabilizing' },
+    ]),
+  makeAccount('acct-008', 'Olympia Organics', 'Olympia Organics Corp', 'WA-CCB-420308', '522 4th Ave E', 'Olympia', '98501', 47.0462, -122.8966, 'Olympia', 'rep-priya', 82, 'improving', 'active', false, 167200, 15800, 2800, 60, 'excellent', 'ach', ['premium', 'organic'], '2026-03-03', 'Megan Fox', 'owner', '(360) 555-0308', 'megan@olympiaorganics.com', '2024-10-01',
+    'recovery', 5, [
+      { from: { status: 'active', phase: 3 }, to: { status: 'inactive', phase: 1 }, date: '2025-04-01', trigger: 'Ownership transition — all orders paused' },
+      { from: { status: 'inactive', phase: 1 }, to: { status: 'recovery', phase: 1 }, date: '2025-06-15', trigger: 'New owner Megan re-engaged with trial order' },
+      { from: { status: 'recovery', phase: 1 }, to: { status: 'recovery', phase: 5 }, date: '2025-12-01', trigger: 'Exceeded pre-lapse ordering levels — graduated' },
+    ]),
+  makeAccount('acct-009', 'Spokane Smoke Shop', 'SSS Holdings', 'WA-CCB-420309', '2104 N Monroe St', 'Spokane', '99205', 47.6728, -117.4281, 'Spokane', 'rep-carlos', 55, 'declining', 'at-risk', false, 67400, 3800, 1500, 45, 'fair', 'cod', ['budget', 'at-risk'], '2026-02-10', 'Tyler Reed', 'buyer', '(509) 555-0309', 'tyler@spokanesmoke.com', '2025-03-20',
+    'inactive', 2, [
+      { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2025-11-01', trigger: 'Declining order volume and shrinking basket size' },
+      { from: { status: 'active', phase: 4 }, to: { status: 'inactive', phase: 1 }, date: '2026-01-15', trigger: 'No orders in 35 days' },
+      { from: { status: 'inactive', phase: 1 }, to: { status: 'inactive', phase: 2 }, date: '2026-02-15', trigger: 'Outreach attempted — no response' },
+    ]),
+  makeAccount('acct-010', 'Walla Walla Weed Co', 'WW Cannabis LLC', 'WA-CCB-420310', '15 E Main St', 'Walla Walla', '99362', 46.0646, -118.3387, 'Eastern WA', 'rep-carlos', 62, 'stable', 'active', false, 54200, 4600, 1700, 32, 'good', 'mail', ['rural'], '2026-02-20', 'Amy Collins', 'buyer', '(509) 555-0310', 'amy@wallawallaweed.com', '2025-04-15',
+    'active', 1, [
+      { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 1 }, date: '2025-04-15', trigger: 'Account created — onboarding in progress' },
+    ]),
+  makeAccount('acct-011', 'Yakima Valley Green', 'YVG Dispensary', 'WA-CCB-420311', '110 S 2nd St', 'Yakima', '98901', 46.6021, -120.5059, 'Eastern WA', 'rep-carlos', 71, 'improving', 'active', false, 78900, 7200, 1950, 41, 'good', 'cod', ['mid-tier'], '2026-03-01', 'Roberto Silva', 'buyer', '(509) 555-0311', 'roberto@yvgreen.com', '2025-05-01',
+    'recovery', 2, [
+      { from: { status: 'active', phase: 2 }, to: { status: 'inactive', phase: 1 }, date: '2025-10-01', trigger: 'Seasonal slowdown led to 40-day order gap' },
+      { from: { status: 'inactive', phase: 1 }, to: { status: 'recovery', phase: 1 }, date: '2025-11-15', trigger: 'Carlos visited in person, secured restart order' },
+      { from: { status: 'recovery', phase: 1 }, to: { status: 'recovery', phase: 2 }, date: '2026-01-15', trigger: 'Second consecutive monthly order placed' },
+    ]),
+  makeAccount('acct-012', 'Bellingham Bloom', 'BB Cannabis Co', 'WA-CCB-420312', '1298 Railroad Ave', 'Bellingham', '98225', 48.7519, -122.4787, 'NW Washington', 'rep-jake', 77, 'stable', 'active', false, 134500, 11400, 2400, 56, 'good', 'ach', ['mid-tier'], '2026-03-02', 'Claire Dawson', 'buyer', '(360) 555-0312', 'claire@bellinghambloom.com', '2024-12-01',
+    'active', 3, [
+      { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-04-01', trigger: 'Steady monthly ordering established' },
+      { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-10-15', trigger: 'Reliable order cadence maintained for 6 months' },
+    ]),
+  makeAccount('acct-013', 'Vancouver Vapor', 'VV Holdings', 'WA-CCB-420313', '1600 Main St', 'Vancouver', '98660', 45.6387, -122.6615, 'SW Washington', 'rep-priya', 44, 'declining', 'at-risk', false, 42100, 1800, 1400, 30, 'poor', 'cod', ['budget', 'at-risk'], '2026-01-30', 'Nina Walsh', 'buyer', '(360) 555-0313', 'nina@vancouvervapor.com', '2025-06-15',
+    'inactive', 3, [
+      { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 4 }, date: '2025-11-01', trigger: 'Payment issues and declining order volume' },
+      { from: { status: 'active', phase: 4 }, to: { status: 'inactive', phase: 1 }, date: '2025-12-15', trigger: 'Two overdue invoices, orders stopped' },
+      { from: { status: 'inactive', phase: 1 }, to: { status: 'inactive', phase: 3 }, date: '2026-02-15', trigger: 'Multiple outreach attempts unanswered for 60 days' },
+    ]),
+  makeAccount('acct-014', 'Tri-Cities Terpenes', 'TCT Cannabis', 'WA-CCB-420314', '234 George Washington Way', 'Richland', '99352', 46.2804, -119.2752, 'Eastern WA', 'rep-carlos', 66, 'stable', 'active', false, 89300, 7800, 1850, 48, 'good', 'mail', ['mid-tier'], '2026-02-25', 'Jason Briggs', 'buyer', '(509) 555-0314', 'jason@tricitiesterp.com', '2025-01-20',
+    'active', 4, [
+      { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-07-01', trigger: 'Steady biweekly ordering for 6 months' },
+      { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2026-01-01', trigger: 'Order frequency and AOV both declining 20%' },
+    ]),
+  makeAccount('acct-015', 'Everett Extracts', 'EE Dispensary LLC', 'WA-CCB-420315', '2930 Colby Ave', 'Everett', '98201', 47.9790, -122.2021, 'North Sound', 'rep-jake', 79, 'improving', 'active', false, 156800, 14200, 2700, 58, 'good', 'ach', ['premium'], '2026-03-03', 'Hannah Lee', 'buyer', '(425) 555-0315', 'hannah@everettextracts.com', '2024-08-10',
+    'recovery', 5, [
+      { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2025-06-01', trigger: 'Lost shelf space to competitor brand' },
+      { from: { status: 'active', phase: 4 }, to: { status: 'inactive', phase: 1 }, date: '2025-08-01', trigger: 'Orders dropped to zero for 30 days' },
+      { from: { status: 'inactive', phase: 1 }, to: { status: 'recovery', phase: 1 }, date: '2025-09-15', trigger: 'Jake negotiated exclusive extract placement deal' },
+      { from: { status: 'recovery', phase: 1 }, to: { status: 'recovery', phase: 5 }, date: '2026-01-15', trigger: 'Surpassed pre-lapse revenue levels — graduated' },
+    ]),
+  makeAccount('acct-016', 'Bainbridge Botanics', 'Bainbridge Cannabis', 'WA-CCB-420316', '180 Winslow Way E', 'Bainbridge Island', '98110', 47.6265, -122.5091, 'Kitsap', 'rep-jake', 83, 'stable', 'active', false, 92100, 8400, 3070, 30, 'excellent', 'ach', ['boutique', 'premium'], '2026-03-02', 'Will Thornton', 'owner', '(206) 555-0316', 'will@bainbridgebotanics.com', '2025-03-01',
+    'active', 3, [
+      { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-07-01', trigger: 'Premium boutique — fast AOV growth' },
+      { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-12-01', trigger: 'Stable high-value monthly ordering' },
+    ]),
 ];
 
 // --- All Accounts ---
@@ -771,6 +890,8 @@ export const briefingItems: BriefingItem[] = [
   { id: 'brief-003', message: 'Greenfield Dispensary VMI auto-reorder triggered — 12 SKUs, est. $3,800. Delivery scheduled Tuesday.', type: 'reorder', severity: 'low', accountId: 'acct-greenfield', actions: [{ label: 'Review Order', action: 'view' }] },
   { id: 'brief-004', message: 'Cascade Wellness showed interest in preroll expansion. Category-expansion opportunity worth $8,500.', type: 'opportunity', severity: 'medium', accountId: 'acct-cascade', actions: [{ label: 'Follow Up', action: 'call' }, { label: 'View Opp', action: 'view' }] },
   { id: 'brief-005', message: 'Vancouver Vapor has 2 overdue invoices totaling $5,600. Consider escalating to collections.', type: 'payment', severity: 'high', accountId: 'acct-013', actions: [{ label: 'Escalate', action: 'escalate' }, { label: 'View Account', action: 'view' }] },
+  { id: 'brief-006', message: 'Pacific Leaf moved from A3\u2192A4 \u2014 order frequency declining 18% this month', type: 'pipeline', severity: 'high', accountId: 'acct-pacific-leaf', actions: [{ label: 'View Account', action: 'view' }] },
+  { id: 'brief-007', message: 'Harbor Cannabis re-engaged (R1) after 30 days inactive \u2014 rep outreach successful', type: 'pipeline', severity: 'medium', accountId: 'acct-harbor', actions: [{ label: 'View Pipeline', action: 'view' }] },
 ];
 
 // --- Chart Data ---
@@ -879,6 +1000,38 @@ export const ordersSparkline = [12, 8, 15, 10, 7, 11, 9, 14, 8, 12, 7, 10];
 
 // --- Factory Functions with Simulated Delays ---
 
+// --- KPI Metrics ---
+
+const kpiMetrics: KPIMetric[] = [
+  { label: 'Order Freq', value: 4.2, unit: '/mo', trend: 5.3, category: 'order' },
+  { label: 'Basket Size', value: 18, unit: 'SKUs', trend: 2.1, category: 'basket' },
+  { label: 'Sell-Through', value: 78, unit: '%', trend: 3.4, category: 'sell-through' },
+  { label: 'Revenue', value: 142800, unit: '$', trend: 8.2, category: 'revenue' },
+  { label: 'Days to Pay', value: 12, unit: 'days', trend: -6.1, category: 'payment' },
+  { label: 'Relationship', value: 82, unit: '/100', trend: 1.8, category: 'relationship' },
+  { label: 'Wallet Share', value: 34, unit: '%', trend: -2.4, category: 'competitive' },
+];
+
+// --- Pipeline Distribution ---
+
+const pipelineDistribution: PipelineDistribution[] = [
+  { phase: 1, phaseLabel: 'Phase 1', active: 2, inactive: 2, recovery: 2 },
+  { phase: 2, phaseLabel: 'Phase 2', active: 4, inactive: 1, recovery: 1 },
+  { phase: 3, phaseLabel: 'Phase 3', active: 5, inactive: 1, recovery: 1 },
+  { phase: 4, phaseLabel: 'Phase 4', active: 3, inactive: 1, recovery: 1 },
+  { phase: 5, phaseLabel: 'Phase 5', active: 2, inactive: 1, recovery: 1 },
+];
+
+// --- Recovery Funnel ---
+
+const recoveryFunnel: RecoveryFunnel[] = [
+  { phase: 'R1 Re-engaged', count: 6, conversionRate: 100 },
+  { phase: 'R2 Rebuilding', count: 4, conversionRate: 67 },
+  { phase: 'R3 Stabilizing', count: 3, conversionRate: 50 },
+  { phase: 'R4 Strengthening', count: 2, conversionRate: 33 },
+  { phase: 'R5 Graduated', count: 2, conversionRate: 33 },
+];
+
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function getAccounts(filters?: { status?: string; region?: string; search?: string }): Promise<Account[]> {
@@ -927,5 +1080,8 @@ export async function getDashboardData(): Promise<CRMDashboardData> {
     orderVolume,
     topAccounts,
     recentActivity,
+    kpiMetrics,
+    pipelineDistribution,
+    recoveryFunnel,
   };
 }
