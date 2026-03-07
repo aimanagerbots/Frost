@@ -13,8 +13,6 @@ import { ChartWrapper, CHART_THEME, StatusBadge, LoadingSkeleton } from '@/compo
 import { useAccountHealth } from '../../../hooks';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
-const CRM_ACCENT = '#F59E0B';
-
 interface HealthTabProps {
   accountId: string;
 }
@@ -83,8 +81,10 @@ export function HealthTab({ accountId }: HealthTabProps) {
                 dataKey="date"
                 tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }}
                 tickFormatter={(d) => new Date(d).toLocaleDateString('en-US', { month: 'short' })}
+                axisLine={{ stroke: CHART_THEME.gridColor }}
+                tickLine={{ stroke: CHART_THEME.gridColor }}
               />
-              <YAxis domain={[0, 100]} tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} />
+              <YAxis domain={[0, 100]} tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
               <Tooltip
                 contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
               />

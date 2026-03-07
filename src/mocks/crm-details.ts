@@ -41,8 +41,6 @@ function dateOffset(daysAgo: number): string {
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const CATEGORIES = ['flower', 'preroll', 'vaporizer', 'concentrate', 'edible', 'beverage'] as const;
-
 const DRIVERS = ['Marcus Webb', 'Diego Fuentes', 'Kenji Tanaka', 'Alisha Pham', 'Troy Bennett'];
 
 // --- Orders ---
@@ -125,7 +123,7 @@ function generateHealthData(account: Account): AccountHealthData {
   }
 
   const history: { date: string; score: number }[] = [];
-  let score = account.healthScore;
+  const score = account.healthScore;
   for (let i = 11; i >= 0; i--) {
     const drift = account.healthTrend === 'improving' ? -2.5 : account.healthTrend === 'declining' ? 2.5 : 0;
     const past = Math.max(5, Math.min(98, Math.round(score + drift * (i - 5) + (rng() - 0.5) * 8)));
@@ -265,8 +263,6 @@ function generateDeliveries(account: Account): AccountDeliverySummary {
     const daysAgo = Math.floor((i / count) * 300) + Math.floor(rng() * 15);
     const status = i < 2 ? pick(rng, ['scheduled', 'in-transit'] as const) : pick(rng, statusPool);
     const delivered = status === 'delivered';
-    const mins = 25 + Math.floor(rng() * 60);
-
     deliveries.push({
       id: `del-${account.id}-${i}`,
       date: dateOffset(daysAgo),

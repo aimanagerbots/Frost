@@ -140,8 +140,8 @@ export function PurchasesTab({ accountId, account }: PurchasesTabProps) {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridColor} />
-            <XAxis dataKey="month" tick={{ fill: CHART_THEME.axisColor, fontSize: 12 }} />
-            <YAxis tick={{ fill: CHART_THEME.axisColor, fontSize: 12 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
+            <XAxis dataKey="month" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
+            <YAxis tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
             <Tooltip
               contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
               formatter={(value) => formatCurrency(Number(value))}

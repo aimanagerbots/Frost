@@ -64,6 +64,12 @@ const CATEGORY_COLORS: Record<string, string> = {
   beverage: CHART_COLORS.beverage,
 };
 
+// Recharts Legend renders each item's text with inline color matching the series fill,
+// which can be unreadable on dark backgrounds. This formatter forces light text.
+const legendFormatter = (value: string) => (
+  <span style={{ color: CHART_THEME.legendColor }}>{value}</span>
+);
+
 export function ChartsSection({
   revenueByCategoryWeeks,
   healthDistribution,
@@ -79,18 +85,21 @@ export function ChartsSection({
             <CartesianGrid stroke={CHART_THEME.gridColor} strokeDasharray="3 3" />
             <XAxis
               dataKey="week"
-              tick={{ fill: CHART_THEME.axisColor, fontSize: 10 }}
+              tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }}
               tickFormatter={(v: string) => v.slice(5)}
               axisLine={{ stroke: CHART_THEME.gridColor }}
+              tickLine={{ stroke: CHART_THEME.gridColor }}
             />
             <YAxis
-              tick={{ fill: CHART_THEME.axisColor, fontSize: 10 }}
+              tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }}
               tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}K`}
               axisLine={{ stroke: CHART_THEME.gridColor }}
+              tickLine={{ stroke: CHART_THEME.gridColor }}
             />
             <Tooltip content={<ChartTooltip />} />
             <Legend
-              wrapperStyle={{ fontSize: 11, color: CHART_THEME.axisColor }}
+              wrapperStyle={{ fontSize: 11 }}
+              formatter={legendFormatter}
             />
             {Object.entries(CATEGORY_COLORS).map(([key, color]) => (
               <Bar
@@ -119,6 +128,12 @@ export function ChartsSection({
               dataKey="value"
               nameKey="name"
               stroke="none"
+              label={({ name, percent, x, y }: { name?: string; percent?: number; x?: number; y?: number }) => (
+                <text x={x} y={y} fill={CHART_THEME.legendColor} fontSize={11} textAnchor="middle" dominantBaseline="central">
+                  {name ?? ''} {((percent ?? 0) * 100).toFixed(0)}%
+                </text>
+              )}
+              labelLine={{ stroke: CHART_THEME.axisColor }}
             >
               {healthDistribution.map((entry) => (
                 <Cell key={entry.name} fill={entry.color} />
@@ -149,7 +164,8 @@ export function ChartsSection({
               }}
             />
             <Legend
-              wrapperStyle={{ fontSize: 11, color: CHART_THEME.axisColor }}
+              wrapperStyle={{ fontSize: 11 }}
+              formatter={legendFormatter}
             />
           </PieChart>
         </ResponsiveContainer>
@@ -162,13 +178,15 @@ export function ChartsSection({
             <CartesianGrid stroke={CHART_THEME.gridColor} strokeDasharray="3 3" />
             <XAxis
               dataKey="date"
-              tick={{ fill: CHART_THEME.axisColor, fontSize: 10 }}
+              tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }}
               tickFormatter={(v: string) => v.slice(5)}
               axisLine={{ stroke: CHART_THEME.gridColor }}
+              tickLine={{ stroke: CHART_THEME.gridColor }}
             />
             <YAxis
-              tick={{ fill: CHART_THEME.axisColor, fontSize: 10 }}
+              tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }}
               axisLine={{ stroke: CHART_THEME.gridColor }}
+              tickLine={{ stroke: CHART_THEME.gridColor }}
             />
             <Tooltip
               content={({ active, payload, label }) => {
@@ -210,7 +228,8 @@ export function ChartsSection({
               name="7-Day Avg"
             />
             <Legend
-              wrapperStyle={{ fontSize: 11, color: CHART_THEME.axisColor }}
+              wrapperStyle={{ fontSize: 11 }}
+              formatter={legendFormatter}
             />
           </LineChart>
         </ResponsiveContainer>
@@ -223,16 +242,18 @@ export function ChartsSection({
             <CartesianGrid stroke={CHART_THEME.gridColor} strokeDasharray="3 3" horizontal={false} />
             <XAxis
               type="number"
-              tick={{ fill: CHART_THEME.axisColor, fontSize: 10 }}
+              tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }}
               tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}K`}
               axisLine={{ stroke: CHART_THEME.gridColor }}
+              tickLine={{ stroke: CHART_THEME.gridColor }}
             />
             <YAxis
               type="category"
               dataKey="name"
-              tick={{ fill: CHART_THEME.axisColor, fontSize: 10 }}
+              tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }}
               width={120}
               axisLine={{ stroke: CHART_THEME.gridColor }}
+              tickLine={{ stroke: CHART_THEME.gridColor }}
             />
             <Tooltip
               content={({ active, payload }) => {

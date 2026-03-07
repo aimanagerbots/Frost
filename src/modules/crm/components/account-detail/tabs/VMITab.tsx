@@ -67,8 +67,8 @@ export function VMITab({ accountId, vmiEnrolled }: VMITabProps) {
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={vmi.sellThrough}>
             <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridColor} />
-            <XAxis dataKey="week" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} />
-            <YAxis tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} />
+            <XAxis dataKey="week" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
+            <YAxis tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
             <Tooltip
               contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
             />
@@ -83,8 +83,8 @@ export function VMITab({ accountId, vmiEnrolled }: VMITabProps) {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={vmi.inventoryLevels} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridColor} />
-              <XAxis type="number" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} />
-              <YAxis dataKey="category" type="category" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} width={80} />
+              <XAxis type="number" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
+              <YAxis dataKey="category" type="category" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} width={80} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
               <Tooltip
                 contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
               />
@@ -99,8 +99,8 @@ export function VMITab({ accountId, vmiEnrolled }: VMITabProps) {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={vmi.daysOnHand} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridColor} />
-              <XAxis type="number" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} />
-              <YAxis dataKey="category" type="category" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} width={80} />
+              <XAxis type="number" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
+              <YAxis dataKey="category" type="category" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} width={80} axisLine={{ stroke: CHART_THEME.gridColor }} tickLine={{ stroke: CHART_THEME.gridColor }} />
               <Tooltip
                 contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
               />

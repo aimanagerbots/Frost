@@ -29,7 +29,8 @@ export const CHART_COLORS = {
 export const CHART_THEME = {
   background: 'transparent',
   gridColor: '#1A1F2E',
-  axisColor: '#6B7A99',
+  axisColor: '#E2E8F0',
+  legendColor: '#E2E8F0',
   tooltipBg: '#1A1F2E',
   tooltipBorder: '#2A3040',
   tooltipText: '#C8D0E0',
