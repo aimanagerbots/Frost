@@ -1,18 +1,28 @@
-import Link from "next/link";
+import { HeroSection } from "@/components/ui/HeroSection";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { unsplashUrl, PHOTOS } from "@/lib/constants";
+import { getAllStrains } from "@/mocks/strains";
+import { StrainsPageClient } from "./StrainsPageClient";
 
 export default function StrainsPage() {
+  const strains = getAllStrains();
+
   return (
-    <main className="min-h-screen px-6 py-24 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold tracking-tight text-text-bright mb-4">
-        Strain Library
-      </h1>
-      <p className="text-lg text-text-muted mb-8">
-        Browse our full genetics library. Filter by type, terpene profile,
-        effects, and potency to find the perfect strain for you.
-      </p>
-      <Link href="/" className="text-accent-primary hover:underline">
-        Back to Home
-      </Link>
-    </main>
+    <div>
+      <HeroSection
+        title="Strain Library"
+        subtitle="Explore our genetics — from classic cultivars to modern hybrids. Each strain hand-selected for flavor, potency, and character."
+        height="half"
+        imageUrl={unsplashUrl(PHOTOS.strains.hero)}
+      />
+
+      <ScrollReveal>
+        <section className="section-pad">
+          <div className="mx-auto max-w-7xl px-6">
+            <StrainsPageClient strains={strains} />
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
   );
 }
