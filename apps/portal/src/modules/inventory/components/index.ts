@@ -1,1 +1,1 @@
-export { InventoryPage } from './InventoryPage';
+export { InventoryLayout } from './InventoryLayout';

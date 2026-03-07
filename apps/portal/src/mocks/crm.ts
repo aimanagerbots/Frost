@@ -18,7 +18,9 @@ import type {
   PipelineStatus,
   PipelinePhase,
   PipelineTransition,
+  PipelineInfo,
 } from '@/modules/crm/types';
+import { PIPELINE_PHASE_LABELS } from '@/modules/crm/types';
 
 // --- Sales Reps ---
 
@@ -64,6 +66,24 @@ export const salesReps: SalesRep[] = [
     activeOpportunities: 0,
   },
 ];
+
+function makePipelineInfo(
+  status: PipelineStatus, phase: PipelinePhase,
+  enteredDate: string, repId: string,
+  previousCode?: string, previousDate?: string,
+  nextReviewDate?: string, notes?: string,
+): PipelineInfo {
+  const prefix = status === 'active' ? 'A' : status === 'inactive' ? 'I' : 'R';
+  return {
+    status, phase,
+    code: `${prefix}${phase}`,
+    name: PIPELINE_PHASE_LABELS[status][phase],
+    enteredDate, assignedRep: repId,
+    ...(previousCode ? { previousCode, previousDate } : {}),
+    ...(nextReviewDate ? { nextReviewDate } : {}),
+    ...(notes ? { notes } : {}),
+  };
+}
 
 // --- Named Account Personas ---
 
@@ -114,6 +134,7 @@ const greenfield: Account = {
     { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2024-09-15', trigger: '3rd consecutive order placed' },
     { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-03-01', trigger: 'Consistent ordering for 6 months' },
   ],
+  pipeline: { status: 'active', phase: 3 as 1 | 2 | 3 | 4 | 5, code: 'P3-EST', name: 'Established', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Tue/Thu 8am-12pm', instructions: 'Loading dock in rear, ring bell', contactName: 'Sarah Chen', contactPhone: '(206) 555-0142' },
@@ -155,6 +176,7 @@ const pacificLeaf: Account = {
     { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-07-15', trigger: 'Stable ordering pattern for 6 months' },
     { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2026-01-20', trigger: 'Order frequency declined 30% over 60 days' },
   ],
+  pipeline: { status: 'active', phase: 4 as 1 | 2 | 3 | 4 | 5, code: 'P4-STR', name: 'Strategic', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'fair',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Mon/Wed 10am-2pm', instructions: 'Front entrance, ask for David', contactName: 'David Kim', contactPhone: '(253) 555-0267' },
@@ -198,6 +220,7 @@ const emeraldCity: Account = {
     { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2025-10-15', trigger: 'Order frequency dropped 40%' },
     { from: { status: 'active', phase: 4 }, to: { status: 'inactive', phase: 1 }, date: '2026-02-01', trigger: 'No orders in 45 days' },
   ],
+  pipeline: { status: 'inactive', phase: 1 as 1 | 2 | 3 | 4 | 5, code: 'P1-ONB', name: 'Onboarding', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'poor',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Any weekday 9am-5pm', instructions: 'Side door, buzzer #3', contactName: 'Amanda Torres', contactPhone: '(206) 555-0389' },
@@ -239,6 +262,7 @@ const cascadeWellness: Account = {
   pipelineHistory: [
     { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 1 }, date: '2026-01-08', trigger: 'Account created — onboarding started' },
   ],
+  pipeline: { status: 'active', phase: 1 as 1 | 2 | 3 | 4 | 5, code: 'P1-ONB', name: 'Onboarding', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'good',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Fri 10am-2pm', instructions: 'Main entrance', contactName: 'Tom Wheeler', contactPhone: '(509) 555-0145' },
@@ -281,6 +305,7 @@ const pugetSound: Account = {
     { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-02-01', trigger: 'Consistent monthly orders established' },
     { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-08-15', trigger: 'Stable AOV and order cadence for 6 months' },
   ],
+  pipeline: { status: 'active', phase: 3 as 1 | 2 | 3 | 4 | 5, code: 'P3-EST', name: 'Established', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Wed 9am-12pm', instructions: 'Premium entrance, ask for Lisa', contactName: 'Lisa Park', contactPhone: '(360) 555-0221' },
@@ -323,6 +348,7 @@ const summitCannabis: Account = {
     { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-07-01', trigger: 'VMI enrolled, order cadence accelerated' },
     { from: { status: 'active', phase: 2 }, to: { status: 'active', phase: 3 }, date: '2025-12-15', trigger: 'Reliable biweekly ordering for 5 months' },
   ],
+  pipeline: { status: 'active', phase: 3 as 1 | 2 | 3 | 4 | 5, code: 'P3-EST', name: 'Established', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Mon/Thu 9am-1pm', instructions: 'Rear loading bay, call on arrival', contactName: 'Grant Holloway', contactPhone: '(360) 555-0440' },
@@ -367,6 +393,7 @@ const rainierRemedies: Account = {
     { from: { status: 'active', phase: 3 }, to: { status: 'active', phase: 4 }, date: '2025-11-01', trigger: 'Payment delays and declining order volume' },
     { from: { status: 'active', phase: 4 }, to: { status: 'active', phase: 5 }, date: '2026-02-15', trigger: 'Two overdue invoices, no orders in 24 days' },
   ],
+  pipeline: { status: 'active', phase: 5 as 1 | 2 | 3 | 4 | 5, code: 'P5-PTR', name: 'Partner', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'poor',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Tue/Fri 10am-3pm', instructions: 'Main entrance, ask for front desk', contactName: 'Victor Almeida', contactPhone: '(253) 555-0520' },
@@ -409,6 +436,7 @@ const olympicGreens: Account = {
   pipelineHistory: [
     { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-04-01', trigger: 'Weekly preroll restock cadence established' },
   ],
+  pipeline: { status: 'active', phase: 2 as 1 | 2 | 3 | 4 | 5, code: 'P2-GRW', name: 'Growing', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Wed/Fri 8am-12pm', instructions: 'Side entrance on 4th Ave, buzzer code 2247', contactName: 'Dana Reyes', contactPhone: '(360) 555-0634' },
@@ -450,6 +478,7 @@ const spokaneValley: Account = {
   pipelineHistory: [
     { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2025-08-01', trigger: 'Monthly ordering cadence established after 6 months' },
   ],
+  pipeline: { status: 'active', phase: 2 as 1 | 2 | 3 | 4 | 5, code: 'P2-GRW', name: 'Growing', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'good',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Thu 10am-4pm', instructions: 'Front door, parking in rear lot', contactName: 'Paul Hernandez', contactPhone: '(509) 555-1045' },
@@ -491,6 +520,7 @@ const capitolHillCollective: Account = {
   pipelineHistory: [
     { from: { status: 'active', phase: 1 }, to: { status: 'active', phase: 2 }, date: '2024-12-01', trigger: 'Rapid growth — AOV increased 35%, VMI enrolled' },
   ],
+  pipeline: { status: 'active', phase: 2 as 1 | 2 | 3 | 4 | 5, code: 'P2-GRW', name: 'Growing', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'excellent',
   preferredPaymentMethod: 'ach',
   deliveryPreferences: { window: 'Mon/Wed/Fri 7am-10am', instructions: 'Underground garage, bay 3, text on arrival', contactName: 'Naomi Chen', contactPhone: '(206) 555-0188' },
@@ -535,6 +565,7 @@ const harborCannabis: Account = {
     { from: { status: 'active', phase: 4 }, to: { status: 'inactive', phase: 1 }, date: '2026-01-15', trigger: 'No orders in 30 days' },
     { from: { status: 'inactive', phase: 1 }, to: { status: 'recovery', phase: 1 }, date: '2026-03-01', trigger: 'Rep outreach successful — Earl agreed to trial order' },
   ],
+  pipeline: { status: 'recovery', phase: 1 as 1 | 2 | 3 | 4 | 5, code: 'P1-ONB', name: 'Onboarding', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'fair',
   preferredPaymentMethod: 'mail',
   deliveryPreferences: { window: 'Fri only, 11am-3pm', instructions: 'Highway 101 storefront, no loading dock — hand carry only', contactName: 'Earl Dawkins', contactPhone: '(360) 555-1200' },
@@ -578,6 +609,7 @@ const evergreenWellness: Account = {
     { from: { status: 'inactive', phase: 1 }, to: { status: 'recovery', phase: 1 }, date: '2025-12-15', trigger: 'Carlos re-engaged Maria with edible expansion pitch' },
     { from: { status: 'recovery', phase: 1 }, to: { status: 'recovery', phase: 4 }, date: '2026-02-15', trigger: 'Consistent ordering resumed, category expansion underway' },
   ],
+  pipeline: { status: 'recovery', phase: 4 as 1 | 2 | 3 | 4 | 5, code: 'P4-STR', name: 'Strategic', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
   paymentReliability: 'good',
   preferredPaymentMethod: 'cod',
   deliveryPreferences: { window: 'Tue/Thu 10am-2pm', instructions: 'Main entrance, ring buzzer', contactName: 'Maria Santos', contactPhone: '(509) 555-1088' },
@@ -616,6 +648,7 @@ function makeAccount(
     createdAt: created, lastOrderDate: lastOrder,
     totalRevenue: totalRev, thirtyDayRevenue: thirtyRev, avgOrderValue: aov, orderCount: orders,
     pipelineStatus: pipStatus, pipelinePhase: pipPhase, pipelineHistory: pipHistory,
+    pipeline: { status: 'active', phase: 1 as 1 | 2 | 3 | 4 | 5, code: 'P1-ONB', name: 'Onboarding', enteredDate: '2025-01-01', assignedRep: 'rep-jake' },
     paymentReliability: payment, preferredPaymentMethod: payMethod,
     deliveryPreferences: { window: 'Weekdays 9am-5pm', instructions: 'Front door', contactName, contactPhone },
     categoryMix: [
