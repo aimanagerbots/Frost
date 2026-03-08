@@ -35,7 +35,7 @@ export default function HomePage() {
           <CTAButton variant="primary" href="/products">
             Explore Products
           </CTAButton>
-          <CTAButton variant="outline" href="/find">
+          <CTAButton variant="primary" href="/find">
             Find Near You
           </CTAButton>
         </div>

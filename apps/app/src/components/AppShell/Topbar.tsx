@@ -41,11 +41,11 @@ export function Topbar() {
       {/* Center — snowflake logo */}
       <div className="flex-1 flex items-center justify-center">
         <Image
-          src="/FrostLogo_SnowflakeOnly.png"
+          src="/FrostLogo_wordmark.png"
           alt="Frost"
-          width={160}
-          height={160}
-          className="h-10 w-10"
+          width={800}
+          height={200}
+          className="h-10 w-auto"
           priority
         />
       </div>
