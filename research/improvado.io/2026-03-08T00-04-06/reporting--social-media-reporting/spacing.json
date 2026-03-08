@@ -1,0 +1,202 @@
+{
+  "margins": [
+    {
+      "value": "10px",
+      "count": 80
+    },
+    {
+      "value": "16px",
+      "count": 59
+    },
+    {
+      "value": "1px",
+      "count": 22
+    },
+    {
+      "value": "20px",
+      "count": 22
+    },
+    {
+      "value": "24px",
+      "count": 20
+    },
+    {
+      "value": "auto",
+      "count": 20
+    },
+    {
+      "value": "15px",
+      "count": 20
+    },
+    {
+      "value": "5px",
+      "count": 19
+    },
+    {
+      "value": "8px",
+      "count": 14
+    },
+    {
+      "value": "40px",
+      "count": 11
+    },
+    {
+      "value": "35px",
+      "count": 11
+    },
+    {
+      "value": "23px",
+      "count": 8
+    },
+    {
+      "value": "3.2px",
+      "count": 8
+    },
+    {
+      "value": "50px",
+      "count": 7
+    },
+    {
+      "value": "25px",
+      "count": 7
+    },
+    {
+      "value": "48px",
+      "count": 5
+    },
+    {
+      "value": "-1px",
+      "count": 4
+    },
+    {
+      "value": "36.8125px",
+      "count": 2
+    },
+    {
+      "value": "30px",
+      "count": 2
+    },
+    {
+      "value": "7px",
+      "count": 2
+    },
+    {
+      "value": "14.4px",
+      "count": 1
+    },
+    {
+      "value": "5.6px",
+      "count": 1
+    },
+    {
+      "value": "-26px",
+      "count": 1
+    },
+    {
+      "value": "4px",
+      "count": 1
+    },
+    {
+      "value": "-20px",
+      "count": 1
+    }
+  ],
+  "paddings": [
+    {
+      "value": "1%",
+      "count": 80
+    },
+    {
+      "value": "32px",
+      "count": 73
+    },
+    {
+      "value": "10px",
+      "count": 61
+    },
+    {
+      "value": "15px",
+      "count": 56
+    },
+    {
+      "value": "8px",
+      "count": 44
+    },
+    {
+      "value": "20px",
+      "count": 40
+    },
+    {
+      "value": "48px",
+      "count": 34
+    },
+    {
+      "value": "2px",
+      "count": 22
+    },
+    {
+      "value": "5px",
+      "count": 16
+    },
+    {
+      "value": "25px",
+      "count": 12
+    },
+    {
+      "value": "24px",
+      "count": 11
+    },
+    {
+      "value": "16px",
+      "count": 11
+    },
+    {
+      "value": "4px",
+      "count": 10
+    },
+    {
+      "value": "12px",
+      "count": 9
+    },
+    {
+      "value": "9px",
+      "count": 8
+    },
+    {
+      "value": "35px",
+      "count": 8
+    },
+    {
+      "value": "14px",
+      "count": 4
+    },
+    {
+      "value": "43.1875px",
+      "count": 4
+    },
+    {
+      "value": "30px",
+      "count": 4
+    },
+    {
+      "value": "6px",
+      "count": 4
+    },
+    {
+      "value": "8.8px",
+      "count": 2
+    },
+    {
+      "value": "70px",
+      "count": 2
+    },
+    {
+      "value": "90px",
+      "count": 1
+    },
+    {
+      "value": "50px",
+      "count": 1
+    }
+  ]
+}

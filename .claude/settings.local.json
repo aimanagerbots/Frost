@@ -15,7 +15,9 @@
       "Bash(py --version)",
       "Bash(/c/Users/quinn/AppData/Local/Microsoft/WindowsApps/python --version)",
       "Bash(pip --version)",
-      "Bash(node -e \"console.log\\(''node works''\\)\")"
+      "Bash(node -e \"console.log\\(''node works''\\)\")",
+      "Bash(git ls-tree HEAD apps/app/)",
+      "Bash(git commit --allow-empty -m \"chore: trigger Vercel redeploy with correct build settings\")"
     ]
   }
 }

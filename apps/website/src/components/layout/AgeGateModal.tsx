@@ -37,51 +37,49 @@ export function AgeGateModal() {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-dark/95 backdrop-blur-md"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
       role="dialog"
       aria-modal="true"
       aria-label="Age verification"
     >
-      <div className="mx-4 w-full max-w-md space-y-8 rounded-2xl border border-border-default bg-card p-10 text-center">
+      <div className="relative z-10 mx-4 w-full max-w-sm flex flex-col items-center px-6">
         {/* Logo */}
         <Image
           src="/FrostLogo_SnowflakeOnly.png"
           alt="Frost"
-          width={64}
-          height={64}
-          className="mx-auto"
+          width={240}
+          height={240}
+          className="h-[120px] w-[120px] mb-8"
         />
 
         {/* Question */}
-        <div className="space-y-2">
-          <h2 className="text-xl font-semibold text-text-default">
-            Are you 21 or older?
-          </h2>
-          <p className="text-sm text-text-muted">
-            You must be of legal age to view this website.
-          </p>
-        </div>
+        <h2 className="text-xl font-semibold text-white mb-2">
+          Are you 21 or older?
+        </h2>
+        <p className="text-sm text-white/30 mb-8 text-center">
+          You must be of legal age to view this website.
+        </p>
 
-        {/* Buttons */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-          <button
-            type="button"
-            onClick={handleConfirm}
-            className="rounded-full bg-accent-primary px-8 py-3 text-sm font-medium text-text-on-dark transition-colors hover:bg-accent-primary-hover"
-          >
-            Yes, I&apos;m 21+
-          </button>
-          <button
-            type="button"
-            onClick={handleDeny}
-            className="rounded-full border border-border-default bg-transparent px-8 py-3 text-sm font-medium text-text-muted transition-colors hover:border-border-hover hover:text-text-default"
-          >
-            No, I&apos;m not
-          </button>
-        </div>
+        {/* Confirm button — matches login "Explore Demo" style */}
+        <button
+          type="button"
+          onClick={handleConfirm}
+          className="mb-3 w-full rounded-lg bg-[#5BB8E6] py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110"
+        >
+          Yes, I&apos;m 21+
+        </button>
+
+        {/* Deny button — matches login "Sign In" style */}
+        <button
+          type="button"
+          onClick={handleDeny}
+          className="w-full rounded-lg bg-white/10 border border-white/10 py-3 text-sm font-semibold text-white/70 transition-all hover:bg-white/15 hover:text-white"
+        >
+          No, I&apos;m not
+        </button>
 
         {/* Compliance note */}
-        <p className="text-xs leading-relaxed text-text-muted">
+        <p className="mt-8 text-xs leading-relaxed text-white/30 text-center">
           This website contains information about cannabis products. By entering, you confirm
           that you are at least 21 years of age or a valid medical cannabis patient.
         </p>

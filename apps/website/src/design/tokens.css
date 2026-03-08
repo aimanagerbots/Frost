@@ -1,17 +1,17 @@
-/* Frost consumer website — dark theme, unified with app */
+/* Frost consumer website — dark theme, unified with app login page */
 
 :root {
-  /* Backgrounds — matches app dark palette */
-  --bg-base: #08090F;
-  --bg-card: #0F1219;
-  --bg-card-hover: #141925;
-  --bg-elevated: #1A1F2E;
-  --bg-cream: #141925;
+  /* Backgrounds — pure black base */
+  --bg-base: #000000;
+  --bg-card: #0A0A0F;
+  --bg-card-hover: #111118;
+  --bg-elevated: #161620;
+  --bg-cream: #0A0A0F;
   --bg-dark: #000000;
 
-  /* Borders */
-  --border-default: #1A1F2E;
-  --border-hover: #2A3040;
+  /* Borders — white at low opacity */
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.15);
 
   /* Accent — Snowflake blue */
   --accent-primary: #5BB8E6;
@@ -32,12 +32,12 @@
   --strain-hybrid: #22C55E;
   --strain-cbd: #5BB8E6;
 
-  /* Text */
-  --text-default: #E2E8F0;
-  --text-muted: #8B9DC3;
+  /* Text — white at varying opacities */
+  --text-default: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.4);
   --text-bright: #FFFFFF;
-  --text-on-dark: #E2E8F0;
-  --text-on-dark-muted: rgba(226, 232, 240, 0.7);
+  --text-on-dark: rgba(255, 255, 255, 0.9);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.4);
 
   /* Status */
   --success: #00E5A0;

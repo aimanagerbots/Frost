@@ -32,13 +32,13 @@ export function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           {/* Logo */}
-          <Link href="/home" className="relative h-8 w-28">
+          <Link href="/home" className="relative h-12 w-48">
             <Image
               src="/FrostLogo_wordmark.png"
               alt="Frost"
               fill
               className={cn(
-                'object-contain transition-all duration-300',
+                'object-contain object-left transition-all duration-300',
                 isScrolled ? 'brightness-100' : 'brightness-0 invert'
               )}
               priority

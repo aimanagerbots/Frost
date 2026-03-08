@@ -1,0 +1,509 @@
+retailer,license,city,region,status,confirmed,pipeline_code,pipeline_label,completeness_score,price_tier,last_contacted,has_email,has_phone,has_pricing,has_buyer_name,is_duplicate
+210 Cannabis,433464,Arlington,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-06-25,Yes,Yes,Yes,Yes,No
+112TH STREET CANNABIS,423413,Puyallup,South Sound,(blank),true,I2,I2 - Contacted/has notes,5,unknown,2025-03-19,Yes,Yes,No,Yes,No
+2020 CANNABIS SOLUTIONS MT BAKER HIGHWAY,355469,Bellingham,NW Washington,(blank),true,I4,I4 - Samples sent,5,standard,2025-06-25,Yes,No,Yes,Yes,No
+2020 SOLUTIONS EPHRATA,422239,Ephrata,Eastern WA,(blank),true,I4,I4 - Samples sent,5,standard,2025-06-25,Yes,No,Yes,Yes,No
+2020 SOLUTIONS IRON STREET,415470,Bellingham,NW Washington,(blank),true,I4,I4 - Samples sent,5,standard,2025-06-25,Yes,No,Yes,Yes,No
+2020 SOLUTIONS PACIFIC HIGHWAY,420908,Bellingham,NW Washington,(blank),true,I4,I4 - Samples sent,5,standard,2025-06-25,Yes,No,Yes,Yes,No
+2020 SOLUTIONS SOAP LAKE,422363,Soap Lake,Eastern WA,(blank),true,I4,I4 - Samples sent,5,standard,2025-06-25,Yes,No,Yes,Yes,No
+28 GRAHAMS CANNABIS,428654,Graham,South Sound,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-06-25,Yes,Yes,Yes,Yes,No
+365 RECREATIONAL CANNABIS,422099,Dayton,South Sound,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-05-05,Yes,Yes,Yes,Yes,No
+365 RECREATIONAL CANNABIS,423784,Shoreline,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-06-25,Yes,Yes,Yes,Yes,No
+395 HERB,430369,Loon Lake,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-02-27,Yes,Yes,No,No,No
+4:20 FRIENDLY,413586,Spokane,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-02-28,Yes,Yes,No,No,No
+420 CAPITOL,424848,Tumwater,South Sound,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-01-30,Yes,No,Yes,No,No
+420 CARPENTER,415083,Lacey,South Sound,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-01-30,Yes,No,Yes,No,No
+420 ELMA ON MAIN,426678,Elma,South Sound,Active,true,R2,R2 - Active but stale (>90 days),5,standard,,Yes,Yes,Yes,Yes,No
+420 GRAND CENTRAL,428560,Rochester,Other/Unclassified,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-01-30,Yes,No,Yes,No,No
+420 WEST,414733,Olympia,South Sound,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-01-30,Yes,No,Yes,No,No
+420 HOLIDAY,415526,Longview,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-05-05,Yes,No,Yes,Yes,No
+420 SPOT SHOP - will not do VMI,414550,Port Orchard,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-07-09,Yes,Yes,Yes,Yes,No
+A Greener Today Marijuana,422044,Bothell,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-03-17,Yes,Yes,No,Yes,No
+A Greener Today Marijuana - Shoreline,414814,Shoreline,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-10-13,Yes,Yes,No,Yes,No
+A Greener Today Marijuana - Lynnwood,422109,Lynnwood,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-03-19,Yes,Yes,No,Yes,No
+A Greener Today Marijuana - Seattle,414441,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-03-17,Yes,Yes,No,Yes,No
+A Greener Today Marijuana - Gold Bar,422168,Gold Bar,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-03-17,Yes,Yes,No,Yes,No
+A Greener Today - Walla Walla,426039,Walla Walla,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),5,unknown,2025-03-17,Yes,Yes,No,Yes,No
+Green Leaf Bellingham (ABC AGENCY LLC ),413886,Bellingham,NW Washington,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-02-10,Yes,No,No,Yes,No
+ACCESS CANIBUS LLC,422765,Valley,Other/Unclassified,low chance,true,I2,"I2 - Prospect, has notes",6,standard,2025-03-30,Yes,Yes,Yes,Yes,No
+Agate Dreams,420278,Poulsbo,Peninsula/Islands,(blank),true,I5,I5 - Near order / has ordered,5,unknown,2025-02-26,Yes,Yes,No,Yes,No
+Alkaloid Cannabis - this retailer is now green nugget mead location,420497,Spokane,Eastern WA,(blank),true,I4,I4 - Samples sent,5,unknown,2025-02-21,Yes,Yes,No,Yes,No
+ALTITUDE,414225,Prosser,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-09-19,Yes,Yes,Yes,Yes,No
+AMERICAN HARVEST,422954,Peshastin,Other/Unclassified,(blank),true,I4,I4 - Samples sent,5,unknown,2025-02-28,Yes,Yes,No,Yes,No
+AMERICAN MARY 45th Wallington,410332,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-09-19,Yes,Yes,Yes,Yes,No
+AMERICAN MARY CANNABIS  Ballard,420292,Seattle,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-06-09,Yes,Yes,Yes,Yes,No
+Anacortes Cannabis,421652,Anacortes,NW Washington,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-02-21,Yes,Yes,No,No,No
+APEX CANNABIS,421110,Moses Lake,Central WA,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-02-12,Yes,Yes,Yes,Yes,No
+APEX CANNABIS,422447,Otis Orchards,Other/Unclassified,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-02-12,Yes,Yes,Yes,Yes,No
+APEX CANNABIS,425767,Spokane,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-02-12,Yes,Yes,Yes,Yes,No
+APEX Market ST CANNABIS (used to be Kush 21 Spokane),422992,Spokane,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,6,unknown,2025-02-13,Yes,Yes,Yes,Yes,No
+Apex Cannabis Pullman (Kush 21 Pullman NSK CANNABIS),425584,Pullman,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,7,unknown,2025-02-13,Yes,Yes,Yes,Yes,No
+B STREET BUD,414558,Grand Coulee,Eastern WA,(blank),false,I2,"I2 - Unconfirmed, some contact",3,unknown,2025-03-04,No,Yes,No,No,No
+BAYSHORE CANNABIS CO,415127,Shelton,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-05-21,Yes,Yes,Yes,Yes,No
+BELFAIR CANNABIS COMPANY,422298,Belfair,Other/Unclassified,(blank),true,I4,I4 - Samples sent,7,standard,2025-05-21,Yes,Yes,Yes,Yes,No
+BETTER BUDS,430175,Longview,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-05-06,Yes,Yes,Yes,Yes,No
+BETTER BUDS,422525,Port Angeles,Peninsula/Islands,(blank),true,I4,I4 - Samples sent,5,premium,2025-03-12,Yes,No,Yes,Yes,No
+BETTER BUDS,421709,Port Hadlock,Other/Unclassified,(blank),true,I4,I4 - Samples sent,5,premium,2025-03-12,Yes,No,Yes,Yes,No
+BETTER BUDS,425965,Silverdale,Peninsula/Islands,(blank),true,I4,I4 - Samples sent,5,premium,2025-03-12,Yes,No,Yes,Yes,No
+BIRCH BAY BUDZ,429761,Blaine,NW Washington,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-05-19,Yes,Yes,Yes,Yes,No
+BLOWIN SMOKE,422202,Chewelah,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-03-04,Yes,Yes,No,No,No
+BORED N BUZZED,436428,Kirkland,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),5,premium,2025-06-10,Yes,No,Yes,Yes,No
+BUD BARN,421335,Olympia,South Sound,(blank),true,I4,I4 - Samples sent,5,unknown,2025-03-12,Yes,Yes,No,Yes,No
+BUD BARN,428005,Yelm,South Sound,(blank),true,I4,I4 - Samples sent,5,unknown,2025-03-12,Yes,Yes,No,Yes,No
+BUD COMMANDER,413802,Tumwater,South Sound,(blank),true,I5,I5 - Near order / has ordered,6,standard,2025-06-19,Yes,Yes,Yes,Yes,No
+BUDEEZ,420661,Bremerton,Peninsula/Islands,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-03-04,Yes,Yes,No,No,No
+Bud Hut Friday Harbor - LAWRENCE ENTERPRISES,422332,Friday Harbor,NW Washington,(blank),true,I4,I4 - Samples sent,5,unknown,2025-03-04,Yes,Yes,No,Yes,No
+BUDHUT,413901,Camano Island,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-06-04,Yes,Yes,Yes,Yes,No
+BUDHUT,415504,Everett,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-06-04,Yes,Yes,Yes,Yes,No
+BUDHUT,410831,Maple Valley,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,7,standard,2025-06-04,Yes,Yes,Yes,Yes,No
+BUDS GARAGE - no friday deliveries,437604,Everett,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-06-04,Yes,Yes,Yes,Yes,No
+CANNA WEST SEATTLE,420666,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,4,unknown,2025-02-23,Yes,No,No,Yes,No
+CANNA4LIFE,414211,Clarkston,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,6,standard,2025-03-04,Yes,Yes,Yes,Yes,No
+CANNABIS 21 Aberdeen,415567,Aberdeen,Peninsula/Islands,(blank),true,I2,I2 - Contacted/has notes,5,unknown,2025-02-25,Yes,Yes,No,Yes,No
+CANNABIS 21 Hoquiam,353993,Hoquiam,Peninsula/Islands,(blank),true,I2,I2 - Contacted/has notes,5,unknown,2025-02-25,Yes,Yes,No,Yes,No
+CANNABIS 21 Ocean Shores,414712,Hoquiam,Peninsula/Islands,(blank),true,I2,I2 - Contacted/has notes,5,unknown,2025-02-25,Yes,Yes,No,Yes,No
+Cannabis City,412751,Seattle,Seattle Metro,Temp Closed,true,R1,R1 - Temp Closed,5,unknown,2025-03-04,Yes,Yes,No,Yes,No
+CANNABIS COAST FORKS,430237,Forks,Peninsula/Islands,(blank),false,I2,"I2 - Unconfirmed, some contact",2,unknown,2025-02-25,Yes,No,No,No,No
+CANNABIS COUNTRY STORE,414970,Battle Ground,SW Washington,(blank),true,I4,I4 - Samples sent,5,unknown,2025-03-05,Yes,Yes,No,Yes,No
+CANNABIS PROVISIONS EAST,423542,Wenatchee,Central WA,(blank),true,I5,I5 - Near order / has ordered,4,unknown,2025-03-12,Yes,No,No,Yes,No
+CANNABIS PROVISIONS INC.,425585,Shoreline,Seattle Metro,(blank),true,I4,I4 - Samples sent,6,premium,2025-03-12,Yes,Yes,Yes,Yes,No
+CANNABIS SUPER STORE,402780,Cle Elum,Central WA,(blank),true,I4,I4 - Samples sent,4,unknown,,Yes,Yes,No,Yes,No
+CANNABIZ,87932,Puyallup,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+CANNABLYSS,415575,Lake Stevens,Seattle Metro,Low likelihood,true,I2,"I2 - Prospect, has notes",5,unknown,2025-02-26,Yes,Yes,No,Yes,No
+CANNARAIL STATION,413366,Ephrata,Eastern WA,Prospect,true,I4,"I4 - Prospect, samples sent",6,premium,2025-03-30,Yes,Yes,Yes,Yes,No
+Cannazone Burlington FOXX ENTERPRISES LLC,436898,Burlington,NW Washington,(blank),false,I2,"I2 - Unconfirmed, some contact",2,unknown,2025-10-10,No,No,No,No,No
+CANNAZONE,421813,Bellingham,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),5,premium,2025-10-10,Yes,No,Yes,Yes,No
+CANNAZONE,420477,Edmonds,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),5,premium,2025-10-10,Yes,No,Yes,Yes,No
+Northwest Cannabis,424599,Mount Vernon,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),5,premium,2025-10-10,Yes,No,Yes,Yes,No
+CANNAZONE Old HWY 99,427742,Mount Vernon,NW Washington,(blank),true,I3,I3 - Active dialogue/meeting,5,premium,2025-10-10,Yes,No,Yes,Yes,No
+CANNAZONE,430952,North Bend,Seattle Metro,(blank),false,I2,"I2 - Unconfirmed, some contact",3,premium,2025-10-10,No,No,Yes,No,No
+CANNAZONE,350641,Seattle,Seattle Metro,(blank),true,I3,I3 - Active dialogue/meeting,5,premium,2025-10-10,Yes,No,Yes,Yes,No
+Cannazone Tacoma (POT ZONE),434030,Tacoma,South Sound,(blank),true,I2,I2 - Contacted/has notes,2,unknown,2025-02-25,Yes,No,No,No,No
+CARAVAN CANNABIS COMPANY,435487,Bellingham,NW Washington,(blank),true,I4,I4 - Samples sent,6,standard,2025-03-12,Yes,Yes,Yes,Yes,No
+CARAVAN CANNABIS COMPANY,420801,Burlington,NW Washington,(blank),true,I4,I4 - Samples sent,6,standard,2025-03-12,Yes,Yes,Yes,Yes,No
+Carters Cannabis,435566,East Wenatchee,Central WA,(blank),true,I4,I4 - Samples sent,4,unknown,,Yes,Yes,No,Yes,No
+CASCADE HERB COMPANY,415094,Bellingham,NW Washington,(blank),true,I4,I4 - Samples sent,4,unknown,2025-03-06,Yes,Yes,No,No,No
+CASCADE HERB COMPANY,414749,Ferndale,NW Washington,(blank),false,I2,"I2 - Unconfirmed, some contact",3,unknown,2025-03-06,No,Yes,No,No,No
+CASCADE HERB COMPANY,,Otis Orchards,Other/Unclassified,(blank),false,I2,"I2 - Unconfirmed, some contact",3,unknown,2025-03-06,No,Yes,No,Yes,No
+CASCADE KROPZ,425539,Arlington,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-06,Yes,Yes,Yes,Yes,No
+CATHLAMET CANNABIS COMPANY,433034,Cathlamet,SW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,1,unknown,,No,Yes,No,No,No
+CHIMACUM CANNABIS,413492,Chimacum,Other/Unclassified,(blank),false,I2,"I2 - Unconfirmed, some contact",1,unknown,2025-03-06,No,No,No,No,No
+CINDER,422294,Spokane,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-09-22,Yes,Yes,Yes,Yes,No
+CINDER Downtown,423096,Spokane,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-09-22,Yes,Yes,Yes,Yes,No
+CINDER,414817,Spokane Valley,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-09-22,Yes,Yes,Yes,Yes,No
+Clear Choice Cannabis  72nd,439182,Tacoma,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-02-06,Yes,Yes,Yes,Yes,No
+CLEAR CHOICE CANNABIS,421877,Bremerton,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-06-02,Yes,Yes,Yes,Yes,No
+CLEAR CHOICE CANNABIS,413358,Tacoma,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-06-02,Yes,Yes,Yes,Yes,No
+Cliffs Cannabis,414807,Issaquah,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,4,unknown,,Yes,Yes,No,Yes,No
+CLOUD 9,427233,Arlington,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-03-12,Yes,Yes,Yes,Yes,No
+CLOUD 9,422504,Cheney,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",4,standard,,Yes,Yes,Yes,Yes,No
+CLOUD CANNABIS,414959,Seattle,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,5,unknown,2025-02-24,Yes,Yes,No,Yes,No
+Clutch Cannabis,413803,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-10-14,Yes,Yes,No,Yes,No
+Commencement Bay Cannabis - Black,Tacoma,432708,Other/Unclassified,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-24,Yes,Yes,Yes,Yes,No
+Commencement Bay Cannabis - Yellow,Fife,424244,Other/Unclassified,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-24,Yes,Yes,Yes,Yes,No
+Craft Wenatchee,415645,Wenatchee,Central WA,(blank),true,I4,I4 - Samples sent,4,premium,,Yes,Yes,Yes,No,No
+Craft Cannabis,414065,Wenatchee,Central WA,(blank),false,I2,"I2 - Unconfirmed, some contact",2,unknown,2025-02-25,No,No,No,No,No
+Craft Cannabis INC,431536,Vancouver,SW Washington,(blank),true,I2,I2 - Contacted/has notes,2,unknown,2025-02-25,Yes,No,No,No,No
+Craft Cannabis Mill Plain,413732,Vancouver,SW Washington,(blank),true,I5,I5 - Near order / has ordered,4,unknown,2025-02-25,Yes,No,No,Yes,No
+CRAFT LEAVENWORTH,085059,Dryden,Other/Unclassified,(blank),true,I2,I2 - Contacted/has notes,2,unknown,2025-02-25,Yes,No,No,No,No
+Craft Tacoma (was 420 Tacoma),423372,Tacoma,South Sound,(blank),true,I5,I5 - Near order / has ordered,4,unknown,2025-02-25,Yes,No,No,Yes,No
+Cult Cannabis co,413729,Ferndale,NW Washington,Prospect,true,I2,"I2 - Prospect, has notes",6,standard,2025-03-06,Yes,Yes,Yes,Yes,No
+Cutie Judys Cannabis Co,432456,Aberdeen,Peninsula/Islands,Prospect,true,I2,"I2 - Prospect, has notes",4,unknown,2025-03-04,Yes,No,No,No,No
+DANK OF AMERICA,414539,Bellingham,NW Washington,Prospect,true,I2,"I2 - Prospect, has notes",6,premium,2025-03-06,Yes,Yes,Yes,Yes,No
+DANK OF AMERICA,422817,Blaine,NW Washington,Prospect,true,I2,"I2 - Prospect, has notes",6,premium,2025-03-06,Yes,Yes,Yes,Yes,No
+Danks Warehouse,412940,Tacoma,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-03-21,Yes,Yes,Yes,Yes,No
+DANK'S Warehouse,364799,Edmonds,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-02-26,Yes,Yes,Yes,Yes,No
+Danks Warehouse Renton,417949,Renton,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),5,premium,,Yes,Yes,Yes,Yes,No
+Destination hwy 420,414503,Bremerton,Peninsula/Islands,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-11,Yes,Yes,Yes,Yes,No
+DIAMOND GREEN,413374,Tacoma,South Sound,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-02-10,Yes,Yes,Yes,Yes,No
+Discovery Bay Cannabis,423036,Port Townsend,Peninsula/Islands,(blank),false,I2,"I2 - Unconfirmed, some contact",3,unknown,2025-03-07,No,Yes,No,No,No
+DISPO 42,429044,Mukilteo,Seattle Metro,(blank),false,I2,"I2 - Unconfirmed, some contact",3,unknown,2025-03-07,No,Yes,No,No,No
+DOCKSIDE CANNABIS Sodo,414174,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,4,unknown,2025-10-14,Yes,No,No,Yes,No
+DOCKSIDE CANNABIS Ballard,424463,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,4,unknown,2025-10-14,Yes,No,No,Yes,No
+DOCKSIDE CANNABIS Greenlake,430807,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,4,unknown,2025-10-14,Yes,No,No,Yes,No
+Elwha Peaks,430958,Port Angeles,Peninsula/Islands,(blank),true,I4,I4 - Samples sent,6,premium,2025-03-07,Yes,Yes,Yes,Yes,No
+Elevation Cannabis (Tribal),434852,Tumwater,South Sound,(blank),true,I2,I2 - Contacted/has notes,5,premium,2025-03-04,Yes,No,Yes,Yes,No
+Elevation  (MJ Compact Retail Location),428838,Shelton,South Sound,Active,true,R2,R2 - Active but stale (>90 days),4,premium,,Yes,Yes,Yes,Yes,No
+Emerald Coast,437875,Bremerton,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),5,premium,2025-02-13,Yes,No,Yes,Yes,No
+EMERALD LEAVES,434372,Tacoma,South Sound,(blank),true,I1,"I1 - Confirmed, cold lead",4,premium,,Yes,Yes,Yes,Yes,No
+Euphorium Woodinville,414495,Woodinville,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,6,unknown,2025-02-24,Yes,Yes,No,Yes,No
+EUPHORIUM 420 Covington,414491,Covington,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,6,unknown,2025-02-24,Yes,Yes,No,Yes,No
+EUPHORIUM 420 Lynnwood,414500,Lynnwood,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,6,unknown,2025-02-24,Yes,Yes,No,Yes,No
+EUPHORIUM 420 Vashon,420895,Vashon,Other/Unclassified,(blank),true,I2,I2 - Contacted/has notes,6,unknown,2025-02-24,Yes,Yes,No,Yes,No
+EVERGREEN MARKET - AUBURN,414714,Auburn,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-06-10,Yes,Yes,Yes,Yes,No
+EVERGREEN MARKET - BELLEVUE,426125,Bellevue,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-06-10,Yes,Yes,Yes,Yes,No
+EVERGREEN MARKET - KIRKLAND,357129,Kirkland,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-06-10,Yes,Yes,Yes,Yes,No
+EVERGREEN MARKET - NORTH RENTON - is now Stonr Cannabis,413791,Renton,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-06-10,Yes,Yes,Yes,Yes,No
+EVERGREEN MARKET - RENTON HIGHLANDS,414841,Renton,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-06-10,Yes,Yes,Yes,Yes,No
+EVERGREEN MARKET - SOUTH RENTON,424747,Renton,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-06-10,Yes,Yes,Yes,Yes,No
+Evolve Cannabis,417469,Bellingham,NW Washington,(blank),true,I2,I2 - Contacted/has notes,4,unknown,,Yes,Yes,No,Yes,No
+FILLABONG,79720,Bremerton,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-02-12,Yes,Yes,Yes,Yes,No
+FILLABONG,415211,Silverdale,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-02-12,Yes,Yes,Yes,Yes,No
+FIRE AND FROST CANNABIS,428276,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-11,Yes,Yes,Yes,Yes,No
+Fire Cannabis,421738,Omak,Eastern WA,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-19,Yes,Yes,Yes,Yes,No
+FIRE CANNABIS CO -,436929,Yakima,Eastern WA,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-19,Yes,Yes,Yes,Yes,No
+Fireweed Cananbis Co,436598,Snoqualmie,Seattle Metro,(blank),true,I1,"I1 - Confirmed, cold lead",4,unknown,,Yes,No,Yes,Yes,No
+Floyds Port Angeles,414223,Port Angeles,Peninsula/Islands,(blank),true,I5,I5 - Near order / has ordered,4,premium,,No,Yes,Yes,Yes,No
+FLOYD'S CANNABIS COMPANY,422055,Pullman,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-06-10,Yes,Yes,Yes,Yes,No
+FLOYDS Everett,414680,Everett,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-06-10,Yes,Yes,Yes,Yes,No
+FLOYDS Sedro Woolley,422049,Sedro Woolley,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-06-10,Yes,Yes,Yes,Yes,No
+Floyds  BURLINGTON,413533,Burlington,NW Washington,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-06-10,Yes,Yes,Yes,Yes,No
+Floyds Mt Vernon,422796,Mount Vernon,NW Washington,(blank),true,I1,"I1 - Confirmed, cold lead",4,premium,,Yes,Yes,Yes,No,No
+Forbidden Cannabis Club Mount Vernon,422913,Mount Vernon,NW Washington,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-03-06,Yes,Yes,Yes,Yes,No
+FORBIDDEN CANNABIS CLUB OLYMPIA,421632,Olympia,South Sound,(blank),true,I2,I2 - Contacted/has notes,7,standard,2025-02-19,Yes,Yes,Yes,Yes,No
+FORBIDDEN CANNABIS CLUB SEATTLE,413809,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-03-11,Yes,Yes,Yes,Yes,No
+FORBIDDEN CANNABIS SUPER CHRONIC,425185,Lacey,South Sound,(blank),true,I2,I2 - Contacted/has notes,7,standard,2025-03-13,Yes,Yes,Yes,Yes,No
+FORBIDDEN CANNABIS CLUB,422785,Carson,Other/Unclassified,(blank),true,I5,I5 - Near order / has ordered,7,standard,2025-03-13,Yes,Yes,Yes,Yes,No
+Forbidden Cannabis Club,432498,Okanogan,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,6,standard,2025-02-20,Yes,Yes,Yes,Yes,No
+Freedom Market,414280,Kelso,SW Washington,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-03-12,Yes,Yes,No,Yes,No
+Freedom market Cathlamet corp,422459,Cathlamet,SW Washington,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-03-12,Yes,Yes,No,Yes,No
+FREEDOM MARKET ILWACO,421757,Ilwaco,SW Washington,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-03-12,Yes,Yes,No,No,No
+Freeland Cannabis Co,422777,Freeland,NW Washington,(blank),true,I4,I4 - Samples sent,3,unknown,,No,Yes,No,Yes,No
+Fresh Greens,413530,Winthrop,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",2,unknown,,Yes,Yes,No,No,No
+Frosted Cannabis - SPRAGUE,436837,Spokane,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",2,unknown,,Yes,Yes,No,No,No
+Fweedom Cannabis,415031,Mountlake Terrace,Seattle Metro,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,No,Yes,No
+Fweedom Cannabis,412922,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,4,unknown,,Yes,Yes,No,Yes,No
+GALAXY 21,421695,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+Galaxy Cannabis  - SUNLEAF CANNABIS,434220,Lynnwood,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-01-28,Yes,Yes,Yes,Yes,No
+Galaxy Cannabis,415234,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,1,unknown,,No,Yes,No,No,No
+GANJA VITA,415539,Belfair,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,1,unknown,,No,Yes,No,No,No
+GOLDEN DISPENSARIES,414292,Goldendale,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-02-10,Yes,Yes,Yes,Yes,No
+GOOBIE'S DOOBIES,431222,Maple Valley,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,7,standard,2025-04-02,Yes,Yes,Yes,Yes,No
+Good Buds,415294,Quincy,Central WA,(blank),true,I1,"I1 - Confirmed, cold lead",2,unknown,,Yes,Yes,No,No,No
+GREEN DREAMS,421642,Snohomish,Seattle Metro,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-24,Yes,Yes,Yes,Yes,No
+Greenfoot Cannabis,431005,Olympia,South Sound,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,No,Yes,No
+Green lady Eastside,415130,Olympia,South Sound,(blank),true,I2,I2 - Contacted/has notes,5,unknown,2025-02-28,Yes,Yes,No,Yes,No
+Green lady marijuana,423145,Kalama,SW Washington,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-02-28,Yes,No,No,Yes,No
+Green lady Marijuana,422578,Lynnwood,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-02-28,Yes,No,No,Yes,No
+Green lady Westside,416540,Olympia,South Sound,(blank),true,I2,I2 - Contacted/has notes,5,unknown,2025-02-28,Yes,Yes,No,Yes,No
+Green leaf,414918,Custer,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+GREEN LIFE CANNABIS,414755,Wenatchee,Central WA,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-05-22,Yes,Yes,Yes,Yes,No
+GREEN ROADS CANNABIS,435732,Moses Lake,Central WA,(blank),true,I5,I5 - Near order / has ordered,6,standard,2025-03-13,Yes,Yes,Yes,Yes,No
+GREEN ROOM OH INC.,422103,Oak Harbor,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-02-06,Yes,Yes,Yes,Yes,No
+GREEN RUSH INVESTMENT,422027,Auburn,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+GREEN STOP MT. BAKER,413801,Deming,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+Green Tiki Cannabis,081400,Kingston,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+Green Tiki Cannabis,414931,Vancouver,SW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+GREEN2GO,410273,Kennewick,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-03-05,Yes,No,No,Yes,No
+GREEN2GO PASCO,437561,Pasco,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-03-05,Yes,No,No,Yes,No
+GREEN2GO TOKIO,422655,Sprague,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-03-05,Yes,No,No,Yes,No
+GREENER DAZE CANNABIS,421789,Longview,SW Washington,(blank),true,I2,I2 - Contacted/has notes,6,unknown,2025-02-11,Yes,Yes,No,Yes,No
+GREENFIELD COMPANY CANNABIS MERCANTILE,414356,Clarkston,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),5,premium,2025-09-23,Yes,No,Yes,Yes,No
+GREENHAND,420898,Spokane,Eastern WA,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-11,Yes,Yes,Yes,No,No
+Greenhouse Group LLC,420407,Kelso,SW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+GREENLIGHT,415112,Millwood,Other/Unclassified,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-02-21,Yes,Yes,Yes,Yes,No
+GREENS ON GOLD,414767,Centralia,South Sound,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,No,Yes,No
+GREENSIDE,414295,Des Moines,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,4,unknown,2025-02-24,Yes,Yes,No,Yes,No
+GREENSIDE RECREATIONAL,436502,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,5,unknown,2026-02-24,Yes,Yes,No,Yes,No
+GREENVIEW CANNABIS,420400,Longview,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-02-13,Yes,Yes,Yes,Yes,No
+GREENWAY MARIJUANA,413541,Port Orchard,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-06-04,Yes,Yes,Yes,Yes,No
+GREENWORKS N.W.,413428,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-24,Yes,Yes,Yes,Yes,No
+GROWERS OUTLET,415124,South Bend,Peninsula/Islands,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-02-20,Yes,Yes,Yes,Yes,No
+Gypsy Green,421900,Chehalis,South Sound,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+GYPSY GREEN,421491,Olympia,South Sound,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+HANGAR 420 Lake RD,422461,Lynnwood,Seattle Metro,(blank),true,I1,"I1 - Confirmed, cold lead",5,standard,,Yes,Yes,Yes,Yes,No
+HANGAR 420 HWY 99,415238,Lynnwood,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-06-25,Yes,Yes,Yes,Yes,No
+HANGAR 420 SNOHOMISH,421873,Snohomish,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-06-30,Yes,Yes,Yes,Yes,No
+Hangar 420 Clearview,421667,Lynnwood,Seattle Metro,Temp Closed,true,R1,R1 - Temp Closed,6,standard,2025-06-30,Yes,No,Yes,Yes,No
+HAPPY TIME,354876,Yakima,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,6,unknown,2025-04-02,Yes,Yes,Yes,Yes,No
+HAPPY TIME LLC 2,422781,Mount Vernon,NW Washington,(blank),true,I2,I2 - Contacted/has notes,6,unknown,2025-04-02,Yes,Yes,Yes,Yes,No
+HAPPY TIME LLC 3,422138,Pullman,Eastern WA,(blank),true,I4,I4 - Samples sent,6,unknown,2025-02-26,Yes,Yes,Yes,Yes,No
+HAPPY TREES,424273,Cle Elum,Central WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+HAPPY TREE,436321,Prosser,Eastern WA,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+HASHTAG Everett,415098,Everett,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-02-05,Yes,Yes,Yes,Yes,No
+HASHTAG Seattle,430562,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-02-05,Yes,Yes,Yes,Yes,No
+Hashtag cannabis,430254,Redmond,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-02-05,Yes,Yes,Yes,Yes,No
+Have A Heart - Bothell,423536,Bothell,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-02-24,Yes,No,No,Yes,No
+Have a Heart Skyway,415333,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-02-24,Yes,Yes,No,Yes,No
+Have a Heart Belltown,423379,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-02-24,Yes,Yes,No,Yes,No
+Have a Heart Greenwood,421409,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-02-24,Yes,Yes,No,Yes,No
+Have A Heart - Ocean Shores,413798,Ocean Shores,Peninsula/Islands,(blank),false,I2,"I2 - Unconfirmed, some contact",1,unknown,2025-02-24,No,No,No,No,No
+Herb's House,402039,Seattle,Seattle Metro,(blank),false,I4,I4 - Unconfirmed but samples sent,1,unknown,,No,No,No,No,No
+HERBAL E SCENTS,411970,Colville,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-02-25,Yes,No,No,No,No
+Herbal Healing,420390,Eastsound,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+HERBAL NATION,413683,Bothell,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-03-06,Yes,Yes,Yes,Yes,No
+HERBAN MARKET,427457,Port Orchard,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-04-02,Yes,Yes,Yes,Yes,No
+HIGH-5 CANNABIS,421702,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-06-10,Yes,Yes,Yes,Yes,No
+High 5 Cannabis,427533,Stevenson,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-06-10,Yes,Yes,Yes,Yes,No
+HIGH END MARKET PLACE,429699,Vancouver,SW Washington,(blank),true,I2,I2 - Contacted/has notes,2,unknown,2025-03-07,Yes,No,No,No,No
+HIGH LIFE CANNABIS,430097,Nine Mile Falls,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+HIGH SOCIETY ANACORTES,413534,Anacortes,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,1,unknown,,No,Yes,No,No,No
+HIGH SOCIETY,414430,Everett,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-03-06,Yes,Yes,Yes,Yes,No
+Higher Leaf Bel - Red - Require 48hrs notice for before delivery,425068,Bellevue,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-10-10,Yes,Yes,No,Yes,No
+Higher Leaf Factoria,421777,Bellevue,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-03-03,Yes,Yes,No,Yes,No
+Higher leaf Eastside,423000,Bellevue,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-03-03,Yes,Yes,No,Yes,No
+Higher leaf - Kirkland,422218,Kirkland,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-03-03,Yes,Yes,No,Yes,No
+HOUSE OF CANNABIS - TACOMA,434402,Tacoma,South Sound,(blank),true,I5,I5 - Near order / has ordered,4,unknown,2025-03-06,Yes,No,No,Yes,No
+HOUSE OF CANNABIS - TONASKET,422454,Tonasket,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,2,unknown,2025-03-14,Yes,No,No,No,No
+HOUSE OF CANNABIS - TWISP,400085,Twisp,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,2,unknown,2025-03-14,Yes,No,No,No,No
+HOUSE OF CANNABIS - WHIDBEY,422457,Greenbank,Other/Unclassified,(blank),true,I2,I2 - Contacted/has notes,2,unknown,2025-03-14,Yes,No,No,No,No
+hwy 420,413843,Bremerton,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+HWY 420,437434,Poulsbo,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+HWY 420,413427,Silverdale,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+HYPEHERBALLY,425498,Lynnwood,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+I-90 Greenhouse (it is lit),423203,Ritzville,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+III KING COMPANY,414750,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-05-07,Yes,Yes,Yes,Yes,No
+ISLAND HERB,413727,Freeland,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+ISSAQUAH CANNABIS COMPANY,414867,Issaquah,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+JET CANNABIS,414753,Everett,Seattle Metro,(blank),true,I4,I4 - Samples sent,4,premium,,Yes,No,Yes,Yes,No
+KAHD HOLDING,437823,Tukwila,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+KALEAFA,414345,Aberdeen,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-03-20,Yes,Yes,Yes,Yes,No
+KALEAFA,429441,Des Moines,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-03-20,Yes,Yes,Yes,Yes,No
+KALEAFA,417643,Oak Harbor,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-03-20,Yes,Yes,Yes,Yes,No
+KARMA CANNABIS,421168,Sequim,Peninsula/Islands,(blank),true,I1,"I1 - Confirmed, cold lead",2,unknown,,Yes,No,No,Yes,No
+KING CRONIC,425925,Yelm,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+KITSAP CANNABIS PORT ORCHARD,435420,Port Orchard,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-24,Yes,Yes,Yes,Yes,No
+KITSAP CANNABIS Bremerton,437783,Bremerton,Peninsula/Islands,(blank),false,I2,"I2 - Unconfirmed, some contact",1,unknown,,No,No,No,No,No
+KUSH Kirkland,420336,Kirkland,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,premium,,Yes,Yes,Yes,Yes,No
+KUSHKLUB,430737,Shoreline,Seattle Metro,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-13,Yes,Yes,Yes,Yes,No
+KUSH POINTE,421630,Mukilteo,Seattle Metro,(blank),false,I4,I4 - Unconfirmed but samples sent,6,premium,2025-03-05,Yes,Yes,Yes,Yes,No
+KUSH 21 128th,425493,Everett,Seattle Metro,(blank),false,I2,"I2 - Unconfirmed, some contact",6,unknown,2025-02-13,Yes,Yes,Yes,Yes,No
+KUSH 21 BUCKLEY LLC,424751,Buckley,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,unknown,2025-09-18,Yes,Yes,Yes,Yes,No
+Kush 21 Burien - (LIVING WELL ENTERPRISES),420741,Burien,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,unknown,2025-10-10,Yes,Yes,Yes,Yes,No
+Kush 21 Everett - Evergreen way     (KUSHMAN),426731,Everett,Seattle Metro,Active,false,R2,R2 - Active but stale (>90 days),7,unknown,2025-02-13,Yes,Yes,Yes,Yes,No
+Kush 21 Lynnwood.  KUSHMAN,421552,Lynnwood,Seattle Metro,(blank),false,I2,"I2 - Unconfirmed, some contact",7,unknown,2025-07-09,Yes,Yes,Yes,Yes,No
+Kush 21 Mukilteo.  KUSHMAN'S,431271,Mukilteo,Seattle Metro,(blank),false,I2,"I2 - Unconfirmed, some contact",7,unknown,2025-02-13,Yes,Yes,Yes,Yes,No
+Lidz Cannabis  Kush 21 North (SAMUEL ENTERPRISES LLC),414520,Everett,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,7,unknown,2025-07-09,Yes,Yes,Yes,Yes,No
+Kush 21 SODO,423754,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),5,standard,2025-09-19,Yes,No,Yes,Yes,No
+Kush 21 Tacoma  (GREEN CORNERS TACOMA LLC),420785,Tacoma,South Sound,(blank),true,I2,I2 - Contacted/has notes,7,unknown,2025-02-13,Yes,Yes,Yes,Yes,No
+Kush 21 Yakima. LOCAL ROOTS,422336,Yakima,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,7,unknown,2025-02-13,Yes,Yes,Yes,Yes,No
+Kush 21 VASHON TIMES,414454,Vashon Island,Other/Unclassified,(blank),true,I1,"I1 - Confirmed, cold lead",4,unknown,,Yes,Yes,Yes,Yes,No
+Buddy's is now Kush 21,413893,Renton,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,1,unknown,,No,No,Yes,No,No
+KUSHMART SOUTH EVERETT,416102,Everett,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,7,premium,2025-07-09,Yes,Yes,Yes,Yes,No
+LEGAL MARIJUANA SUPERSTORE,417880,Port Orchard,Peninsula/Islands,(blank),true,I5,I5 - Near order / has ordered,5,premium,,Yes,Yes,Yes,Yes,No
+LIDZ CANNABIS  South,421698,Spokane,Eastern WA,Active,false,R2,R2 - Active but stale (>90 days),5,standard,2025-02-06,No,No,Yes,Yes,No
+LIDZ CANNABIS North,414664,Spokane,Eastern WA,Active,false,R2,R2 - Active but stale (>90 days),5,standard,2025-02-06,No,No,Yes,Yes,No
+LIDZ CANNABIS  Tacoma,442174,Tacoma,South Sound,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,No,No,Yes,No
+LOCAL AMSTERDAM,429803,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+LOCALAMSTER,414243,Longview,SW Washington,(blank),true,I4,I4 - Samples sent,6,premium,2025-02-27,Yes,Yes,Yes,Yes,No
+LOCALS CANNA HOUSE - now Kush 21,414823,Spokane Valley,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",2,unknown,,Yes,No,No,Yes,No
+LONGVIEW FREEDOM MARKET,413544,Longview,SW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+LOVELY BUDS DIVISION,410798,Spokane,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+LOVELY BUDS NORTH,412490,Spokane,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+LOVING FARMS,412370,Mount Vernon,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-07-09,Yes,Yes,Yes,Yes,No
+LUCID,414963,Lacey,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+LUCID,437262,Olympia,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+"LUCID AUBURN, 21+ CANNABIS, 21+ MARIJUANA",422194,Auburn,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-07-10,Yes,Yes,Yes,Yes,No
+LUCID PUYALLUP,352673,Puyallup,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-07-10,Yes,Yes,Yes,Yes,No
+Lucky Cannabis (bud nation),415203,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,4,premium,,Yes,Yes,Yes,No,No
+LUCKY LEAF,422442,Spokane,Eastern WA,(blank),true,I4,I4 - Samples sent,5,unknown,2025-02-21,Yes,Yes,No,Yes,No
+Lux Pot Shop - Ballard,414532,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,7,unknown,2025-10-13,Yes,Yes,Yes,Yes,No
+Lux Pot Shop - Lake City Way,414160,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,7,unknown,2025-10-13,Yes,Yes,Yes,Yes,No
+Lux Pot Shop - Belltown,434272,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,7,unknown,2025-10-13,Yes,Yes,Yes,Yes,No
+Magic Tree Collective 206,421151,Pullman,Eastern WA,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MAGIC TREE COLLECTIVE 206,437368,Pullman,Eastern WA,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+Main street Marijuana Downtown,414876,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-06-18,Yes,No,Yes,Yes,No
+MAIN STREET MARIJUANA ORCHARDS,414350,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-06-18,Yes,No,Yes,Yes,No
+MAIN STREET MARIJUANA EAST,421805,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,unknown,2025-06-18,Yes,Yes,Yes,Yes,No
+MAIN STREET MARIJUANA NORTH Hazel Dell,435081,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-06-18,Yes,No,Yes,Yes,No
+MARGIES'S POT SHOP,413414,Bingen,Other/Unclassified,Active,true,R2,R2 - Active but stale (>90 days),2,premium,,Yes,No,Yes,No,No
+Marijuana club 99,426895,Everett,Seattle Metro,(blank),false,I2,"I2 - Unconfirmed, some contact",1,unknown,,No,No,No,No,No
+MARIJUANA CLUB 99 LLC,367339,Sultan,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MARIJUANA MART,428846,Rochester,Other/Unclassified,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-04-02,Yes,Yes,Yes,Yes,No
+MARLEY 420,435092,Covington,Seattle Metro,(blank),true,I4,I4 - Samples sent,7,premium,2025-02-20,Yes,Yes,Yes,Yes,No
+MARY JANE'S,417646,Spokane,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+MARY JANES,414864,Moses Lake,Central WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+MARY MART INC,424311,Tacoma,South Sound,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-02-11,Yes,Yes,Yes,Yes,No
+Mountain High Cannabis (MHC),435889,Republic,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),3,premium,,Yes,No,Yes,Yes,No
+Millers Marijuana,415001,Elma,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MILLERS MARIJUANA,437305,Elma,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MISTER BUDS,414735,Port Angeles,Peninsula/Islands,(blank),true,I5,I5 - Near order / has ordered,4,unknown,,Yes,Yes,No,Yes,No
+MJ Long (Green Sky Seattle),414789,Vancouver,SW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MJ's Pot shop,415314,Pullman,Eastern WA,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MODERN CREATIONS LLC,422951,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MOLECULE,426443,Davenport,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+"MOUNT BAKER RETAIL PARTNERS, LLC",422361,Quincy,Central WA,(blank),false,I4,I4 - Unconfirmed but samples sent,1,unknown,,No,No,No,No,No
+"MOUNT BAKER RETAIL PARTNERS, LLC",422981,Tukwila,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MR. DOOBEES,424190,Seaview,Other/Unclassified,(blank),true,I3,I3 - Active dialogue/meeting,3,unknown,,Yes,No,No,No,No
+MR. GREENS CANNABIS,427850,Lake Forest Park,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+MUFFYS POT SHOP,413930,Port Angeles,Peninsula/Islands,(blank),false,I4,I4 - Unconfirmed but samples sent,2,unknown,,No,Yes,No,No,No
+NATURAL BLESSING CANNABIS,423390,Spanaway,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-01-31,Yes,Yes,Yes,Yes,No
+NATURAL CARE,435728,Tacoma,South Sound,(blank),true,I5,I5 - Near order / has ordered,6,standard,2025-02-03,Yes,Yes,Yes,Yes,No
+NATURAL GREEN,421687,Davenport,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+NATURE'S GIFTS,414181,Sequim,Peninsula/Islands,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-04-03,Yes,Yes,Yes,Yes,No
+NIMBIN FARM,415658,Seattle,Seattle Metro,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,Yes,No,No
+NIRVANA CANNABIS COMPANY,434100,East Wenatchee,Central WA,(blank),true,I4,I4 - Samples sent,3,unknown,2025-02-12,Yes,No,No,No,No
+NIRVANA CANNABIS COMPANY,427666,Otis Orchards,Other/Unclassified,(blank),true,I4,I4 - Samples sent,3,unknown,2025-02-12,Yes,No,No,No,No
+NIRVANA CANNABIS COMPANY,424951,Richland,Eastern WA,(blank),true,I4,I4 - Samples sent,3,unknown,2025-02-12,Yes,No,No,No,No
+Nikxna Cannabis,430474,Omak,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),2,premium,,Yes,No,Yes,No,No
+NORTH BAY MARIJUANA,413407,Allyn,Other/Unclassified,(blank),true,I1,"I1 - Confirmed, cold lead",3,premium,,Yes,No,Yes,Yes,No
+NORTHWEST CANNABIS CONNECTION,423492,Puyallup,South Sound,Prospect,true,I4,"I4 - Prospect, samples sent",6,standard,2025-02-26,Yes,Yes,Yes,Yes,No
+Northwind Cannabis,437916,Anacortes,NW Washington,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,No,No,Yes,No
+Novel tree,414656,Bremerton,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+NW Chronicles,415634,Gig Harbor,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+NXNW RETAIL LLC / CANNABIS AND GLASS,428760,Liberty Lake,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),5,standard,2025-05-21,Yes,No,Yes,Yes,No
+NXNW RETAIL LLC/CANNABIS & GLASS,082587,Millwood,Other/Unclassified,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-05-21,Yes,No,Yes,Yes,No
+NXNW RETAIL LLC/CANNABIS & GLASS,360307,Spokane,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-05-21,Yes,Yes,Yes,Yes,No
+OCEAN GREENS,428942,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-04-02,Yes,Yes,Yes,Yes,No
+OLD TOBY,413551,Chehalis,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+OLYMPIA WEED COMPANY,427769,Olympia,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+ONE HIT WONDER CANNABIS,422466,Port Townsend,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+ORCHARDS CANNABIS MARKET,83380,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),5,standard,,Yes,Yes,Yes,Yes,No
+ORIGINS,425507,Redmond,Seattle Metro,(blank),false,I2,"I2 - Unconfirmed, some contact",3,unknown,2025-02-21,Yes,No,No,No,No
+ORIGINS CANNABIS,437401,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,3,unknown,2025-02-21,Yes,No,No,No,No
+OUNCE KING CANNABIS,414573,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+OZ,415348,Seattle,Seattle Metro,(blank),false,I4,I4 - Unconfirmed but samples sent,1,unknown,,No,No,No,No,No
+PAPER AND LEAF,414812,Bainbridge Island,Peninsula/Islands,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+PEND OREILLE CANNABIS CO,76189,Ione,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+PEND OREILLE CANNABIS CO.,433404,Newport,Other/Unclassified,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+PIECE OF MIND CANNABIS,421616,Bellingham,NW Washington,(blank),true,I2,I2 - Contacted/has notes,3,unknown,,Yes,No,No,Yes,No
+POM CANNABIS PULLMAN,417114,Pullman,Eastern WA,(blank),false,I2,"I2 - Unconfirmed, some contact",5,premium,,Yes,Yes,Yes,Yes,No
+POT SHOP,079013,Seattle,Seattle Metro,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+POT ZONE,415229,Port Orchard,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+POT ZONE OF VANCOUVER,361259,Vancouver,SW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+PRC,421084,Arlington,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-17,Yes,Yes,Yes,Yes,No
+PRC,414574,Mount Vernon,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-17,Yes,Yes,Yes,Yes,No
+PRC Edmonds,415198,Edmonds,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-17,Yes,Yes,Yes,Yes,No
+PRC BOTHELL,415222,Bothell,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-17,Yes,Yes,Yes,Yes,No
+PRIMO CANNABIS,423885,Otis Orchards,Other/Unclassified,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+RAINIER CANNABIS,423224,Mountlake Terrace,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+Redmond Leaf Avondale,430424,Redmond,Seattle Metro,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,No,Yes,Yes,No
+Redmond Leaf,415486,Redmond,Seattle Metro,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,No,Yes,Yes,No
+Reefer Den,404933,Port Townsend,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+Remedy Tulalip - Tribal,,Marysville,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-06-25,Yes,Yes,Yes,No,No
+ROSLYN HERBS,414460,Roslyn,Central WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+ROYAL'S CANNABIS,415132,Spokane,Eastern WA,not sure if they exsist,true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+RUCKUS RECREATIONAL CANNABIS -Capital Hill,413692,Seattle,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,4,premium,2025-02-25,Yes,No,Yes,Yes,No
+RUCKUS RECREATIONAL CANNABIS - fremont,414088,Seattle,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,5,premium,2025-03-07,Yes,Yes,Yes,Yes,No
+SAGE SHOP,426888,Omak,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+Salish Coast Cannabis - Tribal,427232,Anacortes,NW Washington,(blank),false,I2,"I2 - Unconfirmed, some contact",5,premium,2025-02-24,No,Yes,Yes,Yes,No
+SAPPHIRE CANNABIS,422701,Sprague,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+SASHA'S CANNABIS,430798,Shelton,South Sound,(blank),true,I4,I4 - Samples sent,7,standard,2025-03-06,Yes,Yes,Yes,Yes,No
+SATIVA SISTERS,413739,Spokane,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,3,unknown,2025-02-21,Yes,No,No,No,No
+SATIVA SISTERS II,422764,Clarkston,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),4,unknown,2025-06-30,Yes,Yes,No,No,No
+SAVAGE THC,428107,Clayton,Other/Unclassified,Active,true,R2,R2 - Active but stale (>90 days),3,premium,2025-06-30,Yes,No,Yes,No,No
+SEA CHANGE CANNABIS,432024,Port Hadlock,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+SEATTLE CANNABIS CO.,426199,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+SEATTLE TONICS,414731,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,6,standard,2025-03-19,Yes,Yes,Yes,Yes,No
+Seattle Trees Collective,413519,Seattle,Seattle Metro,(blank),false,I4,I4 - Unconfirmed but samples sent,1,unknown,,No,No,No,No,No
+SEAWEED RETAIL,422570,Edmonds,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+SECRET HERB SHOP,413994,Kettle Falls,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+SHAWN KEMP'S CANNABIS,429502,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-02-22,Yes,No,Yes,Yes,No
+SHAWN KEMP'S CANNABIS SODO,434189,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,unknown,2025-02-22,Yes,No,Yes,Yes,No
+SHELTON CANNABIS CO,415183,Shelton,South Sound,(blank),true,I4,I4 - Samples sent,6,standard,2025-05-21,Yes,Yes,Yes,Yes,No
+SHELTON CANNABIS COMPANY,426677,Shelton,South Sound,(blank),false,I2,"I2 - Unconfirmed, some contact",1,unknown,2025-02-14,No,No,No,No,No
+THE SLOW BURN Moxee,415185,Moxee,Other/Unclassified,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-05-27,Yes,Yes,Yes,Yes,No
+THE SLOW BURN Main st,413773,Union Gap,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-05-27,Yes,Yes,Yes,Yes,No
+THE SLOW BURN Market St,414470,Union Gap,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-05-27,Yes,Yes,Yes,Yes,No
+SLOW BURN Yakima,414508,Yakima,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-05-27,Yes,Yes,Yes,Yes,No
+SMOKANE,425362,Spokane,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,3,unknown,,Yes,No,No,Yes,No
+SMOKING CROW,437560,Bellingham,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+SMUGGLER BROTHERS,413762,Sedro Woolley,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,1,premium,,No,No,Yes,No,No
+SOUTH BELLINGHAM BUDS,422930,Bellingham,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+SPARKET,86823,Port Angeles,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+SPOKANE GREEN LEAF,422146,Spokane,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",3,premium,,Yes,No,Yes,Yes,No
+SPOONER ENTERPRISES,435751,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+STAR BUDS Queen Anne,436867,Seattle,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-02-10,Yes,Yes,Yes,Yes,No
+STAR OUTLET,422010,Lynden,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+STARBUDS,429453,Bellingham,NW Washington,(blank),false,I4,I4 - Unconfirmed but samples sent,2,unknown,,No,No,No,Yes,No
+Station 420,426284,Union Gap,Eastern WA,(blank),false,I2,"I2 - Unconfirmed, some contact",2,unknown,,No,No,No,No,No
+STICKY'S,421326,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-02-07,Yes,Yes,Yes,Yes,No
+SWEET JANE,423829,Gig Harbor,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+SWEET LEAF CANNABIS CO,415523,Aberdeen,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+SWEET RELEAF,413385,Mount Vernon,NW Washington,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-02-17,Yes,Yes,Yes,Yes,No
+The Link Cannabis Company (Sweet Relief Port Angeles),422460,Port Angeles,Peninsula/Islands,(blank),false,I2,"I2 - Unconfirmed, some contact",1,unknown,2025-03-14,No,No,No,No,No
+T BROTHERS BUD LODGE - Only use Lifted Delivery Service,414002,Lacey,South Sound,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-04-08,Yes,Yes,Yes,Yes,No
+Tacoma house of Cannabis,424473,Tacoma,South Sound,(blank),false,I2,"I2 - Unconfirmed, some contact",2,unknown,,No,No,No,No,No
+TENINO CANNABIS BOUTIQUE,415484,Tenino,South Sound,(blank),true,I5,I5 - Near order / has ordered,6,standard,2025-05-29,Yes,Yes,Yes,Yes,No
+TERP CANNABIS,426632,Nine Mile Falls,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THC OF OLYMPIA,421069,Olympia,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THE BAKE SHOP,424877,George,Central WA,(blank),true,I2,I2 - Contacted/has notes,4,standard,2025-06-09,Yes,No,Yes,Yes,No
+THE BAKE SHOP,413426,Prosser,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,6,standard,2025-06-09,Yes,Yes,Yes,Yes,No
+THE BAKE SHOP,413596,Union Gap,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-06-09,Yes,Yes,Yes,Yes,No
+THE BAKEREE,414456,Seattle,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-02-22,Yes,No,No,Yes,No
+THE BAKEREE,433373,Seattle,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-02-22,Yes,No,No,Yes,No
+THE FIRE HOUSE,400772,Ellensburg,Central WA,(blank),true,I1,"I1 - Confirmed, cold lead",2,unknown,,Yes,No,No,Yes,No
+THE GALLERY - GIG HARBOR,436145,Gig Harbor,South Sound,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-05-23,Yes,Yes,Yes,Yes,No
+THE GALLERY CANYON,413813,Puyallup,South Sound,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-05-23,Yes,Yes,Yes,Yes,No
+THE GALLERY FIFE,413812,Fife,Other/Unclassified,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-05-23,Yes,Yes,Yes,Yes,No
+THE GALLERY PARKLAND,413258,Tacoma,South Sound,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-05-23,Yes,Yes,Yes,Yes,No
+THE GALLERY SPANAWAY,413420,Spanaway,South Sound,(blank),true,I5,I5 - Near order / has ordered,7,premium,2025-05-23,Yes,Yes,Yes,Yes,No
+THE GREEN DOOR,434938,Buckley,South Sound,Do not sell to them,false,R5,R5 - Do Not Sell,3,premium,,No,No,Yes,Yes,No
+THE GREEN DOOR SEATTLE,414425,Seattle,Seattle Metro,Prospects,true,I4,"I4 - Prospect, samples sent",6,premium,2025-02-26,Yes,Yes,Yes,Yes,No
+The Green house,430622,Renton,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THE GREEN NUGGET,414995,Pullman,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,5,premium,2025-02-25,Yes,No,Yes,Yes,No
+THE GREEN NUGGET,427121,Spokane,Eastern WA,(blank),true,I2,I2 - Contacted/has notes,5,premium,2025-02-25,Yes,No,Yes,Yes,No
+THE GREEN SEED,086054,Moses Lake,Central WA,(blank),false,I2,"I2 - Unconfirmed, some contact",1,unknown,,No,No,No,No,No
+THE GREEN SHELF,414958,Ellensburg,Central WA,(blank),true,I2,I2 - Contacted/has notes,4,unknown,,Yes,Yes,No,Yes,No
+THE HAPPY CROP SHOPPE,413600,Cashmere,Central WA,(blank),true,I2,I2 - Contacted/has notes,6,premium,2025-02-25,Yes,Yes,Yes,Yes,No
+THE HAPPY CROP SHOPPE,413481,East Wenatchee,Central WA,(blank),true,I2,I2 - Contacted/has notes,6,premium,2025-02-25,Yes,Yes,Yes,Yes,No
+THE HAPPY CROP SHOPPE,420934,Wenatchee,Central WA,(blank),true,I2,I2 - Contacted/has notes,5,premium,2025-02-25,Yes,Yes,Yes,No,No
+THE HERBAL GARDENS,423634,Tacoma,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THE HERBERY - Chakalov,71368,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-02-19,Yes,Yes,Yes,No,No
+THE HERBERY - BLVD,414761,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-05-19,Yes,Yes,Yes,No,No
+THE HERBERY - St John,426563,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-05-19,Yes,Yes,Yes,No,No
+THE HERBERY - 78th (H4),428826,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-05-19,Yes,Yes,Yes,No,No
+THE HERBERY -4th,430925,Vancouver,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-05-19,Yes,Yes,Yes,No,No
+THE HIDDEN BUSH,412921,Port Angeles,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THE JOINT,420389,Burien,Seattle Metro,(blank),false,I2,"I2 - Unconfirmed, some contact",2,unknown,2025-10-10,No,No,No,No,No
+THE JOINT,414893,Everett,Seattle Metro,(blank),true,I3,I3 - Active dialogue/meeting,6,premium,2025-10-10,Yes,Yes,Yes,No,No
+THE JOINT,434494,Tacoma,South Sound,(blank),false,I2,"I2 - Unconfirmed, some contact",3,unknown,2025-10-10,No,No,No,Yes,No
+THE JOINT,421804,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-10-10,Yes,Yes,Yes,Yes,No
+THE KUSHERY Cathcart,415507,Everett,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-09-22,Yes,Yes,Yes,Yes,No
+THE KUSHERY Evergreen way Dealership,430774,Everett,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-09-22,Yes,Yes,Yes,Yes,No
+THE KUSHERY LFP,415513,Lake Forest Park,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-09-22,Yes,Yes,Yes,Yes,No
+THE KUSHERY Monroe,361676,Snohomish,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-09-22,Yes,Yes,Yes,Yes,No
+THE KUSHERY Clearview,437800,Snohomish,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-09-22,Yes,Yes,Yes,Yes,No
+THE KUSHERY Stanwood,420645,Stanwood,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),6,standard,2025-09-22,Yes,Yes,Yes,Yes,No
+THE LINK,422632,Longview,SW Washington,(blank),false,I2,"I2 - Unconfirmed, some contact",2,unknown,2025-02-22,No,No,No,No,No
+LUCKY LEAF CO,435675,Pasco,Eastern WA,(blank),false,I2,"I2 - Unconfirmed, some contact",2,unknown,2025-02-24,No,No,No,No,No
+THE LUCKY LEAF,435362,Pasco,Eastern WA,(blank),true,I4,I4 - Samples sent,4,unknown,2025-02-24,Yes,No,No,Yes,No
+THE MARIJUANA MERCANTILE,415216,Granite Falls,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-04-02,Yes,Yes,Yes,Yes,No
+THE NOVEL TREE,414983,Bellevue,Seattle Metro,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,No,Yes,No
+THE NOVEL TREE,434843,Bremerton,Peninsula/Islands,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,No,Yes,No
+Clear Mind Cannabis (THE PACIFIC OUTPOST),434994,Pasco,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),3,premium,,Yes,No,Yes,No,No
+The Pot Shop Bellingham,430084,Bellingham,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THE REEF,413870,Bremerton,Peninsula/Islands,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-02-20,Yes,No,No,Yes,No
+THE REEF,426562,Seattle,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-02-20,Yes,No,No,Yes,No
+THE REEF,432849,Seattle,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-02-20,Yes,No,No,Yes,No
+THE ROOT CELLAR,415343,Belfair,Other/Unclassified,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,No,Yes,No
+"THE SAGE SHOP, LLC",430775,Oroville,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THE STASH BOX,412494,Auburn,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,3,unknown,2025-02-20,Yes,No,No,Yes,No
+THE STATION NW LL/TRADE- THE STATION,422944,Ellensburg,Central WA,(blank),true,I1,"I1 - Confirmed, cold lead",1,unknown,,Yes,No,No,No,No
+The Tribal Joint - Tribal,430795,Darrington,NW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-02-27,Yes,Yes,Yes,Yes,No
+THE TOP SHELF,414716,Airway Heights,Eastern WA,Active,false,R2,R2 - Active but stale (>90 days),3,premium,2025-04-03,Yes,No,Yes,No,No
+THE VAULT Seattle (HerbN Elements),413570,Seattle,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-02-11,Yes,Yes,Yes,Yes,No
+THE VAULT Spokane,426050,Spokane,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-02-11,Yes,Yes,Yes,Yes,No
+THE VAULT CANNABIS Lake Stevens,414829,Lake Stevens,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-02-11,Yes,Yes,Yes,Yes,No
+THE VAULT CANNABIS Silvana,88920,Stanwood,Seattle Metro,Active,true,R2,R2 - Active but stale (>90 days),7,premium,2025-02-11,Yes,Yes,Yes,Yes,No
+THE WEST SEATTLE MARIJUANA STORE,414868,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THE WORLD FAMOUS CANNABIS STORE,421918,Chimacum,Other/Unclassified,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+THE ZEN DEN,420812,Omak,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",2,premium,,Yes,No,Yes,No,No
+THEOREM CANNABIS,433824,Kenmore,Seattle Metro,(blank),true,I2,I2 - Contacted/has notes,5,unknown,2025-02-20,Yes,Yes,No,Yes,No
+Thunder Cannabis Rochester,,Rochester,Other/Unclassified,(blank),true,I2,I2 - Contacted/has notes,5,premium,2025-02-20,Yes,No,Yes,Yes,No
+"TJ'S CANNABIS BUDS, EDIBLES, OILS & MORE",433175,Shelton,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-02-14,Yes,Yes,Yes,Yes,No
+Tokeland,433417,Tokeland,Peninsula/Islands,(blank),true,I2,I2 - Contacted/has notes,6,premium,2025-02-12,Yes,Yes,Yes,Yes,No
+Token Herb,400209,Eastsound,NW Washington,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+TOKER FRIENDLY,417486,Airway Heights,Eastern WA,Prospect,true,I4,"I4 - Prospect, samples sent",5,unknown,2025-03-04,Yes,Yes,No,Yes,No
+TOP SHELF 420,413782,Olympia,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+TREEHOUSE CLUB,413369,Spokane Valley,Eastern WA,(blank),true,I1,"I1 - Confirmed, cold lead",2,premium,,Yes,No,Yes,No,No
+TRIPPY HIPPIE CANNABIS CO.,413529,Bellingham,NW Washington,(blank),true,I2,I2 - Contacted/has notes,4,premium,,Yes,No,Yes,Yes,No
+TROVE MEDICAL AND RECREATIONAL,414871,Bellingham,NW Washington,(blank),true,I1,"I1 - Confirmed, cold lead",3,premium,,Yes,No,Yes,Yes,No
+TRU GREENTHUMB,407950,Castle Rock,SW Washington,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-05-27,Yes,Yes,Yes,Yes,No
+UNCLE ANDO'S WURLD OF WEED,415045,Centralia,South Sound,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-10-10,Yes,Yes,Yes,Yes,No
+UNCLE IKE'S Olive way,413996,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-10-13,Yes,No,No,Yes,No
+UNCLE IKE'S,414533,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-10-13,Yes,No,No,Yes,No
+UNCLE IKE'S,421141,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-10-13,Yes,No,No,Yes,No
+UNCLE IKE'S white Center,421514,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-10-13,Yes,No,No,Yes,No
+UNCLE IKE'S - Lake City Way,433474,Seattle,Seattle Metro,(blank),true,I4,I4 - Samples sent,5,unknown,2025-10-13,Yes,No,No,Yes,No
+UNCLE WILLIE'S CANNABIS,431706,Kelso,SW Washington,(blank),true,I2,I2 - Contacted/has notes,6,standard,2025-05-27,Yes,Yes,Yes,Yes,No
+VIBE CANNABIS CO.,434798,Kelso,SW Washington,(blank),true,I1,"I1 - Confirmed, cold lead",2,unknown,,Yes,No,No,Yes,No
+W.C.W. ENTERPRISES,415445,Everson,NW Washington,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,No,Yes,No
+WALLA WALLA CANNABIS COMPANY,415641,Walla Walla,Eastern WA,(blank),false,I1,I1 - Unconfirmed cold lead,1,premium,,No,No,Yes,No,No
+WALLA WALLA WEEDERY,434392,Walla Walla,Eastern WA,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-06-10,Yes,Yes,Yes,Yes,No
+"WASHINGTON O G, LLC",431327,Seattle,Seattle Metro,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+WESTERN BUD,426849,Anacortes,NW Washington,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-02-21,Yes,Yes,Yes,Yes,No
+WESTERN BUD,421707,Bellingham,NW Washington,(blank),true,I2,I2 - Contacted/has notes,4,premium,2025-02-21,Yes,No,Yes,Yes,No
+WESTERN BUD,422037,Burlington,NW Washington,(blank),true,I2,I2 - Contacted/has notes,4,premium,2025-02-21,Yes,No,Yes,Yes,No
+WESTSIDE420 RECREATIONAL,412466,Longview,SW Washington,Active,true,R2,R2 - Active but stale (>90 days),6,premium,2025-05-20,Yes,Yes,Yes,Yes,No
+WHIDBEY RETAIL GROUP,423993,Freeland,NW Washington,(blank),true,I1,"I1 - Confirmed, cold lead",3,unknown,,Yes,Yes,No,Yes,No
+WHITE RABBIT RETAIL,414398,Lynnwood,Seattle Metro,(blank),true,I5,I5 - Near order / has ordered,4,unknown,2025-02-25,Yes,No,No,Yes,No
+WORLD OF WEED,414449,Tacoma,South Sound,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+YAKIMA WEED CO North,353928,Yakima,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-02-28,Yes,Yes,Yes,Yes,No
+YAKIMA WEED CO South,430876,Union Gap,Eastern WA,(blank),true,I5,I5 - Near order / has ordered,6,premium,2025-02-28,Yes,Yes,Yes,Yes,No
+ZIA RECREATIONAL,415488,Hoquiam,Peninsula/Islands,(blank),false,I1,I1 - Unconfirmed cold lead,0,unknown,,No,No,No,No,No
+Zips Everett (BLOOM) - Pretty sure they are Kush 21 now,350766,Everett,Seattle Metro,Active,false,R2,R2 - Active but stale (>90 days),7,standard,2025-03-10,Yes,Yes,Yes,Yes,No
+Zips Hwy 512 (BLOOM),414103,Tacoma,South Sound,Active,false,R2,R2 - Active but stale (>90 days),7,standard,2025-02-06,Yes,Yes,Yes,Yes,No
+ZIPS CANNABIS Downtown,358302,Tacoma,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-02-06,Yes,Yes,Yes,Yes,No
+ZIPS CANNABIS 6th,362816,Tacoma,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-02-06,Yes,Yes,Yes,Yes,No
+Zips Puyallup 176th,437888,Puyallup,South Sound,Active,true,R2,R2 - Active but stale (>90 days),7,standard,2025-03-25,Yes,Yes,Yes,Yes,No
