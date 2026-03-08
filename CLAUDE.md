@@ -39,7 +39,7 @@ Single-tenant, multi-user operations platform for a cannabis company. 29 module 
 - Pipeline: Cultivation → Manufacturing → Packaging → Fulfillment → Delivery
 
 ## Module Accent Colors
-Dashboard #667EEA, CRM #F59E0B, Tasks #8B5CF6, Calendar #3B82F6,
+Dashboard #5BB8E6, CRM #F59E0B, Tasks #8B5CF6, Calendar #3B82F6,
 Agents #06B6D4, Orders #F59E0B, VMI #EF4444, Content #EC4899,
 Competitors #F97316, Cultivation #22C55E, Manufacturing #10B981,
 Packaging #84CC16, Inventory #8B5CF6, Fulfillment #14B8A6,
@@ -58,6 +58,19 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Domain: frost-orcin.vercel.app
 - Never sit on uncommitted work. If you built it, commit and push it.
 - Always verify with git status before committing to make sure nothing is left behind
+
+## NotebookLM Integration
+- Skill installed at ~/.claude/skills/notebooklm/
+- All scripts run via: python scripts/run.py [script] (from the skill directory)
+- Proactively query NotebookLM when:
+  - Building compliance-related modules (COA, Approvals) → query frost-compliance notebook
+  - Generating mock data that needs cannabis domain accuracy → query frost-domain notebook
+  - Unsure about architecture patterns or design tokens → query frost-architecture notebook
+  - Working on Competitors module → query frost-competitors notebook
+- Do NOT burn context window re-reading project docs if a notebook covers the topic
+- Each question is stateless (new browser session) — include full context in every query
+- Rate limit: 50 queries/day on free tier — be strategic, batch related questions
+- If not authenticated, tell the user a browser window will open for Google login
 
 ## Do NOT
 - Install dependencies without stating why

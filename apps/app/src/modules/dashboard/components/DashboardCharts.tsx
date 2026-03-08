@@ -53,10 +53,10 @@ export function DashboardCharts({ data }: DashboardChartsProps) {
             <Line
               type="monotone"
               dataKey="value"
-              stroke="#667EEA"
+              stroke="#5BB8E6"
               strokeWidth={2}
               dot={false}
-              activeDot={{ r: 4, fill: '#667EEA' }}
+              activeDot={{ r: 4, fill: '#5BB8E6' }}
             />
           </LineChart>
         </ResponsiveContainer>
@@ -156,7 +156,7 @@ export function DashboardCharts({ data }: DashboardChartsProps) {
               }}
               formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Revenue']}
             />
-            <Bar dataKey="revenue" radius={[0, 4, 4, 0]} fill="#667EEA" />
+            <Bar dataKey="revenue" radius={[0, 4, 4, 0]} fill="#5BB8E6" />
           </BarChart>
         </ResponsiveContainer>
       </ChartWrapper>

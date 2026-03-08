@@ -7,4 +7,4 @@
 - Responsive: desktop-first. 3-col -> 2-col -> 1-col. Mobile breakpoint at 768px.
 - Card styling: `rounded-xl`, `border border-default`, `bg-card`
 - Glassmorphism on sidebar: `backdrop-blur-xl` with slight transparency
-- Brand gradient: `linear-gradient(135deg, #667EEA, #764BA2, #F093FB)`
+- Brand gradient: `linear-gradient(135deg, #5BB8E6, #4A8DB8, #3D7A9E)`

@@ -1,6 +1,6 @@
 # Dashboard
 
-Accent color: #667EEA
+Accent color: #5BB8E6
 
 The Platform Dashboard is the personalized command center every user sees when they log in. It aggregates operational data from across all modules — alerts, KPIs, charts, and quick actions — into a single at-a-glance view.
 

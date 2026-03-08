@@ -10,7 +10,7 @@ const EVENT_TYPE_COLORS: Record<EventType, string> = {
   'pop-up': '#8B5CF6',
   'internal': '#64748B',
   'webinar': '#06B6D4',
-  'industry-event': '#667EEA',
+  'industry-event': '#5BB8E6',
 };
 
 const ACCENT = '#EC4899';

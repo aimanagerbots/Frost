@@ -7,9 +7,9 @@ import { BarChart3 } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 export const CHART_COLORS = {
-  primary: '#667EEA',
-  secondary: '#764BA2',
-  tertiary: '#F093FB',
+  primary: '#5BB8E6',
+  secondary: '#4A8DB8',
+  tertiary: '#3D7A9E',
   success: '#00E5A0',
   warning: '#FBBF24',
   danger: '#FB7185',

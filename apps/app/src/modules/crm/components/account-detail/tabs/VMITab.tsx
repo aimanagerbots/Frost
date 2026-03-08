@@ -89,7 +89,7 @@ export function VMITab({ accountId, vmiEnrolled }: VMITabProps) {
                 contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
               />
               <Bar dataKey="current" fill={CRM_ACCENT} radius={[0, 4, 4, 0]} barSize={12} name="Current" />
-              <Bar dataKey="par" fill="#667EEA" radius={[0, 4, 4, 0]} barSize={12} name="Par" opacity={0.5} />
+              <Bar dataKey="par" fill="#5BB8E6" radius={[0, 4, 4, 0]} barSize={12} name="Par" opacity={0.5} />
             </BarChart>
           </ResponsiveContainer>
         </ChartWrapper>

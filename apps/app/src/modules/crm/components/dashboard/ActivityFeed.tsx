@@ -22,7 +22,7 @@ const TYPE_ICONS: Record<ActivityItem['type'], LucideIcon> = {
 const TYPE_COLORS: Record<ActivityItem['type'], string> = {
   order: '#F59E0B',
   payment: '#00E5A0',
-  interaction: '#667EEA',
+  interaction: '#5BB8E6',
   agent: '#06B6D4',
   'health-change': '#FB7185',
 };

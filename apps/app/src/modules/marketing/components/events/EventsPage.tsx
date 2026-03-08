@@ -43,7 +43,7 @@ const TYPE_COLORS: Record<string, string> = {
   'trade-show': '#8B5CF6',
   'pop-up': '#F59E0B',
   'webinar': '#06B6D4',
-  'industry-event': '#667EEA',
+  'industry-event': '#5BB8E6',
   'internal': '#64748B',
 };
 

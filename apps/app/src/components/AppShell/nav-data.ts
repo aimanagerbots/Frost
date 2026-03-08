@@ -61,7 +61,7 @@ export const navGroups: NavGroup[] = [
     title: 'MAIN',
     items: [
       { label: 'Chat', href: '/chat', icon: MessageSquare, accent: '#06B6D4' },
-      { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard, accent: '#667EEA' },
+      { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard, accent: '#5BB8E6' },
     ],
   },
   {

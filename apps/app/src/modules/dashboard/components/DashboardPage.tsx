@@ -9,7 +9,7 @@ import { AlertsRow } from './AlertsRow';
 import { DashboardCharts } from './DashboardCharts';
 import { QuickActions } from './QuickActions';
 
-const DASHBOARD_ACCENT = '#667EEA';
+const DASHBOARD_ACCENT = '#5BB8E6';
 
 function getGreeting(): string {
   const hour = new Date().getHours();

@@ -30,7 +30,7 @@ function hashColor(name: string): string {
     hash = name.charCodeAt(i) + ((hash << 5) - hash);
   }
   const colors = [
-    '#667EEA', '#764BA2', '#F093FB', '#00E5A0', '#FBBF24',
+    '#5BB8E6', '#4A8DB8', '#3D7A9E', '#00E5A0', '#FBBF24',
     '#FB7185', '#38BDF8', '#F59E0B', '#8B5CF6', '#06B6D4',
   ];
   return colors[Math.abs(hash) % colors.length];
