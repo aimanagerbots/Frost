@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useSyncExternalStore, useCallback } from 'react';
+import Image from 'next/image';
 
 const AGE_GATE_KEY = 'frost-age-verified';
 
@@ -43,7 +44,13 @@ export function AgeGateModal() {
     >
       <div className="mx-4 w-full max-w-md space-y-8 rounded-2xl border border-border-default bg-card p-10 text-center">
         {/* Logo */}
-        <h1 className="font-display text-4xl tracking-wide text-text-default">Frost</h1>
+        <Image
+          src="/FrostLogo_SnowflakeOnly.png"
+          alt="Frost"
+          width={64}
+          height={64}
+          className="mx-auto"
+        />
 
         {/* Question */}
         <div className="space-y-2">

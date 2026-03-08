@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu } from 'lucide-react';
 import { cn } from '@frost/ui';
 import { NAV_LINKS } from '@/lib/constants';
@@ -31,14 +32,17 @@ export function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           {/* Logo */}
-          <Link
-            href="/home"
-            className={cn(
-              'font-display text-2xl italic tracking-wide transition-colors duration-300',
-              isScrolled ? 'text-text-default' : 'text-text-on-dark'
-            )}
-          >
-            Frost
+          <Link href="/home" className="relative h-8 w-28">
+            <Image
+              src="/FrostLogo_wordmark.png"
+              alt="Frost"
+              fill
+              className={cn(
+                'object-contain transition-all duration-300',
+                isScrolled ? 'brightness-100' : 'brightness-0 invert'
+              )}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
