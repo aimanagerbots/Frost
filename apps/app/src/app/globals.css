@@ -110,7 +110,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-base text-text-default;
+    @apply bg-base text-text-default font-bold;
   }
   html {
     @apply font-sans;

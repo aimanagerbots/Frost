@@ -26,7 +26,7 @@ export function Topbar() {
   }
 
   return (
-    <header className="sticky top-0 z-30 flex h-32 items-center border-b border-border-default bg-black px-4">
+    <header className="sticky top-0 z-30 flex h-48 items-center border-b border-border-default bg-black px-4">
       {/* Left — mobile menu */}
       <div className="flex items-center">
         <button
@@ -45,7 +45,7 @@ export function Topbar() {
           alt="Frost"
           width={800}
           height={200}
-          className="h-24 w-auto"
+          className="h-40 w-auto"
           priority
         />
       </div>

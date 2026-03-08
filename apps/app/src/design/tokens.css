@@ -15,9 +15,9 @@
   --accent-primary: #5BB8E6;
   --accent-gradient: linear-gradient(135deg, #5BB8E6, #4A8DB8, #3D7A9E);
 
-  /* Text — white at varying opacities */
-  --text-default: rgba(255, 255, 255, 0.9);
-  --text-muted: rgba(255, 255, 255, 0.4);
+  /* Text — all white */
+  --text-default: #FFFFFF;
+  --text-muted: #FFFFFF;
   --text-bright: #FFFFFF;
 
   /* Status */
