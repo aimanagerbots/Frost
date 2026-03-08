@@ -24,7 +24,7 @@ export function Sidebar() {
       <aside
         className={`
           fixed top-0 left-0 z-50 flex h-screen flex-col
-          border-r border-border-default bg-card/80 backdrop-blur-xl
+          border-r border-border-default bg-black
           transition-all duration-300 ease-in-out
           ${collapsed ? 'w-16' : 'w-60'}
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
@@ -47,7 +47,7 @@ export function Sidebar() {
           {navGroups.map((group) => (
             <div key={group.title} className="mb-4">
               {!collapsed && (
-                <p className="px-4 mb-1 text-[10px] font-semibold uppercase tracking-widest text-text-muted">
+                <p className="px-4 mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/60">
                   {group.title}
                 </p>
               )}
@@ -66,32 +66,37 @@ export function Sidebar() {
                       ${collapsed ? 'justify-center' : ''}
                       ${
                         isActive
-                          ? 'text-text-bright'
-                          : 'text-text-muted hover:text-text-default hover:bg-elevated/50'
+                          ? 'text-white font-medium'
+                          : 'text-white hover:text-white hover:bg-white/5'
                       }
                     `}
                     title={collapsed ? item.label : undefined}
                   >
+                    {/* Active glow */}
+                    {isActive && (
+                      <span
+                        className="absolute inset-0 rounded-r-md"
+                        style={{
+                          backgroundColor: 'rgba(91, 184, 230, 0.08)',
+                          boxShadow: '0 0 20px rgba(91, 184, 230, 0.3), inset 0 0 20px rgba(91, 184, 230, 0.05)',
+                        }}
+                      />
+                    )}
                     {/* Active indicator bar */}
                     {isActive && (
                       <span
                         className="absolute left-0 top-1 bottom-1 w-[3px] rounded-r-full"
-                        style={{ backgroundColor: item.accent }}
-                      />
-                    )}
-
-                    {/* Active background tint */}
-                    {isActive && (
-                      <span
-                        className="absolute inset-0 rounded-r-md opacity-10"
-                        style={{ backgroundColor: item.accent }}
+                        style={{
+                          backgroundColor: '#5BB8E6',
+                          boxShadow: '0 0 8px rgba(91, 184, 230, 0.6)',
+                        }}
                       />
                     )}
 
                     <Icon
                       size={20}
-                      style={isActive ? { color: item.accent } : undefined}
-                      className={isActive ? '' : 'text-text-muted group-hover:text-text-default'}
+                      style={isActive ? { color: '#5BB8E6', filter: 'drop-shadow(0 0 4px rgba(91, 184, 230, 0.5))' } : undefined}
+                      className={isActive ? '' : 'text-white'}
                     />
                     {!collapsed && <span>{item.label}</span>}
                   </Link>

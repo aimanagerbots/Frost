@@ -1,11 +1,11 @@
 /* Dark theme (default) */
 :root,
 .dark {
-  /* Backgrounds — pure black base, matching login page */
+  /* Backgrounds — pure black everything */
   --bg-base: #000000;
-  --bg-card: #0A0A0F;
-  --bg-card-hover: #111118;
-  --bg-elevated: #161620;
+  --bg-card: #000000;
+  --bg-card-hover: #000000;
+  --bg-elevated: #000000;
 
   /* Borders */
   --border-default: rgba(255, 255, 255, 0.1);
