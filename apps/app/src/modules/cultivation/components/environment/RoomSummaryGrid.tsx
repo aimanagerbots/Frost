@@ -10,15 +10,15 @@ const STATUS_DOT: Record<EnvironmentStatus, string> = {
 };
 
 const STAGE_COLORS: Record<string, string> = {
-  flower: '#EC4899',
-  veg: '#22C55E',
-  dry: '#F59E0B',
-  cure: '#8B5CF6',
-  propagation: '#06B6D4',
-  clone: '#06B6D4',
-  mother: '#3B82F6',
+  flower: '#5BB8E6',
+  veg: '#5BB8E6',
+  dry: '#5BB8E6',
+  cure: '#5BB8E6',
+  propagation: '#5BB8E6',
+  clone: '#5BB8E6',
+  mother: '#5BB8E6',
   harvest: '#EF4444',
-  maintenance: '#94A3B8',
+  maintenance: '#5BB8E6',
 };
 
 interface RoomSummaryGridProps {
@@ -30,14 +30,14 @@ export function RoomSummaryGrid({ rooms, onSelectRoom }: RoomSummaryGridProps) {
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <div className="h-1 w-6 rounded-full bg-[#22C55E]" />
+        <div className="h-1 w-6 rounded-full bg-[#5BB8E6]" />
         <h3 className="text-sm font-semibold text-text-bright">All Rooms Overview</h3>
       </div>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {rooms.map((room) => {
           const env = room.environment;
-          const stageColor = STAGE_COLORS[room.stage] || '#94A3B8';
+          const stageColor = STAGE_COLORS[room.stage] || '#5BB8E6';
           const progress = room.totalDaysExpected > 0
             ? Math.round((room.dayInStage / room.totalDaysExpected) * 100)
             : 0;
@@ -46,12 +46,12 @@ export function RoomSummaryGrid({ rooms, onSelectRoom }: RoomSummaryGridProps) {
             <button
               key={room.id}
               onClick={() => onSelectRoom(room.id)}
-              className="group flex flex-col rounded-xl border border-default bg-card p-4 text-left transition-all hover:border-[#22C55E]/30 hover:bg-card/80"
+              className="group flex flex-col rounded-xl border border-default bg-card p-4 text-left transition-all hover:border-[#5BB8E6]/30 hover:bg-card/80"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-2">
                 <div>
-                  <h4 className="text-sm font-semibold text-text-bright group-hover:text-[#22C55E] transition-colors">
+                  <h4 className="text-sm font-semibold text-text-bright group-hover:text-[#5BB8E6] transition-colors">
                     {room.name}
                   </h4>
                   <p className="text-xs text-text-muted">{room.strainName}</p>

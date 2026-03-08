@@ -10,8 +10,8 @@ import { WorkOrderBoard } from './work-orders';
 import { ProductionLines } from './production-lines';
 import { BatchTracker } from './batch-tracker';
 import { EquipmentList } from './equipment';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#10B981';
 
 const ROUTES: Record<string, React.ComponentType> = {
   dashboard: ManufacturingDashboard,

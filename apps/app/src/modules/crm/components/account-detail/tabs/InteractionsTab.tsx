@@ -56,7 +56,7 @@ export function InteractionsTab({ accountId }: InteractionsTabProps) {
       <div className="flex justify-end">
         <button
           onClick={() => setDrawerOpen(true)}
-          className="flex items-center gap-1.5 rounded-lg bg-[#F59E0B] px-3 py-1.5 text-sm font-medium text-black transition-colors hover:bg-[#F59E0B]/90"
+          className="flex items-center gap-1.5 rounded-lg bg-[#5BB8E6] px-3 py-1.5 text-sm font-medium text-black transition-colors hover:opacity-90"
         >
           <Plus className="h-4 w-4" />
           Log Interaction
@@ -93,7 +93,7 @@ export function InteractionsTab({ accountId }: InteractionsTabProps) {
           </div>
           <button
             onClick={() => setDrawerOpen(false)}
-            className="rounded-lg bg-[#F59E0B] px-4 py-2 text-sm font-medium text-black"
+            className="rounded-lg bg-[#5BB8E6] px-4 py-2 text-sm font-medium text-black"
           >
             Save
           </button>

@@ -15,3 +15,6 @@ export { SearchOverlay } from './SearchOverlay';
 export type { SearchItem, SearchGroup } from './SearchOverlay';
 export { CommandPalette } from './CommandPalette';
 export { KanbanBase } from './KanbanBase';
+export { AccentCard } from './AccentCard';
+export { ModuleTabs } from './ModuleTabs';
+export type { TabItem } from './ModuleTabs';

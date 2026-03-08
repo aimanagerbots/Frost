@@ -6,8 +6,8 @@ import { LoadingSkeleton, EmptyState, ChartWrapper, CHART_THEME } from '@/compon
 import { useLeaderboard } from '../../hooks';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import type { LeaderboardRep } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 function formatCurrency(n: number): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(n);

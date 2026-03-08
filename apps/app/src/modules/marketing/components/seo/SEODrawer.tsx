@@ -10,7 +10,7 @@ interface SEODrawerProps {
 }
 
 function ScoreBar({ score }: { score: number }) {
-  const color = score >= 80 ? '#00E5A0' : score >= 60 ? '#FBBF24' : '#FB7185';
+  const color = score >= 80 ? '#00E5A0' : score >= 60 ? '#5BB8E6' : '#FB7185';
   return (
     <div className="flex items-center gap-2">
       <div className="h-2 flex-1 rounded-full bg-elevated">
@@ -24,7 +24,7 @@ function ScoreBar({ score }: { score: number }) {
 function CharCount({ label, length, min, max }: { label: string; length: number; min: number; max: number }) {
   const inRange = length >= min && length <= max;
   const close = !inRange && (Math.abs(length - min) <= 5 || Math.abs(length - max) <= 5);
-  const color = inRange ? '#00E5A0' : close ? '#FBBF24' : '#FB7185';
+  const color = inRange ? '#00E5A0' : close ? '#5BB8E6' : '#FB7185';
   return (
     <div className="flex items-center justify-between">
       <span className="text-[11px] text-text-muted">{label}</span>
@@ -38,7 +38,7 @@ function CharCount({ label, length, min, max }: { label: string; length: number;
 function ChecklistItem({ item }: { item: SEOScoreItem }) {
   const iconMap = {
     pass: <CheckCircle className="h-3.5 w-3.5 shrink-0" style={{ color: '#00E5A0' }} />,
-    warn: <AlertTriangle className="h-3.5 w-3.5 shrink-0" style={{ color: '#FBBF24' }} />,
+    warn: <AlertTriangle className="h-3.5 w-3.5 shrink-0" style={{ color: '#5BB8E6' }} />,
     fail: <XCircle className="h-3.5 w-3.5 shrink-0" style={{ color: '#FB7185' }} />,
   };
 

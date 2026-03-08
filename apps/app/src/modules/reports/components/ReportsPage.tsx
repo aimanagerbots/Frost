@@ -5,8 +5,8 @@ import { PieChart as PieChartIcon, FileText, Download, Clock, Play } from 'lucid
 import { SectionHeader, MetricCard, StatusBadge, DrawerPanel, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useReports } from '@/modules/reports/hooks';
 import type { Report, ReportType } from '@/modules/reports/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#475569';
 
 const TYPE_FILTERS: { label: string; value: ReportType | undefined }[] = [
   { label: 'All', value: undefined },

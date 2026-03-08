@@ -5,8 +5,8 @@ import { useGrowRoom } from '../../hooks/useGrowRoom';
 import { useIrrigationSchedule } from '../../hooks/useIrrigationSchedule';
 import { useNutrientRecipe } from '../../hooks/useNutrientRecipe';
 import { LoadingSkeleton } from '@/components';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#22C55E';
 
 function formatTimeShort(iso: string): string {
   return new Date(iso).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
@@ -49,7 +49,7 @@ function MetricCard({ label, value, target, status = 'ok', icon }: MetricCardPro
       </div>
       <div
         className="mt-1 h-2 w-2 rounded-full"
-        style={{ backgroundColor: status === 'ok' ? '#22C55E' : '#F59E0B' }}
+        style={{ backgroundColor: status === 'ok' ? '#22C55E' : '#FBBF24' }}
       />
     </div>
   );

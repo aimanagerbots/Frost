@@ -3,8 +3,8 @@
 import { DrawerPanel, StatusBadge, DataTable } from '@/components';
 import { useCampaign } from '../../hooks/useCampaign';
 import type { CampaignRecipient } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const STATUS_VARIANT: Record<string, 'success' | 'info' | 'muted' | 'warning' | 'danger'> = {
   active: 'success',

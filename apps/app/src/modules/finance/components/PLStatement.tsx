@@ -32,7 +32,7 @@ function CollapsibleSection({ label, items, total, totalLabel, isCost }: Collaps
   return (
     <>
       <tr
-        className="cursor-pointer hover:bg-card-hover transition-colors group"
+        className="cursor-pointer hover:bg-accent-hover transition-colors group"
         onClick={() => setOpen(!open)}
       >
         <td className="py-2 px-3 font-semibold text-default flex items-center gap-1">

@@ -1,5 +1,6 @@
 'use client';
 
+import { AccentCard } from '@/components';
 import { Building2, Clock, TestTube, TrendingUp, Mail, Phone } from 'lucide-react';
 import type { LabPartner } from '@/modules/inventory/types';
 
@@ -13,10 +14,10 @@ export function LabPartnerCards({ partners }: LabPartnerCardsProps) {
       <h3 className="text-sm font-semibold text-text-bright">Lab Partners</h3>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {partners.map((lab) => (
-          <div key={lab.id} className="rounded-xl border border-default bg-card p-4 space-y-3">
+          <AccentCard key={lab.id} accentColor="#8B5CF6" className="p-4 space-y-3">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#9333EA]/20">
-                <Building2 className="h-4 w-4 text-[#9333EA]" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#5BB8E6]/20">
+                <Building2 className="h-4 w-4 text-[#5BB8E6]" />
               </div>
               <div>
                 <p className="text-sm font-medium text-text-bright">{lab.name}</p>
@@ -58,7 +59,7 @@ export function LabPartnerCards({ partners }: LabPartnerCardsProps) {
                 {lab.contactPhone}
               </div>
             </div>
-          </div>
+          </AccentCard>
         ))}
       </div>
     </div>

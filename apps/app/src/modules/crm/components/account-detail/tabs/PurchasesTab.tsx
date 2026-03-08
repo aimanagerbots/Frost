@@ -13,8 +13,8 @@ import {
 import { MetricCard, DataTable, ChartWrapper, CHART_COLORS, CHART_THEME, StatusBadge, LoadingSkeleton } from '@/components';
 import { useAccountOrders } from '../../../hooks';
 import type { Account, AccountOrder } from '../../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 interface PurchasesTabProps {
   accountId: string;

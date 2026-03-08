@@ -7,8 +7,8 @@ import { VendorDayCalendar } from './VendorDayCalendar';
 import { VendorDayDrawer } from './VendorDayDrawer';
 import { Calendar, List } from 'lucide-react';
 import type { VendorDay } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const PURPOSE_LABELS: Record<string, string> = {
   'product-education': 'Product Education',
@@ -117,10 +117,10 @@ export function VendorDays() {
     <div className="space-y-6">
       {/* Metrics */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        <MetricCard label="Scheduled (Upcoming)" value={scheduled} accentColor="#3B82F6" />
-        <MetricCard label="Completed (Quarter)" value={completed} accentColor="#22C55E" />
+        <MetricCard label="Scheduled (Upcoming)" value={scheduled} accentColor="#5BB8E6" />
+        <MetricCard label="Completed (Quarter)" value={completed} accentColor="#5BB8E6" />
         <MetricCard label="Avg Revenue Lift" value={`${avgLift.toFixed(1)}%`} accentColor={CRM_ACCENT} />
-        <MetricCard label="Best Ambassador" value={bestAmbassador} accentColor="#8B5CF6" />
+        <MetricCard label="Best Ambassador" value={bestAmbassador} accentColor="#5BB8E6" />
       </div>
 
       {/* View toggle */}

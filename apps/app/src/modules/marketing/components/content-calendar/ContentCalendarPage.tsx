@@ -5,16 +5,16 @@ import { CalendarRange, ChevronLeft, ChevronRight, Pencil, CalendarClock, Trash2
 import { SectionHeader, MetricCard, LoadingSkeleton, StatusBadge, DrawerPanel } from '@/components';
 import { useContentPieces, useMarketingMetrics, useGapSuggestions } from '@/modules/marketing/hooks';
 import type { ContentPiece, ContentPlatform, ContentStatus, GapSuggestion } from '@/modules/marketing/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 const PLATFORM_COLORS: Record<string, string> = {
   instagram: '#E1306C',
   facebook: '#1877F2',
   twitter: '#1DA1F2',
-  email: '#F59E0B',
-  website: '#22C55E',
-  multi: '#8B5CF6',
+  email: '#5BB8E6',
+  website: '#5BB8E6',
+  multi: '#5BB8E6',
 };
 
 const PLATFORM_LABELS: Record<string, string> = {
@@ -127,7 +127,7 @@ function WorkflowSteps({ currentStatus }: { currentStatus: ContentStatus }) {
               <div
                 className={`flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
                   isCurrent
-                    ? 'ring-2 ring-[#EC4899] ring-offset-1 ring-offset-transparent'
+                    ? 'ring-2 ring-[#5BB8E6] ring-offset-1 ring-offset-transparent'
                     : ''
                 }`}
                 style={{
@@ -282,9 +282,9 @@ export function ContentCalendarPage() {
       {/* Metrics Row */}
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
         <MetricCard label="Posts This Month" value={metrics?.postsThisMonth ?? 0} accentColor={ACCENT} />
-        <MetricCard label="Scheduled" value={metrics?.scheduledCount ?? 0} accentColor="#3B82F6" />
-        <MetricCard label="Drafts in Pipeline" value={metrics?.draftsInPipeline ?? 0} accentColor="#F59E0B" />
-        <MetricCard label="Avg Engagement" value={`${metrics?.avgEngagementRate ?? 0}%`} accentColor="#22C55E" />
+        <MetricCard label="Scheduled" value={metrics?.scheduledCount ?? 0} accentColor="#5BB8E6" />
+        <MetricCard label="Drafts in Pipeline" value={metrics?.draftsInPipeline ?? 0} accentColor="#5BB8E6" />
+        <MetricCard label="Avg Engagement" value={`${metrics?.avgEngagementRate ?? 0}%`} accentColor="#5BB8E6" />
         <MetricCard label="Content Gap Days" value={metrics?.contentGapDays ?? 0} accentColor="#EF4444" />
       </div>
 
@@ -295,7 +295,7 @@ export function ContentCalendarPage() {
           <select
             value={channelFilter}
             onChange={(e) => setChannelFilter(e.target.value as ChannelFilter)}
-            className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+            className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
           >
             <option value="all">All</option>
             <option value="instagram">Instagram</option>
@@ -310,7 +310,7 @@ export function ContentCalendarPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
-            className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+            className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
           >
             <option value="all">All</option>
             <option value="idea">Idea</option>
@@ -329,7 +329,7 @@ export function ContentCalendarPage() {
         <div className="flex items-center justify-between border-b border-default px-4 py-3">
           <button
             onClick={navigatePrev}
-            className="rounded-lg p-1.5 text-text-muted hover:bg-card-hover hover:text-text-default transition-colors"
+            className="rounded-lg p-1.5 text-text-muted hover:bg-accent-hover hover:text-text-default transition-colors"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -345,8 +345,8 @@ export function ContentCalendarPage() {
                 onClick={() => setViewMode('month')}
                 className={`px-3 py-1 text-xs font-medium transition-colors ${
                   viewMode === 'month'
-                    ? 'bg-[#EC4899] text-white'
-                    : 'bg-card text-text-muted hover:text-text-default hover:bg-card-hover'
+                    ? 'bg-[#5BB8E6] text-white'
+                    : 'bg-card text-text-muted hover:text-text-default hover:bg-accent-hover'
                 }`}
               >
                 Month
@@ -355,8 +355,8 @@ export function ContentCalendarPage() {
                 onClick={() => setViewMode('week')}
                 className={`px-3 py-1 text-xs font-medium transition-colors ${
                   viewMode === 'week'
-                    ? 'bg-[#EC4899] text-white'
-                    : 'bg-card text-text-muted hover:text-text-default hover:bg-card-hover'
+                    ? 'bg-[#5BB8E6] text-white'
+                    : 'bg-card text-text-muted hover:text-text-default hover:bg-accent-hover'
                 }`}
               >
                 Week
@@ -366,7 +366,7 @@ export function ContentCalendarPage() {
 
           <button
             onClick={navigateNext}
-            className="rounded-lg p-1.5 text-text-muted hover:bg-card-hover hover:text-text-default transition-colors"
+            className="rounded-lg p-1.5 text-text-muted hover:bg-accent-hover hover:text-text-default transition-colors"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
@@ -396,9 +396,9 @@ export function ContentCalendarPage() {
                   viewMode === 'week' ? 'min-h-[200px]' : 'min-h-[80px]'
                 } ${!day.isCurrentMonth ? 'opacity-30' : ''} ${
                   isGap ? 'bg-red-500/5' : ''
-                } ${day.isToday ? 'ring-1 ring-inset ring-[#EC4899]/40' : ''}`}
+                } ${day.isToday ? 'ring-1 ring-inset ring-[#5BB8E6]/40' : ''}`}
               >
-                <span className={`text-xs font-medium ${day.isToday ? 'text-[#EC4899]' : 'text-text-muted'}`}>
+                <span className={`text-xs font-medium ${day.isToday ? 'text-[#5BB8E6]' : 'text-text-muted'}`}>
                   {day.date.getDate()}
                 </span>
                 <div className="mt-1 space-y-0.5">
@@ -460,11 +460,11 @@ export function ContentCalendarPage() {
         width="md"
         footer={
           <div className="flex items-center gap-2">
-            <button className="flex items-center gap-1.5 rounded-lg bg-[#EC4899] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#DB2777]">
+            <button className="flex items-center gap-1.5 rounded-lg bg-[#5BB8E6] px-4 py-2 text-sm font-medium text-white transition-colors hover:opacity-90">
               <Pencil className="h-3.5 w-3.5" />
               Edit
             </button>
-            <button className="flex items-center gap-1.5 rounded-lg border border-default bg-card px-4 py-2 text-sm font-medium text-text-default transition-colors hover:bg-card-hover">
+            <button className="flex items-center gap-1.5 rounded-lg border border-default bg-card px-4 py-2 text-sm font-medium text-text-default transition-colors hover:bg-accent-hover">
               <CalendarClock className="h-3.5 w-3.5" />
               Reschedule
             </button>

@@ -16,8 +16,8 @@ import { useMemoryFacts } from '../hooks/useMemoryFacts';
 import { useMemoryPatterns } from '../hooks/useMemoryPatterns';
 import { useMemoryLayers } from '../hooks/useMemoryLayers';
 import type { MemoryFact, MemoryPattern } from '../types';
+import { ACCENT as MEMORY_ACCENT } from '@/design/colors';
 
-const MEMORY_ACCENT = '#8B5CF6';
 
 const CATEGORY_LABELS: Record<string, string> = {
   account: 'Account',

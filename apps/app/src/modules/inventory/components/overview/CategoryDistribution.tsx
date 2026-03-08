@@ -8,12 +8,12 @@ interface CategoryDistributionProps {
 }
 
 const CATEGORY_CONFIG: Record<ProductCategory, { icon: typeof Leaf; color: string }> = {
-  flower: { icon: Leaf, color: '#22C55E' },
-  preroll: { icon: Cigarette, color: '#84CC16' },
-  vaporizer: { icon: Wind, color: '#06B6D4' },
-  concentrate: { icon: Droplets, color: '#F59E0B' },
-  edible: { icon: Cookie, color: '#EC4899' },
-  beverage: { icon: GlassWater, color: '#8B5CF6' },
+  flower: { icon: Leaf, color: '#5BB8E6' },
+  preroll: { icon: Cigarette, color: '#5BB8E6' },
+  vaporizer: { icon: Wind, color: '#5BB8E6' },
+  concentrate: { icon: Droplets, color: '#5BB8E6' },
+  edible: { icon: Cookie, color: '#5BB8E6' },
+  beverage: { icon: GlassWater, color: '#5BB8E6' },
 };
 
 export function CategoryDistribution({ categories }: CategoryDistributionProps) {
@@ -27,7 +27,7 @@ export function CategoryDistribution({ categories }: CategoryDistributionProps) 
         return (
           <div
             key={cat.category}
-            className="flex flex-col items-center gap-2 rounded-xl border border-default bg-card p-4 transition-colors hover:bg-card-hover"
+            className="flex flex-col items-center gap-2 rounded-xl border border-default bg-card p-4 transition-colors hover:bg-accent-hover"
           >
             <div
               className="flex h-10 w-10 items-center justify-center rounded-lg"
@@ -44,9 +44,9 @@ export function CategoryDistribution({ categories }: CategoryDistributionProps) 
               <div className="mt-1 flex items-center justify-center gap-1">
                 <TrendIcon
                   className="h-3 w-3"
-                  style={{ color: cat.trend >= 0 ? '#22C55E' : '#FB7185' }}
+                  style={{ color: cat.trend >= 0 ? '#5BB8E6' : '#FB7185' }}
                 />
-                <span className="text-[10px]" style={{ color: cat.trend >= 0 ? '#22C55E' : '#FB7185' }}>
+                <span className="text-[10px]" style={{ color: cat.trend >= 0 ? '#5BB8E6' : '#FB7185' }}>
                   {cat.trend >= 0 ? '+' : ''}{cat.trend}%
                 </span>
               </div>

@@ -14,8 +14,8 @@ import { LoadingSkeleton } from '@/components';
 import type { EquipmentStatus } from '../../types';
 
 const STATUS_COLORS: Record<EquipmentStatus, string> = {
-  running: '#22C55E',
-  idle: '#94A3B8',
+  running: '#5BB8E6',
+  idle: '#5BB8E6',
   fault: '#EF4444',
 };
 
@@ -133,7 +133,7 @@ export function HvacSection({ roomId }: HvacSectionProps) {
                 className="h-full rounded-full transition-all"
                 style={{
                   width: `${hvac.filterLifePercent}%`,
-                  backgroundColor: hvac.filterLifePercent > 20 ? '#22C55E' : '#EF4444',
+                  backgroundColor: hvac.filterLifePercent > 20 ? '#5BB8E6' : '#EF4444',
                 }}
               />
             </div>

@@ -12,8 +12,8 @@ import {
 } from 'lucide-react';
 import type { Interaction } from '../../types';
 import type { LucideIcon } from 'lucide-react';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const CHANNEL_ICONS: Record<Interaction['channel'], LucideIcon> = {
   email: Mail,
@@ -26,13 +26,13 @@ const CHANNEL_ICONS: Record<Interaction['channel'], LucideIcon> = {
 };
 
 const CHANNEL_COLORS: Record<Interaction['channel'], string> = {
-  email: '#3B82F6',
-  phone: '#22C55E',
-  sms: '#8B5CF6',
-  whatsapp: '#22C55E',
-  meeting: '#F59E0B',
-  note: '#64748B',
-  agent: '#06B6D4',
+  email: '#5BB8E6',
+  phone: '#5BB8E6',
+  sms: '#5BB8E6',
+  whatsapp: '#5BB8E6',
+  meeting: '#5BB8E6',
+  note: '#5BB8E6',
+  agent: '#5BB8E6',
 };
 
 const ALL_CHANNELS: Interaction['channel'][] = ['email', 'phone', 'sms', 'meeting', 'whatsapp', 'note', 'agent'];
@@ -128,10 +128,10 @@ export function InteractionsHub() {
       {/* Metrics */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
         <MetricCard label="Total Interactions (Month)" value={thisMonth.length} accentColor={CRM_ACCENT} />
-        <MetricCard label="Emails Sent" value={emailCount} accentColor="#3B82F6" />
-        <MetricCard label="Calls Made" value={callCount} accentColor="#22C55E" />
-        <MetricCard label="Meetings Held" value={meetingCount} accentColor="#F59E0B" />
-        <MetricCard label="AI Agent Actions" value={agentCount} accentColor="#06B6D4" />
+        <MetricCard label="Emails Sent" value={emailCount} accentColor="#5BB8E6" />
+        <MetricCard label="Calls Made" value={callCount} accentColor="#5BB8E6" />
+        <MetricCard label="Meetings Held" value={meetingCount} accentColor="#5BB8E6" />
+        <MetricCard label="AI Agent Actions" value={agentCount} accentColor="#5BB8E6" />
       </div>
 
       {/* Filter bar + action */}

@@ -14,8 +14,8 @@ import { AICopilot } from './overview';
 import { InteractionsHub, CampaignsList, VendorDays } from './outreach';
 import { Analytics, ProductRecommendations, ComplianceMonitor, WinLossLog } from './intelligence';
 import { Playbooks } from './tools';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const ROUTES: Record<string, Record<string, React.ComponentType>> = {
   overview: { dashboard: CRMDashboard, 'ai-copilot': AICopilot },

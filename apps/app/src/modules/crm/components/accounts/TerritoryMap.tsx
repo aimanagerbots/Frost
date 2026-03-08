@@ -8,13 +8,13 @@ import { useTerritoryData, useTerritoryMetrics } from '@/modules/crm/hooks/copil
 import { WashingtonMap } from './territory/WashingtonMap';
 import { TerritoryPanel } from './territory/TerritoryPanel';
 import { MapTooltip } from './territory/MapTooltip';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const HEALTH_TIERS = [
   { key: 'healthy', label: 'Healthy (80+)', color: '#00E5A0' },
   { key: 'watch', label: 'Watch (60-79)', color: '#38BDF8' },
-  { key: 'risk', label: 'At Risk (40-59)', color: '#FBBF24' },
+  { key: 'risk', label: 'At Risk (40-59)', color: '#5BB8E6' },
   { key: 'critical', label: 'Critical (<40)', color: '#FB7185' },
 ];
 
@@ -126,7 +126,7 @@ export function TerritoryMap() {
           }
           className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition-colors ${
             vmiFilter !== null
-              ? 'border-[#F59E0B]/30 bg-[#F59E0B]/10 text-[#F59E0B]'
+              ? 'border-[#5BB8E6]/30 bg-[#5BB8E6]/10 text-[#5BB8E6]'
               : 'border-default bg-base text-text-muted'
           }`}
         >
@@ -138,7 +138,7 @@ export function TerritoryMap() {
           onClick={() => setScaleByRevenue((p) => !p)}
           className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition-colors ${
             scaleByRevenue
-              ? 'border-[#F59E0B]/30 bg-[#F59E0B]/10 text-[#F59E0B]'
+              ? 'border-[#5BB8E6]/30 bg-[#5BB8E6]/10 text-[#5BB8E6]'
               : 'border-default bg-base text-text-muted'
           }`}
         >

@@ -4,8 +4,8 @@ import React, { useState, useMemo } from 'react';
 import { BookOpen } from 'lucide-react';
 import { DataTable, StatusBadge, LoadingSkeleton, EmptyState } from '@/components';
 import { usePriceBook } from '../../hooks';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const CATEGORIES = ['flower', 'preroll', 'vaporizer', 'concentrate', 'edible', 'beverage'];
 

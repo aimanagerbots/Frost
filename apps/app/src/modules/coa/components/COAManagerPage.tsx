@@ -6,8 +6,8 @@ import { SectionHeader, MetricCard, DataTable, StatusBadge, LoadingSkeleton, Err
 import { useCOASubmissions, useCOAMetrics } from '../hooks';
 import { COADrawer } from './COADrawer';
 import type { COAStatus, COASubmission } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#9333EA';
 
 const STATUS_PIPELINE: { key: COAStatus; label: string }[] = [
   { key: 'submitted', label: 'Submitted' },
@@ -30,14 +30,14 @@ const statusVariant = (s: COAStatus) => {
 
 const categoryColor = (cat: string) => {
   const map: Record<string, string> = {
-    flower: '#22C55E',
-    preroll: '#F59E0B',
-    vaporizer: '#3B82F6',
+    flower: '#5BB8E6',
+    preroll: '#5BB8E6',
+    vaporizer: '#5BB8E6',
     concentrate: '#EF4444',
-    edible: '#EC4899',
-    beverage: '#06B6D4',
+    edible: '#5BB8E6',
+    beverage: '#5BB8E6',
   };
-  return map[cat] ?? '#64748B';
+  return map[cat] ?? '#5BB8E6';
 };
 
 export function COAManagerPage() {

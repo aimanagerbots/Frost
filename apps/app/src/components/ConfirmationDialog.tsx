@@ -68,7 +68,7 @@ export function ConfirmationDialog({
           <button
             onClick={onCancel}
             disabled={loading}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-text-muted hover:bg-elevated hover:text-text-default transition-colors disabled:opacity-50"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-text-muted hover:bg-accent-hover hover:text-text-default transition-colors disabled:opacity-50"
           >
             {cancelLabel}
           </button>

@@ -8,8 +8,8 @@ import { useForecasts } from '../../hooks/useForecasts';
 import { RevenueCharts } from './analytics/RevenueCharts';
 import { HealthModelView } from './analytics/HealthModelView';
 import { ForecastView } from './analytics/ForecastView';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 type ProductRow = { rank: number; name: string; category: string; revenue: number; unitsSold: number } & Record<string, unknown>;
 
@@ -104,17 +104,17 @@ export function Analytics() {
             label="vs Prior Period"
             value={`${revChange >= 0 ? '+' : ''}${revChange.toFixed(1)}%`}
             trend={{ value: revChange, direction: revChange >= 0 ? 'up' : 'down' }}
-            accentColor={revChange >= 0 ? '#22C55E' : '#EF4444'}
+            accentColor={revChange >= 0 ? '#5BB8E6' : '#EF4444'}
           />
           <MetricCard
             label="Avg Order Value"
             value={`$${avgOrderValue.toLocaleString()}`}
-            accentColor="#3B82F6"
+            accentColor="#5BB8E6"
           />
           <MetricCard
             label="Orders Count"
             value={ordersCount.toLocaleString()}
-            accentColor="#8B5CF6"
+            accentColor="#5BB8E6"
           />
         </div>
       </div>

@@ -17,8 +17,8 @@ import {
 } from '@/components';
 import { useSystemHealth, useBackgroundJobs, useAIModelUsage, useFeatureFlags } from '../hooks';
 import type { SystemTab, HealthStatus, JobStatus } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#64748B';
 
 const TABS: { key: SystemTab; label: string }[] = [
   { key: 'health', label: 'Health' },
@@ -135,7 +135,7 @@ export function SystemPage() {
             onClick={() => setActiveTab(tab.key)}
             className={`px-4 py-2 text-sm font-medium transition-colors border-b-2 ${
               activeTab === tab.key
-                ? 'border-[#64748B] text-[var(--text-text-bright)]'
+                ? 'border-[#5BB8E6] text-[var(--text-text-bright)]'
                 : 'border-transparent text-[var(--text-text-muted)] hover:text-[var(--text-text-default)]'
             }`}
           >

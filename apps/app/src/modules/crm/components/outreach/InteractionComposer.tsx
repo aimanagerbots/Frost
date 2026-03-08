@@ -5,8 +5,8 @@ import { DrawerPanel } from '@/components';
 import { useAccounts } from '../../hooks/useAccounts';
 import type { Interaction } from '../../types';
 import { X } from 'lucide-react';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 const CHANNELS: Interaction['channel'][] = ['email', 'phone', 'sms', 'meeting', 'note'];
 
 interface InteractionComposerProps {
@@ -107,7 +107,7 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
                     <button
                       key={a.id}
                       onClick={() => { setAccountId(a.id); setAccountSearch(''); }}
-                      className="w-full px-3 py-2 text-left text-sm text-text-default hover:bg-elevated"
+                      className="w-full px-3 py-2 text-left text-sm text-text-default hover:bg-accent-hover"
                     >
                       {a.name}
                     </button>

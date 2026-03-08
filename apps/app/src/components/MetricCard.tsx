@@ -7,6 +7,7 @@ import {
   LineChart,
   Line,
 } from 'recharts';
+import { AccentCard } from './AccentCard';
 
 interface Trend {
   value: number;
@@ -42,21 +43,11 @@ export function MetricCard({
   const trendColor = trend ? TREND_CONFIG[trend.direction].color : '';
 
   return (
-    <div
-      className={cn(
-        'group relative rounded-xl border border-default bg-card p-4 transition-all duration-200',
-        onClick && 'cursor-pointer hover:bg-card-hover hover:-translate-y-0.5',
-        className
-      )}
+    <AccentCard
+      accentColor={accentColor}
       onClick={onClick}
-      role={onClick ? 'button' : undefined}
-      tabIndex={onClick ? 0 : undefined}
-      onKeyDown={onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); } : undefined}
+      className={cn('p-4', className)}
     >
-      <div
-        className="absolute left-0 top-0 bottom-0 w-1 rounded-l-xl"
-        style={{ backgroundColor: accentColor }}
-      />
       <div className="pl-2">
         <div className="flex items-start justify-between">
           <div>
@@ -90,6 +81,6 @@ export function MetricCard({
           </div>
         )}
       </div>
-    </div>
+    </AccentCard>
   );
 }

@@ -54,7 +54,7 @@ export function TaskFilters({
         <button
           onClick={() => onSortChange('dueDate')}
           className={`px-3 py-1.5 text-xs font-medium transition-colors ${
-            sortBy === 'dueDate' ? 'text-[#22C55E]' : 'text-text-muted hover:text-text-default'
+            sortBy === 'dueDate' ? 'text-[#5BB8E6]' : 'text-text-muted hover:text-text-default'
           }`}
         >
           By Date
@@ -62,7 +62,7 @@ export function TaskFilters({
         <button
           onClick={() => onSortChange('priority')}
           className={`px-3 py-1.5 text-xs font-medium transition-colors ${
-            sortBy === 'priority' ? 'text-[#22C55E]' : 'text-text-muted hover:text-text-default'
+            sortBy === 'priority' ? 'text-[#5BB8E6]' : 'text-text-muted hover:text-text-default'
           }`}
         >
           By Priority

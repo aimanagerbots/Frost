@@ -54,7 +54,7 @@ export function NotesTab({ accountId }: NotesTabProps) {
           <button
             onClick={handleAdd}
             disabled={!newNote.trim()}
-            className="rounded-lg bg-[#F59E0B] px-4 py-1.5 text-sm font-medium text-black transition-colors hover:bg-[#F59E0B]/90 disabled:opacity-40"
+            className="rounded-lg bg-[#5BB8E6] px-4 py-1.5 text-sm font-medium text-black transition-colors hover:opacity-90 disabled:opacity-40"
           >
             Add Note
           </button>
@@ -67,7 +67,7 @@ export function NotesTab({ accountId }: NotesTabProps) {
           <div key={note.id} className="rounded-xl border border-default bg-card p-4">
             <div className="flex items-start justify-between gap-2">
               <p className="text-sm text-text-default whitespace-pre-wrap">{note.content}</p>
-              {note.pinned && <Pin className="h-4 w-4 shrink-0 text-[#F59E0B]" />}
+              {note.pinned && <Pin className="h-4 w-4 shrink-0 text-[#5BB8E6]" />}
             </div>
             <div className="mt-2 text-xs text-text-muted">
               {note.author} &middot;{' '}

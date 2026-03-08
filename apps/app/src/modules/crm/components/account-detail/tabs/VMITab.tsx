@@ -16,8 +16,8 @@ import {
 import { ChartWrapper, CHART_THEME, EmptyState, LoadingSkeleton } from '@/components';
 import { useAccountVMI } from '../../../hooks';
 import { Package } from 'lucide-react';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 interface VMITabProps {
   accountId: string;

@@ -71,7 +71,7 @@ export function SegmentPreview({ accounts, totalCount, totalRevenue }: SegmentPr
         emptyState={{
           title: 'No accounts match',
           description: 'Adjust criteria to find matching accounts',
-          accentColor: '#F59E0B',
+          accentColor: '#5BB8E6',
         }}
       />
     </div>

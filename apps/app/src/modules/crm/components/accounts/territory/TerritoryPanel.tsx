@@ -40,7 +40,7 @@ export function TerritoryPanel({
             onClick={() => onSelectRep(null)}
             className={`flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-xs transition-colors ${
               selectedRepId === null
-                ? 'bg-[#F59E0B]/10 text-[#F59E0B]'
+                ? 'bg-[#5BB8E6]/10 text-[#5BB8E6]'
                 : 'text-text-muted hover:bg-card hover:text-text-default'
             }`}
           >
@@ -58,7 +58,7 @@ export function TerritoryPanel({
                 onClick={() => onSelectRep(t.repId)}
                 className={`flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-xs transition-colors ${
                   selectedRepId === t.repId
-                    ? 'bg-[#F59E0B]/10 text-[#F59E0B]'
+                    ? 'bg-[#5BB8E6]/10 text-[#5BB8E6]'
                     : 'text-text-muted hover:bg-card hover:text-text-default'
                 }`}
               >

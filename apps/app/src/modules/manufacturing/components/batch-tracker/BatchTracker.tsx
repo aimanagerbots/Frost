@@ -5,6 +5,7 @@ import { Search } from 'lucide-react';
 import { LoadingSkeleton } from '@/components';
 import { useManufacturingBatches } from '../../hooks';
 import { BatchRow } from './BatchRow';
+import { ACCENT } from '@/design/colors';
 
 const CATEGORY_FILTERS = [
   { value: '', label: 'All' },
@@ -14,7 +15,6 @@ const CATEGORY_FILTERS = [
   { value: 'concentrate', label: 'Concentrate' },
 ];
 
-const ACCENT = '#10B981';
 
 export function BatchTracker() {
   const { data: batches, isLoading } = useManufacturingBatches();

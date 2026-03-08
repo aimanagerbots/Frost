@@ -37,8 +37,8 @@ import {
 import { useInsights } from '../hooks/useInsights';
 import { useInsightQuery } from '../hooks/useInsightQuery';
 import type { Insight } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#06B6D4';
 
 const TYPE_ICONS = {
   trend: TrendingUp,
@@ -96,7 +96,7 @@ const SUGGESTED_QUERIES = [
 
 function ConfidenceBar({ value }: { value: number }) {
   const color =
-    value >= 80 ? '#22C55E' : value >= 60 ? '#F59E0B' : '#EF4444';
+    value >= 80 ? '#5BB8E6' : value >= 60 ? '#5BB8E6' : '#EF4444';
 
   return (
     <div className="flex items-center gap-2">
@@ -117,7 +117,7 @@ function InsightCard({ insight }: { insight: Insight }) {
   return (
     <div
       className={cn(
-        'rounded-xl border border-default bg-card p-4 border-l-4 transition-all duration-200 hover:bg-card-hover',
+        'rounded-xl border border-default bg-card p-4 border-l-4 transition-all duration-200 hover:bg-accent-hover',
         SEVERITY_BORDER[insight.severity]
       )}
     >
@@ -302,7 +302,7 @@ export function InsightsPage() {
               onKeyDown={(e) => {
                 if (e.key === 'Enter') handleQuerySubmit();
               }}
-              className="w-full rounded-lg border border-default bg-elevated py-2.5 pl-9 pr-3 text-sm text-text-default placeholder:text-text-muted focus:border-[#06B6D4] focus:outline-none focus:ring-1 focus:ring-[#06B6D4]"
+              className="w-full rounded-lg border border-default bg-elevated py-2.5 pl-9 pr-3 text-sm text-text-default placeholder:text-text-muted focus:border-[#5BB8E6] focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
             />
           </div>
           <button
@@ -330,7 +330,7 @@ export function InsightsPage() {
                   setQueryInput(sq);
                   submitQuery(sq);
                 }}
-                className="flex items-center gap-1 rounded-full bg-elevated px-3 py-1 text-xs text-text-muted transition-colors hover:text-text-default hover:bg-card-hover"
+                className="flex items-center gap-1 rounded-full bg-elevated px-3 py-1 text-xs text-text-muted transition-colors hover:text-text-default hover:bg-accent-hover"
               >
                 <ArrowRight className="h-3 w-3" />
                 {sq}
@@ -402,7 +402,7 @@ export function InsightsPage() {
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
-          className="rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#06B6D4]"
+          className="rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
         >
           {TYPE_FILTER_OPTIONS.map((opt) => (
             <option key={opt.key} value={opt.key}>
@@ -414,7 +414,7 @@ export function InsightsPage() {
         <select
           value={severityFilter}
           onChange={(e) => setSeverityFilter(e.target.value)}
-          className="rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#06B6D4]"
+          className="rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
         >
           {SEVERITY_FILTER_OPTIONS.map((opt) => (
             <option key={opt.key} value={opt.key}>
@@ -428,7 +428,7 @@ export function InsightsPage() {
           className={cn(
             'rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors',
             actionableOnly
-              ? 'border-[#06B6D4] text-white'
+              ? 'border-[#5BB8E6] text-white'
               : 'border-default bg-elevated text-text-muted hover:text-text-default'
           )}
           style={actionableOnly ? { backgroundColor: ACCENT } : undefined}

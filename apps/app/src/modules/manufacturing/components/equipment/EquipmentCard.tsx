@@ -1,7 +1,14 @@
 'use client';
 
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 import type { Equipment } from '../../types';
+
+const STATUS_ACCENT: Record<string, string> = {
+  operational: '#00E5A0',
+  'needs-maintenance': '#FBBF24',
+  down: '#FB7185',
+  'in-maintenance': '#64748B',
+};
 
 const STATUS_VARIANT: Record<string, 'success' | 'warning' | 'danger' | 'info'> = {
   operational: 'success',
@@ -15,15 +22,15 @@ function maintenanceUrgency(nextDue: string): { color: string; label: string } {
   const due = new Date(nextDue);
   const daysUntil = Math.ceil((due.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
   if (daysUntil < 0) return { color: '#EF4444', label: `Overdue ${Math.abs(daysUntil)}d` };
-  if (daysUntil <= 7) return { color: '#FBBF24', label: `Due in ${daysUntil}d` };
-  return { color: '#22C55E', label: `Due in ${daysUntil}d` };
+  if (daysUntil <= 7) return { color: '#5BB8E6', label: `Due in ${daysUntil}d` };
+  return { color: '#5BB8E6', label: `Due in ${daysUntil}d` };
 }
 
 export function EquipmentCard({ item }: { item: Equipment }) {
   const urgency = maintenanceUrgency(item.nextMaintenanceDue);
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4 space-y-2">
+    <AccentCard accentColor={STATUS_ACCENT[item.status] ?? '#64748B'} className="p-4 space-y-2">
       <div className="flex items-start justify-between">
         <h4 className="text-sm font-medium text-text-bright">{item.name}</h4>
         <StatusBadge
@@ -56,6 +63,6 @@ export function EquipmentCard({ item }: { item: Equipment }) {
       {item.notes && (
         <p className="text-[10px] italic text-text-muted">{item.notes}</p>
       )}
-    </div>
+    </AccentCard>
   );
 }

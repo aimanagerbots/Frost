@@ -14,16 +14,16 @@ export const CHART_COLORS = {
   warning: '#FBBF24',
   danger: '#FB7185',
   info: '#38BDF8',
-  amber: '#F59E0B',
-  purple: '#8B5CF6',
-  cyan: '#06B6D4',
-  // Product categories
-  flower: '#22C55E',
-  preroll: '#84CC16',
-  vaporizer: '#06B6D4',
-  concentrate: '#F59E0B',
-  edible: '#EC4899',
-  beverage: '#8B5CF6',
+  amber: '#5BB8E6',
+  purple: '#4A8DB8',
+  cyan: '#3D7A9E',
+  // Product categories — blue shades for visual distinction
+  flower: '#5BB8E6',
+  preroll: '#4A8DB8',
+  vaporizer: '#3D7A9E',
+  concentrate: '#7ECBF0',
+  edible: '#A3DCF5',
+  beverage: '#2E8BAE',
 } as const;
 
 export const CHART_THEME = {

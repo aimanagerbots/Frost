@@ -4,8 +4,8 @@ import { FileText, Share2, AlertTriangle, Clock, Building2 } from 'lucide-react'
 import { DrawerPanel, StatusBadge } from '@/components';
 import { COAResultsDisplay } from './COAResults';
 import type { COASubmission, COAStatus } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#9333EA';
 
 const statusVariant = (s: COAStatus) => {
   const map: Record<COAStatus, 'info' | 'warning' | 'success' | 'danger' | 'muted'> = {
@@ -75,7 +75,7 @@ export function COADrawer({ submission, open, onClose }: COADrawerProps) {
                 <FileText className="h-4 w-4" />
                 View COA PDF
               </button>
-              <button className="flex items-center gap-2 rounded-lg border border-default px-4 py-2 text-sm font-medium text-text-default hover:bg-elevated transition-colors">
+              <button className="flex items-center gap-2 rounded-lg border border-default px-4 py-2 text-sm font-medium text-text-default hover:bg-accent-hover transition-colors">
                 <Share2 className="h-4 w-4" />
                 Share with Account
               </button>

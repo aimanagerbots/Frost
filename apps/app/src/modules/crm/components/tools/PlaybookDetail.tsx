@@ -107,7 +107,7 @@ export function PlaybookDetail({ playbook, onClose, onStart }: PlaybookDetailPro
           <button
             onClick={() => onStart(playbook.id)}
             className="w-full rounded-lg py-2.5 text-sm font-medium text-white transition-colors hover:opacity-90"
-            style={{ backgroundColor: '#F59E0B' }}
+            style={{ backgroundColor: '#5BB8E6' }}
           >
             Start Playbook
           </button>

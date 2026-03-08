@@ -139,7 +139,7 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g., High-Value Seattle Accounts"
-            className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-[#F59E0B]/50 focus:outline-none"
+            className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-[#5BB8E6]/50 focus:outline-none"
           />
         </div>
         <div>
@@ -149,7 +149,7 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Describe this segment..."
             rows={2}
-            className="w-full resize-none rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-[#F59E0B]/50 focus:outline-none"
+            className="w-full resize-none rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-[#5BB8E6]/50 focus:outline-none"
           />
         </div>
       </div>
@@ -167,7 +167,7 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
               <div key={row.id}>
                 {index > 0 && (
                   <div className="my-1 flex items-center justify-center">
-                    <span className="rounded bg-[#F59E0B]/10 px-2 py-0.5 text-[10px] font-semibold text-[#F59E0B]">
+                    <span className="rounded bg-[#5BB8E6]/10 px-2 py-0.5 text-[10px] font-semibold text-[#5BB8E6]">
                       AND
                     </span>
                   </div>
@@ -177,7 +177,7 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
                   <select
                     value={row.field}
                     onChange={(e) => updateRow(row.id, { field: e.target.value })}
-                    className="flex-1 rounded-lg border border-default bg-base px-2 py-1.5 text-xs text-text-default focus:border-[#F59E0B]/50 focus:outline-none"
+                    className="flex-1 rounded-lg border border-default bg-base px-2 py-1.5 text-xs text-text-default focus:border-[#5BB8E6]/50 focus:outline-none"
                   >
                     {FIELDS.map((f) => (
                       <option key={f.value} value={f.value}>
@@ -190,7 +190,7 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
                   <select
                     value={row.operator}
                     onChange={(e) => updateRow(row.id, { operator: e.target.value })}
-                    className="w-24 rounded-lg border border-default bg-base px-2 py-1.5 text-xs text-text-default focus:border-[#F59E0B]/50 focus:outline-none"
+                    className="w-24 rounded-lg border border-default bg-base px-2 py-1.5 text-xs text-text-default focus:border-[#5BB8E6]/50 focus:outline-none"
                   >
                     {operators.map((o) => (
                       <option key={o.value} value={o.value}>
@@ -204,7 +204,7 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
                     <select
                       value={row.value}
                       onChange={(e) => updateRow(row.id, { value: e.target.value })}
-                      className="flex-1 rounded-lg border border-default bg-base px-2 py-1.5 text-xs text-text-default focus:border-[#F59E0B]/50 focus:outline-none"
+                      className="flex-1 rounded-lg border border-default bg-base px-2 py-1.5 text-xs text-text-default focus:border-[#5BB8E6]/50 focus:outline-none"
                     >
                       <option value="">Select...</option>
                       {fieldDef?.options?.map((o) => (
@@ -219,7 +219,7 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
                       value={row.value}
                       onChange={(e) => updateRow(row.id, { value: e.target.value })}
                       placeholder="Value"
-                      className="w-24 rounded-lg border border-default bg-base px-2 py-1.5 text-xs text-text-default placeholder:text-text-muted focus:border-[#F59E0B]/50 focus:outline-none"
+                      className="w-24 rounded-lg border border-default bg-base px-2 py-1.5 text-xs text-text-default placeholder:text-text-muted focus:border-[#5BB8E6]/50 focus:outline-none"
                     />
                   )}
 
@@ -249,8 +249,8 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
 
       {/* Live count */}
       <div className="flex items-center gap-3 rounded-lg border border-default bg-base p-3">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F59E0B]/10">
-          <Search className="h-4 w-4 text-[#F59E0B]" />
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#5BB8E6]/10">
+          <Search className="h-4 w-4 text-[#5BB8E6]" />
         </div>
         <div className="text-sm">
           <span className="font-semibold text-text-bright">{previewData.totalCount}</span>
@@ -290,7 +290,7 @@ export function SegmentBuilder({ onSave, onCancel }: SegmentBuilderProps) {
         <button
           onClick={handleSave}
           disabled={!name.trim() || criteria.length === 0}
-          className="flex items-center gap-2 rounded-lg bg-[#F59E0B] px-4 py-2 text-sm font-medium text-black hover:bg-[#F59E0B]/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-2 rounded-lg bg-[#5BB8E6] px-4 py-2 text-sm font-medium text-black hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
         >
           <Save className="h-4 w-4" />
           Save Segment

@@ -8,34 +8,36 @@ import {
   LoadingSkeleton,
   ErrorState,
   EmptyState,
+  ModuleTabs,
 } from '@/components';
+import type { TabItem } from '@/components';
 import { ShoppingBag, AlertTriangle, Package, Boxes, ClipboardList, DollarSign } from 'lucide-react';
 import { useMerchItems } from '../../hooks/seo-events-hooks';
 import type { MerchItem } from '../../types/seo-events';
 import { MerchBudgetTab } from './MerchBudgetTab';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 type MerchTab = 'inventory' | 'distribution' | 'budget';
 
-const TABS: { key: MerchTab; label: string; icon: typeof Boxes }[] = [
-  { key: 'inventory', label: 'Inventory', icon: Boxes },
-  { key: 'distribution', label: 'Distribution Log', icon: ClipboardList },
-  { key: 'budget', label: 'Budget', icon: DollarSign },
+const TABS: TabItem[] = [
+  { id: 'inventory', label: 'Inventory', icon: Boxes },
+  { id: 'distribution', label: 'Distribution Log', icon: ClipboardList },
+  { id: 'budget', label: 'Budget', icon: DollarSign },
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
-  apparel: '#8B5CF6',
-  headwear: '#3B82F6',
-  accessories: '#06B6D4',
-  stickers: '#EC4899',
-  bags: '#F59E0B',
-  containers: '#22C55E',
-  misc: '#64748B',
+  apparel: '#5BB8E6',
+  headwear: '#5BB8E6',
+  accessories: '#5BB8E6',
+  stickers: '#5BB8E6',
+  bags: '#5BB8E6',
+  containers: '#5BB8E6',
+  misc: '#5BB8E6',
 };
 
 function StockIndicator({ stock }: { stock: number }) {
-  const color = stock === 0 ? '#FB7185' : stock <= 15 ? '#FBBF24' : '#00E5A0';
+  const color = stock === 0 ? '#FB7185' : stock <= 15 ? '#5BB8E6' : '#00E5A0';
   const label = stock === 0 ? 'Out of Stock' : stock <= 15 ? 'Low Stock' : 'In Stock';
   return (
     <div className="flex items-center gap-1.5">
@@ -49,7 +51,7 @@ function MerchCard({ item }: { item: MerchItem }) {
   const catColor = CATEGORY_COLORS[item.category] ?? ACCENT;
   const available = item.stock - item.allocated;
   return (
-    <div className="rounded-xl border border-default bg-card p-4 transition-all hover:bg-card-hover">
+    <div className="rounded-xl border border-default bg-card p-4 transition-all hover:bg-accent-hover">
       {/* Image placeholder */}
       <div className="flex h-24 items-center justify-center rounded-lg bg-elevated mb-3">
         <Package className="h-8 w-8 text-text-muted" />
@@ -156,21 +158,7 @@ export function MerchPage() {
         <MetricCard label="Inventory Value" value={`$${inventoryValue.toLocaleString(undefined, { minimumFractionDigits: 2 })}`} accentColor={ACCENT} />
       </div>
 
-      {/* Tab Bar */}
-      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
-        {TABS.map(({ key, label, icon: Icon }) => (
-          <button
-            key={key}
-            onClick={() => setActiveTab(key)}
-            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-              activeTab === key ? 'bg-elevated text-text-bright' : 'text-text-muted hover:text-text-bright'
-            }`}
-          >
-            <Icon size={14} />
-            <span>{label}</span>
-          </button>
-        ))}
-      </div>
+      <ModuleTabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab as (id: string) => void} accentColor={ACCENT} />
 
       {activeTab === 'inventory' && (
         <>
@@ -192,7 +180,7 @@ export function MerchPage() {
                       <p className="text-sm font-medium text-text-bright">{item.name}</p>
                       <p className="text-xs text-text-muted font-mono">{item.sku} · {item.stock} remaining</p>
                     </div>
-                    <button className="rounded-lg border border-default px-3 py-1.5 text-xs font-medium text-text-bright transition-colors hover:bg-elevated">
+                    <button className="rounded-lg border border-default px-3 py-1.5 text-xs font-medium text-text-bright transition-colors hover:bg-accent-hover">
                       Reorder
                     </button>
                   </div>

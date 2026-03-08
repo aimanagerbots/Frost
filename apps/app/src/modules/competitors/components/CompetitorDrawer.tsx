@@ -10,8 +10,8 @@ import {
 import { TrendingUp, TrendingDown, Minus, Store, AlertCircle } from 'lucide-react';
 import { useCompetitorProducts, useCompetitorAlerts } from '../hooks';
 import type { Competitor, CompetitorProduct } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#F97316';
 
 const TREND_ICONS = {
   growing: TrendingUp,

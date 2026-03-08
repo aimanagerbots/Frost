@@ -8,8 +8,8 @@ import { TaskBoard } from './TaskBoard';
 import { TaskFilters } from './TaskFilters';
 import { TaskDrawer } from './TaskDrawer';
 import type { Task, TaskFilter, TaskPriority } from '@/modules/tasks/types';
+import { ACCENT as TASKS_ACCENT } from '@/design/colors';
 
-const TASKS_ACCENT = '#8B5CF6';
 
 const PRIORITY_VARIANT: Record<TaskPriority, 'danger' | 'warning' | 'info' | 'muted'> = {
   critical: 'danger',

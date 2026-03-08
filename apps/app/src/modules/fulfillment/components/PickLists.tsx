@@ -6,8 +6,8 @@ import { DataTable, StatusBadge, ErrorState } from '@/components';
 import { useFulfillmentOrders } from '../hooks';
 import { FulfillmentDrawer } from './FulfillmentDrawer';
 import type { FulfillmentStatus, FulfillmentOrder } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#14B8A6';
 
 const STATUS_PIPELINE: { key: FulfillmentStatus; label: string }[] = [
   { key: 'queued', label: 'Queued' },

@@ -2,6 +2,7 @@
 
 import { MetricCard } from '@/components';
 import type { CRMDashboardMetrics, KPIMetric } from '@/modules/crm/types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 import {
   revenueSparkline,
   accountsSparkline,
@@ -9,16 +10,15 @@ import {
   ordersSparkline,
 } from '@/mocks/crm';
 
-const CRM_ACCENT = '#F59E0B';
 
 const KPI_COLORS: Record<KPIMetric['category'], string> = {
-  order: '#F59E0B',
-  basket: '#8B5CF6',
-  'sell-through': '#22C55E',
-  revenue: '#3B82F6',
-  payment: '#06B6D4',
-  relationship: '#EC4899',
-  competitive: '#F97316',
+  order: '#5BB8E6',
+  basket: '#5BB8E6',
+  'sell-through': '#5BB8E6',
+  revenue: '#5BB8E6',
+  payment: '#5BB8E6',
+  relationship: '#5BB8E6',
+  competitive: '#5BB8E6',
 };
 
 interface MetricsRowProps {
@@ -48,14 +48,14 @@ export function MetricsRow({ metrics, kpiMetrics }: MetricsRowProps) {
           label="Average Order Value"
           value={`$${metrics.avgOrderValue.toLocaleString()}`}
           trend={{ value: Math.abs(metrics.aovTrend), direction: metrics.aovTrend > 0 ? 'up' : metrics.aovTrend < 0 ? 'down' : 'flat' }}
-          accentColor="#8B5CF6"
+          accentColor="#5BB8E6"
           sparklineData={aovSparkline}
         />
         <MetricCard
           label="Orders Pending"
           value={metrics.ordersPending}
           trend={{ value: 0, direction: 'flat' }}
-          accentColor="#06B6D4"
+          accentColor="#5BB8E6"
           sparklineData={ordersSparkline}
         />
         <MetricCard
@@ -101,7 +101,7 @@ export function MetricsRow({ metrics, kpiMetrics }: MetricsRowProps) {
                   style={{
                     color:
                       kpi.trend > 0
-                        ? '#22C55E'
+                        ? '#5BB8E6'
                         : kpi.trend < 0
                           ? '#EF4444'
                           : KPI_COLORS[kpi.category],

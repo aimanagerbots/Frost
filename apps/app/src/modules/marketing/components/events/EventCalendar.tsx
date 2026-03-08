@@ -3,17 +3,17 @@
 import { useState, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Event, EventType } from '../../types/seo-events';
+import { ACCENT } from '@/design/colors';
 
 const EVENT_TYPE_COLORS: Record<EventType, string> = {
-  'vendor-day': '#22C55E',
-  'trade-show': '#3B82F6',
-  'pop-up': '#8B5CF6',
-  'internal': '#64748B',
-  'webinar': '#06B6D4',
+  'vendor-day': '#5BB8E6',
+  'trade-show': '#5BB8E6',
+  'pop-up': '#5BB8E6',
+  'internal': '#5BB8E6',
+  'webinar': '#5BB8E6',
   'industry-event': '#5BB8E6',
 };
 
-const ACCENT = '#EC4899';
 const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 interface EventCalendarProps {
@@ -100,7 +100,7 @@ export function EventCalendar({ events, onSelectEvent }: EventCalendarProps) {
       <div className="mb-4 flex items-center justify-between">
         <button
           onClick={goPrev}
-          className="rounded-lg p-1.5 text-text-muted transition-colors hover:bg-elevated hover:text-text-bright"
+          className="rounded-lg p-1.5 text-text-muted transition-colors hover:bg-accent-hover hover:text-text-bright"
           aria-label="Previous month"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -108,7 +108,7 @@ export function EventCalendar({ events, onSelectEvent }: EventCalendarProps) {
         <h3 className="text-sm font-semibold text-text-bright">{monthLabel}</h3>
         <button
           onClick={goNext}
-          className="rounded-lg p-1.5 text-text-muted transition-colors hover:bg-elevated hover:text-text-bright"
+          className="rounded-lg p-1.5 text-text-muted transition-colors hover:bg-accent-hover hover:text-text-bright"
           aria-label="Next month"
         >
           <ChevronRight className="h-5 w-5" />

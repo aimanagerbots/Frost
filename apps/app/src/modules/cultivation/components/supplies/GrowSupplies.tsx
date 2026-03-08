@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { DataTable, DrawerPanel, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { useGrowSupplies } from '../../hooks';
 import type { GrowSupply, SupplyCategory, SupplyStatus } from '../../types';
+import { ACCENT } from '@/design/colors';
 import {
   AlertTriangle,
   PackageOpen,
@@ -13,17 +14,16 @@ import {
   Filter,
 } from 'lucide-react';
 
-const ACCENT = '#22C55E';
 
 const CATEGORY_COLORS: Record<SupplyCategory, string> = {
-  nutrient: '#22C55E',
-  'soil-media': '#8B5CF6',
-  ipm: '#3B82F6',
-  equipment: '#F59E0B',
-  container: '#06B6D4',
-  environmental: '#64748B',
-  cleaning: '#94A3B8',
-  other: '#475569',
+  nutrient: '#5BB8E6',
+  'soil-media': '#5BB8E6',
+  ipm: '#5BB8E6',
+  equipment: '#5BB8E6',
+  container: '#5BB8E6',
+  environmental: '#5BB8E6',
+  cleaning: '#5BB8E6',
+  other: '#5BB8E6',
 };
 
 const CATEGORY_LABELS: Record<SupplyCategory, string> = {
@@ -220,7 +220,7 @@ export function GrowSupplies() {
                   </div>
                 </div>
                 <button
-                  className="ml-3 shrink-0 rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs font-medium text-text-bright transition-colors hover:bg-card-hover"
+                  className="ml-3 shrink-0 rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs font-medium text-text-bright transition-colors hover:bg-accent-hover"
                 >
                   <ShoppingCart className="mr-1 inline h-3 w-3" />
                   Order More

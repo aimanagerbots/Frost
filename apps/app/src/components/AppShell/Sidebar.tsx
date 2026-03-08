@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { PanelLeftClose, PanelLeft, X } from 'lucide-react';
 import { useSidebarStore } from './store';
@@ -23,8 +24,8 @@ export function Sidebar() {
 
       <aside
         className={`
-          fixed top-0 left-0 z-50 flex h-screen flex-col
-          border-r border-border-default bg-black
+          fixed top-0 left-0 z-50 flex h-screen flex-col font-bold
+          border-r border-border-default bg-base
           transition-all duration-300 ease-in-out
           ${collapsed ? 'w-16' : 'w-60'}
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
@@ -32,7 +33,14 @@ export function Sidebar() {
         `}
       >
         {/* Mobile close */}
-        <div className="flex h-14 items-center justify-end px-4 border-b border-border-default lg:hidden">
+        <div className="flex h-14 items-center justify-between px-4 border-b border-border-default lg:hidden">
+          <Image
+            src="/FrostLogo_SnowflakeOnly.png"
+            alt="Frost"
+            width={200}
+            height={200}
+            className="h-8 w-auto"
+          />
           <button
             onClick={() => setMobileOpen(false)}
             className="p-1 text-text-muted hover:text-text-default"
@@ -42,12 +50,37 @@ export function Sidebar() {
           </button>
         </div>
 
+        {/* Logo + collapse toggle — desktop */}
+        <div
+          className={`
+            hidden lg:flex items-center border-b border-border-default
+            ${collapsed ? 'justify-center px-2 py-4' : 'justify-between px-4 py-4'}
+          `}
+        >
+          <Image
+            src="/FrostLogo_wordmark.png"
+            alt="Frost"
+            width={1876}
+            height={420}
+            className={collapsed ? 'h-5 w-auto' : 'h-6 w-auto'}
+          />
+          {!collapsed && (
+            <button
+              onClick={toggleCollapsed}
+              className="p-1.5 rounded-md text-text-muted hover:text-text-default hover:bg-accent-hover transition-colors"
+              aria-label="Collapse sidebar"
+            >
+              <PanelLeftClose size={18} />
+            </button>
+          )}
+        </div>
+
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-4 scrollbar-thin">
           {navGroups.map((group) => (
             <div key={group.title} className="mb-4">
               {!collapsed && (
-                <p className="px-4 mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/60">
+                <p className="px-4 mb-1 text-[10px] font-semibold uppercase tracking-widest text-text-muted/60">
                   {group.title}
                 </p>
               )}
@@ -66,8 +99,8 @@ export function Sidebar() {
                       ${collapsed ? 'justify-center' : ''}
                       ${
                         isActive
-                          ? 'text-white font-medium'
-                          : 'text-white hover:text-white hover:bg-white/5'
+                          ? 'text-text-bright font-medium'
+                          : 'text-text-default hover:text-text-bright hover:bg-accent-hover'
                       }
                     `}
                     title={collapsed ? item.label : undefined}
@@ -96,7 +129,7 @@ export function Sidebar() {
                     <Icon
                       size={20}
                       style={isActive ? { color: '#5BB8E6', filter: 'drop-shadow(0 0 4px rgba(91, 184, 230, 0.5))' } : undefined}
-                      className={isActive ? '' : 'text-white'}
+                      className={isActive ? '' : 'text-text-default'}
                     />
                     {!collapsed && <span>{item.label}</span>}
                   </Link>
@@ -106,16 +139,18 @@ export function Sidebar() {
           ))}
         </nav>
 
-        {/* Collapse toggle — desktop only */}
-        <div className="hidden lg:flex items-center justify-center border-t border-border-default py-3">
-          <button
-            onClick={toggleCollapsed}
-            className="p-2 rounded-md text-text-muted hover:text-text-default hover:bg-elevated transition-colors"
-            aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          >
-            {collapsed ? <PanelLeft size={20} /> : <PanelLeftClose size={20} />}
-          </button>
-        </div>
+        {/* Expand toggle — only visible when collapsed */}
+        {collapsed && (
+          <div className="hidden lg:flex items-center justify-center border-t border-border-default py-3">
+            <button
+              onClick={toggleCollapsed}
+              className="p-2 rounded-md text-text-muted hover:text-text-default hover:bg-accent-hover transition-colors"
+              aria-label="Expand sidebar"
+            >
+              <PanelLeft size={20} />
+            </button>
+          </div>
+        )}
       </aside>
     </>
   );

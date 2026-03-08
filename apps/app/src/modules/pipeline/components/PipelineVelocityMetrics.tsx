@@ -3,7 +3,7 @@
 import { MetricCard } from '@/components';
 import type { PipelineVelocityMetric } from '../types';
 
-const ACCENT_COLORS = ['#3B82F6', '#06B6D4', '#8B5CF6', '#22C55E', '#F59E0B'];
+import { CHART_ACCENT_COLORS as ACCENT_COLORS } from '@/design/colors';
 
 interface PipelineVelocityMetricsProps {
   metrics: PipelineVelocityMetric[];

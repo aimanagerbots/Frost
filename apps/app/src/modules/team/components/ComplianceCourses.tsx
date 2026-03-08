@@ -45,7 +45,7 @@ export function ComplianceCourses({ people, monthlyStats, stats }: ComplianceCou
               <X className="h-3 w-3" />
             </button>
           </div>
-          <button className="shrink-0 rounded-full border border-text-bright px-4 py-1.5 text-xs font-semibold text-text-bright hover:bg-elevated transition-colors">
+          <button className="shrink-0 rounded-full border border-text-bright px-4 py-1.5 text-xs font-semibold text-text-bright hover:bg-accent-hover transition-colors">
             Invite
           </button>
         </div>

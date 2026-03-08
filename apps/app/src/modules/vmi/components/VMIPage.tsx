@@ -15,8 +15,8 @@ import { useVMIAccounts, useVMIMetrics } from '../hooks';
 import { useVMIDailyEmails } from '../hooks/useVMIAccounts';
 import { VMIAccountDetail } from './VMIAccountDetail';
 import type { VMIAccount, VMIDailyEmail } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EF4444';
 
 function AccountCard({
   account,
@@ -34,7 +34,7 @@ function AccountCard({
         'w-full rounded-xl border p-4 text-left transition-all duration-200 hover:-translate-y-0.5',
         selected
           ? 'border-[#EF4444]/50 bg-[#EF4444]/10'
-          : 'border-default bg-card hover:bg-card-hover'
+          : 'border-default bg-card hover:bg-accent-hover'
       )}
     >
       <div className="flex items-start justify-between">

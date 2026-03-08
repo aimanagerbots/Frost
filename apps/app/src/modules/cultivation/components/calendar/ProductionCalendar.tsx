@@ -17,22 +17,22 @@ import { useCultivationTasks } from '../../hooks';
 import { useGrowRooms } from '../../hooks';
 import { useCultivationMetrics } from '../../hooks';
 import type { CultivationTask, TaskCategory } from '../../types';
+import { ACCENT } from '@/design/colors';
 
 // ─── Constants ──────────────────────────────────────────────────
 
-const ACCENT = '#22C55E';
 
 const CATEGORY_COLORS: Record<TaskCategory, string> = {
-  feeding: '#22C55E',
-  ipm: '#3B82F6',
-  defoliation: '#F59E0B',
-  training: '#8B5CF6',
-  transplant: '#06B6D4',
+  feeding: '#5BB8E6',
+  ipm: '#5BB8E6',
+  defoliation: '#5BB8E6',
+  training: '#5BB8E6',
+  transplant: '#5BB8E6',
   flush: '#EF4444',
-  'harvest-prep': '#EC4899',
-  environmental: '#64748B',
-  cleaning: '#94A3B8',
-  inspection: '#475569',
+  'harvest-prep': '#5BB8E6',
+  environmental: '#5BB8E6',
+  cleaning: '#5BB8E6',
+  inspection: '#5BB8E6',
 };
 
 const DAY_NAMES_EN = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -156,7 +156,7 @@ export function ProductionCalendar() {
                 className="transition-all"
                 style={{
                   width: `${(pipeline.plantsInVeg / (pipeline.total + pipeline.dryPlants)) * 100}%`,
-                  backgroundColor: '#22C55E',
+                  backgroundColor: '#5BB8E6',
                 }}
               />
             )}
@@ -165,7 +165,7 @@ export function ProductionCalendar() {
                 className="transition-all"
                 style={{
                   width: `${(pipeline.plantsInFlower / (pipeline.total + pipeline.dryPlants)) * 100}%`,
-                  backgroundColor: '#8B5CF6',
+                  backgroundColor: '#5BB8E6',
                 }}
               />
             )}
@@ -174,23 +174,23 @@ export function ProductionCalendar() {
                 className="transition-all"
                 style={{
                   width: `${(pipeline.dryPlants / (pipeline.total + pipeline.dryPlants)) * 100}%`,
-                  backgroundColor: '#94A3B8',
+                  backgroundColor: '#5BB8E6',
                 }}
               />
             )}
           </div>
           <div className="flex items-center gap-4 text-xs text-muted-foreground flex-wrap">
             <span className="flex items-center gap-1">
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#22C55E' }} />
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#5BB8E6' }} />
               Veg: {pipeline.plantsInVeg}
             </span>
             <span className="flex items-center gap-1">
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#8B5CF6' }} />
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#5BB8E6' }} />
               Flower: {pipeline.plantsInFlower}
             </span>
             {pipeline.dryPlants > 0 && (
               <span className="flex items-center gap-1">
-                <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#94A3B8' }} />
+                <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#5BB8E6' }} />
                 Dry: {pipeline.dryPlants}
               </span>
             )}

@@ -14,19 +14,19 @@ export function CRMContextPanel({ email }: CRMContextPanelProps) {
     (email.crmHealthScore ?? 0) >= 80
       ? '#00E5A0'
       : (email.crmHealthScore ?? 0) >= 50
-        ? '#FBBF24'
+        ? '#5BB8E6'
         : '#FB7185';
 
   return (
     <div className="rounded-lg border border-default bg-base p-3 mb-4">
       <div className="flex items-center gap-2 mb-2">
-        <Users size={14} className="text-[#F59E0B]" />
+        <Users size={14} className="text-[#5BB8E6]" />
         <span className="text-xs font-medium text-text-bright">
           {email.crmAccountName}
         </span>
         <a
           href={`/crm?account=${email.crmAccountId}`}
-          className="ml-auto text-[10px] text-[#F59E0B] hover:underline"
+          className="ml-auto text-[10px] text-[#5BB8E6] hover:underline"
         >
           View in CRM
         </a>

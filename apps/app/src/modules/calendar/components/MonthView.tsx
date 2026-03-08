@@ -112,7 +112,7 @@ export function MonthView({ currentDate, events, onSelectDate, onSelectEvent }: 
                 key={ci}
                 onClick={() => onSelectDate(cell.date)}
                 className={cn(
-                  'relative flex min-h-[100px] flex-col border-r border-default p-1.5 text-left transition-colors hover:bg-elevated last:border-r-0',
+                  'relative flex min-h-[100px] flex-col border-r border-default p-1.5 text-left transition-colors hover:bg-accent-hover last:border-r-0',
                   !cell.isCurrentMonth && 'bg-base/50'
                 )}
               >
@@ -121,7 +121,7 @@ export function MonthView({ currentDate, events, onSelectDate, onSelectEvent }: 
                   className={cn(
                     'mb-1 flex h-6 w-6 items-center justify-center rounded-full text-xs',
                     cell.isToday
-                      ? 'bg-[#3B82F6] font-bold text-white'
+                      ? 'bg-[#5BB8E6] font-bold text-white'
                       : cell.isCurrentMonth
                         ? 'text-text-default'
                         : 'text-text-muted/50'

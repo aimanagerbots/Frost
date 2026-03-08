@@ -6,6 +6,7 @@ import { useGeneticsLibrary, useGrowRooms } from '../../hooks';
 import type { Strain, StrainType, MotherPlantStatus } from '../../types';
 import { StrainCard } from './StrainCard';
 import { StrainDrawer } from './StrainDrawer';
+import { ACCENT } from '@/design/colors';
 import {
   Search,
   Filter,
@@ -15,7 +16,6 @@ import {
   Library,
 } from 'lucide-react';
 
-const ACCENT = '#22C55E';
 
 const TYPE_OPTIONS: { value: StrainType | ''; label: string }[] = [
   { value: '', label: 'All Types' },

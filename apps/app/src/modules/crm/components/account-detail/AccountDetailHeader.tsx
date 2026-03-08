@@ -17,8 +17,8 @@ import {
 } from 'lucide-react';
 import type { Account, PipelineStatus } from '../../types';
 import { PIPELINE_PHASE_LABELS } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 function trendIcon(trend: Account['healthTrend']) {
   switch (trend) {
@@ -70,7 +70,7 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
         <div className="flex items-start gap-3">
           <button
             onClick={onBack}
-            className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+            className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
           >
             <ArrowLeft className="h-4 w-4" />
           </button>
@@ -130,7 +130,7 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
           ].map(({ icon: Icon, label }) => (
             <button
               key={label}
-              className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+              className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
             >
               <Icon className="h-3.5 w-3.5" />
               {label}
@@ -147,7 +147,7 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
             <button
               key={label}
               onClick={() => router.push(href)}
-              className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+              className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
             >
               <Icon className="h-3.5 w-3.5" />
               {label}

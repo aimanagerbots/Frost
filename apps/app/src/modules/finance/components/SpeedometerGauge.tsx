@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { TrendingUp, TrendingDown, Minus, ChevronDown, ChevronUp } from 'lucide-react';
 import type { FinanceSpeedometer } from '@/modules/finance/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#059669';
 
 interface SpeedometerGaugeProps {
   gauge: FinanceSpeedometer;
@@ -43,7 +43,7 @@ export function SpeedometerGauge({ gauge }: SpeedometerGaugeProps) {
         {/* Red zone: 0-39 → angle 0-70.2 */}
         <path d={describeArc(0, 70.2)} fill="none" stroke="#EF4444" strokeWidth={strokeWidth} strokeLinecap="round" opacity={0.3} />
         {/* Amber zone: 40-69 → angle 72-124.2 */}
-        <path d={describeArc(72, 124.2)} fill="none" stroke="#F59E0B" strokeWidth={strokeWidth} strokeLinecap="round" opacity={0.3} />
+        <path d={describeArc(72, 124.2)} fill="none" stroke="#FBBF24" strokeWidth={strokeWidth} strokeLinecap="round" opacity={0.3} />
         {/* Green zone: 70-100 → angle 126-180 */}
         <path d={describeArc(126, 180)} fill="none" stroke="#22C55E" strokeWidth={strokeWidth} strokeLinecap="round" opacity={0.3} />
 
@@ -51,7 +51,7 @@ export function SpeedometerGauge({ gauge }: SpeedometerGaugeProps) {
         <path
           d={describeArc(0, (gauge.score / 100) * 180)}
           fill="none"
-          stroke={gauge.zone === 'green' ? '#22C55E' : gauge.zone === 'amber' ? '#F59E0B' : '#EF4444'}
+          stroke={gauge.zone === 'green' ? '#22C55E' : gauge.zone === 'amber' ? '#FBBF24' : '#EF4444'}
           strokeWidth={strokeWidth}
           strokeLinecap="round"
         />

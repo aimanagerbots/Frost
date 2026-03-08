@@ -26,8 +26,8 @@ import { useAgents } from '../hooks/useAgents';
 import { useAgentActions } from '../hooks/useAgentActions';
 import { useAgentConversation } from '../hooks/useAgentConversation';
 import type { AgentAction } from '../types';
+import { ACCENT as AGENTS_ACCENT } from '@/design/colors';
 
-const AGENTS_ACCENT = '#06B6D4';
 
 const ACTION_TYPE_ICONS: Record<AgentAction['type'], typeof Mail> = {
   'email-draft': Mail,
@@ -39,12 +39,12 @@ const ACTION_TYPE_ICONS: Record<AgentAction['type'], typeof Mail> = {
 };
 
 const ACTION_TYPE_COLORS: Record<AgentAction['type'], string> = {
-  'email-draft': '#F59E0B',
-  'reorder-proposal': '#22C55E',
+  'email-draft': '#5BB8E6',
+  'reorder-proposal': '#5BB8E6',
   alert: '#EF4444',
-  'task-creation': '#8B5CF6',
-  'data-analysis': '#06B6D4',
-  'compliance-check': '#3B82F6',
+  'task-creation': '#5BB8E6',
+  'data-analysis': '#5BB8E6',
+  'compliance-check': '#5BB8E6',
 };
 
 const STATUS_VARIANT: Record<AgentAction['status'], 'success' | 'warning' | 'danger'> = {
@@ -164,13 +164,13 @@ export function AgentHubPage() {
         <MetricCard
           label="Pending Approvals"
           value={pendingApprovals}
-          accentColor="#FBBF24"
+          accentColor="#5BB8E6"
           trend={{ value: pendingApprovals > 5 ? 8 : -3, direction: pendingApprovals > 5 ? 'up' : 'down' }}
         />
         <MetricCard
           label="Avg Approval Rate"
           value={`${avgApprovalRate}%`}
-          accentColor="#22C55E"
+          accentColor="#5BB8E6"
           trend={{ value: 2, direction: 'up' }}
         />
       </div>
@@ -183,7 +183,7 @@ export function AgentHubPage() {
             <button
               key={agent.id}
               onClick={() => setSelectedAgentId(agent.id)}
-              className={`group rounded-xl border bg-card p-4 text-left transition-all duration-200 hover:bg-card-hover hover:-translate-y-0.5 ${
+              className={`group rounded-xl border bg-card p-4 text-left transition-all duration-200 hover:bg-accent-hover hover:-translate-y-0.5 ${
                 selectedAgentId === agent.id
                   ? 'border-[var(--accent)] ring-1 ring-[var(--accent)]'
                   : 'border-default'
@@ -296,7 +296,7 @@ export function AgentHubPage() {
                     <div
                       className={`max-w-[85%] rounded-xl px-3 py-2 text-sm ${
                         msg.role === 'user'
-                          ? 'bg-[#06B6D4]/20 text-text-bright'
+                          ? 'bg-[#5BB8E6]/20 text-text-bright'
                           : 'bg-elevated text-text-default'
                       }`}
                     >
@@ -355,7 +355,7 @@ export function AgentHubPage() {
                 return (
                   <div
                     key={action.id}
-                    className="flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-elevated"
+                    className="flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-accent-hover"
                   >
                     <div
                       className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-default bg-card"

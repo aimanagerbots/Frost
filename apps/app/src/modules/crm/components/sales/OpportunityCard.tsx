@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 import type { Opportunity } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 function typeVariant(type: string) {
   switch (type) {
@@ -31,10 +31,7 @@ export function OpportunityCard({ opportunity, accountName, onClick }: Opportuni
   );
 
   return (
-    <div
-      className="cursor-pointer rounded-lg border border-default bg-card p-3 transition-colors hover:bg-card-hover"
-      onClick={onClick}
-    >
+    <AccentCard accentColor={CRM_ACCENT} onClick={onClick} className="p-3">
       <div className="mb-2 flex items-start justify-between gap-2">
         <StatusBadge variant={typeVariant(opportunity.type)} label={opportunity.type.replace(/-/g, ' ')} size="sm" />
         <span className="text-sm font-bold text-text-bright">{formatCurrency(opportunity.estimatedValue)}</span>
@@ -56,6 +53,6 @@ export function OpportunityCard({ opportunity, accountName, onClick }: Opportuni
           }}
         />
       </div>
-    </div>
+    </AccentCard>
   );
 }

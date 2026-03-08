@@ -1,9 +1,16 @@
 'use client';
 
 import { User, Factory, Bot, Video, Calendar } from 'lucide-react';
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 import { cn } from '@/lib/utils';
 import type { Task, TaskPriority, TaskSource } from '@/modules/tasks/types';
+
+const PRIORITY_COLOR: Record<TaskPriority, string> = {
+  critical: '#FB7185',
+  high: '#FBBF24',
+  medium: '#5BB8E6',
+  low: '#64748B',
+};
 
 interface TaskCardProps {
   task: Task;
@@ -43,13 +50,7 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
   const dueDisplay = getDueDateDisplay(task.dueDate);
 
   return (
-    <div
-      className="cursor-pointer rounded-lg border border-default bg-card p-3 transition-colors hover:bg-card-hover"
-      onClick={() => onClick(task)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === 'Enter') onClick(task); }}
-    >
+    <AccentCard accentColor={PRIORITY_COLOR[task.priority]} onClick={() => onClick(task)} className="p-3">
       <p className="text-sm font-medium text-text-bright line-clamp-2 leading-snug">{task.title}</p>
 
       <div className="mt-2 flex items-center gap-2">
@@ -73,6 +74,6 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
           </div>
         )}
       </div>
-    </div>
+    </AccentCard>
   );
 }

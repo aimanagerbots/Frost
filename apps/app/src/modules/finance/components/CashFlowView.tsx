@@ -28,14 +28,14 @@ interface CashFlowViewProps {
 export function CashFlowView({ statement, projections }: CashFlowViewProps) {
   // Build waterfall chart data
   const waterfallData: { name: string; value: number; fill: string }[] = [
-    { name: 'Starting Cash', value: statement.beginningCash, fill: '#3B82F6' },
+    { name: 'Starting Cash', value: statement.beginningCash, fill: '#5BB8E6' },
   ];
 
   statement.operating.forEach((line) => {
     waterfallData.push({
       name: line.label.length > 18 ? line.label.slice(0, 16) + '...' : line.label,
       value: line.amount,
-      fill: line.category === 'inflow' ? '#22C55E' : '#EF4444',
+      fill: line.category === 'inflow' ? '#5BB8E6' : '#EF4444',
     });
   });
 
@@ -43,7 +43,7 @@ export function CashFlowView({ statement, projections }: CashFlowViewProps) {
     waterfallData.push({
       name: line.label.length > 18 ? line.label.slice(0, 16) + '...' : line.label,
       value: line.amount,
-      fill: line.category === 'inflow' ? '#22C55E' : '#EF4444',
+      fill: line.category === 'inflow' ? '#5BB8E6' : '#EF4444',
     });
   });
 
@@ -51,11 +51,11 @@ export function CashFlowView({ statement, projections }: CashFlowViewProps) {
     waterfallData.push({
       name: line.label.length > 18 ? line.label.slice(0, 16) + '...' : line.label,
       value: line.amount,
-      fill: line.category === 'inflow' ? '#22C55E' : '#EF4444',
+      fill: line.category === 'inflow' ? '#5BB8E6' : '#EF4444',
     });
   });
 
-  waterfallData.push({ name: 'Ending Cash', value: statement.endingCash, fill: '#3B82F6' });
+  waterfallData.push({ name: 'Ending Cash', value: statement.endingCash, fill: '#5BB8E6' });
 
   const operatingNet = statement.operating.reduce((s, l) => s + l.amount, 0);
   const investingNet = statement.investing.reduce((s, l) => s + l.amount, 0);
@@ -185,7 +185,7 @@ export function CashFlowView({ statement, projections }: CashFlowViewProps) {
               type="monotone"
               dataKey="best"
               stroke="none"
-              fill="#22C55E"
+              fill="#5BB8E6"
               fillOpacity={0.08}
             />
             <Area
@@ -195,9 +195,9 @@ export function CashFlowView({ statement, projections }: CashFlowViewProps) {
               fill="#EF4444"
               fillOpacity={0.08}
             />
-            <Line type="monotone" dataKey="best" stroke="#22C55E" strokeWidth={1.5} strokeDasharray="4 4" dot={false} name="Best Case" />
+            <Line type="monotone" dataKey="best" stroke="#5BB8E6" strokeWidth={1.5} strokeDasharray="4 4" dot={false} name="Best Case" />
             <Line type="monotone" dataKey="worst" stroke="#EF4444" strokeWidth={1.5} strokeDasharray="4 4" dot={false} name="Worst Case" />
-            <Line type="monotone" dataKey="expected" stroke="#3B82F6" strokeWidth={2.5} dot={{ r: 3, fill: '#3B82F6' }} name="Expected" />
+            <Line type="monotone" dataKey="expected" stroke="#5BB8E6" strokeWidth={2.5} dot={{ r: 3, fill: '#5BB8E6' }} name="Expected" />
           </LineChart>
         </ResponsiveContainer>
       </ChartWrapper>

@@ -5,8 +5,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { VendorDay } from '../../types';
 
 const STATUS_COLORS: Record<VendorDay['status'], string> = {
-  completed: '#22C55E',
-  scheduled: '#3B82F6',
+  completed: '#5BB8E6',
+  scheduled: '#5BB8E6',
   cancelled: '#EF4444',
 };
 
@@ -62,14 +62,14 @@ export function VendorDayCalendar({ vendorDays, onSelect }: VendorDayCalendarPro
       <div className="mb-4 flex items-center justify-between">
         <button
           onClick={() => setCurrentDate(new Date(year, month - 1, 1))}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted hover:bg-elevated hover:text-text-default"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted hover:bg-accent-hover hover:text-text-default"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
         <h3 className="text-sm font-semibold text-text-bright">{monthName}</h3>
         <button
           onClick={() => setCurrentDate(new Date(year, month + 1, 1))}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted hover:bg-elevated hover:text-text-default"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted hover:bg-accent-hover hover:text-text-default"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
@@ -95,7 +95,7 @@ export function VendorDayCalendar({ vendorDays, onSelect }: VendorDayCalendarPro
               key={i}
               className={`relative flex min-h-[48px] flex-col items-center rounded-lg p-1 text-xs transition-colors ${
                 day ? 'text-text-default' : 'text-transparent'
-              } ${hasVD ? 'cursor-pointer hover:bg-elevated' : ''}`}
+              } ${hasVD ? 'cursor-pointer hover:bg-accent-hover' : ''}`}
               onClick={() => {
                 if (dayVDs.length > 0) onSelect(dayVDs[0]);
               }}

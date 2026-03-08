@@ -20,10 +20,10 @@ const TYPE_ICONS: Record<ActivityItem['type'], LucideIcon> = {
 };
 
 const TYPE_COLORS: Record<ActivityItem['type'], string> = {
-  order: '#F59E0B',
+  order: '#5BB8E6',
   payment: '#00E5A0',
   interaction: '#5BB8E6',
-  agent: '#06B6D4',
+  agent: '#5BB8E6',
   'health-change': '#FB7185',
 };
 

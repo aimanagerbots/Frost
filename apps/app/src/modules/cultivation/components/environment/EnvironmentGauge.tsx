@@ -6,7 +6,7 @@ import type { EnvironmentStatus } from '../../types';
 
 const STATUS_COLOR: Record<EnvironmentStatus, string> = {
   optimal: '#22C55E',
-  warning: '#F59E0B',
+  warning: '#FBBF24',
   critical: '#EF4444',
 };
 

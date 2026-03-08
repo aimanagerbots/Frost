@@ -1,6 +1,7 @@
 'use client';
 
-const ACCENT = '#10B981';
+import { ACCENT } from '@/design/colors';
+
 
 interface BatchPipelineProgressProps {
   pipelineStates: string[];
@@ -37,7 +38,7 @@ export function BatchPipelineProgress({ pipelineStates, currentState, completedS
                 }`}
                 style={{
                   backgroundColor: isCompleted || isCurrent ? ACCENT : 'transparent',
-                  border: isFuture ? '2px solid #475569' : isCurrent ? `2px solid ${ACCENT}` : 'none',
+                  border: isFuture ? '2px solid #5BB8E6' : isCurrent ? `2px solid ${ACCENT}` : 'none',
                   boxShadow: isCurrent ? `0 0 0 2px ${ACCENT}40` : undefined,
                 }}
               />

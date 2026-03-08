@@ -22,10 +22,10 @@ export function CFOBriefing({ items }: CFOBriefingProps) {
     <div className="bg-card border border-default rounded-xl overflow-hidden">
       <button
         onClick={() => setCollapsed(!collapsed)}
-        className="w-full flex items-center justify-between px-5 py-4 hover:bg-card-hover transition-colors"
+        className="w-full flex items-center justify-between px-5 py-4 hover:bg-accent-hover transition-colors"
       >
         <div className="flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-[#059669]" />
+          <Sparkles className="w-5 h-5 text-[#5BB8E6]" />
           <h3 className="text-sm font-semibold text-default">AI CFO Briefing</h3>
           <span className="text-xs text-muted">({items.length} items)</span>
         </div>
@@ -58,7 +58,7 @@ export function CFOBriefing({ items }: CFOBriefingProps) {
                     <p className="text-sm font-medium text-default">{item.title}</p>
                     <p className="text-xs text-muted mt-1 leading-relaxed">{item.description}</p>
                     {item.recommendation && (
-                      <p className="text-xs text-[#059669] mt-1.5 font-medium">
+                      <p className="text-xs text-[#5BB8E6] mt-1.5 font-medium">
                         Recommendation: {item.recommendation}
                       </p>
                     )}

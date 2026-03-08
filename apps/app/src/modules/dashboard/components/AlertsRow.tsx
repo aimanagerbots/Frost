@@ -3,16 +3,17 @@
 import { useState } from 'react';
 import { AlertTriangle, AlertCircle, Info, X, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { AccentCard } from '@/components';
 import type { DashboardAlert, AlertSeverity } from '@/modules/dashboard/types';
 
 interface AlertsRowProps {
   alerts: DashboardAlert[];
 }
 
-const SEVERITY_CONFIG: Record<AlertSeverity, { icon: typeof AlertTriangle; borderColor: string; iconColor: string }> = {
-  critical: { icon: AlertTriangle, borderColor: 'border-l-red-500', iconColor: 'text-red-400' },
-  warning: { icon: AlertCircle, borderColor: 'border-l-amber-500', iconColor: 'text-amber-400' },
-  info: { icon: Info, borderColor: 'border-l-blue-500', iconColor: 'text-blue-400' },
+const SEVERITY_CONFIG: Record<AlertSeverity, { icon: typeof AlertTriangle; accentColor: string; iconColor: string }> = {
+  critical: { icon: AlertTriangle, accentColor: '#EF4444', iconColor: 'text-red-400' },
+  warning: { icon: AlertCircle, accentColor: '#F59E0B', iconColor: 'text-amber-400' },
+  info: { icon: Info, accentColor: '#3B82F6', iconColor: 'text-blue-400' },
 };
 
 export function AlertsRow({ alerts }: AlertsRowProps) {
@@ -31,12 +32,10 @@ export function AlertsRow({ alerts }: AlertsRowProps) {
           const Icon = config.icon;
 
           return (
-            <div
+            <AccentCard
               key={alert.id}
-              className={cn(
-                'min-w-[300px] max-w-[360px] flex-shrink-0 rounded-xl border border-default border-l-4 bg-card p-4',
-                config.borderColor
-              )}
+              accentColor={config.accentColor}
+              className="min-w-[300px] max-w-[360px] flex-shrink-0 p-4"
             >
               <div className="flex items-start gap-3">
                 <Icon className={cn('mt-0.5 h-4 w-4 flex-shrink-0', config.iconColor)} />
@@ -57,13 +56,13 @@ export function AlertsRow({ alerts }: AlertsRowProps) {
                 </div>
                 <button
                   onClick={() => setDismissedIds((prev) => new Set([...prev, alert.id]))}
-                  className="flex-shrink-0 rounded-md p-1 text-text-muted hover:bg-elevated hover:text-text-default transition-colors"
+                  className="flex-shrink-0 rounded-md p-1 text-text-muted hover:bg-accent-hover hover:text-text-default transition-colors"
                   aria-label="Dismiss alert"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
               </div>
-            </div>
+            </AccentCard>
           );
         })}
       </div>

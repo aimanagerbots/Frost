@@ -21,7 +21,7 @@ export function OrderPipeline({ stages, activeStatus, onStageClick }: OrderPipel
               className={`flex flex-col items-center gap-1 rounded-lg px-3 py-2 transition-all min-w-[80px] ${
                 activeStatus === stage.status
                   ? 'bg-elevated ring-1 ring-hover'
-                  : 'hover:bg-elevated/50'
+                  : 'hover:bg-accent-hover/50'
               }`}
             >
               <div

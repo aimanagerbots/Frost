@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { Sparkles, ListTodo, FileText, MessageSquare } from 'lucide-react';
 import type { Email } from '@/modules/email/types';
 import { CRMContextPanel } from './CRMContextPanel';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#3B82F6';
 
 interface EmailDetailProps {
   email: Email | null;
@@ -38,8 +38,8 @@ export function EmailDetail({ email }: EmailDetailProps) {
           <div
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-bold"
             style={{
-              backgroundColor: email.crmLinked ? '#F59E0B20' : `${ACCENT}20`,
-              color: email.crmLinked ? '#F59E0B' : ACCENT,
+              backgroundColor: email.crmLinked ? '#5BB8E620' : `${ACCENT}20`,
+              color: email.crmLinked ? '#5BB8E6' : ACCENT,
             }}
           >
             {fromInitials}
@@ -75,8 +75,8 @@ export function EmailDetail({ email }: EmailDetailProps) {
 
       {/* AI Summary */}
       {showSummary && (
-        <div className="mx-4 mb-3 rounded-lg border border-[#06B6D4]/20 bg-[#06B6D4]/5 p-3">
-          <p className="text-xs font-medium text-[#06B6D4] mb-1">AI Summary</p>
+        <div className="mx-4 mb-3 rounded-lg border border-[#5BB8E6]/20 bg-[#5BB8E6]/5 p-3">
+          <p className="text-xs font-medium text-[#5BB8E6] mb-1">AI Summary</p>
           <p className="text-xs text-text-default">
             {email.crmLinked
               ? `${email.from.name} from ${email.crmAccountName} is reaching out about ${email.aiCategory === 'order-inquiry' ? 'an order modification' : email.aiCategory === 'payment' ? 'a payment update' : email.aiCategory === 'complaint' ? 're-engaging after a lapse' : 'general business'}. Account health is ${(email.crmHealthScore ?? 0) >= 80 ? 'strong' : (email.crmHealthScore ?? 0) >= 50 ? 'moderate' : 'at risk'}.`
@@ -87,8 +87,8 @@ export function EmailDetail({ email }: EmailDetailProps) {
 
       {/* AI Draft Reply */}
       {showDraft && email.aiDraftReply && (
-        <div className="mx-4 mb-3 rounded-lg border border-[#06B6D4]/20 bg-[#06B6D4]/5 p-3">
-          <p className="text-xs font-medium text-[#06B6D4] mb-2">AI Draft Reply</p>
+        <div className="mx-4 mb-3 rounded-lg border border-[#5BB8E6]/20 bg-[#5BB8E6]/5 p-3">
+          <p className="text-xs font-medium text-[#5BB8E6] mb-2">AI Draft Reply</p>
           <div className="whitespace-pre-wrap text-sm text-text-default bg-base rounded-lg p-3 border border-default">
             {email.aiDraftReply}
           </div>
@@ -96,7 +96,7 @@ export function EmailDetail({ email }: EmailDetailProps) {
             <button className="rounded-lg px-3 py-1.5 text-xs font-medium text-black" style={{ backgroundColor: ACCENT }}>
               Use This Draft
             </button>
-            <button className="rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-elevated transition-colors">
+            <button className="rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-accent-hover transition-colors">
               Edit
             </button>
           </div>
@@ -108,25 +108,25 @@ export function EmailDetail({ email }: EmailDetailProps) {
         {email.aiDraftReply && (
           <button
             onClick={() => { setShowDraft(!showDraft); setShowSummary(false); }}
-            className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-elevated transition-colors"
+            className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-accent-hover transition-colors"
           >
             <Sparkles size={12} />
             AI Draft Reply
           </button>
         )}
-        <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-elevated transition-colors">
+        <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-accent-hover transition-colors">
           <ListTodo size={12} />
           Create Task
         </button>
         {email.crmLinked && (
-          <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-elevated transition-colors">
+          <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-accent-hover transition-colors">
             <FileText size={12} />
             Log as Interaction
           </button>
         )}
         <button
           onClick={() => { setShowSummary(!showSummary); setShowDraft(false); }}
-          className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-elevated transition-colors"
+          className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:bg-accent-hover transition-colors"
         >
           <MessageSquare size={12} />
           Summarize

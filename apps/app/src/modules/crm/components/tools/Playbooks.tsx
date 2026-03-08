@@ -7,8 +7,8 @@ import { PlaybookDetail } from './PlaybookDetail';
 import { PlaybookExecutionView } from './PlaybookExecution';
 import { Play, BookOpen, Clock, TrendingUp } from 'lucide-react';
 import type { Playbook, PlaybookExecution } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const TYPE_LABELS: Record<string, string> = {
   'new-account': 'New Account',
@@ -115,7 +115,7 @@ export function Playbooks() {
         <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Available Playbooks</h3>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {playbooks.map((pb) => (
-            <div key={pb.id} className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-card-hover">
+            <div key={pb.id} className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-accent-hover">
               <div className="mb-2 flex items-start justify-between">
                 <StatusBadge variant={TYPE_VARIANT[pb.type] || 'muted'} label={TYPE_LABELS[pb.type] || pb.type} size="sm" />
                 <span className="text-xs text-success">{pb.successRate}%</span>
@@ -143,7 +143,7 @@ export function Playbooks() {
 
               <button
                 onClick={() => handleViewDetail(pb)}
-                className="w-full rounded-lg border border-default bg-elevated py-1.5 text-sm text-text-default transition-colors hover:bg-card-hover"
+                className="w-full rounded-lg border border-default bg-elevated py-1.5 text-sm text-text-default transition-colors hover:bg-accent-hover"
               >
                 View & Start
               </button>

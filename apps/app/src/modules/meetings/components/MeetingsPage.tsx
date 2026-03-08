@@ -14,8 +14,8 @@ import {
 } from '@/components';
 import { useMeetings, useMeetingMetrics } from '@/modules/meetings/hooks';
 import type { Meeting, MeetingType } from '@/modules/meetings/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#2563EB';
 
 const TYPE_LABELS: Record<MeetingType, string> = {
   'sales-call': 'Sales Call',
@@ -269,7 +269,7 @@ export function MeetingsPage() {
                         type="checkbox"
                         checked={item.completed}
                         readOnly
-                        className="mt-0.5 h-4 w-4 rounded border-[var(--border-default)] accent-[#2563EB]"
+                        className="mt-0.5 h-4 w-4 rounded border-[var(--border-default)] accent-[#5BB8E6]"
                       />
                       <div className="flex-1">
                         <p className={`text-sm ${item.completed ? 'text-[var(--text-text-muted)] line-through' : 'text-[var(--text-text-default)]'}`}>

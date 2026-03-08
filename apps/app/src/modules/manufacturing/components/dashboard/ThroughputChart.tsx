@@ -11,8 +11,8 @@ import {
 } from 'recharts';
 import { ChartWrapper, CHART_THEME } from '@/components';
 import { useThroughputHistory } from '../../hooks';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#10B981';
 
 export function ThroughputChart() {
   const { data, isLoading } = useThroughputHistory();
@@ -41,7 +41,7 @@ export function ThroughputChart() {
           <Line
             type="monotone"
             dataKey="target"
-            stroke="#64748B"
+            stroke="#5BB8E6"
             strokeDasharray="6 3"
             dot={false}
             strokeWidth={1.5}

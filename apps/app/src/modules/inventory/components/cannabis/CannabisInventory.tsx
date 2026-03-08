@@ -6,8 +6,8 @@ import { DataTable, StatusBadge, DrawerPanel, LoadingSkeleton } from '@/componen
 import { useCannabisInventory } from '@/modules/inventory/hooks';
 import { InventoryFilterBar } from './InventoryFilterBar';
 import type { CannabisInventoryItem, InventoryFilter, ReadinessState } from '@/modules/inventory/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#8B5CF6';
 
 const COA_VARIANT: Record<string, 'muted' | 'info' | 'warning' | 'success' | 'danger'> = {
   'not-tested': 'muted',

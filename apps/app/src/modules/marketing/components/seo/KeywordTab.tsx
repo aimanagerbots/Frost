@@ -3,8 +3,8 @@
 import { DataTable, StatusBadge, LoadingSkeleton, EmptyState } from '@/components';
 import { Search, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import type { SEOKeyword, KeywordStatus } from '../../types/seo-events';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 const STATUS_VARIANTS: Record<KeywordStatus, 'success' | 'info' | 'danger'> = {
   ranking: 'success',
@@ -18,7 +18,7 @@ interface KeywordTabProps {
 }
 
 function DifficultyBar({ value }: { value: number }) {
-  const color = value >= 70 ? '#FB7185' : value >= 40 ? '#FBBF24' : '#00E5A0';
+  const color = value >= 70 ? '#FB7185' : value >= 40 ? '#5BB8E6' : '#00E5A0';
   return (
     <div className="flex items-center gap-2">
       <div className="h-1.5 w-16 rounded-full bg-elevated">
@@ -58,7 +58,7 @@ const columns = [
     sortable: true,
     render: (row: SEOKeyword) => {
       if (!row.currentRank) return <span className="text-xs text-text-muted">—</span>;
-      const color = row.currentRank <= 10 ? '#00E5A0' : row.currentRank <= 20 ? '#FBBF24' : '#8B9DC3';
+      const color = row.currentRank <= 10 ? '#00E5A0' : row.currentRank <= 20 ? '#5BB8E6' : '#8B9DC3';
       return <span className="text-sm font-semibold" style={{ color }}>#{row.currentRank}</span>;
     },
   },

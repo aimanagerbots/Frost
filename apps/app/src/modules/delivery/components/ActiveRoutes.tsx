@@ -3,8 +3,8 @@
 import { MapPin, Clock } from 'lucide-react';
 import { StatusBadge, LoadingSkeleton } from '@/components';
 import type { DeliveryRun, DeliveryRunStatus } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#0EA5E9';
 
 const statusVariant = (s: DeliveryRunStatus) => {
   const map: Record<DeliveryRunStatus, 'default' | 'info' | 'success' | 'warning' | 'muted'> = {
@@ -52,7 +52,7 @@ export function ActiveRoutes({ runs, loading, onSelectRun, selectedRunId }: Acti
             <button
               key={run.id}
               onClick={() => onSelectRun(run.id)}
-              className="rounded-xl border bg-card p-4 text-left transition-all hover:bg-card-hover"
+              className="rounded-xl border bg-card p-4 text-left transition-all hover:bg-accent-hover"
               style={{
                 borderColor: isSelected ? ACCENT : 'var(--border-default)',
                 boxShadow: isSelected ? `0 0 0 1px ${ACCENT}` : undefined,

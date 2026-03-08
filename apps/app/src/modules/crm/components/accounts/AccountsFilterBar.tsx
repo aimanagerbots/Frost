@@ -102,14 +102,14 @@ export function AccountsFilterBar({
         className={cn(
           'flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors',
           visible
-            ? 'border-[#F59E0B]/40 bg-[#F59E0B]/10 text-[#F59E0B]'
+            ? 'border-[#5BB8E6]/40 bg-[#5BB8E6]/10 text-[#5BB8E6]'
             : 'border-default bg-card text-text-muted hover:text-text-default'
         )}
       >
         <Filter className="h-4 w-4" />
         Filters
         {activeCount > 0 && (
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F59E0B] text-xs font-medium text-black">
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#5BB8E6] text-xs font-medium text-black">
             {activeCount}
           </span>
         )}

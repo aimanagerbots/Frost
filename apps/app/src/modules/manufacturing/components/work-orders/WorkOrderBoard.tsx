@@ -11,8 +11,8 @@ import type { WorkOrder } from '../../types';
 type WOStatus = WorkOrder['status'];
 
 const COLUMN_CONFIG: { id: string; title: string; color: string; statuses: WOStatus[] }[] = [
-  { id: 'pending', title: 'Pending', color: '#94A3B8', statuses: ['queued', 'blocked'] },
-  { id: 'in-progress', title: 'In Progress', color: '#3B82F6', statuses: ['in-progress'] },
+  { id: 'pending', title: 'Pending', color: '#FBBF24', statuses: ['queued', 'blocked'] },
+  { id: 'in-progress', title: 'In Progress', color: '#5BB8E6', statuses: ['in-progress'] },
   { id: 'complete', title: 'Complete', color: '#22C55E', statuses: ['completed'] },
 ];
 

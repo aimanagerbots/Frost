@@ -2,8 +2,8 @@
 
 import { Plus, ChevronLeft, ChevronRight, MessageSquare } from 'lucide-react';
 import type { ChatConversation, ChatSuggestion } from '@/modules/chat/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#06B6D4';
 
 const CATEGORY_LABELS: Record<string, string> = {
   sales: 'Sales & CRM',
@@ -46,7 +46,7 @@ export function ChatSidebar({
         </button>
         <button
           onClick={onNewConversation}
-          className="p-1.5 rounded-lg text-text-muted hover:text-text-default hover:bg-elevated transition-colors"
+          className="p-1.5 rounded-lg text-text-muted hover:text-text-default hover:bg-accent-hover transition-colors"
           aria-label="New conversation"
         >
           <Plus size={16} />
@@ -66,7 +66,7 @@ export function ChatSidebar({
       <div className="flex items-center justify-between border-b border-default px-3 py-3">
         <button
           onClick={onNewConversation}
-          className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors hover:bg-elevated"
+          className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors hover:bg-accent-hover"
           style={{ color: ACCENT }}
         >
           <Plus size={14} />
@@ -95,7 +95,7 @@ export function ChatSidebar({
                 className={`flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left text-xs transition-colors ${
                   activeConversationId === conv.id
                     ? 'bg-elevated text-text-bright'
-                    : 'text-text-muted hover:bg-elevated/50 hover:text-text-default'
+                    : 'text-text-muted hover:bg-accent-hover/50 hover:text-text-default'
                 }`}
               >
                 <MessageSquare size={14} className="shrink-0" />
@@ -119,7 +119,7 @@ export function ChatSidebar({
                 <button
                   key={s.id}
                   onClick={() => onSuggestionClick(s.text)}
-                  className="flex w-full rounded-lg px-2 py-1.5 text-left text-xs text-text-muted hover:bg-elevated/50 hover:text-text-default transition-colors"
+                  className="flex w-full rounded-lg px-2 py-1.5 text-left text-xs text-text-muted hover:bg-accent-hover/50 hover:text-text-default transition-colors"
                 >
                   {s.text}
                 </button>

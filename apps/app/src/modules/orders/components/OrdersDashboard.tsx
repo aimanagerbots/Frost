@@ -18,16 +18,16 @@ import { useOrderMetrics } from '../hooks/useOrderMetrics';
 import { useOrderVolumeChart } from '../hooks/useOrderVolumeChart';
 import { useRevenueByCategory } from '../hooks/useRevenueByCategory';
 import { useTopAccounts } from '../hooks/useTopAccounts';
+import { ACCENT as ORDERS_ACCENT } from '@/design/colors';
 
-const ORDERS_ACCENT = '#F59E0B';
 
 const BAR_COLORS = {
-  pending: '#94A3B8',
-  confirmed: '#3B82F6',
-  inProduction: '#8B5CF6',
-  fulfilled: '#F59E0B',
-  delivered: '#22C55E',
-  paid: '#059669',
+  pending: '#5BB8E6',
+  confirmed: '#5BB8E6',
+  inProduction: '#5BB8E6',
+  fulfilled: '#5BB8E6',
+  delivered: '#5BB8E6',
+  paid: '#5BB8E6',
 };
 
 export function OrdersDashboard() {
@@ -46,17 +46,17 @@ export function OrdersDashboard() {
       {metrics && (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           <MetricCard label="Total Orders" value={metrics.totalOrders} accentColor={ORDERS_ACCENT} />
-          <MetricCard label="Pending" value={metrics.pendingCount} accentColor="#94A3B8" />
+          <MetricCard label="Pending" value={metrics.pendingCount} accentColor="#5BB8E6" />
           <MetricCard
             label="Avg Fulfillment"
             value={`${metrics.avgFulfillmentDays}d`}
-            accentColor="#3B82F6"
+            accentColor="#5BB8E6"
           />
           <MetricCard
             label="On-Time Rate"
             value={`${metrics.onTimeRate}%`}
             trend={{ value: 2, direction: 'up' }}
-            accentColor="#22C55E"
+            accentColor="#5BB8E6"
           />
           <MetricCard
             label="Avg Order Value"
@@ -67,7 +67,7 @@ export function OrdersDashboard() {
             label="Revenue (Month)"
             value={`$${(metrics.revenueThisMonth / 1000000).toFixed(2)}M`}
             trend={{ value: 8, direction: 'up' }}
-            accentColor="#059669"
+            accentColor="#5BB8E6"
           />
         </div>
       )}

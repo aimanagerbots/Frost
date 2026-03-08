@@ -14,8 +14,8 @@ import {
 } from '@/components';
 import { useContentPosts, useContentMetrics } from '@/modules/content/hooks';
 import type { ContentPost, ContentStatus } from '@/modules/content/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 const STATUS_VARIANT: Record<ContentStatus, 'muted' | 'info' | 'success' | 'default'> = {
   draft: 'muted',

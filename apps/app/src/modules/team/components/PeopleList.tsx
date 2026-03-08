@@ -37,7 +37,7 @@ export function PeopleList({ people }: PeopleListProps) {
       {people.map((person) => (
         <div
           key={person.id}
-          className="flex items-center gap-3 rounded-xl px-2 py-2.5 hover:bg-elevated/50 transition-colors"
+          className="flex items-center gap-3 rounded-xl px-2 py-2.5 hover:bg-accent-hover/50 transition-colors"
         >
           {/* Avatar */}
           <div

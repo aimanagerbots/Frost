@@ -3,8 +3,8 @@
 import { Mail, Users, Trophy, ArrowRight } from 'lucide-react';
 import { DrawerPanel, StatusBadge, LoadingSkeleton } from '@/components';
 import { useEmailCampaign } from '@/modules/marketing/hooks';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 const STATUS_VARIANT: Record<string, 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted'> = {
   draft: 'muted',
@@ -117,7 +117,7 @@ export function CampaignDrawer({ campaignId, open, onClose }: CampaignDrawerProp
                 {campaign.abTest.variants.map((variant) => (
                   <div
                     key={variant.id}
-                    className={`rounded-lg border p-3 ${variant.winner ? 'border-[#EC4899]/50 bg-[#EC4899]/5' : 'border-default bg-base'}`}
+                    className={`rounded-lg border p-3 ${variant.winner ? 'border-[#5BB8E6]/50 bg-[#5BB8E6]/5' : 'border-default bg-base'}`}
                   >
                     {variant.winner && (
                       <div className="mb-2 flex items-center gap-1">

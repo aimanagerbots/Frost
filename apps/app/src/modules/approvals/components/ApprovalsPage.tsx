@@ -13,8 +13,8 @@ import {
 } from '@/components';
 import { useApprovalRequests } from '../hooks/useApprovalRequests';
 import type { ApprovalRequest } from '../types';
+import { ACCENT as APPROVALS_ACCENT } from '@/design/colors';
 
-const APPROVALS_ACCENT = '#FBBF24';
 
 const PRIORITY_VARIANT: Record<ApprovalRequest['priority'], 'danger' | 'warning' | 'info'> = {
   urgent: 'danger',
@@ -254,7 +254,7 @@ export function ApprovalsPage() {
         <MetricCard
           label="Approved Today"
           value={approvedToday}
-          accentColor="#22C55E"
+          accentColor="#5BB8E6"
           trend={{ value: 5, direction: 'up' }}
         />
         <MetricCard
@@ -276,7 +276,7 @@ export function ApprovalsPage() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#FBBF24]"
+          className="rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
         >
           <option value="all">All Status</option>
           <option value="pending">Pending</option>
@@ -287,7 +287,7 @@ export function ApprovalsPage() {
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
-          className="rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#FBBF24]"
+          className="rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
         >
           <option value="all">All Types</option>
           <option value="email">Email</option>
@@ -299,7 +299,7 @@ export function ApprovalsPage() {
         <select
           value={priorityFilter}
           onChange={(e) => setPriorityFilter(e.target.value)}
-          className="rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#FBBF24]"
+          className="rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
         >
           <option value="all">All Priority</option>
           <option value="urgent">Urgent</option>
@@ -309,7 +309,7 @@ export function ApprovalsPage() {
         <select
           value={agentFilter}
           onChange={(e) => setAgentFilter(e.target.value)}
-          className="rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#FBBF24]"
+          className="rounded-lg border border-default bg-elevated px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
         >
           <option value="all">All Agents</option>
           {uniqueAgents.map(([id, name]) => (
@@ -330,7 +330,7 @@ export function ApprovalsPage() {
             {pendingItems.map((request) => (
               <div
                 key={request.id}
-                className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-card-hover"
+                className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-accent-hover"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0 flex-1">

@@ -72,14 +72,14 @@ export function WeekView({ currentDate, events, onSelectEvent }: WeekViewProps) 
             key={i}
             className={cn(
               'flex flex-col items-center py-2 border-r border-default last:border-r-0',
-              isToday(d) && 'bg-[#3B82F6]/10'
+              isToday(d) && 'bg-[#5BB8E6]/10'
             )}
           >
             <span className="text-[10px] uppercase text-text-muted">{DAY_NAMES[d.getDay()]}</span>
             <span
               className={cn(
                 'mt-0.5 flex h-7 w-7 items-center justify-center rounded-full text-sm font-medium',
-                isToday(d) ? 'bg-[#3B82F6] text-white' : 'text-text-default'
+                isToday(d) ? 'bg-[#5BB8E6] text-white' : 'text-text-default'
               )}
             >
               {d.getDate()}

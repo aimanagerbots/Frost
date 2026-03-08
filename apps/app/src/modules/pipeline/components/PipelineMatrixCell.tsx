@@ -41,7 +41,7 @@ export function PipelineMatrixCell({ cell, statusConfig, status, isSelected, onC
         'group relative flex min-h-[110px] flex-col rounded-lg border p-2 text-left transition-all',
         isSelected
           ? 'border-[var(--cell-color)] bg-elevated ring-1 ring-[var(--cell-color)]'
-          : 'border-default bg-elevated/50 hover:bg-elevated',
+          : 'border-default bg-elevated/50 hover:bg-accent-hover',
       )}
       style={{
         '--cell-color': statusConfig.borderColor,

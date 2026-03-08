@@ -2,8 +2,8 @@
 
 import { MetricCard, LoadingSkeleton, ErrorState } from '@/components';
 import { useFulfillmentMetrics, useFulfillmentProgress } from '../hooks';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#14B8A6';
 
 const STAGE_OPACITIES: Record<string, number> = {
   queued: 0.2,

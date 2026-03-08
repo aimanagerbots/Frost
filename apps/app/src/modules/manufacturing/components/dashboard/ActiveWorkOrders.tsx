@@ -3,16 +3,16 @@
 import { StatusBadge } from '@/components';
 import { useWorkOrders } from '../../hooks';
 import { useManufacturingStore } from '../../store';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#10B981';
 
 const TYPE_COLORS: Record<string, string> = {
-  flower: '#22C55E',
-  preroll: '#84CC16',
-  vaporizer: '#06B6D4',
-  concentrate: '#F59E0B',
-  edible: '#EC4899',
-  beverage: '#8B5CF6',
+  flower: '#5BB8E6',
+  preroll: '#5BB8E6',
+  vaporizer: '#5BB8E6',
+  concentrate: '#5BB8E6',
+  edible: '#5BB8E6',
+  beverage: '#5BB8E6',
 };
 
 export function ActiveWorkOrders() {
@@ -37,7 +37,7 @@ export function ActiveWorkOrders() {
             <button
               key={wo.id}
               onClick={() => handleClick(wo.id)}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-colors hover:bg-elevated"
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-colors hover:bg-accent-hover"
             >
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">

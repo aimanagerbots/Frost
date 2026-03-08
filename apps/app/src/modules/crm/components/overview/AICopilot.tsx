@@ -116,8 +116,8 @@ export function AICopilot() {
         <div ref={scrollRef} className="flex-1 overflow-y-auto">
           {!hasMessages ? (
             <div className="flex h-full flex-col items-center justify-center gap-4 p-8">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F59E0B]/10">
-                <Bot className="h-8 w-8 text-[#F59E0B]" />
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#5BB8E6]/10">
+                <Bot className="h-8 w-8 text-[#5BB8E6]" />
               </div>
               <div className="text-center">
                 <h3 className="text-lg font-semibold text-text-bright">Frost AI Copilot</h3>
@@ -132,7 +132,7 @@ export function AICopilot() {
                   <button
                     key={s.id}
                     onClick={() => handleSuggestionClick(s.text)}
-                    className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#F59E0B]/30 hover:text-text-default transition-colors"
+                    className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#5BB8E6]/30 hover:text-text-default transition-colors"
                   >
                     {s.text}
                   </button>

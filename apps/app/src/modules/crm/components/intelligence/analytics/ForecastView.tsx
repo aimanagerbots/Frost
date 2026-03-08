@@ -2,12 +2,12 @@
 
 import { ChartWrapper, CHART_THEME, CHART_COLORS } from '@/components';
 import type { Forecast, RevenueAnalytics } from '../../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, Line,
 } from 'recharts';
 
-const CRM_ACCENT = '#F59E0B';
 
 interface ForecastViewProps {
   forecasts: Forecast[];

@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { DrawerPanel, StatusBadge } from '@/components';
 import type { PackagingOrder } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#84CC16';
 
 const STATUS_MAP: Record<string, 'default' | 'success' | 'warning' | 'danger' | 'info'> = {
   queued: 'default',

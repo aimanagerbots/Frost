@@ -2,7 +2,7 @@
 
 import { Users, Calendar } from 'lucide-react';
 import type { Segment } from '@/modules/crm/types';
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 
 interface SegmentCardProps {
   segment: Segment;
@@ -12,14 +12,7 @@ interface SegmentCardProps {
 
 export function SegmentCard({ segment, isSelected, onClick }: SegmentCardProps) {
   return (
-    <button
-      onClick={onClick}
-      className={`group w-full rounded-xl border p-4 text-left transition-all ${
-        isSelected
-          ? 'border-[#F59E0B]/40 bg-[#F59E0B]/5 ring-1 ring-[#F59E0B]/20'
-          : 'border-default bg-card hover:border-hover'
-      }`}
-    >
+    <AccentCard accentColor="#5BB8E6" selected={isSelected} onClick={onClick} className="w-full p-4 text-left">
       <div className="mb-2 flex items-start justify-between">
         <h4 className="text-sm font-semibold text-text-bright">{segment.name}</h4>
         <StatusBadge
@@ -51,6 +44,6 @@ export function SegmentCard({ segment, isSelected, onClick }: SegmentCardProps) 
         <Calendar className="h-3 w-3" />
         Updated {new Date(segment.updatedAt).toLocaleDateString()}
       </div>
-    </button>
+    </AccentCard>
   );
 }

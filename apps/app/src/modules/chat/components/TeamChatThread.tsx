@@ -151,7 +151,7 @@ export function TeamChatThread() {
 
       {/* Input */}
       <div className="border-t border-default p-3">
-        <div className="flex items-end gap-2 rounded-xl border border-default bg-base px-3 py-2.5 focus-within:border-[#06B6D4]/40 transition-colors">
+        <div className="flex items-end gap-2 rounded-xl border border-default bg-base px-3 py-2.5 focus-within:border-[#5BB8E6]/40 transition-colors">
           <button
             className="flex h-7 w-7 shrink-0 items-center justify-center rounded text-text-muted/40 hover:text-text-muted transition-colors"
             title="Attach file"
@@ -175,7 +175,7 @@ export function TeamChatThread() {
             onClick={handleSend}
             disabled={!inputValue.trim()}
             className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition-colors disabled:opacity-30"
-            style={{ backgroundColor: '#06B6D4', color: '#000' }}
+            style={{ backgroundColor: '#5BB8E6', color: '#000' }}
             aria-label="Send message"
           >
             <Send size={14} />

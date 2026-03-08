@@ -14,8 +14,8 @@ import {
 } from '@/components';
 import { useDocuments } from '../hooks';
 import type { DocType, Document } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#64748B';
 
 const TYPE_FILTERS: { key: DocType | 'all'; label: string }[] = [
   { key: 'all', label: 'All' },
@@ -223,11 +223,11 @@ export function DocsPage() {
         width="md"
         footer={
           <div className="flex gap-3">
-            <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors bg-elevated text-text-default hover:bg-card-hover">
+            <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors bg-elevated text-text-default hover:bg-accent-hover">
               <Download className="h-4 w-4" />
               Download
             </button>
-            <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors bg-elevated text-text-default hover:bg-card-hover">
+            <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors bg-elevated text-text-default hover:bg-accent-hover">
               <Share2 className="h-4 w-4" />
               Share
             </button>

@@ -92,10 +92,10 @@ const CATEGORY_COLORS: Record<string, string> = {
 const PIPELINE_COLORS = {
   active: '#22C55E',
   inactive: '#EF4444',
-  recovery: '#F59E0B',
+  recovery: '#5BB8E6',
 };
 
-const FUNNEL_COLORS = ['#F59E0B', '#FBBF24', '#FCD34D', '#FDE68A', '#22C55E'];
+const FUNNEL_COLORS = ['#5BB8E6', '#5BB8E6', '#FCD34D', '#FDE68A', '#5BB8E6'];
 
 const legendFormatter = (value: string) => (
   <span style={{ color: CHART_THEME.legendColor }}>{value}</span>

@@ -26,8 +26,8 @@ const METRIC_CONFIG = {
   temperature: { label: 'Temperature', color: CHART_COLORS.danger, unit: 'F', yAxisId: 'temp' },
   humidity: { label: 'Humidity', color: CHART_COLORS.info, unit: '%', yAxisId: 'rh' },
   co2: { label: 'CO2', color: '#A855F7', unit: 'ppm', yAxisId: 'co2' },
-  vpd: { label: 'VPD', color: '#F59E0B', unit: 'kPa', yAxisId: 'vpd' },
-  ppfd: { label: 'PPFD', color: '#22C55E', unit: 'umol', yAxisId: 'ppfd' },
+  vpd: { label: 'VPD', color: '#5BB8E6', unit: 'kPa', yAxisId: 'vpd' },
+  ppfd: { label: 'PPFD', color: '#5BB8E6', unit: 'umol', yAxisId: 'ppfd' },
 } as const;
 
 type MetricKey = keyof typeof METRIC_CONFIG;

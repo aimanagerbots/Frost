@@ -1,21 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import { SectionHeader, LoadingSkeleton, ErrorState } from '@/components';
+import { SectionHeader, LoadingSkeleton, ErrorState, ModuleTabs } from '@/components';
+import type { TabItem } from '@/components';
 import { Search, FileText, Globe } from 'lucide-react';
 import { useBlogPosts, useSEOKeywords, useSEOMetrics, useOrganicTrend } from '../../hooks/seo-events-hooks';
 import { BlogTab } from './BlogTab';
 import { KeywordTab } from './KeywordTab';
 import { SEOOverviewTab } from './SEOOverviewTab';
 import { SEODrawer } from './SEODrawer';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 type SEOTab = 'blog' | 'keywords' | 'overview';
 
-const TABS: { key: SEOTab; label: string; icon: typeof FileText }[] = [
-  { key: 'blog', label: 'Blog Management', icon: FileText },
-  { key: 'keywords', label: 'Keyword Tracker', icon: Search },
-  { key: 'overview', label: 'SEO Overview', icon: Globe },
+const TABS: TabItem[] = [
+  { id: 'blog', label: 'Blog Management', icon: FileText },
+  { id: 'keywords', label: 'Keyword Tracker', icon: Search },
+  { id: 'overview', label: 'SEO Overview', icon: Globe },
 ];
 
 export function SEOPage() {
@@ -36,21 +37,7 @@ export function SEOPage() {
     <div className="space-y-6">
       <SectionHeader icon={Search} title="SEO / Blog" subtitle="Search optimization, content pipeline, and organic performance" accentColor={ACCENT} />
 
-      {/* Tab Bar */}
-      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
-        {TABS.map(({ key, label, icon: Icon }) => (
-          <button
-            key={key}
-            onClick={() => setActiveTab(key)}
-            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-              activeTab === key ? 'bg-elevated text-text-bright' : 'text-text-muted hover:text-text-bright'
-            }`}
-          >
-            <Icon size={14} />
-            <span>{label}</span>
-          </button>
-        ))}
-      </div>
+      <ModuleTabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab as (id: string) => void} accentColor={ACCENT} />
 
       {activeTab === 'blog' && (
         <BlogTab posts={posts ?? []} isLoading={postsLoading} onSelectPost={setSelectedPostId} />

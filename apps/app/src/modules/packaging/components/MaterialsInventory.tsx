@@ -4,8 +4,8 @@ import { Package } from 'lucide-react';
 import { DataTable, StatusBadge } from '@/components';
 import { useNonCannabisInventory } from '../hooks';
 import type { NonCannabisInventory } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#84CC16';
 
 const STATUS_VARIANT: Record<string, 'success' | 'warning' | 'danger' | 'muted'> = {
   'in-stock': 'success',

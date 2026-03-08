@@ -74,7 +74,7 @@ export function TeamChatMessage({ message, memberStatus }: TeamChatMessageProps)
         <div
           className={`rounded-xl px-3.5 py-2 text-sm leading-relaxed ${
             isOwn
-              ? 'bg-[#06B6D4]/15 text-text-default'
+              ? 'bg-[#5BB8E6]/15 text-text-default'
               : 'bg-card border border-default text-text-default'
           }`}
         >

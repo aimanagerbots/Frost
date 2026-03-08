@@ -158,7 +158,7 @@ export function SearchOverlay({ open, onClose, onSelect, groups }: SearchOverlay
                       onClick={() => onSelect(item)}
                       onMouseEnter={() => setHighlightIndex(idx)}
                       className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                        isHighlighted ? 'bg-elevated text-text-bright' : 'text-text-default hover:bg-elevated/50'
+                        isHighlighted ? 'bg-elevated text-text-bright' : 'text-text-default hover:bg-accent-hover/50'
                       }`}
                     >
                       {Icon && <Icon size={16} className="shrink-0 text-text-muted" />}

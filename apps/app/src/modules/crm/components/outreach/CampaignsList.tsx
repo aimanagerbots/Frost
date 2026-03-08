@@ -6,8 +6,8 @@ import { useCampaigns } from '../../hooks/useCampaigns';
 import { CampaignDrawer } from './CampaignDrawer';
 import { Filter } from 'lucide-react';
 import type { Campaign } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const STATUS_VARIANT: Record<string, 'success' | 'info' | 'muted' | 'warning' | 'danger'> = {
   active: 'success',
@@ -144,10 +144,10 @@ export function CampaignsList() {
       {/* Metrics */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
         <MetricCard label="Active Campaigns" value={activeCampaigns} accentColor={CRM_ACCENT} />
-        <MetricCard label="Total Sent (All Time)" value={totalSent.toLocaleString()} accentColor="#3B82F6" />
-        <MetricCard label="Avg Open Rate" value={`${avgOpenRate.toFixed(1)}%`} accentColor="#22C55E" />
-        <MetricCard label="Avg Response Rate" value={`${avgResponseRate.toFixed(1)}%`} accentColor="#8B5CF6" />
-        <MetricCard label="Revenue Attributed" value={`$${totalRevenue.toLocaleString()}`} accentColor="#F59E0B" />
+        <MetricCard label="Total Sent (All Time)" value={totalSent.toLocaleString()} accentColor="#5BB8E6" />
+        <MetricCard label="Avg Open Rate" value={`${avgOpenRate.toFixed(1)}%`} accentColor="#5BB8E6" />
+        <MetricCard label="Avg Response Rate" value={`${avgResponseRate.toFixed(1)}%`} accentColor="#5BB8E6" />
+        <MetricCard label="Revenue Attributed" value={`$${totalRevenue.toLocaleString()}`} accentColor="#5BB8E6" />
       </div>
 
       {/* Filter bar */}

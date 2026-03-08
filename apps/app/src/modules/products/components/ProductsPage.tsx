@@ -13,16 +13,16 @@ import {
 } from '@/components';
 import { useProductConcepts, useRDMetrics } from '@/modules/products/hooks';
 import type { ProductConcept, ProductCategory, ProductStage } from '@/modules/products/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#DB2777';
 
 const STAGES: { key: ProductStage; label: string; color: string }[] = [
-  { key: 'ideation', label: 'Ideation', color: '#94A3B8' },
-  { key: 'formulation', label: 'Formulation', color: '#8B5CF6' },
-  { key: 'sample', label: 'Sample', color: '#3B82F6' },
-  { key: 'testing', label: 'Testing', color: '#F59E0B' },
-  { key: 'approved', label: 'Approved', color: '#22C55E' },
-  { key: 'launched', label: 'Launched', color: '#DB2777' },
+  { key: 'ideation', label: 'Ideation', color: '#5BB8E6' },
+  { key: 'formulation', label: 'Formulation', color: '#5BB8E6' },
+  { key: 'sample', label: 'Sample', color: '#5BB8E6' },
+  { key: 'testing', label: 'Testing', color: '#5BB8E6' },
+  { key: 'approved', label: 'Approved', color: '#5BB8E6' },
+  { key: 'launched', label: 'Launched', color: '#5BB8E6' },
 ];
 
 const CATEGORY_VARIANT: Record<
@@ -147,7 +147,7 @@ export function ProductsPage() {
                     key={concept.id}
                     type="button"
                     onClick={() => setSelectedConcept(concept)}
-                    className="w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] p-3 text-left transition-colors hover:border-[#DB2777] cursor-pointer"
+                    className="w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] p-3 text-left transition-colors hover:border-[#5BB8E6] cursor-pointer"
                   >
                     <h4 className="text-sm font-medium leading-snug text-[var(--text-text-default)]">
                       {concept.name}

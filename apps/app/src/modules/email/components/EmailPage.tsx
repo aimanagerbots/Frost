@@ -7,8 +7,8 @@ import { useEmails, useEmailMetrics } from '@/modules/email/hooks';
 import { EmailList } from './EmailList';
 import { EmailDetail } from './EmailDetail';
 import type { Email, EmailFolder } from '@/modules/email/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#3B82F6';
 
 const FOLDERS: { key: EmailFolder; label: string; icon: typeof Inbox }[] = [
   { key: 'inbox', label: 'Inbox', icon: Inbox },
@@ -67,8 +67,8 @@ export function EmailPage() {
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <MetricCard label="Unread" value={metrics?.unread ?? 0} accentColor="#FB7185" />
         <MetricCard label="Received Today" value={metrics?.todayReceived ?? 0} accentColor={ACCENT} />
-        <MetricCard label="Needs Response" value={metrics?.needsResponse ?? 0} accentColor="#F59E0B" />
-        <MetricCard label="Avg Response Time" value={metrics?.avgResponseTime ?? '—'} accentColor="#059669" />
+        <MetricCard label="Needs Response" value={metrics?.needsResponse ?? 0} accentColor="#5BB8E6" />
+        <MetricCard label="Avg Response Time" value={metrics?.avgResponseTime ?? '—'} accentColor="#5BB8E6" />
       </div>
 
       <div className="flex h-[calc(100vh-20rem)] min-h-[400px] rounded-xl border border-default bg-card overflow-hidden">
@@ -89,7 +89,7 @@ export function EmailPage() {
               className={`flex items-center gap-2 rounded-lg px-3 py-2 text-xs transition-colors ${
                 activeFolder === key
                   ? 'bg-elevated text-text-bright font-medium'
-                  : 'text-text-muted hover:bg-elevated/50 hover:text-text-default'
+                  : 'text-text-muted hover:bg-accent-hover/50 hover:text-text-default'
               }`}
             >
               <Icon size={14} />
@@ -110,15 +110,15 @@ export function EmailPage() {
             {['Order Inquiries', 'Payments', 'Internal', 'Vendors', 'Marketing'].map((label) => (
               <button
                 key={label}
-                className="flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-xs text-text-muted hover:bg-elevated/50 hover:text-text-default transition-colors"
+                className="flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-xs text-text-muted hover:bg-accent-hover/50 hover:text-text-default transition-colors"
               >
                 <div className="h-2 w-2 rounded-full" style={{
                   backgroundColor:
-                    label === 'Order Inquiries' ? '#F59E0B'
-                    : label === 'Payments' ? '#059669'
-                    : label === 'Internal' ? '#3B82F6'
-                    : label === 'Vendors' ? '#8B5CF6'
-                    : '#EC4899',
+                    label === 'Order Inquiries' ? '#5BB8E6'
+                    : label === 'Payments' ? '#5BB8E6'
+                    : label === 'Internal' ? '#5BB8E6'
+                    : label === 'Vendors' ? '#5BB8E6'
+                    : '#5BB8E6',
                 }} />
                 {label}
               </button>

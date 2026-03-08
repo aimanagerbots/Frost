@@ -23,8 +23,8 @@ import {
 import { useAdCampaigns, useAdMetrics, useComplianceChecklist } from '../../hooks/seo-events-hooks';
 import type { AdCampaign } from '../../types/seo-events';
 import { AdDrawer } from './AdDrawer';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 const PLATFORM_LABELS: Record<string, string> = {
   google: 'Google Ads',
@@ -38,7 +38,7 @@ const PLATFORM_COLORS: Record<string, string> = {
   google: CHART_COLORS.info,
   programmatic: CHART_COLORS.purple,
   'cannabis-specific': CHART_COLORS.success,
-  'email-retargeting': '#F59E0B',
+  'email-retargeting': '#5BB8E6',
 };
 
 export function PaidAdsPage() {

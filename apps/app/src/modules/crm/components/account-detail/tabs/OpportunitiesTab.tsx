@@ -3,8 +3,8 @@
 import { StatusBadge, EmptyState, LoadingSkeleton } from '@/components';
 import { useOpportunities } from '../../../hooks';
 import { Target } from 'lucide-react';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 interface OpportunitiesTabProps {
   accountId: string;

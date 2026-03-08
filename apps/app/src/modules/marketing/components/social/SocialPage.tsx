@@ -34,7 +34,9 @@ import {
   ChartWrapper,
   CHART_THEME,
   DataTable,
+  ModuleTabs,
 } from '@/components';
+import type { TabItem } from '@/components';
 import {
   useSocialAccounts,
   useSocialPosts,
@@ -46,15 +48,15 @@ import {
 } from '@/modules/marketing/hooks';
 import { getEngagementData } from '@/mocks/marketing';
 import type { SocialAccount, SocialPost } from '@/modules/marketing/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 type TabKey = 'dashboard' | 'composer' | 'analytics';
 
-const TABS: { key: TabKey; label: string; icon: React.ComponentType<{ size?: number }> }[] = [
-  { key: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { key: 'composer', label: 'Post Composer', icon: PenSquare },
-  { key: 'analytics', label: 'Analytics', icon: BarChart3 },
+const TABS: TabItem[] = [
+  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'composer', label: 'Post Composer', icon: PenSquare },
+  { id: 'analytics', label: 'Analytics', icon: BarChart3 },
 ];
 
 const PLATFORM_ICONS: Record<string, React.ReactNode> = {
@@ -261,23 +263,7 @@ export function SocialPage() {
         ]}
       />
 
-      {/* Tab Bar */}
-      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
-        {TABS.map(({ key, label, icon: Icon }) => (
-          <button
-            key={key}
-            onClick={() => setActiveTab(key)}
-            className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
-              activeTab === key
-                ? 'bg-elevated text-text-bright'
-                : 'text-text-muted hover:text-text-default'
-            }`}
-          >
-            <Icon size={14} />
-            <span className="hidden sm:inline">{label}</span>
-          </button>
-        ))}
-      </div>
+      <ModuleTabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab as (id: string) => void} accentColor={ACCENT} />
 
       {/* ─── Dashboard Tab ──────────────────────────────────────────────── */}
       {activeTab === 'dashboard' && (
@@ -292,9 +278,9 @@ export function SocialPage() {
           {/* Metrics Row */}
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             <MetricCard label="Total Followers" value={totalFollowers.toLocaleString()} accentColor={ACCENT} />
-            <MetricCard label="Posts This Month" value={metrics?.postsThisMonth ?? 0} accentColor="#3B82F6" />
-            <MetricCard label="Avg Engagement" value={`${metrics?.avgEngagementRate ?? 0}%`} accentColor="#22C55E" />
-            <MetricCard label="Best Post" value={`${bestPost?.performance?.engagementRate ?? 0}%`} accentColor="#F59E0B" />
+            <MetricCard label="Posts This Month" value={metrics?.postsThisMonth ?? 0} accentColor="#5BB8E6" />
+            <MetricCard label="Avg Engagement" value={`${metrics?.avgEngagementRate ?? 0}%`} accentColor="#5BB8E6" />
+            <MetricCard label="Best Post" value={`${bestPost?.performance?.engagementRate ?? 0}%`} accentColor="#5BB8E6" />
           </div>
 
           {/* Recent Posts Thumbnail Grid */}
@@ -398,7 +384,7 @@ export function SocialPage() {
               value={composerText}
               onChange={(e) => setComposerText(e.target.value)}
               placeholder="What's on your mind? Write your caption here..."
-              className="mb-2 w-full resize-none rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-[#EC4899]/50 focus:outline-none"
+              className="mb-2 w-full resize-none rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-[#5BB8E6]/50 focus:outline-none"
               rows={4}
             />
             <div className="flex items-center justify-between">
@@ -490,7 +476,7 @@ export function SocialPage() {
                   <button
                     key={s.tag}
                     onClick={() => setComposerText((prev) => prev + ' ' + s.tag)}
-                    className="rounded-full border border-default px-2 py-1 text-[10px] text-text-muted hover:border-[#EC4899]/50"
+                    className="rounded-full border border-default px-2 py-1 text-[10px] text-text-muted hover:border-[#5BB8E6]/50"
                   >
                     {s.tag}
                   </button>
@@ -509,7 +495,7 @@ export function SocialPage() {
               <button
                 onClick={() => setShowScheduler((prev) => !prev)}
                 className={`rounded-lg border border-default px-3 py-1.5 text-xs transition-colors ${
-                  showScheduler ? 'text-text-default border-[#EC4899]/50' : 'text-text-muted hover:text-text-default'
+                  showScheduler ? 'text-text-default border-[#5BB8E6]/50' : 'text-text-muted hover:text-text-default'
                 }`}
               >
                 Schedule
@@ -528,7 +514,7 @@ export function SocialPage() {
                   type="datetime-local"
                   value={scheduleDate}
                   onChange={(e) => setScheduleDate(e.target.value)}
-                  className="rounded-lg border border-default bg-base px-3 py-1.5 text-xs text-text-default focus:border-[#EC4899]/50 focus:outline-none"
+                  className="rounded-lg border border-default bg-base px-3 py-1.5 text-xs text-text-default focus:border-[#5BB8E6]/50 focus:outline-none"
                 />
               </div>
             )}

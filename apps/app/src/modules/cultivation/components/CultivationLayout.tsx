@@ -11,8 +11,8 @@ import { ProductionCalendar } from './calendar';
 import { GrowSupplies } from './supplies';
 import { GeneticsLibrary } from './genetics';
 import { CultivationChat } from './chat';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#22C55E';
 
 const ROUTES: Record<string, React.ComponentType> = {
   environment: EnvironmentTab,

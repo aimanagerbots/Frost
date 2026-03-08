@@ -33,7 +33,7 @@ export function TeamChatSidebar() {
       <div className="flex items-center justify-between border-b border-default px-4 py-3">
         <h3 className="text-sm font-semibold text-text-default">Messages</h3>
         <button
-          className="flex h-7 w-7 items-center justify-center rounded-lg text-text-muted hover:bg-elevated hover:text-text-default transition-colors"
+          className="flex h-7 w-7 items-center justify-center rounded-lg text-text-muted hover:bg-accent-hover hover:text-text-default transition-colors"
           title="New message"
         >
           <MessageSquarePlus size={16} />
@@ -70,8 +70,8 @@ export function TeamChatSidebar() {
               onClick={() => setActiveView({ type: 'channel', id: ch.id })}
               className={`flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm transition-colors ${
                 isActive
-                  ? 'bg-[#06B6D4]/10 text-text-default'
-                  : 'text-text-muted hover:bg-elevated hover:text-text-default'
+                  ? 'bg-[#5BB8E6]/10 text-text-default'
+                  : 'text-text-muted hover:bg-accent-hover hover:text-text-default'
               }`}
             >
               <Hash size={14} className="shrink-0 opacity-60" />
@@ -105,8 +105,8 @@ export function TeamChatSidebar() {
               onClick={() => setActiveView({ type: 'dm', id: dm.id })}
               className={`flex w-full items-center gap-2.5 px-3 py-1.5 text-left text-sm transition-colors ${
                 isActive
-                  ? 'bg-[#06B6D4]/10 text-text-default'
-                  : 'text-text-muted hover:bg-elevated hover:text-text-default'
+                  ? 'bg-[#5BB8E6]/10 text-text-default'
+                  : 'text-text-muted hover:bg-accent-hover hover:text-text-default'
               }`}
             >
               <MemberAvatar name={member.name} status={member.status} size="sm" />

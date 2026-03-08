@@ -14,8 +14,8 @@ import {
   StickyNote,
 } from 'lucide-react';
 import type { AccountDetailTab } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const TAB_CONFIG: { id: AccountDetailTab; label: string; icon: typeof User }[] = [
   { id: 'profile', label: 'Profile', icon: User },
@@ -53,7 +53,7 @@ export function AccountDetailTabs({ activeTab, onTabChange, vmiEnrolled }: Accou
                 ? 'text-black'
                 : isVmiDisabled
                   ? 'text-text-muted/50 cursor-default'
-                  : 'text-text-muted hover:bg-elevated hover:text-text-default'
+                  : 'text-text-muted hover:bg-accent-hover hover:text-text-default'
             )}
             style={isActive ? { backgroundColor: CRM_ACCENT } : undefined}
           >

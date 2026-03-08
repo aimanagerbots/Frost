@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { MapPin, Clock, DollarSign, CheckCircle2, AlertCircle, Circle } from 'lucide-react';
 import { DrawerPanel, StatusBadge } from '@/components';
 import type { DeliveryRun, DeliveryStop, DeliveryStopStatus, DeliveryRunStatus } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#0EA5E9';
 
 const stopStatusVariant = (s: DeliveryStopStatus) => {
   const map: Record<DeliveryStopStatus, 'muted' | 'info' | 'success' | 'danger'> = {
@@ -147,7 +147,7 @@ export function RouteDrawer({ run, open, onClose }: RouteDrawerProps) {
                         <div className="flex gap-2 pt-1">
                           <button
                             onClick={() => updateStopStatus(stop.id, 'arrived')}
-                            className="rounded-md px-3 py-1 text-xs font-medium border border-default hover:bg-elevated transition-colors text-text-default"
+                            className="rounded-md px-3 py-1 text-xs font-medium border border-default hover:bg-accent-hover transition-colors text-text-default"
                           >
                             Mark Arrived
                           </button>
@@ -164,7 +164,7 @@ export function RouteDrawer({ run, open, onClose }: RouteDrawerProps) {
                           </button>
                           <button
                             onClick={() => updateStopStatus(stop.id, 'failed')}
-                            className="rounded-md px-3 py-1 text-xs font-medium border border-default hover:bg-elevated transition-colors text-danger"
+                            className="rounded-md px-3 py-1 text-xs font-medium border border-default hover:bg-accent-hover transition-colors text-danger"
                           >
                             Failed
                           </button>

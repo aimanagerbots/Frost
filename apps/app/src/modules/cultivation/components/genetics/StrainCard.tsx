@@ -1,15 +1,15 @@
 'use client';
 
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 import type { Strain, StrainType, MotherPlantStatus, StrainDifficulty } from '../../types';
 import { Sprout, DoorOpen } from 'lucide-react';
 
 const TYPE_COLORS: Record<StrainType, string> = {
   indica: '#8B5CF6',
-  sativa: '#F97316',
+  sativa: '#F59E0B',
   hybrid: '#22C55E',
-  cbd: '#3B82F6',
-  balanced: '#06B6D4',
+  cbd: '#5BB8E6',
+  balanced: '#5BB8E6',
 };
 
 const MOTHER_VARIANT: Record<MotherPlantStatus, 'success' | 'warning' | 'muted'> = {
@@ -19,8 +19,8 @@ const MOTHER_VARIANT: Record<MotherPlantStatus, 'success' | 'warning' | 'muted'>
 };
 
 const DIFFICULTY_COLORS: Record<StrainDifficulty, string> = {
-  easy: '#22C55E',
-  moderate: '#F59E0B',
+  easy: '#5BB8E6',
+  moderate: '#5BB8E6',
   advanced: '#EF4444',
 };
 
@@ -31,13 +31,10 @@ interface StrainCardProps {
 }
 
 export function StrainCard({ strain, onClick, activeRoomCount }: StrainCardProps) {
-  const cloneColor = strain.cloneAvailability > 5 ? '#22C55E' : strain.cloneAvailability > 0 ? '#F59E0B' : '#EF4444';
+  const cloneColor = strain.cloneAvailability > 5 ? '#5BB8E6' : strain.cloneAvailability > 0 ? '#5BB8E6' : '#EF4444';
 
   return (
-    <div
-      onClick={onClick}
-      className="cursor-pointer rounded-xl border border-default bg-card p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-hover hover:shadow-lg"
-    >
+    <AccentCard accentColor={TYPE_COLORS[strain.type]} onClick={onClick} className="p-4">
       {/* Header */}
       <div className="flex items-start justify-between">
         <h3 className="text-lg font-semibold text-text-bright">{strain.name}</h3>
@@ -109,6 +106,6 @@ export function StrainCard({ strain, onClick, activeRoomCount }: StrainCardProps
           </span>
         )}
       </div>
-    </div>
+    </AccentCard>
   );
 }

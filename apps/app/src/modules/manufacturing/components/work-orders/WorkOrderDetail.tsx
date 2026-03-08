@@ -4,8 +4,8 @@ import { X, Clock, User, Package, FileText } from 'lucide-react';
 import { StatusBadge } from '@/components';
 import { useWorkOrder } from '../../hooks';
 import { useManufacturingStore } from '../../store';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#10B981';
 
 const STATUS_MAP: Record<string, 'default' | 'success' | 'warning' | 'danger' | 'info'> = {
   queued: 'default',
@@ -28,7 +28,7 @@ export function WorkOrderDetail() {
           <p className="text-xs font-mono text-text-muted">{wo.id}</p>
           <h2 className="text-sm font-semibold text-text-bright">{wo.title}</h2>
         </div>
-        <button onClick={() => selectWorkOrder(null)} className="rounded-lg p-1.5 hover:bg-elevated">
+        <button onClick={() => selectWorkOrder(null)} className="rounded-lg p-1.5 hover:bg-accent-hover">
           <X className="h-4 w-4 text-text-muted" />
         </button>
       </div>

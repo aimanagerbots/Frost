@@ -8,14 +8,14 @@ interface ActivityFeedProps {
 }
 
 const EVENT_CONFIG: Record<ActivityFeedEvent['eventType'], { icon: typeof Package; color: string }> = {
-  packaged: { icon: Package, color: '#84CC16' },
-  'coa-submitted': { icon: FlaskConical, color: '#8B5CF6' },
-  'coa-passed': { icon: CheckCircle, color: '#22C55E' },
+  packaged: { icon: Package, color: '#5BB8E6' },
+  'coa-submitted': { icon: FlaskConical, color: '#5BB8E6' },
+  'coa-passed': { icon: CheckCircle, color: '#5BB8E6' },
   'coa-failed': { icon: XCircle, color: '#FB7185' },
-  harvested: { icon: Scissors, color: '#22C55E' },
-  fulfilled: { icon: ShoppingCart, color: '#14B8A6' },
-  delivered: { icon: Truck, color: '#0EA5E9' },
-  reorder: { icon: RefreshCw, color: '#FBBF24' },
+  harvested: { icon: Scissors, color: '#5BB8E6' },
+  fulfilled: { icon: ShoppingCart, color: '#5BB8E6' },
+  delivered: { icon: Truck, color: '#5BB8E6' },
+  reorder: { icon: RefreshCw, color: '#5BB8E6' },
   alert: { icon: AlertTriangle, color: '#FB7185' },
 };
 

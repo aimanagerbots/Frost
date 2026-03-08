@@ -4,8 +4,8 @@ import { MapPin, DollarSign, CheckCircle2, Loader2 } from 'lucide-react';
 import { MetricCard, StatusBadge, LoadingSkeleton } from '@/components';
 import { useDeliveryMetrics, useDeliverySchedule } from '../hooks';
 import type { ScheduleEntry } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#0EA5E9';
 
 const scheduleStatusConfig: Record<
   ScheduleEntry['status'],
@@ -89,7 +89,7 @@ export function DeliveryDashboard() {
                 return (
                   <div
                     key={entry.id}
-                    className={`flex items-center gap-4 rounded-lg px-3 py-3 transition-colors hover:bg-elevated/50 ${
+                    className={`flex items-center gap-4 rounded-lg px-3 py-3 transition-colors hover:bg-accent-hover/50 ${
                       isCompleted ? 'opacity-60' : ''
                     }`}
                   >

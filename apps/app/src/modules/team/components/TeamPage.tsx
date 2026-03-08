@@ -13,8 +13,8 @@ import {
 } from '@/components';
 import { useTeamMembers, useTeamMetrics } from '@/modules/team/hooks';
 import type { TeamMember, Division } from '@/modules/team/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#0D9488';
 
 const DIVISION_TABS: { label: string; value: Division | undefined }[] = [
   { label: 'All', value: undefined },
@@ -150,9 +150,9 @@ export function TeamPage() {
       {/* Metric Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <MetricCard label="Total Team" value={metrics?.total ?? 0} accentColor={ACCENT} />
-        <MetricCard label="Active" value={metrics?.active ?? 0} accentColor="#22C55E" />
-        <MetricCard label="Divisions" value={metrics?.divisions ?? 0} accentColor="#3B82F6" />
-        <MetricCard label="On Leave" value={metrics?.onLeave ?? 0} accentColor="#F59E0B" />
+        <MetricCard label="Active" value={metrics?.active ?? 0} accentColor="#5BB8E6" />
+        <MetricCard label="Divisions" value={metrics?.divisions ?? 0} accentColor="#5BB8E6" />
+        <MetricCard label="On Leave" value={metrics?.onLeave ?? 0} accentColor="#5BB8E6" />
       </div>
 
       {/* Division Filter Tabs */}
@@ -166,7 +166,7 @@ export function TeamPage() {
               className={
                 isActive
                   ? 'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors'
-                  : 'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors text-text-muted hover:text-text-default hover:bg-elevated'
+                  : 'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors text-text-muted hover:text-text-default hover:bg-accent-hover'
               }
               style={isActive ? { backgroundColor: `${ACCENT}20`, color: ACCENT } : undefined}
             >

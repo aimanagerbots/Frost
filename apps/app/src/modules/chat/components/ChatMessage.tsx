@@ -1,6 +1,7 @@
 'use client';
 
 import type { ChatMessage as ChatMessageType } from '@/modules/chat/types';
+import { ACCENT } from '@/design/colors';
 import {
   Database, Users, BarChart3, Package, MessageSquare,
   ShieldCheck, Leaf, Factory, DollarSign, Truck, CalendarDays,
@@ -21,7 +22,6 @@ const SOURCE_ICONS: Record<string, typeof Database> = {
   delivery: Truck,
 };
 
-const ACCENT = '#06B6D4';
 
 interface ChatMessageProps {
   message: ChatMessageType;
@@ -46,7 +46,7 @@ export function ChatMessage({ message, isRevealing }: ChatMessageProps) {
         <div
           className={`inline-block rounded-xl px-4 py-3 text-sm leading-relaxed ${
             isUser
-              ? 'bg-[#06B6D4]/10 text-text-default'
+              ? 'bg-[#5BB8E6]/10 text-text-default'
               : 'bg-card border border-default text-text-default'
           } ${isRevealing ? 'chat-reveal' : ''}`}
         >
@@ -90,7 +90,7 @@ export function ChatMessage({ message, isRevealing }: ChatMessageProps) {
             {message.suggestedActions.map((action) => (
               <button
                 key={action.route + action.label}
-                className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-3 py-1 text-xs font-medium text-[#06B6D4] transition-colors hover:bg-[#06B6D4]/20"
+                className="rounded-full border border-[#5BB8E6]/30 bg-[#5BB8E6]/10 px-3 py-1 text-xs font-medium text-[#5BB8E6] transition-colors hover:bg-accent-hover"
               >
                 {action.label}
               </button>

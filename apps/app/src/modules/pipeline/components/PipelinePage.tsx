@@ -14,8 +14,8 @@ import { PipelineMovementChart } from './PipelineMovementChart';
 import { RepPerformanceCards } from './RepPerformanceCards';
 import { PipelineTransitionLog } from './PipelineTransitionLog';
 import type { PipelineStatus, PipelinePhase } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#F59E0B';
 
 export function PipelinePage() {
   const [selectedCell, setSelectedCell] = useState<{ status: PipelineStatus; phase: PipelinePhase } | null>(null);

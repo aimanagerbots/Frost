@@ -5,22 +5,22 @@ import type { CultivationTask, TaskPriority } from '../../types';
 
 const PRIORITY_COLORS: Record<TaskPriority, string> = {
   urgent: '#EF4444',
-  high: '#F97316',
-  medium: '#F59E0B',
-  low: '#94A3B8',
+  high: '#5BB8E6',
+  medium: '#5BB8E6',
+  low: '#5BB8E6',
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  feeding: '#22C55E',
-  ipm: '#F59E0B',
-  defoliation: '#8B5CF6',
-  training: '#3B82F6',
-  transplant: '#06B6D4',
-  flush: '#EC4899',
+  feeding: '#5BB8E6',
+  ipm: '#5BB8E6',
+  defoliation: '#5BB8E6',
+  training: '#5BB8E6',
+  transplant: '#5BB8E6',
+  flush: '#5BB8E6',
   'harvest-prep': '#EF4444',
-  environmental: '#F97316',
-  cleaning: '#94A3B8',
-  inspection: '#64748B',
+  environmental: '#5BB8E6',
+  cleaning: '#5BB8E6',
+  inspection: '#5BB8E6',
 };
 
 interface TaskCardProps {
@@ -29,7 +29,7 @@ interface TaskCardProps {
 
 export function TaskCard({ task }: TaskCardProps) {
   const priorityColor = PRIORITY_COLORS[task.priority];
-  const categoryColor = CATEGORY_COLORS[task.category] || '#94A3B8';
+  const categoryColor = CATEGORY_COLORS[task.category] || '#5BB8E6';
 
   return (
     <div className="rounded-lg border border-default bg-card p-3 transition-shadow hover:shadow-md">

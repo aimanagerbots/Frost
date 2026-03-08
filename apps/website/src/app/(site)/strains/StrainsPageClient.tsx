@@ -57,17 +57,12 @@ export function StrainsPageClient({ strains }: StrainsPageClientProps) {
 
       {/* Grid */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {filtered.map((s) => (
             <StrainCard
               key={s.id}
               name={s.name}
               slug={s.slug}
-              type={s.type as "indica" | "sativa" | "hybrid" | "cbd"}
-              lineage={s.lineage}
-              thcRange={s.thcRange}
-              terpeneProfile={s.terpeneProfile}
-              description={s.description}
               imageUrl={s.imageUrl}
             />
           ))}

@@ -59,7 +59,7 @@ export function ConversationSidebar({
       <div className="flex items-center justify-between border-b border-default px-3 py-3">
         <button
           onClick={onNewConversation}
-          className="flex items-center gap-2 rounded-lg bg-[#F59E0B] px-3 py-1.5 text-xs font-medium text-black hover:bg-[#F59E0B]/90 transition-colors"
+          className="flex items-center gap-2 rounded-lg bg-[#5BB8E6] px-3 py-1.5 text-xs font-medium text-black hover:opacity-90 transition-colors"
         >
           <Plus className="h-3.5 w-3.5" />
           New Chat
@@ -85,7 +85,7 @@ export function ConversationSidebar({
                 onClick={() => onSelectConversation(conv.id)}
                 className={`flex w-full items-start gap-2 rounded-lg px-2.5 py-2 text-left text-xs transition-colors ${
                   activeConversationId === conv.id
-                    ? 'bg-[#F59E0B]/10 text-[#F59E0B]'
+                    ? 'bg-[#5BB8E6]/10 text-[#5BB8E6]'
                     : 'text-text-muted hover:bg-card hover:text-text-default'
                 }`}
               >

@@ -48,14 +48,22 @@ Memory #8B5CF6, Insights #06B6D4, Projects #7C3AED, Products #DB2777,
 Meetings #2563EB, Docs #64748B, Team #0D9488, Finance #059669,
 Reports #475569, Settings #94A3B8, System #64748B
 
+## Local Development (MANDATORY)
+- ALWAYS preview frontend changes locally before pushing — never push blind
+- Dev server: `npm run dev` starts all apps (website on port 3001, app on port 3000)
+- Hot reload is active — code changes appear in the browser instantly
+- Work iteratively: make changes, user reviews in browser at localhost, repeat
+- Do NOT push to git until the user approves the local preview
+- After a significant chunk of work, ask the user if they'd like to push
+
 ## Git and Deployment
+- Only push when the user explicitly requests it — aim for ~1 push per day, batch all changes into a single commit
+- Work iteratively in local dev, accumulate changes, then push once at the end of the session
 - git add -A before every commit to capture ALL files (new, modified, deleted)
-- Commit after every completed phase or meaningful chunk of work
 - Use conventional commits: feat:, fix:, chore:, style:, refactor:
 - Push to main ONLY: git push origin main (single branch, no dual-push)
 - Vercel production branch: main (all 3 projects)
 - DO NOT push to claude/research-claude-md-jau3A — that branch is retired
-- Batch work before pushing: commit often locally, push once per logical chunk
 - Vercel free tier = 100 deploys/day across ALL projects. Each push triggers 3 deploys (app + website + portal). Budget ~30 pushes/day max.
 - Domain: frost-orcin.vercel.app (app), frost-website.vercel.com (website)
 - Always verify with git status before committing to make sure nothing is left behind
@@ -88,6 +96,10 @@ Reports #475569, Settings #94A3B8, System #64748B
 - ALWAYS invoke the `frontend-design` skill before designing or building any frontend file — no exceptions.
 - This includes: components, pages, layouts, modals, forms, dashboards, and any file that renders UI.
 - Do NOT write frontend code without invoking the skill first.
+
+## Website Password
+- Password gate: `frost2026` (test site only)
+- After password, there's also an age gate ("Yes, I'm 21+")
 
 ## Do NOT
 - Install dependencies without stating why

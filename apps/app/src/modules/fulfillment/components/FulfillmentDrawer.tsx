@@ -4,8 +4,8 @@ import { useState, useMemo } from 'react';
 import { CheckSquare, Square, FileText } from 'lucide-react';
 import { DrawerPanel, StatusBadge } from '@/components';
 import type { FulfillmentOrder, FulfillmentStatus } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#14B8A6';
 
 const statusVariant = (s: FulfillmentStatus) => {
   const map: Record<FulfillmentStatus, 'default' | 'info' | 'success' | 'warning' | 'muted'> = {
@@ -157,7 +157,7 @@ export function FulfillmentDrawer({ order, open, onClose }: FulfillmentDrawerPro
                   return (
                     <tr
                       key={item.sku}
-                      className="border-t border-default hover:bg-card-hover cursor-pointer transition-colors"
+                      className="border-t border-default hover:bg-accent-hover cursor-pointer transition-colors"
                       onClick={() => togglePick(item.sku)}
                     >
                       <td className="px-3 py-2">

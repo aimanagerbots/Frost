@@ -11,7 +11,9 @@ export default function SiteLayout({
     <>
       <AgeGateModal />
       <Header />
-      {children}
+      <main style={{ paddingTop: 56 }}>
+        {children}
+      </main>
       <Footer />
     </>
   );

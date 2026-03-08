@@ -8,8 +8,8 @@ import { useSegments } from '@/modules/crm/hooks/copilot-territory-hooks';
 import { getSegmentPreview } from '@/mocks/crm-segments';
 import { SegmentCard } from './segments/SegmentCard';
 import { SegmentBuilder } from './segments/SegmentBuilder';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 function healthVariant(score: number): 'success' | 'info' | 'warning' | 'danger' {
   if (score >= 80) return 'success';
@@ -111,7 +111,7 @@ export function Segments() {
         </div>
         <button
           onClick={() => setBuilderOpen(true)}
-          className="flex items-center gap-2 rounded-lg bg-[#F59E0B] px-4 py-2 text-sm font-medium text-black hover:bg-[#F59E0B]/90 transition-colors"
+          className="flex items-center gap-2 rounded-lg bg-[#5BB8E6] px-4 py-2 text-sm font-medium text-black hover:opacity-90 transition-colors"
         >
           <Plus className="h-4 w-4" />
           Create Segment
@@ -174,7 +174,7 @@ export function Segments() {
             {selectedSegment.criteria.map((c, i) => (
               <span
                 key={i}
-                className="rounded-full bg-[#F59E0B]/10 px-2.5 py-1 text-[11px] text-[#F59E0B]"
+                className="rounded-full bg-[#5BB8E6]/10 px-2.5 py-1 text-[11px] text-[#5BB8E6]"
               >
                 {c.label}
               </span>

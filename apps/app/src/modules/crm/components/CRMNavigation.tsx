@@ -27,6 +27,7 @@ import {
 import type { LucideIcon } from 'lucide-react';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
 const ICON_MAP: Record<string, LucideIcon> = {
   LayoutDashboard,
@@ -48,7 +49,6 @@ const ICON_MAP: Record<string, LucideIcon> = {
   BookMarked,
 };
 
-const CRM_ACCENT = '#F59E0B';
 
 export function CRMNavigation() {
   const {
@@ -187,7 +187,7 @@ export function CRMNavigation() {
                           'flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm transition-colors',
                           isActiveSub
                             ? 'text-text-bright'
-                            : 'text-text-muted hover:bg-card-hover hover:text-text-default'
+                            : 'text-text-muted hover:bg-accent-hover hover:text-text-default'
                         )}
                         style={
                           isActiveSub

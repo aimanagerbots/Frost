@@ -2,8 +2,8 @@
 
 import { cn } from '@/lib/utils';
 import type { GrowRoom, EnvironmentStatus } from '../../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#22C55E';
 
 const STATUS_DOT: Record<EnvironmentStatus, string> = {
   optimal: 'bg-success',
@@ -38,7 +38,7 @@ export function RoomSelectorStrip({ rooms, selectedRoomId, onSelectRoom }: RoomS
         className={cn(
           'flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all',
           selectedRoomId === null
-            ? 'border-[#22C55E]/50 bg-[#22C55E]/10 text-[#22C55E]'
+            ? 'border-[#5BB8E6]/50 bg-[#5BB8E6]/10 text-[#5BB8E6]'
             : 'border-default bg-card text-text-muted hover:text-text-default hover:border-default/80',
         )}
       >
@@ -58,7 +58,7 @@ export function RoomSelectorStrip({ rooms, selectedRoomId, onSelectRoom }: RoomS
             className={cn(
               'flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all',
               isActive
-                ? 'border-[#22C55E]/50 bg-[#22C55E]/10 text-text-bright'
+                ? 'border-[#5BB8E6]/50 bg-[#5BB8E6]/10 text-text-bright'
                 : 'border-default bg-card text-text-muted hover:text-text-default hover:border-default/80',
             )}
           >

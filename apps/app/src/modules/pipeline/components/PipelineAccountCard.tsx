@@ -23,7 +23,7 @@ export function PipelineAccountCard({ id, name, healthScore, thirtyDayRevenue }:
   return (
     <button
       onClick={() => router.push(`/crm?account=${id}`)}
-      className="flex w-full items-center gap-2 rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-left transition-colors hover:bg-elevated/80"
+      className="flex w-full items-center gap-2 rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-left transition-colors hover:bg-accent-hover/80"
     >
       <span className={cn('h-2 w-2 shrink-0 rounded-full', healthColor(healthScore))} />
       <span className="min-w-0 flex-1 truncate text-text-default">{name}</span>

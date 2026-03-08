@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { getStrainBySlug } from "@/mocks/strains";
 import { getProductsByStrain } from "@/mocks/products";
@@ -42,6 +43,24 @@ export default async function StrainDetailPage({
           <li className="text-text-default">{strain.name}</li>
         </ol>
       </nav>
+
+      {/* Strain Art */}
+      {strain.imageUrl && (
+        <ScrollReveal className="px-6 pb-12">
+          <div className="max-w-md mx-auto">
+            <div className="relative aspect-square rounded-xl overflow-hidden">
+              <Image
+                src={strain.imageUrl}
+                alt={strain.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 90vw, 448px"
+                priority
+              />
+            </div>
+          </div>
+        </ScrollReveal>
+      )}
 
       {/* Hero */}
       <ScrollReveal className="px-6 pb-16">

@@ -24,8 +24,8 @@ import {
 } from 'recharts';
 import { useVMISellThrough, useVMIMarketShare } from '../hooks';
 import type { VMISellThrough } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EF4444';
 
 interface VMIAccountDetailProps {
   accountId: string;
@@ -166,7 +166,7 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
         </div>
         <button
           onClick={onClose}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
           aria-label="Close detail"
         >
           <X className="h-5 w-5" />

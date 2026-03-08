@@ -4,13 +4,13 @@ import { Star, Paperclip, Users } from 'lucide-react';
 import type { Email } from '@/modules/email/types';
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'order-inquiry': '#F59E0B',
-  payment: '#059669',
+  'order-inquiry': '#5BB8E6',
+  payment: '#5BB8E6',
   complaint: '#FB7185',
-  general: '#64748B',
-  marketing: '#EC4899',
-  internal: '#3B82F6',
-  vendor: '#8B5CF6',
+  general: '#5BB8E6',
+  marketing: '#5BB8E6',
+  internal: '#5BB8E6',
+  vendor: '#5BB8E6',
 };
 
 interface EmailListProps {
@@ -40,7 +40,7 @@ export function EmailList({ emails, selectedId, searchQuery, onSelect, onSearchC
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search emails..."
-          className="w-full rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs text-text-default placeholder:text-text-muted/50 outline-none focus:border-[#3B82F6]/40"
+          className="w-full rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs text-text-default placeholder:text-text-muted/50 outline-none focus:border-[#5BB8E6]/40"
         />
       </div>
 
@@ -49,20 +49,20 @@ export function EmailList({ emails, selectedId, searchQuery, onSelect, onSearchC
         {filtered.map((email) => {
           const initials = email.from.name.split(' ').map((w) => w[0]).join('').slice(0, 2);
           const isSelected = email.id === selectedId;
-          const catColor = CATEGORY_COLORS[email.aiCategory] ?? '#64748B';
+          const catColor = CATEGORY_COLORS[email.aiCategory] ?? '#5BB8E6';
 
           return (
             <button
               key={email.id}
               onClick={() => onSelect(email)}
               className={`flex w-full gap-3 border-b border-default px-3 py-2.5 text-left transition-colors ${
-                isSelected ? 'bg-elevated' : 'hover:bg-elevated/50'
+                isSelected ? 'bg-elevated' : 'hover:bg-accent-hover/50'
               }`}
             >
               {/* Unread indicator */}
               <div className="flex flex-col items-center gap-1 pt-1">
                 <div
-                  className={`h-2 w-2 rounded-full ${email.read ? 'bg-transparent' : 'bg-[#3B82F6]'}`}
+                  className={`h-2 w-2 rounded-full ${email.read ? 'bg-transparent' : 'bg-[#5BB8E6]'}`}
                 />
               </div>
 
@@ -70,8 +70,8 @@ export function EmailList({ emails, selectedId, searchQuery, onSelect, onSearchC
               <div
                 className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[10px] font-bold mt-0.5"
                 style={{
-                  backgroundColor: email.crmLinked ? '#F59E0B20' : '#3B82F620',
-                  color: email.crmLinked ? '#F59E0B' : '#3B82F6',
+                  backgroundColor: email.crmLinked ? '#5BB8E620' : '#5BB8E620',
+                  color: email.crmLinked ? '#5BB8E6' : '#5BB8E6',
                 }}
               >
                 {initials}
@@ -101,10 +101,10 @@ export function EmailList({ emails, selectedId, searchQuery, onSelect, onSearchC
                     {email.aiCategory.replace('-', ' ')}
                   </span>
                   {email.crmLinked && (
-                    <Users size={10} className="text-[#F59E0B]" />
+                    <Users size={10} className="text-[#5BB8E6]" />
                   )}
                   {email.starred && (
-                    <Star size={10} className="text-[#FBBF24] fill-[#FBBF24]" />
+                    <Star size={10} className="text-[#5BB8E6] fill-[#5BB8E6]" />
                   )}
                   {email.hasAttachment && (
                     <Paperclip size={10} className="text-text-muted" />

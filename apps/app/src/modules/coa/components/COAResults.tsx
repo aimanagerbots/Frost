@@ -4,12 +4,12 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Cell } from 
 import { ChartWrapper, StatusBadge } from '@/components';
 import { CHART_THEME } from '@/components';
 import type { COAResults } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#9333EA';
 
 const TERPENE_COLORS = [
-  '#9333EA', '#A855F7', '#C084FC', '#D8B4FE', '#7C3AED',
-  '#6D28D9', '#5B21B6', '#8B5CF6',
+  '#5BB8E6', '#A855F7', '#C084FC', '#D8B4FE', '#5BB8E6',
+  '#6D28D9', '#5B21B6', '#5BB8E6',
 ];
 
 interface COAResultsDisplayProps {
@@ -19,8 +19,8 @@ interface COAResultsDisplayProps {
 
 export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisplayProps) {
   const cannabinoids = [
-    { label: 'THC', value: results.thcPercent, color: '#22C55E' },
-    { label: 'CBD', value: results.cbdPercent, color: '#3B82F6' },
+    { label: 'THC', value: results.thcPercent, color: '#5BB8E6' },
+    { label: 'CBD', value: results.cbdPercent, color: '#5BB8E6' },
     { label: 'Total', value: results.totalCannabinoids, color: ACCENT },
   ];
 

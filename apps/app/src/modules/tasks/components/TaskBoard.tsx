@@ -11,9 +11,9 @@ interface TaskBoardProps {
 }
 
 const COLUMNS: { id: TaskStatus; title: string; color: string }[] = [
-  { id: 'todo', title: 'To Do', color: '#3B82F6' },
-  { id: 'in-progress', title: 'In Progress', color: '#F59E0B' },
-  { id: 'done', title: 'Done', color: '#22C55E' },
+  { id: 'todo', title: 'To Do', color: '#5BB8E6' },
+  { id: 'in-progress', title: 'In Progress', color: '#5BB8E6' },
+  { id: 'done', title: 'Done', color: '#5BB8E6' },
   { id: 'blocked', title: 'Blocked', color: '#EF4444' },
 ];
 

@@ -10,11 +10,11 @@ import {
 } from 'lucide-react';
 
 const TYPE_COLORS: Record<StrainType, string> = {
-  indica: '#8B5CF6',
-  sativa: '#F97316',
-  hybrid: '#22C55E',
-  cbd: '#3B82F6',
-  balanced: '#06B6D4',
+  indica: '#5BB8E6',
+  sativa: '#5BB8E6',
+  hybrid: '#5BB8E6',
+  cbd: '#5BB8E6',
+  balanced: '#5BB8E6',
 };
 
 const MOTHER_VARIANT: Record<MotherPlantStatus, 'success' | 'warning' | 'muted'> = {
@@ -24,14 +24,14 @@ const MOTHER_VARIANT: Record<MotherPlantStatus, 'success' | 'warning' | 'muted'>
 };
 
 const DIFFICULTY_COLORS: Record<StrainDifficulty, string> = {
-  easy: '#22C55E',
-  moderate: '#F59E0B',
+  easy: '#5BB8E6',
+  moderate: '#5BB8E6',
   advanced: '#EF4444',
 };
 
 const TERPENE_COLORS = [
-  '#22C55E', '#F59E0B', '#3B82F6', '#8B5CF6', '#EF4444',
-  '#06B6D4', '#EC4899', '#F97316', '#14B8A6', '#6366F1',
+  '#5BB8E6', '#5BB8E6', '#5BB8E6', '#5BB8E6', '#EF4444',
+  '#5BB8E6', '#5BB8E6', '#5BB8E6', '#5BB8E6', '#5BB8E6',
 ];
 
 interface StrainDrawerProps {
@@ -67,7 +67,7 @@ function NotesBlock({ title, text }: { title: string; text: string | undefined }
 export function StrainDrawer({ strain, open, onClose, activeRooms }: StrainDrawerProps) {
   if (!strain) return null;
 
-  const cloneColor = strain.cloneAvailability > 5 ? '#22C55E' : strain.cloneAvailability > 0 ? '#F59E0B' : '#EF4444';
+  const cloneColor = strain.cloneAvailability > 5 ? '#5BB8E6' : strain.cloneAvailability > 0 ? '#5BB8E6' : '#EF4444';
 
   return (
     <DrawerPanel

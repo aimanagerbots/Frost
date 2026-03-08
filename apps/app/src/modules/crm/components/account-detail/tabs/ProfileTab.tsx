@@ -162,7 +162,7 @@ export function ProfileTab({ account }: ProfileTabProps) {
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-text-bright">{contact.name}</span>
-                    {contact.isPrimary && <Star className="h-3.5 w-3.5 text-[#F59E0B]" />}
+                    {contact.isPrimary && <Star className="h-3.5 w-3.5 text-[#5BB8E6]" />}
                   </div>
                   <StatusBadge variant={roleVariant(contact.role)} label={contact.role} size="sm" />
                   <div className="mt-1.5 space-y-0.5 text-xs text-text-muted">

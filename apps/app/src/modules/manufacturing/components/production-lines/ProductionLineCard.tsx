@@ -1,9 +1,16 @@
 'use client';
 
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 import type { ProductionLine } from '../../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#10B981';
+const STATUS_ACCENT: Record<string, string> = {
+  running: '#00E5A0',
+  idle: '#FBBF24',
+  maintenance: '#FB7185',
+  down: '#FB7185',
+};
+
 
 const STATUS_VARIANT: Record<string, 'success' | 'warning' | 'danger' | 'default'> = {
   running: 'success',
@@ -18,13 +25,13 @@ export function ProductionLineCard({ line }: { line: ProductionLine }) {
     : 0;
 
   function throughputColor(pct: number) {
-    if (pct >= 80) return '#22C55E';
-    if (pct >= 50) return '#FBBF24';
+    if (pct >= 80) return '#5BB8E6';
+    if (pct >= 50) return '#5BB8E6';
     return '#EF4444';
   }
 
   return (
-    <div className="rounded-xl border border-default bg-card p-5 space-y-3">
+    <AccentCard accentColor={STATUS_ACCENT[line.status] ?? '#64748B'} className="p-5 space-y-3">
       {/* Header */}
       <div className="flex items-start justify-between">
         <h3 className="text-sm font-semibold text-text-bright">{line.name}</h3>
@@ -98,6 +105,6 @@ export function ProductionLineCard({ line }: { line: ProductionLine }) {
           </div>
         ))}
       </div>
-    </div>
+    </AccentCard>
   );
 }

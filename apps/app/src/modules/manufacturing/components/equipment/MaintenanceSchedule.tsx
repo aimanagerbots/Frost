@@ -8,8 +8,8 @@ function maintenanceColor(nextDue: string): string {
   const due = new Date(nextDue);
   const daysUntil = Math.ceil((due.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
   if (daysUntil < 0) return '#EF4444';
-  if (daysUntil <= 7) return '#FBBF24';
-  return '#22C55E';
+  if (daysUntil <= 7) return '#5BB8E6';
+  return '#5BB8E6';
 }
 
 export function MaintenanceSchedule({ equipment }: { equipment: Equipment[] }) {

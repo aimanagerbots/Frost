@@ -41,7 +41,7 @@ export function FilesTab({ accountId }: FilesTabProps) {
   return (
     <div className="space-y-4">
       <div className="flex justify-end">
-        <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-sm text-text-muted transition-colors hover:bg-elevated hover:text-text-default">
+        <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-sm text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default">
           <Upload className="h-4 w-4" />
           Upload File
         </button>

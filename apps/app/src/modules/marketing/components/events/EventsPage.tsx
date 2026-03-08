@@ -10,7 +10,9 @@ import {
   LoadingSkeleton,
   ErrorState,
   EmptyState,
+  ModuleTabs,
 } from '@/components';
+import type { TabItem } from '@/components';
 import { PartyPopper, MapPin, Calendar as CalendarIcon, DollarSign } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { useEvents, useEventMetrics } from '../../hooks/seo-events-hooks';
@@ -18,15 +20,15 @@ import type { Event } from '../../types/seo-events';
 import { EventDrawer } from './EventDrawer';
 import { EventCalendar } from './EventCalendar';
 import { VendorDayStats } from './VendorDayStats';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 type Tab = 'calendar' | 'events-list' | 'roi';
 
-const TABS: { key: Tab; label: string }[] = [
-  { key: 'calendar', label: 'Calendar' },
-  { key: 'events-list', label: 'Events List' },
-  { key: 'roi', label: 'ROI' },
+const TABS: TabItem[] = [
+  { id: 'calendar', label: 'Calendar' },
+  { id: 'events-list', label: 'Events List' },
+  { id: 'roi', label: 'ROI' },
 ];
 
 const TYPE_LABELS: Record<string, string> = {
@@ -39,12 +41,12 @@ const TYPE_LABELS: Record<string, string> = {
 };
 
 const TYPE_COLORS: Record<string, string> = {
-  'vendor-day': '#EC4899',
-  'trade-show': '#8B5CF6',
-  'pop-up': '#F59E0B',
-  'webinar': '#06B6D4',
+  'vendor-day': '#5BB8E6',
+  'trade-show': '#5BB8E6',
+  'pop-up': '#5BB8E6',
+  'webinar': '#5BB8E6',
   'industry-event': '#5BB8E6',
-  'internal': '#64748B',
+  'internal': '#5BB8E6',
 };
 
 const STATUS_VARIANTS: Record<string, 'success' | 'info' | 'warning' | 'danger' | 'muted'> = {
@@ -60,7 +62,7 @@ function EventCard({ event, onClick }: { event: Event; onClick: (id: string) => 
   const typeColor = TYPE_COLORS[event.type] ?? ACCENT;
   return (
     <div
-      className="group cursor-pointer rounded-xl border border-default bg-card p-4 transition-all hover:bg-card-hover hover:-translate-y-0.5"
+      className="group cursor-pointer rounded-xl border border-default bg-card p-4 transition-all hover:bg-accent-hover hover:-translate-y-0.5"
       role="button"
       tabIndex={0}
       onClick={() => onClick(event.id)}
@@ -142,22 +144,7 @@ export function EventsPage() {
         </div>
       )}
 
-      {/* Tab Bar */}
-      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
-        {TABS.map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => setActiveTab(tab.key)}
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-              activeTab === tab.key
-                ? 'bg-elevated text-text-bright'
-                : 'text-text-muted hover:text-text-bright hover:bg-elevated/50'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+      <ModuleTabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab as (id: string) => void} accentColor={ACCENT} />
 
       {/* Calendar Tab */}
       {activeTab === 'calendar' && (

@@ -94,7 +94,7 @@ export function TrainingStats({ monthlyStats, stats }: TrainingStatsProps) {
             />
             <Bar
               dataKey="value"
-              fill="#10B981"
+              fill="#5BB8E6"
               radius={[3, 3, 0, 0]}
             />
           </BarChart>

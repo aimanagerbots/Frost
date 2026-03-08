@@ -1,4 +1,4 @@
-export type SettingsTab = 'company' | 'integrations' | 'communications' | 'notifications' | 'api-keys';
+export type SettingsTab = 'company' | 'integrations' | 'communications' | 'notifications' | 'api-keys' | 'appearance';
 export type IntegrationStatus = 'connected' | 'configured' | 'pending' | 'disconnected';
 
 export interface Integration {

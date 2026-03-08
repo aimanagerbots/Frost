@@ -1,8 +1,14 @@
 'use client';
 
 import { User, Phone, Truck } from 'lucide-react';
-import { StatusBadge, LoadingSkeleton } from '@/components';
+import { AccentCard, StatusBadge, LoadingSkeleton } from '@/components';
 import type { DeliveryDriver, DriverStatus } from '../types';
+
+const STATUS_ACCENT: Record<DriverStatus, string> = {
+  'on-route': '#00E5A0',
+  available: '#5BB8E6',
+  'off-duty': '#64748B',
+};
 
 const statusVariant = (s: DriverStatus) => {
   const map: Record<DriverStatus, 'success' | 'info' | 'muted'> = {
@@ -26,7 +32,7 @@ export function DriverCards({ drivers, loading }: DriverCardsProps) {
       <h3 className="text-sm font-medium text-text-muted">Drivers</h3>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
         {drivers.map((driver) => (
-          <div key={driver.id} className="rounded-xl border border-default bg-card p-4">
+          <AccentCard key={driver.id} accentColor={STATUS_ACCENT[driver.status]} className="p-4">
             <div className="flex items-start justify-between mb-3">
               <div className="flex items-center gap-3">
                 <div
@@ -66,7 +72,7 @@ export function DriverCards({ drivers, loading }: DriverCardsProps) {
               <Truck className="h-3 w-3" />
               {driver.vehicleName}
             </div>
-          </div>
+          </AccentCard>
         ))}
       </div>
     </div>

@@ -36,7 +36,7 @@ export function BillDrawer({ bill, onClose }: BillDrawerProps) {
         </div>
 
         {bill.status !== 'paid' && (
-          <button className="w-full px-4 py-2 rounded-lg bg-[#059669]/20 hover:bg-[#059669]/30 text-[#059669] text-sm font-medium transition-colors">
+          <button className="w-full px-4 py-2 rounded-lg bg-[#5BB8E6]/20 hover:bg-accent-hover-strong text-[#5BB8E6] text-sm font-medium transition-colors">
             Mark as Paid
           </button>
         )}

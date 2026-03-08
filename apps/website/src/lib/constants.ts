@@ -213,9 +213,9 @@ export const MEGA_MENU: MegaMenuItem[] = [
   },
   {
     type: "category",
-    label: "Beverages",
+    label: "Drinks",
     category: {
-      label: "Beverages",
+      label: "Drinks",
       slug: "beverage",
       brand: "Northern Lights Co.",
       formats: [
@@ -229,7 +229,7 @@ export const MEGA_MENU: MegaMenuItem[] = [
   },
   {
     type: "dropdown",
-    label: "Strains",
+    label: "Strain Library",
     columns: [
       {
         heading: "By Type",
@@ -262,8 +262,8 @@ export const MEGA_MENU: MegaMenuItem[] = [
   },
   {
     type: "link",
-    label: "Find Near You",
-    href: "/find",
+    label: "Blog",
+    href: "/blog",
   },
   {
     type: "dropdown",
@@ -272,18 +272,18 @@ export const MEGA_MENU: MegaMenuItem[] = [
       {
         heading: "Resources",
         links: [
-          { label: "Blog / Journal", href: "/blog" },
           { label: "FAQ", href: "/faq" },
           { label: "Newsletter Signup", href: "/newsletter" },
           { label: "Contact Us", href: "/contact" },
+          { label: "Wholesale", href: "/wholesale" },
         ],
       },
     ],
   },
   {
     type: "cta",
-    label: "Wholesale",
-    href: "/wholesale",
+    label: "Find Near You",
+    href: "/find",
   },
 ];
 

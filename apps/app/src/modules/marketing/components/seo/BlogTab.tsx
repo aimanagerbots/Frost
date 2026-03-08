@@ -3,8 +3,8 @@
 import { DataTable, StatusBadge, LoadingSkeleton, EmptyState } from '@/components';
 import { FileText } from 'lucide-react';
 import type { BlogPost, BlogPostStatus } from '../../types/seo-events';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 const STATUS_VARIANTS: Record<BlogPostStatus, 'muted' | 'info' | 'warning' | 'success'> = {
   idea: 'muted',
@@ -62,7 +62,7 @@ const columns = [
     accessor: 'seoScore' as const,
     sortable: true,
     render: (row: BlogPost) => {
-      const color = row.seoScore >= 80 ? '#00E5A0' : row.seoScore >= 50 ? '#FBBF24' : '#FB7185';
+      const color = row.seoScore >= 80 ? '#00E5A0' : row.seoScore >= 50 ? '#5BB8E6' : '#FB7185';
       return (
         <span className="text-sm font-semibold" style={{ color }}>
           {row.seoScore}

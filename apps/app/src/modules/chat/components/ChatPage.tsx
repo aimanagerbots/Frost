@@ -8,8 +8,8 @@ import { matchConversation, getChatFallbackResponse } from '@/mocks/chat';
 import { ChatMessage } from './ChatMessage';
 import { ChatSidebar } from './ChatSidebar';
 import type { ChatMessage as ChatMessageType } from '@/modules/chat/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#06B6D4';
 
 function TypingIndicator() {
   return (
@@ -162,7 +162,7 @@ export function ChatPage() {
                   <button
                     key={s.id}
                     onClick={() => handleSuggestionClick(s.text)}
-                    className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#06B6D4]/30 hover:text-text-default transition-colors"
+                    className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#5BB8E6]/30 hover:text-text-default transition-colors"
                   >
                     {s.text}
                   </button>
@@ -185,7 +185,7 @@ export function ChatPage() {
 
         {/* Input */}
         <div className="border-t border-default p-4">
-          <div className="flex items-end gap-3 rounded-xl border border-default bg-base px-4 py-3 focus-within:border-[#06B6D4]/40 transition-colors">
+          <div className="flex items-end gap-3 rounded-xl border border-default bg-base px-4 py-3 focus-within:border-[#5BB8E6]/40 transition-colors">
             <textarea
               ref={textareaRef}
               value={inputValue}

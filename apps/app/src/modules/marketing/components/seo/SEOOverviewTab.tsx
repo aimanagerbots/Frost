@@ -3,8 +3,8 @@
 import { MetricCard, ChartWrapper, CHART_THEME, LoadingSkeleton } from '@/components';
 import { XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Area, AreaChart, BarChart, Bar } from 'recharts';
 import type { SEOMetrics, BlogPost, OrganicTrendPoint } from '../../types/seo-events';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 interface SEOOverviewTabProps {
   metrics: SEOMetrics;

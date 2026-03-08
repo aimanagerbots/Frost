@@ -2,8 +2,8 @@
 
 import { DrawerPanel, StatusBadge } from '@/components';
 import type { Invoice } from '@/modules/finance/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#059669';
 
 const statusVariant = (s: string) => {
   switch (s) {
@@ -73,7 +73,7 @@ export function ARDrawer({ invoice, onClose }: ARDrawerProps) {
             <p className="text-xs font-medium text-muted mb-2">Payment Progress</p>
             <div className="w-full h-3 bg-elevated rounded-full overflow-hidden">
               <div
-                className="h-full rounded-full bg-[#059669] transition-all"
+                className="h-full rounded-full bg-[#5BB8E6] transition-all"
                 style={{ width: `${progressPct}%` }}
               />
             </div>
@@ -103,7 +103,7 @@ export function ARDrawer({ invoice, onClose }: ARDrawerProps) {
                   i <= invoice.dunningStage
                     ? i >= 3
                       ? 'bg-red-500/20 text-red-400'
-                      : 'bg-[#059669]/20 text-[#059669]'
+                      : 'bg-[#5BB8E6]/20 text-[#5BB8E6]'
                     : 'bg-elevated text-muted'
                 }`}
               >
@@ -118,10 +118,10 @@ export function ARDrawer({ invoice, onClose }: ARDrawerProps) {
 
         {/* Actions */}
         <div className="flex gap-2">
-          <button className="flex-1 px-4 py-2 rounded-lg bg-[#059669]/20 hover:bg-[#059669]/30 text-[#059669] text-sm font-medium transition-colors">
+          <button className="flex-1 px-4 py-2 rounded-lg bg-[#5BB8E6]/20 hover:bg-accent-hover-strong text-[#5BB8E6] text-sm font-medium transition-colors">
             Record Payment
           </button>
-          <button className="flex-1 px-4 py-2 rounded-lg bg-elevated hover:bg-card-hover text-default text-sm font-medium transition-colors">
+          <button className="flex-1 px-4 py-2 rounded-lg bg-elevated hover:bg-accent-hover text-default text-sm font-medium transition-colors">
             Send Reminder
           </button>
         </div>

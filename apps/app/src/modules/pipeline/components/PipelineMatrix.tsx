@@ -11,8 +11,8 @@ interface PipelineMatrixProps {
 }
 
 const STATUS_CONFIG: Record<PipelineStatus, { label: string; borderColor: string; bgColor: string }> = {
-  active: { label: 'Active', borderColor: '#22C55E', bgColor: 'rgba(34, 197, 94, 0.08)' },
-  inactive: { label: 'Inactive', borderColor: '#3B82F6', bgColor: 'rgba(59, 130, 246, 0.08)' },
+  active: { label: 'Active', borderColor: '#5BB8E6', bgColor: 'rgba(34, 197, 94, 0.08)' },
+  inactive: { label: 'Inactive', borderColor: '#5BB8E6', bgColor: 'rgba(59, 130, 246, 0.08)' },
   recovery: { label: 'Recovery', borderColor: '#EF4444', bgColor: 'rgba(239, 68, 68, 0.08)' },
 };
 

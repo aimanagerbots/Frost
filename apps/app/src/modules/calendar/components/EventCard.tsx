@@ -1,8 +1,7 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { Clock } from 'lucide-react';
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 import type { CalendarEvent, EventType } from '../types';
 
 const TYPE_VARIANT: Record<EventType, 'info' | 'success' | 'warning' | 'danger' | 'muted'> = {
@@ -34,7 +33,7 @@ export function EventCard({ event, compact = false, onClick }: EventCardProps) {
       <button
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        className="flex w-full items-center gap-1.5 rounded px-1 py-0.5 text-left text-[11px] leading-tight text-text-default transition-colors hover:bg-elevated"
+        className="flex w-full items-center gap-1.5 rounded px-1 py-0.5 text-left text-[11px] leading-tight text-text-default transition-colors hover:bg-accent-hover"
       >
         <span
           className="h-1.5 w-1.5 shrink-0 rounded-full"
@@ -46,17 +45,9 @@ export function EventCard({ event, compact = false, onClick }: EventCardProps) {
   }
 
   return (
-    <button
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      className={cn(
-        'flex w-full flex-col gap-1 rounded-lg border border-default bg-card p-3 text-left transition-colors hover:bg-elevated',
-        'border-l-2'
-      )}
-      style={{ borderLeftColor: event.color }}
-    >
+    <AccentCard accentColor={event.color} onClick={handleClick} className="p-3">
       <span className="text-sm font-medium text-text-bright">{event.title}</span>
-      <div className="flex items-center gap-2">
+      <div className="mt-1 flex items-center gap-2">
         {event.startTime && (
           <span className="flex items-center gap-1 text-xs text-text-muted">
             <Clock className="h-3 w-3" />
@@ -70,6 +61,6 @@ export function EventCard({ event, compact = false, onClick }: EventCardProps) {
           size="sm"
         />
       </div>
-    </button>
+    </AccentCard>
   );
 }

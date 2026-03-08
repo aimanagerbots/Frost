@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { X, ChevronDown, ArrowRight } from 'lucide-react';
 import { cn } from '@frost/ui';
 import { MEGA_MENU, STRAIN_TYPES } from '@/lib/constants';
@@ -67,12 +68,19 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-label="Mobile navigation"
       >
         {/* Close */}
-        <div className="flex items-center justify-between px-6 py-4">
-          <span className="font-display text-2xl italic text-text-default">Frost</span>
+        <div className="relative flex items-center justify-center px-6 py-4">
+          <div className="relative h-8 w-8">
+            <Image
+              src="/FrostLogo_SnowflakeOnly.png"
+              alt="Frost"
+              fill
+              className="object-contain"
+            />
+          </div>
           <button
             type="button"
             onClick={onClose}
-            className="text-text-muted transition-colors hover:text-text-default"
+            className="absolute right-6 text-text-muted transition-colors hover:text-text-default"
             aria-label="Close menu"
           >
             <X className="h-6 w-6" />

@@ -3,8 +3,8 @@
 import { DrawerPanel } from '@/components';
 import type { BudgetScenario } from '@/modules/finance/types/budget-labor';
 import { TrendingUp, TrendingDown, Target } from 'lucide-react';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#059669';
 
 function formatCurrency(n: number): string {
   if (Math.abs(n) >= 1_000_000) return `$${(n / 1_000_000).toFixed(2)}M`;

@@ -24,8 +24,8 @@ import {
 } from '@/components';
 import { useKnowledgeBase, useCouncilSessions } from '../hooks';
 import type { KnowledgeEntry, CouncilSession } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#6366F1';
 
 const CATEGORY_TABS = [
   { key: 'all', label: 'All' },
@@ -56,11 +56,11 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const AGENT_COLORS: Record<string, string> = {
-  Sales: '#F59E0B',
-  Manufacturing: '#10B981',
+  Sales: '#5BB8E6',
+  Manufacturing: '#5BB8E6',
   Compliance: '#EF4444',
-  Analytics: '#06B6D4',
-  Cultivation: '#22C55E',
+  Analytics: '#5BB8E6',
+  Cultivation: '#5BB8E6',
 };
 
 function KnowledgeCard({
@@ -73,7 +73,7 @@ function KnowledgeCard({
   return (
     <button
       onClick={onClick}
-      className="w-full rounded-xl border border-default bg-card p-4 text-left transition-all duration-200 hover:bg-card-hover hover:-translate-y-0.5"
+      className="w-full rounded-xl border border-default bg-card p-4 text-left transition-all duration-200 hover:bg-accent-hover hover:-translate-y-0.5"
     >
       <div className="flex items-start justify-between gap-2">
         <h3 className="text-sm font-semibold text-text-bright line-clamp-2">
@@ -115,7 +115,7 @@ function SessionCard({
     <div className="rounded-xl border border-default bg-card transition-all duration-200">
       <button
         onClick={onToggle}
-        className="flex w-full items-start gap-3 p-4 text-left hover:bg-card-hover rounded-xl"
+        className="flex w-full items-start gap-3 p-4 text-left hover:bg-accent-hover rounded-xl"
       >
         <div className="mt-0.5 shrink-0">
           {isExpanded ? (
@@ -132,7 +132,7 @@ function SessionCard({
                 <span
                   key={agent.name}
                   className="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-card text-[10px] font-bold text-white"
-                  style={{ backgroundColor: AGENT_COLORS[agent.name] ?? '#6366F1' }}
+                  style={{ backgroundColor: AGENT_COLORS[agent.name] ?? '#5BB8E6' }}
                   title={agent.name}
                 >
                   {agent.name[0]}
@@ -159,13 +159,13 @@ function SessionCard({
               <div className="flex items-center gap-2 mb-2">
                 <span
                   className="inline-flex h-5 w-5 items-center justify-center rounded-full text-[9px] font-bold text-white"
-                  style={{ backgroundColor: AGENT_COLORS[agent.name] ?? '#6366F1' }}
+                  style={{ backgroundColor: AGENT_COLORS[agent.name] ?? '#5BB8E6' }}
                 >
                   {agent.name[0]}
                 </span>
                 <span
                   className="text-sm font-semibold"
-                  style={{ color: AGENT_COLORS[agent.name] ?? '#6366F1' }}
+                  style={{ color: AGENT_COLORS[agent.name] ?? '#5BB8E6' }}
                 >
                   {agent.name}
                 </span>
@@ -319,7 +319,7 @@ export function CouncilPage() {
             placeholder="Search knowledge base..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-lg border border-default bg-elevated py-2 pl-9 pr-3 text-sm text-text-default placeholder:text-text-muted focus:border-[#6366F1] focus:outline-none focus:ring-1 focus:ring-[#6366F1]"
+            className="w-full rounded-lg border border-default bg-elevated py-2 pl-9 pr-3 text-sm text-text-default placeholder:text-text-muted focus:border-[#5BB8E6] focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
           />
         </div>
 
@@ -361,7 +361,7 @@ export function CouncilPage() {
               onKeyDown={(e) => {
                 if (e.key === 'Enter') handleAskCouncil();
               }}
-              className="w-full rounded-lg border border-default bg-elevated py-2.5 pl-4 pr-3 text-sm text-text-default placeholder:text-text-muted focus:border-[#6366F1] focus:outline-none focus:ring-1 focus:ring-[#6366F1]"
+              className="w-full rounded-lg border border-default bg-elevated py-2.5 pl-4 pr-3 text-sm text-text-default placeholder:text-text-muted focus:border-[#5BB8E6] focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
             />
           </div>
           <button

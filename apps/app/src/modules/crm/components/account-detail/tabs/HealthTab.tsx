@@ -22,7 +22,7 @@ interface HealthTabProps {
 function scoreColor(score: number): string {
   if (score >= 80) return '#00E5A0';
   if (score >= 60) return '#38BDF8';
-  if (score >= 40) return '#FBBF24';
+  if (score >= 40) return '#5BB8E6';
   return '#FB7185';
 }
 

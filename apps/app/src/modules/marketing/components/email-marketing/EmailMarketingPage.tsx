@@ -9,21 +9,23 @@ import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContai
 import {
   SectionHeader, MetricCard, DataTable, StatusBadge,
   LoadingSkeleton, ChartWrapper, CHART_THEME, DrawerPanel,
+  ModuleTabs,
 } from '@/components';
+import type { TabItem } from '@/components';
 import { useEmailCampaigns, useEmailTemplates, useMarketingMetrics, useCampaignPerformanceTrend } from '@/modules/marketing/hooks';
 import { getListHealthTrend } from '@/mocks/marketing';
 import { CampaignDrawer } from './CampaignDrawer';
 import type { EmailCampaign, EmailTemplate } from '@/modules/marketing/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 type TabKey = 'campaigns' | 'builder' | 'templates' | 'performance';
 
-const TABS: { key: TabKey; label: string; icon: typeof SendHorizonal }[] = [
-  { key: 'campaigns', label: 'Campaigns', icon: LayoutDashboard },
-  { key: 'builder', label: 'Builder', icon: PenSquare },
-  { key: 'templates', label: 'Templates', icon: Palette },
-  { key: 'performance', label: 'Performance', icon: BarChart3 },
+const TABS: TabItem[] = [
+  { id: 'campaigns', label: 'Campaigns', icon: LayoutDashboard },
+  { id: 'builder', label: 'Builder', icon: PenSquare },
+  { id: 'templates', label: 'Templates', icon: Palette },
+  { id: 'performance', label: 'Performance', icon: BarChart3 },
 ];
 
 const STATUS_VARIANT: Record<string, 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted'> = {
@@ -178,21 +180,7 @@ export function EmailMarketingPage() {
         ]}
       />
 
-      {/* Tab Bar */}
-      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
-        {TABS.map(({ key, label, icon: Icon }) => (
-          <button
-            key={key}
-            onClick={() => setActiveTab(key)}
-            className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
-              activeTab === key ? 'bg-elevated text-text-bright' : 'text-text-muted hover:text-text-default'
-            }`}
-          >
-            <Icon size={14} />
-            <span className="hidden sm:inline">{label}</span>
-          </button>
-        ))}
-      </div>
+      <ModuleTabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab as (id: string) => void} accentColor={ACCENT} />
 
       {/* ═══════════════════ CAMPAIGNS TAB ═══════════════════ */}
       {activeTab === 'campaigns' && (
@@ -203,7 +191,7 @@ export function EmailMarketingPage() {
               {featuredCampaigns.map((campaign) => (
                 <div
                   key={campaign.id}
-                  className="rounded-xl border border-default bg-card p-4 cursor-pointer hover:bg-card-hover"
+                  className="rounded-xl border border-default bg-card p-4 cursor-pointer hover:bg-accent-hover"
                   onClick={() => setSelectedCampaignId(campaign.id)}
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -234,12 +222,12 @@ export function EmailMarketingPage() {
           {/* Metrics Row */}
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-8">
             <MetricCard label="Active Campaigns" value={metrics?.activeCampaigns ?? 0} accentColor={ACCENT} />
-            <MetricCard label="Emails Sent (MTD)" value={(metrics?.emailsSentMTD ?? 0).toLocaleString()} accentColor="#3B82F6" />
-            <MetricCard label="Avg Open Rate" value={`${metrics?.avgOpenRate ?? 0}%`} accentColor="#22C55E" />
-            <MetricCard label="Avg Click Rate" value={`${metrics?.avgClickRate ?? 0}%`} accentColor="#F59E0B" />
-            <MetricCard label="Revenue Attributed" value={`$${((metrics?.revenueAttributed ?? 0) / 1000).toFixed(1)}K`} accentColor="#8B5CF6" />
-            <MetricCard label="List Health" value={`${metrics?.listHealth ?? 0}%`} accentColor="#14B8A6" />
-            <MetricCard label="Deliverability" value="97.9%" accentColor="#22C55E" />
+            <MetricCard label="Emails Sent (MTD)" value={(metrics?.emailsSentMTD ?? 0).toLocaleString()} accentColor="#5BB8E6" />
+            <MetricCard label="Avg Open Rate" value={`${metrics?.avgOpenRate ?? 0}%`} accentColor="#5BB8E6" />
+            <MetricCard label="Avg Click Rate" value={`${metrics?.avgClickRate ?? 0}%`} accentColor="#5BB8E6" />
+            <MetricCard label="Revenue Attributed" value={`$${((metrics?.revenueAttributed ?? 0) / 1000).toFixed(1)}K`} accentColor="#5BB8E6" />
+            <MetricCard label="List Health" value={`${metrics?.listHealth ?? 0}%`} accentColor="#5BB8E6" />
+            <MetricCard label="Deliverability" value="97.9%" accentColor="#5BB8E6" />
             <MetricCard label="Spam Complaints" value="0.02%" accentColor="#EF4444" />
           </div>
 
@@ -291,7 +279,7 @@ export function EmailMarketingPage() {
                   <span className="hidden sm:inline text-xs">{step}</span>
                 </div>
                 {i < BUILDER_STEPS.length - 1 && (
-                  <div className={`h-px flex-1 ${i + 1 < builderStep ? 'bg-[#EC4899]' : 'bg-default'}`} />
+                  <div className={`h-px flex-1 ${i + 1 < builderStep ? 'bg-[#5BB8E6]' : 'bg-default'}`} />
                 )}
               </Fragment>
             ))}
@@ -310,7 +298,7 @@ export function EmailMarketingPage() {
                     value={builderData.name}
                     onChange={(e) => updateBuilder('name', e.target.value)}
                     placeholder="e.g., March Flower Sale"
-                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
                   />
                 </div>
                 <div>
@@ -318,7 +306,7 @@ export function EmailMarketingPage() {
                   <select
                     value={builderData.type}
                     onChange={(e) => updateBuilder('type', e.target.value)}
-                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
                   >
                     <option value="one-time">One-time</option>
                     <option value="recurring">Recurring</option>
@@ -337,7 +325,7 @@ export function EmailMarketingPage() {
                   <select
                     value={builderData.audience}
                     onChange={(e) => updateBuilder('audience', e.target.value)}
-                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
                   >
                     <option value="">Choose a segment...</option>
                     {AUDIENCE_SEGMENTS.map((seg) => (
@@ -372,8 +360,8 @@ export function EmailMarketingPage() {
                       onClick={() => updateBuilder('templateId', tmpl.id)}
                       className={`cursor-pointer rounded-xl border p-4 transition-colors ${
                         builderData.templateId === tmpl.id
-                          ? 'border-[#EC4899] bg-card-hover'
-                          : 'border-default bg-card hover:bg-card-hover'
+                          ? 'border-[#5BB8E6] bg-card-hover'
+                          : 'border-default bg-card hover:bg-accent-hover'
                       }`}
                     >
                       <p className="text-sm font-medium text-text-default">{tmpl.name}</p>
@@ -400,7 +388,7 @@ export function EmailMarketingPage() {
                     value={builderData.subject}
                     onChange={(e) => updateBuilder('subject', e.target.value)}
                     placeholder="e.g., Your favorite strains are back in stock"
-                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
                   />
                 </div>
                 <div>
@@ -410,7 +398,7 @@ export function EmailMarketingPage() {
                     value={builderData.previewText}
                     onChange={(e) => updateBuilder('previewText', e.target.value)}
                     placeholder="Short preview shown in inbox..."
-                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
                   />
                 </div>
                 <div>
@@ -420,7 +408,7 @@ export function EmailMarketingPage() {
                     onChange={(e) => updateBuilder('body', e.target.value)}
                     placeholder="Write your email content..."
                     rows={6}
-                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+                    className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
                   />
                 </div>
                 <div>
@@ -430,7 +418,7 @@ export function EmailMarketingPage() {
                       <button
                         key={token}
                         onClick={() => updateBuilder('body', builderData.body + ` ${token}`)}
-                        className="rounded-lg border border-default bg-base px-2.5 py-1 text-xs text-text-default hover:bg-card-hover transition-colors"
+                        className="rounded-lg border border-default bg-base px-2.5 py-1 text-xs text-text-default hover:bg-accent-hover transition-colors"
                       >
                         <Plus size={10} className="mr-1 inline" />
                         {token}
@@ -447,14 +435,14 @@ export function EmailMarketingPage() {
                 <h3 className="text-sm font-semibold text-text-default">Schedule</h3>
                 <div className="space-y-3">
                   {(['now', 'scheduled', 'recurring'] as const).map((opt) => (
-                    <label key={opt} className="flex items-center gap-3 rounded-lg border border-default bg-base p-3 cursor-pointer hover:bg-card-hover">
+                    <label key={opt} className="flex items-center gap-3 rounded-lg border border-default bg-base p-3 cursor-pointer hover:bg-accent-hover">
                       <input
                         type="radio"
                         name="scheduleType"
                         value={opt}
                         checked={builderData.scheduleType === opt}
                         onChange={() => updateBuilder('scheduleType', opt)}
-                        className="accent-[#EC4899]"
+                        className="accent-[#5BB8E6]"
                       />
                       <span className="text-sm text-text-default">
                         {opt === 'now' ? 'Send Now' : opt === 'scheduled' ? 'Schedule' : 'Set Recurring'}
@@ -469,7 +457,7 @@ export function EmailMarketingPage() {
                       type="datetime-local"
                       value={builderData.scheduledDate}
                       onChange={(e) => updateBuilder('scheduledDate', e.target.value)}
-                      className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+                      className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
                     />
                   </div>
                 )}
@@ -479,7 +467,7 @@ export function EmailMarketingPage() {
                     <select
                       value={builderData.frequency}
                       onChange={(e) => updateBuilder('frequency', e.target.value)}
-                      className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#EC4899]"
+                      className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
                     >
                       <option value="daily">Daily</option>
                       <option value="weekly">Weekly</option>
@@ -525,7 +513,7 @@ export function EmailMarketingPage() {
             <button
               onClick={() => setBuilderStep((s) => Math.max(1, s - 1))}
               disabled={builderStep === 1}
-              className="flex items-center gap-1.5 rounded-lg border border-default px-4 py-2 text-xs font-medium text-text-default transition-colors hover:bg-card-hover disabled:opacity-40 disabled:cursor-not-allowed"
+              className="flex items-center gap-1.5 rounded-lg border border-default px-4 py-2 text-xs font-medium text-text-default transition-colors hover:bg-accent-hover disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <ChevronLeft size={14} /> Back
             </button>
@@ -559,7 +547,7 @@ export function EmailMarketingPage() {
             {(templates ?? []).map((template) => (
               <div
                 key={template.id}
-                className="rounded-xl border border-default bg-card p-4 cursor-pointer hover:bg-card-hover transition-colors"
+                className="rounded-xl border border-default bg-card p-4 cursor-pointer hover:bg-accent-hover transition-colors"
                 onClick={() => setSelectedTemplate(template)}
               >
                 <p className="mb-1 text-sm font-medium text-text-default">{template.name}</p>
@@ -628,11 +616,11 @@ export function EmailMarketingPage() {
           {/* Performance Metrics */}
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
             <MetricCard label="Sent" value="1,247" accentColor={ACCENT} />
-            <MetricCard label="Delivered" value="1,221 (97.9%)" accentColor="#3B82F6" />
-            <MetricCard label="Opened" value="549 (45.0%)" accentColor="#22C55E" />
-            <MetricCard label="Clicked" value="187 (15.3%)" accentColor="#F59E0B" />
-            <MetricCard label="Orders" value="34" accentColor="#8B5CF6" />
-            <MetricCard label="Revenue" value="$127,400" accentColor="#14B8A6" />
+            <MetricCard label="Delivered" value="1,221 (97.9%)" accentColor="#5BB8E6" />
+            <MetricCard label="Opened" value="549 (45.0%)" accentColor="#5BB8E6" />
+            <MetricCard label="Clicked" value="187 (15.3%)" accentColor="#5BB8E6" />
+            <MetricCard label="Orders" value="34" accentColor="#5BB8E6" />
+            <MetricCard label="Revenue" value="$127,400" accentColor="#5BB8E6" />
           </div>
 
           {/* Performance Trend Chart */}
@@ -647,14 +635,14 @@ export function EmailMarketingPage() {
                     contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
                     formatter={(value) => [`${Number(value)}%`]}
                   />
-                  <Line type="monotone" dataKey="openRate" stroke="#22C55E" strokeWidth={2} dot={false} name="openRate" />
-                  <Line type="monotone" dataKey="clickRate" stroke="#F59E0B" strokeWidth={2} dot={false} name="clickRate" />
+                  <Line type="monotone" dataKey="openRate" stroke="#5BB8E6" strokeWidth={2} dot={false} name="openRate" />
+                  <Line type="monotone" dataKey="clickRate" stroke="#5BB8E6" strokeWidth={2} dot={false} name="clickRate" />
                 </LineChart>
               </ResponsiveContainer>
             </ChartWrapper>
             <div className="mt-3 flex items-center justify-center gap-6 text-xs text-text-muted">
-              <span className="flex items-center gap-1.5"><span className="inline-block h-2 w-2 rounded-full bg-[#22C55E]" /> Open Rate</span>
-              <span className="flex items-center gap-1.5"><span className="inline-block h-2 w-2 rounded-full bg-[#F59E0B]" /> Click Rate</span>
+              <span className="flex items-center gap-1.5"><span className="inline-block h-2 w-2 rounded-full bg-[#5BB8E6]" /> Open Rate</span>
+              <span className="flex items-center gap-1.5"><span className="inline-block h-2 w-2 rounded-full bg-[#5BB8E6]" /> Click Rate</span>
             </div>
           </div>
 
@@ -676,12 +664,12 @@ export function EmailMarketingPage() {
                   {sentCampaigns.map((c) => (
                     <tr
                       key={c.id}
-                      className="border-b border-default last:border-0 cursor-pointer hover:bg-card-hover"
+                      className="border-b border-default last:border-0 cursor-pointer hover:bg-accent-hover"
                       onClick={() => setSelectedCampaignId(c.id)}
                     >
                       <td className="py-2.5 pr-4 text-text-default">{c.name}</td>
                       <td className="py-2.5 pr-4 text-right text-text-default">{c.stats?.sent.toLocaleString()}</td>
-                      <td className="py-2.5 pr-4 text-right" style={{ color: (c.stats?.openRate ?? 0) >= 40 ? '#22C55E' : undefined }}>
+                      <td className="py-2.5 pr-4 text-right" style={{ color: (c.stats?.openRate ?? 0) >= 40 ? '#5BB8E6' : undefined }}>
                         {c.stats?.openRate}%
                       </td>
                       <td className="py-2.5 pr-4 text-right text-text-default">{c.stats?.clickRate}%</td>

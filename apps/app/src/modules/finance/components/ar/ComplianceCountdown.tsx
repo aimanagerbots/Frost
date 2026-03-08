@@ -2,8 +2,8 @@
 
 import { Clock, AlertTriangle, Send } from 'lucide-react';
 import type { Invoice } from '@/modules/finance/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#059669';
 
 interface ComplianceCountdownProps {
   invoices: Invoice[];
@@ -92,7 +92,7 @@ export function ComplianceCountdown({ invoices }: ComplianceCountdownProps) {
               </div>
 
               {(isOverdue || isApproaching) && (
-                <button className="mt-2 w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#059669]/20 hover:bg-[#059669]/30 text-[#059669] text-xs font-medium transition-colors">
+                <button className="mt-2 w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#5BB8E6]/20 hover:bg-accent-hover-strong text-[#5BB8E6] text-xs font-medium transition-colors">
                   <Send className="w-3 h-3" />
                   Send Reminder
                 </button>

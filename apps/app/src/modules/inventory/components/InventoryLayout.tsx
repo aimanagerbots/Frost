@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { Warehouse, LayoutGrid, List, Package, FlaskConical, AlertTriangle } from 'lucide-react';
-import { SectionHeader } from '@/components';
+import { SectionHeader, ModuleTabs } from '@/components';
 import { useOverviewMetrics } from '@/modules/inventory/hooks';
 import { InventoryOverview } from './overview/InventoryOverview';
 import { CannabisInventory } from './cannabis/CannabisInventory';
@@ -10,17 +10,17 @@ import { NonCannabisInventory } from './materials/NonCannabisInventory';
 import { COAManager } from './coa/COAManager';
 import { InventoryAlerts } from './alerts/InventoryAlerts';
 import type { ReadinessState } from '@/modules/inventory/types';
+import { ACCENT as INVENTORY_ACCENT } from '@/design/colors';
 
-const INVENTORY_ACCENT = '#8B5CF6';
 
 type InventoryTab = 'overview' | 'cannabis' | 'non-cannabis' | 'coa' | 'alerts';
 
-const TABS: { key: InventoryTab; label: string; icon: typeof LayoutGrid }[] = [
-  { key: 'overview', label: 'Overview', icon: LayoutGrid },
-  { key: 'cannabis', label: 'Cannabis Inventory', icon: List },
-  { key: 'non-cannabis', label: 'Non-Cannabis Materials', icon: Package },
-  { key: 'coa', label: 'COA Manager', icon: FlaskConical },
-  { key: 'alerts', label: 'Alerts', icon: AlertTriangle },
+const TABS: { id: InventoryTab; label: string; icon: typeof LayoutGrid }[] = [
+  { id: 'overview', label: 'Overview', icon: LayoutGrid },
+  { id: 'cannabis', label: 'Cannabis Inventory', icon: List },
+  { id: 'non-cannabis', label: 'Non-Cannabis Materials', icon: Package },
+  { id: 'coa', label: 'COA Manager', icon: FlaskConical },
+  { id: 'alerts', label: 'Alerts', icon: AlertTriangle },
 ];
 
 export function InventoryLayout() {
@@ -48,22 +48,12 @@ export function InventoryLayout() {
       />
 
       {/* Tab Bar */}
-      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
-        {TABS.map(({ key, label, icon: Icon }) => (
-          <button
-            key={key}
-            onClick={() => { setActiveTab(key); if (key !== 'cannabis') setPipelineFilter(undefined); }}
-            className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
-              activeTab === key
-                ? 'bg-elevated text-text-bright'
-                : 'text-text-muted hover:text-text-default'
-            }`}
-          >
-            <Icon size={14} />
-            <span className="hidden sm:inline">{label}</span>
-          </button>
-        ))}
-      </div>
+      <ModuleTabs
+        tabs={TABS}
+        activeTab={activeTab}
+        onTabChange={(tab) => { setActiveTab(tab as InventoryTab); if (tab !== 'cannabis') setPipelineFilter(undefined); }}
+        accentColor={INVENTORY_ACCENT}
+      />
 
       {/* Tab Content */}
       {activeTab === 'overview' && <InventoryOverview onStateClick={handlePipelineClick} />}

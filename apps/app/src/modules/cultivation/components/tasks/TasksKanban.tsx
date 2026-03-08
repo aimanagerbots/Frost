@@ -17,9 +17,9 @@ const PRIORITY_ORDER: Record<TaskPriority, number> = {
 };
 
 const COLUMN_CONFIG: { id: TaskStatus; title: string; color: string }[] = [
-  { id: 'todo', title: 'To Do', color: '#94A3B8' },
-  { id: 'in-progress', title: 'In Progress', color: '#3B82F6' },
-  { id: 'done', title: 'Done', color: '#22C55E' },
+  { id: 'todo', title: 'To Do', color: '#5BB8E6' },
+  { id: 'in-progress', title: 'In Progress', color: '#5BB8E6' },
+  { id: 'done', title: 'Done', color: '#5BB8E6' },
 ];
 
 export function TasksKanban() {

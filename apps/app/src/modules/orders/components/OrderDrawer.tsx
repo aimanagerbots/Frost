@@ -38,10 +38,10 @@ export function OrderDrawer({ orderId, open, onClose }: OrderDrawerProps) {
 
   const timelineItems = [
     { id: 'created', timestamp: order.createdAt, icon: FileText, title: 'Order Created', description: `Order ${order.orderNumber} placed` },
-    order.confirmedAt && { id: 'confirmed', timestamp: order.confirmedAt, icon: CheckCircle, iconColor: '#3B82F6', title: 'Order Confirmed', description: 'Order accepted and queued for production' },
-    order.fulfilledAt && { id: 'fulfilled', timestamp: order.fulfilledAt, icon: Package, iconColor: '#F59E0B', title: 'Order Fulfilled', description: 'All items picked and packed' },
-    order.deliveredAt && { id: 'delivered', timestamp: order.deliveredAt, icon: Truck, iconColor: '#22C55E', title: 'Delivered', description: `Delivered to ${order.accountName}` },
-    order.paidAt && { id: 'paid', timestamp: order.paidAt, icon: CreditCard, iconColor: '#059669', title: 'Payment Received', description: `$${order.total.toLocaleString()} via ${order.paymentMethod.toUpperCase()}` },
+    order.confirmedAt && { id: 'confirmed', timestamp: order.confirmedAt, icon: CheckCircle, iconColor: '#5BB8E6', title: 'Order Confirmed', description: 'Order accepted and queued for production' },
+    order.fulfilledAt && { id: 'fulfilled', timestamp: order.fulfilledAt, icon: Package, iconColor: '#5BB8E6', title: 'Order Fulfilled', description: 'All items picked and packed' },
+    order.deliveredAt && { id: 'delivered', timestamp: order.deliveredAt, icon: Truck, iconColor: '#5BB8E6', title: 'Delivered', description: `Delivered to ${order.accountName}` },
+    order.paidAt && { id: 'paid', timestamp: order.paidAt, icon: CreditCard, iconColor: '#5BB8E6', title: 'Payment Received', description: `$${order.total.toLocaleString()} via ${order.paymentMethod.toUpperCase()}` },
   ].filter(Boolean) as { id: string; timestamp: string; icon: typeof Clock; iconColor?: string; title: string; description: string }[];
 
   return (

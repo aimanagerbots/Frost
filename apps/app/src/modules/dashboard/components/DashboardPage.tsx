@@ -8,8 +8,8 @@ import { useDashboardCharts } from '@/modules/dashboard/hooks/useDashboardCharts
 import { AlertsRow } from './AlertsRow';
 import { DashboardCharts } from './DashboardCharts';
 import { QuickActions } from './QuickActions';
+import { ACCENT as DASHBOARD_ACCENT } from '@/design/colors';
 
-const DASHBOARD_ACCENT = '#5BB8E6';
 
 function getGreeting(): string {
   const hour = new Date().getHours();

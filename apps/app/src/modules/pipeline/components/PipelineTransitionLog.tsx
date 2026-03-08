@@ -15,8 +15,8 @@ interface PipelineTransitionLogProps {
 }
 
 const STATUS_COLOR: Record<PipelineStatus, string> = {
-  active: '#22C55E',
-  inactive: '#3B82F6',
+  active: '#5BB8E6',
+  inactive: '#5BB8E6',
   recovery: '#EF4444',
 };
 

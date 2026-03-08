@@ -6,8 +6,8 @@ import { MetricCard, DataTable, StatusBadge, LoadingSkeleton, EmptyState } from 
 import { useReorderProposals } from '../../hooks';
 import type { ReorderProposal } from '../../types';
 import { ReorderProposalDrawer } from './ReorderProposalDrawer';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 function formatCurrency(n: number): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(n);
@@ -173,9 +173,9 @@ export function ReorderCenter() {
       {/* Metrics */}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <MetricCard label="Pending Review" value={String(metrics.pendingCount)} accentColor={CRM_ACCENT} />
-        <MetricCard label="Total Proposal Value" value={formatCurrency(metrics.totalValue)} accentColor="#3B82F6" />
-        <MetricCard label="Avg Confidence" value={`${metrics.avgConf}%`} accentColor="#8B5CF6" />
-        <MetricCard label="Acceptance Rate" value={`${metrics.acceptRate}%`} accentColor="#22C55E" />
+        <MetricCard label="Total Proposal Value" value={formatCurrency(metrics.totalValue)} accentColor="#5BB8E6" />
+        <MetricCard label="Avg Confidence" value={`${metrics.avgConf}%`} accentColor="#5BB8E6" />
+        <MetricCard label="Acceptance Rate" value={`${metrics.acceptRate}%`} accentColor="#5BB8E6" />
       </div>
 
       {/* Filters */}

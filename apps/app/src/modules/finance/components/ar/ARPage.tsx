@@ -20,8 +20,8 @@ import { useInvoices, useARMetrics, useARAging } from '@/modules/finance/hooks';
 import type { Invoice, InvoiceStatus } from '@/modules/finance/types';
 import { ComplianceCountdown } from './ComplianceCountdown';
 import { ARDrawer } from './ARDrawer';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#059669';
 
 const statusVariant = (s: string) => {
   switch (s) {
@@ -225,7 +225,7 @@ export function ARPage() {
               onClick={() => setStatusFilter(btn.value)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                 statusFilter === btn.value
-                  ? 'bg-[#059669]/20 text-[#059669]'
+                  ? 'bg-[#5BB8E6]/20 text-[#5BB8E6]'
                   : 'bg-elevated text-muted hover:text-default'
               }`}
             >

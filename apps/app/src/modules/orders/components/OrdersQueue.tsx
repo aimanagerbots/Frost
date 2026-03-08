@@ -9,6 +9,7 @@ import { useOrderPipeline } from '../hooks/useOrderPipeline';
 import { OrderPipeline } from './OrderPipeline';
 import { OrderDrawer } from './OrderDrawer';
 import type { Order, OrderFilter, OrderStatus, PaymentStatus } from '@/modules/orders/types';
+import { ACCENT as ORDERS_ACCENT } from '@/design/colors';
 
 const STATUS_VARIANT: Record<OrderStatus, 'muted' | 'info' | 'warning' | 'success'> = {
   pending: 'muted',
@@ -30,7 +31,6 @@ const PAYMENT_VARIANT: Record<PaymentStatus, 'muted' | 'success' | 'danger'> = {
 const selectClass =
   'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-text-default outline-none focus:border-hover';
 
-const ORDERS_ACCENT = '#F59E0B';
 
 export function OrdersQueue() {
   const router = useRouter();
@@ -91,7 +91,7 @@ export function OrdersQueue() {
             e.stopPropagation();
             router.push(`/crm?account=${row.accountId}`);
           }}
-          className="text-sm text-[#F59E0B] hover:underline"
+          className="text-sm text-[#5BB8E6] hover:underline"
         >
           {row.accountName}
         </button>

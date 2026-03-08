@@ -36,8 +36,8 @@ import {
   Legend,
 } from 'recharts';
 import type { PieLabelRenderProps } from 'recharts';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#059669';
 
 function fmt(n: number): string {
   if (Math.abs(n) >= 1_000_000) return `$${(n / 1_000_000).toFixed(2)}M`;
@@ -46,21 +46,21 @@ function fmt(n: number): string {
 }
 
 const DIVISION_COLORS: Record<string, string> = {
-  Cultivation: '#22C55E',
-  Manufacturing: '#10B981',
-  Packaging: '#84CC16',
-  Fulfillment: '#14B8A6',
-  Delivery: '#0EA5E9',
-  Sales: '#F59E0B',
-  Trimming: '#22C55E',
-  Extraction: '#10B981',
-  Preroll: '#F59E0B',
+  Cultivation: '#5BB8E6',
+  Manufacturing: '#5BB8E6',
+  Packaging: '#5BB8E6',
+  Fulfillment: '#5BB8E6',
+  Delivery: '#5BB8E6',
+  Sales: '#5BB8E6',
+  Trimming: '#5BB8E6',
+  Extraction: '#5BB8E6',
+  Preroll: '#5BB8E6',
 };
 
 const SCHED_COLORS: Record<string, string> = {
   understaffed: '#EF4444',
-  optimal: '#22C55E',
-  overstaffed: '#F59E0B',
+  optimal: '#5BB8E6',
+  overstaffed: '#5BB8E6',
 };
 
 const PRIORITY_VARIANT = {
@@ -166,7 +166,7 @@ export function LaborPage() {
         <MetricCard
           label="Overtime Hours"
           value={team!.reduce((s, t) => s + t.overtimeHours, 0)}
-          accentColor={team!.reduce((s, t) => s + t.overtimeHours, 0) > 20 ? '#F59E0B' : ACCENT}
+          accentColor={team!.reduce((s, t) => s + t.overtimeHours, 0) > 20 ? '#5BB8E6' : ACCENT}
         />
         <MetricCard label={`Best: ${bestCPU.division}`} value={`${bestCPU.trend > 0 ? '+' : ''}${bestCPU.trend}%`} accentColor={ACCENT} trend={{ value: Math.abs(bestCPU.trend), direction: 'down' }} />
         <MetricCard label="Sched. Efficiency" value={`${schedEfficiency}%`} accentColor={ACCENT} />
@@ -239,11 +239,11 @@ export function LaborPage() {
               contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
             />
             <Legend formatter={(value: string) => <span style={{ color: '#E2E8F0' }}>{value}</span>} />
-            <Line type="monotone" dataKey="flowerPerLb" name="Flower $/lb" stroke="#22C55E" strokeWidth={2} dot={false} />
-            <Line type="monotone" dataKey="prerollPerUnit" name="Preroll $/unit" stroke="#F59E0B" strokeWidth={2} dot={false} />
-            <Line type="monotone" dataKey="vapePerUnit" name="Vape $/unit" stroke="#8B5CF6" strokeWidth={2} dot={false} />
-            <Line type="monotone" dataKey="fulfillmentPerOrder" name="Fulfillment $/order" stroke="#14B8A6" strokeWidth={2} dot={false} />
-            <Line type="monotone" dataKey="deliveryPerStop" name="Delivery $/stop" stroke="#0EA5E9" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="flowerPerLb" name="Flower $/lb" stroke="#5BB8E6" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="prerollPerUnit" name="Preroll $/unit" stroke="#5BB8E6" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="vapePerUnit" name="Vape $/unit" stroke="#5BB8E6" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="fulfillmentPerOrder" name="Fulfillment $/order" stroke="#5BB8E6" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="deliveryPerStop" name="Delivery $/stop" stroke="#5BB8E6" strokeWidth={2} dot={false} />
           </LineChart>
         </ResponsiveContainer>
       </ChartWrapper>
@@ -352,7 +352,7 @@ export function LaborPage() {
                 contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
                 formatter={(value: unknown) => `${value} hrs`}
               />
-              <Bar dataKey="hours" name="Overtime Hours" fill="#F59E0B" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="hours" name="Overtime Hours" fill="#5BB8E6" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartWrapper>

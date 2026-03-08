@@ -14,8 +14,8 @@ import {
 } from '@/components';
 import { useProjects, useProjectMetrics } from '@/modules/projects/hooks';
 import type { Project, ProjectStatus } from '@/modules/projects/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#7C3AED';
 
 const STATUS_VARIANT: Record<ProjectStatus, 'info' | 'success' | 'warning' | 'muted'> = {
   planning: 'info',
@@ -40,15 +40,15 @@ const FILTER_OPTIONS: { label: string; value: ProjectStatus | 'all' }[] = [
 ];
 
 function getProgressColor(project: Project): string {
-  if (project.status === 'completed') return '#22C55E';
+  if (project.status === 'completed') return '#5BB8E6';
   const now = new Date();
   const start = new Date(project.startDate).getTime();
   const end = new Date(project.targetDate).getTime();
   const elapsed = (now.getTime() - start) / (end - start);
   const expectedProgress = Math.min(Math.max(elapsed * 100, 0), 100);
 
-  if (project.progress >= expectedProgress - 10) return '#22C55E';
-  if (project.progress >= expectedProgress - 25) return '#F59E0B';
+  if (project.progress >= expectedProgress - 10) return '#5BB8E6';
+  if (project.progress >= expectedProgress - 25) return '#5BB8E6';
   return '#EF4444';
 }
 
@@ -120,7 +120,7 @@ export function ProjectsPage() {
         <MetricCard
           label="On Track"
           value={metrics?.onTrack ?? 0}
-          accentColor="#22C55E"
+          accentColor="#5BB8E6"
         />
         <MetricCard
           label="Behind Schedule"
@@ -130,7 +130,7 @@ export function ProjectsPage() {
         <MetricCard
           label="Completed This Quarter"
           value={metrics?.completedThisQuarter ?? 0}
-          accentColor="#64748B"
+          accentColor="#5BB8E6"
         />
       </div>
 
@@ -315,7 +315,7 @@ export function ProjectsPage() {
                       className="flex items-start gap-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] p-3"
                     >
                       {milestone.completed ? (
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#22C55E]" />
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#5BB8E6]" />
                       ) : overdue ? (
                         <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#EF4444]" />
                       ) : (

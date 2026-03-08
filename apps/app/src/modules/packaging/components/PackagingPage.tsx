@@ -8,8 +8,8 @@ import { MaterialAlerts } from './MaterialAlerts';
 import { PackagingDrawer } from './PackagingDrawer';
 import { MaterialsInventory } from './MaterialsInventory';
 import type { PackagingOrder } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#84CC16';
 
 const STATUS_MAP: Record<string, 'default' | 'success' | 'warning' | 'danger' | 'info'> = {
   queued: 'default',
@@ -167,7 +167,7 @@ export function PackagingPage() {
             <button
               onClick={() => setStatusFilter(null)}
               className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                !statusFilter ? 'text-text-bright' : 'text-text-muted hover:text-text-default hover:bg-elevated'
+                !statusFilter ? 'text-text-bright' : 'text-text-muted hover:text-text-default hover:bg-accent-hover'
               }`}
               style={!statusFilter ? { backgroundColor: `${ACCENT}20`, color: ACCENT } : undefined}
             >
@@ -178,7 +178,7 @@ export function PackagingPage() {
                 key={s}
                 onClick={() => setStatusFilter(prev => prev === s ? null : s)}
                 className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                  statusFilter === s ? 'text-text-bright' : 'text-text-muted hover:text-text-default hover:bg-elevated'
+                  statusFilter === s ? 'text-text-bright' : 'text-text-muted hover:text-text-default hover:bg-accent-hover'
                 }`}
                 style={statusFilter === s ? { backgroundColor: `${ACCENT}20`, color: ACCENT } : undefined}
               >

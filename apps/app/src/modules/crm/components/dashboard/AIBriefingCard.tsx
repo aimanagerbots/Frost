@@ -1,6 +1,6 @@
 'use client';
 
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 import type { BriefingItem } from '@/modules/crm/types';
 import {
   Sparkles,
@@ -16,8 +16,8 @@ import {
   ShieldAlert,
 } from 'lucide-react';
 import { useState } from 'react';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const TYPE_ICONS: Record<BriefingItem['type'], typeof Sparkles> = {
   reorder: Target,
@@ -60,10 +60,7 @@ export function AIBriefingCard({ items, userName = 'Jake' }: AIBriefingCardProps
   });
 
   return (
-    <div
-      className="rounded-xl border border-default bg-elevated"
-      style={{ borderLeftWidth: 4, borderLeftColor: CRM_ACCENT }}
-    >
+    <AccentCard accentColor={CRM_ACCENT} className="bg-elevated">
       {/* Header */}
       <button
         onClick={() => setCollapsed(!collapsed)}
@@ -122,7 +119,7 @@ export function AIBriefingCard({ items, userName = 'Jake' }: AIBriefingCardProps
                       return (
                         <button
                           key={action.label}
-                          className="flex items-center gap-1 rounded-md bg-elevated px-2 py-1 text-xs text-text-muted transition-colors hover:bg-card-hover hover:text-text-default"
+                          className="flex items-center gap-1 rounded-md bg-elevated px-2 py-1 text-xs text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
                         >
                           <ActionIcon className="h-3 w-3" />
                           {action.label}
@@ -136,6 +133,6 @@ export function AIBriefingCard({ items, userName = 'Jake' }: AIBriefingCardProps
           })}
         </div>
       )}
-    </div>
+    </AccentCard>
   );
 }

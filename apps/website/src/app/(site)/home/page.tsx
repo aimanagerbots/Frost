@@ -82,16 +82,13 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* ── Spacer for fixed header ── */}
-      <div className="h-[96px] w-full shrink-0" aria-hidden="true" />
-
       {/* ── 1. Hero ── */}
-      <section className="relative h-[calc(100vh-96px)] flex items-center justify-center overflow-hidden">
+      <section className="relative flex items-center justify-center overflow-hidden" style={{ height: 'calc(100vh - 56px)' }}>
         <Image
           src="/Frost-website-hero.png"
           alt="Frosty Nugs"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
           sizes="100vw"
         />

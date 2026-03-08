@@ -5,8 +5,8 @@ import { Wand2, Send, ChevronLeft, ChevronRight, Sparkles, Image, MessageSquare,
 import { SectionHeader, LoadingSkeleton, StatusBadge } from '@/components';
 import { useContentTemplates, useContentChat, useContentPieces, useContentLibrary } from '@/modules/marketing/hooks';
 import type { AIContentMessage, ContentTemplate, ContentLibraryCategory, ContentPiece } from '@/modules/marketing/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 const IMAGE_PROVIDERS = ['DALL-E', 'Midjourney', 'Stable Diffusion', 'Flux'] as const;
 
@@ -199,7 +199,7 @@ export function ContentCreatorPage() {
                       <button
                         key={t.id}
                         onClick={() => handleTemplateClick(t)}
-                        className="w-full rounded-lg px-2.5 py-2 text-left text-sm text-text-muted hover:bg-card-hover hover:text-text-default transition-colors"
+                        className="w-full rounded-lg px-2.5 py-2 text-left text-sm text-text-muted hover:bg-accent-hover hover:text-text-default transition-colors"
                       >
                         <div className="flex items-center gap-2">
                           {t.type === 'email' ? <FileText className="h-3.5 w-3.5 flex-shrink-0" /> : <MessageSquare className="h-3.5 w-3.5 flex-shrink-0" />}
@@ -219,7 +219,7 @@ export function ContentCreatorPage() {
                         className={`w-full rounded-lg px-2.5 py-2 text-left text-sm transition-colors ${
                           activeConversationId === conv.id
                             ? 'bg-card-hover text-text-default'
-                            : 'text-text-muted hover:bg-card-hover hover:text-text-default'
+                            : 'text-text-muted hover:bg-accent-hover hover:text-text-default'
                         }`}
                       >
                         <span className="truncate">{conv.title}</span>
@@ -249,7 +249,7 @@ export function ContentCreatorPage() {
                       <button
                         key={suggestion}
                         onClick={() => { setInputValue(suggestion); inputRef.current?.focus(); }}
-                        className="rounded-full border border-default px-3 py-1.5 text-xs text-text-muted hover:border-[#EC4899]/50 hover:text-text-default transition-colors"
+                        className="rounded-full border border-default px-3 py-1.5 text-xs text-text-muted hover:border-[#5BB8E6]/50 hover:text-text-default transition-colors"
                       >
                         {suggestion}
                       </button>
@@ -262,7 +262,7 @@ export function ContentCreatorPage() {
                     <div
                       className={`max-w-[75%] rounded-xl px-4 py-3 ${
                         msg.role === 'user'
-                          ? 'bg-[#EC4899]/10 text-text-default'
+                          ? 'bg-[#5BB8E6]/10 text-text-default'
                           : 'border border-default bg-card text-text-default'
                       }`}
                     >
@@ -366,7 +366,7 @@ export function ContentCreatorPage() {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Describe what you want to create..."
-                  className="flex-1 resize-none rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-[#EC4899]/50 focus:outline-none"
+                  className="flex-1 resize-none rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-[#5BB8E6]/50 focus:outline-none"
                   rows={2}
                   style={{ maxHeight: 120 }}
                 />
@@ -446,7 +446,7 @@ export function ContentCreatorPage() {
                     </span>
                     <button
                       onClick={() => handleCopy(piece)}
-                      className="flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] text-text-muted opacity-0 transition-all group-hover:opacity-100 hover:bg-card-hover hover:text-text-default"
+                      className="flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] text-text-muted opacity-0 transition-all group-hover:opacity-100 hover:bg-accent-hover hover:text-text-default"
                     >
                       {copiedId === piece.id ? (
                         <>

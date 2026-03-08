@@ -4,8 +4,8 @@ import { Users } from 'lucide-react';
 import { LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useDrivers } from '../hooks';
 import { DriverCards } from './DriverCards';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#0EA5E9';
 
 export function DriverBoard() {
   const { data: drivers, isLoading, error, refetch } = useDrivers();

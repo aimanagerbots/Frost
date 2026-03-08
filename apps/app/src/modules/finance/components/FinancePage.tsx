@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { DollarSign } from 'lucide-react';
 import {
   SectionHeader,
+  ModuleTabs,
   MetricCard,
   LoadingSkeleton,
   ErrorState,
@@ -21,17 +22,17 @@ import { CFOBriefing } from './CFOBriefing';
 import { PLStatementView } from './PLStatement';
 import { CashFlowView } from './CashFlowView';
 import { BalanceSheetView } from './BalanceSheetView';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#059669';
 
 type FinanceTab = 'daily-pl' | 'weekly-pl' | 'monthly-pl' | 'cashflow' | 'balance-sheet';
 
-const TAB_OPTIONS: { key: FinanceTab; label: string }[] = [
-  { key: 'daily-pl', label: 'Daily P&L' },
-  { key: 'weekly-pl', label: 'Weekly P&L' },
-  { key: 'monthly-pl', label: 'Monthly P&L' },
-  { key: 'cashflow', label: 'Cash Flow' },
-  { key: 'balance-sheet', label: 'Balance Sheet' },
+const TAB_OPTIONS: { id: FinanceTab; label: string }[] = [
+  { id: 'daily-pl', label: 'Daily P&L' },
+  { id: 'weekly-pl', label: 'Weekly P&L' },
+  { id: 'monthly-pl', label: 'Monthly P&L' },
+  { id: 'cashflow', label: 'Cash Flow' },
+  { id: 'balance-sheet', label: 'Balance Sheet' },
 ];
 
 const fmtCurrency = (n: number) => {
@@ -90,22 +91,12 @@ export function FinancePage() {
 
       {/* Financial Statement Tabs */}
       <div className="bg-card border border-default rounded-xl overflow-hidden">
-        <div className="flex overflow-x-auto border-b border-default">
-          {TAB_OPTIONS.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={`px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors ${
-                activeTab === tab.key
-                  ? 'text-default border-b-2'
-                  : 'text-muted hover:text-default'
-              }`}
-              style={activeTab === tab.key ? { borderBottomColor: ACCENT } : undefined}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+        <ModuleTabs
+          tabs={TAB_OPTIONS}
+          activeTab={activeTab}
+          onTabChange={(tab) => setActiveTab(tab as FinanceTab)}
+          accentColor={ACCENT}
+        />
 
         <div className="p-4">
           {/* P&L Views */}

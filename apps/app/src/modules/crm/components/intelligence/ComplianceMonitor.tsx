@@ -6,8 +6,8 @@ import { useComplianceLicenses } from '../../hooks/useComplianceLicenses';
 import { useCompliancePayments } from '../../hooks/useCompliancePayments';
 import { AlertTriangle } from 'lucide-react';
 import type { ComplianceLicense, CompliancePayment } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const LICENSE_VARIANT: Record<string, 'success' | 'warning' | 'danger' | 'default'> = {
   valid: 'success',
@@ -140,7 +140,7 @@ export function ComplianceMonitor() {
                 className="h-2 rounded-full transition-all"
                 style={{
                   width: `${Math.min(pct + overPct, 100)}%`,
-                  backgroundColor: days > max ? '#EF4444' : days >= max - 1 ? '#F59E0B' : '#22C55E',
+                  backgroundColor: days > max ? '#EF4444' : days >= max - 1 ? '#FBBF24' : '#22C55E',
                 }}
               />
             </div>
@@ -202,7 +202,7 @@ export function ComplianceMonitor() {
       <div>
         <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Payment Compliance</h3>
         <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-4">
-          <MetricCard label="Total Outstanding AR" value={`$${totalOutstanding.toLocaleString()}`} accentColor="#3B82F6" />
+          <MetricCard label="Total Outstanding AR" value={`$${totalOutstanding.toLocaleString()}`} accentColor="#5BB8E6" />
           <MetricCard label="Overdue Count" value={overduePayments.length} accentColor="#EF4444" />
           <MetricCard label="Overdue Total" value={`$${overdueTotal.toLocaleString()}`} accentColor="#EF4444" />
           <MetricCard label="Accounts w/ Multiple Overdue" value={accountsMultipleOverdue} accentColor={CRM_ACCENT} />

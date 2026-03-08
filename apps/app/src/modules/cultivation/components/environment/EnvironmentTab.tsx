@@ -37,7 +37,7 @@ function RoomHeader({ roomId }: { roomId: string }) {
       <div className="mt-3">
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-elevated">
           <div
-            className="h-full rounded-full bg-[#22C55E] transition-all"
+            className="h-full rounded-full bg-[#5BB8E6] transition-all"
             style={{ width: `${progress}%` }}
           />
         </div>

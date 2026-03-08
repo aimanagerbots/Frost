@@ -5,8 +5,8 @@ import { User, Clock, Box, Weight, FileText } from 'lucide-react';
 import { StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
 import { usePackingOperations } from '../hooks';
 import type { PackingOperation } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#14B8A6';
 
 const packingStatusVariant = (s: PackingOperation['status']) => {
   const map: Record<PackingOperation['status'], 'default' | 'info' | 'warning' | 'success'> = {

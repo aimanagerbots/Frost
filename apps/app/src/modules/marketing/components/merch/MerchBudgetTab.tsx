@@ -14,16 +14,16 @@ import {
 } from 'recharts';
 import { useMerchBudget } from '../../hooks/seo-events-hooks';
 import type { MerchItem } from '../../types/seo-events';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 const CATEGORY_COLORS = [
   CHART_COLORS.purple,
   CHART_COLORS.info,
   ACCENT,
-  '#F59E0B',
+  '#5BB8E6',
   CHART_COLORS.success,
-  '#64748B',
+  '#5BB8E6',
 ];
 
 interface MerchBudgetTabProps {

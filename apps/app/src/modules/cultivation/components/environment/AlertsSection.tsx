@@ -8,8 +8,8 @@ import type { AlertSeverity, AlertSource, RoomAlert } from '../../types';
 
 const SEVERITY_CONFIG: Record<AlertSeverity, { color: string; bg: string; border: string; icon: typeof AlertTriangle }> = {
   critical: { color: '#EF4444', bg: 'bg-danger/10', border: 'border-danger/30', icon: AlertCircle },
-  warning: { color: '#F59E0B', bg: 'bg-warning/10', border: 'border-warning/30', icon: AlertTriangle },
-  info: { color: '#3B82F6', bg: 'bg-info/10', border: 'border-info/30', icon: Info },
+  warning: { color: '#FBBF24', bg: 'bg-warning/10', border: 'border-warning/30', icon: AlertTriangle },
+  info: { color: '#38BDF8', bg: 'bg-info/10', border: 'border-info/30', icon: Info },
 };
 
 const SOURCE_LABELS: Record<AlertSource, string> = {
@@ -20,10 +20,10 @@ const SOURCE_LABELS: Record<AlertSource, string> = {
 };
 
 const SOURCE_COLORS: Record<AlertSource, string> = {
-  trollmaster: '#22C55E',
-  growlink: '#3B82F6',
-  anderson: '#F97316',
-  system: '#94A3B8',
+  trollmaster: '#5BB8E6',
+  growlink: '#5BB8E6',
+  anderson: '#5BB8E6',
+  system: '#5BB8E6',
 };
 
 function formatTimeAgo(iso: string): string {
@@ -53,7 +53,7 @@ export function AlertsSection({ roomId }: AlertsSectionProps) {
     return (
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          <div className="h-1 w-6 rounded-full bg-[#94A3B8]" />
+          <div className="h-1 w-6 rounded-full bg-[#5BB8E6]" />
           <h3 className="text-sm font-semibold text-text-bright">Alerts</h3>
         </div>
         <div className="rounded-xl border border-default bg-card p-6 text-center">
@@ -75,7 +75,7 @@ export function AlertsSection({ roomId }: AlertsSectionProps) {
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <div className="h-1 w-6 rounded-full bg-[#94A3B8]" />
+        <div className="h-1 w-6 rounded-full bg-[#5BB8E6]" />
         <h3 className="text-sm font-semibold text-text-bright">Alerts</h3>
         <span className="rounded-full bg-danger/15 px-2 py-0.5 text-[10px] font-semibold text-danger">
           {sorted.length}

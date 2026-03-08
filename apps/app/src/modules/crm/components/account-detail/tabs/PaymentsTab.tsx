@@ -4,8 +4,8 @@ import { useMemo } from 'react';
 import { MetricCard, DataTable, StatusBadge, LoadingSkeleton } from '@/components';
 import { useAccountPayments } from '../../../hooks';
 import type { AccountPayment } from '../../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 interface PaymentsTabProps {
   accountId: string;

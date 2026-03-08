@@ -7,13 +7,13 @@ import { ThroughputChart } from './ThroughputChart';
 import { ActiveWorkOrders } from './ActiveWorkOrders';
 import type { ManufacturingAlert } from '../../types';
 import { AlertTriangle, AlertCircle, Info } from 'lucide-react';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#10B981';
 
 const SEVERITY_CONFIG: Record<ManufacturingAlert['severity'], { icon: React.ElementType; color: string }> = {
   critical: { icon: AlertCircle, color: '#EF4444' },
   warning: { icon: AlertTriangle, color: '#FBBF24' },
-  info: { icon: Info, color: '#3B82F6' },
+  info: { icon: Info, color: '#38BDF8' },
 };
 
 function completionColor(pct: number): string {

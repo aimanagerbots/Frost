@@ -9,8 +9,8 @@ interface PipelineVisualizationProps {
 }
 
 const HEALTH_COLORS: Record<string, { bg: string; border: string; text: string }> = {
-  healthy: { bg: '#22C55E20', border: '#22C55E40', text: '#22C55E' },
-  low: { bg: '#FBBF2420', border: '#FBBF2440', text: '#FBBF24' },
+  healthy: { bg: '#5BB8E620', border: '#5BB8E640', text: '#5BB8E6' },
+  low: { bg: '#5BB8E620', border: '#5BB8E640', text: '#5BB8E6' },
   critical: { bg: '#FB718520', border: '#FB718540', text: '#FB7185' },
 };
 

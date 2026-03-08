@@ -7,8 +7,8 @@ import { useAccounts, useSalesReps } from '../../hooks';
 import { useCRMStore } from '../../store';
 import { AccountsFilterBar, type AccountFilters } from './AccountsFilterBar';
 import type { Account, SalesRep } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const DEFAULT_FILTERS: AccountFilters = {
   region: '',

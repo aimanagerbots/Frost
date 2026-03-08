@@ -6,8 +6,8 @@ import { LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useDeliveryRuns } from '../hooks';
 import { ActiveRoutes } from './ActiveRoutes';
 import { RouteDrawer } from './RouteDrawer';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#0EA5E9';
 
 export function DeliveryRoutes() {
   const [selectedRunId, setSelectedRunId] = useState<string | null>(null);

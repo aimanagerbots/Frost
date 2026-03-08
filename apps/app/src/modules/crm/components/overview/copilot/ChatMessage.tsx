@@ -26,7 +26,7 @@ export function ChatMessage({ message, isRevealing }: ChatMessageProps) {
       {/* Avatar */}
       <div
         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-          isUser ? 'bg-blue-500/20 text-blue-400' : 'bg-[#F59E0B]/20 text-[#F59E0B]'
+          isUser ? 'bg-blue-500/20 text-blue-400' : 'bg-[#5BB8E6]/20 text-[#5BB8E6]'
         }`}
       >
         {isUser ? 'You' : 'AI'}
@@ -37,7 +37,7 @@ export function ChatMessage({ message, isRevealing }: ChatMessageProps) {
         <div
           className={`inline-block rounded-xl px-4 py-3 text-sm leading-relaxed ${
             isUser
-              ? 'bg-[#F59E0B]/10 text-text-default'
+              ? 'bg-[#5BB8E6]/10 text-text-default'
               : 'bg-card border border-default text-text-default'
           } ${isRevealing ? 'copilot-reveal' : ''}`}
         >
@@ -85,7 +85,7 @@ export function ChatMessage({ message, isRevealing }: ChatMessageProps) {
             {message.suggestedActions.map((action) => (
               <button
                 key={action.action}
-                className="rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/10 px-3 py-1 text-xs font-medium text-[#F59E0B] transition-colors hover:bg-[#F59E0B]/20"
+                className="rounded-full border border-[#5BB8E6]/30 bg-[#5BB8E6]/10 px-3 py-1 text-xs font-medium text-[#5BB8E6] transition-colors hover:bg-accent-hover"
               >
                 {action.label}
               </button>

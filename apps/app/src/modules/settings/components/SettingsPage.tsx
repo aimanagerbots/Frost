@@ -1,19 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import { Settings, Building2, Plug, MessageSquare, Bell, Key, ExternalLink, RefreshCw, Check, X } from 'lucide-react';
-import { SectionHeader, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
+import { Settings, Building2, Plug, MessageSquare, Bell, Key, Palette, ExternalLink, RefreshCw, Check, X, Sun, Moon, AlignVerticalJustifyStart, AlignHorizontalJustifyStart, EyeOff } from 'lucide-react';
+import { SectionHeader, StatusBadge, LoadingSkeleton, ErrorState, ModuleTabs } from '@/components';
 import { useCompanyProfile, useIntegrations, useNotificationPreferences, useCommunicationChannels } from '../hooks';
 import type { SettingsTab, IntegrationStatus } from '../types';
+import { ACCENT } from '@/design/colors';
+import { useUIPreferences } from '@/stores/ui-preferences';
+import type { CardAccent, TabStyle, HoverIntensity } from '@/stores/ui-preferences';
 
-const ACCENT = '#94A3B8';
 
-const TABS: { key: SettingsTab; label: string; icon: React.ElementType }[] = [
-  { key: 'company', label: 'Company Profile', icon: Building2 },
-  { key: 'integrations', label: 'Integrations', icon: Plug },
-  { key: 'communications', label: 'Communications', icon: MessageSquare },
-  { key: 'notifications', label: 'Notifications', icon: Bell },
-  { key: 'api-keys', label: 'API Keys', icon: Key },
+const TABS: { id: SettingsTab; label: string; icon: React.ElementType }[] = [
+  { id: 'company', label: 'Company Profile', icon: Building2 },
+  { id: 'integrations', label: 'Integrations', icon: Plug },
+  { id: 'communications', label: 'Communications', icon: MessageSquare },
+  { id: 'notifications', label: 'Notifications', icon: Bell },
+  { id: 'api-keys', label: 'API Keys', icon: Key },
+  { id: 'appearance', label: 'Appearance', icon: Palette },
 ];
 
 const STATUS_VARIANT: Record<IntegrationStatus, 'success' | 'warning' | 'info' | 'muted'> = {
@@ -55,27 +58,12 @@ export function SettingsPage() {
       <SectionHeader icon={Settings} title="Settings" subtitle="Manage your platform configuration" accentColor={ACCENT} />
 
       {/* Tab Bar */}
-      <div className="flex gap-1 overflow-x-auto border-b border-[var(--border-default)] pb-0">
-        {TABS.map((tab) => {
-          const Icon = tab.icon;
-          const isActive = activeTab === tab.key;
-          return (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={`flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-medium transition-colors ${
-                isActive
-                  ? 'border-b-2 text-[var(--text-text-bright)]'
-                  : 'border-b-2 border-transparent text-[var(--text-text-muted)] hover:text-[var(--text-text-default)]'
-              }`}
-              style={isActive ? { borderBottomColor: ACCENT } : undefined}
-            >
-              <Icon className="h-4 w-4" />
-              {tab.label}
-            </button>
-          );
-        })}
-      </div>
+      <ModuleTabs
+        tabs={TABS}
+        activeTab={activeTab}
+        onTabChange={(id) => setActiveTab(id as SettingsTab)}
+        accentColor={ACCENT}
+      />
 
       {/* Tab Content */}
       {activeTab === 'company' && <CompanyTab data={company.data} isLoading={company.isLoading} />}
@@ -83,6 +71,7 @@ export function SettingsPage() {
       {activeTab === 'communications' && <CommunicationsTab data={channels.data} isLoading={channels.isLoading} />}
       {activeTab === 'notifications' && <NotificationsTab data={notifications.data} isLoading={notifications.isLoading} />}
       {activeTab === 'api-keys' && <ApiKeysTab />}
+      {activeTab === 'appearance' && <AppearanceTab />}
     </div>
   );
 }
@@ -276,5 +265,183 @@ function ApiKeysTab() {
         </div>
       </div>
     </div>
+  );
+}
+
+/* ─── Appearance Tab ─── */
+function AppearanceTab() {
+  const {
+    theme, setTheme, toggleTheme,
+    cardAccent, setCardAccent,
+    tabStyle, setTabStyle,
+    hoverIntensity, setHoverIntensity,
+  } = useUIPreferences();
+
+  return (
+    <div className="space-y-6">
+      {/* Theme */}
+      <div className="rounded-xl border border-default bg-card p-5">
+        <h2 className="mb-1 text-lg font-semibold text-text-bright">Theme</h2>
+        <p className="mb-4 text-xs text-text-muted">Switch between dark and light mode</p>
+        <div className="flex gap-3">
+          <OptionButton
+            active={theme === 'dark'}
+            onClick={() => setTheme('dark')}
+            icon={<Moon size={16} />}
+            label="Dark"
+          />
+          <OptionButton
+            active={theme === 'light'}
+            onClick={() => setTheme('light')}
+            icon={<Sun size={16} />}
+            label="Light"
+          />
+        </div>
+      </div>
+
+      {/* Card Accent */}
+      <div className="rounded-xl border border-default bg-card p-5">
+        <h2 className="mb-1 text-lg font-semibold text-text-bright">Card Accent</h2>
+        <p className="mb-4 text-xs text-text-muted">Position of the colored accent bar on cards</p>
+        <div className="flex gap-3">
+          <OptionButton
+            active={cardAccent === 'top'}
+            onClick={() => setCardAccent('top')}
+            icon={<AlignVerticalJustifyStart size={16} />}
+            label="Top"
+          />
+          <OptionButton
+            active={cardAccent === 'left'}
+            onClick={() => setCardAccent('left')}
+            icon={<AlignHorizontalJustifyStart size={16} />}
+            label="Left"
+          />
+          <OptionButton
+            active={cardAccent === 'off'}
+            onClick={() => setCardAccent('off')}
+            icon={<EyeOff size={16} />}
+            label="Off"
+          />
+        </div>
+        {/* Preview */}
+        <div className="mt-4 flex gap-4">
+          {['#5BB8E6', '#22C55E', '#F59E0B'].map((color) => (
+            <div key={color} className="relative w-32 rounded-lg border border-default bg-base p-3">
+              {cardAccent === 'top' && (
+                <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-lg" style={{ backgroundColor: color }} />
+              )}
+              {cardAccent === 'left' && (
+                <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-lg" style={{ backgroundColor: color }} />
+              )}
+              <div className="text-sm font-bold text-text-bright">$142K</div>
+              <div className="text-[10px] text-text-muted">Revenue</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Tab Style */}
+      <div className="rounded-xl border border-default bg-card p-5">
+        <h2 className="mb-1 text-lg font-semibold text-text-bright">Tab Style</h2>
+        <p className="mb-4 text-xs text-text-muted">Navigation style for module subcategories</p>
+        <div className="flex gap-3">
+          <OptionButton
+            active={tabStyle === 'pill'}
+            onClick={() => setTabStyle('pill')}
+            label="Pill"
+          />
+          <OptionButton
+            active={tabStyle === 'underline'}
+            onClick={() => setTabStyle('underline')}
+            label="Underline"
+          />
+        </div>
+        {/* Preview */}
+        <div className="mt-4">
+          {tabStyle === 'pill' ? (
+            <div className="flex gap-1 rounded-xl border border-default bg-base p-1 w-fit">
+              <div className="rounded-lg bg-elevated px-3 py-1.5 text-xs font-medium text-text-bright">Overview</div>
+              <div className="px-3 py-1.5 text-xs font-medium text-text-muted">Inventory</div>
+              <div className="px-3 py-1.5 text-xs font-medium text-text-muted">Alerts</div>
+            </div>
+          ) : (
+            <div className="flex gap-1 border-b border-default w-fit">
+              <div className="relative px-3 py-2 text-xs font-medium text-text-bright">
+                Overview
+                <div className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full" style={{ backgroundColor: ACCENT }} />
+              </div>
+              <div className="px-3 py-2 text-xs font-medium text-text-muted">Inventory</div>
+              <div className="px-3 py-2 text-xs font-medium text-text-muted">Alerts</div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Hover Intensity */}
+      <div className="rounded-xl border border-default bg-card p-5">
+        <h2 className="mb-1 text-lg font-semibold text-text-bright">Hover Intensity</h2>
+        <p className="mb-4 text-xs text-text-muted">How visible the frost blue hover effect is on interactive elements</p>
+        <div className="flex gap-3">
+          {([
+            { value: 'subtle' as HoverIntensity, label: 'Subtle', desc: '5%' },
+            { value: 'normal' as HoverIntensity, label: 'Normal', desc: '15%' },
+            { value: 'strong' as HoverIntensity, label: 'Strong', desc: '30%' },
+          ]).map((opt) => (
+            <OptionButton
+              key={opt.value}
+              active={hoverIntensity === opt.value}
+              onClick={() => setHoverIntensity(opt.value)}
+              label={opt.label}
+              description={opt.desc}
+            />
+          ))}
+        </div>
+        {/* Preview */}
+        <div className="mt-4 flex gap-4">
+          {(['subtle', 'normal', 'strong'] as const).map((level) => {
+            const opacity = level === 'subtle' ? 0.05 : level === 'normal' ? 0.15 : 0.30;
+            return (
+              <div
+                key={level}
+                className="rounded-lg border border-default px-4 py-2 text-xs text-text-default"
+                style={{ backgroundColor: `rgba(91, 184, 230, ${opacity})` }}
+              >
+                {level} hover
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Shared Option Button ─── */
+function OptionButton({
+  active,
+  onClick,
+  icon,
+  label,
+  description,
+}: {
+  active: boolean;
+  onClick: () => void;
+  icon?: React.ReactNode;
+  label: string;
+  description?: string;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-all ${
+        active
+          ? 'border-accent-primary bg-accent-hover-strong text-text-bright'
+          : 'border-default text-text-muted hover:bg-accent-hover hover:text-text-default'
+      }`}
+    >
+      {icon}
+      <span>{label}</span>
+      {description && <span className="text-xs text-text-muted">({description})</span>}
+    </button>
   );
 }

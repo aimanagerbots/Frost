@@ -98,7 +98,7 @@ export function AdDrawer({ campaign, onClose }: AdDrawerProps) {
           <div className="h-2 w-full rounded-full bg-card">
             <div
               className="h-full rounded-full"
-              style={{ width: `${Math.min(budgetPct, 100)}%`, backgroundColor: budgetPct > 90 ? '#FB7185' : '#EC4899' }}
+              style={{ width: `${Math.min(budgetPct, 100)}%`, backgroundColor: budgetPct > 90 ? '#FB7185' : '#5BB8E6' }}
             />
           </div>
           <p className="text-xs text-text-muted">{budgetPct}% spent</p>

@@ -6,8 +6,8 @@ import { MetricCard, DataTable, StatusBadge, DrawerPanel, LoadingSkeleton } from
 import { useCOASubmissions, useLabPartners } from '@/modules/inventory/hooks';
 import { LabPartnerCards } from './LabPartnerCards';
 import type { COASubmission } from '@/modules/inventory/types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#9333EA';
 
 type COAStatusFilter = COASubmission['status'] | null;
 
@@ -84,7 +84,7 @@ export function COAManager() {
           <MetricCard label="Avg Turnaround" value={`${metrics.avgTurnaround}d`} accentColor={ACCENT} />
           <MetricCard label="Pass Rate (30d)" value={`${metrics.passRate}%`} accentColor={ACCENT} trend={{ value: 3, direction: 'up' }} />
           <MetricCard label="Failed Batches" value={metrics.failedBatches} accentColor={metrics.failedBatches > 0 ? '#FB7185' : ACCENT} />
-          <MetricCard label="Expiring COAs (30d)" value={metrics.expiringCOAs} accentColor={metrics.expiringCOAs > 0 ? '#FBBF24' : ACCENT} />
+          <MetricCard label="Expiring COAs (30d)" value={metrics.expiringCOAs} accentColor={metrics.expiringCOAs > 0 ? '#5BB8E6' : ACCENT} />
         </div>
       )}
 

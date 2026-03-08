@@ -6,8 +6,8 @@ import { cn } from '@/lib/utils';
 import { LoadingSkeleton } from '@/components';
 import { matchCultivationChat, getCultivationFallback, getCultivationChat } from '@/mocks/cultivation';
 import type { CultivationMessage } from '../../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#22C55E';
 
 const advisorPrompts = [
   "What's the optimal VPD for Week 6 of flower?",
@@ -57,7 +57,7 @@ function MessageBubble({ message, isRevealing }: MessageBubbleProps) {
         className={cn(
           'flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold',
           isUser
-            ? 'bg-[#22C55E]/20 text-[#22C55E]'
+            ? 'bg-[#5BB8E6]/20 text-[#5BB8E6]'
             : 'bg-white/10 text-text-muted',
         )}
       >
@@ -74,7 +74,7 @@ function MessageBubble({ message, isRevealing }: MessageBubbleProps) {
           className={cn(
             'inline-block rounded-xl px-4 py-2.5 text-sm leading-relaxed',
             isUser
-              ? 'bg-[#22C55E]/15 text-text-bright'
+              ? 'bg-[#5BB8E6]/15 text-text-bright'
               : 'bg-white/5 text-text-default',
           )}
         >
@@ -150,7 +150,7 @@ function ChatInput({ onSend, disabled }: ChatInputProps) {
           className={cn(
             'flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors',
             value.trim() && !disabled
-              ? 'bg-[#22C55E] text-white hover:bg-[#22C55E]/80'
+              ? 'bg-[#5BB8E6] text-white hover:opacity-90'
               : 'bg-white/5 text-text-muted',
           )}
         >
@@ -221,7 +221,7 @@ export function CultivationChat() {
     <div className="flex h-[calc(100vh-220px)] min-h-[500px] flex-col rounded-xl border border-default bg-card overflow-hidden">
       {/* Header */}
       <div className="flex items-center gap-2 border-b border-default p-3">
-        <div className="flex items-center gap-2 rounded-lg bg-[#22C55E]/15 px-4 py-2 text-sm font-medium text-[#22C55E]">
+        <div className="flex items-center gap-2 rounded-lg bg-[#5BB8E6]/15 px-4 py-2 text-sm font-medium text-[#5BB8E6]">
           <Leaf className="h-4 w-4" />
           Grow Advisor
         </div>
@@ -251,7 +251,7 @@ export function CultivationChat() {
                 <button
                   key={i}
                   onClick={() => handleSuggestionClick(prompt)}
-                  className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#22C55E]/30 hover:text-text-default transition-colors"
+                  className="rounded-full border border-default bg-base px-3 py-1.5 text-xs text-text-muted hover:border-[#5BB8E6]/30 hover:text-text-default transition-colors"
                 >
                   {prompt}
                 </button>

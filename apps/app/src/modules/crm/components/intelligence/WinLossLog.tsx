@@ -10,8 +10,8 @@ import {
 } from 'recharts';
 import { Filter } from 'lucide-react';
 import type { WinLossEntry } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const OUTCOME_VARIANT: Record<string, 'success' | 'danger' | 'warning'> = {
   won: 'success',
@@ -137,8 +137,8 @@ export function WinLossLog() {
       {/* Metrics */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         <MetricCard label="Total Entries" value={totalEntries} accentColor={CRM_ACCENT} />
-        <MetricCard label="Win Rate" value={`${winRate.toFixed(0)}%`} accentColor="#22C55E" />
-        <MetricCard label="Revenue Won" value={`$${(revenueWon / 1000).toFixed(1)}K/mo`} accentColor="#22C55E" />
+        <MetricCard label="Win Rate" value={`${winRate.toFixed(0)}%`} accentColor="#5BB8E6" />
+        <MetricCard label="Revenue Won" value={`$${(revenueWon / 1000).toFixed(1)}K/mo`} accentColor="#5BB8E6" />
         <MetricCard label="Revenue Lost" value={`$${(revenueLost / 1000).toFixed(1)}K/mo`} accentColor="#EF4444" />
       </div>
 

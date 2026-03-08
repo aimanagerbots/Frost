@@ -34,7 +34,7 @@ export function PipelineMovementChart({ data }: PipelineMovementChartProps) {
               color: 'var(--color-text-default)',
             }}
           />
-          <Bar dataKey="advances" fill="#22C55E" name="Advances" radius={[4, 4, 0, 0]} />
+          <Bar dataKey="advances" fill="#5BB8E6" name="Advances" radius={[4, 4, 0, 0]} />
           <Bar dataKey="declines" fill="#EF4444" name="Declines" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>

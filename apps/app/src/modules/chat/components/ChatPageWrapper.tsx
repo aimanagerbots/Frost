@@ -4,8 +4,8 @@ import { Bot, Users } from 'lucide-react';
 import { useTeamChatStore } from '@/modules/chat/store';
 import { ChatPage as AIChatPage } from './ChatPage';
 import { TeamChatPage } from './TeamChatPage';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#06B6D4';
 
 const TABS = [
   { id: 'ai' as const, label: 'AI Chat', Icon: Bot },
@@ -27,7 +27,7 @@ function TabBar() {
             className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
               isActive
                 ? 'text-white'
-                : 'text-text-muted hover:text-text-default hover:bg-elevated'
+                : 'text-text-muted hover:text-text-default hover:bg-accent-hover'
             }`}
             style={isActive ? { backgroundColor: ACCENT } : undefined}
           >

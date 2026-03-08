@@ -2,8 +2,8 @@
 
 import { MetricCard } from '@/components';
 import type { EventMetrics } from '../../types/seo-events';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#EC4899';
 
 interface VendorDayStatsProps {
   metrics: EventMetrics;

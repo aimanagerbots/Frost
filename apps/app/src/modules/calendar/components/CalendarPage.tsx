@@ -9,16 +9,16 @@ import { MonthView } from './MonthView';
 import { WeekView } from './WeekView';
 import { DayView } from './DayView';
 import type { CalendarEvent, CalendarViewMode, EventType } from '../types';
+import { ACCENT as CALENDAR_ACCENT } from '@/design/colors';
 
-const CALENDAR_ACCENT = '#3B82F6';
 
 const EVENT_TYPES: { value: EventType; label: string; color: string }[] = [
-  { value: 'delivery', label: 'Delivery', color: '#0EA5E9' },
-  { value: 'harvest', label: 'Harvest', color: '#22C55E' },
-  { value: 'meeting', label: 'Meeting', color: '#2563EB' },
-  { value: 'production', label: 'Production', color: '#10B981' },
-  { value: 'vendor-day', label: 'Vendor Day', color: '#F59E0B' },
-  { value: 'task-due', label: 'Task Due', color: '#8B5CF6' },
+  { value: 'delivery', label: 'Delivery', color: '#5BB8E6' },
+  { value: 'harvest', label: 'Harvest', color: '#5BB8E6' },
+  { value: 'meeting', label: 'Meeting', color: '#5BB8E6' },
+  { value: 'production', label: 'Production', color: '#5BB8E6' },
+  { value: 'vendor-day', label: 'Vendor Day', color: '#5BB8E6' },
+  { value: 'task-due', label: 'Task Due', color: '#5BB8E6' },
 ];
 
 const TYPE_BADGE_VARIANT: Record<EventType, 'info' | 'success' | 'warning' | 'danger' | 'muted'> = {
@@ -134,20 +134,20 @@ export function CalendarPage() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setCurrentDate(navigateDate(currentDate, view, -1))}
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
             aria-label="Previous"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
             onClick={() => setCurrentDate(new Date())}
-            className="rounded-lg border border-default px-3 py-1 text-xs font-medium text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+            className="rounded-lg border border-default px-3 py-1 text-xs font-medium text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
           >
             Today
           </button>
           <button
             onClick={() => setCurrentDate(navigateDate(currentDate, view, 1))}
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
             aria-label="Next"
           >
             <ChevronRight className="h-4 w-4" />

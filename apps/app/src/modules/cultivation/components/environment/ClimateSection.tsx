@@ -38,7 +38,7 @@ export function ClimateSection({ roomId }: ClimateSectionProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <div className="h-1 w-6 rounded-full bg-[#22C55E]" />
+        <div className="h-1 w-6 rounded-full bg-[#5BB8E6]" />
         <h3 className="text-sm font-semibold text-text-bright">Climate Control</h3>
         <span className="text-[10px] text-text-muted uppercase tracking-wider">Trollmaster</span>
       </div>

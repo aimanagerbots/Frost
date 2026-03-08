@@ -44,7 +44,7 @@ export function AlertCard({ alert }: AlertCardProps) {
           <div className="mt-2 flex items-center justify-between">
             <p className="text-[10px] text-text-muted italic">{alert.recommendedAction}</p>
             <button
-              className="flex items-center gap-1 rounded-lg px-2.5 py-1 text-[10px] font-medium transition-colors hover:bg-elevated"
+              className="flex items-center gap-1 rounded-lg px-2.5 py-1 text-[10px] font-medium transition-colors hover:bg-accent-hover"
               style={{ color: style.color, borderWidth: 1, borderColor: `${style.color}30` }}
             >
               {alert.actionLabel}

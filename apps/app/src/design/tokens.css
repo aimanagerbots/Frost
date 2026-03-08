@@ -14,6 +14,9 @@
   /* Accent — Snowflake blue */
   --accent-primary: #5BB8E6;
   --accent-gradient: linear-gradient(135deg, #5BB8E6, #4A8DB8, #3D7A9E);
+  --accent-hover-subtle: rgba(91, 184, 230, 0.05);
+  --accent-hover: rgba(91, 184, 230, 0.15);
+  --accent-hover-strong: rgba(91, 184, 230, 0.30);
 
   /* Text — all white */
   --text-default: #FFFFFF;
@@ -42,6 +45,9 @@
   /* Accent — Snowflake blue */
   --accent-primary: #5BB8E6;
   --accent-gradient: linear-gradient(135deg, #5BB8E6, #4A8DB8, #3D7A9E);
+  --accent-hover-subtle: rgba(91, 184, 230, 0.05);
+  --accent-hover: rgba(91, 184, 230, 0.15);
+  --accent-hover-strong: rgba(91, 184, 230, 0.30);
 
   /* Text */
   --text-default: #1E293B;

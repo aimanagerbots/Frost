@@ -8,16 +8,16 @@ import { useAccounts } from '../../hooks';
 import type { Opportunity } from '../../types';
 import { OpportunityCard } from './OpportunityCard';
 import { OpportunityDrawer } from './OpportunityDrawer';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 type ViewType = 'all' | 'new-account' | 'reorder' | 'category-expansion';
 
 const UNIVERSAL_STAGES = [
-  { id: 'early', title: 'Early', color: '#94A3B8' },
-  { id: 'engaged', title: 'Engaged', color: '#3B82F6' },
-  { id: 'committed', title: 'Committed', color: '#F59E0B' },
-  { id: 'won', title: 'Won', color: '#22C55E' },
+  { id: 'early', title: 'Early', color: '#5BB8E6' },
+  { id: 'engaged', title: 'Engaged', color: '#5BB8E6' },
+  { id: 'committed', title: 'Committed', color: '#5BB8E6' },
+  { id: 'won', title: 'Won', color: '#5BB8E6' },
   { id: 'lost', title: 'Lost', color: '#EF4444' },
 ];
 
@@ -128,9 +128,9 @@ export function OpportunitiesPipeline() {
       {/* Metrics */}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <MetricCard label="Total Pipeline" value={formatCurrency(metrics.total)} accentColor={CRM_ACCENT} />
-        <MetricCard label="Weighted Pipeline" value={formatCurrency(metrics.weighted)} accentColor="#3B82F6" />
-        <MetricCard label="Avg Days to Close" value={`${metrics.avgDays}d`} accentColor="#8B5CF6" />
-        <MetricCard label="Win Rate" value={`${metrics.winRate}%`} accentColor="#22C55E" />
+        <MetricCard label="Weighted Pipeline" value={formatCurrency(metrics.weighted)} accentColor="#5BB8E6" />
+        <MetricCard label="Avg Days to Close" value={`${metrics.avgDays}d`} accentColor="#5BB8E6" />
+        <MetricCard label="Win Rate" value={`${metrics.winRate}%`} accentColor="#5BB8E6" />
       </div>
 
       {/* View toggle */}

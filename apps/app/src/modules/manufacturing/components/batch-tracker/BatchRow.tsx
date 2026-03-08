@@ -7,12 +7,12 @@ import { BatchPipelineProgress } from './BatchPipelineProgress';
 import type { ManufacturingBatch } from '../../types';
 
 const CATEGORY_COLORS: Record<string, string> = {
-  flower: '#22C55E',
-  preroll: '#84CC16',
-  vaporizer: '#06B6D4',
-  concentrate: '#F59E0B',
-  edible: '#EC4899',
-  beverage: '#8B5CF6',
+  flower: '#5BB8E6',
+  preroll: '#5BB8E6',
+  vaporizer: '#5BB8E6',
+  concentrate: '#5BB8E6',
+  edible: '#5BB8E6',
+  beverage: '#5BB8E6',
 };
 
 const COA_VARIANT: Record<string, 'default' | 'info' | 'success' | 'danger' | 'warning'> = {
@@ -33,7 +33,7 @@ export function BatchRow({ batch }: { batch: ManufacturingBatch }) {
       {/* Collapsed row */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-elevated/50"
+        className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-accent-hover/50"
       >
         {expanded ? (
           <ChevronDown className="h-4 w-4 shrink-0 text-text-muted" />

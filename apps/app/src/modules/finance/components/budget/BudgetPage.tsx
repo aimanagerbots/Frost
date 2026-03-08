@@ -20,6 +20,7 @@ import {
 import type { BudgetScenario, CapexItem } from '@/modules/finance/types/budget-labor';
 import { ScenarioDrawer } from './ScenarioDrawer';
 import { Calculator, ChevronDown, ChevronRight, Lightbulb } from 'lucide-react';
+import { ACCENT } from '@/design/colors';
 import {
   ResponsiveContainer,
   BarChart,
@@ -31,7 +32,6 @@ import {
   Legend,
 } from 'recharts';
 
-const ACCENT = '#059669';
 
 function fmt(n: number): string {
   if (Math.abs(n) >= 1_000_000) return `$${(n / 1_000_000).toFixed(2)}M`;
@@ -139,7 +139,7 @@ export function BudgetPage() {
           {divisions!.map((d) => {
             const expanded = expandedDiv === d.id;
             const pct = (d.actual / d.budget) * 100;
-            const barColor = d.status === 'over' ? '#EF4444' : d.status === 'on-track' ? '#F59E0B' : '#22C55E';
+            const barColor = d.status === 'over' ? '#EF4444' : d.status === 'on-track' ? '#22C55E' : '#FBBF24';
             return (
               <div
                 key={d.id}

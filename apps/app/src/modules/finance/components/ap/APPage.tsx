@@ -20,8 +20,8 @@ import { useVendors, useBills, useAPMetrics } from '@/modules/finance/hooks';
 import type { Vendor, Bill, BillStatus } from '@/modules/finance/types';
 import { VendorDrawer } from './VendorDrawer';
 import { BillDrawer } from './BillDrawer';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#059669';
 
 const statusVariant = (s: string) => {
   switch (s) {
@@ -39,15 +39,15 @@ const fmtCurrency = (n: number) => {
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'Facilities': '#3B82F6',
-  'Packaging': '#8B5CF6',
-  'Cultivation': '#22C55E',
-  'Utilities': '#F59E0B',
-  'Lab Testing': '#06B6D4',
-  'Vehicle Maintenance': '#F97316',
-  'Insurance': '#EC4899',
+  'Facilities': '#5BB8E6',
+  'Packaging': '#5BB8E6',
+  'Cultivation': '#5BB8E6',
+  'Utilities': '#5BB8E6',
+  'Lab Testing': '#5BB8E6',
+  'Vehicle Maintenance': '#5BB8E6',
+  'Insurance': '#5BB8E6',
   'Legal': '#EF4444',
-  'IT / Software': '#6366F1',
+  'IT / Software': '#5BB8E6',
 };
 
 export function APPage() {
@@ -94,7 +94,7 @@ export function APPage() {
       render: (row: Vendor) => (
         <span
           className="text-xs px-2 py-0.5 rounded-full font-medium"
-          style={{ backgroundColor: `${CATEGORY_COLORS[row.category] ?? '#64748B'}20`, color: CATEGORY_COLORS[row.category] ?? '#64748B' }}
+          style={{ backgroundColor: `${CATEGORY_COLORS[row.category] ?? '#5BB8E6'}20`, color: CATEGORY_COLORS[row.category] ?? '#5BB8E6' }}
         >
           {row.category}
         </span>
@@ -142,7 +142,7 @@ export function APPage() {
       render: (row: Bill) => (
         <span
           className="text-xs px-2 py-0.5 rounded-full font-medium"
-          style={{ backgroundColor: `${CATEGORY_COLORS[row.category] ?? '#64748B'}20`, color: CATEGORY_COLORS[row.category] ?? '#64748B' }}
+          style={{ backgroundColor: `${CATEGORY_COLORS[row.category] ?? '#5BB8E6'}20`, color: CATEGORY_COLORS[row.category] ?? '#5BB8E6' }}
         >
           {row.category}
         </span>
@@ -185,7 +185,7 @@ export function APPage() {
           <MetricCard label="Total AP" value={fmtCurrency(metrics.totalAP)} accentColor={ACCENT} />
           <MetricCard label="Overdue" value={fmtCurrency(metrics.overdueAmount)} accentColor="#EF4444" />
           <MetricCard label="Recurring Monthly" value={fmtCurrency(metrics.recurringMonthly)} accentColor={ACCENT} />
-          <MetricCard label="Due This Week" value={fmtCurrency(metrics.upcomingThisWeek)} accentColor="#F59E0B" />
+          <MetricCard label="Due This Week" value={fmtCurrency(metrics.upcomingThisWeek)} accentColor="#5BB8E6" />
           <MetricCard label="Vendor Count" value={String(metrics.vendorCount)} accentColor={ACCENT} />
         </div>
       ) : null}
@@ -211,7 +211,7 @@ export function APPage() {
                 <div
                   key={bill.id}
                   onClick={() => setSelectedBill(bill)}
-                  className={`rounded-lg border p-3 cursor-pointer transition-colors hover:bg-card-hover ${
+                  className={`rounded-lg border p-3 cursor-pointer transition-colors hover:bg-accent-hover ${
                     isOverdue ? 'border-red-500/40 bg-red-500/5' : 'border-default'
                   }`}
                 >
@@ -263,7 +263,7 @@ export function APPage() {
               onClick={() => setBillFilter(btn.value)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                 billFilter === btn.value
-                  ? 'bg-[#059669]/20 text-[#059669]'
+                  ? 'bg-[#5BB8E6]/20 text-[#5BB8E6]'
                   : 'bg-elevated text-muted hover:text-default'
               }`}
             >
@@ -305,7 +305,7 @@ export function APPage() {
                   paddingAngle={2}
                 >
                   {categoryData.map((entry) => (
-                    <Cell key={entry.name} fill={CATEGORY_COLORS[entry.name] ?? '#64748B'} />
+                    <Cell key={entry.name} fill={CATEGORY_COLORS[entry.name] ?? '#5BB8E6'} />
                   ))}
                 </Pie>
                 <Tooltip
@@ -327,7 +327,7 @@ export function APPage() {
                   <div key={cat.name} className="flex items-center gap-3">
                     <div
                       className="w-3 h-3 rounded-sm shrink-0"
-                      style={{ backgroundColor: CATEGORY_COLORS[cat.name] ?? '#64748B' }}
+                      style={{ backgroundColor: CATEGORY_COLORS[cat.name] ?? '#5BB8E6' }}
                     />
                     <span className="text-sm text-muted flex-1">{cat.name}</span>
                     <span className="text-sm font-mono text-default">${cat.value.toLocaleString()}</span>

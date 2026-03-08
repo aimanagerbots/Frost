@@ -5,8 +5,8 @@ import { MetricCard, LoadingSkeleton } from '@/components';
 import { useEquipment } from '../../hooks';
 import { EquipmentCard } from './EquipmentCard';
 import { MaintenanceSchedule } from './MaintenanceSchedule';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#10B981';
 
 export function EquipmentList() {
   const { data: allEquipment, isLoading } = useEquipment();
@@ -59,8 +59,8 @@ export function EquipmentList() {
       {stats && (
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           <MetricCard label="Total Equipment" value={stats.total} accentColor={ACCENT} />
-          <MetricCard label="Operational" value={stats.operational} accentColor="#22C55E" />
-          <MetricCard label="Needs Maintenance" value={stats.needsMaint} accentColor="#FBBF24" />
+          <MetricCard label="Operational" value={stats.operational} accentColor="#5BB8E6" />
+          <MetricCard label="Needs Maintenance" value={stats.needsMaint} accentColor="#5BB8E6" />
           <MetricCard label="Down / In Service" value={stats.down} accentColor="#EF4444" />
         </div>
       )}

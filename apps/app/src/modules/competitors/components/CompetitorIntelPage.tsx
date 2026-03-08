@@ -35,8 +35,8 @@ import {
 import { useCompetitors, useCompetitorMetrics, useCompetitorAlerts } from '../hooks';
 import { CompetitorDrawer } from './CompetitorDrawer';
 import type { Competitor, CompetitorAlert } from '../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#F97316';
 
 const TREND_ICONS = {
   growing: TrendingUp,
@@ -137,7 +137,7 @@ function CompetitorCard({
   const trendColor = TREND_COLORS[competitor.trend];
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4 transition-all duration-200 hover:bg-card-hover">
+    <div className="rounded-xl border border-default bg-card p-4 transition-all duration-200 hover:bg-accent-hover">
       <div className="flex items-start justify-between">
         <div>
           <h3 className="font-semibold text-text-bright">{competitor.name}</h3>
@@ -173,7 +173,7 @@ function CompetitorCard({
 
       <button
         onClick={onViewDetails}
-        className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg border border-default py-1.5 text-xs font-medium text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+        className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg border border-default py-1.5 text-xs font-medium text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
       >
         <Eye className="h-3.5 w-3.5" />
         View Details

@@ -179,7 +179,7 @@ export function DataTable<T extends Record<string, unknown>>({
                     key={rowIdx}
                     className={cn(
                       'border-b border-default/50 transition-colors',
-                      onRowClick && 'cursor-pointer hover:bg-card-hover'
+                      onRowClick && 'cursor-pointer hover:bg-accent-hover'
                     )}
                     onClick={onRowClick ? () => onRowClick(row) : undefined}
                   >
@@ -212,7 +212,7 @@ export function DataTable<T extends Record<string, unknown>>({
               <button
                 onClick={() => setPage((p) => Math.max(0, p - 1))}
                 disabled={page === 0}
-                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-elevated disabled:opacity-30"
+                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-accent-hover disabled:opacity-30"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -222,7 +222,7 @@ export function DataTable<T extends Record<string, unknown>>({
               <button
                 onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
                 disabled={page >= totalPages - 1}
-                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-elevated disabled:opacity-30"
+                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-accent-hover disabled:opacity-30"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>

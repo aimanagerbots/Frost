@@ -15,8 +15,8 @@ interface AccountListPanelProps {
 }
 
 const STATUS_COLORS: Record<PipelineStatus, string> = {
-  active: '#22C55E',
-  inactive: '#3B82F6',
+  active: '#5BB8E6',
+  inactive: '#5BB8E6',
   recovery: '#EF4444',
 };
 
@@ -59,7 +59,7 @@ export function AccountListPanel({ status, phase, cell, onClose }: AccountListPa
         </div>
         <button
           onClick={onClose}
-          className="rounded-lg p-1.5 text-text-muted transition-colors hover:bg-elevated hover:text-text-default"
+          className="rounded-lg p-1.5 text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
         >
           <X className="h-4 w-4" />
         </button>
@@ -83,7 +83,7 @@ export function AccountListPanel({ status, phase, cell, onClose }: AccountListPa
               {fullAccounts.map((acct) => (
                 <tr
                   key={acct.id}
-                  className="cursor-pointer border-b border-default/50 transition-colors hover:bg-elevated/50"
+                  className="cursor-pointer border-b border-default/50 transition-colors hover:bg-accent-hover/50"
                   onClick={() => router.push(`/crm?account=${acct.id}`)}
                 >
                   <td className="py-2.5 pr-4 font-medium text-text-bright">{acct.name}</td>

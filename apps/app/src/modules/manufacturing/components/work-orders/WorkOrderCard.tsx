@@ -1,17 +1,17 @@
 'use client';
 
-import { StatusBadge } from '@/components';
+import { AccentCard, StatusBadge } from '@/components';
 import type { WorkOrder } from '../../types';
+import { ACCENT } from '@/design/colors';
 
-const ACCENT = '#10B981';
 
 const TYPE_COLORS: Record<string, string> = {
-  flower: '#22C55E',
-  preroll: '#84CC16',
-  vaporizer: '#06B6D4',
-  concentrate: '#F59E0B',
-  edible: '#EC4899',
-  beverage: '#8B5CF6',
+  flower: '#5BB8E6',
+  preroll: '#5BB8E6',
+  vaporizer: '#5BB8E6',
+  concentrate: '#5BB8E6',
+  edible: '#5BB8E6',
+  beverage: '#5BB8E6',
 };
 
 const PRIORITY_VARIANT: Record<string, 'danger' | 'warning' | 'info' | 'muted'> = {
@@ -21,9 +21,20 @@ const PRIORITY_VARIANT: Record<string, 'danger' | 'warning' | 'info' | 'muted'> 
   low: 'muted',
 };
 
+const STATUS_ACCENT: Record<string, string> = {
+  'in-progress': '#5BB8E6',
+  active: '#5BB8E6',
+  completed: '#00E5A0',
+  pending: '#FBBF24',
+  queued: '#FBBF24',
+  cancelled: '#FB7185',
+  'on-hold': '#FB7185',
+  blocked: '#FB7185',
+};
+
 const BOM_LABEL: Record<string, { text: string; color: string }> = {
-  ready: { text: 'Materials Ready', color: '#22C55E' },
-  partial: { text: 'Partial', color: '#FBBF24' },
+  ready: { text: 'Materials Ready', color: '#5BB8E6' },
+  partial: { text: 'Partial', color: '#5BB8E6' },
   waiting: { text: 'Waiting', color: '#EF4444' },
 };
 
@@ -31,12 +42,12 @@ export function WorkOrderCard({ order }: { order: WorkOrder }) {
   const typeColor = TYPE_COLORS[order.type] ?? '#666';
   const bom = BOM_LABEL[order.bomStatus] ?? BOM_LABEL.ready;
   const isBlocked = order.status === 'blocked';
+  const statusColor = STATUS_ACCENT[order.status] ?? '#5BB8E6';
 
   return (
-    <div
-      className={`rounded-lg border p-3 transition-shadow hover:shadow-md ${
-        isBlocked ? 'border-red-500/40 bg-red-950/10' : 'border-default bg-card'
-      }`}
+    <AccentCard
+      accentColor={statusColor}
+      className={`rounded-lg p-3 ${isBlocked ? 'border-red-500/40 bg-red-950/10' : ''}`}
     >
       {/* Header */}
       <div className="flex items-start justify-between gap-2">
@@ -93,6 +104,6 @@ export function WorkOrderCard({ order }: { order: WorkOrder }) {
         <div className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: bom.color }} />
         <span className="text-[10px] text-text-muted">{bom.text}</span>
       </div>
-    </div>
+    </AccentCard>
   );
 }

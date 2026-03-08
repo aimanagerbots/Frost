@@ -26,9 +26,13 @@ export function Header() {
         className="fixed top-0 left-0 right-0 z-50 border-b border-border-default"
         style={{ backgroundColor: '#000000' }}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          {/* Logo */}
-          <Link href="/home" className="relative h-16 w-16 shrink-0">
+        {/* Desktop header */}
+        <div className="relative hidden lg:flex items-center justify-center py-2 px-6">
+          {/* Logo — far left */}
+          <Link
+            href="/home"
+            className="absolute left-6 top-1/2 -translate-y-1/2 z-10 h-10 w-10"
+          >
             <Image
               src="/FrostLogo_SnowflakeOnly.png"
               alt="Frost"
@@ -38,23 +42,44 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop mega menu */}
+          {/* Nav — centered on viewport */}
           <MegaMenu isScrolled={isScrolled} />
 
-          {/* Mobile hamburger */}
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => setIsMobileOpen(true)}
-              className={cn(
-                'transition-colors duration-200 md:hidden',
-                'text-text-muted hover:text-text-default'
-              )}
-              aria-label="Open menu"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
-          </div>
+          {/* CTA — far right */}
+          <Link
+            href="/find"
+            className="absolute right-6 top-1/2 -translate-y-1/2 shrink-0 whitespace-nowrap rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.04em] transition-colors duration-200 bg-accent-primary text-text-on-dark hover:bg-accent-primary-hover"
+          >
+            Find Near You
+          </Link>
+        </div>
+
+        {/* Mobile: logo left, hamburger right */}
+        <div className="flex lg:hidden items-center justify-between py-2 px-6">
+          <Link
+            href="/home"
+            className="relative z-10 h-10 w-10 shrink-0"
+          >
+            <Image
+              src="/FrostLogo_SnowflakeOnly.png"
+              alt="Frost"
+              width={40}
+              height={40}
+              className="object-contain"
+              priority
+            />
+          </Link>
+          <button
+            type="button"
+            onClick={() => setIsMobileOpen(true)}
+            className={cn(
+              'shrink-0 transition-colors duration-200',
+              'text-text-muted hover:text-text-default'
+            )}
+            aria-label="Open menu"
+          >
+            <Menu className="h-6 w-6" />
+          </button>
         </div>
       </header>
 

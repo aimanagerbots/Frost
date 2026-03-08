@@ -6,8 +6,8 @@ import { useProductRecommendations } from '../../hooks/useProductRecommendations
 import { ChartWrapper, CHART_THEME, CHART_COLORS } from '@/components';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Filter, ShoppingCart, Mail, X } from 'lucide-react';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 const CATEGORY_COLORS: Record<string, string> = {
   flower: CHART_COLORS.flower,
@@ -86,9 +86,9 @@ export function ProductRecommendations() {
       {/* Metrics */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         <MetricCard label="Total Recommendations" value={totalRecs} accentColor={CRM_ACCENT} />
-        <MetricCard label="Estimated Untapped Revenue" value={`$${(untappedRevenue / 1000).toFixed(1)}K/mo`} accentColor="#22C55E" />
-        <MetricCard label="Acceptance Rate" value={`${acceptanceRate.toFixed(0)}%`} accentColor="#3B82F6" />
-        <MetricCard label="Top Category" value={topCategory} accentColor="#8B5CF6" />
+        <MetricCard label="Estimated Untapped Revenue" value={`$${(untappedRevenue / 1000).toFixed(1)}K/mo`} accentColor="#5BB8E6" />
+        <MetricCard label="Acceptance Rate" value={`${acceptanceRate.toFixed(0)}%`} accentColor="#5BB8E6" />
+        <MetricCard label="Top Category" value={topCategory} accentColor="#5BB8E6" />
       </div>
 
       {/* Filter bar */}

@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { DrawerPanel, StatusBadge } from '@/components';
 import type { ReorderProposal } from '../../types';
+import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
-const CRM_ACCENT = '#F59E0B';
 
 function formatCurrency(n: number): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(n);
@@ -173,7 +173,7 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
                         onReject?.(proposal.id, reason);
                         setShowRejectMenu(false);
                       }}
-                      className="w-full rounded-md px-3 py-1.5 text-left text-sm text-text-default hover:bg-elevated transition-colors"
+                      className="w-full rounded-md px-3 py-1.5 text-left text-sm text-text-default hover:bg-accent-hover transition-colors"
                     >
                       {reason}
                     </button>

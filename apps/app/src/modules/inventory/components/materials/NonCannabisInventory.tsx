@@ -38,7 +38,7 @@ export function NonCannabisInventory() {
       searchable
       searchPlaceholder="Search materials..."
       pageSize={20}
-      emptyState={{ icon: Package, title: 'No materials found', description: 'Non-cannabis materials will appear here.', accentColor: '#8B5CF6' }}
+      emptyState={{ icon: Package, title: 'No materials found', description: 'Non-cannabis materials will appear here.', accentColor: '#5BB8E6' }}
     />
   );
 }
