@@ -1,0 +1,345 @@
+[
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "28.8px",
+    "count": 66
+  },
+  {
+    "fontFamily": "\"Times New Roman\"",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "count": 60
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "22.4px",
+    "count": 56
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "700",
+    "lineHeight": "21.6px",
+    "count": 34
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "18.2px",
+    "count": 33
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "23.4px",
+    "count": 27
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "25.2px",
+    "count": 16
+  },
+  {
+    "fontFamily": "\"Arial Narrow\", Assistant, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "25.2px",
+    "count": 12
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "15px",
+    "fontWeight": "800",
+    "lineHeight": "19.5px",
+    "count": 9
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "400",
+    "lineHeight": "20.4px",
+    "count": 8
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "15px",
+    "fontWeight": "400",
+    "lineHeight": "18px",
+    "count": 7
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "11px",
+    "fontWeight": "400",
+    "lineHeight": "18.7px",
+    "count": 7
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "24px",
+    "fontWeight": "800",
+    "lineHeight": "31.2px",
+    "count": 6
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "500",
+    "lineHeight": "18px",
+    "count": 6
+  },
+  {
+    "fontFamily": "\"Arial Narrow\", Assistant, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "count": 6
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "44px",
+    "fontWeight": "700",
+    "lineHeight": "57.2px",
+    "count": 5
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "800",
+    "lineHeight": "23.4px",
+    "count": 3
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "count": 3
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "400",
+    "lineHeight": "14px",
+    "count": 3
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "16px",
+    "count": 2
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "400",
+    "lineHeight": "19.5px",
+    "count": 2
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "700",
+    "lineHeight": "28.8px",
+    "count": 2
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "24px",
+    "count": 2
+  },
+  {
+    "fontFamily": "Arial",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "count": 2
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "40px",
+    "fontWeight": "800",
+    "lineHeight": "52px",
+    "count": 2
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "800",
+    "lineHeight": "20.8px",
+    "count": 2
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "lineHeight": "30px",
+    "count": 2
+  },
+  {
+    "fontFamily": "Poppins-Klaviyo-Hosted, Arial, \"Helvetica Neue\", Helvetica, sans-serif",
+    "fontSize": "30px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "count": 2
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "800",
+    "lineHeight": "16px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "18px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "800",
+    "lineHeight": "18.2px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "32px",
+    "fontWeight": "700",
+    "lineHeight": "41.6px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "20.8px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "52px",
+    "fontWeight": "800",
+    "lineHeight": "67.6px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "32.4px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "72px",
+    "fontWeight": "800",
+    "lineHeight": "79.2px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "400",
+    "lineHeight": "27.2px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "500",
+    "lineHeight": "25.2px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Nunito, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "700",
+    "lineHeight": "30px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "count": 1
+  },
+  {
+    "fontFamily": "Arial",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "24px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "17px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "700",
+    "lineHeight": "17px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Arial Narrow\", Assistant, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "800",
+    "lineHeight": "normal",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "count": 1
+  },
+  {
+    "fontFamily": "Poppins-Klaviyo-Hosted, Arial, \"Helvetica Neue\", Helvetica, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "count": 1
+  },
+  {
+    "fontFamily": "Poppins-Klaviyo-Hosted, Arial, \"Helvetica Neue\", Helvetica, sans-serif",
+    "fontSize": "20px",
+    "fontWeight": "700",
+    "lineHeight": "20px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Poppins-Klaviyo-Hosted, Arial, \"Helvetica Neue\", Helvetica, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "700",
+    "lineHeight": "16px",
+    "count": 1
+  },
+  {
+    "fontFamily": "\"Roboto Condensed\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "16px",
+    "count": 1
+  }
+]

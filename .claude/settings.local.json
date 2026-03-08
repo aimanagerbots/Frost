@@ -9,7 +9,13 @@
       "Bash(npm run lint)",
       "Bash(npm run build)",
       "Bash(git push origin main:claude/research-claude-md-jau3A)",
-      "Bash(ls -d apps/*/)"
+      "Bash(ls -d apps/*/)",
+      "WebFetch(domain:frost-orcin.vercel.app)",
+      "Bash(node -e \":*)",
+      "Bash(py --version)",
+      "Bash(/c/Users/quinn/AppData/Local/Microsoft/WindowsApps/python --version)",
+      "Bash(pip --version)",
+      "Bash(node -e \"console.log\\(''node works''\\)\")"
     ]
   }
 }

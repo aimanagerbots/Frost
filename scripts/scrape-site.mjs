@@ -255,12 +255,165 @@ function generateBrief({ domain, url, meta, colors, typography, spacing, cssVars
 
 // --- Scrape a single page ---
 
+async function dismissPopups(page) {
+  // Click common popup/banner dismiss buttons and remove overlay elements.
+  // Covers: cookie consent, age gates, newsletter modals, Shopify popups, GDPR banners.
+  await page.evaluate(() => {
+    // Common button selectors for "Accept", "OK", "Close", "I agree", age gates, etc.
+    const buttonSelectors = [
+      // Age verification / enter site
+      'button[class*="age-gate"]', 'button[class*="age_gate"]', 'button[class*="agegate"]',
+      'button[class*="age-verify"]', 'button[class*="verify-age"]',
+      '[data-age-gate] button', '[data-age-verification] button',
+      'button[class*="enter-site"]', 'button[class*="enter_site"]',
+      // Cookie consent
+      'button[class*="cookie"] ', 'button[id*="cookie"]',
+      'button[class*="consent"]', 'button[id*="consent"]',
+      'button[class*="accept"]', 'button[id*="accept"]',
+      'button[class*="gdpr"]', 'button[id*="gdpr"]',
+      // Generic close / dismiss
+      'button[class*="close-popup"]', 'button[class*="close_popup"]',
+      'button[class*="dismiss"]', 'button[class*="modal-close"]',
+      'button[aria-label="Close"]', 'button[aria-label="close"]',
+      'button[aria-label="Close dialog"]',
+      '.popup-close', '.modal-close', '.banner-close',
+      // Shopify-specific
+      '.shopify-section-popup button', '.shopify-popup__close',
+      '#shopify-section-popup button',
+    ];
+
+    for (const sel of buttonSelectors) {
+      try {
+        const btns = document.querySelectorAll(sel);
+        for (const btn of btns) {
+          if (btn.offsetParent !== null) btn.click(); // only click visible buttons
+        }
+      } catch {}
+    }
+
+    // Also try clicking any visible button whose text matches common dismiss words
+    const dismissWords = /^(accept|agree|ok|yes|enter|i am 21|i\'m 21|i am over|i\'m over|verify|confirm|continue|got it|close|dismiss|no thanks|not now|submit|allow|21\+|18\+)/i;
+    for (const btn of document.querySelectorAll('button, a[role="button"], [class*="btn"]')) {
+      if (btn.offsetParent !== null && dismissWords.test(btn.textContent.trim())) {
+        btn.click();
+      }
+    }
+
+    // Remove common overlay/backdrop elements that block screenshots
+    const overlaySelectors = [
+      '[class*="overlay"]', '[class*="backdrop"]', '[class*="modal-bg"]',
+      '[class*="popup-overlay"]', '[class*="cookie-banner"]', '[class*="consent-banner"]',
+      '[id*="overlay"]', '[id*="backdrop"]',
+    ];
+    for (const sel of overlaySelectors) {
+      try {
+        for (const el of document.querySelectorAll(sel)) {
+          // Only remove if it's a full-screen overlay (not a UI component)
+          const rect = el.getBoundingClientRect();
+          if (rect.width > window.innerWidth * 0.8 && rect.height > window.innerHeight * 0.5) {
+            el.remove();
+          }
+        }
+      } catch {}
+    }
+  });
+
+  // Wait a beat for any animations to finish
+  await page.waitForTimeout(500);
+
+  // Second pass — some popups appear after a delay
+  await page.evaluate(() => {
+    // Remove position:fixed elements that cover most of the viewport (modals, banners)
+    for (const el of document.querySelectorAll('*')) {
+      const style = getComputedStyle(el);
+      if (style.position === 'fixed' && style.zIndex > 100) {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > window.innerWidth * 0.5 && rect.height > window.innerHeight * 0.3) {
+          el.remove();
+        }
+      }
+    }
+  });
+}
+
+async function waitForPage(page) {
+  // Use domcontentloaded (fast) then wait for visible content to settle.
+  // Shopify/analytics-heavy sites never reach networkidle.
+  await page.goto(page._pendingUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  // Wait for body to have content and images to start loading
+  await page.waitForFunction(() => document.body && document.body.children.length > 0, { timeout: 10000 }).catch(() => {});
+  await page.waitForTimeout(3000);
+  // Dismiss any popups, cookie banners, age gates
+  await dismissPopups(page);
+}
+
+async function extractImages(page, pageOutDir) {
+  const imgDir = resolve(pageOutDir, 'images');
+  mkdirSync(imgDir, { recursive: true });
+
+  const images = await page.evaluate(() => {
+    const imgs = [];
+    // All <img> tags
+    for (const img of document.querySelectorAll('img')) {
+      const src = img.currentSrc || img.src;
+      if (src && !src.startsWith('data:')) {
+        imgs.push({ src, alt: img.alt || '', width: img.naturalWidth, height: img.naturalHeight });
+      }
+    }
+    // Background images from inline styles
+    for (const el of document.querySelectorAll('[style*="background-image"]')) {
+      const match = getComputedStyle(el).backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+      if (match && !match[1].startsWith('data:')) {
+        imgs.push({ src: match[1], alt: 'bg-image', width: 0, height: 0 });
+      }
+    }
+    // OG image
+    const ogImg = document.querySelector('meta[property="og:image"]')?.content;
+    if (ogImg) imgs.push({ src: ogImg, alt: 'og-image', width: 0, height: 0 });
+    return imgs;
+  });
+
+  // Deduplicate by src
+  const seen = new Set();
+  const unique = images.filter(img => {
+    const key = img.src.split('?')[0]; // ignore query params for dedup
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  // Download each image
+  const manifest = [];
+  for (let i = 0; i < unique.length; i++) {
+    const img = unique[i];
+    try {
+      const resp = await fetch(img.src);
+      if (!resp.ok) continue;
+      const contentType = resp.headers.get('content-type') || '';
+      const ext = contentType.includes('svg') ? '.svg'
+        : contentType.includes('webp') ? '.webp'
+        : contentType.includes('png') ? '.png'
+        : contentType.includes('gif') ? '.gif'
+        : '.jpg';
+      const filename = `img-${String(i).padStart(3, '0')}${ext}`;
+      const buf = Buffer.from(await resp.arrayBuffer());
+      writeFileSync(resolve(imgDir, filename), buf);
+      manifest.push({ filename, src: img.src, alt: img.alt, size: buf.length });
+    } catch {
+      // Skip failed downloads
+    }
+  }
+
+  writeFileSync(resolve(pageOutDir, 'images.json'), JSON.stringify(manifest, null, 2));
+  return manifest;
+}
+
 async function scrapePage(browser, pageUrl, pageOutDir) {
   mkdirSync(pageOutDir, { recursive: true });
 
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await page.goto(pageUrl, { waitUntil: 'networkidle', timeout: 30000 });
-  await page.waitForTimeout(2000);
+  page._pendingUrl = pageUrl;
+  await waitForPage(page);
 
   // Desktop screenshot
   await scrollToBottom(page);
@@ -268,8 +421,8 @@ async function scrapePage(browser, pageUrl, pageOutDir) {
 
   // Mobile screenshot
   const mobilePage = await browser.newPage({ viewport: { width: 375, height: 812 } });
-  await mobilePage.goto(pageUrl, { waitUntil: 'networkidle', timeout: 30000 });
-  await mobilePage.waitForTimeout(2000);
+  mobilePage._pendingUrl = pageUrl;
+  await waitForPage(mobilePage);
   await scrollToBottom(mobilePage);
   await mobilePage.screenshot({ path: resolve(pageOutDir, 'screenshot-mobile.png'), fullPage: true });
   await mobilePage.close();
@@ -293,6 +446,9 @@ async function scrapePage(browser, pageUrl, pageOutDir) {
   const assets = await extractAssets(page);
   writeFileSync(resolve(pageOutDir, 'assets.json'), JSON.stringify(assets, null, 2));
 
+  // Download all images from CDN
+  const imageManifest = await extractImages(page, pageOutDir);
+
   const html = await page.content();
   writeFileSync(resolve(pageOutDir, 'snapshot.html'), html, 'utf8');
 
@@ -301,7 +457,7 @@ async function scrapePage(browser, pageUrl, pageOutDir) {
 
   await page.close();
 
-  return { meta, colors, typography };
+  return { meta, colors, typography, imageCount: imageManifest.length };
 }
 
 // --- Sitemap discovery ---
@@ -422,9 +578,9 @@ async function main() {
 
         console.log(`  [${i + 1}/${urls.length}] ${new URL(pageUrl).pathname}`);
         try {
-          const { meta } = await scrapePage(browser, pageUrl, pageOutDir);
+          const { meta, imageCount } = await scrapePage(browser, pageUrl, pageOutDir);
           results.push({ url: pageUrl, folder, title: meta.title });
-          console.log(`    -> ${meta.title || '(no title)'}`);
+          console.log(`    -> ${meta.title || '(no title)'} (${imageCount} images)`);
         } catch (err) {
           console.log(`    -> FAILED: ${err.message}`);
           results.push({ url: pageUrl, folder, title: `ERROR: ${err.message}` });
