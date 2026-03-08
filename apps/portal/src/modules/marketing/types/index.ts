@@ -170,3 +170,50 @@ export interface EmailCampaignFilter {
   status?: EmailCampaignStatus;
   search?: string;
 }
+
+// ─── Content Library ──────────────────────────────────────────────────────
+
+export type ContentLibraryCategory = 'instagram_caption' | 'product_description' | 'email_copy' | 'blog_intro' | 'image_concept';
+
+// ─── Social Enrichment ────────────────────────────────────────────────────
+
+export interface PostingTimeHeat {
+  day: number; // 0=Mon..6=Sun
+  hour: number; // 0-22, step 2
+  engagement: number; // 0-100 intensity
+}
+
+export interface HashtagSuggestion {
+  tag: string;
+  relevance: number; // 0-100
+}
+
+export interface FollowerGrowthPoint {
+  date: string;
+  instagram: number;
+  facebook: number;
+  twitter: number;
+}
+
+export interface EngagementByType {
+  type: string;
+  engagement: number;
+  posts: number;
+}
+
+// ─── Content Calendar Enrichment ──────────────────────────────────────────
+
+export interface GapSuggestion {
+  date: string;
+  suggestion: string;
+}
+
+// ─── Email Marketing Enrichment ───────────────────────────────────────────
+
+export type CampaignBuilderStep = 'details' | 'audience' | 'template' | 'content' | 'schedule' | 'review';
+
+export interface CampaignPerformanceTrend {
+  date: string;
+  openRate: number;
+  clickRate: number;
+}

@@ -5,12 +5,19 @@ import {
   getContentPieces,
   getContentTemplates,
   getContentChat,
+  getContentLibrary,
   getSocialAccounts,
   getSocialPosts,
   getEmailCampaigns,
   getEmailCampaign,
   getEmailTemplates,
   getMarketingMetrics,
+  getPostingTimesHeatMap,
+  getFollowerGrowth,
+  getEngagementByContentType,
+  getHashtagSuggestions,
+  getGapSuggestions,
+  getCampaignPerformanceTrend,
 } from '@/mocks/marketing';
 import type { ContentFilter, EmailCampaignFilter } from '@/modules/marketing/types';
 
@@ -75,5 +82,55 @@ export function useMarketingMetrics() {
   return useQuery({
     queryKey: ['marketing', 'metrics'],
     queryFn: getMarketingMetrics,
+  });
+}
+
+export function useContentLibrary() {
+  return useQuery({
+    queryKey: ['marketing', 'content-library'],
+    queryFn: async () => getContentLibrary(),
+  });
+}
+
+export function usePostingTimesHeatMap() {
+  return useQuery({
+    queryKey: ['marketing', 'posting-times'],
+    queryFn: async () => getPostingTimesHeatMap(),
+  });
+}
+
+export function useFollowerGrowth() {
+  return useQuery({
+    queryKey: ['marketing', 'follower-growth'],
+    queryFn: async () => getFollowerGrowth(),
+  });
+}
+
+export function useEngagementByContentType() {
+  return useQuery({
+    queryKey: ['marketing', 'engagement-by-type'],
+    queryFn: async () => getEngagementByContentType(),
+  });
+}
+
+export function useHashtagSuggestions() {
+  return useQuery({
+    queryKey: ['marketing', 'hashtag-suggestions'],
+    queryFn: async () => getHashtagSuggestions(),
+  });
+}
+
+export function useGapSuggestions() {
+  return useQuery({
+    queryKey: ['marketing', 'gap-suggestions'],
+    queryFn: async () => getGapSuggestions(),
+  });
+}
+
+export function useCampaignPerformanceTrend(campaignId: string) {
+  return useQuery({
+    queryKey: ['marketing', 'campaign-trend', campaignId],
+    queryFn: () => getCampaignPerformanceTrend(campaignId),
+    enabled: !!campaignId,
   });
 }

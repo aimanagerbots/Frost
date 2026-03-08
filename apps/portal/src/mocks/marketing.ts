@@ -10,6 +10,13 @@ import type {
   ContentFilter,
   EmailCampaignFilter,
   EmailStats,
+  PostingTimeHeat,
+  HashtagSuggestion,
+  FollowerGrowthPoint,
+  EngagementByType,
+  GapSuggestion,
+  CampaignPerformanceTrend,
+  ContentLibraryCategory,
 } from '@/modules/marketing/types';
 
 function delay(ms = 350): Promise<void> {
@@ -338,6 +345,202 @@ const contentPieces: ContentPiece[] = [
     aiGenerated: true,
     campaignId: 'ec-006',
   },
+
+  // === ADDITIONAL CONTENT PIECES (15 more for 40 total) ===
+
+  // Published Instagram — more for library
+  {
+    id: 'cp-026',
+    title: 'Frost Cake Flagship Announce',
+    type: 'social-post',
+    platform: 'instagram',
+    status: 'published',
+    content: 'Meet Frost Cake — our new flagship hybrid. 27.4% THC, creamy vanilla terps with a diesel finish. This one took 18 months to perfect and it shows.\n\n#FrostCake #FrostFarms #FlagshipStrain #HybridFlower',
+    tags: ['frost-cake', 'flower', 'flagship'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: true,
+    publishedDate: '2026-02-12',
+    performance: { impressions: 5200, reach: 4600, engagement: 520, clicks: 245, conversions: 32, engagementRate: 10.0 },
+  },
+  {
+    id: 'cp-027',
+    title: 'Terpene Talk: Limonene',
+    type: 'social-post',
+    platform: 'instagram',
+    status: 'published',
+    content: 'Terpene Talk: Limonene\n\nBright, citrusy, uplifting. Found in lemons, oranges, and many of your favorite sativas. Our strains highest in limonene: Lemon Haze, Super Lemon OG.\n\n#TerpeneTuesday #Limonene #FrostFarms',
+    tags: ['education', 'terpenes', 'limonene'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: true,
+    publishedDate: '2026-02-08',
+    performance: { impressions: 2100, reach: 1800, engagement: 168, clicks: 65, conversions: 4, engagementRate: 8.0 },
+  },
+  {
+    id: 'cp-028',
+    title: 'Harvest Day Vibes',
+    type: 'social-post',
+    platform: 'instagram',
+    status: 'published',
+    content: 'Harvest day is always a good day. Room 2 came down today — Granddaddy Purple looking absolutely beautiful. Purple, frosty, and ready for dry.\n\n#HarvestDay #GDP #FrostFarms #CraftCannabis',
+    tags: ['harvest', 'cultivation', 'behind-the-scenes'],
+    createdBy: 'Marcus Johnson',
+    aiGenerated: false,
+    publishedDate: '2026-02-05',
+    performance: { impressions: 2600, reach: 2200, engagement: 234, clicks: 92, conversions: 8, engagementRate: 9.0 },
+  },
+  {
+    id: 'cp-029',
+    title: 'Pre-Roll Friday',
+    type: 'social-post',
+    platform: 'instagram',
+    status: 'published',
+    content: 'Pre-Roll Friday! Hand-rolled, 100% flower, no trim or shake. Our 1g pre-rolls are the perfect intro to any Frost strain. Which one are you grabbing this weekend?\n\n#PreRollFriday #FrostFarms #HandRolled',
+    tags: ['preroll', 'product', 'friday'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: false,
+    publishedDate: '2026-02-14',
+    performance: { impressions: 1800, reach: 1500, engagement: 135, clicks: 58, conversions: 9, engagementRate: 7.5 },
+  },
+
+  // Scheduled March-April content
+  {
+    id: 'cp-030',
+    title: 'Purple Punch Feature',
+    type: 'social-post',
+    platform: 'instagram',
+    status: 'scheduled',
+    content: 'Strain Spotlight: Purple Punch\n\nGrape candy meets blueberry muffin. This indica hits smooth and leaves you relaxed. 25.1% THC.\n\n#PurplePunch #Indica #FrostFarms',
+    tags: ['purple-punch', 'strain-spotlight', 'flower'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: true,
+    scheduledDate: '2026-03-18',
+  },
+  {
+    id: 'cp-031',
+    title: 'Dispensary Partner Spotlight: Emerald City Cannabis',
+    type: 'social-post',
+    platform: 'instagram',
+    status: 'scheduled',
+    content: 'Partner Spotlight: @emeraldcitycannabis\n\nFamily-owned since 2016. They\'ve carried Frost from day one and their team knows our strains inside and out. Stop by and tell them we sent you!\n\n#PartnerSpotlight #SeattleCannabis #FrostFarms',
+    tags: ['partner-spotlight', 'dispensary', 'seattle'],
+    createdBy: 'Marcus Johnson',
+    aiGenerated: false,
+    scheduledDate: '2026-03-20',
+  },
+  {
+    id: 'cp-032',
+    title: 'Live Resin Cart How-To',
+    type: 'social-post',
+    platform: 'multi',
+    status: 'scheduled',
+    content: 'How to get the best flavor from your live resin cart:\n\n1. Low voltage setting (2.2-2.6V)\n2. Short, gentle draws\n3. Store upright at room temp\n4. Let it sit 5 min after screwing on\n\nTaste the terps!\n\n#LiveResin #VapeTips #FrostFarms',
+    tags: ['education', 'vaporizer', 'tips'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: true,
+    scheduledDate: '2026-03-22',
+  },
+  {
+    id: 'cp-033',
+    title: 'Spring Equinox Post',
+    type: 'social-post',
+    platform: 'instagram',
+    status: 'scheduled',
+    content: 'First day of spring and our gardens are thriving. New growth, new genetics, new season. Here\'s to fresh starts and fresh flower.\n\n#SpringEquinox #FrostFarms #NewSeason',
+    tags: ['seasonal', 'spring', 'cultivation'],
+    createdBy: 'Marcus Johnson',
+    aiGenerated: false,
+    scheduledDate: '2026-03-20',
+  },
+  {
+    id: 'cp-034',
+    title: 'April Newsletter Preview',
+    type: 'email',
+    platform: 'email',
+    status: 'scheduled',
+    content: 'Subject: April at Frost — 420 is coming\n\nHi {{contact_name}},\n\nApril is here and you know what that means. Our 420 collection is dropping soon — limited packaging, exclusive strains, and some surprises.\n\nMore details next week.',
+    tags: ['newsletter', 'april', '420'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: true,
+    scheduledDate: '2026-04-01',
+  },
+  {
+    id: 'cp-035',
+    title: '420 Collection Teaser',
+    type: 'social-post',
+    platform: 'multi',
+    status: 'scheduled',
+    content: '4.20 is coming. Limited edition packaging. Exclusive strains. Stay frosty.\n\n#420 #FrostFarms #LimitedEdition #ComingSoon',
+    tags: ['420', 'campaign', 'teaser'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: false,
+    scheduledDate: '2026-04-10',
+  },
+  {
+    id: 'cp-036',
+    title: 'COA Deep Dive: What Lab Results Mean',
+    type: 'blog-draft',
+    platform: 'website',
+    status: 'approved',
+    content: 'Blog post breaking down a Certificate of Analysis — what each section means, how to read THC/terpene percentages, and why we publish every COA on our website.',
+    tags: ['blog', 'education', 'coa', 'transparency'],
+    createdBy: 'Marcus Johnson',
+    aiGenerated: true,
+    scheduledDate: '2026-03-25',
+  },
+
+  // Product descriptions for library
+  {
+    id: 'cp-037',
+    title: 'Product Description: Gelato Live Resin Cart',
+    type: 'product-description',
+    platform: 'website',
+    status: 'published',
+    content: 'Gelato Live Resin Cartridge (0.5g / 1g)\n\nFull-spectrum live resin from fresh-frozen Gelato flower. Rich, creamy flavor with notes of sweet citrus and earthy undertones. 510-thread compatible.\n\nTHC: 78.2% | Terpenes: Limonene, Linalool, Caryophyllene',
+    tags: ['gelato', 'vaporizer', 'product-description'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: true,
+    publishedDate: '2026-02-15',
+    performance: { impressions: 1200, reach: 900, engagement: 48, clicks: 156, conversions: 28, engagementRate: 4.0 },
+  },
+  {
+    id: 'cp-038',
+    title: 'Product Description: Blue Dream 3.5g Jar',
+    type: 'product-description',
+    platform: 'website',
+    status: 'published',
+    content: 'Blue Dream (3.5g / 7g Glass Jar)\n\nA sativa-dominant hybrid with sweet berry aroma and earthy undertones. Dense, trichome-covered buds with vibrant green and blue hues.\n\nTHC: 24.3% | Terpenes: Myrcene, Pinene, Caryophyllene',
+    tags: ['blue-dream', 'flower', 'product-description'],
+    createdBy: 'Sarah Chen',
+    aiGenerated: true,
+    publishedDate: '2026-02-20',
+    performance: { impressions: 980, reach: 750, engagement: 35, clicks: 132, conversions: 22, engagementRate: 3.6 },
+  },
+  {
+    id: 'cp-039',
+    title: 'Product Description: Wedding Cake Pre-Roll 5-Pack',
+    type: 'product-description',
+    platform: 'website',
+    status: 'published',
+    content: 'Wedding Cake Pre-Roll 5-Pack (5x 0.5g)\n\nRich vanilla and tangy sweetness in a convenient 5-pack. Hand-rolled with 100% flower — no trim, no shake. Perfect for sharing.\n\nTHC: 25.7% | Terpenes: Limonene, Caryophyllene, Humulene',
+    tags: ['wedding-cake', 'preroll', 'product-description'],
+    createdBy: 'Marcus Johnson',
+    aiGenerated: true,
+    publishedDate: '2026-03-01',
+    performance: { impressions: 850, reach: 680, engagement: 30, clicks: 98, conversions: 18, engagementRate: 3.5 },
+  },
+  {
+    id: 'cp-040',
+    title: 'Blog Intro: Why We Chose Organic Growing',
+    type: 'blog-draft',
+    platform: 'website',
+    status: 'published',
+    content: 'At Frost Farms, organic isn\'t a marketing buzzword — it\'s a commitment. From day one, we\'ve grown without synthetic pesticides or chemical fertilizers. Here\'s why that matters for your customers, your shelves, and the industry.',
+    tags: ['blog', 'organic', 'brand-story'],
+    createdBy: 'Marcus Johnson',
+    aiGenerated: true,
+    publishedDate: '2026-02-10',
+    performance: { impressions: 1450, reach: 1100, engagement: 87, clicks: 210, conversions: 12, engagementRate: 6.0 },
+  },
 ];
 
 // ─── CONTENT TEMPLATES (8) ──────────────────────────────────────────────────
@@ -615,12 +818,34 @@ const emailTemplates: EmailTemplate[] = [
     category: 'Events',
     previewHtml: '<div style="background:#0F1219;color:#E2E8F0;padding:32px;font-family:system-ui"><h1 style="color:#8B5CF6">You\'re Invited</h1><h2>{{event_name}}</h2><p>Date: {{event_date}}</p><p>Location: {{event_location}}</p><p>{{event_description}}</p><a style="background:#8B5CF6;color:white;padding:12px 24px;border-radius:8px;text-decoration:none">RSVP Now</a></div>',
   },
+  {
+    id: 'et-006',
+    name: 'Welcome / Onboarding',
+    category: 'Onboarding',
+    previewHtml: '<div style="background:#0F1219;color:#E2E8F0;padding:32px;font-family:system-ui"><h1 style="color:#22C55E">Welcome to Frost</h1><p>Hi {{contact_name}},</p><p>We\'re excited to have {{account_name}} as a Frost partner. Here\'s what to expect:</p><ul><li>Dedicated rep: {{rep_name}}</li><li>First order: special introductory pricing</li><li>Marketing support: POP displays, strain cards</li></ul><a style="background:#22C55E;color:white;padding:12px 24px;border-radius:8px;text-decoration:none">Place Your First Order</a></div>',
+  },
 ];
 
 // ─── SOCIAL POSTS (derived from content pieces + extra data) ────────────────
 
+// Extra standalone social posts for analytics (platform variety)
+const extraSocialPosts: ContentPiece[] = [
+  { id: 'sp-001', title: 'Weekend plans? We got you.', type: 'social-post', platform: 'facebook', status: 'published', content: 'Swing by your local dispensary and ask for Frost. Your weekend self will thank you.', tags: ['lifestyle'], createdBy: 'Sarah Chen', aiGenerated: false, publishedDate: '2026-02-27', performance: { impressions: 1400, reach: 1200, engagement: 56, clicks: 34, conversions: 5, engagementRate: 4.0 } },
+  { id: 'sp-002', title: 'Live Resin Cart Review Thread', type: 'social-post', platform: 'twitter', status: 'published', content: 'Just dropped our Gelato Live Resin Cart. Here\'s what the community is saying... 🧵', tags: ['vaporizer', 'review'], createdBy: 'Marcus Johnson', aiGenerated: false, publishedDate: '2026-02-26', performance: { impressions: 890, reach: 750, engagement: 42, clicks: 28, conversions: 3, engagementRate: 4.7 } },
+  { id: 'sp-003', title: 'Happy 420! (Early Bird)', type: 'social-post', platform: 'facebook', status: 'published', content: 'It\'s never too early to start planning for 420. Something special is coming from Frost.', tags: ['420', 'teaser'], createdBy: 'Sarah Chen', aiGenerated: false, publishedDate: '2026-02-24', performance: { impressions: 2100, reach: 1800, engagement: 84, clicks: 52, conversions: 6, engagementRate: 4.0 } },
+  { id: 'sp-004', title: 'Cannabis Job Fair Announcement', type: 'social-post', platform: 'twitter', status: 'published', content: 'We\'re hiring! Join us at the WA Cannabis Job Fair next month. Cultivation, sales, and marketing roles open.', tags: ['hiring', 'careers'], createdBy: 'Marcus Johnson', aiGenerated: false, publishedDate: '2026-02-22', performance: { impressions: 650, reach: 520, engagement: 31, clicks: 45, conversions: 2, engagementRate: 4.8 } },
+  { id: 'sp-005', title: 'Valentine\'s Day Gift Guide', type: 'social-post', platform: 'facebook', status: 'published', content: 'Looking for the perfect gift? Our pre-roll variety packs make a great Valentine\'s gift for your favorite cannabis connoisseur.', tags: ['valentines', 'seasonal'], createdBy: 'Sarah Chen', aiGenerated: true, publishedDate: '2026-02-13', performance: { impressions: 1800, reach: 1500, engagement: 72, clicks: 48, conversions: 8, engagementRate: 4.0 } },
+  { id: 'sp-006', title: 'Industry News Roundup', type: 'social-post', platform: 'twitter', status: 'published', content: 'WA cannabis sales hit record numbers in January. Proud to be part of a growing industry. Here\'s what\'s trending...', tags: ['industry', 'news'], createdBy: 'Marcus Johnson', aiGenerated: false, publishedDate: '2026-02-10', performance: { impressions: 520, reach: 440, engagement: 22, clicks: 18, conversions: 1, engagementRate: 4.2 } },
+  { id: 'sp-007', title: 'Superbowl Sunday Snacks', type: 'social-post', platform: 'facebook', status: 'published', content: 'Game day essentials: snacks, friends, and a Frost pre-roll for halftime. Enjoy responsibly!', tags: ['lifestyle', 'seasonal'], createdBy: 'Sarah Chen', aiGenerated: false, publishedDate: '2026-02-09', performance: { impressions: 2400, reach: 2000, engagement: 96, clicks: 62, conversions: 7, engagementRate: 4.0 } },
+  { id: 'sp-008', title: 'Grower Q&A: Nutrient Cycles', type: 'social-post', platform: 'twitter', status: 'published', content: 'Q: What nutrients do you use? A: We run organic living soil with cover crops. No synthetic inputs, no salt buildup. Thread 🧵', tags: ['education', 'cultivation'], createdBy: 'Marcus Johnson', aiGenerated: false, publishedDate: '2026-02-06', performance: { impressions: 780, reach: 650, engagement: 58, clicks: 35, conversions: 2, engagementRate: 7.4 } },
+  { id: 'sp-009', title: 'New Packaging Reveal', type: 'social-post', platform: 'facebook', status: 'published', content: 'New look, same quality. Our updated packaging features a cleaner design and better freshness seal. Spot the difference?', tags: ['packaging', 'brand'], createdBy: 'Sarah Chen', aiGenerated: false, publishedDate: '2026-02-04', performance: { impressions: 1600, reach: 1350, engagement: 64, clicks: 42, conversions: 4, engagementRate: 4.0 } },
+  { id: 'sp-010', title: 'Frosty Morning in the Garden', type: 'social-post', platform: 'instagram', status: 'published', content: 'Actual frost on a Frost farm. There\'s something poetic about cold mornings and warm grow rooms.', tags: ['lifestyle', 'behind-the-scenes'], createdBy: 'Marcus Johnson', aiGenerated: false, publishedDate: '2026-02-02', performance: { impressions: 2800, reach: 2400, engagement: 224, clicks: 78, conversions: 5, engagementRate: 8.0 } },
+  { id: 'sp-011', title: 'Lab Day: Testing Results', type: 'social-post', platform: 'twitter', status: 'published', content: 'Lab results are in for our latest Frost Cake batch: 27.4% THC, 3.2% total terpenes. Every batch gets tested. Transparency matters.', tags: ['testing', 'transparency'], createdBy: 'Sarah Chen', aiGenerated: false, publishedDate: '2026-02-17', performance: { impressions: 920, reach: 780, engagement: 68, clicks: 52, conversions: 4, engagementRate: 7.4 } },
+  { id: 'sp-012', title: 'Dispensary Display Setup', type: 'social-post', platform: 'facebook', status: 'published', content: 'Just finished setting up a new Frost display at @greenleafdispensary. Looking clean! Ask about our merchandising support program.', tags: ['partner', 'display'], createdBy: 'Marcus Johnson', aiGenerated: false, publishedDate: '2026-02-19', performance: { impressions: 1100, reach: 950, engagement: 44, clicks: 32, conversions: 3, engagementRate: 4.0 } },
+];
+
 function deriveSocialPosts(): SocialPost[] {
-  return contentPieces
+  const fromContent = contentPieces
     .filter((cp) => cp.type === 'social-post' && cp.status === 'published')
     .map((cp) => ({
       ...cp,
@@ -628,6 +853,13 @@ function deriveSocialPosts(): SocialPost[] {
       shares: Math.floor((cp.performance?.engagement ?? 0) * 0.15),
       saves: Math.floor((cp.performance?.engagement ?? 0) * 0.1),
     }));
+  const fromExtra = extraSocialPosts.map((cp) => ({
+    ...cp,
+    comments: Math.floor((cp.performance?.engagement ?? 0) * 0.3),
+    shares: Math.floor((cp.performance?.engagement ?? 0) * 0.15),
+    saves: Math.floor((cp.performance?.engagement ?? 0) * 0.1),
+  }));
+  return [...fromContent, ...fromExtra].sort((a, b) => (b.publishedDate ?? '').localeCompare(a.publishedDate ?? ''));
 }
 
 // ─── ENGAGEMENT CHART DATA (30 days) ────────────────────────────────────────
@@ -661,9 +893,173 @@ export function getListHealthTrend(): { month: string; subscribers: number }[] {
   ];
 }
 
+// ─── CONTENT LIBRARY CATEGORIES ─────────────────────────────────────────────
+
+const LIBRARY_CATEGORY_MAP: Record<string, ContentLibraryCategory> = {
+  'cp-001': 'instagram_caption', 'cp-002': 'instagram_caption', 'cp-003': 'instagram_caption',
+  'cp-004': 'instagram_caption', 'cp-005': 'instagram_caption', 'cp-006': 'instagram_caption',
+  'cp-007': 'instagram_caption', 'cp-008': 'instagram_caption', 'cp-026': 'instagram_caption',
+  'cp-027': 'instagram_caption', 'cp-028': 'instagram_caption', 'cp-029': 'instagram_caption',
+  'cp-017': 'product_description', 'cp-037': 'product_description', 'cp-038': 'product_description',
+  'cp-039': 'product_description', 'cp-040': 'product_description',
+  'cp-021': 'email_copy', 'cp-022': 'email_copy', 'cp-023': 'email_copy', 'cp-024': 'email_copy',
+  'cp-015': 'blog_intro', 'cp-036': 'blog_intro',
+};
+
+export function getContentLibrary(): Record<ContentLibraryCategory, ContentPiece[]> {
+  const library: Record<ContentLibraryCategory, ContentPiece[]> = {
+    instagram_caption: [],
+    product_description: [],
+    email_copy: [],
+    blog_intro: [],
+    image_concept: [],
+  };
+  for (const piece of contentPieces) {
+    const cat = LIBRARY_CATEGORY_MAP[piece.id];
+    if (cat) library[cat].push(piece);
+  }
+  // Generate image concepts from pieces with imagePrompt
+  library.image_concept = contentPieces
+    .filter((p) => p.imagePrompt)
+    .slice(0, 5)
+    .map((p) => ({ ...p }));
+  return library;
+}
+
+// ─── MORNING REORDER CAMPAIGN (matches brief numbers) ──────────────────────
+
+const morningReorderCampaign: EmailCampaign = {
+  id: 'ec-009',
+  name: 'Morning Reorder Emails',
+  subject: 'Good morning — your customers need these restocked',
+  previewText: 'Personalized reorder suggestions based on your sales velocity.',
+  body: 'Hi {{contact_name}},\n\nGood morning! Based on your sell-through velocity, here are today\'s recommended reorders:\n\n{{recommended_products}}\n\nOne-click reorder below or reply to this email.\n\n{{rep_name}}\nFrost Farms',
+  audienceSegment: 'Active Accounts (Daily)',
+  audienceSize: 85,
+  status: 'sent',
+  sentDate: '2026-03-07',
+  stats: {
+    sent: 1247,
+    delivered: 1221,
+    bounced: 26,
+    opened: 549,
+    clicked: 187,
+    unsubscribed: 4,
+    converted: 34,
+    openRate: 45.0,
+    clickRate: 15.3,
+    conversionRate: 18.2,
+    bounceRate: 2.1,
+  },
+};
+
+// ─── POSTING TIMES HEAT MAP ────────────────────────────────────────────────
+
+export function getPostingTimesHeatMap(): PostingTimeHeat[] {
+  const data: PostingTimeHeat[] = [];
+  const base: number[][] = [
+    [20, 35, 55, 70, 45, 30, 25, 40, 60, 75, 50, 35], // Mon
+    [15, 30, 50, 65, 40, 25, 20, 35, 55, 70, 45, 30], // Tue
+    [25, 40, 60, 80, 50, 35, 30, 45, 65, 85, 55, 40], // Wed
+    [18, 33, 52, 68, 42, 28, 22, 38, 58, 72, 48, 32], // Thu
+    [30, 45, 65, 85, 55, 40, 35, 50, 70, 90, 60, 45], // Fri
+    [40, 55, 75, 95, 65, 50, 45, 60, 80,100, 70, 55], // Sat
+    [35, 50, 70, 88, 58, 42, 38, 52, 72, 92, 62, 48], // Sun
+  ];
+  for (let day = 0; day < 7; day++) {
+    for (let h = 0; h < 12; h++) {
+      data.push({ day, hour: h * 2, engagement: base[day][h] });
+    }
+  }
+  return data;
+}
+
+// ─── FOLLOWER GROWTH (30 days) ─────────────────────────────────────────────
+
+export function getFollowerGrowth(): FollowerGrowthPoint[] {
+  const data: FollowerGrowthPoint[] = [];
+  const baseDate = new Date('2026-02-05');
+  let ig = 3850, fb = 1680, tw = 820;
+  for (let i = 0; i < 30; i++) {
+    const d = new Date(baseDate);
+    d.setDate(d.getDate() + i);
+    ig += Math.floor(8 + Math.random() * 15);
+    fb += Math.floor(2 + Math.random() * 6);
+    tw += Math.floor(1 + Math.random() * 4);
+    data.push({ date: d.toISOString().split('T')[0], instagram: ig, facebook: fb, twitter: tw });
+  }
+  return data;
+}
+
+// ─── ENGAGEMENT BY CONTENT TYPE ────────────────────────────────────────────
+
+export function getEngagementByContentType(): EngagementByType[] {
+  return [
+    { type: 'Product Shots', engagement: 8.5, posts: 8 },
+    { type: 'Lifestyle', engagement: 7.2, posts: 6 },
+    { type: 'Educational', engagement: 9.1, posts: 5 },
+    { type: 'Promotional', engagement: 5.8, posts: 4 },
+    { type: 'Behind the Scenes', engagement: 7.8, posts: 3 },
+  ];
+}
+
+// ─── HASHTAG SUGGESTIONS ───────────────────────────────────────────────────
+
+export function getHashtagSuggestions(): HashtagSuggestion[] {
+  return [
+    { tag: '#FrostFarms', relevance: 98 },
+    { tag: '#CraftCannabis', relevance: 95 },
+    { tag: '#WACannabis', relevance: 92 },
+    { tag: '#PremiumFlower', relevance: 88 },
+    { tag: '#StrainSpotlight', relevance: 85 },
+    { tag: '#TerpeneProfile', relevance: 82 },
+    { tag: '#LiveResin', relevance: 80 },
+    { tag: '#HandTrimmed', relevance: 78 },
+    { tag: '#CannabisCommunity', relevance: 75 },
+    { tag: '#SeattleCannabis', relevance: 72 },
+    { tag: '#CannabisEducation', relevance: 70 },
+    { tag: '#CannabisIndustry', relevance: 68 },
+    { tag: '#SeedToSale', relevance: 65 },
+    { tag: '#420Lifestyle', relevance: 62 },
+    { tag: '#CannabisCulture', relevance: 60 },
+  ];
+}
+
+// ─── GAP SUGGESTIONS ───────────────────────────────────────────────────────
+
+export function getGapSuggestions(): GapSuggestion[] {
+  return [
+    { date: '2026-03-11', suggestion: 'Strain spotlight post for Gelato' },
+    { date: '2026-03-13', suggestion: 'Behind-the-scenes: packaging line tour' },
+    { date: '2026-03-17', suggestion: 'Terpene Tuesday: Caryophyllene' },
+    { date: '2026-03-19', suggestion: 'Customer testimonial from Green Leaf Dispensary' },
+    { date: '2026-03-21', suggestion: 'Weekend vibes: garden walk photo' },
+    { date: '2026-03-24', suggestion: 'Product education: pre-roll vs joint' },
+  ];
+}
+
+// ─── CAMPAIGN PERFORMANCE TREND (30 days) ──────────────────────────────────
+
+export function getCampaignPerformanceTrend(campaignId: string): CampaignPerformanceTrend[] {
+  const data: CampaignPerformanceTrend[] = [];
+  const baseDate = new Date('2026-02-05');
+  const isReorder = campaignId === 'ec-009';
+  for (let i = 0; i < 30; i++) {
+    const d = new Date(baseDate);
+    d.setDate(d.getDate() + i);
+    data.push({
+      date: d.toISOString().split('T')[0],
+      openRate: +(isReorder ? 42 + Math.random() * 8 + Math.sin(i / 3) * 3 : 35 + Math.random() * 10 + Math.sin(i / 4) * 4).toFixed(1),
+      clickRate: +(isReorder ? 13 + Math.random() * 5 + Math.sin(i / 3) * 2 : 6 + Math.random() * 5 + Math.sin(i / 4) * 2).toFixed(1),
+    });
+  }
+  return data;
+}
+
 // ─── METRICS ────────────────────────────────────────────────────────────────
 
 function computeMetrics(): MarketingMetrics {
+  const allCampaigns = [...emailCampaigns, morningReorderCampaign];
   const published = contentPieces.filter((c) => c.status === 'published');
   const scheduled = contentPieces.filter((c) => c.status === 'scheduled');
   const drafts = contentPieces.filter((c) => c.status === 'draft' || c.status === 'idea');
@@ -671,7 +1067,7 @@ function computeMetrics(): MarketingMetrics {
   const avgEng = socialPublished.length > 0
     ? socialPublished.reduce((sum, c) => sum + (c.performance?.engagementRate ?? 0), 0) / socialPublished.length
     : 0;
-  const sentCampaigns = emailCampaigns.filter((c) => c.status === 'sent');
+  const sentCampaigns = allCampaigns.filter((c) => c.status === 'sent');
   const avgOpen = sentCampaigns.length > 0
     ? sentCampaigns.reduce((sum, c) => sum + (c.stats?.openRate ?? 0), 0) / sentCampaigns.length
     : 0;
@@ -691,9 +1087,9 @@ function computeMetrics(): MarketingMetrics {
     emailsSentMTD: totalSent,
     avgOpenRate: +avgOpen.toFixed(1),
     avgClickRate: +avgClick.toFixed(1),
-    activeCampaigns: emailCampaigns.filter((c) => c.status === 'scheduled' || c.status === 'sending').length,
+    activeCampaigns: allCampaigns.filter((c) => c.status === 'scheduled' || c.status === 'sending').length + 1, // +1 for daily reorder
     listHealth: 94,
-    revenueAttributed: 48200,
+    revenueAttributed: 127400,
   };
 }
 
@@ -737,7 +1133,7 @@ export async function getSocialPosts(): Promise<SocialPost[]> {
 
 export async function getEmailCampaigns(filters?: EmailCampaignFilter): Promise<EmailCampaign[]> {
   await delay();
-  let result = [...emailCampaigns];
+  let result = [...emailCampaigns, morningReorderCampaign];
   if (filters?.status) result = result.filter((c) => c.status === filters.status);
   if (filters?.search) {
     const s = filters.search.toLowerCase();
@@ -748,7 +1144,8 @@ export async function getEmailCampaigns(filters?: EmailCampaignFilter): Promise<
 
 export async function getEmailCampaign(id: string): Promise<EmailCampaign | undefined> {
   await delay(200);
-  return emailCampaigns.find((c) => c.id === id);
+  const all = [...emailCampaigns, morningReorderCampaign];
+  return all.find((c) => c.id === id);
 }
 
 export async function getEmailTemplates(): Promise<EmailTemplate[]> {
@@ -758,7 +1155,7 @@ export async function getEmailTemplates(): Promise<EmailTemplate[]> {
 
 export async function getEmailStats(): Promise<EmailStats> {
   await delay(200);
-  const sentCampaigns = emailCampaigns.filter((c) => c.stats);
+  const sentCampaigns = [...emailCampaigns, morningReorderCampaign].filter((c) => c.stats);
   const totals = sentCampaigns.reduce(
     (acc, c) => ({
       sent: acc.sent + (c.stats?.sent ?? 0),
