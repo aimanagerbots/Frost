@@ -9,20 +9,19 @@ import { useAuthStore } from '@/modules/auth/store';
 
 export default function LoginPage() {
   const router = useRouter();
-  const { login, enterDemoMode } = useAuthStore();
+  const { loginWithEmail, enterDemoMode, isLoading, error, clearError } = useAuthStore();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
-  function handleSignIn(e: React.FormEvent) {
+  async function handleSignIn(e: React.FormEvent) {
     e.preventDefault();
-    setIsLoading(true);
-    setTimeout(() => {
-      login(email, password);
+    await loginWithEmail(email, password);
+    const state = useAuthStore.getState();
+    if (state.isAuthenticated) {
       router.push('/dashboard');
-    }, 1000);
+    }
   }
 
   function handleDemoMode() {
@@ -45,9 +44,34 @@ export default function LoginPage() {
           alt="Frost"
           width={240}
           height={240}
-          className="h-[120px] w-[120px] mb-10"
+          className="h-[120px] w-[120px] mb-8"
           priority
         />
+
+        {/* Demo Mode Button — prominent, above the form */}
+        <button
+          onClick={handleDemoMode}
+          className="mb-6 w-full rounded-lg bg-[#5BB8E6] py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110"
+        >
+          Explore Demo
+        </button>
+
+        {/* Divider */}
+        <div className="flex w-full items-center gap-3 mb-6">
+          <div className="flex-1 h-px bg-white/10" />
+          <span className="text-xs text-white/30 uppercase tracking-wider">or sign in</span>
+          <div className="flex-1 h-px bg-white/10" />
+        </div>
+
+        {/* Error message */}
+        {error && (
+          <div className="mb-4 w-full rounded-lg bg-red-500/10 border border-red-500/30 px-4 py-3 text-sm text-red-400">
+            {error}
+            <button onClick={clearError} className="ml-2 text-red-400/60 hover:text-red-400">
+              &times;
+            </button>
+          </div>
+        )}
 
         {/* Form */}
         <form onSubmit={handleSignIn} className="w-full space-y-4">
@@ -88,7 +112,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#5BB8E6] py-3 text-sm font-semibold text-white transition-all hover:brightness-110 disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-white/10 border border-white/10 py-3 text-sm font-semibold text-white/70 transition-all hover:bg-white/15 hover:text-white disabled:opacity-60"
           >
             {isLoading ? (
               <>
@@ -109,14 +133,6 @@ export default function LoginPage() {
           </Link>
         </p>
       </div>
-
-      {/* Demo button — pinned to bottom */}
-      <button
-        onClick={handleDemoMode}
-        className="absolute bottom-8 text-xs text-white/25 hover:text-white/50 tracking-widest uppercase transition-colors"
-      >
-        Demo
-      </button>
 
       <style jsx>{`
         @keyframes fadeIn {
