@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Twitter } from 'lucide-react';
 import { FOOTER_LINKS, COMPLIANCE_TEXT } from '@/lib/constants';
 
@@ -12,12 +13,14 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="space-y-4">
-            <Link href="/" className="font-display text-[28px] italic text-text-on-dark">
-              Frost
+            <Link href="/" className="relative block h-10 w-[160px]">
+              <Image
+                src="/FrostLogo_wordmark.png"
+                alt="Frost"
+                fill
+                className="object-contain object-left brightness-0 invert"
+              />
             </Link>
-            <p className="text-base leading-relaxed text-text-on-dark-muted">
-              Craft cannabis cultivated with intention. Small-batch, sustainably grown in Washington State.
-            </p>
             <div className="flex gap-4">
               <a
                 href="https://instagram.com"
