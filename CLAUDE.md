@@ -49,8 +49,8 @@ Meetings #2563EB, Docs #64748B, Team #0D9488, Finance #059669,
 Reports #475569, Settings #94A3B8, System #64748B
 
 ## Git and Deployment
+- **EVERY change = commit + push immediately.** Do not wait for the user to ask. If you changed a file, commit and push it right away.
 - git add -A before every commit to capture ALL files (new, modified, deleted)
-- Commit after every completed phase or meaningful chunk of work
 - Use conventional commits: feat:, fix:, chore:, style:, refactor:
 - ALWAYS push to main after every commit: git push origin main
 - ALSO push to Vercel production branch: git push origin main:claude/research-claude-md-jau3A
