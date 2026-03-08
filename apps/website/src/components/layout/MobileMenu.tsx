@@ -72,7 +72,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </button>
         </div>
 
-        {/* Nav links — large Cormorant style */}
+        {/* Nav links — large Sora style */}
         <nav className="flex flex-1 flex-col justify-center gap-2 px-6">
           {NAV_LINKS.map((link, i) => (
             <Link

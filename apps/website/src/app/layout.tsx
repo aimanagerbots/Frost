@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { Sora, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -35,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jakarta.variable}`}>
-      <body className="font-sans antialiased bg-base text-text-default">
+    <html lang="en" className={`${sora.variable} ${inter.variable} ${spaceGrotesk.variable}`}>
+      <body className="antialiased bg-base text-text-default" style={{ fontFamily: 'var(--font-display), var(--font-sans), system-ui, sans-serif' }}>
         {children}
       </body>
     </html>

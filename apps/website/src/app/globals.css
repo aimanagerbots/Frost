@@ -69,10 +69,8 @@
     @apply border-border-default;
   }
   body {
-    @apply bg-base text-text-default antialiased;
-  }
-  html {
-    @apply font-sans;
+    @apply bg-base text-text-default antialiased font-bold;
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
   }
 }
 
