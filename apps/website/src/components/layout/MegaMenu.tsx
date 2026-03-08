@@ -150,7 +150,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
     <NavigationMenu.Root className="relative hidden lg:block" delayDuration={150}>
       <NavigationMenu.List className="flex items-center gap-1">
         {/* Shop — consolidated product categories */}
-        <NavigationMenu.Item>
+        <NavigationMenu.Item className="relative">
           <NavigationMenu.Trigger className={triggerClass}>
             Shop
             <ChevronDown
@@ -166,9 +166,9 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
         {/* Remaining items: Strains, Find Near You, Resources, Wholesale */}
         {otherItems.map((item) => {
           if (item.type === 'dropdown') {
-            const width = item.columns.length <= 2 ? 'w-[320px]' : 'w-[480px]';
+            const width = item.columns.length <= 1 ? 'w-[200px]' : item.columns.length <= 2 ? 'w-[320px]' : 'w-[480px]';
             return (
-              <NavigationMenu.Item key={item.label}>
+              <NavigationMenu.Item key={item.label} className="relative">
                 <NavigationMenu.Trigger className={triggerClass}>
                   {item.label}
                   <ChevronDown
@@ -219,8 +219,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
         })}
       </NavigationMenu.List>
 
-      {/* Viewport — Radix renders dropdown content here with size animation */}
-      <NavigationMenu.Viewport className="absolute top-full left-0 w-full" />
+      {/* No shared viewport — each Content positions itself under its own Item */}
     </NavigationMenu.Root>
   );
 }

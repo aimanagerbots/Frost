@@ -270,15 +270,10 @@ export const MEGA_MENU: MegaMenuItem[] = [
     label: "Resources",
     columns: [
       {
-        heading: "Learn",
+        heading: "Resources",
         links: [
           { label: "Blog / Journal", href: "/blog" },
           { label: "FAQ", href: "/faq" },
-        ],
-      },
-      {
-        heading: "Connect",
-        links: [
           { label: "Newsletter Signup", href: "/newsletter" },
           { label: "Contact Us", href: "/contact" },
         ],
