@@ -83,12 +83,12 @@ export default function HomePage() {
   return (
     <div>
       {/* ── 1. Hero ── */}
-      <section className="relative flex items-center justify-center overflow-hidden" style={{ height: 'calc(100vh - 56px)' }}>
+      <section className="relative flex items-center justify-center overflow-hidden aspect-[3/4] sm:aspect-[16/10] lg:aspect-auto lg:h-[calc(100vh-56px)]">
         <Image
           src="/Frost-website-hero.png"
           alt="Frosty Nugs"
           fill
-          className="object-cover object-top"
+          className="object-cover object-[center_20%] sm:object-top"
           priority
           sizes="100vw"
         />
