@@ -81,6 +81,18 @@ Create, test, and optimize Claude Code skills through structured eval loops with
 - **Use when**: Creating a new skill, optimizing an existing skill's performance, testing skill triggering accuracy, or benchmarking skill quality with statistical rigor.
 - **Skip when**: Using existing skills as-is, no need to create or modify skills.
 
+## Everything Claude Code (ECC) v1.8.0 — Affaan Mustafa
+The "agent harness performance optimization system" — 65K+ star collection of battle-tested configs from an Anthropic hackathon winner. Adds 16 agents, 65+ skills, 40 commands, and hooks for continuous learning and quality gates.
+- **Core Commands**: `/plan` (implementation planning), `/tdd` (test-driven dev), `/code-review` (quality review), `/build-fix` (fix build errors), `/e2e` (E2E tests), `/verify` (verification loop)
+- **Learning Commands**: `/learn` (extract patterns), `/learn-eval` (extract+evaluate+save), `/evolve` (cluster instincts into skills), `/instinct-status`, `/instinct-import`, `/instinct-export`
+- **Multi-Agent**: `/multi-plan` (task decomposition), `/multi-execute` (orchestrated workflows), `/orchestrate` (multi-agent coordination)
+- **Agents**: planner, architect, tdd-guide, code-reviewer, security-reviewer, build-error-resolver, e2e-runner, refactor-cleaner, doc-updater, harness-optimizer, loop-operator, chief-of-staff
+- **Hooks**: Auto-format after edits, TypeScript check, console.log warnings, quality gates, continuous learning observation, session state persistence, cost tracking
+- **Rules**: Common (coding-style, security, testing, git-workflow, performance, patterns, development-workflow, hooks, agents) + TypeScript-specific (coding-style, hooks, patterns, security, testing)
+- **Use when**: Any development task — ECC rules are always-on via `~/.claude/rules/`. Commands for planning, TDD, code review, multi-agent orchestration. Learning system for pattern extraction across sessions.
+- **Skip when**: Rules are passive (always loaded). Skip commands when simpler approach suffices.
+- **Note**: Some overlap with superpowers (/plan, /code-review, /tdd) and Deep Trilogy — ECC versions are complementary, use whichever fits better for the task.
+
 ## Quick Reference Table
 | Situation | Skill |
 |---|---|
@@ -99,4 +111,11 @@ Create, test, and optimize Claude Code skills through structured eval loops with
 | Deploying to Vercel | Vercel Skills (vercel-deploy) |
 | Upgrading Next.js version | Vercel Skills (next-upgrade) |
 | Creating or optimizing a skill | Skill Creator |
+| Implementation planning with agents | ECC (`/plan`, `/multi-plan`) |
+| Test-driven development workflow | ECC (`/tdd`) or superpowers:tdd |
+| Build error diagnosis & fix | ECC (`/build-fix`) |
+| E2E test generation | ECC (`/e2e`) |
+| Multi-agent orchestration | ECC (`/orchestrate`, `/multi-execute`) |
+| Learning patterns from sessions | ECC (`/learn`, `/evolve`) |
+| Verification loop before shipping | ECC (`/verify`, `/checkpoint`) |
 | Simple module with a detailed brief | None — the brief IS the plan |

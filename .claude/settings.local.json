@@ -17,7 +17,15 @@
       "Bash(pip --version)",
       "Bash(node -e \"console.log\\(''node works''\\)\")",
       "Bash(git ls-tree HEAD apps/app/)",
-      "Bash(git commit --allow-empty -m \"chore: trigger Vercel redeploy with correct build settings\")"
+      "Bash(git commit --allow-empty -m \"chore: trigger Vercel redeploy with correct build settings\")",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs",
+      "Bash(ls -la \"/c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\(site\\)/home/\")",
+      "Bash(cat \"/c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\(site\\)/home/page.tsx\")",
+      "WebFetch(domain:github.com)",
+      "Bash(gh api repos/affaan-m/everything-claude-code/contents/CLAUDE.md --jq '.content')",
+      "Bash(where gh)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/CLAUDE.md\")"
     ]
   }
 }

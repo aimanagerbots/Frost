@@ -1,0 +1,15 @@
+{
+  "title": "How write strategies and date keys work in Flat Data integrations | Docs",
+  "description": "Discover efficient date management for flat data uploads to Improvado with practical tips on using various date formats and incremental updates.",
+  "ogTitle": "How write strategies and date keys work in Flat Data integrations | Docs",
+  "ogDescription": "Discover efficient date management for flat data uploads to Improvado with practical tips on using various date formats and incremental updates.",
+  "ogImage": "https://improvado.io/5a1eb87c9afe1000014a4c7d/65b8f8e3b4340bdb0167317d_date%20flat%20data.png",
+  "ogType": "website",
+  "twitterCard": "summary_large_image",
+  "twitterTitle": null,
+  "twitterImage": null,
+  "favicon": "https://improvado.io/593ed35b7e7f144e5e0ec373/5cbe4057c0a50299b4b7bb69_fav.png",
+  "themeColor": null,
+  "viewport": "width=device-width, initial-scale=1",
+  "canonical": "https://improvado.io/docs/how-to-work-with-dates-when-uploading-flat-data-files"
+}

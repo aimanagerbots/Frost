@@ -1,0 +1,116 @@
+# Design Intelligence Brief: improvado.io
+> Scraped from https://improvado.io/docs/microsoft-fabric on 2026-03-08T05:25:48.064Z
+
+## Page Meta
+- **Title:** Microsoft Fabric | Docs
+- **Description:** Improvado's complete data pipeline simplifies connecting Microsoft Fabric. Learn how to leverage our advanced marketing analytics platform today!
+- **OG Image:** https://improvado.io/5a1eb87c9afe1000014a4c7d/67e66c54d3fe28972ce992e1_microsoft_fabric.png
+
+## Color Palette (top 20 by frequency)
+| Hex | Usage Count |
+|-----|-------------|
+| `#333333` | 1283 |
+| `#444D66` | 851 |
+| `#20124D` | 517 |
+| `#000000` | 506 |
+| `#FFFFFF` | 498 |
+| `#8068FF` | 152 |
+| `#F1ECEB` | 64 |
+| `#1E1938` | 45 |
+| `#9BA0AC` | 30 |
+| `#E9E9E9` | 29 |
+| `#132D76` | 25 |
+| `#94BCC0` | 22 |
+| `#0F1E25` | 20 |
+| `#CCCCCC` | 20 |
+| `#33475B` | 20 |
+| `#888EA1` | 15 |
+| `#F81984` | 15 |
+| `#D0D5DD` | 12 |
+| `#8C98B9` | 8 |
+| `#F2F2F2` | 7 |
+
+## Typography (top 10 combinations)
+| Font Family | Size | Weight | Line Height | Count |
+|-------------|------|--------|-------------|-------|
+| Raleway | 14px | 400 | 20px | 51 |
+| Raleway | 14.4px | 400 | 28px | 41 |
+| sans-serif | 16px | 400 | normal | 26 |
+| Raleway | 14.4px | 700 | 28px | 24 |
+| Raleway | 12.8px | 600 | 5px | 21 |
+| Raleway | 12.8px | 400 | 20px | 17 |
+| Raleway | 16px | 400 | 28px | 13 |
+| Raleway | 32px | 700 | 48px | 11 |
+| Raleway | 16px | 600 | 28px | 9 |
+| Raleway | 12.8px | 400 | 16px | 9 |
+
+## Spacing Scale
+### Common Margins
+- `5px` (82 uses)
+- `10px` (71 uses)
+- `3px` (24 uses)
+- `20px` (22 uses)
+- `auto` (18 uses)
+- `8px` (17 uses)
+- `24px` (14 uses)
+- `16px` (12 uses)
+- `35px` (11 uses)
+- `48px` (9 uses)
+### Common Paddings
+- `8px` (110 uses)
+- `10px` (60 uses)
+- `5px` (49 uses)
+- `15px` (44 uses)
+- `12px` (39 uses)
+- `32px` (38 uses)
+- `48px` (33 uses)
+- `20px` (24 uses)
+- `6px` (22 uses)
+- `16px` (16 uses)
+
+## CSS Custom Properties
+- `--test-website-project---text-color--text-primary`: `var(--test-website-project---base-color-neutral--dark)`
+- `--dark-slate-blue`: `#444d66`
+- `--test-website-project---text-color--text-secondary`: `var(--test-website-project---base-color-neutral--dark)`
+- `--medium-slate-blue`: `#8068ff`
+- `--light-blue`: `#94bcc0`
+- `--midnight-blue`: `#1e1938`
+- `--test-website-project---base-color-neutral--dark`: `#20124d`
+- `--ghost-white`: `#f7f8fc`
+- `--goldenrod`: `#ffc55f`
+- `--white`: `white`
+- `--test-website-project---background-color--background-secondary`: `var(--test-website-project---base-color-neutral--neutral-lightest)`
+- `--test-website-project---base-color-neutral--light`: `white`
+- `--test-website-project---background-color--background-alternate`: `var(--test-website-project---base-color-neutral--dark)`
+- `--test-website-project---base-color-brand--white`: `var(--test-website-project---base-color-neutral--light)`
+- `--dark-grey`: `#9ba0ac`
+- `--test-website-project---button-primary-hover`: `#a796ff`
+- `--test-website-project---primary`: `var(--test-website-project---base-color-neutral--dark)`
+- `--divider`: `#e9e9e9`
+- `--663399`: `#6512be`
+- `--untitled-ui-primary600`: `#7f56d9`
+- `--deep-pink`: `#f81984`
+- `--test-website-project---background-color--background-tertiary`: `var(--test-website-project---base-color-neutral--neutral-lightest-ai)`
+- `--sdsdsd`: `#fafafa`
+- `--black`: `black`
+- `--light-slate-grey`: `#8c98b9`
+- `--test-website-project---link-color--link-primary`: `var(--test-website-project---button-primary)`
+- `--test-website-project---base-color-neutral--neutral-darkest`: `#20124d`
+- `--untitled-ui-primary700`: `#6941c6`
+- `--lavender`: `#d2dcf8`
+- `--light-slate-grey-3`: `#888ea1`
+- ... and 77 more
+
+## Google Fonts
+- https://fonts.googleapis.com/css?family=Great+Vibes:400%7COpen+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic%7CMontserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7COswald:200,300,400,500,600,700%7CRaleway:300,400,500,600,700
+- https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap
+
+## External Stylesheets
+- https://cdn.prod.website-files.com/593ed35b7e7f144e5e0ec373/css/improvado-new.shared.6a93c43d4.min.css
+- https://cdn.prod.website-files.com/593ed35b7e7f144e5e0ec373/css/improvado-new.65d4b5b282cb15683c9d8df1-f9750fda7.min.css
+- https://fonts.googleapis.com/css?family=Great+Vibes:400%7COpen+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic%7CMontserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7COswald:200,300,400,500,600,700%7CRaleway:300,400,500,600,700
+- https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css
+- https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap
+
+---
+*Generated by Frost scrape-site.mjs*

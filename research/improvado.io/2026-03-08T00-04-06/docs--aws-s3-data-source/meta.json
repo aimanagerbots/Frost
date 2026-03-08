@@ -1,0 +1,15 @@
+{
+  "title": "AWS S3 Data source (managed by Improvado) | Docs",
+  "description": "Learn how to upload your files to Improvado-managed AWS S3",
+  "ogTitle": "AWS S3 Data source (managed by Improvado) | Docs",
+  "ogDescription": "Learn how to upload your files to Improvado-managed AWS S3",
+  "ogImage": "https://improvado.io/5a1eb87c9afe1000014a4c7d/668e23292b62a65b609bd30a_s3.png",
+  "ogType": "website",
+  "twitterCard": "summary_large_image",
+  "twitterTitle": null,
+  "twitterImage": null,
+  "favicon": "https://improvado.io/593ed35b7e7f144e5e0ec373/5cbe4057c0a50299b4b7bb69_fav.png",
+  "themeColor": null,
+  "viewport": "width=device-width, initial-scale=1",
+  "canonical": "https://improvado.io/docs/aws-s3-data-source"
+}

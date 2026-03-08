@@ -46,9 +46,7 @@ create table public.accounts (
   average_order_value numeric default 0,
   last_order_date timestamptz,
   order_cadence_days integer,  -- expected days between orders
-  days_since_last_order integer generated always as (
-    extract(day from now() - last_order_date)::integer
-  ) stored,
+  -- days_since_last_order: compute at query time as extract(day from now() - last_order_date)
 
   -- VMI
   vmi_enrolled boolean default false,

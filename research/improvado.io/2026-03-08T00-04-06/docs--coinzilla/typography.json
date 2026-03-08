@@ -1,0 +1,261 @@
+[
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "20px",
+    "count": 51
+  },
+  {
+    "fontFamily": "sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "count": 26
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "28px",
+    "count": 21
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "12.8px",
+    "fontWeight": "400",
+    "lineHeight": "20px",
+    "count": 18
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "32px",
+    "fontWeight": "700",
+    "lineHeight": "48px",
+    "count": 11
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "700",
+    "lineHeight": "28px",
+    "count": 10
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "lineHeight": "28px",
+    "count": 9
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "12.8px",
+    "fontWeight": "400",
+    "lineHeight": "16px",
+    "count": 9
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "12.8px",
+    "fontWeight": "600",
+    "lineHeight": "17px",
+    "count": 8
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14.4px",
+    "fontWeight": "700",
+    "lineHeight": "32px",
+    "count": 7
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "400",
+    "lineHeight": "20px",
+    "count": 5
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "11px",
+    "fontWeight": "700",
+    "lineHeight": "20px",
+    "count": 4
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14.4px",
+    "fontWeight": "400",
+    "lineHeight": "20px",
+    "count": 4
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14.4px",
+    "fontWeight": "300",
+    "lineHeight": "20px",
+    "count": 4
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "24.5px",
+    "count": 3
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "12.8px",
+    "fontWeight": "300",
+    "lineHeight": "28px",
+    "count": 3
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "22px",
+    "fontWeight": "300",
+    "lineHeight": "16px",
+    "count": 3
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "300",
+    "lineHeight": "20px",
+    "count": 3
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "700",
+    "lineHeight": "32px",
+    "count": 3
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "30px",
+    "fontWeight": "400",
+    "lineHeight": "20px",
+    "count": 3
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "500",
+    "lineHeight": "20px",
+    "count": 3
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14.4px",
+    "fontWeight": "400",
+    "lineHeight": "19.2px",
+    "count": 3
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "400",
+    "lineHeight": "16px",
+    "count": 2
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "13.6px",
+    "fontWeight": "700",
+    "lineHeight": "32px",
+    "count": 2
+  },
+  {
+    "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif",
+    "fontSize": "14.4px",
+    "fontWeight": "500",
+    "lineHeight": "16px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "32px",
+    "fontWeight": "700",
+    "lineHeight": "32px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "48px",
+    "fontWeight": "700",
+    "lineHeight": "52.8px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "12.8px",
+    "fontWeight": "700",
+    "lineHeight": "20px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14.4px",
+    "fontWeight": "500",
+    "lineHeight": "19.2px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "18.4px",
+    "fontWeight": "700",
+    "lineHeight": "32px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "12.8px",
+    "fontWeight": "900",
+    "lineHeight": "20px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "300",
+    "lineHeight": "22px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "13.6px",
+    "fontWeight": "700",
+    "lineHeight": "23.2px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "13.6px",
+    "fontWeight": "300",
+    "lineHeight": "21.6px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Raleway, sans-serif",
+    "fontSize": "13.6px",
+    "fontWeight": "300",
+    "lineHeight": "18px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Roboto",
+    "fontSize": "24px",
+    "fontWeight": "400",
+    "lineHeight": "20px",
+    "count": 1
+  },
+  {
+    "fontFamily": "Roboto",
+    "fontSize": "24px",
+    "fontWeight": "600",
+    "lineHeight": "20px",
+    "count": 1
+  }
+]

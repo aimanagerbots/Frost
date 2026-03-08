@@ -13,7 +13,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="space-y-4">
-            <Link href="/" className="relative block h-10 w-[160px]">
+            <Link href="/" className="relative block h-20 w-[360px]">
               <Image
                 src="/FrostLogo_wordmark.png"
                 alt="Frost"

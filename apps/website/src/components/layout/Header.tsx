@@ -27,15 +27,12 @@ export function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           {/* Logo */}
-          <Link href="/home" className="relative h-28 w-[480px]">
+          <Link href="/home" className="relative h-16 w-16 shrink-0">
             <Image
-              src="/FrostLogo_wordmark.png"
+              src="/FrostLogo_SnowflakeOnly.png"
               alt="Frost"
               fill
-              className={cn(
-                'object-contain object-left transition-all duration-300',
-                'brightness-100'
-              )}
+              className="object-contain"
               priority
             />
           </Link>
