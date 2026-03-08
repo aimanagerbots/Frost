@@ -10,9 +10,10 @@ interface AdDrawerProps {
 }
 
 const PLATFORM_LABELS: Record<string, string> = {
-  google: 'Google',
+  google: 'Google Ads',
   programmatic: 'Programmatic',
   'cannabis-specific': 'Cannabis Network',
+  'email-retargeting': 'Email Retargeting',
 };
 
 const STATUS_VARIANTS: Record<string, 'success' | 'info' | 'warning' | 'danger' | 'muted'> = {

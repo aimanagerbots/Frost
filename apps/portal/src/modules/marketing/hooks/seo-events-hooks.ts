@@ -10,6 +10,9 @@ import {
   getAdCampaigns,
   getAdMetrics,
   getMerchItems,
+  getOrganicTrend,
+  getComplianceChecklist,
+  getMerchBudget,
 } from '@/mocks/marketing-seo-events';
 
 export function useBlogPosts() {
@@ -42,4 +45,16 @@ export function useAdMetrics() {
 
 export function useMerchItems() {
   return useQuery({ queryKey: ['marketing', 'merch-items'], queryFn: getMerchItems });
+}
+
+export function useOrganicTrend() {
+  return useQuery({ queryKey: ['marketing', 'organic-trend'], queryFn: getOrganicTrend });
+}
+
+export function useComplianceChecklist() {
+  return useQuery({ queryKey: ['marketing', 'compliance-checklist'], queryFn: getComplianceChecklist });
+}
+
+export function useMerchBudget() {
+  return useQuery({ queryKey: ['marketing', 'merch-budget'], queryFn: getMerchBudget });
 }

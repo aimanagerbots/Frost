@@ -1,8 +1,8 @@
 'use client';
 
 import { DrawerPanel, StatusBadge } from '@/components';
-import type { BlogPost } from '../../types/seo-events';
-import { FileText, Eye, Clock } from 'lucide-react';
+import type { BlogPost, SEOScoreItem } from '../../types/seo-events';
+import { FileText, Eye, Clock, CheckCircle, AlertTriangle, XCircle, Globe } from 'lucide-react';
 
 interface SEODrawerProps {
   post: BlogPost | null;
@@ -17,6 +17,35 @@ function ScoreBar({ score }: { score: number }) {
         <div className="h-full rounded-full" style={{ width: `${score}%`, backgroundColor: color }} />
       </div>
       <span className="text-xs font-medium" style={{ color }}>{score}</span>
+    </div>
+  );
+}
+
+function CharCount({ label, length, min, max }: { label: string; length: number; min: number; max: number }) {
+  const inRange = length >= min && length <= max;
+  const close = !inRange && (Math.abs(length - min) <= 5 || Math.abs(length - max) <= 5);
+  const color = inRange ? '#00E5A0' : close ? '#FBBF24' : '#FB7185';
+  return (
+    <div className="flex items-center justify-between">
+      <span className="text-[11px] text-text-muted">{label}</span>
+      <span className="text-[11px] font-medium" style={{ color }}>
+        {length} / {min}-{max}
+      </span>
+    </div>
+  );
+}
+
+function ChecklistItem({ item }: { item: SEOScoreItem }) {
+  const iconMap = {
+    pass: <CheckCircle className="h-3.5 w-3.5 shrink-0" style={{ color: '#00E5A0' }} />,
+    warn: <AlertTriangle className="h-3.5 w-3.5 shrink-0" style={{ color: '#FBBF24' }} />,
+    fail: <XCircle className="h-3.5 w-3.5 shrink-0" style={{ color: '#FB7185' }} />,
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      {iconMap[item.status]}
+      <span className="text-xs text-default">{item.label}</span>
     </div>
   );
 }
@@ -51,6 +80,11 @@ export function SEODrawer({ post, onClose }: SEODrawerProps) {
               <span className="text-xs text-text-muted">Overall Score</span>
               <ScoreBar score={post.seoScore} />
             </div>
+
+            {/* Char count indicators */}
+            <CharCount label="Title Length" length={post.metaTitle.length} min={50} max={60} />
+            <CharCount label="Meta Description Length" length={post.metaDescription.length} min={150} max={160} />
+
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <span className="text-[11px] text-text-muted">Target Keyword</span>
@@ -70,6 +104,39 @@ export function SEODrawer({ post, onClose }: SEODrawerProps) {
               </div>
             </div>
           </div>
+
+          {/* SEO Score Breakdown */}
+          {post.seoChecklist && post.seoChecklist.length > 0 && (
+            <div className="space-y-2 border-t border-default pt-3">
+              <span className="text-[11px] font-medium text-text-muted uppercase tracking-wider">Score Breakdown</span>
+              <div className="space-y-1.5">
+                {post.seoChecklist.map((item, i) => (
+                  <ChecklistItem key={i} item={item} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Category & Tags */}
+        <div className="rounded-lg border border-default bg-elevated p-4 space-y-2">
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-text-muted">Category & Tags</h4>
+          <div>
+            <span className="text-[11px] text-text-muted">Category</span>
+            <p className="text-sm text-text-bright">{post.category}</p>
+          </div>
+          {post.tags.length > 0 && (
+            <div>
+              <span className="text-[11px] text-text-muted">Tags</span>
+              <div className="mt-1 flex flex-wrap gap-1">
+                {post.tags.map((tag) => (
+                  <span key={tag} className="rounded-full bg-base px-2 py-0.5 text-[11px] text-text-muted">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Meta Tags */}
@@ -91,7 +158,7 @@ export function SEODrawer({ post, onClose }: SEODrawerProps) {
         {post.status === 'published' && post.views != null && (
           <div className="rounded-lg border border-default bg-elevated p-4 space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-text-muted">Performance</h4>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               <div className="flex items-center gap-2">
                 <Eye className="h-3.5 w-3.5 text-text-muted" />
                 <div>
@@ -99,6 +166,15 @@ export function SEODrawer({ post, onClose }: SEODrawerProps) {
                   <span className="text-[11px] text-text-muted">Views</span>
                 </div>
               </div>
+              {post.organicTraffic != null && (
+                <div className="flex items-center gap-2">
+                  <Globe className="h-3.5 w-3.5 text-text-muted" />
+                  <div>
+                    <p className="text-sm font-semibold text-text-bright">{post.organicTraffic.toLocaleString()}</p>
+                    <span className="text-[11px] text-text-muted">Organic</span>
+                  </div>
+                </div>
+              )}
               {post.avgTimeOnPage != null && (
                 <div className="flex items-center gap-2">
                   <Clock className="h-3.5 w-3.5 text-text-muted" />

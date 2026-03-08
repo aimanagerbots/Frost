@@ -16,8 +16,18 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { useEvents, useEventMetrics } from '../../hooks/seo-events-hooks';
 import type { Event } from '../../types/seo-events';
 import { EventDrawer } from './EventDrawer';
+import { EventCalendar } from './EventCalendar';
+import { VendorDayStats } from './VendorDayStats';
 
 const ACCENT = '#EC4899';
+
+type Tab = 'calendar' | 'events-list' | 'roi';
+
+const TABS: { key: Tab; label: string }[] = [
+  { key: 'calendar', label: 'Calendar' },
+  { key: 'events-list', label: 'Events List' },
+  { key: 'roi', label: 'ROI' },
+];
 
 const TYPE_LABELS: Record<string, string> = {
   'vendor-day': 'Vendor Day',
@@ -25,6 +35,7 @@ const TYPE_LABELS: Record<string, string> = {
   'pop-up': 'Pop-Up',
   'webinar': 'Webinar',
   'industry-event': 'Industry Event',
+  'internal': 'Internal',
 };
 
 const TYPE_COLORS: Record<string, string> = {
@@ -33,12 +44,15 @@ const TYPE_COLORS: Record<string, string> = {
   'pop-up': '#F59E0B',
   'webinar': '#06B6D4',
   'industry-event': '#667EEA',
+  'internal': '#64748B',
 };
 
 const STATUS_VARIANTS: Record<string, 'success' | 'info' | 'warning' | 'danger' | 'muted'> = {
   planned: 'info',
   confirmed: 'success',
+  'day-of': 'warning',
   completed: 'muted',
+  'follow-up-done': 'success',
   cancelled: 'danger',
 };
 
@@ -93,13 +107,14 @@ export function EventsPage() {
   const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch } = useEventMetrics();
   const { data: events, isLoading: eventsLoading } = useEvents();
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<Tab>('calendar');
 
   if (metricsLoading) return <LoadingSkeleton variant="card" count={4} />;
   if (metricsError) return <ErrorState title="Failed to load events" message={metricsError.message} onRetry={refetch} />;
 
   const selectedEvent = events?.find((e) => e.id === selectedEventId) ?? null;
-  const upcoming = events?.filter((e) => e.status === 'planned' || e.status === 'confirmed') ?? [];
-  const completed = events?.filter((e) => e.status === 'completed') ?? [];
+  const upcoming = events?.filter((e) => e.status === 'planned' || e.status === 'confirmed' || e.status === 'day-of') ?? [];
+  const completed = events?.filter((e) => e.status === 'completed' || e.status === 'follow-up-done') ?? [];
   const cancelled = events?.filter((e) => e.status === 'cancelled') ?? [];
 
   const roiChartData = completed
@@ -127,79 +142,120 @@ export function EventsPage() {
         </div>
       )}
 
-      {/* Upcoming Events */}
-      <div>
-        <h2 className="mb-3 text-sm font-semibold text-text-bright">Upcoming Events</h2>
-        {eventsLoading ? (
-          <LoadingSkeleton variant="card" count={3} />
-        ) : upcoming.length > 0 ? (
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {upcoming.map((evt) => (
-              <EventCard key={evt.id} event={evt} onClick={setSelectedEventId} />
-            ))}
-          </div>
-        ) : (
-          <EmptyState icon={PartyPopper} title="No upcoming events" description="Schedule your next vendor day or event." accentColor={ACCENT} />
-        )}
+      {/* Tab Bar */}
+      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
+        {TABS.map((tab) => (
+          <button
+            key={tab.key}
+            onClick={() => setActiveTab(tab.key)}
+            className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+              activeTab === tab.key
+                ? 'bg-elevated text-text-bright'
+                : 'text-text-muted hover:text-text-bright hover:bg-elevated/50'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
 
-      {/* Completed Events with ROI */}
-      <div>
-        <h2 className="mb-3 text-sm font-semibold text-text-bright">Completed Events</h2>
-        {eventsLoading ? (
-          <LoadingSkeleton variant="card" count={3} />
-        ) : completed.length > 0 ? (
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {completed.map((evt) => (
-              <EventCard key={evt.id} event={evt} onClick={setSelectedEventId} />
-            ))}
-          </div>
-        ) : (
-          <EmptyState icon={PartyPopper} title="No completed events" description="Complete events to see ROI data." accentColor={ACCENT} />
-        )}
-      </div>
-
-      {/* ROI Chart */}
-      {roiChartData.length > 0 && (
-        <ChartWrapper title="Event ROI — Revenue Lift %" subtitle="Post-event revenue lift by event">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={roiChartData} margin={{ left: 10, right: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridColor} />
-              <XAxis dataKey="name" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} angle={-15} textAnchor="end" height={60} />
-              <YAxis tick={{ fill: CHART_THEME.axisColor, fontSize: 12 }} unit="%" />
-              <Tooltip
-                contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
-                formatter={(value) => [`${value}%`, 'Revenue Lift']}
-              />
-              <Bar dataKey="lift" fill={ACCENT} radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartWrapper>
+      {/* Calendar Tab */}
+      {activeTab === 'calendar' && (
+        <div className="space-y-6">
+          {metrics && <VendorDayStats metrics={metrics} />}
+          {eventsLoading ? (
+            <LoadingSkeleton variant="card" count={1} />
+          ) : (
+            <EventCalendar events={events ?? []} onSelectEvent={setSelectedEventId} />
+          )}
+        </div>
       )}
 
-      {/* Annual Budget Tracker */}
-      <div className="rounded-xl border border-default bg-card p-4">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-semibold text-text-bright">Annual Events Budget</h3>
-          <span className="text-xs text-text-muted">${totalSpent.toLocaleString()} / ${totalBudget.toLocaleString()}</span>
-        </div>
-        <div className="h-3 w-full rounded-full bg-elevated">
-          <div
-            className="h-full rounded-full transition-all"
-            style={{ width: `${Math.min(budgetPct, 100)}%`, backgroundColor: budgetPct > 90 ? '#FB7185' : ACCENT }}
-          />
-        </div>
-        <p className="mt-1 text-xs text-text-muted">{budgetPct}% spent</p>
-      </div>
+      {/* Events List Tab */}
+      {activeTab === 'events-list' && (
+        <div className="space-y-6">
+          {/* Upcoming Events */}
+          <div>
+            <h2 className="mb-3 text-sm font-semibold text-text-bright">Upcoming Events</h2>
+            {eventsLoading ? (
+              <LoadingSkeleton variant="card" count={3} />
+            ) : upcoming.length > 0 ? (
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+                {upcoming.map((evt) => (
+                  <EventCard key={evt.id} event={evt} onClick={setSelectedEventId} />
+                ))}
+              </div>
+            ) : (
+              <EmptyState icon={PartyPopper} title="No upcoming events" description="Schedule your next vendor day or event." accentColor={ACCENT} />
+            )}
+          </div>
 
-      {/* Cancelled (if any) */}
-      {cancelled.length > 0 && (
-        <div>
-          <h2 className="mb-3 text-sm font-semibold text-text-muted">Cancelled</h2>
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {cancelled.map((evt) => (
-              <EventCard key={evt.id} event={evt} onClick={setSelectedEventId} />
-            ))}
+          {/* Completed Events */}
+          <div>
+            <h2 className="mb-3 text-sm font-semibold text-text-bright">Completed Events</h2>
+            {eventsLoading ? (
+              <LoadingSkeleton variant="card" count={3} />
+            ) : completed.length > 0 ? (
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+                {completed.map((evt) => (
+                  <EventCard key={evt.id} event={evt} onClick={setSelectedEventId} />
+                ))}
+              </div>
+            ) : (
+              <EmptyState icon={PartyPopper} title="No completed events" description="Complete events to see ROI data." accentColor={ACCENT} />
+            )}
+          </div>
+
+          {/* Cancelled */}
+          {cancelled.length > 0 && (
+            <div>
+              <h2 className="mb-3 text-sm font-semibold text-text-muted">Cancelled</h2>
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+                {cancelled.map((evt) => (
+                  <EventCard key={evt.id} event={evt} onClick={setSelectedEventId} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ROI Tab */}
+      {activeTab === 'roi' && (
+        <div className="space-y-6">
+          {/* ROI Chart */}
+          {roiChartData.length > 0 ? (
+            <ChartWrapper title="Event ROI — Revenue Lift %" subtitle="Post-event revenue lift by event">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={roiChartData} margin={{ left: 10, right: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridColor} />
+                  <XAxis dataKey="name" tick={{ fill: CHART_THEME.axisColor, fontSize: 11 }} angle={-15} textAnchor="end" height={60} />
+                  <YAxis tick={{ fill: CHART_THEME.axisColor, fontSize: 12 }} unit="%" />
+                  <Tooltip
+                    contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: `1px solid ${CHART_THEME.tooltipBorder}`, borderRadius: 8, color: CHART_THEME.tooltipText }}
+                    formatter={(value) => [`${value}%`, 'Revenue Lift']}
+                  />
+                  <Bar dataKey="lift" fill={ACCENT} radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartWrapper>
+          ) : (
+            <EmptyState icon={PartyPopper} title="No ROI data yet" description="Complete events with ROI measurements to see the chart." accentColor={ACCENT} />
+          )}
+
+          {/* Annual Budget Tracker */}
+          <div className="rounded-xl border border-default bg-card p-4">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-sm font-semibold text-text-bright">Annual Events Budget</h3>
+              <span className="text-xs text-text-muted">${totalSpent.toLocaleString()} / ${totalBudget.toLocaleString()}</span>
+            </div>
+            <div className="h-3 w-full rounded-full bg-elevated">
+              <div
+                className="h-full rounded-full transition-all"
+                style={{ width: `${Math.min(budgetPct, 100)}%`, backgroundColor: budgetPct > 90 ? '#FB7185' : ACCENT }}
+              />
+            </div>
+            <p className="mt-1 text-xs text-text-muted">{budgetPct}% spent</p>
           </div>
         </div>
       )}

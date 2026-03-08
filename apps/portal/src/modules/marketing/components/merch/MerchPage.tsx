@@ -9,23 +9,34 @@ import {
   ErrorState,
   EmptyState,
 } from '@/components';
-import { ShoppingBag, AlertTriangle, Package } from 'lucide-react';
+import { ShoppingBag, AlertTriangle, Package, Boxes, ClipboardList, DollarSign } from 'lucide-react';
 import { useMerchItems } from '../../hooks/seo-events-hooks';
 import type { MerchItem } from '../../types/seo-events';
+import { MerchBudgetTab } from './MerchBudgetTab';
 
 const ACCENT = '#EC4899';
 
+type MerchTab = 'inventory' | 'distribution' | 'budget';
+
+const TABS: { key: MerchTab; label: string; icon: typeof Boxes }[] = [
+  { key: 'inventory', label: 'Inventory', icon: Boxes },
+  { key: 'distribution', label: 'Distribution Log', icon: ClipboardList },
+  { key: 'budget', label: 'Budget', icon: DollarSign },
+];
+
 const CATEGORY_COLORS: Record<string, string> = {
   apparel: '#8B5CF6',
+  headwear: '#3B82F6',
   accessories: '#06B6D4',
   stickers: '#EC4899',
-  containers: '#F59E0B',
+  bags: '#F59E0B',
+  containers: '#22C55E',
   misc: '#64748B',
 };
 
 function StockIndicator({ stock }: { stock: number }) {
-  const color = stock === 0 ? '#FB7185' : stock < 10 ? '#FBBF24' : '#00E5A0';
-  const label = stock === 0 ? 'Out of Stock' : stock < 10 ? 'Low Stock' : 'In Stock';
+  const color = stock === 0 ? '#FB7185' : stock <= 15 ? '#FBBF24' : '#00E5A0';
+  const label = stock === 0 ? 'Out of Stock' : stock <= 15 ? 'Low Stock' : 'In Stock';
   return (
     <div className="flex items-center gap-1.5">
       <div className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
@@ -36,6 +47,7 @@ function StockIndicator({ stock }: { stock: number }) {
 
 function MerchCard({ item }: { item: MerchItem }) {
   const catColor = CATEGORY_COLORS[item.category] ?? ACCENT;
+  const available = item.stock - item.allocated;
   return (
     <div className="rounded-xl border border-default bg-card p-4 transition-all hover:bg-card-hover">
       {/* Image placeholder */}
@@ -43,25 +55,29 @@ function MerchCard({ item }: { item: MerchItem }) {
         <Package className="h-8 w-8 text-text-muted" />
       </div>
       <h3 className="text-sm font-semibold text-text-bright line-clamp-2">{item.name}</h3>
+      <p className="mt-0.5 text-[11px] text-text-muted font-mono">{item.sku}</p>
       <div className="mt-1.5 flex items-center gap-2">
         <span className="rounded-full px-2 py-0.5 text-[11px] font-medium" style={{ backgroundColor: `${catColor}20`, color: catColor }}>
           {item.category}
         </span>
         <StockIndicator stock={item.stock} />
       </div>
-      <p className="mt-2 text-xs text-text-muted line-clamp-2">{item.imageDescription}</p>
-      <div className="mt-3 grid grid-cols-3 gap-2 border-t border-default pt-2.5">
+      <div className="mt-3 grid grid-cols-4 gap-1 border-t border-default pt-2.5">
         <div className="text-center">
           <p className="text-sm font-semibold text-text-bright">{item.stock}</p>
-          <span className="text-[11px] text-text-muted">In Stock</span>
+          <span className="text-[10px] text-text-muted">Stock</span>
         </div>
         <div className="text-center">
-          <p className="text-sm font-semibold text-text-bright">{item.distributed}</p>
-          <span className="text-[11px] text-text-muted">Distributed</span>
+          <p className="text-sm font-semibold text-text-bright">{item.allocated}</p>
+          <span className="text-[10px] text-text-muted">Alloc.</span>
+        </div>
+        <div className="text-center">
+          <p className="text-sm font-semibold text-text-bright">{available}</p>
+          <span className="text-[10px] text-text-muted">Avail.</span>
         </div>
         <div className="text-center">
           <p className="text-sm font-semibold text-text-bright">${item.costPerUnit.toFixed(2)}</p>
-          <span className="text-[11px] text-text-muted">Cost/Unit</span>
+          <span className="text-[10px] text-text-muted">Cost</span>
         </div>
       </div>
     </div>
@@ -73,11 +89,12 @@ interface DistributionRow extends Record<string, unknown> {
   recipient: string;
   date: string;
   quantity: number;
+  distributedBy: string;
 }
 
 export function MerchPage() {
   const { data: items, isLoading, error, refetch } = useMerchItems();
-  const [view, setView] = useState<'grid' | 'log'>('grid');
+  const [activeTab, setActiveTab] = useState<MerchTab>('inventory');
 
   if (isLoading) return <LoadingSkeleton variant="card" count={4} />;
   if (error) return <ErrorState title="Failed to load merchandise" message={error.message} onRetry={refetch} />;
@@ -103,6 +120,7 @@ export function MerchPage() {
       recipient: d.accountName ?? d.event ?? 'Unknown',
       date: d.date,
       quantity: d.quantity,
+      distributedBy: d.distributedBy ?? '—',
     }))
   ).sort((a, b) => b.date.localeCompare(a.date));
 
@@ -111,10 +129,11 @@ export function MerchPage() {
     { header: 'Recipient', accessor: 'recipient' as const, sortable: true },
     { header: 'Date', accessor: 'date' as const, sortable: true },
     { header: 'Qty', accessor: 'quantity' as const, sortable: true },
+    { header: 'Distributed By', accessor: 'distributedBy' as const, hideBelow: 'md' as const },
   ];
 
   // Reorder items
-  const reorderItems = items.filter((i) => i.stock <= 10);
+  const reorderItems = items.filter((i) => i.stock <= 15);
 
   return (
     <div className="space-y-6">
@@ -122,9 +141,9 @@ export function MerchPage() {
 
       {/* Compliance Note */}
       <div className="flex items-start gap-3 rounded-xl border border-warning/30 bg-warning/10 p-3">
-        <AlertTriangle className="mt-0.5 h-4 w-4 text-warning" />
+        <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-warning" />
         <p className="text-xs text-text-muted">
-          <span className="font-medium text-warning">WSLCB Notice:</span> Washington prohibits promotional giveaways of branded cannabis merchandise. Distribution tracking is for internal/event use only.
+          <span className="font-medium text-warning">WSLCB Notice:</span> Washington state prohibits promotional giveaways of branded cannabis merchandise to consumers. Merch tracked here is for internal use, team distribution, trade show giveaways to industry professionals, and vendor day use at licensed dispensaries only.
         </p>
       </div>
 
@@ -137,23 +156,23 @@ export function MerchPage() {
         <MetricCard label="Inventory Value" value={`$${inventoryValue.toLocaleString(undefined, { minimumFractionDigits: 2 })}`} accentColor={ACCENT} />
       </div>
 
-      {/* View Toggle */}
-      <div className="flex gap-2">
-        <button
-          className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${view === 'grid' ? 'bg-elevated text-text-bright' : 'text-text-muted hover:text-text-bright'}`}
-          onClick={() => setView('grid')}
-        >
-          Inventory Grid
-        </button>
-        <button
-          className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${view === 'log' ? 'bg-elevated text-text-bright' : 'text-text-muted hover:text-text-bright'}`}
-          onClick={() => setView('log')}
-        >
-          Distribution Log
-        </button>
+      {/* Tab Bar */}
+      <div className="flex gap-1 rounded-xl border border-default bg-base p-1">
+        {TABS.map(({ key, label, icon: Icon }) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key)}
+            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+              activeTab === key ? 'bg-elevated text-text-bright' : 'text-text-muted hover:text-text-bright'
+            }`}
+          >
+            <Icon size={14} />
+            <span>{label}</span>
+          </button>
+        ))}
       </div>
 
-      {view === 'grid' ? (
+      {activeTab === 'inventory' && (
         <>
           {/* Merch Grid */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -171,7 +190,7 @@ export function MerchPage() {
                   <div key={item.id} className="flex items-center justify-between rounded-xl border border-warning/30 bg-card p-3">
                     <div>
                       <p className="text-sm font-medium text-text-bright">{item.name}</p>
-                      <p className="text-xs text-text-muted">{item.stock} remaining · {item.distributed} distributed</p>
+                      <p className="text-xs text-text-muted font-mono">{item.sku} · {item.stock} remaining</p>
                     </div>
                     <button className="rounded-lg border border-default px-3 py-1.5 text-xs font-medium text-text-bright transition-colors hover:bg-elevated">
                       Reorder
@@ -182,8 +201,9 @@ export function MerchPage() {
             </div>
           )}
         </>
-      ) : (
-        /* Distribution Log */
+      )}
+
+      {activeTab === 'distribution' && (
         <DataTable<DistributionRow>
           data={distLog}
           columns={distColumns}
@@ -192,6 +212,10 @@ export function MerchPage() {
           pageSize={15}
           emptyState={{ icon: ShoppingBag, title: 'No distributions', accentColor: ACCENT }}
         />
+      )}
+
+      {activeTab === 'budget' && (
+        <MerchBudgetTab items={items} />
       )}
     </div>
   );
