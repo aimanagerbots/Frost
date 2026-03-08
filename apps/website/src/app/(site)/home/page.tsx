@@ -83,7 +83,7 @@ export default function HomePage() {
   return (
     <div>
       {/* ── 1. Hero ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative mt-[144px] h-[calc(100vh-144px)] flex items-center justify-center overflow-hidden">
         <Image
           src="/Frost-website-hero.png"
           alt="Frosty Nugs"
