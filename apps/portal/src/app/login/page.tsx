@@ -2,10 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
 
-export default function LoginPage() {
+export default function PortalLoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -38,6 +37,9 @@ export default function LoginPage() {
           className="h-[120px] w-[120px] mb-10"
           priority
         />
+
+        {/* Portal badge */}
+        <p className="text-xs text-white/30 tracking-widest uppercase mb-8">Partner Portal</p>
 
         {/* Form */}
         <form onSubmit={handleSignIn} className="w-full space-y-4">
@@ -91,21 +93,13 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Sign up link */}
+        {/* Contact link */}
         <p className="mt-6 text-sm text-white/40">
-          Dispensary partner?{' '}
-          <Link href="/login" className="text-[#5BB8E6]/80 hover:text-[#5BB8E6] transition-colors">
-            Request access
-          </Link>
+          Need access?{' '}
+          <a href="mailto:partners@frost.com" className="text-[#5BB8E6]/80 hover:text-[#5BB8E6] transition-colors">
+            Contact us
+          </a>
         </p>
-
-        {/* Back to site */}
-        <Link
-          href="/"
-          className="mt-4 text-xs text-white/25 hover:text-white/50 transition-colors"
-        >
-          Back to site
-        </Link>
       </div>
 
       <style jsx>{`

@@ -11,9 +11,9 @@
   --border-default: #1A1F2E;
   --border-hover: #2A3040;
 
-  /* Accent */
-  --accent-primary: #667EEA;
-  --accent-gradient: linear-gradient(135deg, #667EEA, #764BA2, #F093FB);
+  /* Accent — Snowflake blue */
+  --accent-primary: #5BB8E6;
+  --accent-gradient: linear-gradient(135deg, #5BB8E6, #4A8DB8, #3D7A9E);
 
   /* Text — improved contrast */
   --text-default: #E2E8F0;
@@ -39,9 +39,9 @@
   --border-default: #E2E8F0;
   --border-hover: #CBD5E1;
 
-  /* Accent */
-  --accent-primary: #667EEA;
-  --accent-gradient: linear-gradient(135deg, #667EEA, #764BA2, #F093FB);
+  /* Accent — Snowflake blue */
+  --accent-primary: #5BB8E6;
+  --accent-gradient: linear-gradient(135deg, #5BB8E6, #4A8DB8, #3D7A9E);
 
   /* Text */
   --text-default: #1E293B;

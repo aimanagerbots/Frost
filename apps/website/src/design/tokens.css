@@ -1,48 +1,47 @@
-/* Frost consumer website — light, editorial, premium theme */
-/* "Pacific Northwest Editorial" — Aesop typography + WYLD earth tones */
+/* Frost consumer website — dark theme, unified with app */
 
 :root {
-  /* Backgrounds */
-  --bg-base: #FAFAF9;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F5F5F4;
-  --bg-elevated: #E7E5E4;
-  --bg-cream: #F5F0EB;
-  --bg-dark: #1C1917;
+  /* Backgrounds — matches app dark palette */
+  --bg-base: #08090F;
+  --bg-card: #0F1219;
+  --bg-card-hover: #141925;
+  --bg-elevated: #1A1F2E;
+  --bg-cream: #141925;
+  --bg-dark: #000000;
 
   /* Borders */
-  --border-default: #E7E5E4;
-  --border-hover: #D6D3D1;
+  --border-default: #1A1F2E;
+  --border-hover: #2A3040;
 
-  /* Accent — Teal (PNW-inspired) */
-  --accent-primary: #0A7B6F;
-  --accent-primary-hover: #086960;
-  --accent-primary-light: rgba(10, 123, 111, 0.1);
+  /* Accent — Snowflake blue */
+  --accent-primary: #5BB8E6;
+  --accent-primary-hover: #4AA8D6;
+  --accent-primary-light: rgba(91, 184, 230, 0.1);
 
   /* Category accents */
-  --accent-flower: #16A34A;
-  --accent-concentrate: #D97706;
-  --accent-vape: #2563EB;
-  --accent-preroll: #EA580C;
-  --accent-edible: #7C3AED;
-  --accent-beverage: #0D9488;
+  --accent-flower: #22C55E;
+  --accent-concentrate: #F59E0B;
+  --accent-vape: #3B82F6;
+  --accent-preroll: #F97316;
+  --accent-edible: #8B5CF6;
+  --accent-beverage: #14B8A6;
 
   /* Strain type colors */
-  --strain-indica: #7C3AED;
-  --strain-sativa: #EA580C;
-  --strain-hybrid: #16A34A;
-  --strain-cbd: #0A7B6F;
+  --strain-indica: #8B5CF6;
+  --strain-sativa: #F97316;
+  --strain-hybrid: #22C55E;
+  --strain-cbd: #5BB8E6;
 
   /* Text */
-  --text-default: #1C1917;
-  --text-muted: #78716C;
-  --text-bright: #0C0A09;
-  --text-on-dark: #FAFAF9;
-  --text-on-dark-muted: rgba(250, 250, 249, 0.7);
+  --text-default: #E2E8F0;
+  --text-muted: #8B9DC3;
+  --text-bright: #FFFFFF;
+  --text-on-dark: #E2E8F0;
+  --text-on-dark-muted: rgba(226, 232, 240, 0.7);
 
   /* Status */
-  --success: #059669;
-  --warning: #D97706;
-  --danger: #DC2626;
-  --info: #0284C7;
+  --success: #00E5A0;
+  --warning: #FBBF24;
+  --danger: #FB7185;
+  --info: #38BDF8;
 }
