@@ -126,16 +126,12 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
   const triggerClass = cn(
     'group inline-flex items-center gap-1 whitespace-nowrap rounded-md px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.05em] transition-colors duration-200 outline-none',
     'data-[state=open]:text-accent-primary',
-    isScrolled
-      ? 'text-text-muted hover:text-text-default'
-      : 'text-text-on-dark-muted hover:text-text-on-dark'
+    'text-text-muted hover:text-text-default'
   );
 
   const linkClass = cn(
     'whitespace-nowrap rounded-md px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.05em] transition-colors duration-200 outline-none',
-    isScrolled
-      ? 'text-text-muted hover:text-text-default'
-      : 'text-text-on-dark-muted hover:text-text-on-dark'
+    'text-text-muted hover:text-text-default'
   );
 
   // Gather all product categories for the Shop panel
@@ -203,9 +199,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
                     href={item.href}
                     className={cn(
                       'whitespace-nowrap rounded-full px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.05em] transition-colors duration-200',
-                      isScrolled
-                        ? 'bg-accent-primary text-text-on-dark hover:bg-accent-primary-hover'
-                        : 'bg-white/15 text-text-on-dark backdrop-blur-sm hover:bg-white/25'
+                      'bg-accent-primary text-text-on-dark hover:bg-accent-primary-hover'
                     )}
                   >
                     {item.label}

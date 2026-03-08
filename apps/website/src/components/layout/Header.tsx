@@ -26,8 +26,8 @@ export function Header() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'bg-base/95 backdrop-blur-md border-b border-border-default'
-            : 'bg-transparent'
+            ? 'bg-base border-b border-border-default'
+            : 'bg-base'
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -39,7 +39,7 @@ export function Header() {
               fill
               className={cn(
                 'object-contain object-left transition-all duration-300',
-                isScrolled ? 'brightness-100' : 'brightness-0 invert'
+                'brightness-100'
               )}
               priority
             />
@@ -55,9 +55,7 @@ export function Header() {
               onClick={() => setIsMobileOpen(true)}
               className={cn(
                 'transition-colors duration-200 md:hidden',
-                isScrolled
-                  ? 'text-text-muted hover:text-text-default'
-                  : 'text-text-on-dark-muted hover:text-text-on-dark'
+                'text-text-muted hover:text-text-default'
               )}
               aria-label="Open menu"
             >
