@@ -42,3 +42,6 @@ yarn-debug.log*
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+
+# Obsidian vault (personal knowledge base)
+Frost-Vault/

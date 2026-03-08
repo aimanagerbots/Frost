@@ -49,14 +49,15 @@ Meetings #2563EB, Docs #64748B, Team #0D9488, Finance #059669,
 Reports #475569, Settings #94A3B8, System #64748B
 
 ## Git and Deployment
-- **EVERY change = commit + push immediately.** Do not wait for the user to ask. If you changed a file, commit and push it right away.
 - git add -A before every commit to capture ALL files (new, modified, deleted)
+- Commit after every completed phase or meaningful chunk of work
 - Use conventional commits: feat:, fix:, chore:, style:, refactor:
-- ALWAYS push to main after every commit: git push origin main
-- ALSO push to Vercel production branch: git push origin main:claude/research-claude-md-jau3A
-- Vercel production branch is currently claude/research-claude-md-jau3A (change to main in Vercel Dashboard when ready)
-- Domain: frost-orcin.vercel.app
-- Never sit on uncommitted work. If you built it, commit and push it.
+- Push to main ONLY: git push origin main (single branch, no dual-push)
+- Vercel production branch: main (all 3 projects)
+- DO NOT push to claude/research-claude-md-jau3A — that branch is retired
+- Batch work before pushing: commit often locally, push once per logical chunk
+- Vercel free tier = 100 deploys/day across ALL projects. Each push triggers 3 deploys (app + website + portal). Budget ~30 pushes/day max.
+- Domain: frost-orcin.vercel.app (app), frost-website-michael-2295s-projects.vercel.app (website)
 - Always verify with git status before committing to make sure nothing is left behind
 
 ## NotebookLM Integration
@@ -71,6 +72,17 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Each question is stateless (new browser session) — include full context in every query
 - Rate limit: 50 queries/day on free tier — be strategic, batch related questions
 - If not authenticated, tell the user a browser window will open for Google login
+
+## Obsidian Vault (Extended Memory)
+- `Frost-Vault/` is an Obsidian vault inside the monorepo — gitignored, not committed
+- It extends MEMORY.md with deeper project knowledge, session logs, and architecture decisions
+- **Folder structure**: 00-Inbox, 01-Project (Architecture/Modules/Domain/Deployment/Brand), 02-Sessions, 03-Decisions (ADRs), 04-Reference, 05-Templates
+- Read specific vault notes on demand when you need deep context — do NOT load the entire vault
+- Write session logs after completing significant work (use the Session Log template)
+- Create Architecture Decision Records for non-trivial decisions (use the Decision Record template)
+- Conventions: YAML frontmatter on every note, `[[wikilinks]]` for cross-references, one topic per note
+- MEMORY.md = hot operational facts (needed every session). Vault = depth (read on demand).
+- See `.claude/rules/vault-integration.md` for full read/write guidelines
 
 ## Frontend Design Skill (MANDATORY)
 - ALWAYS invoke the `frontend-design` skill before designing or building any frontend file — no exceptions.

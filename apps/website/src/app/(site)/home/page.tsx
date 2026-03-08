@@ -82,8 +82,11 @@ export default function HomePage() {
 
   return (
     <div>
+      {/* ── Spacer for fixed header ── */}
+      <div className="h-[96px] w-full shrink-0" aria-hidden="true" />
+
       {/* ── 1. Hero ── */}
-      <section className="relative mt-[96px] h-[calc(100vh-96px)] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[calc(100vh-96px)] flex items-center justify-center overflow-hidden">
         <Image
           src="/Frost-website-hero.png"
           alt="Frosty Nugs"

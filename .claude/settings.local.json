@@ -25,7 +25,10 @@
       "WebFetch(domain:github.com)",
       "Bash(gh api repos/affaan-m/everything-claude-code/contents/CLAUDE.md --jq '.content')",
       "Bash(where gh)",
-      "Bash(curl -sL \"https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/CLAUDE.md\")"
+      "Bash(curl -sL \"https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/CLAUDE.md\")",
+      "Bash(ls -la /c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\\\\\(site\\\\\\)/)",
+      "Bash(cat '/c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\(site\\)/layout.tsx')",
+      "Bash(git add apps/website/src/components/layout/Header.tsx apps/website/src/app/\\\\\\(site\\\\\\)/home/page.tsx .gitignore CLAUDE.md .claude/settings.local.json)"
     ]
   }
 }
