@@ -32,7 +32,7 @@ export function Header() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           {/* Logo */}
           <Link
-            href="/"
+            href="/home"
             className={cn(
               'font-display text-2xl italic tracking-wide transition-colors duration-300',
               isScrolled ? 'text-text-default' : 'text-text-on-dark'
