@@ -72,9 +72,15 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Rate limit: 50 queries/day on free tier — be strategic, batch related questions
 - If not authenticated, tell the user a browser window will open for Google login
 
+## Frontend Design Skill (MANDATORY)
+- ALWAYS invoke the `frontend-design` skill before designing or building any frontend file — no exceptions.
+- This includes: components, pages, layouts, modals, forms, dashboards, and any file that renders UI.
+- Do NOT write frontend code without invoking the skill first.
+
 ## Do NOT
 - Install dependencies without stating why
 - Refactor code you weren't asked to change
 - Create tests unless explicitly asked
 - Put business logic in page.tsx files
 - Use any type in public component props
+- Design or build any frontend file without first invoking the `frontend-design` skill
