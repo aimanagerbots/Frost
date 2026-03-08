@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  HeroSection,
   CategoryCard,
   BlogPostCard,
-  CTAButton,
   ScrollReveal,
 } from "@/components";
 import { CATEGORIES, CATEGORY_SLUGS, unsplashUrl, PHOTOS } from "@/lib/constants";
@@ -85,25 +83,16 @@ export default function HomePage() {
   return (
     <div>
       {/* ── 1. Hero ── */}
-      <HeroSection
-        title="Craft Cannabis, Cultivated with Care"
-        subtitle="Small-batch flower, concentrates, edibles, and more — grown with intention in the Pacific Northwest."
-        imageUrl={unsplashUrl(PHOTOS.hero[0], 1920, 1080)}
-        height="full"
-        align="center"
-      >
-        <div
-          className="mt-8 flex flex-wrap justify-center gap-4"
-          style={{ animation: "fadeInUp 0.6s ease-out" }}
-        >
-          <CTAButton variant="primary" href="/products">
-            Explore Products
-          </CTAButton>
-          <CTAButton variant="primary" href="/find">
-            Find Near You
-          </CTAButton>
-        </div>
-      </HeroSection>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <Image
+          src="/Frost-website-hero.png"
+          alt="Frosty Nugs"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+      </section>
 
       {/* ── 2. Shop by Category ── */}
       <section className="section-pad">
