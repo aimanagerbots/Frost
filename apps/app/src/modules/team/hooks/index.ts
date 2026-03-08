@@ -17,3 +17,5 @@ export function useTeamMetrics() {
     queryFn: () => getTeamMetrics(),
   });
 }
+
+export { useTeamDashboard } from './useTeamDashboard';
