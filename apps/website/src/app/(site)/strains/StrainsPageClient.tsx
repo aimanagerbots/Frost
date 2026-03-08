@@ -68,6 +68,7 @@ export function StrainsPageClient({ strains }: StrainsPageClientProps) {
               thcRange={s.thcRange}
               terpeneProfile={s.terpeneProfile}
               description={s.description}
+              imageUrl={s.imageUrl}
             />
           ))}
         </div>

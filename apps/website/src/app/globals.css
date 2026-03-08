@@ -3,41 +3,53 @@
 @import "../../src/design/tokens.css";
 
 @theme inline {
-  /* Fonts — premium editorial typography */
+  /* Fonts */
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 
-  /* Frost website colors */
-  --color-base: var(--bg-base);
-  --color-card: var(--bg-card);
-  --color-card-hover: var(--bg-card-hover);
-  --color-elevated: var(--bg-elevated);
-  --color-cream: var(--bg-cream);
-  --color-dark: var(--bg-dark);
-  --color-border-default: var(--border-default);
-  --color-border-hover: var(--border-hover);
-  --color-accent-primary: var(--accent-primary);
-  --color-accent-primary-hover: var(--accent-primary-hover);
-  --color-accent-primary-light: var(--accent-primary-light);
-  --color-accent-flower: var(--accent-flower);
-  --color-accent-concentrate: var(--accent-concentrate);
-  --color-accent-vape: var(--accent-vape);
-  --color-accent-preroll: var(--accent-preroll);
-  --color-accent-edible: var(--accent-edible);
-  --color-accent-beverage: var(--accent-beverage);
-  --color-strain-indica: var(--strain-indica);
-  --color-strain-sativa: var(--strain-sativa);
-  --color-strain-hybrid: var(--strain-hybrid);
-  --color-strain-cbd: var(--strain-cbd);
-  --color-text-default: var(--text-default);
-  --color-text-muted: var(--text-muted);
-  --color-text-bright: var(--text-bright);
-  --color-text-on-dark: var(--text-on-dark);
-  --color-text-on-dark-muted: var(--text-on-dark-muted);
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-danger: var(--danger);
-  --color-info: var(--info);
+  /* Backgrounds — pure black base */
+  --color-base: #000000;
+  --color-card: #0A0A0F;
+  --color-card-hover: #111118;
+  --color-elevated: #161620;
+  --color-cream: #0A0A0F;
+  --color-dark: #000000;
+
+  /* Borders — white at low opacity */
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(255, 255, 255, 0.15);
+
+  /* Accent — Snowflake blue */
+  --color-accent-primary: #5BB8E6;
+  --color-accent-primary-hover: #4AA8D6;
+  --color-accent-primary-light: rgba(91, 184, 230, 0.1);
+
+  /* Category accents */
+  --color-accent-flower: #22C55E;
+  --color-accent-concentrate: #F59E0B;
+  --color-accent-vape: #3B82F6;
+  --color-accent-preroll: #F97316;
+  --color-accent-edible: #8B5CF6;
+  --color-accent-beverage: #14B8A6;
+
+  /* Strain type colors */
+  --color-strain-indica: #8B5CF6;
+  --color-strain-sativa: #F97316;
+  --color-strain-hybrid: #22C55E;
+  --color-strain-cbd: #5BB8E6;
+
+  /* Text — white at varying opacities */
+  --color-text-default: rgba(255, 255, 255, 0.9);
+  --color-text-muted: rgba(255, 255, 255, 0.4);
+  --color-text-bright: #FFFFFF;
+  --color-text-on-dark: rgba(255, 255, 255, 0.9);
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.4);
+
+  /* Status */
+  --color-success: #00E5A0;
+  --color-warning: #FBBF24;
+  --color-danger: #FB7185;
+  --color-info: #38BDF8;
 
   /* Radius */
   --radius-sm: 0.375rem;
