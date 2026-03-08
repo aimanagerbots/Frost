@@ -1,0 +1,146 @@
+{
+  "margins": [
+    {
+      "value": "8px",
+      "count": 15
+    },
+    {
+      "value": "10px",
+      "count": 12
+    },
+    {
+      "value": "40px",
+      "count": 10
+    },
+    {
+      "value": "20px",
+      "count": 10
+    },
+    {
+      "value": "48px",
+      "count": 10
+    },
+    {
+      "value": "4px",
+      "count": 6
+    },
+    {
+      "value": "16px",
+      "count": 3
+    },
+    {
+      "value": "24px",
+      "count": 3
+    },
+    {
+      "value": "236px",
+      "count": 2
+    },
+    {
+      "value": "396px",
+      "count": 2
+    },
+    {
+      "value": "481.125px",
+      "count": 2
+    },
+    {
+      "value": "56px",
+      "count": 2
+    },
+    {
+      "value": "356px",
+      "count": 2
+    },
+    {
+      "value": "60px",
+      "count": 2
+    },
+    {
+      "value": "300px",
+      "count": 2
+    },
+    {
+      "value": "32px",
+      "count": 1
+    },
+    {
+      "value": "28px",
+      "count": 1
+    }
+  ],
+  "paddings": [
+    {
+      "value": "32px",
+      "count": 46
+    },
+    {
+      "value": "16px",
+      "count": 23
+    },
+    {
+      "value": "20px",
+      "count": 20
+    },
+    {
+      "value": "28px",
+      "count": 18
+    },
+    {
+      "value": "8px",
+      "count": 16
+    },
+    {
+      "value": "40px",
+      "count": 16
+    },
+    {
+      "value": "10px",
+      "count": 14
+    },
+    {
+      "value": "44px",
+      "count": 12
+    },
+    {
+      "value": "120px",
+      "count": 8
+    },
+    {
+      "value": "5px",
+      "count": 6
+    },
+    {
+      "value": "12px",
+      "count": 6
+    },
+    {
+      "value": "14px",
+      "count": 4
+    },
+    {
+      "value": "36px",
+      "count": 4
+    },
+    {
+      "value": "24px",
+      "count": 2
+    },
+    {
+      "value": "48px",
+      "count": 2
+    },
+    {
+      "value": "6px",
+      "count": 2
+    },
+    {
+      "value": "4px",
+      "count": 2
+    },
+    {
+      "value": "160px",
+      "count": 1
+    }
+  ]
+}

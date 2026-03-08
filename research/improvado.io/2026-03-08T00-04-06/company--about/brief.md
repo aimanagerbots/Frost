@@ -1,0 +1,115 @@
+# Design Intelligence Brief: improvado.io
+> Scraped from https://improvado.io/company/about on 2026-03-08T00:10:02.528Z
+
+## Page Meta
+- **Title:** About Improvado | Marketing analytics and Intelligence platform
+- **Description:** Improvado is an AI-powered marketing analytics and intelligence platform designed for marketing teams in medium to large-scale enterprises and agencies, looking to automate complex marketing intelligence and reporting to make decisions with ease.
+- **OG Image:** https://improvado.io/593ed35b7e7f144e5e0ec373/67897f868e4a4254e78f05ea_Marketing%20Data%20Governance%20OG%20(7)%20(1).png
+
+## Color Palette (top 20 by frequency)
+| Hex | Usage Count |
+|-----|-------------|
+| `#333333` | 6191 |
+| `#20124D` | 3578 |
+| `#8068FF` | 964 |
+| `#FFFFFF` | 931 |
+| `#444D66` | 655 |
+| `#000000` | 365 |
+| `#1E1938` | 325 |
+| `#DDDDDD` | 200 |
+| `#667085` | 64 |
+| `#C7BEBE` | 52 |
+| `#FF4B4B` | 30 |
+| `#EAECF0` | 16 |
+| `#F1F5FF` | 13 |
+| `#FEF3F2` | 13 |
+| `#15132A` | 11 |
+| `#F4F5FF` | 10 |
+| `#674EA7` | 8 |
+| `#5835C9` | 6 |
+| `#F4EBFF` | 5 |
+| `#D2DCF8` | 5 |
+
+## Typography (top 10 combinations)
+| Font Family | Size | Weight | Line Height | Count |
+|-------------|------|--------|-------------|-------|
+| Raleway | 17.84px | 700 | 26.76px | 100 |
+| Raleway | 16px | 400 | 28px | 53 |
+| Raleway | 13.6px | 400 | 20px | 46 |
+| Raleway | 18px | 400 | 20px | 42 |
+| Raleway | 16px | 600 | 28px | 35 |
+| Raleway | 14px | 400 | 20px | 32 |
+| Raleway | 16px | 400 | 24px | 18 |
+| Raleway | 16px | 700 | 24px | 15 |
+| sans-serif | 16px | 400 | normal | 13 |
+| Raleway | 65.6px | 700 | 78.72px | 12 |
+
+## Spacing Scale
+### Common Margins
+- `16px` (185 uses)
+- `10px` (120 uses)
+- `auto` (28 uses)
+- `8px` (28 uses)
+- `1px` (22 uses)
+- `29.6094px` (18 uses)
+- `25px` (17 uses)
+- `5px` (13 uses)
+- `20px` (10 uses)
+- `35px` (10 uses)
+### Common Paddings
+- `8px` (204 uses)
+- `14px` (116 uses)
+- `32px` (91 uses)
+- `1%` (80 uses)
+- `24px` (42 uses)
+- `16px` (42 uses)
+- `20px` (33 uses)
+- `80px` (23 uses)
+- `2px` (22 uses)
+- `10px` (20 uses)
+
+## CSS Custom Properties
+- `--test-website-project---text-color--text-primary`: `var(--test-website-project---base-color-neutral--dark)`
+- `--dark-slate-blue`: `#444d66`
+- `--test-website-project---text-color--text-secondary`: `var(--test-website-project---base-color-neutral--dark)`
+- `--medium-slate-blue`: `#8068ff`
+- `--light-blue`: `#94bcc0`
+- `--midnight-blue`: `#1e1938`
+- `--test-website-project---base-color-neutral--dark`: `#20124d`
+- `--ghost-white`: `#f7f8fc`
+- `--goldenrod`: `#ffc55f`
+- `--white`: `white`
+- `--test-website-project---background-color--background-secondary`: `var(--test-website-project---base-color-neutral--neutral-lightest)`
+- `--test-website-project---base-color-neutral--light`: `white`
+- `--test-website-project---background-color--background-alternate`: `var(--test-website-project---base-color-neutral--dark)`
+- `--test-website-project---base-color-brand--white`: `var(--test-website-project---base-color-neutral--light)`
+- `--dark-grey`: `#9ba0ac`
+- `--test-website-project---button-primary-hover`: `#a796ff`
+- `--test-website-project---primary`: `var(--test-website-project---base-color-neutral--dark)`
+- `--divider`: `#e9e9e9`
+- `--663399`: `#6512be`
+- `--untitled-ui-primary600`: `#7f56d9`
+- `--deep-pink`: `#f81984`
+- `--test-website-project---background-color--background-tertiary`: `var(--test-website-project---base-color-neutral--neutral-lightest-ai)`
+- `--sdsdsd`: `#fafafa`
+- `--black`: `black`
+- `--light-slate-grey`: `#8c98b9`
+- `--test-website-project---link-color--link-primary`: `var(--test-website-project---button-primary)`
+- `--test-website-project---base-color-neutral--neutral-darkest`: `#20124d`
+- `--untitled-ui-primary700`: `#6941c6`
+- `--lavender`: `#d2dcf8`
+- `--light-slate-grey-3`: `#888ea1`
+- ... and 77 more
+
+## Google Fonts
+- https://fonts.googleapis.com/css?family=Great+Vibes:400%7COpen+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic%7CMontserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7COswald:200,300,400,500,600,700%7CRaleway:300,400,500,600,700
+- https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap
+
+## External Stylesheets
+- https://cdn.prod.website-files.com/593ed35b7e7f144e5e0ec373/css/improvado-new.shared.6a93c43d4.min.css
+- https://cdn.prod.website-files.com/593ed35b7e7f144e5e0ec373/css/improvado-new.67898c829120223ebae05ce6-9ded3c97c.min.css
+- https://fonts.googleapis.com/css?family=Great+Vibes:400%7COpen+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic%7CMontserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7COswald:200,300,400,500,600,700%7CRaleway:300,400,500,600,700
+- https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap
+
+---
+*Generated by Frost scrape-site.mjs*

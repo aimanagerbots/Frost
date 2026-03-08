@@ -1,0 +1,33 @@
+{
+  "margins": [],
+  "paddings": [
+    {
+      "value": "14px",
+      "count": 4
+    },
+    {
+      "value": "6px",
+      "count": 2
+    },
+    {
+      "value": "20px",
+      "count": 2
+    },
+    {
+      "value": "4px",
+      "count": 2
+    },
+    {
+      "value": "8px",
+      "count": 2
+    },
+    {
+      "value": "48px",
+      "count": 1
+    },
+    {
+      "value": "16px",
+      "count": 1
+    }
+  ]
+}

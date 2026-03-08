@@ -73,6 +73,14 @@ Full Vercel engineering skill suite — not just web design guidelines. Includes
 - **Use when**: Building Next.js UI (react/next-best-practices), deploying (vercel-deploy), upgrading Next.js (next-upgrade), a11y audit (web-design-guidelines), AI features (ai-sdk).
 - **Skip when**: Non-frontend, non-Next.js work.
 
+## Skill Creator (Anthropic Official)
+Create, test, and optimize Claude Code skills through structured eval loops with A/B testing.
+- **Commands**: `/skill-creator` (auto-detects mode based on context)
+- **Modes**: Create (draft from intent), Eval (run test cases with baseline comparison), Improve (iterate based on feedback), Benchmark (variance analysis with blind A/B)
+- **Agents**: Grader (assertion evaluation), Comparator (blind A/B), Analyzer (improvement suggestions)
+- **Use when**: Creating a new skill, optimizing an existing skill's performance, testing skill triggering accuracy, or benchmarking skill quality with statistical rigor.
+- **Skip when**: Using existing skills as-is, no need to create or modify skills.
+
 ## Quick Reference Table
 | Situation | Skill |
 |---|---|
@@ -90,4 +98,5 @@ Full Vercel engineering skill suite — not just web design guidelines. Includes
 | Next.js patterns & performance | Vercel Skills (react/next-best-practices) |
 | Deploying to Vercel | Vercel Skills (vercel-deploy) |
 | Upgrading Next.js version | Vercel Skills (next-upgrade) |
+| Creating or optimizing a skill | Skill Creator |
 | Simple module with a detailed brief | None — the brief IS the plan |

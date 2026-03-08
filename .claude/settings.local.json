@@ -8,7 +8,8 @@
       "Bash(npx tsc --noEmit)",
       "Bash(npm run lint)",
       "Bash(npm run build)",
-      "Bash(git push origin main:claude/research-claude-md-jau3A)"
+      "Bash(git push origin main:claude/research-claude-md-jau3A)",
+      "Bash(ls -d apps/*/)"
     ]
   }
 }

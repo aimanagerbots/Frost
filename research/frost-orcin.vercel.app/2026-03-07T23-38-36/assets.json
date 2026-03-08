@@ -1,0 +1,28 @@
+{
+  "stylesheets": [
+    "https://frost-orcin.vercel.app/_next/static/chunks/4d69191f8c830245.css"
+  ],
+  "googleFonts": [],
+  "scripts": [
+    "https://frost-orcin.vercel.app/_next/static/chunks/aee6c7720838f8a2.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/0973fc041275dac5.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/turbopack-f258759ec2b67e10.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/18382cb2a30a157b.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/29cf83f697babf16.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/ff1a16fafef87110.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/a2dfb6fc5208ab9b.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/318e2225925f13fb.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/d45eea9037e60cc9.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/78bd1a025122205f.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/7331e6886b00c4b7.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/a6dad97d9634a72d.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/67610d726d965827.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/6153eb26f390d21f.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/38dc19e3eb64b841.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/8aba3beb8ece6998.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/a8a20f92f46dc1b3.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/b1f44c8251207636.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/99c5ca687a2c79a4.js",
+    "https://frost-orcin.vercel.app/_next/static/chunks/9879629fad6ad680.js"
+  ]
+}
