@@ -102,6 +102,196 @@ export const NAV_LINKS = [
   { label: "Journal", href: "/blog" },
 ] as const;
 
+/* ── Mega Menu ── */
+
+export interface MegaMenuCategoryItem {
+  label: string;
+  slug: string;
+  brand: string;
+  formats: { label: string; slug: string }[];
+  featured: { name: string; slug: string };
+}
+
+export interface MegaMenuColumn {
+  heading: string;
+  links: { label: string; href: string }[];
+}
+
+export type MegaMenuItem =
+  | { type: "category"; label: string; category: MegaMenuCategoryItem }
+  | { type: "dropdown"; label: string; columns: MegaMenuColumn[] }
+  | { type: "link"; label: string; href: string }
+  | { type: "cta"; label: string; href: string };
+
+export const STRAIN_TYPES = [
+  { label: "Indica", slug: "indica" },
+  { label: "Sativa", slug: "sativa" },
+  { label: "Hybrid", slug: "hybrid" },
+] as const;
+
+export const MEGA_MENU: MegaMenuItem[] = [
+  {
+    type: "category",
+    label: "Flower",
+    category: {
+      label: "Flower",
+      slug: "flower",
+      brand: "Frost Farms",
+      formats: [
+        { label: "Eighths (3.5g)", slug: "eighths" },
+        { label: "Quarters (7g)", slug: "quarters" },
+        { label: "Halves (14g)", slug: "halves" },
+        { label: "Ounces (28g)", slug: "ounces" },
+      ],
+      featured: { name: "Blue Frost OG", slug: "blue-frost-og" },
+    },
+  },
+  {
+    type: "category",
+    label: "Pre-Rolls",
+    category: {
+      label: "Pre-Rolls",
+      slug: "preroll",
+      brand: "Frost Farms",
+      formats: [
+        { label: "Singles", slug: "singles" },
+        { label: "3-Packs", slug: "3-packs" },
+        { label: "5-Packs", slug: "5-packs" },
+        { label: "Infused", slug: "infused" },
+      ],
+      featured: { name: "Glacier Infused", slug: "glacier-infused" },
+    },
+  },
+  {
+    type: "category",
+    label: "Vaporizers",
+    category: {
+      label: "Vaporizers",
+      slug: "vaporizer",
+      brand: "Glacier Extracts",
+      formats: [
+        { label: "Disposables", slug: "disposables" },
+        { label: "Cartridges", slug: "cartridges" },
+        { label: "Pods", slug: "pods" },
+        { label: "Batteries", slug: "batteries" },
+      ],
+      featured: { name: "Glacier Live Resin Cart", slug: "glacier-live-resin-cart" },
+    },
+  },
+  {
+    type: "category",
+    label: "Concentrates",
+    category: {
+      label: "Concentrates",
+      slug: "concentrate",
+      brand: "Glacier Extracts",
+      formats: [
+        { label: "Live Resin", slug: "live-resin" },
+        { label: "Rosin", slug: "rosin" },
+        { label: "Shatter", slug: "shatter" },
+        { label: "Wax", slug: "wax" },
+        { label: "Badder", slug: "badder" },
+      ],
+      featured: { name: "Northern Lights Rosin", slug: "northern-lights-rosin" },
+    },
+  },
+  {
+    type: "category",
+    label: "Edibles",
+    category: {
+      label: "Edibles",
+      slug: "edible",
+      brand: "Northern Lights Co.",
+      formats: [
+        { label: "Gummies", slug: "gummies" },
+        { label: "Chocolates", slug: "chocolates" },
+        { label: "Baked Goods", slug: "baked-goods" },
+        { label: "Mints", slug: "mints" },
+      ],
+      featured: { name: "Frost Bite Gummies", slug: "frost-bite-gummies" },
+    },
+  },
+  {
+    type: "category",
+    label: "Beverages",
+    category: {
+      label: "Beverages",
+      slug: "beverage",
+      brand: "Northern Lights Co.",
+      formats: [
+        { label: "Sparkling", slug: "sparkling" },
+        { label: "Teas", slug: "teas" },
+        { label: "Shots", slug: "shots" },
+        { label: "Mixers", slug: "mixers" },
+      ],
+      featured: { name: "Frost Sparkling Citrus", slug: "frost-sparkling-citrus" },
+    },
+  },
+  {
+    type: "dropdown",
+    label: "Strains",
+    columns: [
+      {
+        heading: "By Type",
+        links: [
+          { label: "Indica", href: "/strains?type=indica" },
+          { label: "Sativa", href: "/strains?type=sativa" },
+          { label: "Hybrid", href: "/strains?type=hybrid" },
+        ],
+      },
+      {
+        heading: "By Effect",
+        links: [
+          { label: "Relaxing", href: "/strains?effect=relaxing" },
+          { label: "Energizing", href: "/strains?effect=energizing" },
+          { label: "Creative", href: "/strains?effect=creative" },
+          { label: "Pain Relief", href: "/strains?effect=pain-relief" },
+          { label: "Sleep", href: "/strains?effect=sleep" },
+        ],
+      },
+      {
+        heading: "Popular Strains",
+        links: [
+          { label: "Blue Frost", href: "/strains/blue-frost" },
+          { label: "Northern Haze", href: "/strains/northern-haze" },
+          { label: "Glacier Kush", href: "/strains/glacier-kush" },
+          { label: "Browse All Strains", href: "/strains" },
+        ],
+      },
+    ],
+  },
+  {
+    type: "link",
+    label: "Find Near You",
+    href: "/find",
+  },
+  {
+    type: "dropdown",
+    label: "Resources",
+    columns: [
+      {
+        heading: "Learn",
+        links: [
+          { label: "Blog / Journal", href: "/blog" },
+          { label: "FAQ", href: "/faq" },
+        ],
+      },
+      {
+        heading: "Connect",
+        links: [
+          { label: "Newsletter Signup", href: "/newsletter" },
+          { label: "Contact Us", href: "/contact" },
+        ],
+      },
+    ],
+  },
+  {
+    type: "cta",
+    label: "Wholesale",
+    href: "/wholesale",
+  },
+];
+
 export const FOOTER_LINKS = {
   products: [
     { label: "Flower", href: "/products/flower" },

@@ -10,9 +10,10 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@frost/types": "*",
     "@frost/tokens": "*",
+    "@frost/types": "*",
     "@frost/ui": "*",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
     "clsx": "^2.1.1",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",
