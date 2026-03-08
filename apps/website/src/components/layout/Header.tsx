@@ -23,12 +23,7 @@ export function Header() {
   return (
     <>
       <header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          isScrolled
-            ? 'bg-base border-b border-border-default'
-            : 'bg-base'
-        )}
+        className="fixed top-0 left-0 right-0 z-50 bg-base border-b border-border-default"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           {/* Logo */}
