@@ -35,11 +35,11 @@ export function Sidebar() {
         {/* Mobile close */}
         <div className="flex h-14 items-center justify-between px-4 border-b border-border-default lg:hidden">
           <Image
-            src="/FrostLogo_SnowflakeOnly.png"
+            src="/FrostLogo_wordmark.png"
             alt="Frost"
-            width={200}
-            height={200}
-            className="h-8 w-auto"
+            width={1876}
+            height={420}
+            className="h-7 w-auto"
           />
           <button
             onClick={() => setMobileOpen(false)}
