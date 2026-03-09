@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowDownToLine, DollarSign, Clock, ShieldCheck, TrendingDown, CalendarClock } from 'lucide-react';
+import { ArrowDownToLine, DollarSign, CalendarClock } from 'lucide-react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
 } from 'recharts';

@@ -4,12 +4,6 @@ import { useState } from 'react';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import type { PLStatement as PLStatementType, PLLineItem } from '@/modules/finance/types';
 
-const fmt = (n: number) => {
-  const abs = Math.abs(n);
-  const str = abs >= 1000 ? `$${(abs / 1000).toFixed(abs >= 10000 ? 0 : 1)}K` : `$${abs.toLocaleString()}`;
-  return n < 0 ? `(${str})` : str;
-};
-
 const fmtFull = (n: number) => {
   const abs = Math.abs(n);
   const str = `$${abs.toLocaleString()}`;
@@ -26,7 +20,7 @@ interface CollapsibleSectionProps {
   isCost?: boolean;
 }
 
-function CollapsibleSection({ label, items, total, totalLabel, isCost }: CollapsibleSectionProps) {
+function CollapsibleSection({ label, items, total, totalLabel: _totalLabel, isCost }: CollapsibleSectionProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -47,7 +41,6 @@ function CollapsibleSection({ label, items, total, totalLabel, isCost }: Collaps
       </tr>
       {open &&
         items.map((item) => {
-          const overBudget = isCost ? item.variance < 0 : item.variance < 0;
           const varianceColor = item.variance === 0
             ? 'text-muted'
             : (isCost ? item.variance > 0 : item.variance > 0)

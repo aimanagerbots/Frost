@@ -989,7 +989,6 @@ export function matchCultivationChat(input: string): CultivationMessage | null {
   return null;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function getCultivationFallback(_input: string): CultivationMessage {
   return {
     id: `msg-fallback-${Date.now()}`,

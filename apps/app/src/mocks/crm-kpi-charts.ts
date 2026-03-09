@@ -1,5 +1,4 @@
 import { accounts } from './crm';
-import type { Account } from '@/modules/crm/types';
 
 // --- Reorder Cadence ---
 export interface ReorderCadenceBucket {

@@ -122,7 +122,7 @@ function PanelWrapper({
   );
 }
 
-export function MegaMenu({ isScrolled }: MegaMenuProps) {
+export function MegaMenu(_props: MegaMenuProps) {
   const pathname = usePathname();
 
   /** Check if a nav item is active based on current pathname */
@@ -170,10 +170,6 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
   const rightItems = MEGA_MENU.filter(
     (item) => item.type === 'dropdown' || item.type === 'link'
   );
-  const ctaItems = MEGA_MENU.filter(
-    (item): item is Extract<typeof item, { type: 'cta' }> => item.type === 'cta'
-  );
-
   function renderNavItem(item: (typeof MEGA_MENU)[number]) {
     if (item.type === 'category') {
       return (

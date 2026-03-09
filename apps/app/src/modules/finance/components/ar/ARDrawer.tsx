@@ -2,7 +2,6 @@
 
 import { DrawerPanel, StatusBadge } from '@/components';
 import type { Invoice } from '@/modules/finance/types';
-import { ACCENT } from '@/design/colors';
 
 
 const statusVariant = (s: string) => {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
 import { useOrderStore } from '@/stores/order-store';
 import type { OrderStatus, StoreOrderGroup } from '@/types';
@@ -344,23 +344,17 @@ function ChatPanel({
 /*  Main Component                                                     */
 /* ------------------------------------------------------------------ */
 
-export function TrackingClient({ orderId }: { orderId: string }) {
+export function TrackingClient(_props: { orderId: string }) {
   const activeOrder = useOrderStore((s) => s.activeOrder);
   const [activeTab, setActiveTab] = useState(0);
-  const [statusMap, setStatusMap] = useState<Record<string, OrderStatus>>({});
-  const [chatMessages, setChatMessages] = useState<Record<string, ChatMessage[]>>({});
-  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
-  /* ── Initialize status map and timers ── */
-  useEffect(() => {
-    if (!activeOrder) return;
-
-    const initialStatus: Record<string, OrderStatus> = {};
-    const initialChat: Record<string, ChatMessage[]> = {};
-
+  const { initialStatus, initialChat } = useMemo(() => {
+    if (!activeOrder) return { initialStatus: {} as Record<string, OrderStatus>, initialChat: {} as Record<string, ChatMessage[]> };
+    const status: Record<string, OrderStatus> = {};
+    const chat: Record<string, ChatMessage[]> = {};
     for (const group of activeOrder.storeGroups) {
-      initialStatus[group.storeId] = 'placed';
-      initialChat[group.storeId] = [
+      status[group.storeId] = 'placed';
+      chat[group.storeId] = [
         {
           id: makeId(),
           role: 'assistant',
@@ -369,12 +363,23 @@ export function TrackingClient({ orderId }: { orderId: string }) {
         },
       ];
     }
+    return { initialStatus: status, initialChat: chat };
+  }, [activeOrder]);
 
-    setStatusMap(initialStatus);
-    setChatMessages(initialChat);
+  const [statusMap, setStatusMap] = useState<Record<string, OrderStatus>>(initialStatus);
+  const [chatMessages, setChatMessages] = useState<Record<string, ChatMessage[]>>(initialChat);
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
-    // Schedule status progressions
+  /* ── Schedule status progression timers ── */
+  useEffect(() => {
+    if (!activeOrder) return;
+
+    // Initialize state from computed values
     const timers: ReturnType<typeof setTimeout>[] = [];
+    timers.push(setTimeout(() => {
+      setStatusMap(initialStatus);
+      setChatMessages(initialChat);
+    }, 0));
 
     for (const group of activeOrder.storeGroups) {
       const sid = group.storeId;
@@ -443,7 +448,7 @@ export function TrackingClient({ orderId }: { orderId: string }) {
 
     timersRef.current = timers;
     return () => timers.forEach(clearTimeout);
-  }, [activeOrder]);
+  }, [activeOrder, initialStatus, initialChat]);
 
   /* ── Handle user chat ── */
   function handleSend(storeId: string, text: string) {

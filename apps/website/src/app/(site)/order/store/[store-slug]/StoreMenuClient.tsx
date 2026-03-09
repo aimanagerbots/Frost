@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import type { DispensaryLocation } from "@/types";
 import type { StoreInventoryItem } from "@/mocks/store-inventory";
-import { useOrderStore, useCartItemCount } from "@/stores/order-store";
+import { useOrderStore } from "@/stores/order-store";
 import { CartDrawer } from "@/components/order/CartDrawer";
 import { CartBadge } from "@/components/order/CartBadge";
 import { ConciergeFAB } from "@/components/order/ConciergeFAB";
@@ -60,7 +60,6 @@ function StockBadge({ status }: { status: StoreInventoryItem["stockStatus"] }) {
 
 function StoreProductCard({
   item,
-  dispensary,
   onAddToCart,
   isInCart,
 }: {
@@ -159,8 +158,7 @@ interface StoreMenuClientProps {
 
 export function StoreMenuClient({ dispensary, inventory }: StoreMenuClientProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
-  const { addItem, setCartOpen, items } = useOrderStore();
-  const cartCount = useCartItemCount();
+  const { addItem, items } = useOrderStore();
 
   const filteredInventory = useMemo(() => {
     if (activeCategory === "all") return inventory;

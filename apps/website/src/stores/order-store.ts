@@ -57,7 +57,7 @@ interface OrderState {
 
 export const useOrderStore = create<OrderState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       /* ── Cart ── */
       items: [],
 

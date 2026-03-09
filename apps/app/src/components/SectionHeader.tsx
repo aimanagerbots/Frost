@@ -22,10 +22,8 @@ interface SectionHeaderProps {
 export function SectionHeader({
   icon: Icon,
   title,
-  subtitle,
   accentColor,
   actions,
-  stats,
   className,
 }: SectionHeaderProps) {
   return (

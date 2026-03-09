@@ -7,7 +7,7 @@ import { useCompanyProfile, useIntegrations, useNotificationPreferences, useComm
 import type { SettingsTab, IntegrationStatus } from '../types';
 import { ACCENT } from '@/design/colors';
 import { useUIPreferences } from '@/stores/ui-preferences';
-import type { CardAccent, TabStyle, HoverIntensity } from '@/stores/ui-preferences';
+import type { HoverIntensity } from '@/stores/ui-preferences';
 
 
 const TABS: { id: SettingsTab; label: string; icon: React.ElementType }[] = [
@@ -271,7 +271,7 @@ function ApiKeysTab() {
 /* ─── Appearance Tab ─── */
 function AppearanceTab() {
   const {
-    theme, setTheme, toggleTheme,
+    theme, setTheme,
     cardAccent, setCardAccent,
     tabStyle, setTabStyle,
     hoverIntensity, setHoverIntensity,

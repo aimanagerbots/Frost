@@ -44,7 +44,11 @@
       "Bash(npx next lint --dir apps/app/src)",
       "Bash(ls \"c:/Users/quinn/OneDrive/Documents/Frost/session-transfer\"*)",
       "Read(//c/Users/quinn/.claude/projects/c--Users-quinn-OneDrive-Documents-Frost/memory/**)",
-      "Bash(ls \"c:/Users/quinn/OneDrive/Documents/Frost/Frost-Vault/\"**/session-transfer*)"
+      "Bash(ls \"c:/Users/quinn/OneDrive/Documents/Frost/Frost-Vault/\"**/session-transfer*)",
+      "Bash(node -e \"const j=JSON.parse\\(require\\(''fs''\\).readFileSync\\(''package.json'',''utf8''\\)\\);console.log\\(''=== SCRIPTS ===''\\);console.log\\(JSON.stringify\\(j.scripts,null,2\\)\\);console.log\\(''=== WORKSPACES ===''\\);console.log\\(JSON.stringify\\(j.workspaces,null,2\\)\\)\")",
+      "Bash(node -e \"console.log\\(JSON.stringify\\(JSON.parse\\(require\\(''fs''\\).readFileSync\\(''apps/app/package.json'',''utf8''\\)\\).scripts,null,2\\)\\)\")",
+      "Bash(node -e \"console.log\\(JSON.stringify\\(JSON.parse\\(require\\(''fs''\\).readFileSync\\(''apps/website/package.json'',''utf8''\\)\\).scripts,null,2\\)\\)\")",
+      "Bash(node -e \"console.log\\(JSON.stringify\\(JSON.parse\\(require\\(''fs''\\).readFileSync\\(''apps/portal/package.json'',''utf8''\\)\\).scripts,null,2\\)\\)\")"
     ]
   }
 }

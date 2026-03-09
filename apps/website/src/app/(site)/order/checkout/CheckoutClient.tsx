@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -507,7 +507,6 @@ function StepConfirmation({
 /* ------------------------------------------------------------------ */
 
 export function CheckoutClient() {
-  const router = useRouter();
   const items = useOrderStore((s) => s.items);
   const clearCart = useOrderStore((s) => s.clearCart);
   const setActiveOrder = useOrderStore((s) => s.setActiveOrder);

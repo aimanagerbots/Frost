@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { TrendingUp, TrendingDown, Minus, ChevronDown, ChevronUp } from 'lucide-react';
 import type { FinanceSpeedometer } from '@/modules/finance/types';
-import { ACCENT } from '@/design/colors';
 
 
 interface SpeedometerGaugeProps {

@@ -2,7 +2,6 @@
 
 import { Clock, AlertTriangle, Send } from 'lucide-react';
 import type { Invoice } from '@/modules/finance/types';
-import { ACCENT } from '@/design/colors';
 
 
 interface ComplianceCountdownProps {

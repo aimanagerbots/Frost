@@ -242,7 +242,7 @@ export function matchConversation(input: string): ChatMessage | null {
   return null;
 }
 
-export function getChatFallbackResponse(input: string): ChatMessage {
+export function getChatFallbackResponse(_input: string): ChatMessage {
   return {
     id: `msg-fallback-${Date.now()}`,
     role: 'assistant',

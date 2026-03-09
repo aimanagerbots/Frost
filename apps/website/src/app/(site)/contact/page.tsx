@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { HeroSection, ScrollReveal, CTAButton } from "@/components";
 import { Mail, Phone, MapPin, Instagram, Twitter } from "lucide-react";
 

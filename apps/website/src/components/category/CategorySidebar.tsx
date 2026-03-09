@@ -49,7 +49,6 @@ function FilterSection({
 function Checkbox({
   label,
   checked,
-  onChange,
 }: {
   label: string;
   checked: boolean;

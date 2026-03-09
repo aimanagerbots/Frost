@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Wand2, Send, ChevronLeft, ChevronRight, Sparkles, Image, MessageSquare, FileText, Copy, Check } from 'lucide-react';
+import { Wand2, Send, ChevronLeft, ChevronRight, Sparkles, Image as ImageIcon, MessageSquare, FileText, Copy, Check } from 'lucide-react';
 import { SectionHeader, LoadingSkeleton, StatusBadge } from '@/components';
 import { useContentTemplates, useContentChat, useContentPieces, useContentLibrary } from '@/modules/marketing/hooks';
 import type { AIContentMessage, ContentTemplate, ContentLibraryCategory, ContentPiece } from '@/modules/marketing/types';
@@ -270,7 +270,7 @@ export function ContentCreatorPage() {
                       {msg.imagePrompt && (
                         <div className="mt-3 rounded-lg border border-default bg-base p-3">
                           <div className="mb-2 flex items-center gap-2">
-                            <Image className="h-4 w-4" style={{ color: ACCENT }} />
+                            <ImageIcon className="h-4 w-4" style={{ color: ACCENT }} />
                             <span className="text-xs font-semibold text-text-muted">Suggested Image Prompt</span>
                           </div>
                           <p className="mb-3 text-xs italic text-text-muted">{msg.imagePrompt}</p>

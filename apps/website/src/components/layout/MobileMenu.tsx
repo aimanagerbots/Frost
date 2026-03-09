@@ -13,7 +13,9 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [rawExpandedIndex, setRawExpandedIndex] = useState<number | null>(null);
+  // When menu is closed, always treat expanded index as null
+  const expandedIndex = isOpen ? rawExpandedIndex : null;
 
   const handleEscape = useCallback(
     (e: KeyboardEvent) => {
@@ -28,7 +30,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       document.addEventListener('keydown', handleEscape);
     } else {
       document.body.style.overflow = '';
-      setExpandedIndex(null);
     }
     return () => {
       document.body.style.overflow = '';
@@ -37,7 +38,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   }, [isOpen, handleEscape]);
 
   const toggle = (i: number) => {
-    setExpandedIndex(expandedIndex === i ? null : i);
+    setRawExpandedIndex(expandedIndex === i ? null : i);
   };
 
   return (
