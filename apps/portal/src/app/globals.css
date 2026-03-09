@@ -2,7 +2,7 @@
 
 @layer base {
   body {
-    background: #08090F;
+    background: #000000;
     color: #E2E8F0;
     font-family: var(--font-sans), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
