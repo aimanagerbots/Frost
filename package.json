@@ -10,6 +10,9 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "dev:app": "npm -w @frost/app run dev",
+    "dev:website": "npm -w @frost/website run dev",
+    "dev:portal": "npm -w @frost/portal run dev",
     "lint": "turbo lint",
     "type-check": "turbo type-check"
   },

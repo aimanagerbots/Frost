@@ -48,7 +48,13 @@
       "Bash(node -e \"const j=JSON.parse\\(require\\(''fs''\\).readFileSync\\(''package.json'',''utf8''\\)\\);console.log\\(''=== SCRIPTS ===''\\);console.log\\(JSON.stringify\\(j.scripts,null,2\\)\\);console.log\\(''=== WORKSPACES ===''\\);console.log\\(JSON.stringify\\(j.workspaces,null,2\\)\\)\")",
       "Bash(node -e \"console.log\\(JSON.stringify\\(JSON.parse\\(require\\(''fs''\\).readFileSync\\(''apps/app/package.json'',''utf8''\\)\\).scripts,null,2\\)\\)\")",
       "Bash(node -e \"console.log\\(JSON.stringify\\(JSON.parse\\(require\\(''fs''\\).readFileSync\\(''apps/website/package.json'',''utf8''\\)\\).scripts,null,2\\)\\)\")",
-      "Bash(node -e \"console.log\\(JSON.stringify\\(JSON.parse\\(require\\(''fs''\\).readFileSync\\(''apps/portal/package.json'',''utf8''\\)\\).scripts,null,2\\)\\)\")"
+      "Bash(node -e \"console.log\\(JSON.stringify\\(JSON.parse\\(require\\(''fs''\\).readFileSync\\(''apps/portal/package.json'',''utf8''\\)\\).scripts,null,2\\)\\)\")",
+      "Bash(ls -la c:/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\\\\\(site\\\\\\)/order*)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
+      "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost log --oneline -20)",
+      "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost diff --name-only HEAD~5..HEAD)",
+      "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost status)",
+      "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost ls-files)"
     ]
   }
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type {
@@ -114,7 +115,7 @@ export const useOrderStore = create<OrderState>()(
       setUserLocation: (loc) => set({ userLocation: loc }),
 
       /* ── Browse mode ── */
-      browseMode: 'all-products',
+      browseMode: 'by-store',
       setBrowseMode: (mode) => set({ browseMode: mode }),
 
       /* ── Cart drawer ── */
@@ -140,6 +141,7 @@ export const useOrderStore = create<OrderState>()(
       partialize: (state) => ({
         items: state.items,
         userLocation: state.userLocation,
+        browseMode: state.browseMode,
         customerInfo: state.customerInfo,
         activeOrder: state.activeOrder,
       }),
@@ -164,14 +166,15 @@ export function useCartTotal() {
 }
 
 export function useStoreGroups() {
-  return useOrderStore((s) => {
+  const items = useOrderStore((s) => s.items);
+  return useMemo(() => {
     const groups = new Map<string, CartItem[]>();
-    for (const item of s.items) {
+    for (const item of items) {
       const existing = groups.get(item.storeId) ?? [];
-      groups.set(item.storeId, [...existing, item as CartItem]);
+      groups.set(item.storeId, [...existing, item]);
     }
     return groups;
-  });
+  }, [items]);
 }
 
 export function useIsMultiStore() {

@@ -1,23 +1,42 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Menu, Search, Bell, Sun, Moon, LogOut, ChevronDown } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import { Menu, Search, Bell, LogOut, ChevronDown } from 'lucide-react';
+import { cn } from '@frost/ui';
 import { useSidebarStore, useCommandPaletteStore } from './store';
 import { useAuthStore } from '@/modules/auth/store';
-import { useUIPreferences } from '@/stores/ui-preferences';
+import { navGroups } from './nav-data';
+
+function pageLabelFromPathname(pathname: string): string {
+  for (const group of navGroups) {
+    for (const item of group.items) {
+      if (pathname === item.href || pathname.startsWith(item.href + '/')) {
+        return item.label;
+      }
+    }
+  }
+  return 'Frost';
+}
 
 export function Topbar() {
   const router = useRouter();
+  const pathname = usePathname();
   const { setMobileOpen } = useSidebarStore();
   const { setCommandPaletteOpen } = useCommandPaletteStore();
-  const { theme, toggleTheme } = useUIPreferences();
   const { user, logout } = useAuthStore();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const initials = user
-    ? user.name.split(' ').map((w) => w[0]).join('').slice(0, 2)
-    : 'F';
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setUserMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   function handleLogout() {
     setUserMenuOpen(false);
@@ -26,77 +45,78 @@ export function Topbar() {
   }
 
   return (
-    <header className="sticky top-0 z-30 flex h-12 items-center justify-between border-b border-border-default bg-base px-4">
-      {/* Left — mobile menu */}
-      <div className="flex items-center">
-        <button
-          onClick={() => setMobileOpen(true)}
-          className="p-1.5 text-text-muted hover:text-text-default lg:hidden"
-          aria-label="Open sidebar"
-        >
-          <Menu size={20} />
-        </button>
-      </div>
+    <header className="flex h-16 items-center gap-4 border-b border-border-default bg-card px-6">
+      {/* Mobile menu button */}
+      <button
+        onClick={() => setMobileOpen(true)}
+        className="text-text-muted hover:text-text-default lg:hidden"
+        aria-label="Open sidebar"
+      >
+        <Menu className="h-5 w-5" />
+      </button>
 
-      {/* Right — actions */}
+      {/* Page label (desktop) */}
+      <h1 className="hidden text-sm font-medium text-text-default lg:block">
+        {pageLabelFromPathname(pathname)}
+      </h1>
+
+      <div className="flex-1" />
+
+      {/* Right side actions */}
       <div className="flex items-center gap-2">
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-md text-text-muted hover:text-text-default hover:bg-accent-hover transition-colors"
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-        >
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-        </button>
+        {/* Search */}
         <button
           onClick={() => setCommandPaletteOpen(true)}
-          className="flex items-center gap-2 rounded-md px-2 py-1.5 text-text-muted hover:text-text-default hover:bg-accent-hover transition-colors"
+          className="relative rounded-lg p-2 text-text-muted hover:bg-white/[0.04] hover:text-text-default transition-colors"
           aria-label="Search (Ctrl+K)"
         >
-          <Search size={18} />
-          <kbd className="hidden rounded bg-elevated px-1.5 py-0.5 text-[10px] font-medium sm:inline-block">
-            Ctrl+K
-          </kbd>
-        </button>
-        <button
-          className="p-2 rounded-md text-text-muted hover:text-text-default hover:bg-accent-hover transition-colors"
-          aria-label="Notifications"
-        >
-          <Bell size={18} />
+          <Search className="h-5 w-5" />
         </button>
 
-        {/* User menu */}
-        <div className="relative ml-2">
+        {/* Notifications */}
+        <button
+          className="relative rounded-lg p-2 text-text-muted hover:bg-white/[0.04] hover:text-text-default transition-colors"
+          aria-label="Notifications"
+        >
+          <Bell className="h-5 w-5" />
+        </button>
+
+        {/* User dropdown */}
+        <div ref={dropdownRef} className="relative">
           <button
-            onClick={() => setUserMenuOpen(!userMenuOpen)}
-            className="flex items-center gap-2 rounded-lg px-2 py-1 hover:bg-accent-hover transition-colors"
+            onClick={() => setUserMenuOpen((prev) => !prev)}
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-text-default hover:bg-white/[0.04] transition-colors"
           >
-            <div className="h-8 w-8 rounded-full bg-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B] text-sm font-semibold">
-              {initials}
-            </div>
-            {user && (
-              <span className="hidden text-xs text-text-muted sm:block">{user.name}</span>
-            )}
-            <ChevronDown size={14} className="text-text-muted" />
+            <span className="hidden max-w-[140px] truncate sm:inline">
+              {user?.name ?? 'User'}
+            </span>
+            <ChevronDown
+              className={cn(
+                'h-4 w-4 text-text-muted transition-transform',
+                userMenuOpen && 'rotate-180'
+              )}
+            />
           </button>
+
           {userMenuOpen && (
-            <>
-              <div className="fixed inset-0 z-40" onClick={() => setUserMenuOpen(false)} />
-              <div className="absolute right-0 top-full z-50 mt-1 w-48 rounded-lg border border-default bg-card py-1 shadow-xl">
-                {user && (
-                  <div className="border-b border-default px-3 py-2">
+            <div className="absolute right-0 top-full mt-1 z-50 w-56 rounded-lg border border-border-default bg-card py-1 shadow-xl">
+              {user && (
+                <>
+                  <div className="px-4 py-2.5">
                     <p className="text-sm font-medium text-text-bright">{user.name}</p>
                     <p className="text-xs text-text-muted">{user.role}</p>
                   </div>
-                )}
-                <button
-                  onClick={handleLogout}
-                  className="flex w-full items-center gap-2 px-3 py-2 text-sm text-text-muted hover:bg-accent-hover hover:text-text-default transition-colors"
-                >
-                  <LogOut size={14} />
-                  Sign out
-                </button>
-              </div>
-            </>
+                  <div className="my-1 h-px bg-border-default" />
+                </>
+              )}
+              <button
+                onClick={handleLogout}
+                className="flex w-full items-center gap-2 px-4 py-2.5 text-sm text-danger hover:bg-white/[0.04] transition-colors"
+              >
+                <LogOut className="h-4 w-4" />
+                Sign Out
+              </button>
+            </div>
           )}
         </div>
       </div>

@@ -36,11 +36,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <Sidebar />
       <div className="flex flex-1 flex-col overflow-hidden">
         {isDemoMode && (
-          <div className="flex items-center justify-center gap-3 bg-[#F59E0B]/10 border-b border-[#F59E0B]/20 px-4 py-1.5 text-xs text-[#F59E0B]">
+          <div className="flex items-center justify-center gap-3 bg-[#5BB8E6]/10 border-b border-[#5BB8E6]/20 px-4 py-1.5 text-xs text-[#5BB8E6]">
             <span>You&apos;re in Demo Mode — data shown is simulated</span>
             <button
               onClick={handleExitDemo}
-              className="flex items-center gap-1 rounded px-1.5 py-0.5 hover:bg-[#F59E0B]/20 transition-colors"
+              className="flex items-center gap-1 rounded px-1.5 py-0.5 hover:bg-[#5BB8E6]/20 transition-colors"
             >
               <X size={12} />
               Exit
@@ -48,7 +48,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
         )}
         <Topbar />
-        <main className="flex-1 overflow-y-auto p-3 md:p-4 lg:p-6">
+        <main className="flex-1 overflow-y-auto p-6 bg-base">
           {children}
         </main>
       </div>

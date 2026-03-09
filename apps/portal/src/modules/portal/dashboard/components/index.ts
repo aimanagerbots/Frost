@@ -1,0 +1,12 @@
+export { DashboardWelcome } from './DashboardWelcome';
+export { DashboardQuickActions } from './DashboardQuickActions';
+export { DashboardNotificationsPreview } from './DashboardNotificationsPreview';
+export { DashboardDeals } from './DashboardDeals';
+export { DashboardRecentOrders } from './DashboardRecentOrders';
+export { DashboardDeliveries } from './DashboardDeliveries';
+export { DashboardStoreOrders } from './DashboardStoreOrders';
+export { DashboardRecommendations } from './DashboardRecommendations';
+export { DashboardComingSoon } from './DashboardComingSoon';
+export { DashboardAccountSnapshot } from './DashboardAccountSnapshot';
+export { DashboardFeaturedProducts } from './DashboardFeaturedProducts';
+export { DashboardRepCard } from './DashboardRepCard';

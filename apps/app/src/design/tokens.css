@@ -1,11 +1,10 @@
-/* Dark theme (default) */
-:root,
-.dark {
-  /* Backgrounds — pure black base, near-black surfaces */
+/* Dark theme (default) — matched to portal */
+:root {
+  /* Backgrounds — pure black base */
   --bg-base: #000000;
-  --bg-card: #0F1015;
-  --bg-card-hover: #161620;
-  --bg-elevated: #1A1B24;
+  --bg-card: #0A0A0F;
+  --bg-card-hover: #111118;
+  --bg-elevated: #161620;
 
   /* Borders — white at low opacity */
   --border-default: rgba(255, 255, 255, 0.1);
@@ -15,10 +14,6 @@
   --accent-primary: #5BB8E6;
   --accent-primary-hover: #4AA8D6;
   --accent-primary-light: rgba(91, 184, 230, 0.1);
-  --accent-gradient: linear-gradient(135deg, #5BB8E6, #4A8DB8, #3D7A9E);
-  --accent-hover-subtle: rgba(91, 184, 230, 0.05);
-  --accent-hover: rgba(91, 184, 230, 0.15);
-  --accent-hover-strong: rgba(91, 184, 230, 0.30);
 
   /* Category accents */
   --accent-flower: #22C55E;
@@ -35,8 +30,8 @@
   --strain-cbd: #5BB8E6;
 
   /* Text — white at varying opacities */
-  --text-default: #FFFFFF;
-  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-default: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.4);
   --text-bright: #FFFFFF;
 
   /* Status */
@@ -44,35 +39,4 @@
   --warning: #FBBF24;
   --danger: #FB7185;
   --info: #38BDF8;
-}
-
-/* Light theme */
-.light {
-  /* Backgrounds */
-  --bg-base: #F8FAFC;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F1F5F9;
-  --bg-elevated: #E2E8F0;
-
-  /* Borders */
-  --border-default: #E2E8F0;
-  --border-hover: #CBD5E1;
-
-  /* Accent — Snowflake blue */
-  --accent-primary: #5BB8E6;
-  --accent-gradient: linear-gradient(135deg, #5BB8E6, #4A8DB8, #3D7A9E);
-  --accent-hover-subtle: rgba(91, 184, 230, 0.05);
-  --accent-hover: rgba(91, 184, 230, 0.15);
-  --accent-hover-strong: rgba(91, 184, 230, 0.30);
-
-  /* Text */
-  --text-default: #1E293B;
-  --text-muted: #64748B;
-  --text-bright: #0F172A;
-
-  /* Status */
-  --success: #059669;
-  --warning: #D97706;
-  --danger: #E11D48;
-  --info: #0284C7;
 }

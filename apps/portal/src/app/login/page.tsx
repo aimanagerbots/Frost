@@ -3,10 +3,18 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Loader2, Store } from 'lucide-react';
+import { usePortalAuth } from '@/modules/portal/shared/hooks';
+
+const DEMO_ACCOUNTS = [
+  { id: 'acct-1', name: 'Greenfield Dispensary', tier: 'Tier 1 — Premium', desc: 'Thriving account, VMI enrolled, full integrations' },
+  { id: 'acct-2', name: 'Pacific Leaf', tier: 'Tier 2 — Standard', desc: 'At-risk, overdue payments, needs attention' },
+  { id: 'acct-3', name: 'Cascade Wellness', tier: 'Tier 3 — New', desc: 'Recently onboarded, auto-accept enabled' },
+] as const;
 
 export default function PortalLoginPage() {
   const router = useRouter();
+  const { login } = usePortalAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -15,14 +23,15 @@ export default function PortalLoginPage() {
   function handleSignIn(e: React.FormEvent) {
     e.preventDefault();
     setIsLoading(true);
-    // Placeholder — will connect to real auth later
     setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+      login('acct-1');
+      router.push('/dashboard');
+    }, 800);
   }
 
-  function handleDemoMode() {
-    router.push('/dashboard?demo=true');
+  function handleDemoLogin(accountId: string) {
+    login(accountId);
+    router.push('/dashboard');
   }
 
   return (
@@ -30,29 +39,47 @@ export default function PortalLoginPage() {
       {/* Snowflake glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent-primary/[0.03] blur-[120px] pointer-events-none" />
 
-      <div className="animate-fade-in-up relative z-10 flex w-full max-w-sm flex-col items-center px-6">
+      <div className="animate-fade-in-up relative z-10 flex w-full max-w-md flex-col items-center px-6">
         {/* Logo */}
         <Image
           src="/FrostLogo_SnowflakeOnly.png"
           alt="Frost"
           width={240}
           height={240}
-          className="h-[120px] w-[120px] mb-10 logo-glow-img"
+          className="h-[100px] w-[100px] mb-8 logo-glow-img"
           priority
         />
 
         {/* Portal badge */}
-        <p className="text-xs text-text-muted tracking-widest uppercase mb-8 font-display">
+        <p className="text-xs text-text-muted tracking-widest uppercase mb-6 font-display">
           Partner Portal
         </p>
 
-        {/* Demo Mode Button */}
-        <button
-          onClick={handleDemoMode}
-          className="mb-6 flex w-full items-center justify-center gap-2 rounded-lg bg-accent-primary py-3 text-sm font-semibold text-text-bright transition-all hover:bg-accent-primary-hover"
-        >
-          Explore Demo
-        </button>
+        {/* Demo Account Buttons */}
+        <div className="w-full space-y-3 mb-6">
+          <p className="text-xs text-text-muted uppercase tracking-wider text-center mb-3">
+            Demo Accounts
+          </p>
+          {DEMO_ACCOUNTS.map((acct) => (
+            <button
+              key={acct.id}
+              onClick={() => handleDemoLogin(acct.id)}
+              className="flex w-full items-center gap-3 rounded-xl border border-border-default bg-card px-4 py-3 text-left transition-all hover:bg-card-hover hover:border-accent-primary/30"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-primary/10">
+                <Store className="h-5 w-5 text-accent-primary" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium text-text-default truncate">
+                  {acct.name}
+                </p>
+                <p className="text-[11px] text-text-muted truncate">
+                  {acct.tier} — {acct.desc}
+                </p>
+              </div>
+            </button>
+          ))}
+        </div>
 
         {/* Divider */}
         <div className="flex w-full items-center gap-3 mb-6">
@@ -113,8 +140,14 @@ export default function PortalLoginPage() {
           </button>
         </form>
 
+        {/* Age acknowledgment */}
+        <p className="mt-6 text-[11px] text-text-muted text-center leading-relaxed">
+          By accessing this portal, you confirm you are 21 years of age or older
+          and hold a valid Washington State cannabis retail license.
+        </p>
+
         {/* Contact link */}
-        <p className="mt-6 text-sm text-text-muted">
+        <p className="mt-4 text-sm text-text-muted">
           Need access?{' '}
           <a href="mailto:partners@frost.com" className="text-accent-primary/80 hover:text-accent-primary transition-colors">
             Contact us

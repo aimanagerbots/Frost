@@ -11,7 +11,7 @@
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
 
-  /* Frost custom colors */
+  /* Frost custom colors — resolved from tokens.css */
   --color-base: var(--bg-base);
   --color-card: var(--bg-card);
   --color-card-hover: var(--bg-card-hover);
@@ -21,9 +21,6 @@
   --color-accent-primary: var(--accent-primary);
   --color-accent-primary-hover: var(--accent-primary-hover);
   --color-accent-primary-light: var(--accent-primary-light);
-  --color-accent-hover-subtle: var(--accent-hover-subtle);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-hover-strong: var(--accent-hover-strong);
   --color-text-default: var(--text-default);
   --color-text-muted: var(--text-muted);
   --color-text-bright: var(--text-bright);
@@ -33,50 +30,50 @@
   --color-info: var(--info);
 
   /* Category accent colors */
-  --color-accent-flower: var(--accent-flower);
-  --color-accent-concentrate: var(--accent-concentrate);
-  --color-accent-vape: var(--accent-vape);
-  --color-accent-preroll: var(--accent-preroll);
-  --color-accent-edible: var(--accent-edible);
-  --color-accent-beverage: var(--accent-beverage);
+  --color-accent-flower: #22C55E;
+  --color-accent-concentrate: #F59E0B;
+  --color-accent-vape: #3B82F6;
+  --color-accent-preroll: #F97316;
+  --color-accent-edible: #8B5CF6;
+  --color-accent-beverage: #14B8A6;
 
   /* Strain type colors */
-  --color-strain-indica: var(--strain-indica);
-  --color-strain-sativa: var(--strain-sativa);
-  --color-strain-hybrid: var(--strain-hybrid);
-  --color-strain-cbd: var(--strain-cbd);
+  --color-strain-indica: #8B5CF6;
+  --color-strain-sativa: #F97316;
+  --color-strain-hybrid: #22C55E;
+  --color-strain-cbd: #5BB8E6;
 
   /* shadcn mapped colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-card-foreground: var(--card-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-default);
+  --color-primary: var(--accent-primary);
+  --color-primary-foreground: var(--text-bright);
+  --color-secondary: var(--bg-elevated);
+  --color-secondary-foreground: var(--text-default);
+  --color-muted: var(--bg-elevated);
+  --color-muted-foreground: var(--text-muted);
+  --color-accent: var(--bg-elevated);
+  --color-accent-foreground: var(--text-default);
+  --color-destructive: var(--danger);
+  --color-popover: var(--bg-card);
+  --color-popover-foreground: var(--text-default);
+  --color-card-foreground: var(--text-default);
+  --color-border: var(--border-default);
+  --color-input: var(--border-default);
+  --color-ring: var(--accent-primary);
+  --color-chart-1: #5BB8E6;
+  --color-chart-2: #22C55E;
+  --color-chart-3: #F59E0B;
+  --color-chart-4: #00E5A0;
+  --color-chart-5: #FBBF24;
+  --color-sidebar-ring: var(--accent-primary);
+  --color-sidebar-border: var(--border-default);
+  --color-sidebar-accent-foreground: var(--text-default);
+  --color-sidebar-accent: var(--bg-elevated);
+  --color-sidebar-primary-foreground: var(--text-bright);
+  --color-sidebar-primary: var(--accent-primary);
+  --color-sidebar-foreground: var(--text-default);
+  --color-sidebar: var(--bg-card);
 
   /* Radius */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -86,43 +83,6 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-}
-
-:root,
-.dark,
-.light {
-  --background: var(--bg-base);
-  --foreground: var(--text-default);
-  --card: var(--bg-card);
-  --card-foreground: var(--text-default);
-  --popover: var(--bg-card);
-  --popover-foreground: var(--text-default);
-  --primary: var(--accent-primary);
-  --primary-foreground: var(--text-bright);
-  --secondary: var(--bg-elevated);
-  --secondary-foreground: var(--text-default);
-  --muted: var(--bg-elevated);
-  --muted-foreground: var(--text-muted);
-  --accent: var(--bg-elevated);
-  --accent-foreground: var(--text-default);
-  --destructive: var(--danger);
-  --border: var(--border-default);
-  --input: var(--border-default);
-  --ring: var(--accent-primary);
-  --chart-1: #5BB8E6;
-  --chart-2: #22C55E;
-  --chart-3: #F59E0B;
-  --chart-4: #00E5A0;
-  --chart-5: #FBBF24;
-  --radius: 0.625rem;
-  --sidebar: var(--bg-card);
-  --sidebar-foreground: var(--text-default);
-  --sidebar-primary: var(--accent-primary);
-  --sidebar-primary-foreground: var(--text-bright);
-  --sidebar-accent: var(--bg-elevated);
-  --sidebar-accent-foreground: var(--text-default);
-  --sidebar-border: var(--border-default);
-  --sidebar-ring: var(--accent-primary);
 }
 
 /* Glow pulse animation — used for notification badges */
@@ -143,12 +103,6 @@
   50% {
     filter: drop-shadow(0 0 40px rgba(91, 184, 230, 0.6));
   }
-}
-
-/* Shimmer — background-position slide for gradient effects */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
 }
 
 /* Fade in up — scroll reveal */
@@ -177,12 +131,6 @@
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   }
-  .img-hover {
-    transition: transform 0.4s ease;
-  }
-  .img-hover:hover {
-    transform: scale(1.03);
-  }
   .animate-fade-in {
     animation: fadeIn 1s ease-out;
   }
@@ -192,37 +140,14 @@
   .logo-glow-img {
     animation: snowflake-glow 2s ease-in-out infinite;
   }
-  .cta-glow {
-    background: linear-gradient(90deg, #5BB8E6, #4AE0D6, #5BB8E6, #7EC8F0, #5BB8E6);
-    background-size: 200% 100%;
-    color: #000000;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    animation: glow-pulse 2s ease-in-out infinite, shimmer 3s linear infinite;
-  }
-  .cta-glow:hover {
-    filter: brightness(1.15);
-  }
-  .cta-glow:active {
-    filter: brightness(0.9);
-    animation: none;
-    box-shadow: 0 0 12px 2px rgba(91, 184, 230, 0.3);
-  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border-default;
   }
   body {
-    @apply bg-base text-text-default font-medium;
+    @apply bg-base text-text-default antialiased;
     font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
-  }
-  /* Global Frost blue hover for all interactive elements.
-     :where() gives 0 specificity so component-level hover classes win. */
-  :where(button:not(:disabled), a, [role="button"]:not(:disabled),
-         [role="tab"], [role="menuitem"], [role="option"],
-         [role="row"][tabindex], [data-clickable]):hover {
-    background-color: var(--accent-hover);
   }
 }
