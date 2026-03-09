@@ -1,0 +1,43 @@
+/* Frost B2B Portal — dark theme, unified with website + app */
+
+:root {
+  /* Backgrounds — pure black base */
+  --bg-base: #000000;
+  --bg-card: #0A0A0F;
+  --bg-card-hover: #111118;
+  --bg-elevated: #161620;
+
+  /* Borders — white at low opacity */
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.15);
+
+  /* Accent — Snowflake blue */
+  --accent-primary: #5BB8E6;
+  --accent-primary-hover: #4AA8D6;
+  --accent-primary-light: rgba(91, 184, 230, 0.1);
+
+  /* Category accents */
+  --accent-flower: #22C55E;
+  --accent-concentrate: #F59E0B;
+  --accent-vape: #3B82F6;
+  --accent-preroll: #F97316;
+  --accent-edible: #8B5CF6;
+  --accent-beverage: #14B8A6;
+
+  /* Strain type colors */
+  --strain-indica: #8B5CF6;
+  --strain-sativa: #F97316;
+  --strain-hybrid: #22C55E;
+  --strain-cbd: #5BB8E6;
+
+  /* Text — white at varying opacities */
+  --text-default: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-bright: #FFFFFF;
+
+  /* Status */
+  --success: #00E5A0;
+  --warning: #FBBF24;
+  --danger: #FB7185;
+  --info: #38BDF8;
+}
