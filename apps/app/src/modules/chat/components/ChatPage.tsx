@@ -125,7 +125,7 @@ export function ChatPage() {
   const hasMessages = messages.length > 0;
 
   return (
-    <div className="flex h-[calc(100vh-7rem)] min-h-[500px] rounded-xl border border-default bg-card overflow-hidden">
+    <div className="flex flex-1 min-h-0 overflow-hidden">
       {/* Sidebar */}
       <ChatSidebar
         conversations={conversations ?? []}

@@ -6,11 +6,14 @@ import { usePathname } from 'next/navigation';
 import { PanelLeftClose, PanelLeft, X } from 'lucide-react';
 import { useSidebarStore } from './store';
 import { navGroups } from './nav-data';
+import { useTeamDMs } from '@/modules/chat/hooks/useTeamChat';
 
 export function Sidebar() {
   const pathname = usePathname();
   const { collapsed, mobileOpen, toggleCollapsed, setMobileOpen } =
     useSidebarStore();
+  const { data: dms } = useTeamDMs();
+  const dmUnreadCount = (dms ?? []).reduce((sum, dm) => sum + dm.unreadCount, 0);
 
   return (
     <>
@@ -131,7 +134,22 @@ export function Sidebar() {
                       style={isActive ? { color: '#5BB8E6', filter: 'drop-shadow(0 0 4px rgba(91, 184, 230, 0.5))' } : undefined}
                       className={isActive ? '' : 'text-text-default'}
                     />
-                    {!collapsed && <span>{item.label}</span>}
+                    {!collapsed && <span className="flex-1">{item.label}</span>}
+                    {item.href === '/chat' && dmUnreadCount > 0 && (
+                      <span
+                        className={`
+                          relative flex items-center justify-center rounded-full text-[10px] font-bold text-black
+                          ${collapsed ? 'absolute -top-1 -right-1 h-4 min-w-[16px] px-1' : 'h-5 min-w-[20px] px-1.5'}
+                        `}
+                        style={{
+                          background: 'linear-gradient(135deg, #5BB8E6, #4AE0D6)',
+                          boxShadow: '0 0 8px rgba(91, 184, 230, 0.6), 0 0 16px rgba(91, 184, 230, 0.3)',
+                          animation: 'glow-pulse 2s ease-in-out infinite',
+                        }}
+                      >
+                        {dmUnreadCount}
+                      </span>
+                    )}
                   </Link>
                 );
               })}

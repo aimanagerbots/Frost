@@ -44,19 +44,12 @@ function TabBar() {
 export function ChatPage() {
   const activeTab = useTeamChatStore((s) => s.activeTab);
 
-  if (activeTab === 'ai') {
-    return (
-      <div>
-        <TabBar />
-        <AIChatPage />
-      </div>
-    );
-  }
-
   return (
     <div className="flex h-[calc(100vh-7rem)] min-h-[500px] flex-col rounded-xl border border-default bg-card overflow-hidden">
       <TabBar />
-      {activeTab === 'dm' ? <DirectMessagesPage /> : <ChatRoomPage />}
+      {activeTab === 'ai' && <AIChatPage />}
+      {activeTab === 'dm' && <DirectMessagesPage />}
+      {activeTab === 'room' && <ChatRoomPage />}
     </div>
   );
 }

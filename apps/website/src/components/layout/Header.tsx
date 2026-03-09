@@ -31,13 +31,13 @@ export function Header() {
           {/* Logo — far left */}
           <Link
             href="/home"
-            className="absolute left-6 top-1/2 -translate-y-1/2 z-10 h-10 w-10"
+            className="absolute left-6 top-1/2 -translate-y-1/2 z-10 h-20 w-20"
           >
             <Image
               src="/FrostLogo_SnowflakeOnly.png"
               alt="Frost"
               fill
-              className="object-contain"
+              className="object-contain logo-glow-img"
               priority
             />
           </Link>
@@ -58,14 +58,14 @@ export function Header() {
         <div className="flex lg:hidden items-center justify-between py-2 px-6">
           <Link
             href="/home"
-            className="relative z-10 h-10 w-10 shrink-0"
+            className="relative z-10 h-16 w-16 shrink-0"
           >
             <Image
               src="/FrostLogo_SnowflakeOnly.png"
               alt="Frost"
-              width={40}
-              height={40}
-              className="object-contain"
+              width={64}
+              height={64}
+              className="object-contain logo-glow-img"
               priority
             />
           </Link>

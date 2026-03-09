@@ -2,6 +2,7 @@
 export interface DispensaryLocation {
   id: string;
   name: string;
+  slug: string;
   dba: string;
   address: {
     street: string;
@@ -15,5 +16,10 @@ export interface DispensaryLocation {
   phone?: string;
   website?: string;
   hours?: string;
+  imageUrl?: string;
+  logoUrl?: string;
+  description?: string;
+  frostPartnerSince?: string;
+  featuredDeal?: string;
   categoriesCarried: string[];
 }

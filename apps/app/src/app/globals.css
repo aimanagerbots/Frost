@@ -109,6 +109,16 @@
   --sidebar-ring: var(--accent-primary);
 }
 
+/* Glow pulse animation — used for notification badges */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px 2px rgba(91, 184, 230, 0.4), 0 0 20px 4px rgba(91, 184, 230, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 16px 6px rgba(91, 184, 230, 0.6), 0 0 40px 10px rgba(91, 184, 230, 0.3);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
