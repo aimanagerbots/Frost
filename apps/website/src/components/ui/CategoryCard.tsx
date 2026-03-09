@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CATEGORY_ROUTE_MAP } from "@/lib/constants";
+import type { ProductCategory } from "@frost/types";
 
 interface CategoryCardProps {
   label: string;
@@ -18,7 +20,7 @@ export function CategoryCard({
 }: CategoryCardProps) {
   return (
     <Link
-      href={`/products/${slug}`}
+      href={`/${CATEGORY_ROUTE_MAP[slug as ProductCategory] ?? slug}`}
       className="group relative block rounded-xl overflow-hidden aspect-[4/5]"
     >
       <Image

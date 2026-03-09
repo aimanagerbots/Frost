@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "./Badge";
+import { CATEGORY_ROUTE_MAP } from "@/lib/constants";
+import type { ProductCategory } from "@frost/types";
 
 type StrainType = "indica" | "sativa" | "hybrid" | "cbd";
 
@@ -29,7 +31,7 @@ export function ProductCard({
 }: ProductCardProps) {
   return (
     <Link
-      href={`/products/${category}/${slug}`}
+      href={`/${CATEGORY_ROUTE_MAP[category as ProductCategory] ?? category}/${slug}`}
       className="group block rounded-xl border border-border-default bg-card overflow-hidden transition-colors hover:border-border-hover"
     >
       <div className="relative aspect-square overflow-hidden">

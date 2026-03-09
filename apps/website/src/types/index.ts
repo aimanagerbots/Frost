@@ -32,6 +32,8 @@ export interface WebsiteProduct {
   isBestSeller: boolean;
   effects: string[];
   flavorNotes: string[];
+  rating: number;
+  reviewCount: number;
 }
 
 export interface WebsiteStrain {

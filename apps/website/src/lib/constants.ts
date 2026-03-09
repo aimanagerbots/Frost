@@ -48,6 +48,79 @@ export const CATEGORIES: Record<ProductCategory, CategoryMeta> = {
 
 export const CATEGORY_SLUGS = Object.keys(CATEGORIES) as ProductCategory[];
 
+/* ── Route mapping: internal slug → URL route ── */
+export const CATEGORY_ROUTE_MAP: Record<ProductCategory, string> = {
+  flower: "flower",
+  preroll: "pre-rolls",
+  vaporizer: "vaporizers",
+  concentrate: "concentrates",
+  edible: "edibles",
+  beverage: "drinks",
+};
+
+export const ROUTE_TO_CATEGORY: Record<string, ProductCategory> = Object.fromEntries(
+  Object.entries(CATEGORY_ROUTE_MAP).map(([k, v]) => [v, k as ProductCategory]),
+) as Record<string, ProductCategory>;
+
+/* ── Sidebar filter configs ── */
+export const CATEGORY_FORMAT_FILTERS: Record<ProductCategory, { label: string; slug: string }[]> = {
+  flower: [
+    { label: "Eighths (3.5g)", slug: "eighths" },
+    { label: "Quarters (7g)", slug: "quarters" },
+    { label: "Halves (14g)", slug: "halves" },
+    { label: "Ounces (28g)", slug: "ounces" },
+  ],
+  preroll: [
+    { label: "Singles", slug: "singles" },
+    { label: "3-Packs", slug: "3-packs" },
+    { label: "5-Packs", slug: "5-packs" },
+    { label: "6-Packs", slug: "6-packs" },
+    { label: "Infused", slug: "infused" },
+  ],
+  vaporizer: [
+    { label: "Disposables", slug: "disposable" },
+    { label: "Cartridges", slug: "cartridge" },
+    { label: "Pods", slug: "pod" },
+  ],
+  concentrate: [
+    { label: "Live Resin", slug: "live-resin" },
+    { label: "Rosin", slug: "rosin" },
+    { label: "Shatter", slug: "shatter" },
+    { label: "Wax", slug: "wax" },
+    { label: "Batter", slug: "batter" },
+    { label: "Crumble", slug: "crumble" },
+    { label: "Diamonds", slug: "diamonds" },
+    { label: "Budder", slug: "budder" },
+  ],
+  edible: [
+    { label: "Gummies", slug: "gummies" },
+    { label: "Chocolates", slug: "chocolate" },
+    { label: "Mints", slug: "mints" },
+    { label: "Caramels", slug: "caramels" },
+    { label: "Honey", slug: "honey" },
+  ],
+  beverage: [
+    { label: "Sparkling", slug: "sparkling" },
+    { label: "Tea", slug: "tea" },
+    { label: "Coffee", slug: "coffee" },
+    { label: "Soda", slug: "soda" },
+    { label: "Kombucha", slug: "kombucha" },
+    { label: "Elixir", slug: "elixir" },
+  ],
+};
+
+export const EFFECT_FILTERS = [
+  "Relaxed", "Energized", "Creative", "Focused",
+  "Uplifted", "Sleepy", "Social", "Calm", "Euphoric", "Peaceful",
+] as const;
+
+export const PRICE_RANGE_FILTERS = [
+  { label: "Under $10", min: 0, max: 10 },
+  { label: "$10 – $20", min: 10, max: 20 },
+  { label: "$20 – $35", min: 20, max: 35 },
+  { label: "$35+", min: 35, max: Infinity },
+] as const;
+
 export const COMPLIANCE_TEXT =
   "This product has intoxicating effects and may be habit forming. Cannabis can impair concentration, coordination, and judgment. Do not operate a vehicle or machinery under the influence of this drug. There may be health risks associated with consumption of this product. For use only by adults twenty-one and older. Keep out of the reach of children.";
 
@@ -107,6 +180,7 @@ export const NAV_LINKS = [
 export interface MegaMenuCategoryItem {
   label: string;
   slug: string;
+  route: string;
   brand: string;
   formats: { label: string; slug: string }[];
   featured: { name: string; slug: string };
@@ -136,6 +210,7 @@ export const MEGA_MENU: MegaMenuItem[] = [
     category: {
       label: "Flower",
       slug: "flower",
+      route: "flower",
       brand: "Frost Farms",
       formats: [
         { label: "Eighths (3.5g)", slug: "eighths" },
@@ -152,6 +227,7 @@ export const MEGA_MENU: MegaMenuItem[] = [
     category: {
       label: "Pre-Rolls",
       slug: "preroll",
+      route: "pre-rolls",
       brand: "Frost Farms",
       formats: [
         { label: "Singles", slug: "singles" },
@@ -168,6 +244,7 @@ export const MEGA_MENU: MegaMenuItem[] = [
     category: {
       label: "Vaporizers",
       slug: "vaporizer",
+      route: "vaporizers",
       brand: "Glacier Extracts",
       formats: [
         { label: "Disposables", slug: "disposables" },
@@ -184,6 +261,7 @@ export const MEGA_MENU: MegaMenuItem[] = [
     category: {
       label: "Concentrates",
       slug: "concentrate",
+      route: "concentrates",
       brand: "Glacier Extracts",
       formats: [
         { label: "Live Resin", slug: "live-resin" },
@@ -201,6 +279,7 @@ export const MEGA_MENU: MegaMenuItem[] = [
     category: {
       label: "Edibles",
       slug: "edible",
+      route: "edibles",
       brand: "Northern Lights Co.",
       formats: [
         { label: "Gummies", slug: "gummies" },
@@ -217,6 +296,7 @@ export const MEGA_MENU: MegaMenuItem[] = [
     category: {
       label: "Drinks",
       slug: "beverage",
+      route: "drinks",
       brand: "Northern Lights Co.",
       formats: [
         { label: "Sparkling", slug: "sparkling" },
@@ -289,12 +369,12 @@ export const MEGA_MENU: MegaMenuItem[] = [
 
 export const FOOTER_LINKS = {
   products: [
-    { label: "Flower", href: "/products/flower" },
-    { label: "Pre-Rolls", href: "/products/preroll" },
-    { label: "Vaporizers", href: "/products/vaporizer" },
-    { label: "Concentrates", href: "/products/concentrate" },
-    { label: "Edibles", href: "/products/edible" },
-    { label: "Beverages", href: "/products/beverage" },
+    { label: "Flower", href: "/flower" },
+    { label: "Pre-Rolls", href: "/pre-rolls" },
+    { label: "Vaporizers", href: "/vaporizers" },
+    { label: "Concentrates", href: "/concentrates" },
+    { label: "Edibles", href: "/edibles" },
+    { label: "Drinks", href: "/drinks" },
   ],
   company: [
     { label: "About", href: "/about" },

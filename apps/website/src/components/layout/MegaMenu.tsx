@@ -13,12 +13,12 @@ import {
 
 /** Map nav labels to the path prefixes they represent */
 const NAV_PATH_MAP: Record<string, string> = {
-  Flower: '/products/flower',
-  'Pre-Rolls': '/products/preroll',
-  Vaporizers: '/products/vaporizer',
-  Concentrates: '/products/concentrate',
-  Edibles: '/products/edible',
-  Drinks: '/products/beverage',
+  Flower: '/flower',
+  'Pre-Rolls': '/pre-rolls',
+  Vaporizers: '/vaporizers',
+  Concentrates: '/concentrates',
+  Edibles: '/edibles',
+  Drinks: '/drinks',
   'Strain Library': '/strains',
   Blog: '/blog',
   Resources: '/faq',
@@ -40,7 +40,7 @@ function CategoryPanel({ category }: { category: MegaMenuCategoryItem }) {
           <li key={f.slug}>
             <NavigationMenu.Link asChild>
               <Link
-                href={`/products/${category.slug}?format=${f.slug}`}
+                href={`/${category.route}?format=${f.slug}`}
                 className="block text-sm text-text-default transition-colors hover:text-accent-primary"
               >
                 {f.label}
@@ -52,7 +52,7 @@ function CategoryPanel({ category }: { category: MegaMenuCategoryItem }) {
       <div className="mt-4 border-t border-border-default pt-3">
         <NavigationMenu.Link asChild>
           <Link
-            href={`/products/${category.slug}`}
+            href={`/${category.route}`}
             className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.05em] text-accent-primary transition-colors hover:text-accent-primary-hover"
           >
             Browse All {category.label}

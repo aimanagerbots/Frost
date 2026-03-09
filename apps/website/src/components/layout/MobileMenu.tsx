@@ -147,7 +147,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     {STRAIN_TYPES.map((t) => (
                       <Link
                         key={t.slug}
-                        href={`/products/${item.category.slug}?type=${t.slug}`}
+                        href={`/${item.category.route}?type=${t.slug}`}
                         onClick={onClose}
                         className="block py-1.5 pl-3 text-sm text-text-default transition-colors hover:text-accent-primary"
                       >
@@ -160,7 +160,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     {item.category.formats.map((f) => (
                       <Link
                         key={f.slug}
-                        href={`/products/${item.category.slug}?format=${f.slug}`}
+                        href={`/${item.category.route}?format=${f.slug}`}
                         onClick={onClose}
                         className="block py-1.5 pl-3 text-sm text-text-default transition-colors hover:text-accent-primary"
                       >
@@ -168,7 +168,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       </Link>
                     ))}
                     <Link
-                      href={`/products/${item.category.slug}`}
+                      href={`/${item.category.route}`}
                       onClick={onClose}
                       className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.05em] text-accent-primary"
                     >

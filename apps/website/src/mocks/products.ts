@@ -21,6 +21,7 @@ const flower: WebsiteProduct[] = [
     name: "Blue Dream Flower 3.5g",
     slug: "blue-dream-flower-3-5g",
     category: "flower",
+    subCategory: "Eighths",
     strainName: "Blue Dream",
     strainType: "sativa",
     description:
@@ -36,12 +37,15 @@ const flower: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Creative", "Uplifted", "Relaxed", "Focused"],
     flavorNotes: ["Blueberry", "Sweet", "Herbal"],
+    rating: 4.8,
+    reviewCount: 287,
   },
   {
     id: "FL-WC-8TH",
     name: "Wedding Cake Flower 3.5g",
     slug: "wedding-cake-flower-3-5g",
     category: "flower",
+    subCategory: "Eighths",
     strainName: "Wedding Cake",
     strainType: "hybrid",
     description:
@@ -57,12 +61,15 @@ const flower: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Relaxed", "Euphoric", "Creative", "Calm"],
     flavorNotes: ["Vanilla", "Pepper", "Sweet Dough"],
+    rating: 4.7,
+    reviewCount: 156,
   },
   {
     id: "FL-OGK-QTR",
     name: "OG Kush Flower 7g",
     slug: "og-kush-flower-7g",
     category: "flower",
+    subCategory: "Quarters",
     strainName: "OG Kush",
     strainType: "hybrid",
     description:
@@ -78,12 +85,15 @@ const flower: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Euphoric", "Social", "Uplifted"],
     flavorNotes: ["Pine", "Fuel", "Earth"],
+    rating: 4.3,
+    reviewCount: 94,
   },
   {
     id: "FL-GSC-8TH",
     name: "Girl Scout Cookies Flower 3.5g",
     slug: "girl-scout-cookies-flower-3-5g",
     category: "flower",
+    subCategory: "Eighths",
     strainName: "GSC",
     strainType: "hybrid",
     description:
@@ -99,12 +109,15 @@ const flower: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Euphoric", "Relaxed", "Creative", "Social"],
     flavorNotes: ["Mint", "Cookie", "Sweet Earth"],
+    rating: 4.4,
+    reviewCount: 112,
   },
   {
     id: "FL-JH-OZ",
     name: "Jack Herer Flower 28g",
     slug: "jack-herer-flower-28g",
     category: "flower",
+    subCategory: "Ounces",
     strainName: "Jack Herer",
     strainType: "sativa",
     description:
@@ -120,12 +133,15 @@ const flower: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Focused", "Creative", "Uplifted", "Energized"],
     flavorNotes: ["Pine", "Spice", "Citrus"],
+    rating: 4.5,
+    reviewCount: 38,
   },
   {
     id: "FL-NL-8TH",
     name: "Northern Lights Flower 3.5g",
     slug: "northern-lights-flower-3-5g",
     category: "flower",
+    subCategory: "Eighths",
     strainName: "Northern Lights",
     strainType: "indica",
     description:
@@ -141,12 +157,15 @@ const flower: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Sleepy", "Calm", "Peaceful"],
     flavorNotes: ["Honey", "Pine", "Sweet Earth"],
+    rating: 4.2,
+    reviewCount: 203,
   },
   {
     id: "FL-PP-8TH",
     name: "Purple Punch Flower 3.5g",
     slug: "purple-punch-flower-3-5g",
     category: "flower",
+    subCategory: "Eighths",
     strainName: "Purple Punch",
     strainType: "indica",
     description:
@@ -162,6 +181,8 @@ const flower: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Sleepy", "Euphoric", "Calm"],
     flavorNotes: ["Grape", "Blueberry", "Vanilla"],
+    rating: 4.6,
+    reviewCount: 47,
   },
 ];
 
@@ -174,6 +195,7 @@ const preroll: WebsiteProduct[] = [
     name: "Blue Dream Preroll 1g",
     slug: "blue-dream-preroll-1g",
     category: "preroll",
+    subCategory: "Singles",
     strainName: "Blue Dream",
     strainType: "sativa",
     description:
@@ -189,12 +211,15 @@ const preroll: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Creative", "Uplifted", "Relaxed", "Focused"],
     flavorNotes: ["Blueberry", "Sweet", "Herbal"],
+    rating: 4.7,
+    reviewCount: 312,
   },
   {
     id: "PR-OGK-6PK",
     name: "OG Kush 6-Pack Prerolls",
     slug: "og-kush-6-pack-prerolls",
     category: "preroll",
+    subCategory: "6-Packs",
     strainName: "OG Kush",
     strainType: "hybrid",
     description:
@@ -210,12 +235,15 @@ const preroll: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Euphoric", "Social", "Uplifted"],
     flavorNotes: ["Pine", "Fuel", "Earth"],
+    rating: 4.1,
+    reviewCount: 78,
   },
   {
     id: "PR-GG-1G",
     name: "Gorilla Glue Preroll 1g",
     slug: "gorilla-glue-preroll-1g",
     category: "preroll",
+    subCategory: "Singles",
     strainName: "Gorilla Glue",
     strainType: "hybrid",
     description:
@@ -231,12 +259,15 @@ const preroll: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Euphoric", "Creative", "Calm"],
     flavorNotes: ["Diesel", "Chocolate", "Pine"],
+    rating: 4.3,
+    reviewCount: 29,
   },
   {
     id: "PR-SD-INFUSED",
     name: "Sour Diesel Infused Preroll 1.5g",
     slug: "sour-diesel-infused-preroll-1-5g",
     category: "preroll",
+    subCategory: "Infused",
     strainName: "Sour Diesel",
     strainType: "sativa",
     description:
@@ -252,12 +283,15 @@ const preroll: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Energized", "Focused", "Uplifted", "Creative"],
     flavorNotes: ["Diesel", "Citrus", "Pungent"],
+    rating: 4.8,
+    reviewCount: 164,
   },
   {
     id: "PR-NL-3PK",
     name: "Northern Lights 3-Pack Prerolls",
     slug: "northern-lights-3-pack-prerolls",
     category: "preroll",
+    subCategory: "3-Packs",
     strainName: "Northern Lights",
     strainType: "indica",
     description:
@@ -273,12 +307,15 @@ const preroll: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Sleepy", "Calm", "Peaceful"],
     flavorNotes: ["Honey", "Pine", "Earth"],
+    rating: 4.2,
+    reviewCount: 91,
   },
   {
     id: "PR-MX-VARIETY",
     name: "Mixed Strain Variety 6-Pack",
     slug: "mixed-strain-variety-6-pack",
     category: "preroll",
+    subCategory: "6-Packs",
     strainName: "Mixed",
     strainType: "hybrid",
     description:
@@ -294,12 +331,15 @@ const preroll: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Social", "Creative", "Relaxed", "Uplifted"],
     flavorNotes: ["Mixed", "Fruity", "Earthy"],
+    rating: 4.0,
+    reviewCount: 67,
   },
   {
     id: "PR-SD-1G",
     name: "Sour Diesel Preroll 1g",
     slug: "sour-diesel-preroll-1g",
     category: "preroll",
+    subCategory: "Singles",
     strainName: "Sour Diesel",
     strainType: "sativa",
     description:
@@ -315,6 +355,8 @@ const preroll: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Energized", "Focused", "Uplifted", "Social"],
     flavorNotes: ["Diesel", "Lemon", "Pungent"],
+    rating: 4.4,
+    reviewCount: 22,
   },
 ];
 
@@ -342,6 +384,8 @@ const vaporizer: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Relaxed", "Uplifted", "Social", "Calm"],
     flavorNotes: ["Clean", "Citrus", "Floral"],
+    rating: 4.6,
+    reviewCount: 245,
   },
   {
     id: "VP-LR-05G",
@@ -363,6 +407,8 @@ const vaporizer: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Sleepy", "Calm", "Peaceful"],
     flavorNotes: ["Earthy", "Herbal", "Sweet"],
+    rating: 4.5,
+    reviewCount: 34,
   },
   {
     id: "VP-LR-1G",
@@ -384,6 +430,8 @@ const vaporizer: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Focused", "Creative", "Energized", "Uplifted"],
     flavorNotes: ["Citrus", "Pine", "Tropical"],
+    rating: 4.9,
+    reviewCount: 198,
   },
   {
     id: "VP-DISP-05G",
@@ -405,6 +453,8 @@ const vaporizer: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Energized", "Uplifted", "Creative", "Focused"],
     flavorNotes: ["Lemon", "Pine", "Sweet"],
+    rating: 4.1,
+    reviewCount: 89,
   },
   {
     id: "VP-DISP-1G",
@@ -426,6 +476,8 @@ const vaporizer: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Sleepy", "Calm", "Peaceful"],
     flavorNotes: ["Berry", "Lavender", "Earth"],
+    rating: 4.3,
+    reviewCount: 42,
   },
   {
     id: "VP-TERP-05G",
@@ -447,6 +499,8 @@ const vaporizer: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Social", "Uplifted", "Creative"],
     flavorNotes: ["Tropical", "Spice", "Citrus"],
+    rating: 4.0,
+    reviewCount: 56,
   },
   {
     id: "VP-CDT-1G",
@@ -468,6 +522,8 @@ const vaporizer: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Focused", "Energized", "Creative", "Uplifted"],
     flavorNotes: ["Citrus", "Floral", "Herbal"],
+    rating: 4.4,
+    reviewCount: 18,
   },
 ];
 
@@ -495,6 +551,8 @@ const concentrate: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Energized", "Focused", "Creative", "Uplifted"],
     flavorNotes: ["Pine", "Citrus", "Sharp"],
+    rating: 4.2,
+    reviewCount: 73,
   },
   {
     id: "CN-WAX-1G",
@@ -516,6 +574,8 @@ const concentrate: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Relaxed", "Euphoric", "Creative", "Social"],
     flavorNotes: ["Earthy", "Citrus", "Herbal"],
+    rating: 4.7,
+    reviewCount: 189,
   },
   {
     id: "CN-RSN-1G",
@@ -537,6 +597,8 @@ const concentrate: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Sleepy", "Calm", "Euphoric"],
     flavorNotes: ["Grape", "Lavender", "Dough"],
+    rating: 4.6,
+    reviewCount: 31,
   },
   {
     id: "CN-BATTER-1G",
@@ -558,6 +620,8 @@ const concentrate: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Social", "Creative", "Uplifted"],
     flavorNotes: ["Spice", "Citrus", "Cream"],
+    rating: 4.1,
+    reviewCount: 64,
   },
   {
     id: "CN-CRUMB-1G",
@@ -579,6 +643,8 @@ const concentrate: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Energized", "Uplifted", "Creative", "Focused"],
     flavorNotes: ["Tropical", "Pine", "Sweet"],
+    rating: 3.9,
+    reviewCount: 48,
   },
   {
     id: "CN-DMND-1G",
@@ -600,6 +666,8 @@ const concentrate: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Euphoric", "Relaxed", "Creative", "Uplifted"],
     flavorNotes: ["Fuel", "Citrus", "Sweet"],
+    rating: 4.8,
+    reviewCount: 142,
   },
   {
     id: "CN-BUDDER-1G",
@@ -621,6 +689,8 @@ const concentrate: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Sleepy", "Calm", "Peaceful"],
     flavorNotes: ["Berry", "Lavender", "Earth"],
+    rating: 4.3,
+    reviewCount: 27,
   },
 ];
 
@@ -648,6 +718,8 @@ const edible: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Relaxed", "Uplifted", "Social", "Creative"],
     flavorNotes: ["Mixed Berry", "Tropical", "Citrus"],
+    rating: 4.7,
+    reviewCount: 341,
   },
   {
     id: "ED-CHOC-BAR",
@@ -669,6 +741,8 @@ const edible: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Euphoric", "Calm", "Creative"],
     flavorNotes: ["Dark Chocolate", "Cocoa", "Vanilla"],
+    rating: 4.5,
+    reviewCount: 53,
   },
   {
     id: "ED-MINT-TIN",
@@ -690,6 +764,8 @@ const edible: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Focused", "Uplifted", "Energized", "Social"],
     flavorNotes: ["Peppermint", "Cool", "Fresh"],
+    rating: 4.3,
+    reviewCount: 127,
   },
   {
     id: "ED-GUM-5PK",
@@ -711,6 +787,8 @@ const edible: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Energized", "Creative", "Uplifted", "Focused"],
     flavorNotes: ["Lemon", "Orange", "Tangy"],
+    rating: 4.4,
+    reviewCount: 36,
   },
   {
     id: "ED-CARA-10PK",
@@ -732,6 +810,8 @@ const edible: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Relaxed", "Sleepy", "Calm", "Peaceful"],
     flavorNotes: ["Salted Caramel", "Butter", "Toffee"],
+    rating: 4.8,
+    reviewCount: 256,
   },
   {
     id: "ED-CBD-GUM",
@@ -753,6 +833,8 @@ const edible: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Calm", "Relaxed", "Focused", "Balanced"],
     flavorNotes: ["Strawberry", "Peach", "Mango"],
+    rating: 4.2,
+    reviewCount: 19,
   },
   {
     id: "ED-HONEY-STK",
@@ -774,6 +856,8 @@ const edible: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Social", "Creative", "Calm"],
     flavorNotes: ["Wildflower Honey", "Floral", "Warm"],
+    rating: 4.0,
+    reviewCount: 82,
   },
 ];
 
@@ -801,6 +885,8 @@ const beverage: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Uplifted", "Social", "Energized", "Creative"],
     flavorNotes: ["Lemon", "Sparkling", "Tart"],
+    rating: 4.6,
+    reviewCount: 278,
   },
   {
     id: "BV-TEA-6PK",
@@ -822,6 +908,8 @@ const beverage: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Calm", "Relaxed", "Peaceful", "Focused"],
     flavorNotes: ["Chamomile", "Lavender", "Honey"],
+    rating: 4.3,
+    reviewCount: 41,
   },
   {
     id: "BV-LEMON-CAN",
@@ -843,6 +931,8 @@ const beverage: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Social", "Uplifted", "Calm"],
     flavorNotes: ["Lemon", "Clean", "Crisp"],
+    rating: 4.1,
+    reviewCount: 95,
   },
   {
     id: "BV-COLD-BREW",
@@ -864,6 +954,8 @@ const beverage: WebsiteProduct[] = [
     isBestSeller: true,
     effects: ["Focused", "Energized", "Creative", "Uplifted"],
     flavorNotes: ["Coffee", "Chocolate", "Smooth"],
+    rating: 4.7,
+    reviewCount: 167,
   },
   {
     id: "BV-SODA-4PK",
@@ -885,6 +977,8 @@ const beverage: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Social", "Uplifted", "Relaxed", "Creative"],
     flavorNotes: ["Cola", "Ginger", "Vanilla"],
+    rating: 4.0,
+    reviewCount: 58,
   },
   {
     id: "BV-KOMBUCHA",
@@ -906,6 +1000,8 @@ const beverage: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Calm", "Social", "Uplifted", "Relaxed"],
     flavorNotes: ["Ginger", "Green Apple", "Tart"],
+    rating: 3.8,
+    reviewCount: 44,
   },
   {
     id: "BV-ELIXIR",
@@ -927,6 +1023,8 @@ const beverage: WebsiteProduct[] = [
     isBestSeller: false,
     effects: ["Relaxed", "Sleepy", "Calm", "Peaceful"],
     flavorNotes: ["Elderberry", "Turmeric", "Ginger"],
+    rating: 4.4,
+    reviewCount: 23,
   },
 ];
 
