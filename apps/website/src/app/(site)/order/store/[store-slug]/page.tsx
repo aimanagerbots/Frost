@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getDispensaryBySlug, getAllDispensarySlugs } from "@/mocks/dispensaries";
 import { getStoreInventory } from "@/mocks/store-inventory";
-import { StoreDetailClient } from "./StoreDetailClient";
+import { StoreMenuClient } from "./StoreMenuClient";
 
 export function generateStaticParams() {
   const slugs = getAllDispensarySlugs();
@@ -23,5 +23,5 @@ export default async function StoreDetailPage({ params }: PageProps) {
 
   const inventory = getStoreInventory(dispensary.id);
 
-  return <StoreDetailClient dispensary={dispensary} inventory={inventory} />;
+  return <StoreMenuClient dispensary={dispensary} inventory={inventory} />;
 }

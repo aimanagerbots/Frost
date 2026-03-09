@@ -84,3 +84,73 @@ export interface FAQ {
   question: string;
   answer: string;
 }
+
+/* ------------------------------------------------------------------ */
+/*  Order / Cart types                                                 */
+/* ------------------------------------------------------------------ */
+
+export interface CartItem {
+  readonly productSlug: string;
+  readonly productName: string;
+  readonly category: string;
+  readonly brand: string;
+  readonly price: number;
+  readonly quantity: number;
+  readonly storeId: string;
+  readonly storeName: string;
+  readonly storeSlug: string;
+  readonly strainName?: string;
+  readonly strainType?: string;
+  readonly thcRange?: string;
+  readonly stockStatus: "in-stock" | "low-stock" | "out-of-stock";
+}
+
+export type OrderStatus =
+  | "placed"
+  | "confirmed"
+  | "preparing"
+  | "ready"
+  | "picked-up";
+
+export interface StoreOrderGroup {
+  readonly storeId: string;
+  readonly storeName: string;
+  readonly storeSlug: string;
+  readonly storeAddress: string;
+  readonly storePhone: string;
+  readonly items: readonly CartItem[];
+  readonly subtotal: number;
+  readonly confirmationNumber: string;
+  readonly pickupTime: string;
+  readonly status: OrderStatus;
+}
+
+export interface MockOrder {
+  readonly id: string;
+  readonly storeGroups: readonly StoreOrderGroup[];
+  readonly customerName: string;
+  readonly customerPhone: string;
+  readonly customerEmail?: string;
+  readonly placedAt: Date;
+}
+
+export interface CustomerInfo {
+  readonly name: string;
+  readonly phone: string;
+  readonly email?: string;
+}
+
+export interface UserLocation {
+  readonly lat: number;
+  readonly lng: number;
+  readonly label: string;
+}
+
+export interface ProductAvailability {
+  readonly dispensaryId: string;
+  readonly storeName: string;
+  readonly storeSlug: string;
+  readonly distance?: number;
+  readonly price: number;
+  readonly stockStatus: "in-stock" | "low-stock" | "out-of-stock";
+}

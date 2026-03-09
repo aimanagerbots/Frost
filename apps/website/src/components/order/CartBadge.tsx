@@ -1,0 +1,26 @@
+'use client';
+
+import { useCartItemCount, useCartTotal, useOrderStore } from '@/stores/order-store';
+
+export function CartBadge() {
+  const count = useCartItemCount();
+  const total = useCartTotal();
+  const setCartOpen = useOrderStore((s) => s.setCartOpen);
+
+  if (count === 0) return null;
+
+  return (
+    <button
+      onClick={() => setCartOpen(true)}
+      className="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#5BB8E6] text-black rounded-full pl-4 pr-5 py-3 shadow-lg shadow-[#5BB8E6]/20 hover:shadow-[#5BB8E6]/40 transition-all duration-300 hover:scale-105 font-sans font-semibold text-sm"
+    >
+      {/* Cart icon */}
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+      </svg>
+      <span>{count} item{count !== 1 ? 's' : ''}</span>
+      <span className="text-black/60">·</span>
+      <span>${total.toFixed(2)}</span>
+    </button>
+  );
+}

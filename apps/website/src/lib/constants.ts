@@ -282,8 +282,8 @@ export const MEGA_MENU: MegaMenuItem[] = [
   },
   {
     type: "cta",
-    label: "Find Near You",
-    href: "/find",
+    label: "Order",
+    href: "/order",
   },
 ];
 

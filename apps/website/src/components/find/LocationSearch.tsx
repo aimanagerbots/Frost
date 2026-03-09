@@ -54,7 +54,7 @@ export default function LocationSearch({ onLocationSelect }: LocationSearchProps
         try {
           const encoded = encodeURIComponent(value.trim());
           const res = await fetch(
-            `https://nominatim.openstreetmap.org/search?format=json&q=${encoded}&countrycodes=us&viewbox=-124.8,49.0,-116.5,45.5&bounded=1&limit=6`,
+            `https://nominatim.openstreetmap.org/search?format=json&q=${encoded}&countrycodes=us&viewbox=-125.0,49.5,-116.0,45.0&bounded=0&limit=6`,
             {
               headers: { 'Accept-Language': 'en' },
             },

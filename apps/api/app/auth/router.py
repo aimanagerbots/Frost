@@ -1,12 +1,15 @@
 from fastapi import APIRouter, Depends, HTTPException
 from app.database import get_supabase_client, get_supabase_admin
 from app.auth.dependencies import get_current_user
+from app.auth.dependencies import require_role
 from app.auth.schemas import (
     SignUpRequest,
     LoginRequest,
     ProfileResponse,
     ProfileUpdate,
     AuthResponse,
+    UserCreateRequest,
+    UserUpdateRequest,
 )
 
 router = APIRouter()
@@ -139,3 +142,107 @@ async def list_users(user=Depends(get_current_user)):
     )
 
     return [ProfileResponse(**row) for row in result.data]
+
+
+@router.post("/users/create", response_model=ProfileResponse)
+async def create_user(body: UserCreateRequest, user=require_role("admin")):
+    """Admin-only: create a new user via Supabase Admin API."""
+    admin_client = get_supabase_admin()
+
+    try:
+        # Create auth user via admin API
+        auth_response = admin_client.auth.admin.create_user(
+            {
+                "email": body.email,
+                "password": body.password,
+                "email_confirm": True,
+                "user_metadata": {"full_name": body.full_name},
+            }
+        )
+
+        if not auth_response.user:
+            raise HTTPException(status_code=400, detail="Failed to create user")
+
+        # Update profile with role, department, title
+        update_data = {"role": body.role}
+        if body.department:
+            update_data["department"] = body.department
+        if body.title:
+            update_data["title"] = body.title
+
+        admin_client.table("profiles").update(update_data).eq(
+            "id", auth_response.user.id
+        ).execute()
+
+        # Fetch final profile
+        profile = (
+            admin_client.table("profiles")
+            .select("*")
+            .eq("id", auth_response.user.id)
+            .single()
+            .execute()
+        )
+
+        return ProfileResponse(**profile.data)
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.patch("/users/{user_id}", response_model=ProfileResponse)
+async def update_user(user_id: str, body: UserUpdateRequest, user=require_role("admin")):
+    """Admin-only: update another user's profile (role, department, active status)."""
+    admin_client = get_supabase_admin()
+
+    update_data = body.model_dump(exclude_none=True)
+    if not update_data:
+        raise HTTPException(status_code=400, detail="No fields to update")
+
+    try:
+        result = (
+            admin_client.table("profiles")
+            .update(update_data)
+            .eq("id", user_id)
+            .single()
+            .execute()
+        )
+
+        if not result.data:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        return ProfileResponse(**result.data)
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.delete("/users/{user_id}")
+async def deactivate_user(user_id: str, user=require_role("admin")):
+    """Admin-only: soft-delete a user by setting is_active=false."""
+    if user_id == user["id"]:
+        raise HTTPException(status_code=400, detail="Cannot deactivate yourself")
+
+    admin_client = get_supabase_admin()
+
+    try:
+        result = (
+            admin_client.table("profiles")
+            .update({"is_active": False})
+            .eq("id", user_id)
+            .single()
+            .execute()
+        )
+
+        if not result.data:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        return {"message": "User deactivated", "user_id": user_id}
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))

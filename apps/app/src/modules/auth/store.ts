@@ -3,9 +3,11 @@ import { supabase } from '@/lib/supabase';
 import type { Session } from '@supabase/supabase-js';
 
 interface AuthUser {
+  id: string;
   name: string;
   email: string;
   role: string;
+  department: string | null;
 }
 
 interface AuthState {
@@ -43,7 +45,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       isAuthenticated: true,
       isDemoMode: true,
       isLoading: false,
-      user: { name: 'Demo User', email: 'demo@frost.com', role: 'Sales Manager' },
+      user: { id: 'demo', name: 'Demo User', email: 'demo@frost.com', role: 'admin', department: null },
       session: null,
       error: null,
     });
@@ -75,9 +77,11 @@ export const useAuthStore = create<AuthState>((set) => ({
         isLoading: false,
         session: data.session,
         user: {
+          id: data.user.id,
           name: data.user.user_metadata?.full_name || data.user.email || '',
           email: data.user.email || '',
           role: data.user.user_metadata?.role || 'viewer',
+          department: data.user.user_metadata?.department || null,
         },
         error: null,
       });
@@ -123,9 +127,11 @@ export const useAuthStore = create<AuthState>((set) => ({
         isLoading: false,
         session: data.session,
         user: {
+          id: user.id,
           name: user.user_metadata?.full_name || user.email || '',
           email: user.email || '',
           role: user.user_metadata?.role || 'viewer',
+          department: user.user_metadata?.department || null,
         },
       });
     } else {

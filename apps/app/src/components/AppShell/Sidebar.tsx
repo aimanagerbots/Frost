@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
 import { PanelLeftClose, PanelLeft, X } from 'lucide-react';
 import { useSidebarStore } from './store';
 import { navGroups } from './nav-data';
 import { useTeamDMs } from '@/modules/chat/hooks/useTeamChat';
+import { usePermissions } from '@/modules/auth/hooks/usePermissions';
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -14,6 +16,18 @@ export function Sidebar() {
     useSidebarStore();
   const { data: dms } = useTeamDMs();
   const dmUnreadCount = (dms ?? []).reduce((sum, dm) => sum + dm.unreadCount, 0);
+  const { allowedModules } = usePermissions();
+
+  const filteredGroups = useMemo(
+    () =>
+      navGroups
+        .map((group) => ({
+          ...group,
+          items: group.items.filter((item) => allowedModules.has(item.slug)),
+        }))
+        .filter((group) => group.items.length > 0),
+    [allowedModules],
+  );
 
   return (
     <>
@@ -80,7 +94,7 @@ export function Sidebar() {
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-4 scrollbar-thin">
-          {navGroups.map((group) => (
+          {filteredGroups.map((group) => (
             <div key={group.title} className="mb-4">
               {!collapsed && (
                 <p className="px-4 mb-1 text-[10px] font-semibold uppercase tracking-widest text-text-muted/60">

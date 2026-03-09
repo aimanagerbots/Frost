@@ -96,6 +96,17 @@
 .map-pin-glow { animation: pin-pulse 2s ease-in-out infinite; }
 
 /* MapLibre dark theme overrides */
+.frost-map-popup .maplibregl-popup-content {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.frost-map-popup .maplibregl-popup-tip {
+  border-top-color: #0A0A12 !important;
+}
+/* Fallback for non-frost popups */
 .maplibregl-popup-content {
   background: #0A0A0F !important;
   color: rgba(255, 255, 255, 0.9) !important;

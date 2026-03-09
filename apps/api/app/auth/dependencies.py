@@ -37,8 +37,8 @@ async def get_current_user(authorization: str = Header(...)):
         raise HTTPException(status_code=401, detail="Authentication failed")
 
 
-async def require_role(*roles: str):
-    """Factory for role-based access control."""
+def require_role(*roles: str):
+    """Factory for role-based access control. Returns a Depends() for use in endpoint signatures."""
 
     async def dependency(user=Depends(get_current_user)):
         if user["role"] not in roles:
@@ -48,4 +48,4 @@ async def require_role(*roles: str):
             )
         return user
 
-    return dependency
+    return Depends(dependency)

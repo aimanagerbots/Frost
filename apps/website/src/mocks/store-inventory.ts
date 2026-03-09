@@ -1,5 +1,7 @@
 import { getAllProducts } from "./products";
 import { getAllDispensaries } from "./dispensaries";
+import { haversineDistance } from "@/lib/map-config";
+import type { ProductAvailability } from "@/types";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -180,6 +182,55 @@ export function getStoresCarryingProduct(
         stockStatus: item.stockStatus,
       });
     }
+  }
+
+  return results;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Product availability with full store details + distance            */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Returns all stores carrying a given product with store details,
+ * pricing, stock status, and optional distance from user.
+ */
+export function getProductAvailability(
+  productSlug: string,
+  userLat?: number,
+  userLng?: number,
+): ProductAvailability[] {
+  const allDispensaries = getAllDispensaries();
+  const results: ProductAvailability[] = [];
+
+  for (const dispensary of allDispensaries) {
+    const inventory = getStoreInventory(dispensary.id);
+    const item = inventory.find((i) => i.productSlug === productSlug);
+    if (item) {
+      results.push({
+        dispensaryId: dispensary.id,
+        storeName: dispensary.name,
+        storeSlug: dispensary.slug,
+        distance:
+          userLat !== undefined && userLng !== undefined
+            ? haversineDistance(
+                userLat,
+                userLng,
+                dispensary.address.lat,
+                dispensary.address.lng,
+              )
+            : undefined,
+        price: item.price,
+        stockStatus: item.stockStatus,
+      });
+    }
+  }
+
+  // Sort by distance if available, then by price
+  if (userLat !== undefined && userLng !== undefined) {
+    results.sort((a, b) => (a.distance ?? Infinity) - (b.distance ?? Infinity));
+  } else {
+    results.sort((a, b) => a.price - b.price);
   }
 
   return results;

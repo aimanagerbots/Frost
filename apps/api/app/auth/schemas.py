@@ -49,3 +49,20 @@ class SessionResponse(BaseModel):
     access_token: str
     refresh_token: str
     expires_at: Optional[int] = None
+
+
+class UserCreateRequest(BaseModel):
+    email: str
+    password: str
+    full_name: str
+    role: str = "viewer"
+    department: Optional[str] = None
+    title: Optional[str] = None
+
+
+class UserUpdateRequest(BaseModel):
+    full_name: Optional[str] = None
+    role: Optional[str] = None
+    department: Optional[str] = None
+    title: Optional[str] = None
+    is_active: Optional[bool] = None

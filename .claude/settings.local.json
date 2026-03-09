@@ -34,7 +34,13 @@
       "Bash(xargs grep -l \"const.*ACCENT.*=.*''#\")",
       "Bash(xargs sed -i \"s/const \\\\\\(.*ACCENT.*\\\\\\) = ''#[0-9A-Fa-f]\\\\{6\\\\}''/const \\\\1 = ''#5BB8E6''/g\")",
       "Bash(ls -la /c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\\\\\(site\\\\\\)/strains/)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001)",
+      "Bash(ls \"c:/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\(site\\)/\")",
+      "Bash(ls -la /c/Users/quinn/OneDrive/Documents/Frost/apps/app/src/app/\\\\\\(modules\\\\\\)/)",
+      "Bash(xargs wc -l)",
+      "Bash(head -40 /c/Users/quinn/OneDrive/Documents/Frost/apps/app/src/app/\\\\\\(modules\\\\\\)/dashboard/page.tsx)",
+      "Bash(grep -E \"\\\\.ts$\")",
+      "Bash(git add -A)"
     ]
   }
 }

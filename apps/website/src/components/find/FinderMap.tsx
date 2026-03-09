@@ -1,11 +1,12 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useMemo } from 'react';
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import {
   Map,
   Source,
   Layer,
   Marker,
+  Popup,
   NavigationControl,
 } from 'react-map-gl/maplibre';
 import type { MapRef } from 'react-map-gl/maplibre';
@@ -17,20 +18,32 @@ import type { MapLayerMouseEvent } from 'react-map-gl/maplibre';
 
 /* ---------- types ---------- */
 
-interface Dispensary {
+interface MapDispensary {
   id: string;
   lat: number;
   lng: number;
   name: string;
   slug: string;
+  address?: {
+    street?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+  };
+  hours?: string;
+  phone?: string;
+  featuredDeal?: string;
+  distance?: number;
+  categoriesCarried?: string[];
 }
 
 interface FinderMapProps {
-  dispensaries: Dispensary[];
+  dispensaries: MapDispensary[];
   selectedId: string | null;
   hoveredId: string | null;
   onPinClick: (id: string) => void;
   onPinHover: (id: string | null) => void;
+  onNavigate: (slug: string) => void;
   flyTo?: { lat: number; lng: number; zoom?: number } | null;
 }
 
@@ -119,9 +132,11 @@ export default function FinderMap({
   hoveredId,
   onPinClick,
   onPinHover,
+  onNavigate,
   flyTo,
 }: FinderMapProps) {
   const mapRef = useRef<MapRef>(null);
+  const [popupStore, setPopupStore] = useState<MapDispensary | null>(null);
 
   /* fly to location when flyTo changes */
   useEffect(() => {
@@ -189,7 +204,7 @@ export default function FinderMap({
     [],
   );
 
-  /* unclustered point layer (base dots, hidden when selected/hovered by Marker overlay) */
+  /* unclustered point layer */
   const unclusteredPointLayer: LayerProps = {
     id: 'unclustered-point',
     type: 'circle',
@@ -204,7 +219,7 @@ export default function FinderMap({
     },
   };
 
-  /* handle click on unclustered point */
+  /* handle click on unclustered point — show popup */
   const handlePointClick = useCallback(
     (e: MapLayerMouseEvent) => {
       const map = mapRef.current;
@@ -216,10 +231,16 @@ export default function FinderMap({
 
       if (features.length > 0) {
         const id = features[0].properties?.id;
-        if (id) onPinClick(id);
+        if (id) {
+          const store = dispensaries.find((d) => d.id === id);
+          if (store) {
+            setPopupStore(store);
+            onPinClick(id);
+          }
+        }
       }
     },
-    [onPinClick],
+    [onPinClick, dispensaries],
   );
 
   /* handle hover on unclustered point */
@@ -244,6 +265,23 @@ export default function FinderMap({
     [onPinHover],
   );
 
+  /* click on empty map area → close popup */
+  const handleMapClick = useCallback(
+    (e: MapLayerMouseEvent) => {
+      const map = mapRef.current;
+      if (!map) return;
+
+      const features = map.queryRenderedFeatures(e.point, {
+        layers: ['clusters', 'unclustered-point'],
+      });
+
+      if (features.length === 0) {
+        setPopupStore(null);
+      }
+    },
+    [],
+  );
+
   /* find selected/hovered dispensary for Marker overlay */
   const selectedDispensary = dispensaries.find((d) => d.id === selectedId);
   const hoveredDispensary =
@@ -252,7 +290,7 @@ export default function FinderMap({
       : null;
 
   return (
-    <div className="relative w-full h-full rounded-xl overflow-hidden border border-[rgba(91,184,230,0.15)] shadow-[0_0_30px_rgba(91,184,230,0.08)]">
+    <div className="w-full h-full">
       <Map
         ref={mapRef}
         initialViewState={MAP_CONFIG.initialViewState}
@@ -263,6 +301,7 @@ export default function FinderMap({
           [MAP_CONFIG.WA_BOUNDS.east + 1, MAP_CONFIG.WA_BOUNDS.north + 0.5],
         ]}
         onClick={(e) => {
+          handleMapClick(e);
           handleClusterClick(e);
           handlePointClick(e);
         }}
@@ -292,6 +331,8 @@ export default function FinderMap({
             anchor="bottom"
             onClick={(e) => {
               e.originalEvent.stopPropagation();
+              const store = dispensaries.find((d) => d.id === selectedDispensary.id);
+              if (store) setPopupStore(store);
               onPinClick(selectedDispensary.id);
             }}
           >
@@ -307,11 +348,124 @@ export default function FinderMap({
             anchor="bottom"
             onClick={(e) => {
               e.originalEvent.stopPropagation();
+              const store = dispensaries.find((d) => d.id === hoveredDispensary.id);
+              if (store) setPopupStore(store);
               onPinClick(hoveredDispensary.id);
             }}
           >
             <PinSvg color={MAP_CONFIG.HOVERED_COLOR} size={28} glow={true} />
           </Marker>
+        )}
+
+        {/* ═══ POPUP BADGE ═══ */}
+        {popupStore && (
+          <Popup
+            latitude={popupStore.lat}
+            longitude={popupStore.lng}
+            anchor="bottom"
+            offset={[0, -40] as [number, number]}
+            closeButton={false}
+            closeOnClick={false}
+            className="frost-map-popup"
+          >
+            <div className="bg-[#0A0A12] border border-white/[0.12] rounded-2xl p-4 min-w-[260px] max-w-[300px] shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+              {/* Close button */}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setPopupStore(null);
+                }}
+                className="absolute top-2.5 right-2.5 w-6 h-6 flex items-center justify-center rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white/40 hover:text-white/70 transition-all"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+              </button>
+
+              {/* Store name */}
+              <h3 className="text-sm font-semibold text-white/90 pr-6 leading-tight">
+                {popupStore.name}
+              </h3>
+
+              {/* Address */}
+              {popupStore.address && (
+                <p className="text-xs text-white/35 mt-1.5 leading-relaxed">
+                  {popupStore.address.street && <span className="block">{popupStore.address.street}</span>}
+                  {[popupStore.address.city, popupStore.address.state].filter(Boolean).join(', ')}
+                  {popupStore.address.zip ? ` ${popupStore.address.zip}` : ''}
+                </p>
+              )}
+
+              {/* Hours */}
+              {popupStore.hours && (
+                <div className="flex items-center gap-1.5 mt-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/25 flex-shrink-0"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                  <span className="text-[11px] text-white/30">{popupStore.hours}</span>
+                </div>
+              )}
+
+              {/* Phone */}
+              {popupStore.phone && (
+                <div className="flex items-center gap-1.5 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/25 flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                  <span className="text-[11px] text-white/30">{popupStore.phone}</span>
+                </div>
+              )}
+
+              {/* Distance badge */}
+              {popupStore.distance != null && (
+                <div className="mt-2.5">
+                  <span className="text-[11px] font-semibold text-[#5BB8E6] bg-[#5BB8E6]/10 px-2 py-0.5 rounded-md">
+                    {popupStore.distance < 10
+                      ? popupStore.distance.toFixed(1)
+                      : Math.round(popupStore.distance)}{' '}
+                    mi away
+                  </span>
+                </div>
+              )}
+
+              {/* Featured deal */}
+              {popupStore.featuredDeal && (
+                <div className="mt-2.5 bg-emerald-500/8 border border-emerald-500/15 rounded-lg px-2.5 py-1.5 flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400 flex-shrink-0"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5" /><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 002-2v-6l-3.4-6.9A2 2 0 0016.8 4H7.2a2 2 0 00-1.8 1.1z" /></svg>
+                  <span className="text-[11px] text-emerald-400/80">{popupStore.featuredDeal}</span>
+                </div>
+              )}
+
+              {/* Action buttons */}
+              <div className="flex gap-2 mt-3">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const addr = [popupStore.address?.street, popupStore.address?.city, popupStore.address?.state, popupStore.address?.zip]
+                      .filter(Boolean)
+                      .join(', ');
+                    window.open(
+                      `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addr)}`,
+                      '_blank',
+                      'noopener',
+                    );
+                  }}
+                  className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-white/[0.05] border border-white/[0.08] text-xs text-white/50 hover:text-white/80 hover:bg-white/[0.08] transition-all"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11" /></svg>
+                  Directions
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setPopupStore(null);
+                    onNavigate(popupStore.slug);
+                  }}
+                  className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-[#5BB8E6]/15 border border-[#5BB8E6]/25 text-xs font-medium text-[#5BB8E6] hover:bg-[#5BB8E6]/25 transition-all"
+                >
+                  View Store
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                </button>
+              </div>
+            </div>
+          </Popup>
         )}
       </Map>
     </div>

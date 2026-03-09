@@ -199,10 +199,10 @@ export default async function StrainDetailPage({
             Available at licensed retailers across Washington State.
           </p>
           <Link
-            href="/find"
+            href="/order"
             className="inline-flex items-center justify-center border border-text-on-dark text-text-on-dark rounded-full px-8 py-3 text-sm uppercase tracking-widest font-sans font-medium transition-colors duration-200 hover:bg-text-on-dark/10"
           >
-            Find a Retailer
+            Order Now
           </Link>
         </div>
       </section>

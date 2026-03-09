@@ -254,22 +254,22 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ── 8. Find Near You ── */}
+      {/* ── 8. Order ── */}
       <section className="section-pad-lg bg-accent-primary">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <MapPin className="mx-auto mb-6 h-10 w-10 text-text-on-dark opacity-60" />
           <h2 className="mb-6 font-display text-[48px] text-text-on-dark">
-            Find Frost Near You
+            Order Frost
           </h2>
           <p className="mx-auto mb-10 max-w-xl text-lg text-text-on-dark/80">
             We partner with select dispensaries across Washington State. Find the
-            closest location carrying Frost products and stop by today.
+            closest location carrying Frost products and order today.
           </p>
           <Link
-            href="/find"
+            href="/order"
             className="inline-block rounded-full border-2 border-text-on-dark px-8 py-3 font-medium text-text-on-dark transition-colors hover:bg-text-on-dark/10"
           >
-            Find a Store
+            Order Now
           </Link>
         </div>
       </section>

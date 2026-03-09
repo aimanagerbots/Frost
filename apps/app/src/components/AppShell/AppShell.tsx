@@ -1,15 +1,30 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
 import { CommandPalette } from '../CommandPalette';
 import { useAuthStore } from '@/modules/auth/store';
+import { usePermissions } from '@/modules/auth/hooks/usePermissions';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const pathname = usePathname();
   const { isDemoMode, logout } = useAuthStore();
+  const { canAccess, isLoading: permissionsLoading } = usePermissions();
+
+  // Route protection: redirect to dashboard if user lacks permission
+  useEffect(() => {
+    if (permissionsLoading || isDemoMode) return;
+
+    // Extract module slug from pathname (e.g. '/crm/accounts' → 'crm')
+    const slug = pathname.split('/').filter(Boolean)[0];
+    if (slug && !canAccess(slug)) {
+      router.replace('/dashboard');
+    }
+  }, [pathname, canAccess, permissionsLoading, isDemoMode, router]);
 
   function handleExitDemo() {
     logout();

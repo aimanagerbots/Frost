@@ -23,11 +23,11 @@ export function Header() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 border-b border-border-default"
+        className="fixed top-0 left-0 right-0 z-50 border-none"
         style={{ backgroundColor: '#000000' }}
       >
         {/* Desktop header */}
-        <div className="relative hidden lg:flex items-center justify-center py-2 px-6">
+        <div className="relative hidden lg:flex items-center justify-center py-8 px-6">
           {/* Logo — far left */}
           <Link
             href="/home"
@@ -47,10 +47,10 @@ export function Header() {
 
           {/* CTA — far right, animated glow */}
           <Link
-            href="/find"
+            href="/order"
             className="absolute right-6 top-1/2 -translate-y-1/2 shrink-0 whitespace-nowrap rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.06em] cta-glow transition-all duration-200"
           >
-            Find Near You
+            Order
           </Link>
         </div>
 
