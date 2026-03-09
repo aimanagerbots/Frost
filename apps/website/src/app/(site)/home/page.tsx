@@ -87,7 +87,7 @@ export default function HomePage() {
         {/* Mobile hero (9:16) — shown below 640px */}
         <div className="relative block sm:hidden aspect-[9/16]">
           <Image
-            src="/Frost-website-hero-mobile.png"
+            src="/Frost-hero-mobile.png"
             alt="Frosty Nugs"
             fill
             className="object-cover object-center"
@@ -98,7 +98,7 @@ export default function HomePage() {
         {/* Desktop hero (16:9) — shown at 640px+ */}
         <div className="relative hidden sm:block sm:aspect-[2/1] lg:aspect-auto lg:h-[calc(100vh-56px)]">
           <Image
-            src="/Frost-website-hero.png"
+            src="/Frost-hero-desktop.png"
             alt="Frosty Nugs"
             fill
             className="object-cover object-top"
