@@ -3,9 +3,9 @@
 .dark {
   /* Backgrounds — pure black base, near-black surfaces */
   --bg-base: #000000;
-  --bg-card: #0A0A0F;
-  --bg-card-hover: #111118;
-  --bg-elevated: #161620;
+  --bg-card: #0F1015;
+  --bg-card-hover: #161620;
+  --bg-elevated: #1A1B24;
 
   /* Borders — white at low opacity */
   --border-default: rgba(255, 255, 255, 0.1);
@@ -35,8 +35,8 @@
   --strain-cbd: #5BB8E6;
 
   /* Text — white at varying opacities */
-  --text-default: rgba(255, 255, 255, 0.9);
-  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-default: #FFFFFF;
+  --text-muted: rgba(255, 255, 255, 0.55);
   --text-bright: #FFFFFF;
 
   /* Status */
