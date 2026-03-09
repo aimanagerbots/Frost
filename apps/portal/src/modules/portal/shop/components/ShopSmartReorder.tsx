@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import { Clock, Plus, ShoppingCart, Sparkles } from 'lucide-react';
+import { Clock, Plus, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import {
   usePortalAuth,

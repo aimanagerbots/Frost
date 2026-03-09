@@ -1,7 +1,6 @@
 'use client';
 
 import { Users, UserPlus, Shield, ShieldOff } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import type { PortalAccount } from '@/modules/portal/shared/types';
 
 interface AccountContactsProps {

@@ -7,7 +7,6 @@ import {
   Trash2,
   Upload,
   Save,
-  ShoppingCart,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePortalAuth, usePortalCart, usePortalProducts } from '@/modules/portal/shared/hooks';
@@ -40,7 +39,9 @@ export function ShopTemplates({
   const { data: products = [] } = usePortalProducts(currentAccount?.id);
   const [isOpen, setIsOpen] = useState(false);
 
-  const templates = currentAccount?.savedTemplates ?? [];
+  const templates = (currentAccount?.savedTemplates ?? []).filter(
+    (t) => !deletedIds.has(t.id)
+  );
   const hasCartItems = items.length > 0;
 
   function handleLoadTemplate(template: PortalOrderTemplate) {
@@ -48,17 +49,10 @@ export function ShopTemplates({
     setIsOpen(false);
   }
 
+  const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
+
   function handleDeleteTemplate(templateId: string) {
-    // In a real app this would call an API — for now we filter locally
-    // The template removal would be persisted through account update
-    if (!currentAccount) return;
-    const updated = currentAccount.savedTemplates.filter(
-      (t) => t.id !== templateId
-    );
-    // Mutate in place for mock — in production this would be an API call
-    currentAccount.savedTemplates = updated;
-    // Force re-render
-    setIsOpen((prev) => prev);
+    setDeletedIds((prev) => new Set([...prev, templateId]));
   }
 
   return (

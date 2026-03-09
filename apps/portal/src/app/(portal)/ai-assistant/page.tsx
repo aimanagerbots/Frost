@@ -3,7 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { Sparkles } from 'lucide-react';
 import { PortalPageHeader } from '@/modules/portal/shared/components';
-import { usePortalAuth, usePortalCart, usePortalProducts, usePortalPromotions } from '@/modules/portal/shared/hooks';
+import { usePortalAuth, usePortalCart, usePortalProducts } from '@/modules/portal/shared/hooks';
 import { getAIConversationsForAccount } from '@/modules/portal/shared/mock-data';
 import type { PortalAIConversation, PortalAIMessage, PortalProduct } from '@/modules/portal/shared/types';
 import {

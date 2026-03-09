@@ -61,7 +61,7 @@ function FilterCheckbox({
   onChange: () => void;
 }) {
   return (
-    <label className="flex cursor-pointer items-center gap-2.5 py-1">
+    <label className="flex cursor-pointer items-center gap-2.5 py-1" onClick={onChange}>
       <div
         className={cn(
           'flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors',

@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { Package } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { usePortalAuth, usePortalOrders } from '@/modules/portal/shared/hooks';
 import { PortalCard, PortalStatusBadge } from '@/modules/portal/shared/components';
 

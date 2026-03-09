@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { X, Minus, Plus, ShoppingCart, Package } from 'lucide-react';
+import { X, Minus, Plus, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { PortalProduct } from '@/modules/portal/shared/types';
 
@@ -48,12 +48,15 @@ export function ShopProductDetail({
   onAddToCart,
   allProducts = [],
 }: ShopProductDetailProps) {
+  const productId = product?.id;
   const [quantity, setQuantity] = useState(1);
+  const [prevProductId, setPrevProductId] = useState(productId);
 
-  // Reset quantity when product changes
-  useEffect(() => {
+  // Reset quantity when product changes (no effect needed)
+  if (productId !== prevProductId) {
+    setPrevProductId(productId);
     setQuantity(1);
-  }, [product?.id]);
+  }
 
   // Lock body scroll when open
   useEffect(() => {

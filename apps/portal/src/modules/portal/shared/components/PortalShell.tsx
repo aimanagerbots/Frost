@@ -25,7 +25,6 @@ import { cn } from '@/lib/utils';
 import {
   usePortalAuth,
   usePortalCart,
-  usePortalNotifications,
   usePortalStoreOrders,
 } from '../hooks';
 import { NotificationDropdown } from './NotificationDropdown';

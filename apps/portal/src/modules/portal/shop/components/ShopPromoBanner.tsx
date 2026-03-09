@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { X, Clock, Tag } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePortalPromotions } from '@/modules/portal/shared/hooks';
@@ -36,25 +36,25 @@ const ACCENT_GRADIENTS = [
 export function ShopPromoBanner() {
   const { data: promotions } = usePortalPromotions();
   const [dismissed, setDismissed] = useState<Set<string>>(new Set());
-  const [countdowns, setCountdowns] = useState<Record<string, TimeLeft>>({});
 
   const activePromos = (promotions ?? [])
     .filter((p) => p.isActive && !dismissed.has(p.id))
     .slice(0, 2);
 
-  const updateCountdowns = useCallback(() => {
+  // Re-compute countdowns every minute
+  const [, setTick] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => setTick((t) => t + 1), 60_000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const countdowns = useMemo(() => {
     const next: Record<string, TimeLeft> = {};
     for (const promo of activePromos) {
       next[promo.id] = getTimeLeft(promo.endDate);
     }
-    setCountdowns(next);
+    return next;
   }, [activePromos]);
-
-  useEffect(() => {
-    updateCountdowns();
-    const interval = setInterval(updateCountdowns, 60_000);
-    return () => clearInterval(interval);
-  }, [updateCountdowns]);
 
   const handleDismiss = (id: string) => {
     setDismissed((prev) => new Set([...prev, id]));

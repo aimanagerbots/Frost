@@ -1,7 +1,6 @@
 'use client';
 
 import { DollarSign, CreditCard, Package, CalendarDays } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { usePortalAuth, usePortalOrders } from '@/modules/portal/shared/hooks';
 import { PortalCard } from '@/modules/portal/shared/components';
 

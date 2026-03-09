@@ -36,12 +36,18 @@ export function ShopSaveTemplateModal({
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Focus input when modal opens
+  // Reset state and focus when modal opens
+  const [prevOpen, setPrevOpen] = useState(isOpen);
+  if (isOpen && !prevOpen) {
+    setName('');
+    setError(null);
+  }
+  if (isOpen !== prevOpen) {
+    setPrevOpen(isOpen);
+  }
+
   useEffect(() => {
     if (isOpen) {
-      setName('');
-      setError(null);
-      // Small delay to ensure DOM is ready
       const timer = setTimeout(() => inputRef.current?.focus(), 50);
       return () => clearTimeout(timer);
     }

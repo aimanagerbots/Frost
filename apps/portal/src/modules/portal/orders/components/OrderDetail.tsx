@@ -1,7 +1,6 @@
 'use client';
 
 import { ArrowLeft, Calendar, Hash } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import type { PortalOrder } from '@/modules/portal/shared/types';
 import type { PipelineExtension } from '@/modules/portal/shared/mock-data';
 import { PortalStatusBadge } from '@/modules/portal/shared/components/PortalStatusBadge';

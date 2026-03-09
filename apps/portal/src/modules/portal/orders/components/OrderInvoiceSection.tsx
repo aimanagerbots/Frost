@@ -1,7 +1,6 @@
 'use client';
 
 import { FileText, CheckCircle, AlertTriangle, Clock, CreditCard } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import type { PortalOrder } from '@/modules/portal/shared/types';
 
 interface OrderInvoiceSectionProps {

@@ -13,7 +13,6 @@ import {
   ShoppingBag,
   Box,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { usePortalNotifications } from '@/modules/portal/shared/hooks';
 import { PortalCard } from '@/modules/portal/shared/components';
 import type { PortalNotification } from '@/modules/portal/shared/types';

@@ -47,7 +47,7 @@ function formatStatus(status: StoreOrder['status']): string {
 
 export function DashboardStoreOrders() {
   const { currentAccount } = usePortalAuth();
-  const { storeOrders, activeOrders } = usePortalStoreOrders();
+  const { activeOrders } = usePortalStoreOrders();
 
   if (!currentAccount) return null;
 
