@@ -40,7 +40,11 @@
       "Bash(xargs wc -l)",
       "Bash(head -40 /c/Users/quinn/OneDrive/Documents/Frost/apps/app/src/app/\\\\\\(modules\\\\\\)/dashboard/page.tsx)",
       "Bash(grep -E \"\\\\.ts$\")",
-      "Bash(git add -A)"
+      "Bash(git add -A)",
+      "Bash(npx next lint --dir apps/app/src)",
+      "Bash(ls \"c:/Users/quinn/OneDrive/Documents/Frost/session-transfer\"*)",
+      "Read(//c/Users/quinn/.claude/projects/c--Users-quinn-OneDrive-Documents-Frost/memory/**)",
+      "Bash(ls \"c:/Users/quinn/OneDrive/Documents/Frost/Frost-Vault/\"**/session-transfer*)"
     ]
   }
 }

@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 import { useState, useRef, useEffect } from 'react';
 import {
   Bell,
-  X,
   Package,
   Truck,
   CreditCard,
@@ -30,10 +29,6 @@ const ICON_MAP: Record<string, React.ElementType> = {
   store: Store,
   bell: Bell,
 };
-
-function getIcon(iconName: string): React.ElementType {
-  return ICON_MAP[iconName] ?? Bell;
-}
 
 // ─── Relative Time ─────────────────────────────────────────────
 
@@ -134,6 +129,11 @@ export function NotificationDropdown() {
 
 // ─── Notification Item ─────────────────────────────────────────
 
+function NotificationIcon({ name }: { name: string }) {
+  const Icon = ICON_MAP[name] ?? Bell;
+  return <Icon size={14} />;
+}
+
 function NotificationItem({
   notification,
   onRead,
@@ -141,7 +141,6 @@ function NotificationItem({
   notification: PortalNotification;
   onRead: (id: string) => void;
 }) {
-  const Icon = getIcon(notification.icon);
   const isUrgent = notification.severity === 'urgent';
   const isWarning = notification.severity === 'warning';
 
@@ -165,7 +164,7 @@ function NotificationItem({
               : 'bg-gray-100 text-gray-500'
         )}
       >
-        <Icon size={14} />
+        <NotificationIcon name={notification.icon} />
       </div>
 
       {/* Content */}

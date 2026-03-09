@@ -42,7 +42,7 @@ export function PortalCartDrawer({
   isOpen: boolean;
   onClose: () => void;
 }) {
-  const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice, totalDiscount, saveAsTemplate } =
+  const { items, removeItem, updateQuantity, totalItems, totalPrice, totalDiscount, saveAsTemplate } =
     usePortalCart();
   const [templateName, setTemplateName] = useState('');
   const [showTemplateSave, setShowTemplateSave] = useState(false);

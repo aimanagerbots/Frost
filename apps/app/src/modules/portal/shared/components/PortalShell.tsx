@@ -14,7 +14,6 @@ import {
   User,
   CreditCard,
   Headphones,
-  Bell,
   Menu,
   X,
   ChevronDown,
@@ -64,7 +63,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { currentAccount, logout, switchAccount } = usePortalAuth();
   const cart = usePortalCart();
-  const { unreadCount } = usePortalNotifications();
+  usePortalNotifications();
   const storeOrders = usePortalStoreOrders();
 
   const [sidebarOpen, setSidebarOpen] = useState(false);

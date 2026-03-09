@@ -1,6 +1,6 @@
 'use client';
 
-import { Package, Truck, CreditCard, MessageSquare, Store, TrendingUp, ShoppingCart, AlertTriangle } from 'lucide-react';
+import { Package, CreditCard, MessageSquare, Store, TrendingUp, ShoppingCart, AlertTriangle } from 'lucide-react';
 import { usePortalAuth, usePortalOrders, usePortalStoreOrders } from '@/modules/portal/shared/hooks';
 import { PortalPageHeader } from '@/modules/portal/shared/components/PortalPageHeader';
 import { PortalCard } from '@/modules/portal/shared/components/PortalCard';

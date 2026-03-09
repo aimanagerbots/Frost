@@ -1,4 +1,4 @@
-import type { PortalMessage, PortalMessageThread } from '../types';
+import type { PortalMessageThread } from '../types';
 
 const GREENFIELD_THREAD: PortalMessageThread = {
   id: 'thread-1',
