@@ -35,7 +35,7 @@ export function SectionHeader({
     >
       <div className="flex items-center gap-2">
         <Icon className="h-4 w-4" style={{ color: accentColor }} />
-        <h1 className="text-sm font-medium text-text-bright">{title}</h1>
+        <h1 className="text-sm font-semibold text-text-bright">{title}</h1>
       </div>
       {actions && (
         <div className="flex items-center gap-2">{actions}</div>

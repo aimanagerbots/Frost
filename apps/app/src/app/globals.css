@@ -215,7 +215,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-base text-text-default font-normal;
+    @apply bg-base text-text-default font-medium;
     font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
   }
   /* Global Frost blue hover for all interactive elements.
