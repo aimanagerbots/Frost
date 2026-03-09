@@ -1,11 +1,11 @@
 /* Dark theme (default) */
 :root,
 .dark {
-  /* Backgrounds — pure black everything */
-  --bg-base: #000000;
-  --bg-card: #000000;
-  --bg-card-hover: #000000;
-  --bg-elevated: #000000;
+  /* Backgrounds — near-black base, dark gray surfaces */
+  --bg-base: #0a0a0a;
+  --bg-card: #2d2d2d;
+  --bg-card-hover: #333333;
+  --bg-elevated: #2d2d2d;
 
   /* Borders */
   --border-default: rgba(255, 255, 255, 0.1);

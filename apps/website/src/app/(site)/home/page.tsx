@@ -83,15 +83,29 @@ export default function HomePage() {
   return (
     <div>
       {/* ── 1. Hero ── */}
-      <section className="relative flex items-center justify-center overflow-hidden aspect-[3/4] sm:aspect-[16/10] lg:aspect-auto lg:h-[calc(100vh-56px)]">
-        <Image
-          src="/Frost-website-hero.png"
-          alt="Frosty Nugs"
-          fill
-          className="object-cover object-[center_20%] sm:object-top"
-          priority
-          sizes="100vw"
-        />
+      <section className="relative overflow-hidden bg-black">
+        {/* Mobile hero (9:16) — shown below 640px */}
+        <div className="block sm:hidden aspect-[9/16]">
+          <Image
+            src="/Frost-website-hero-mobile.png"
+            alt="Frosty Nugs"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
+        {/* Desktop hero (16:9) — shown at 640px+ */}
+        <div className="hidden sm:block sm:aspect-[2/1] lg:aspect-auto lg:h-[calc(100vh-56px)]">
+          <Image
+            src="/Frost-website-hero.png"
+            alt="Frosty Nugs"
+            fill
+            className="object-cover object-top"
+            priority
+            sizes="100vw"
+          />
+        </div>
       </section>
 
       {/* ── 2. Shop by Category ── */}

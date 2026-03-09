@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
 interface TeamChatViewStore {
-  activeTab: 'ai' | 'team';
-  setActiveTab: (tab: 'ai' | 'team') => void;
+  activeTab: 'dm' | 'room' | 'ai';
+  setActiveTab: (tab: 'dm' | 'room' | 'ai') => void;
 
   activeView: { type: 'channel' | 'dm'; id: string };
   setActiveView: (view: { type: 'channel' | 'dm'; id: string }) => void;
@@ -15,7 +15,7 @@ interface TeamChatViewStore {
 }
 
 export const useTeamChatStore = create<TeamChatViewStore>((set) => ({
-  activeTab: 'ai',
+  activeTab: 'dm',
   setActiveTab: (tab) => set({ activeTab: tab }),
 
   activeView: { type: 'channel', id: 'ch-general' },

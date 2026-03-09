@@ -2,6 +2,7 @@
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { cn } from '@frost/ui';
 import {
@@ -9,6 +10,19 @@ import {
   type MegaMenuCategoryItem,
   type MegaMenuColumn,
 } from '@/lib/constants';
+
+/** Map nav labels to the path prefixes they represent */
+const NAV_PATH_MAP: Record<string, string> = {
+  Flower: '/products/flower',
+  'Pre-Rolls': '/products/preroll',
+  Vaporizers: '/products/vaporizer',
+  Concentrates: '/products/concentrate',
+  Edibles: '/products/edible',
+  Drinks: '/products/beverage',
+  'Strain Library': '/strains',
+  Blog: '/blog',
+  Resources: '/faq',
+};
 
 interface MegaMenuProps {
   isScrolled: boolean;
@@ -109,16 +123,47 @@ function PanelWrapper({
 }
 
 export function MegaMenu({ isScrolled }: MegaMenuProps) {
-  const triggerClass = cn(
-    'group inline-flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[11px] font-semibold uppercase tracking-[0.04em] transition-colors duration-200 outline-none',
-    'data-[state=open]:text-accent-primary',
-    'text-text-default hover:text-accent-primary'
-  );
+  const pathname = usePathname();
 
-  const linkClass = cn(
-    'whitespace-nowrap rounded-md px-2 py-2 text-[11px] font-semibold uppercase tracking-[0.04em] transition-colors duration-200 outline-none',
-    'text-text-default hover:text-accent-primary'
-  );
+  /** Check if a nav item is active based on current pathname */
+  function isActive(label: string): boolean {
+    const prefix = NAV_PATH_MAP[label];
+    if (!prefix) return false;
+    // Resources matches multiple paths
+    if (label === 'Resources') {
+      return ['/faq', '/newsletter', '/contact', '/wholesale'].some((p) =>
+        pathname.startsWith(p)
+      );
+    }
+    return pathname.startsWith(prefix);
+  }
+
+  const baseTrigger =
+    'group inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.04em] transition-all duration-200 outline-none';
+
+  const baseLink =
+    'whitespace-nowrap rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.04em] transition-all duration-200 outline-none';
+
+  function triggerClass(label: string) {
+    const active = isActive(label);
+    return cn(
+      baseTrigger,
+      active
+        ? 'bg-accent-primary/20 text-accent-primary'
+        : 'text-text-default hover:text-accent-primary',
+      'data-[state=open]:text-accent-primary'
+    );
+  }
+
+  function linkClassFor(label: string) {
+    const active = isActive(label);
+    return cn(
+      baseLink,
+      active
+        ? 'bg-accent-primary/20 text-accent-primary'
+        : 'text-text-default hover:text-accent-primary'
+    );
+  }
 
   // Split items: categories (left of logo), other nav (right of logo), CTAs (far right)
   const leftItems = MEGA_MENU.filter((item) => item.type === 'category');
@@ -133,7 +178,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
     if (item.type === 'category') {
       return (
         <NavigationMenu.Item key={item.label} className="relative">
-          <NavigationMenu.Trigger className={triggerClass}>
+          <NavigationMenu.Trigger className={triggerClass(item.label)}>
             {item.label}
             <ChevronDown
               className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180"
@@ -156,7 +201,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
             : 'w-[480px]';
       return (
         <NavigationMenu.Item key={item.label} className="relative">
-          <NavigationMenu.Trigger className={triggerClass}>
+          <NavigationMenu.Trigger className={triggerClass(item.label)}>
             {item.label}
             <ChevronDown
               className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180"
@@ -174,7 +219,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
       return (
         <NavigationMenu.Item key={item.label}>
           <NavigationMenu.Link asChild>
-            <Link href={item.href} className={linkClass}>
+            <Link href={item.href} className={linkClassFor(item.label)}>
               {item.label}
             </Link>
           </NavigationMenu.Link>

@@ -45,10 +45,10 @@ export function Header() {
           {/* Nav — centered on viewport */}
           <MegaMenu isScrolled={isScrolled} />
 
-          {/* CTA — far right */}
+          {/* CTA — far right, animated glow */}
           <Link
             href="/find"
-            className="absolute right-6 top-1/2 -translate-y-1/2 shrink-0 whitespace-nowrap rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.04em] transition-colors duration-200 bg-accent-primary text-text-on-dark hover:bg-accent-primary-hover"
+            className="absolute right-6 top-1/2 -translate-y-1/2 shrink-0 whitespace-nowrap rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.06em] cta-glow transition-all duration-200"
           >
             Find Near You
           </Link>

@@ -1,15 +1,16 @@
 'use client';
 
-import { Bot, Users } from 'lucide-react';
+import { Bot, Hash, MessageCircle } from 'lucide-react';
 import { useTeamChatStore } from '@/modules/chat/store';
 import { ChatPage as AIChatPage } from './ChatPage';
-import { TeamChatPage } from './TeamChatPage';
+import { DirectMessagesPage } from './DirectMessagesPage';
+import { ChatRoomPage } from './ChatRoomPage';
 import { ACCENT } from '@/design/colors';
 
-
 const TABS = [
+  { id: 'dm' as const, label: 'Direct Messages', Icon: MessageCircle },
+  { id: 'room' as const, label: 'Chat Rooms', Icon: Hash },
   { id: 'ai' as const, label: 'AI Chat', Icon: Bot },
-  { id: 'team' as const, label: 'Team Chat', Icon: Users },
 ];
 
 function TabBar() {
@@ -55,7 +56,7 @@ export function ChatPage() {
   return (
     <div className="flex h-[calc(100vh-7rem)] min-h-[500px] flex-col rounded-xl border border-default bg-card overflow-hidden">
       <TabBar />
-      <TeamChatPage />
+      {activeTab === 'dm' ? <DirectMessagesPage /> : <ChatRoomPage />}
     </div>
   );
 }

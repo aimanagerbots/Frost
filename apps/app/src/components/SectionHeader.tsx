@@ -31,46 +31,17 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        'relative rounded-xl border border-default bg-card p-4 md:p-6',
+        'flex items-center justify-between border-b border-default px-1 py-2',
         className
       )}
     >
-      <div
-        className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
-        style={{ backgroundColor: accentColor }}
-      />
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div className="flex items-start gap-3">
-          <div
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
-            style={{ backgroundColor: `${accentColor}20` }}
-          >
-            <Icon className="h-5 w-5" style={{ color: accentColor }} />
-          </div>
-          <div>
-            <h1 className="text-xl font-semibold text-text-bright">{title}</h1>
-            {subtitle && (
-              <p className="mt-0.5 text-sm text-text-muted">{subtitle}</p>
-            )}
-            {stats && stats.length > 0 && (
-              <div className="mt-2 flex flex-wrap gap-2">
-                {stats.map((stat) => (
-                  <span
-                    key={stat.label}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-elevated px-2.5 py-0.5 text-xs"
-                  >
-                    <span className="text-text-muted">{stat.label}</span>
-                    <span className="font-medium text-text-bright">{stat.value}</span>
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-        {actions && (
-          <div className="flex shrink-0 items-center gap-2">{actions}</div>
-        )}
+      <div className="flex items-center gap-2">
+        <Icon className="h-4 w-4" style={{ color: accentColor }} />
+        <h1 className="text-sm font-medium text-text-bright">{title}</h1>
       </div>
+      {actions && (
+        <div className="flex items-center gap-2">{actions}</div>
+      )}
     </div>
   );
 }
