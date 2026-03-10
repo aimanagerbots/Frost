@@ -412,7 +412,9 @@ export function ContentCalendarPage() {
                     >
                       <span className="truncate flex-1">{item.title}</span>
                       {viewMode === 'week' && (
-                        <StatusBadge label={item.status} variant={item.status === 'published' ? 'success' : 'info'} size="sm" />
+                        (item.status === 'draft' || item.status === 'scheduled' || item.status === 'review' || item.status === 'approved')
+                          ? <StatusBadge status={item.status} size="sm" />
+                          : <StatusBadge label={item.status} variant={item.status === 'published' ? 'success' : 'info'} size="sm" />
                       )}
                       {item.performance && (
                         <span className="text-[9px] text-text-muted">{item.performance.engagementRate}%</span>

@@ -3,14 +3,6 @@
 import { DrawerPanel, StatusBadge } from '@/components';
 import type { Bill } from '@/modules/finance/types';
 
-const statusVariant = (s: string) => {
-  switch (s) {
-    case 'paid': return 'success' as const;
-    case 'pending': return 'warning' as const;
-    case 'overdue': return 'danger' as const;
-    default: return 'default' as const;
-  }
-};
 
 interface BillDrawerProps {
   bill: Bill | null;
@@ -23,7 +15,7 @@ export function BillDrawer({ bill, onClose }: BillDrawerProps) {
   return (
     <DrawerPanel open={!!bill} onClose={onClose} title={`Bill — ${bill.vendorName}`} width="md">
       <div className="space-y-6">
-        <StatusBadge variant={statusVariant(bill.status)} label={bill.status} dot />
+        <StatusBadge status={bill.status as 'paid' | 'pending' | 'overdue'} />
 
         <div className="grid grid-cols-2 gap-4">
           <Detail label="Vendor" value={bill.vendorName} />

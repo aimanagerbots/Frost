@@ -13,10 +13,12 @@ const PURPOSE_LABELS: Record<string, string> = {
   promotional: 'Promotional',
 };
 
-const STATUS_VARIANT: Record<string, 'success' | 'info' | 'danger'> = {
-  completed: 'success',
-  scheduled: 'info',
-  cancelled: 'danger',
+import type { DomainStatus } from '@/components/StatusBadge';
+
+const VD_STATUS_DOMAIN: Record<string, DomainStatus> = {
+  completed: 'complete',
+  scheduled: 'scheduled',
+  cancelled: 'cancelled',
 };
 
 interface VendorDayDrawerProps {
@@ -39,7 +41,7 @@ export function VendorDayDrawer({ vendorDay, onClose }: VendorDayDrawerProps) {
       <div className="space-y-6">
         {/* Header */}
         <div className="flex flex-wrap items-center gap-3">
-          <StatusBadge variant={STATUS_VARIANT[vendorDay.status]} label={vendorDay.status} />
+          <StatusBadge status={VD_STATUS_DOMAIN[vendorDay.status]} label={vendorDay.status} />
           <StatusBadge variant="info" label={PURPOSE_LABELS[vendorDay.purpose] || vendorDay.purpose} />
         </div>
 

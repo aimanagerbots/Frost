@@ -169,11 +169,10 @@ export function ProjectsPage() {
                 <h3 className="text-sm font-semibold text-[var(--text-text-bright)] leading-snug">
                   {project.name}
                 </h3>
-                <StatusBadge
-                  variant={STATUS_VARIANT[project.status]}
-                  label={STATUS_LABEL[project.status]}
-                  size="sm"
-                />
+                {project.status === 'active'
+                  ? <StatusBadge status="active" size="sm" />
+                  : <StatusBadge variant={STATUS_VARIANT[project.status]} label={STATUS_LABEL[project.status]} size="sm" />
+                }
               </div>
 
               {/* Description */}
@@ -250,11 +249,10 @@ export function ProjectsPage() {
           <div className="space-y-6">
             {/* Status & Lead */}
             <div className="flex flex-wrap items-center gap-3">
-              <StatusBadge
-                variant={STATUS_VARIANT[selectedProject.status]}
-                label={STATUS_LABEL[selectedProject.status]}
-                dot
-              />
+              {selectedProject.status === 'active'
+                ? <StatusBadge status="active" />
+                : <StatusBadge variant={STATUS_VARIANT[selectedProject.status]} label={STATUS_LABEL[selectedProject.status]} dot />
+              }
               <span className="text-sm text-[var(--text-text-muted)]">
                 Lead: <span className="text-[var(--text-text-default)]">{selectedProject.lead}</span>
               </span>

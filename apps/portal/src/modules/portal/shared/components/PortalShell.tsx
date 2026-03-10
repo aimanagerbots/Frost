@@ -10,11 +10,12 @@ import {
   Package,
   Store,
   Truck,
-  Sparkles,
-  Mail,
+  BarChart3,
+  Megaphone,
+  Trophy,
+  MessageCircle,
   User,
   CreditCard,
-  Headphones,
   Menu,
   X,
   ChevronDown,
@@ -32,18 +33,25 @@ import { PortalCartDrawer } from './PortalCartDrawer';
 
 // ─── Navigation ────────────────────────────────────────────────────
 
-const NAV_ITEMS = [
-  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/shop', label: 'Shop', icon: ShoppingCart },
-  { href: '/orders', label: 'My Orders', icon: Package },
-  { href: '/store-orders', label: 'Store Orders', icon: Store },
-  { href: '/deliveries', label: 'Deliveries', icon: Truck },
-  { href: '/ai-assistant', label: 'AI Assistant', icon: Sparkles },
-  { href: '/messages', label: 'Messages', icon: Mail },
-  { href: '/account', label: 'My Account', icon: User },
-  { href: '/payments', label: 'Payments', icon: CreditCard },
-  { href: '/support', label: 'Support', icon: Headphones },
-] as const;
+type NavItem =
+  | { type: 'link'; href: string; label: string; icon: typeof LayoutDashboard }
+  | { type: 'separator'; label: string };
+
+const NAV_ITEMS: NavItem[] = [
+  { type: 'link', href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { type: 'link', href: '/shop', label: 'Shop', icon: ShoppingCart },
+  { type: 'link', href: '/orders', label: 'My Orders', icon: Package },
+  { type: 'link', href: '/deliveries', label: 'Deliveries', icon: Truck },
+  { type: 'link', href: '/payments', label: 'Payments', icon: CreditCard },
+  { type: 'separator', label: 'Intelligence' },
+  { type: 'link', href: '/insights', label: 'Insights', icon: BarChart3 },
+  { type: 'link', href: '/marketing', label: 'Marketing', icon: Megaphone },
+  { type: 'link', href: '/rewards', label: 'Rewards', icon: Trophy },
+  { type: 'separator', label: 'Operations' },
+  { type: 'link', href: '/comms-hub', label: 'Comms Hub', icon: MessageCircle },
+  { type: 'link', href: '/store-ops', label: 'Store Ops', icon: Store },
+  { type: 'link', href: '/account', label: 'My Account', icon: User },
+];
 
 const SWITCHABLE_ACCOUNTS = [
   { id: 'acct-1', name: 'Greenfield Dispensary' },
@@ -55,7 +63,9 @@ const SWITCHABLE_ACCOUNTS = [
 
 function pageLabelFromPathname(pathname: string): string {
   const item = NAV_ITEMS.find(
-    (nav) => pathname === nav.href || pathname.startsWith(nav.href + '/')
+    (nav): nav is Extract<NavItem, { type: 'link' }> =>
+      nav.type === 'link' &&
+      (pathname === nav.href || pathname.startsWith(nav.href + '/'))
   );
   return item?.label ?? 'Portal';
 }
@@ -161,13 +171,24 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
-          {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
+          {NAV_ITEMS.map((item, idx) => {
+            if (item.type === 'separator') {
+              return (
+                <div key={`sep-${item.label}`} className={cn('px-3 pt-4 pb-1', idx > 0 && 'mt-1')}>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-text-muted/60">
+                    {item.label}
+                  </p>
+                </div>
+              );
+            }
+
+            const { href, label, icon: Icon } = item;
             const active = pathname === href || pathname.startsWith(href + '/');
             const showBadge =
-              (href === '/store-orders' && newOrderCount > 0) ||
-              (href === '/messages' && unreadMessages > 0);
+              (href === '/store-ops' && newOrderCount > 0) ||
+              (href === '/comms-hub' && unreadMessages > 0);
             const badgeCount =
-              href === '/store-orders' ? newOrderCount : unreadMessages;
+              href === '/store-ops' ? newOrderCount : unreadMessages;
 
             return (
               <Link

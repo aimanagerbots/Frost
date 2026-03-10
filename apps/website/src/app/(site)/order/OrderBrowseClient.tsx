@@ -7,7 +7,6 @@ import { useOrderStore } from '@/stores/order-store';
 import { AllProductsGrid } from '@/components/order/AllProductsGrid';
 import { LocationBar } from '@/components/order/LocationBar';
 import { PromoBanner } from '@/components/order/PromoBanner';
-import { CartDrawer } from '@/components/order/CartDrawer';
 import { CartBadge } from '@/components/order/CartBadge';
 import { ConciergeFAB } from '@/components/order/ConciergeFAB';
 import StoreListPanel from '@/components/find/StoreListPanel';
@@ -343,8 +342,7 @@ export function OrderBrowseClient({ products, dispensaries }: OrderBrowseClientP
         </div>
       )}
 
-      {/* ═══ CART DRAWER + BADGE + CONCIERGE ═══ */}
-      <CartDrawer />
+      {/* ═══ CART BADGE + CONCIERGE (CartDrawer is in site layout) ═══ */}
       <CartBadge />
       <ConciergeFAB />
     </div>

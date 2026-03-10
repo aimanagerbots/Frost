@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { ProductCategory } from "@frost/types";
 import { CATEGORY_FORMAT_FILTERS, EFFECT_FILTERS, PRICE_RANGE_FILTERS } from "@/lib/constants";
-import { ChevronDown, SlidersHorizontal, X } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, SlidersHorizontal, X } from "lucide-react";
 
 interface CategorySidebarProps {
   category: ProductCategory;
@@ -17,6 +17,8 @@ interface CategorySidebarProps {
   onEffectsChange: (effects: string[]) => void;
   onPriceRangeChange: (index: number | null) => void;
   onClearAll: () => void;
+  collapsed?: boolean;
+  onToggleCollapse?: () => void;
 }
 
 function FilterSection({
@@ -99,6 +101,8 @@ export function CategorySidebar({
   onEffectsChange,
   onPriceRangeChange,
   onClearAll,
+  collapsed = false,
+  onToggleCollapse,
 }: CategorySidebarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const formats = CATEGORY_FORMAT_FILTERS[category];
@@ -227,10 +231,35 @@ export function CategorySidebar({
       )}
 
       {/* Desktop sidebar */}
-      <aside className="hidden lg:block w-60 shrink-0">
-        <div className="sticky top-28 rounded-xl border border-border-default bg-card p-5">
-          <h2 className="font-display text-sm text-text-default mb-4">Filters</h2>
-          {sidebarContent}
+      <aside className={`hidden lg:block shrink-0 transition-all duration-300 ${collapsed ? "w-10" : "w-60"}`}>
+        <div className="sticky top-28">
+          {collapsed ? (
+            <button
+              type="button"
+              onClick={onToggleCollapse}
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border-default bg-card text-text-muted hover:text-text-default transition-colors"
+              aria-label="Expand filters"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          ) : (
+            <div className="rounded-xl border border-border-default bg-card p-5">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-display text-sm text-text-default">Filters</h2>
+                {onToggleCollapse && (
+                  <button
+                    type="button"
+                    onClick={onToggleCollapse}
+                    className="p-1 text-text-muted hover:text-text-default transition-colors"
+                    aria-label="Collapse filters"
+                  >
+                    <ChevronLeft className="h-3.5 w-3.5" />
+                  </button>
+                )}
+              </div>
+              {sidebarContent}
+            </div>
+          )}
         </div>
       </aside>
     </>

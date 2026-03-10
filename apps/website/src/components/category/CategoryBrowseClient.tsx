@@ -6,9 +6,10 @@ import type { CategoryMeta } from "@/lib/constants";
 import { CATEGORY_ROUTE_MAP, PRICE_RANGE_FILTERS } from "@/lib/constants";
 import { FilterBar } from "@/components/ui/FilterBar";
 import { SearchInput } from "@/components/ui/SearchInput";
-import { ProductTileCard } from "@/components/ui/ProductTileCard";
+import ProductBrowseTile from "@/components/ui/ProductBrowseTile";
 import { CategoryBanner } from "@/components/ui/CategoryBanner";
 import { CategorySidebar } from "@/components/category/CategorySidebar";
+import { useOrderStore } from "@/stores/order-store";
 
 const STRAIN_FILTER_OPTIONS = ["All", "Indica", "Sativa", "Hybrid", "CBD"];
 
@@ -34,6 +35,7 @@ export function CategoryBrowseClient({
   const [activeBrands, setActiveBrands] = useState<string[]>([]);
   const [activeEffects, setActiveEffects] = useState<string[]>([]);
   const [activePriceRange, setActivePriceRange] = useState<number | null>(null);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   const clearAll = () => {
     setActiveFormats([]);
@@ -87,6 +89,20 @@ export function CategoryBrowseClient({
     });
   }, [products, strainFilter, searchQuery, activeFormats, activeBrands, activeEffects, activePriceRange]);
 
+  const handleAddToCart = (p: WebsiteProduct) => {
+    useOrderStore.getState().addItem({
+      productSlug: p.slug,
+      productName: p.name,
+      category: p.category,
+      brand: p.brand,
+      price: p.price,
+      imageUrl: p.imageUrl,
+      strainName: p.strainName,
+      strainType: p.strainType,
+      thcRange: p.thcRange,
+    });
+  };
+
   const sidebarProps = {
     category,
     brands,
@@ -99,6 +115,8 @@ export function CategoryBrowseClient({
     onEffectsChange: setActiveEffects,
     onPriceRangeChange: setActivePriceRange,
     onClearAll: clearAll,
+    collapsed: sidebarCollapsed,
+    onToggleCollapse: () => setSidebarCollapsed((prev) => !prev),
   };
 
   return (
@@ -128,27 +146,35 @@ export function CategoryBrowseClient({
       </div>
 
       {/* Sidebar + Grid */}
-      <div className="flex gap-8">
-        {/* Desktop sidebar */}
+      <div className="flex gap-6">
+        {/* Desktop sidebar (collapsible) */}
         <div className="hidden lg:block">
           <CategorySidebar {...sidebarProps} />
         </div>
 
-        {/* Product grid */}
+        {/* Product grid — 5 cols when sidebar collapsed, 4 when expanded */}
         <div className="flex-1 min-w-0">
           {filtered.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+            <div className={`grid grid-cols-2 sm:grid-cols-3 gap-y-6 ${
+              sidebarCollapsed
+                ? "lg:grid-cols-4 xl:grid-cols-5"
+                : "lg:grid-cols-3 xl:grid-cols-4"
+            }`}>
               {filtered.map((p) => (
-                <ProductTileCard
+                <ProductBrowseTile
                   key={p.id}
                   slug={p.slug}
                   categoryRoute={categoryRoute}
                   name={p.name}
                   imageUrl={p.imageUrl}
                   strainName={p.strainName}
+                  strainType={p.strainType}
+                  thcRange={p.thcRange}
+                  price={p.price}
                   rating={p.rating}
                   reviewCount={p.reviewCount}
-                  thcRange={p.thcRange}
+                  brand={p.brand}
+                  onAddToCart={() => handleAddToCart(p)}
                 />
               ))}
             </div>

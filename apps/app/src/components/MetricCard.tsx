@@ -21,6 +21,7 @@ interface MetricCardProps {
   accentColor: string;
   sparklineData?: number[];
   onClick?: () => void;
+  padding?: 'sm' | 'md' | 'lg';
   className?: string;
 }
 
@@ -30,6 +31,8 @@ const TREND_CONFIG = {
   flat: { icon: Minus, color: 'text-text-muted' },
 } as const;
 
+const PADDING_CLASSES = { sm: 'p-3', md: 'p-5', lg: 'p-6' } as const;
+
 export function MetricCard({
   label,
   value,
@@ -37,6 +40,7 @@ export function MetricCard({
   accentColor,
   sparklineData,
   onClick,
+  padding = 'sm',
   className,
 }: MetricCardProps) {
   const TrendIcon = trend ? TREND_CONFIG[trend.direction].icon : null;
@@ -46,7 +50,7 @@ export function MetricCard({
     <AccentCard
       accentColor={accentColor}
       onClick={onClick}
-      className={cn('p-4', className)}
+      className={cn(PADDING_CLASSES[padding], className)}
     >
       <div className="pl-2">
         <div className="flex items-start justify-between">

@@ -6,12 +6,21 @@ import type { CampaignRecipient } from '../../types';
 import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
 
+import type { DomainStatus } from '@/components/StatusBadge';
+
 const STATUS_VARIANT: Record<string, 'success' | 'info' | 'muted' | 'warning' | 'danger'> = {
   active: 'success',
   scheduled: 'info',
   completed: 'muted',
   paused: 'warning',
   draft: 'danger',
+};
+
+const CAMPAIGN_STATUS_DOMAIN: Record<string, DomainStatus | null> = {
+  active: 'active',
+  scheduled: 'scheduled',
+  draft: 'draft',
+  completed: 'complete',
 };
 
 const TYPE_LABELS: Record<string, string> = {
@@ -89,7 +98,11 @@ export function CampaignDrawer({ campaignId, onClose }: CampaignDrawerProps) {
       <div className="space-y-6">
         {/* Header badges */}
         <div className="flex flex-wrap gap-2">
-          <StatusBadge variant={STATUS_VARIANT[campaign.status]} label={campaign.status} />
+          <StatusBadge
+            {...(CAMPAIGN_STATUS_DOMAIN[campaign.status]
+              ? { status: CAMPAIGN_STATUS_DOMAIN[campaign.status]!, label: campaign.status === 'completed' ? 'Completed' : undefined }
+              : { variant: STATUS_VARIANT[campaign.status], label: campaign.status })}
+          />
           <StatusBadge variant="info" label={TYPE_LABELS[campaign.type] || campaign.type} />
           <StatusBadge variant="muted" label={campaign.channel} />
           <span className="text-xs text-text-muted">by {campaign.createdBy}</span>

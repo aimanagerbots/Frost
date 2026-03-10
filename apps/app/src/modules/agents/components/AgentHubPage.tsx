@@ -252,10 +252,8 @@ export function AgentHubPage() {
                     {selectedAgent.name}
                   </span>
                   <StatusBadge
-                    label={selectedAgent.status}
-                    variant={selectedAgent.status === 'active' ? 'success' : 'muted'}
+                    status={selectedAgent.status === 'active' ? 'active' : 'inactive'}
                     size="sm"
-                    dot
                     pulse={selectedAgent.status === 'active'}
                   />
                 </div>
@@ -387,11 +385,14 @@ export function AgentHubPage() {
                           variant="default"
                           size="sm"
                         />
-                        <StatusBadge
-                          label={action.status.replace('-', ' ')}
-                          variant={STATUS_VARIANT[action.status]}
-                          size="sm"
-                        />
+                        {action.status === 'rejected'
+                          ? <StatusBadge status="rejected" size="sm" />
+                          : <StatusBadge
+                              label={action.status.replace('-', ' ')}
+                              variant={STATUS_VARIANT[action.status]}
+                              size="sm"
+                            />
+                        }
                       </div>
                       {action.result && (
                         <p className="mt-1 text-xs text-text-muted">{action.result}</p>

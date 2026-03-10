@@ -18,11 +18,18 @@ const CATEGORY_COLORS: Record<string, string> = {
   beverage: CHART_COLORS.beverage,
 };
 
+import type { DomainStatus } from '@/components/StatusBadge';
+
 const STATUS_VARIANT: Record<string, 'success' | 'info' | 'warning' | 'muted'> = {
   new: 'info',
   pitched: 'warning',
   accepted: 'success',
   dismissed: 'muted',
+};
+
+const REC_STATUS_DOMAIN: Record<string, DomainStatus | null> = {
+  new: 'new',
+  accepted: 'accepted',
 };
 
 type AggView = 'cards' | 'by-product' | 'by-account' | 'by-category';
@@ -182,7 +189,12 @@ export function ProductRecommendations() {
                 )}
 
                 <div className="flex items-center justify-between">
-                  <StatusBadge variant={STATUS_VARIANT[rec.status]} label={isDismissed ? 'dismissed' : rec.status} size="sm" />
+                  <StatusBadge
+                    {...((!isDismissed && REC_STATUS_DOMAIN[rec.status])
+                      ? { status: REC_STATUS_DOMAIN[rec.status]! }
+                      : { variant: STATUS_VARIANT[isDismissed ? 'dismissed' : rec.status], label: isDismissed ? 'dismissed' : rec.status })}
+                    size="sm"
+                  />
                   {!isDismissed && rec.status === 'new' && (
                     <div className="flex gap-1.5">
                       <button className="flex items-center gap-1 rounded-md bg-success/20 px-2 py-1 text-xs text-success hover:bg-success/30">

@@ -2,7 +2,7 @@
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { cn } from '@frost/ui';
 import {
@@ -124,6 +124,7 @@ function PanelWrapper({
 
 export function MegaMenu({ isScrolled }: MegaMenuProps) {
   const pathname = usePathname();
+  const router = useRouter();
 
   /** Check if a nav item is active based on current pathname */
   function isActive(label: string): boolean {
@@ -175,7 +176,13 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
     if (item.type === 'category') {
       return (
         <NavigationMenu.Item key={item.label} className="relative">
-          <NavigationMenu.Trigger className={triggerClass(item.label)}>
+          <NavigationMenu.Trigger
+            className={triggerClass(item.label)}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push(`/${item.category.route}`);
+            }}
+          >
             {item.label}
             <ChevronDown
               className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180"
@@ -196,9 +203,16 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
           : item.columns.length <= 2
             ? 'w-[320px]'
             : 'w-[480px]';
+      const clickHref = NAV_PATH_MAP[item.label];
       return (
         <NavigationMenu.Item key={item.label} className="relative">
-          <NavigationMenu.Trigger className={triggerClass(item.label)}>
+          <NavigationMenu.Trigger
+            className={triggerClass(item.label)}
+            onClick={clickHref ? (e) => {
+              e.preventDefault();
+              router.push(clickHref);
+            } : undefined}
+          >
             {item.label}
             <ChevronDown
               className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180"

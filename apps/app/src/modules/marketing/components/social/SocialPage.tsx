@@ -100,11 +100,10 @@ function AccountCard({ account }: { account: SocialAccount }) {
             <p className="text-xs text-text-muted capitalize">{account.platform}</p>
           </div>
         </div>
-        <StatusBadge
-          label={account.status}
-          variant={account.status === 'connected' ? 'success' : account.status === 'pending' ? 'warning' : 'muted'}
-          size="sm"
-        />
+        {account.status === 'pending'
+          ? <StatusBadge status="pending" size="sm" />
+          : <StatusBadge label={account.status} variant={account.status === 'connected' ? 'success' : 'muted'} size="sm" />
+        }
       </div>
       <div className="grid grid-cols-3 gap-2">
         <div className="text-center">

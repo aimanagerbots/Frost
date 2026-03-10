@@ -103,10 +103,8 @@ export function UserList({ users, onSelect }: UserListProps) {
       sortable: true,
       render: (row: UserRow) => (
         <StatusBadge
-          label={row.is_active ? 'Active' : 'Inactive'}
-          variant={row.is_active ? 'success' : 'muted'}
+          status={row.is_active ? 'active' : 'inactive'}
           size="sm"
-          dot
         />
       ),
     },

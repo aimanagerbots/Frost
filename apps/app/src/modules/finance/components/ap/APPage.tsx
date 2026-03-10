@@ -23,14 +23,7 @@ import { BillDrawer } from './BillDrawer';
 import { ACCENT } from '@/design/colors';
 
 
-const statusVariant = (s: string) => {
-  switch (s) {
-    case 'paid': return 'success' as const;
-    case 'pending': return 'warning' as const;
-    case 'overdue': return 'danger' as const;
-    default: return 'default' as const;
-  }
-};
+const BILL_DOMAIN_STATUSES = new Set(['paid', 'pending', 'overdue']);
 
 const fmtCurrency = (n: number) => {
   if (n >= 1000000) return `$${(n / 1000000).toFixed(2)}M`;
@@ -152,9 +145,12 @@ export function APPage() {
       header: 'Status',
       accessor: 'status' as const,
       sortable: true,
-      render: (row: Bill) => (
-        <StatusBadge variant={statusVariant(row.status)} label={row.status} size="sm" dot />
-      ),
+      render: (row: Bill) =>
+        BILL_DOMAIN_STATUSES.has(row.status) ? (
+          <StatusBadge status={row.status as 'paid' | 'pending' | 'overdue'} size="sm" />
+        ) : (
+          <StatusBadge variant="default" label={row.status} size="sm" dot />
+        ),
     },
     { header: 'Issued', accessor: 'issuedDate' as const, hideBelow: 'lg' as const },
     { header: 'Due', accessor: 'dueDate' as const, sortable: true, hideBelow: 'md' as const },
@@ -217,7 +213,7 @@ export function APPage() {
                 >
                   <div className="flex items-start justify-between mb-1">
                     <p className="text-sm font-medium text-default">{bill.vendorName}</p>
-                    <StatusBadge variant={statusVariant(bill.status)} label={bill.status} size="sm" />
+                    <StatusBadge status={bill.status as 'paid' | 'pending' | 'overdue'} size="sm" />
                   </div>
                   <p className="text-xs text-muted mb-1">{bill.description}</p>
                   <div className="flex items-center justify-between">

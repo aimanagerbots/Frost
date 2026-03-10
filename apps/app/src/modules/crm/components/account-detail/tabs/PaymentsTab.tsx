@@ -15,6 +15,15 @@ function formatCurrency(n: number): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(n);
 }
 
+import type { DomainStatus } from '@/components/StatusBadge';
+
+// paid, pending, overdue are DomainStatuses; partial is not
+const PAYMENT_STATUS_DOMAIN: Partial<Record<AccountPayment['status'], DomainStatus>> = {
+  paid: 'paid',
+  pending: 'pending',
+  overdue: 'overdue',
+};
+
 function statusVariant(status: AccountPayment['status']) {
   switch (status) {
     case 'paid': return 'success' as const;
@@ -83,7 +92,12 @@ export function PaymentsTab({ accountId }: PaymentsTabProps) {
       accessor: 'status' as const,
       sortable: true,
       render: (row: PaymentRow) => (
-        <StatusBadge variant={statusVariant(row.status as AccountPayment['status'])} label={row.status} size="sm" />
+        <StatusBadge
+          {...(PAYMENT_STATUS_DOMAIN[row.status as AccountPayment['status']]
+            ? { status: PAYMENT_STATUS_DOMAIN[row.status as AccountPayment['status']]! }
+            : { variant: statusVariant(row.status as AccountPayment['status']), label: row.status })}
+          size="sm"
+        />
       ),
     },
     {

@@ -92,7 +92,7 @@ export function PaidAdsPage() {
       ),
       hideBelow: 'md' as const,
     },
-    { header: 'Status', accessor: 'status' as const, render: (row: AdCampaign) => <StatusBadge variant={STATUS_VARIANTS[row.status] ?? 'muted'} label={row.status} size="sm" /> },
+    { header: 'Status', accessor: 'status' as const, render: (row: AdCampaign) => (row.status === 'active' || row.status === 'draft') ? <StatusBadge status={row.status as 'active' | 'draft'} size="sm" /> : <StatusBadge variant={STATUS_VARIANTS[row.status] ?? 'muted'} label={row.status} size="sm" /> },
     { header: 'Budget', accessor: 'budget' as const, sortable: true, render: (row: AdCampaign) => `$${row.budget.toLocaleString()}`, hideBelow: 'lg' as const },
     { header: 'Spent', accessor: 'spent' as const, sortable: true, render: (row: AdCampaign) => `$${row.spent.toLocaleString()}` },
     { header: 'Impressions', accessor: 'impressions' as const, sortable: true, render: (row: AdCampaign) => row.impressions.toLocaleString(), hideBelow: 'md' as const },
@@ -105,7 +105,7 @@ export function PaidAdsPage() {
     { header: 'Conv.', accessor: 'conversions' as const, sortable: true, render: (row: AdCampaign) => row.conversions },
     {
       header: 'Compliance', accessor: 'complianceStatus' as const,
-      render: (row: AdCampaign) => <StatusBadge variant={COMPLIANCE_VARIANTS[row.complianceStatus] ?? 'muted'} label={row.complianceStatus} size="sm" dot />,
+      render: (row: AdCampaign) => row.complianceStatus === 'approved' ? <StatusBadge status="approved" size="sm" /> : <StatusBadge variant={COMPLIANCE_VARIANTS[row.complianceStatus] ?? 'muted'} label={row.complianceStatus} size="sm" dot />,
     },
   ];
 

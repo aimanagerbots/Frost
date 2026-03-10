@@ -11,7 +11,7 @@ export function CategoryBanner({
   src,
   alt,
   width = 1280,
-  height = 320,
+  height = 100,
 }: CategoryBannerProps) {
   return (
     <div
@@ -29,8 +29,8 @@ export function CategoryBanner({
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center">
-          <span className="text-sm text-text-muted font-mono tracking-wider">
-            {width} &times; {height}
+          <span className="text-2xl font-bold uppercase tracking-[0.15em] text-text-default">
+            {alt}
           </span>
         </div>
       )}

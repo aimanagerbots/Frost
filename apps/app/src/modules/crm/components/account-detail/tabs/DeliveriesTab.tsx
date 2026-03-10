@@ -11,14 +11,15 @@ interface DeliveriesTabProps {
   accountId: string;
 }
 
-function statusVariant(status: AccountDelivery['status']) {
-  switch (status) {
-    case 'delivered': return 'success' as const;
-    case 'in-transit': return 'info' as const;
-    case 'scheduled': return 'warning' as const;
-    case 'failed': return 'danger' as const;
-  }
-}
+import type { DomainStatus } from '@/components/StatusBadge';
+
+// All AccountDelivery statuses are valid DomainStatuses
+const DELIVERY_STATUS_DOMAIN: Record<AccountDelivery['status'], DomainStatus> = {
+  delivered: 'delivered',
+  'in-transit': 'in-transit',
+  scheduled: 'scheduled',
+  failed: 'failed',
+};
 
 interface DeliveryRow extends Record<string, unknown> {
   id: string;
@@ -66,7 +67,7 @@ export function DeliveriesTab({ accountId }: DeliveriesTabProps) {
       accessor: 'status' as const,
       sortable: true,
       render: (row: DeliveryRow) => (
-        <StatusBadge variant={statusVariant(row.status as AccountDelivery['status'])} label={row.status} size="sm" />
+        <StatusBadge status={DELIVERY_STATUS_DOMAIN[row.status as AccountDelivery['status']]} size="sm" />
       ),
     },
     { header: 'Driver', accessor: 'driver' as const, sortable: true, hideBelow: 'md' as const },

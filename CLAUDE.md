@@ -111,6 +111,24 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Keep entries concise: 2-5 bullets per task, only list key files (not every touched file)
 - Also keep `Frost-Vault/01-Project/Development-Log.md` in sync (vault mirror for Obsidian search)
 
+## Plans Archive (MANDATORY)
+- **Log EVERY plan to `PLANS_LOG.md`** before executing it — no exceptions
+- This includes: implementation plans, redesign proposals, refactoring strategies, architecture changes, and any multi-step approach presented to the user
+- Entry format (newest first, separated by `---`):
+  ```
+  ## YYYY-MM-DD — [Brief Title]
+  **Task:** [What the user asked for]
+  **Status:** accepted | rejected | modified
+  **User Feedback:** [Any notes from the user, or "none"]
+
+  ### Plan
+  [The full plan as presented to the user]
+  ```
+- Log the plan IMMEDIATELY when presenting it (status: pending), then update status after user responds
+- If a plan is modified, log the original AND the revised version
+- Also keep `Frost-Vault/01-Project/Plans-Log.md` in sync (vault mirror for Obsidian search)
+- Never delete old entries — this is a permanent archive
+
 ## Do NOT
 - Install dependencies without stating why
 - Refactor code you weren't asked to change

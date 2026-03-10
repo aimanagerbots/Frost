@@ -7,3 +7,5 @@ export { usePortalProducts, usePortalProduct, usePortalPromotions } from './use-
 export { usePortalOrders, usePortalOrder } from './use-portal-orders';
 export { usePortalDeliveries, usePortalUpcomingDeliveries } from './use-portal-deliveries';
 export { usePortalInvoices, usePortalOutstandingInvoices } from './use-portal-invoices';
+export { usePortalRewards } from './use-portal-rewards';
+export { usePortalScorecard, usePortalSavings, useFlashDeals, useAllocationDrops } from './use-portal-dashboard';

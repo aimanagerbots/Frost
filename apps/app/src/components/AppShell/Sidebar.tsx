@@ -19,11 +19,14 @@ export function Sidebar() {
   const dmUnreadCount = (dms ?? []).reduce((sum, dm) => sum + dm.unreadCount, 0);
   const { allowedModules } = usePermissions();
 
-  const filteredItems = useMemo(
+  const filteredGroups = useMemo(
     () =>
       navGroups
-        .flatMap((group) => group.items)
-        .filter((item) => allowedModules.has(item.slug)),
+        .map((group) => ({
+          ...group,
+          items: group.items.filter((item) => allowedModules.has(item.slug)),
+        }))
+        .filter((group) => group.items.length > 0),
     [allowedModules],
   );
 
@@ -83,49 +86,62 @@ export function Sidebar() {
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
-          {filteredItems.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(item.href + '/');
-            const Icon = item.icon;
-            const showBadge = item.href === '/chat' && dmUnreadCount > 0;
+          {filteredGroups.map((group, groupIdx) => (
+            <div key={group.title}>
+              {/* Section separator */}
+              {groupIdx > 0 && !collapsed && (
+                <div className="px-3 pt-4 pb-1 mt-1">
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-text-muted/60">
+                    {group.title}
+                  </p>
+                </div>
+              )}
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className={cn(
-                  'group relative flex items-center gap-3 rounded-lg text-sm font-medium transition-all',
-                  collapsed ? 'justify-center px-2 py-2.5' : 'px-3 py-2.5',
-                  active
-                    ? 'border-l-[3px] border-accent-primary bg-accent-primary/10 text-accent-primary'
-                    : 'text-text-muted hover:bg-white/[0.04] hover:text-text-default'
-                )}
-                title={collapsed ? item.label : undefined}
-              >
-                <Icon
-                  className={cn(
-                    'h-[18px] w-[18px] shrink-0',
-                    active
-                      ? 'text-accent-primary'
-                      : 'text-text-muted group-hover:text-text-default'
-                  )}
-                />
-                {!collapsed && <span className="truncate">{item.label}</span>}
-                {showBadge && (
-                  <span
+              {group.items.map((item) => {
+                const active = pathname === item.href || pathname.startsWith(item.href + '/');
+                const Icon = item.icon;
+                const showBadge = item.href === '/chat' && dmUnreadCount > 0;
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
                     className={cn(
-                      'flex items-center justify-center rounded-full bg-accent-primary text-[10px] font-bold text-white',
-                      collapsed
-                        ? 'absolute -top-0.5 -right-0.5 h-4 min-w-4 px-1'
-                        : 'ml-auto h-5 min-w-5 px-1.5'
+                      'group relative flex items-center gap-3 rounded-lg text-sm font-medium transition-all',
+                      collapsed ? 'justify-center px-2 py-2.5' : 'px-3 py-2.5',
+                      active
+                        ? 'border-l-[3px] border-accent-primary bg-accent-primary/10 text-accent-primary'
+                        : 'text-text-muted hover:bg-white/[0.04] hover:text-text-default'
                     )}
+                    title={collapsed ? item.label : undefined}
                   >
-                    {dmUnreadCount}
-                  </span>
-                )}
-              </Link>
-            );
-          })}
+                    <Icon
+                      className={cn(
+                        'h-[18px] w-[18px] shrink-0',
+                        active
+                          ? 'text-accent-primary'
+                          : 'text-text-muted group-hover:text-text-default'
+                      )}
+                    />
+                    {!collapsed && <span className="truncate">{item.label}</span>}
+                    {showBadge && (
+                      <span
+                        className={cn(
+                          'flex items-center justify-center rounded-full bg-accent-primary text-[10px] font-bold text-white',
+                          collapsed
+                            ? 'absolute -top-0.5 -right-0.5 h-4 min-w-4 px-1'
+                            : 'ml-auto h-5 min-w-5 px-1.5'
+                        )}
+                      >
+                        {dmUnreadCount}
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          ))}
         </nav>
 
         {/* Footer */}

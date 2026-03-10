@@ -217,11 +217,14 @@ export function MeetingsPage() {
             {/* Type & Status */}
             <div className="flex items-center gap-2">
               <StatusBadge label={TYPE_LABELS[selectedMeeting.type]} variant={TYPE_VARIANTS[selectedMeeting.type]} />
-              <StatusBadge
-                label={selectedMeeting.status.charAt(0).toUpperCase() + selectedMeeting.status.slice(1)}
-                variant={selectedMeeting.status === 'scheduled' ? 'info' : selectedMeeting.status === 'completed' ? 'success' : 'danger'}
-                dot
-              />
+              {(selectedMeeting.status === 'scheduled' || selectedMeeting.status === 'cancelled')
+                ? <StatusBadge status={selectedMeeting.status as 'scheduled' | 'cancelled'} />
+                : <StatusBadge
+                    label={selectedMeeting.status.charAt(0).toUpperCase() + selectedMeeting.status.slice(1)}
+                    variant={selectedMeeting.status === 'completed' ? 'success' : 'danger'}
+                    dot
+                  />
+              }
             </div>
 
             {/* Date & Time */}

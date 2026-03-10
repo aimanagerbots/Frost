@@ -33,7 +33,9 @@ const columns = [
     accessor: 'status' as const,
     sortable: true,
     render: (row: BlogPost) => (
-      <StatusBadge variant={STATUS_VARIANTS[row.status]} label={row.status} size="sm" dot />
+      (row.status === 'draft' || row.status === 'review')
+        ? <StatusBadge status={row.status as 'draft' | 'review'} size="sm" />
+        : <StatusBadge variant={STATUS_VARIANTS[row.status]} label={row.status} size="sm" dot />
     ),
   },
   {

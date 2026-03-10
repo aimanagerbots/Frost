@@ -15,10 +15,17 @@ const LICENSE_VARIANT: Record<string, 'success' | 'warning' | 'danger' | 'defaul
   expired: 'danger',
 };
 
-const PAYMENT_VARIANT: Record<string, 'success' | 'warning' | 'danger'> = {
-  compliant: 'success',
-  approaching: 'warning',
-  overdue: 'danger',
+const LICENSE_STATUS_DOMAIN: Record<string, DomainStatus | null> = {
+  expired: 'expired',
+};
+
+import type { DomainStatus } from '@/components/StatusBadge';
+
+// All compliance payment statuses are valid DomainStatuses
+const PAYMENT_STATUS_DOMAIN: Record<string, DomainStatus> = {
+  compliant: 'compliant',
+  approaching: 'approaching',
+  overdue: 'overdue',
 };
 
 type LicenseRow = ComplianceLicense & Record<string, unknown>;
@@ -94,7 +101,12 @@ export function ComplianceMonitor() {
       header: 'Status',
       accessor: 'status' as const,
       render: (row: LicenseRow) => (
-        <StatusBadge variant={LICENSE_VARIANT[row.status as string] || 'default'} label={row.status as string} size="sm" />
+        <StatusBadge
+          {...(LICENSE_STATUS_DOMAIN[row.status as string]
+            ? { status: LICENSE_STATUS_DOMAIN[row.status as string]! }
+            : { variant: LICENSE_VARIANT[row.status as string] || 'default', label: row.status as string })}
+          size="sm"
+        />
       ),
     },
   ];
@@ -155,7 +167,7 @@ export function ComplianceMonitor() {
       header: 'Status',
       accessor: 'status' as const,
       render: (row: PaymentRow) => (
-        <StatusBadge variant={PAYMENT_VARIANT[row.status as string]} label={row.status as string} size="sm" />
+        <StatusBadge status={PAYMENT_STATUS_DOMAIN[row.status as string]} size="sm" />
       ),
     },
   ];

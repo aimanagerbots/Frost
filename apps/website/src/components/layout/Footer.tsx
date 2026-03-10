@@ -1,6 +1,9 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, Youtube, ArrowRight } from 'lucide-react';
 import { FOOTER_LINKS, COMPLIANCE_TEXT } from '@/lib/constants';
 
 /* ── Custom SVG icons (not in lucide) ── */
@@ -29,22 +32,6 @@ function DiscordIcon({ className }: { className?: string }) {
   );
 }
 
-function LeaflyIcon({ className }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15h-2v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3l-.5 3H13v6.95c5.05-.5 9-4.76 9-9.95 0-5.52-4.48-10-10-10z" />
-    </svg>
-  );
-}
-
-function WeedmapsIcon({ className }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
-    </svg>
-  );
-}
-
 function ThreadsIcon({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -63,22 +50,23 @@ const socialLinks = [
   { href: 'https://x.com', label: 'X', icon: <XIcon className={iconClass} /> },
   { href: 'https://youtube.com', label: 'YouTube', icon: <Youtube className={iconClass} /> },
   { href: 'https://discord.gg', label: 'Discord', icon: <DiscordIcon className={iconClass} /> },
-  { href: 'https://leafly.com', label: 'Leafly', icon: <LeaflyIcon className={iconClass} /> },
   { href: 'https://facebook.com', label: 'Facebook', icon: <Facebook className={iconClass} /> },
   { href: 'https://linkedin.com', label: 'LinkedIn', icon: <Linkedin className={iconClass} /> },
   { href: 'https://threads.net', label: 'Threads', icon: <ThreadsIcon className={iconClass} /> },
+  { href: 'https://tiktok.com', label: 'TikTok', icon: <TikTokIcon className={iconClass} /> },
 ];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState('');
 
   return (
     <footer className="bg-dark">
       <div className="mx-auto max-w-7xl px-6" style={{ paddingTop: '80px', paddingBottom: '48px' }}>
-        {/* 4-column grid */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 5-column grid — brand col wider */}
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           {/* Brand column */}
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col gap-6">
             <Link href="/" className="block">
               <Image
                 src="/FrostLogo_wordmark.png"
@@ -88,7 +76,39 @@ export function Footer() {
                 className="brightness-0 invert"
               />
             </Link>
-            <div className="flex flex-wrap gap-3 mt-8">
+
+            {/* Email signup */}
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
+                Stay Frosty
+              </p>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setEmail('');
+                }}
+                className="flex"
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  className="flex-1 min-w-0 rounded-l-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-text-on-dark placeholder:text-text-on-dark-muted/50 outline-none focus:border-accent-primary/50 transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="rounded-r-lg bg-accent-primary px-3 py-2 text-black transition-colors hover:bg-accent-primary-hover"
+                  aria-label="Subscribe"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </form>
+            </div>
+
+            {/* Social icons */}
+            <div className="flex flex-wrap gap-3">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
@@ -123,13 +143,15 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company column */}
+          {/* Strain Library column */}
           <div>
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
-              Company
+              <Link href="/strains" className="transition-colors hover:text-text-on-dark">
+                Strain Library
+              </Link>
             </h3>
             <ul className="space-y-3">
-              {FOOTER_LINKS.company.map((link) => (
+              {FOOTER_LINKS.strains.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -142,13 +164,34 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Legal column */}
+          {/* Blog column */}
           <div>
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
-              Legal
+              <Link href="/blog" className="transition-colors hover:text-text-on-dark">
+                Blog
+              </Link>
             </h3>
             <ul className="space-y-3">
-              {FOOTER_LINKS.legal.map((link) => (
+              {FOOTER_LINKS.blog.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-on-dark-muted transition-colors hover:text-text-on-dark"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources column */}
+          <div>
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
+              Resources
+            </h3>
+            <ul className="space-y-3">
+              {FOOTER_LINKS.resources.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

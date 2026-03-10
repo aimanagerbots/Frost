@@ -122,12 +122,10 @@ function IntegrationsTab({ data, isLoading }: { data: ReturnType<typeof useInteg
         >
           <div className="mb-2 flex items-start justify-between">
             <h3 className="text-sm font-semibold text-[var(--text-text-bright)]">{integration.name}</h3>
-            <StatusBadge
-              variant={STATUS_VARIANT[integration.status]}
-              label={integration.status}
-              size="sm"
-              dot
-            />
+            {integration.status === 'pending'
+              ? <StatusBadge status="pending" size="sm" />
+              : <StatusBadge variant={STATUS_VARIANT[integration.status]} label={integration.status} size="sm" dot />
+            }
           </div>
           <p className="mb-3 line-clamp-1 text-xs text-[var(--text-text-muted)]">{integration.description}</p>
           {integration.lastSync && (
@@ -162,11 +160,10 @@ function CommunicationsTab({ data, isLoading }: { data: ReturnType<typeof useCom
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-sm font-semibold text-[var(--text-text-bright)]">{channel.name}</h3>
-                <StatusBadge
-                  variant={CHANNEL_STATUS_VARIANT[channel.status] as 'success' | 'warning' | 'info' | 'muted'}
-                  label={channel.status}
-                  size="sm"
-                />
+                {(channel.status === 'active' || channel.status === 'inactive' || channel.status === 'pending')
+                  ? <StatusBadge status={channel.status as 'active' | 'inactive' | 'pending'} size="sm" />
+                  : <StatusBadge variant={CHANNEL_STATUS_VARIANT[channel.status] as 'success' | 'warning' | 'info' | 'muted'} label={channel.status} size="sm" />
+                }
               </div>
               <p className="mt-0.5 text-xs text-[var(--text-text-muted)]">
                 {channel.type}{channel.details ? ` — ${channel.details}` : ''}

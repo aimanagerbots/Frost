@@ -16,3 +16,5 @@ export { getAIConversationsForAccount } from './ai-conversations';
 export { PORTAL_FAQ } from './faq';
 export { getPipelineData, getActiveOrderIds } from './order-pipelines';
 export type { PipelineExtension } from './order-pipelines';
+export { getRewardsForAccount } from './rewards';
+export { getScorecardForAccount, getSavingsForAccount, getFlashDeals, getAllocationDrops } from './dashboard-intelligence';

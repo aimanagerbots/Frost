@@ -34,7 +34,10 @@ export function CampaignDrawer({ campaignId, open, onClose }: CampaignDrawerProp
           {/* Header */}
           <div>
             <div className="mb-2 flex items-center gap-2">
-              <StatusBadge label={campaign.status} variant={STATUS_VARIANT[campaign.status] ?? 'default'} />
+              {(campaign.status === 'draft' || campaign.status === 'scheduled')
+                ? <StatusBadge status={campaign.status as 'draft' | 'scheduled'} />
+                : <StatusBadge label={campaign.status} variant={STATUS_VARIANT[campaign.status] ?? 'default'} />
+              }
               <span className="text-xs text-text-muted">
                 {campaign.sentDate ? `Sent ${new Date(campaign.sentDate).toLocaleDateString()}` : campaign.scheduledDate ? `Scheduled ${new Date(campaign.scheduledDate).toLocaleDateString()}` : 'Draft'}
               </span>

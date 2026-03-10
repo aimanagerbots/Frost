@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { MessageSquare, Mail, Phone } from 'lucide-react';
+import { MessageSquare, Mail, Phone, Clock, DollarSign } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { usePortalAuth } from '@/modules/portal/shared/hooks';
+import { usePortalAuth, usePortalRewards } from '@/modules/portal/shared/hooks';
 import { PortalCard } from '@/modules/portal/shared/components';
 
 function getInitials(name: string): string {
@@ -15,8 +15,18 @@ function getInitials(name: string): string {
     .slice(0, 2);
 }
 
+function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
 export function DashboardRepCard() {
   const { currentAccount } = usePortalAuth();
+  const { data: rewards } = usePortalRewards(currentAccount?.id ?? '');
 
   if (!currentAccount) return null;
 
@@ -59,8 +69,22 @@ export function DashboardRepCard() {
         </div>
       </div>
 
+      {/* Rep impact stats */}
+      <div className="mx-2 mt-3 space-y-1.5 rounded-lg bg-[#00E5A0]/5 px-3 py-2">
+        {rewards && (
+          <div className="flex items-center gap-1.5 text-xs text-[#00E5A0]">
+            <DollarSign className="h-3 w-3" />
+            <span>{rep.name.split(' ')[0]} has saved your store {formatCurrency(rewards.totalSavings)} this year</span>
+          </div>
+        )}
+        <div className="flex items-center gap-1.5 text-xs text-text-muted">
+          <Clock className="h-3 w-3" />
+          <span>Avg response time: 12 min</span>
+        </div>
+      </div>
+
       <Link
-        href="/messages"
+        href="/comms-hub"
         className={cn(
           'mx-2 mt-4 flex items-center justify-center gap-2 rounded-lg px-4 py-2',
           'bg-accent-primary/15 text-sm font-medium text-accent-primary',

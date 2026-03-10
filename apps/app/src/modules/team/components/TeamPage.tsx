@@ -92,14 +92,20 @@ const columns = [
     header: 'Status',
     accessor: 'status' as const,
     sortable: true,
-    render: (row: TeamMember) => (
-      <StatusBadge
-        label={String(row.status)}
-        variant={STATUS_VARIANT[String(row.status)] || 'muted'}
-        size="sm"
-        dot
-      />
-    ),
+    render: (row: TeamMember) => {
+      const s = row.status as string;
+      if (s === 'active' || s === 'inactive') {
+        return <StatusBadge status={s} size="sm" />;
+      }
+      return (
+        <StatusBadge
+          label={String(row.status)}
+          variant={STATUS_VARIANT[String(row.status)] || 'muted'}
+          size="sm"
+          dot
+        />
+      );
+    },
   },
   {
     header: 'Start Date',
@@ -220,11 +226,10 @@ export function TeamPage() {
 
             {/* Status & Division */}
             <div className="flex items-center gap-3">
-              <StatusBadge
-                label={selected.status}
-                variant={STATUS_VARIANT[selected.status] || 'muted'}
-                dot
-              />
+              {(selected.status === 'active' || selected.status === 'inactive')
+                ? <StatusBadge status={selected.status} />
+                : <StatusBadge label={selected.status} variant={STATUS_VARIANT[selected.status] || 'muted'} dot />
+              }
               <StatusBadge
                 label={selected.division}
                 variant={DIVISION_VARIANT[selected.division] || 'default'}

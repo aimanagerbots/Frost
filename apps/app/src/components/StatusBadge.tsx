@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 
+/* ── Semantic variant system (backward-compatible) ── */
 const VARIANT_STYLES = {
   default: { bg: 'bg-elevated', text: 'text-text-default', dot: 'bg-default' },
   success: { bg: 'bg-success/15', text: 'text-success', dot: 'bg-success' },
@@ -13,24 +14,93 @@ const VARIANT_STYLES = {
 
 type BadgeVariant = keyof typeof VARIANT_STYLES;
 
+/* ── Domain-aware status system (portal-style color families) ── */
+type DomainStatus =
+  | 'delivered' | 'paid' | 'picked-up' | 'compliant' | 'ready'
+  | 'accepted' | 'active' | 'complete' | 'approved' | 'verified'
+  | 'confirmed' | 'shipped' | 'in-transit' | 'scheduled' | 'processing'
+  | 'in-production' | 'packaged' | 'preparing' | 'pending' | 'invoiced'
+  | 'outstanding' | 'approaching' | 'new' | 'review'
+  | 'overdue' | 'cancelled' | 'declined' | 'no-show' | 'failed' | 'expired' | 'rejected'
+  | 'fulfilled' | 'rescheduled' | 'draft' | 'archived' | 'inactive';
+
+const GREEN_STATUSES = new Set<DomainStatus>([
+  'delivered', 'paid', 'picked-up', 'compliant', 'ready',
+  'accepted', 'active', 'complete', 'approved', 'verified',
+]);
+
+const BLUE_STATUSES = new Set<DomainStatus>([
+  'confirmed', 'shipped', 'in-transit', 'scheduled', 'processing',
+]);
+
+const AMBER_STATUSES = new Set<DomainStatus>([
+  'in-production', 'packaged', 'preparing', 'pending', 'invoiced',
+  'outstanding', 'approaching', 'new', 'review',
+]);
+
+const RED_STATUSES = new Set<DomainStatus>([
+  'overdue', 'cancelled', 'declined', 'no-show', 'failed', 'expired', 'rejected',
+]);
+
+function getStatusStyles(status: DomainStatus): { bg: string; text: string; dot: string } {
+  if (GREEN_STATUSES.has(status)) {
+    return { bg: 'bg-green-500/15', text: 'text-green-400', dot: 'bg-green-500' };
+  }
+  if (BLUE_STATUSES.has(status)) {
+    return { bg: 'bg-blue-500/15', text: 'text-blue-400', dot: 'bg-blue-500' };
+  }
+  if (AMBER_STATUSES.has(status)) {
+    return { bg: 'bg-amber-500/15', text: 'text-amber-400', dot: 'bg-amber-500' };
+  }
+  if (RED_STATUSES.has(status)) {
+    return { bg: 'bg-red-500/15', text: 'text-red-400', dot: 'bg-red-500' };
+  }
+  return { bg: 'bg-white/[0.06]', text: 'text-text-muted', dot: 'bg-white/20' };
+}
+
+function formatStatusLabel(status: string): string {
+  return status
+    .split('-')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+/* ── Component ── */
 interface StatusBadgeProps {
+  /** Semantic variant (backward-compatible) */
   variant?: BadgeVariant;
-  label: string;
-  size?: 'sm' | 'md';
+  /** Domain-aware status — overrides variant when provided */
+  status?: DomainStatus;
+  /** Explicit label text. When using `status`, auto-formatted if omitted. */
+  label?: string;
+  size?: 'xs' | 'sm' | 'md';
   pulse?: boolean;
   dot?: boolean;
   className?: string;
 }
 
+const SIZE_CLASSES = {
+  xs: 'px-2 py-0.5 text-[10px]',
+  sm: 'px-2 py-0.5 text-xs',
+  md: 'px-2.5 py-1 text-xs',
+} as const;
+
+export type { DomainStatus, BadgeVariant };
+
 export function StatusBadge({
   variant = 'default',
+  status,
   label,
   size = 'md',
   pulse = false,
   dot = false,
   className,
 }: StatusBadgeProps) {
-  const styles = VARIANT_STYLES[variant];
+  // Domain-aware status takes precedence
+  const styles = status ? getStatusStyles(status) : VARIANT_STYLES[variant];
+  const displayLabel = label ?? (status ? formatStatusLabel(status) : '');
+  // When using domain status, always show the dot
+  const showDot = status ? true : dot;
 
   return (
     <span
@@ -38,12 +108,12 @@ export function StatusBadge({
         'inline-flex items-center gap-1.5 rounded-full font-medium',
         styles.bg,
         styles.text,
-        size === 'sm' ? 'px-2 py-0.5 text-xs' : 'px-3 py-1 text-sm',
+        SIZE_CLASSES[size],
         className
       )}
     >
-      {dot && (
-        <span className="relative flex h-2 w-2">
+      {showDot && (
+        <span className="relative flex h-1.5 w-1.5">
           {pulse && (
             <span
               className={cn(
@@ -54,13 +124,13 @@ export function StatusBadge({
           )}
           <span
             className={cn(
-              'relative inline-flex h-2 w-2 rounded-full',
+              'relative inline-flex h-1.5 w-1.5 rounded-full',
               styles.dot
             )}
           />
         </span>
       )}
-      {label}
+      {displayLabel}
     </span>
   );
 }

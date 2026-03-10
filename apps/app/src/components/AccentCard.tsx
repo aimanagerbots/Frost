@@ -3,11 +3,14 @@
 import { cn } from '@/lib/utils';
 import { useUIPreferences } from '@/stores/ui-preferences';
 
+const PADDING_CLASSES = { sm: 'p-3', md: 'p-5', lg: 'p-6' } as const;
+
 interface AccentCardProps {
   accentColor: string;
   children: React.ReactNode;
   onClick?: () => void;
   selected?: boolean;
+  padding?: 'sm' | 'md' | 'lg';
   className?: string;
 }
 
@@ -16,6 +19,7 @@ export function AccentCard({
   children,
   onClick,
   selected,
+  padding,
   className,
 }: AccentCardProps) {
   const cardAccent = useUIPreferences((s) => s.cardAccent);
@@ -24,6 +28,7 @@ export function AccentCard({
     <div
       className={cn(
         'group relative rounded-xl border border-default bg-card transition-all duration-200',
+        padding && PADDING_CLASSES[padding],
         onClick && 'cursor-pointer hover:bg-accent-hover hover:-translate-y-0.5',
         selected && 'ring-1',
         className

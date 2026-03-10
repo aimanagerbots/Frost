@@ -3,12 +3,13 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu } from 'lucide-react';
+import { Menu, ShoppingBag } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@frost/ui';
-import { useOrderStore } from '@/stores/order-store';
+import { useOrderStore, useCartItemCount } from '@/stores/order-store';
 import { MegaMenu } from './MegaMenu';
 import { MobileMenu } from './MobileMenu';
+import { LocationSelector } from './LocationSelector';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,17 +50,21 @@ export function Header() {
           {/* Nav — centered on viewport */}
           <MegaMenu isScrolled={isScrolled} />
 
-          {/* CTA slot — far right */}
-          {isOrderPage ? (
-            <BrowseModeToggle className="absolute right-6 top-1/2 -translate-y-1/2" />
-          ) : (
-            <Link
-              href="/order"
-              className="absolute right-6 top-1/2 -translate-y-1/2 shrink-0 whitespace-nowrap rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.06em] cta-glow transition-all duration-200"
-            >
-              Order
-            </Link>
-          )}
+          {/* Location + CTA + Cart slot — far right */}
+          <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-3">
+            <LocationSelector />
+            {isOrderPage ? (
+              <BrowseModeToggle />
+            ) : (
+              <Link
+                href="/order"
+                className="shrink-0 whitespace-nowrap rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.06em] cta-glow transition-all duration-200"
+              >
+                Order
+              </Link>
+            )}
+            <CartIconButton />
+          </div>
         </div>
 
         {/* Mobile: logo left, hamburger right */}
@@ -78,27 +83,62 @@ export function Header() {
             />
           </Link>
 
-          {/* Mobile: show toggle inline when on order page */}
-          {isOrderPage && (
-            <BrowseModeToggle className="mr-3" />
-          )}
-
-          <button
-            type="button"
-            onClick={() => setIsMobileOpen(true)}
-            className={cn(
-              'shrink-0 transition-colors duration-200',
-              'text-text-muted hover:text-text-default'
+          {/* Mobile: location + browse toggle + cart + hamburger */}
+          <div className="flex items-center gap-2">
+            <LocationSelector />
+            {isOrderPage && (
+              <BrowseModeToggle />
             )}
-            aria-label="Open menu"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
+            <CartIconButton />
+
+            <button
+              type="button"
+              onClick={() => setIsMobileOpen(true)}
+              className={cn(
+                'shrink-0 transition-colors duration-200',
+                'text-text-muted hover:text-text-default'
+              )}
+              aria-label="Open menu"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+          </div>
         </div>
       </header>
 
       <MobileMenu isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
     </>
+  );
+}
+
+/* ---------- Cart icon button ---------- */
+
+function CartIconButton() {
+  const setCartOpen = useOrderStore((s) => s.setCartOpen);
+  const itemCount = useCartItemCount();
+  const hasItems = itemCount > 0;
+
+  return (
+    <button
+      type="button"
+      onClick={() => setCartOpen(true)}
+      className={cn(
+        'relative shrink-0 p-2 rounded-full transition-colors duration-200',
+        hasItems
+          ? 'text-[#5BB8E6] cart-glow'
+          : 'text-text-muted hover:text-text-default',
+      )}
+      aria-label={hasItems ? `Open cart (${itemCount} items)` : 'Open cart'}
+    >
+      <ShoppingBag className="h-5 w-5" />
+
+      {/* Badge */}
+      {hasItems && (
+        <span className="absolute -top-0.5 -right-0.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#5BB8E6] px-1 text-[10px] font-bold leading-none text-black">
+          {itemCount > 99 ? '99+' : itemCount}
+        </span>
+      )}
+    </button>
   );
 }
 

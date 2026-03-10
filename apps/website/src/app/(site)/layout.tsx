@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AgeGateModal } from "@/components/layout/AgeGateModal";
+import { CartDrawer } from "@/components/order/CartDrawer";
 
 export default function SiteLayout({
   children,
@@ -15,6 +16,7 @@ export default function SiteLayout({
         {children}
       </main>
       <Footer />
+      <CartDrawer />
     </>
   );
 }

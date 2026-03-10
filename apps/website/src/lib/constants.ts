@@ -376,13 +376,28 @@ export const FOOTER_LINKS = {
     { label: "Edibles", href: "/edibles" },
     { label: "Drinks", href: "/drinks" },
   ],
-  company: [
+  strains: [
+    { label: "Animal Face", href: "/strains/animal-face" },
+    { label: "Bay Dream", href: "/strains/bay-dream" },
+    { label: "Blue Runtz", href: "/strains/blue-runtz" },
+    { label: "Cereal Milk", href: "/strains/cereal-milk" },
+    { label: "Gelato", href: "/strains/gelato" },
+    { label: "Pearl Scout Cookies", href: "/strains/pearl-scout-cookies" },
+  ],
+  blog: [
+    { label: "A Beginner's Guide to Concentrates", href: "/blog/a-beginners-guide-to-cannabis-concentrates" },
+    { label: "Blue Dream: Washington's Favorite", href: "/blog/blue-dream-why-washingtons-favorite-sativa-endures" },
+    { label: "From Seed to Shelf", href: "/blog/from-seed-to-shelf-how-craft-cannabis-is-grown" },
+    { label: "Our Roots: The Frost Story", href: "/blog/our-roots-the-frost-story" },
+    { label: "Sustainability at Frost", href: "/blog/sustainability-at-frost-growing-green" },
+    { label: "Understanding Terpenes", href: "/blog/understanding-terpenes-the-aromatherapy-of-cannabis" },
+  ],
+  resources: [
     { label: "About", href: "/about" },
-    { label: "Journal", href: "/blog" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Newsletter", href: "/newsletter" },
     { label: "Wholesale", href: "/wholesale" },
     { label: "Contact", href: "/contact" },
-  ],
-  legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
     { label: "Compliance", href: "/compliance" },

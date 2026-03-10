@@ -35,7 +35,10 @@ export function EventDrawer({ event, onClose }: EventDrawerProps) {
       <div className="space-y-5">
         {/* Status & Type */}
         <div className="flex flex-wrap items-center gap-2">
-          <StatusBadge variant={STATUS_VARIANTS[event.status] ?? 'muted'} label={event.status} dot />
+          {(event.status === 'confirmed' || event.status === 'cancelled')
+            ? <StatusBadge status={event.status as 'confirmed' | 'cancelled'} />
+            : <StatusBadge variant={STATUS_VARIANTS[event.status] ?? 'muted'} label={event.status} dot />
+          }
           <span className="rounded-full bg-elevated px-2.5 py-0.5 text-xs text-text-bright">{TYPE_LABELS[event.type] ?? event.type}</span>
         </div>
 

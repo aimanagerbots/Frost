@@ -41,7 +41,10 @@ export function PlaybookExecutionView({ execution, playbook, onClose }: Playbook
             <span className="text-sm text-text-muted">Account:</span>{' '}
             <span className="text-sm font-medium text-text-bright">{execution.accountName}</span>
           </div>
-          <StatusBadge variant={execution.status === 'active' ? 'success' : execution.status === 'completed' ? 'muted' : 'danger'} label={execution.status} />
+          <StatusBadge
+            status={execution.status === 'active' ? 'active' : execution.status === 'completed' ? 'complete' : 'failed'}
+            label={execution.status}
+          />
         </div>
 
         {/* Progress bar */}

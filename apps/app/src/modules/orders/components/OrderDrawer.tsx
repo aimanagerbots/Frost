@@ -2,7 +2,7 @@
 
 import { DrawerPanel, StatusBadge, TimelineView } from '@/components';
 import { useOrder } from '@/modules/orders/hooks/useOrder';
-import type { OrderStatus, PaymentStatus } from '@/modules/orders/types';
+import type { OrderStatus } from '@/modules/orders/types';
 import {
   Package, CreditCard, FileText,
   CheckCircle, Truck, Clock,
@@ -14,21 +14,17 @@ interface OrderDrawerProps {
   onClose: () => void;
 }
 
-const STATUS_VARIANT: Record<OrderStatus, 'muted' | 'info' | 'warning' | 'success' | 'danger'> = {
-  pending: 'muted',
-  confirmed: 'info',
-  'in-production': 'warning',
-  packaged: 'info',
-  fulfilled: 'warning',
-  shipped: 'warning',
-  delivered: 'success',
-  paid: 'success',
-};
+import type { DomainStatus } from '@/components/StatusBadge';
 
-const PAYMENT_VARIANT: Record<PaymentStatus, 'muted' | 'success' | 'danger'> = {
-  pending: 'muted',
-  received: 'success',
-  overdue: 'danger',
+const ORDER_STATUS_TO_DOMAIN: Record<OrderStatus, DomainStatus> = {
+  pending: 'pending',
+  confirmed: 'confirmed',
+  'in-production': 'in-production',
+  packaged: 'packaged',
+  fulfilled: 'fulfilled',
+  shipped: 'shipped',
+  delivered: 'delivered',
+  paid: 'paid',
 };
 
 export function OrderDrawer({ orderId, open, onClose }: OrderDrawerProps) {
@@ -49,8 +45,8 @@ export function OrderDrawer({ orderId, open, onClose }: OrderDrawerProps) {
       <div className="space-y-5">
         {/* Header */}
         <div className="flex flex-wrap items-center gap-2">
-          <StatusBadge variant={STATUS_VARIANT[order.status]} label={order.status.replace(/-/g, ' ')} />
-          <StatusBadge variant={PAYMENT_VARIANT[order.paymentStatus]} label={`Payment: ${order.paymentStatus}`} />
+          <StatusBadge status={ORDER_STATUS_TO_DOMAIN[order.status]} />
+          <StatusBadge status={order.paymentStatus === 'received' ? 'paid' : order.paymentStatus as DomainStatus} label={`Payment: ${order.paymentStatus}`} />
           <span className="text-xs text-text-muted">
             {order.paymentMethod.toUpperCase()}
           </span>

@@ -482,3 +482,282 @@ export interface PortalAIConversation {
   messages: PortalAIMessage[];
   createdAt: string;
 }
+
+// ========================
+// REWARDS & LOYALTY
+// ========================
+
+export interface RewardsTier {
+  id: string;
+  name: 'Bronze' | 'Silver' | 'Gold' | 'Platinum';
+  minPoints: number;
+  benefits: string[];
+  color: string;
+  discountPercent: number;
+}
+
+export interface PointsTransaction {
+  id: string;
+  date: string;
+  type: 'earn' | 'redeem';
+  amount: number;
+  source: 'order' | 'early-payment' | 'training' | 'event' | 'referral' | 'achievement' | 'redemption';
+  description: string;
+  orderId?: string;
+}
+
+export interface Achievement {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  category: 'ordering' | 'loyalty' | 'engagement' | 'performance';
+  unlockedAt?: string;
+  progress: number;
+  target: number;
+}
+
+export interface RewardItem {
+  id: string;
+  name: string;
+  description: string;
+  pointsCost: number;
+  category: 'credit' | 'product' | 'access' | 'merch' | 'service';
+  imageUrl?: string;
+  available: boolean;
+  limitedQuantity?: number;
+}
+
+export interface LeaderboardEntry {
+  rank: number;
+  displayName: string;
+  tier: string;
+  points: number;
+  isCurrentUser: boolean;
+}
+
+export interface PortalRewardsData {
+  currentTier: RewardsTier;
+  nextTier: RewardsTier | null;
+  totalPoints: number;
+  pointsToNextTier: number;
+  lifetimePoints: number;
+  transactions: PointsTransaction[];
+  achievements: Achievement[];
+  catalog: RewardItem[];
+  leaderboard: LeaderboardEntry[];
+  quarterlyRebate: number;
+  totalSavings: number;
+}
+
+// ========================
+// INSIGHTS & ANALYTICS
+// ========================
+
+export interface PerformanceMetric {
+  skuId: string;
+  name: string;
+  category: string;
+  velocity: number;
+  categoryAvg: number;
+  turnRate: number;
+  daysOnShelf: number;
+  unitsSoldThisMonth: number;
+  revenueThisMonth: number;
+  trend: 'up' | 'down' | 'stable';
+}
+
+export interface PeerBenchmark {
+  metric: string;
+  label: string;
+  yourValue: number;
+  peerAvg: number;
+  topPerformerValue: number;
+  percentile: number;
+  unit: string;
+}
+
+export interface MarketTrend {
+  category: string;
+  growth: number;
+  period: string;
+  region: string;
+  insight: string;
+}
+
+export interface MarginCalc {
+  productId: string;
+  productName: string;
+  wholesalePrice: number;
+  suggestedRetail: number;
+  margin: number;
+  volumeBreakMargin?: number;
+  volumeBreakQty?: number;
+}
+
+export interface AIRecommendation {
+  id: string;
+  type: 'add-sku' | 'increase-qty' | 'new-category' | 'reorder-now';
+  productId: string;
+  productName: string;
+  rationale: string;
+  projectedRevenue: number;
+  confidence: number;
+}
+
+export interface PortalInsightsData {
+  performance: PerformanceMetric[];
+  benchmarks: PeerBenchmark[];
+  trends: MarketTrend[];
+  margins: MarginCalc[];
+  recommendations: AIRecommendation[];
+  frostVsCategoryMultiplier: number;
+  overallVelocityRank: number;
+  totalStoresInRegion: number;
+}
+
+// ========================
+// MARKETING & MERCHANDISING
+// ========================
+
+export interface MenuAsset {
+  id: string;
+  productId: string;
+  productName: string;
+  type: 'photo' | 'description' | 'terpene-card' | 'bundle';
+  format: string;
+  platforms: string[];
+  downloadUrl: string;
+  thumbnailUrl: string;
+}
+
+export interface POPMaterial {
+  id: string;
+  name: string;
+  type: 'counter-card' | 'shelf-talker' | 'window-cling' | 'table-tent' | 'poster';
+  imageUrl: string;
+  freeWithMinOrder?: number;
+  description: string;
+  dimensions: string;
+}
+
+export interface TrainingModule {
+  id: string;
+  title: string;
+  description: string;
+  duration: string;
+  pointsReward: number;
+  completed: boolean;
+  completedAt?: string;
+  quizScore?: number;
+  category: 'product-knowledge' | 'selling-techniques' | 'compliance' | 'brand-story';
+}
+
+export interface PromoProgram {
+  id: string;
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  enrolled: boolean;
+  requirements: string[];
+  reward: string;
+  rewardValue: number;
+  spotsRemaining?: number;
+}
+
+export interface BudtenderContest {
+  id: string;
+  title: string;
+  period: string;
+  metric: string;
+  prize: string;
+  prizeValue: number;
+  active: boolean;
+  leaderboard: { name: string; storeName: string; sales: number; rank: number }[];
+}
+
+// ========================
+// COMMS HUB (UNIFIED)
+// ========================
+
+export interface CommChannel {
+  id: string;
+  type: 'sms' | 'email' | 'whatsapp' | 'portal';
+  connected: boolean;
+  identifier: string;
+  label: string;
+  notificationsEnabled: boolean;
+}
+
+export interface UnifiedMessage {
+  id: string;
+  channel: 'portal' | 'sms' | 'email' | 'whatsapp';
+  sender: 'user' | 'ai' | 'rep';
+  senderName: string;
+  content: string;
+  timestamp: string;
+  read: boolean;
+  cartActions?: CartAction[];
+  escalated?: boolean;
+  attachmentUrl?: string;
+}
+
+export interface CartAction {
+  productId: string;
+  productName: string;
+  quantity: number;
+  action: 'add' | 'remove';
+}
+
+// ========================
+// DASHBOARD SCORECARD
+// ========================
+
+export interface DashboardScorecardData {
+  frostVelocity: number;
+  categoryAvgVelocity: number;
+  velocityMultiplier: number;
+  totalUnitsSold: number;
+  totalRevenue: number;
+  avgTurnRate: number;
+  avgDaysOnShelf: number;
+  topSku: { name: string; velocity: number };
+  frostSkuCount: number;
+  peerAvgSkuCount: number;
+}
+
+export interface DashboardSavingsData {
+  totalSavingsThisQuarter: number;
+  volumeDiscounts: number;
+  loyaltyRebates: number;
+  promoCredits: number;
+  earlyPayCredits: number;
+}
+
+export interface FlashDeal {
+  id: string;
+  productId: string;
+  productName: string;
+  category: string;
+  originalPrice: number;
+  dealPrice: number;
+  discountPercent: number;
+  expiresAt: string;
+  claimed: boolean;
+  totalAvailable: number;
+  totalClaimed: number;
+}
+
+export interface AllocationDrop {
+  id: string;
+  productName: string;
+  strainName: string;
+  category: string;
+  dropDate: string;
+  reservationDeadline: string;
+  totalAllocations: number;
+  allocationsRemaining: number;
+  reserved: boolean;
+  estimatedPrice: number;
+}

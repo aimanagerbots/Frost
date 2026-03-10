@@ -1,15 +1,14 @@
 'use client';
 
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   useOrderStore,
   useCartItemCount,
   useCartTotal,
-  useStoreGroups,
-  useIsMultiStore,
 } from '@/stores/order-store';
 import type { CartItem } from '@/types';
+import { findNearestStore } from '@/lib/store-matching';
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -17,10 +16,6 @@ import type { CartItem } from '@/types';
 
 function formatPrice(cents: number): string {
   return `$${cents.toFixed(2)}`;
-}
-
-function groupSubtotal(items: readonly CartItem[]): number {
-  return items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 }
 
 /* ------------------------------------------------------------------ */
@@ -33,8 +28,8 @@ function QuantityControls({
   onRemove,
 }: {
   readonly item: CartItem;
-  readonly onUpdate: (slug: string, storeId: string, qty: number) => void;
-  readonly onRemove: (slug: string, storeId: string) => void;
+  readonly onUpdate: (slug: string, storeId: string | undefined, qty: number) => void;
+  readonly onRemove: (slug: string, storeId?: string) => void;
 }) {
   const decrement = () => {
     if (item.quantity <= 1) {
@@ -81,12 +76,14 @@ function QuantityControls({
 
 function CartItemRow({
   item,
+  storeMatch,
   onUpdate,
   onRemove,
 }: {
   readonly item: CartItem;
-  readonly onUpdate: (slug: string, storeId: string, qty: number) => void;
-  readonly onRemove: (slug: string, storeId: string) => void;
+  readonly storeMatch: { storeName: string; distance?: number; stockStatus: string } | null;
+  readonly onUpdate: (slug: string, storeId: string | undefined, qty: number) => void;
+  readonly onRemove: (slug: string, storeId?: string) => void;
 }) {
   return (
     <div className="flex items-start gap-3 py-3">
@@ -101,7 +98,27 @@ function CartItemRow({
         {item.strainName && (
           <p className="font-sans text-xs text-text-muted/70 mt-0.5 truncate">
             {item.strainName}
-            {item.strainType ? ` · ${item.strainType}` : ''}
+            {item.strainType ? ` \u00b7 ${item.strainType}` : ''}
+          </p>
+        )}
+        {/* Store match info */}
+        {storeMatch ? (
+          <p className="font-sans text-[11px] mt-1 truncate">
+            {storeMatch.stockStatus === 'low-stock' ? (
+              <span className="text-amber-400">
+                &#9888; Low stock at {storeMatch.storeName}
+                {storeMatch.distance != null ? ` (${storeMatch.distance.toFixed(1)}mi)` : ''}
+              </span>
+            ) : (
+              <span className="text-emerald-400">
+                &#10003; {storeMatch.storeName}
+                {storeMatch.distance != null ? ` (${storeMatch.distance.toFixed(1)}mi)` : ''}
+              </span>
+            )}
+          </p>
+        ) : (
+          <p className="font-sans text-[11px] text-text-muted/50 mt-1">
+            Set location to check availability
           </p>
         )}
       </div>
@@ -126,50 +143,6 @@ function CartItemRow({
             </svg>
           </button>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function StoreGroup({
-  storeName,
-  items,
-  onUpdate,
-  onRemove,
-}: {
-  readonly storeName: string;
-  readonly items: readonly CartItem[];
-  readonly onUpdate: (slug: string, storeId: string, qty: number) => void;
-  readonly onRemove: (slug: string, storeId: string) => void;
-}) {
-  return (
-    <div className="mb-4">
-      {/* Store header */}
-      <div className="flex items-center gap-2 mb-1 px-1">
-        <span className="font-display text-xs font-semibold uppercase tracking-wider text-[#5BB8E6]">
-          {storeName}
-        </span>
-        <div className="flex-1 h-px bg-white/[0.06]" />
-      </div>
-
-      {/* Items */}
-      <div className="bg-card rounded-xl border border-white/[0.06] px-4 divide-y divide-white/[0.06]">
-        {items.map((item) => (
-          <CartItemRow
-            key={`${item.productSlug}-${item.storeId}`}
-            item={item}
-            onUpdate={onUpdate}
-            onRemove={onRemove}
-          />
-        ))}
-      </div>
-
-      {/* Subtotal */}
-      <div className="flex justify-between items-center mt-2 px-1">
-        <span className="font-sans text-xs text-text-muted">Subtotal</span>
-        <span className="font-sans text-sm font-medium text-text-default">
-          {formatPrice(groupSubtotal(items))}
-        </span>
       </div>
     </div>
   );
@@ -215,14 +188,25 @@ export function CartDrawer() {
   const isCartOpen = useOrderStore((s) => s.isCartOpen);
   const setCartOpen = useOrderStore((s) => s.setCartOpen);
   const items = useOrderStore((s) => s.items);
+  const userLocation = useOrderStore((s) => s.userLocation);
   const removeItem = useOrderStore((s) => s.removeItem);
   const updateQuantity = useOrderStore((s) => s.updateQuantity);
   const itemCount = useCartItemCount();
   const total = useCartTotal();
-  const storeGroups = useStoreGroups();
-  const isMultiStore = useIsMultiStore();
 
   const close = useCallback(() => setCartOpen(false), [setCartOpen]);
+
+  /* Compute store matches for each item */
+  const storeMatches = useMemo(() => {
+    return items.map((item) => {
+      if (item.storeId && item.storeName) {
+        return { storeName: item.storeName, distance: undefined, stockStatus: item.stockStatus ?? 'in-stock' };
+      }
+      const match = findNearestStore(item.productSlug, userLocation);
+      if (!match) return null;
+      return { storeName: match.storeName, distance: match.distance, stockStatus: match.stockStatus };
+    });
+  }, [items, userLocation]);
 
   /* Lock body scroll when open */
   useEffect(() => {
@@ -249,7 +233,6 @@ export function CartDrawer() {
     router.push('/order/checkout');
   };
 
-  const storeCount = storeGroups.size;
   const isEmpty = items.length === 0;
 
   return (
@@ -309,34 +292,44 @@ export function CartDrawer() {
           <EmptyCart onClose={close} />
         ) : (
           <>
-            {/* Scrollable items area */}
-            <div className="flex-1 overflow-y-auto px-5 py-4 scrollbar-thin">
-              {/* Multi-store warning */}
-              {isMultiStore && (
-                <div className="mb-4 flex items-start gap-2.5 rounded-xl border border-amber-500/20 bg-amber-500/[0.06] px-4 py-3">
-                  <span className="text-base leading-none mt-0.5" aria-hidden="true">
-                    &#9888;
-                  </span>
-                  <p className="font-sans text-xs text-amber-300/90 leading-relaxed">
-                    <span className="font-semibold">{storeCount} pickup locations</span>
-                    {' '}&mdash; your order will be split into separate pickups
+            {/* Location bar */}
+            {!userLocation && (
+              <div className="shrink-0 border-b border-white/[0.06] px-5 py-3">
+                <div className="flex items-center gap-2 rounded-lg border border-amber-500/20 bg-amber-500/[0.06] px-3 py-2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-amber-400 shrink-0">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" />
+                  </svg>
+                  <p className="font-sans text-xs text-amber-300/90">
+                    Set your location in the header to see store availability
                   </p>
                 </div>
-              )}
+              </div>
+            )}
 
-              {/* Store groups */}
-              {Array.from(storeGroups.entries()).map(([storeId, groupItems]) => {
-                const storeName = groupItems[0]?.storeName ?? storeId;
-                return (
-                  <StoreGroup
-                    key={storeId}
-                    storeName={storeName}
-                    items={groupItems}
+            {userLocation && (
+              <div className="shrink-0 border-b border-white/[0.06] px-5 py-3">
+                <div className="flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-[#5BB8E6] shrink-0">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" />
+                  </svg>
+                  <span className="font-sans text-xs text-text-default">{userLocation.label}</span>
+                </div>
+              </div>
+            )}
+
+            {/* Scrollable items area — flat list, no store groups */}
+            <div className="flex-1 overflow-y-auto px-5 py-2 scrollbar-thin">
+              <div className="divide-y divide-white/[0.06]">
+                {items.map((item, idx) => (
+                  <CartItemRow
+                    key={`${item.productSlug}-${item.storeId ?? idx}`}
+                    item={item}
+                    storeMatch={storeMatches[idx] ?? null}
                     onUpdate={updateQuantity}
                     onRemove={removeItem}
                   />
-                );
-              })}
+                ))}
+              </div>
             </div>
 
             {/* ── Footer / Total + CTA ── */}

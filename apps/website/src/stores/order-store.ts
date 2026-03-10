@@ -21,8 +21,8 @@ interface OrderState {
   /* ── Cart ── */
   items: readonly CartItem[];
   addItem: (item: Omit<CartItem, 'quantity'>) => void;
-  removeItem: (productSlug: string, storeId: string) => void;
-  updateQuantity: (productSlug: string, storeId: string, qty: number) => void;
+  removeItem: (productSlug: string, storeId?: string) => void;
+  updateQuantity: (productSlug: string, storeId: string | undefined, qty: number) => void;
   clearCart: () => void;
 
   /* ── Location ── */
@@ -68,18 +68,14 @@ export const useOrderStore = create<OrderState>()(
 
       addItem: (newItem) =>
         set((state) => {
-          const existing = state.items.find(
-            (i) =>
-              i.productSlug === newItem.productSlug &&
-              i.storeId === newItem.storeId,
-          );
+          const matchKey = (i: CartItem) =>
+            i.productSlug === newItem.productSlug &&
+            (i.storeId ?? '') === (newItem.storeId ?? '');
+          const existing = state.items.find(matchKey);
           if (existing) {
             return {
               items: state.items.map((i) =>
-                i.productSlug === newItem.productSlug &&
-                i.storeId === newItem.storeId
-                  ? { ...i, quantity: i.quantity + 1 }
-                  : i,
+                matchKey(i) ? { ...i, quantity: i.quantity + 1 } : i,
               ),
             };
           }
@@ -89,25 +85,20 @@ export const useOrderStore = create<OrderState>()(
       removeItem: (productSlug, storeId) =>
         set((state) => ({
           items: state.items.filter(
-            (i) => !(i.productSlug === productSlug && i.storeId === storeId),
+            (i) => !(i.productSlug === productSlug && (i.storeId ?? '') === (storeId ?? '')),
           ),
         })),
 
       updateQuantity: (productSlug, storeId, qty) =>
         set((state) => {
+          const match = (i: CartItem) =>
+            i.productSlug === productSlug && (i.storeId ?? '') === (storeId ?? '');
           if (qty <= 0) {
-            return {
-              items: state.items.filter(
-                (i) =>
-                  !(i.productSlug === productSlug && i.storeId === storeId),
-              ),
-            };
+            return { items: state.items.filter((i) => !match(i)) };
           }
           return {
             items: state.items.map((i) =>
-              i.productSlug === productSlug && i.storeId === storeId
-                ? { ...i, quantity: qty }
-                : i,
+              match(i) ? { ...i, quantity: qty } : i,
             ),
           };
         }),
@@ -178,8 +169,9 @@ export function useStoreGroups() {
   return useMemo(() => {
     const groups = new Map<string, CartItem[]>();
     for (const item of items) {
-      const existing = groups.get(item.storeId) ?? [];
-      groups.set(item.storeId, [...existing, item]);
+      const key = item.storeId ?? '_unassigned';
+      const existing = groups.get(key) ?? [];
+      groups.set(key, [...existing, item]);
     }
     return groups;
   }, [items]);
@@ -187,7 +179,7 @@ export function useStoreGroups() {
 
 export function useIsMultiStore() {
   return useOrderStore((s) => {
-    const storeIds = new Set(s.items.map((i) => i.storeId));
+    const storeIds = new Set(s.items.map((i) => i.storeId ?? '_unassigned'));
     return storeIds.size > 1;
   });
 }

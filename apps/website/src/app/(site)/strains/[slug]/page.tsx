@@ -4,8 +4,8 @@ import Link from "next/link";
 import { getStrainBySlug } from "@/mocks/strains";
 import { getProductsByStrain } from "@/mocks/products";
 import { Badge } from "@/components/ui/Badge";
-import { ProductCard } from "@/components/ui/ProductCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import StrainProductTabs from "@/components/strain/StrainProductTabs";
 
 function badgeVariant(type: string): "indica" | "sativa" | "hybrid" | "cbd" {
   if (type === "indica") return "indica";
@@ -146,7 +146,7 @@ export default async function StrainDetailPage({
         </div>
       </ScrollReveal>
 
-      {/* Products with this strain */}
+      {/* Products with this strain — tabbed by category */}
       {products.length > 0 && (
         <section className="section-pad px-6">
           <div className="max-w-5xl mx-auto">
@@ -155,23 +155,7 @@ export default async function StrainDetailPage({
                 Products with {strain.name}
               </h2>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {products.map((p, i) => (
-                <ScrollReveal key={p.id} staggerDelay={i * 100}>
-                  <ProductCard
-                    name={p.name}
-                    brand={p.brand}
-                    strainName={p.strainName ?? ""}
-                    strainType={badgeVariant(p.strainType ?? "hybrid")}
-                    thcRange={p.thcRange}
-                    cbdRange={p.cbdRange}
-                    imageUrl={p.imageUrl}
-                    slug={p.slug}
-                    category={p.category}
-                  />
-                </ScrollReveal>
-              ))}
-            </div>
+            <StrainProductTabs strainName={strain.name} products={products} />
           </div>
         </section>
       )}

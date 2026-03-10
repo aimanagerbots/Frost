@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { supabase } from '@/lib/supabase';
 import type { Session } from '@supabase/supabase-js';
 
@@ -31,7 +32,9 @@ interface AuthState {
   clearError: () => void;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
+export const useAuthStore = create<AuthState>()(
+  persist(
+    (set) => ({
   isAuthenticated: false,
   isDemoMode: false,
   isLoading: false,
@@ -154,4 +157,14 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   clearError: () => set({ error: null }),
-}));
+    }),
+    {
+      name: 'frost-auth',
+      partialize: (state) => ({
+        isAuthenticated: state.isAuthenticated,
+        isDemoMode: state.isDemoMode,
+        user: state.user,
+      }),
+    },
+  ),
+);

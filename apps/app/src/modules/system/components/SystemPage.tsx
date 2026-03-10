@@ -238,6 +238,9 @@ export function SystemPage() {
                   accessor: 'status',
                   sortable: true,
                   render: (row) => {
+                    if (row.status === 'failed' || row.status === 'scheduled') {
+                      return <StatusBadge status={row.status} size="sm" />;
+                    }
                     const cfg = JOB_STATUS_BADGE[row.status];
                     return (
                       <StatusBadge

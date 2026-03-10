@@ -8,24 +8,20 @@ import { useOrders } from '../hooks/useOrders';
 import { useOrderPipeline } from '../hooks/useOrderPipeline';
 import { OrderPipeline } from './OrderPipeline';
 import { OrderDrawer } from './OrderDrawer';
-import type { Order, OrderFilter, OrderStatus, PaymentStatus } from '@/modules/orders/types';
+import type { Order, OrderFilter, OrderStatus } from '@/modules/orders/types';
 import { ACCENT as ORDERS_ACCENT } from '@/design/colors';
 
-const STATUS_VARIANT: Record<OrderStatus, 'muted' | 'info' | 'warning' | 'success'> = {
-  pending: 'muted',
-  confirmed: 'info',
-  'in-production': 'warning',
-  packaged: 'info',
-  fulfilled: 'warning',
-  shipped: 'warning',
-  delivered: 'success',
-  paid: 'success',
-};
+import type { DomainStatus } from '@/components/StatusBadge';
 
-const PAYMENT_VARIANT: Record<PaymentStatus, 'muted' | 'success' | 'danger'> = {
-  pending: 'muted',
-  received: 'success',
-  overdue: 'danger',
+const ORDER_STATUS_TO_DOMAIN: Record<OrderStatus, DomainStatus> = {
+  pending: 'pending',
+  confirmed: 'confirmed',
+  'in-production': 'in-production',
+  packaged: 'packaged',
+  fulfilled: 'fulfilled',
+  shipped: 'shipped',
+  delivered: 'delivered',
+  paid: 'paid',
 };
 
 const selectClass =
@@ -118,8 +114,7 @@ export function OrdersQueue() {
       sortable: true,
       render: (row: Order) => (
         <StatusBadge
-          variant={STATUS_VARIANT[row.status]}
-          label={row.status.replace(/-/g, ' ')}
+          status={ORDER_STATUS_TO_DOMAIN[row.status]}
           size="sm"
         />
       ),
@@ -131,7 +126,7 @@ export function OrdersQueue() {
       hideBelow: 'md' as const,
       render: (row: Order) => (
         <StatusBadge
-          variant={PAYMENT_VARIANT[row.paymentStatus]}
+          status={row.paymentStatus === 'received' ? 'paid' : row.paymentStatus as DomainStatus}
           label={row.paymentStatus}
           size="sm"
         />

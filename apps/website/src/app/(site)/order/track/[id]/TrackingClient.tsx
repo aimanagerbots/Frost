@@ -284,7 +284,7 @@ function ChatPanel({
   }
 
   return (
-    <div className="bg-card rounded-xl border border-white/[0.06] flex flex-col h-[420px] lg:h-full">
+    <div className="bg-card rounded-xl border border-white/[0.06] flex flex-col h-[420px] lg:h-[420px]">
       {/* Header */}
       <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06]">
         <SparkleIcon />
@@ -519,7 +519,7 @@ export function TrackingClient(_props: { orderId: string }) {
 
   return (
     <div className="min-h-screen bg-black">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-5">
         {/* Header */}
         <div>
           <Link

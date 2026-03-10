@@ -2,54 +2,54 @@
 
 import {
   DashboardWelcome,
+  DashboardScorecard,
   DashboardQuickActions,
-  DashboardNotificationsPreview,
-  DashboardDeals,
   DashboardRecentOrders,
-  DashboardDeliveries,
-  DashboardStoreOrders,
-  DashboardRecommendations,
-  DashboardComingSoon,
-  DashboardAccountSnapshot,
-  DashboardFeaturedProducts,
+  DashboardWhatsHot,
+  DashboardDrops,
+  DashboardTierPreview,
+  DashboardSavings,
+  DashboardAlerts,
   DashboardRepCard,
+  DashboardFeaturedProducts,
+  DashboardStoreOrders,
+  DashboardDeliveries,
 } from '@/modules/portal/dashboard/components';
 
 export default function DashboardPage() {
   return (
     <div className="space-y-6">
-      {/* Welcome + Health */}
+      {/* Welcome */}
       <DashboardWelcome />
 
-      {/* Account Snapshot — 4 metrics */}
-      <DashboardAccountSnapshot />
+      {/* Hero scorecard — anchoring psychology */}
+      <DashboardScorecard />
 
       {/* Quick Actions */}
       <DashboardQuickActions />
 
-      {/* Main grid — 2 columns on desktop */}
+      {/* Main grid — 3 columns on desktop */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left column — wider */}
         <div className="lg:col-span-2 space-y-6">
           <DashboardRecentOrders />
-          <DashboardStoreOrders />
-          <DashboardRecommendations />
+          <DashboardWhatsHot />
+          <DashboardDrops />
         </div>
 
         {/* Right column — narrower */}
         <div className="space-y-6">
-          <DashboardNotificationsPreview />
-          <DashboardDeliveries />
-          <DashboardDeals />
+          <DashboardTierPreview />
+          <DashboardSavings />
+          <DashboardAlerts />
           <DashboardRepCard />
         </div>
       </div>
 
-      {/* Featured Products — full width horizontal scroll */}
+      {/* Full-width sections */}
       <DashboardFeaturedProducts />
-
-      {/* Coming Soon — production calendar preview */}
-      <DashboardComingSoon />
+      <DashboardStoreOrders />
+      <DashboardDeliveries />
     </div>
   );
 }

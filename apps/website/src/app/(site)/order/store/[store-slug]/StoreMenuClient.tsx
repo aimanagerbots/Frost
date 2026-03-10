@@ -5,7 +5,6 @@ import Link from "next/link";
 import type { DispensaryLocation } from "@/types";
 import type { StoreInventoryItem } from "@/mocks/store-inventory";
 import { useOrderStore } from "@/stores/order-store";
-import { CartDrawer } from "@/components/order/CartDrawer";
 import { CartBadge } from "@/components/order/CartBadge";
 import { ConciergeFAB } from "@/components/order/ConciergeFAB";
 
@@ -387,8 +386,7 @@ export function StoreMenuClient({ dispensary, inventory }: StoreMenuClientProps)
         </div>
       </div>
 
-      {/* Cart + Concierge */}
-      <CartDrawer />
+      {/* Cart badge + Concierge (CartDrawer is in site layout) */}
       <CartBadge />
       <ConciergeFAB />
     </div>

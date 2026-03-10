@@ -75,7 +75,10 @@ function EventCard({ event, onClick }: { event: Event; onClick: (id: string) => 
             <span className="rounded-full px-2 py-0.5 text-[11px] font-medium" style={{ backgroundColor: `${typeColor}20`, color: typeColor }}>
               {TYPE_LABELS[event.type]}
             </span>
-            <StatusBadge variant={STATUS_VARIANTS[event.status] ?? 'muted'} label={event.status} size="sm" />
+            {(event.status === 'confirmed' || event.status === 'cancelled')
+              ? <StatusBadge status={event.status as 'confirmed' | 'cancelled'} size="sm" />
+              : <StatusBadge variant={STATUS_VARIANTS[event.status] ?? 'muted'} label={event.status} size="sm" />
+            }
           </div>
         </div>
       </div>

@@ -17,10 +17,12 @@ const PURPOSE_LABELS: Record<string, string> = {
   promotional: 'Promotional',
 };
 
-const STATUS_VARIANT: Record<string, 'success' | 'info' | 'danger'> = {
-  completed: 'success',
-  scheduled: 'info',
-  cancelled: 'danger',
+import type { DomainStatus } from '@/components/StatusBadge';
+
+const VD_STATUS_DOMAIN: Record<string, DomainStatus> = {
+  completed: 'complete',
+  scheduled: 'scheduled',
+  cancelled: 'cancelled',
 };
 
 const PURPOSE_VARIANT: Record<string, 'info' | 'success' | 'warning' | 'muted'> = {
@@ -96,7 +98,7 @@ export function VendorDays() {
       accessor: 'status' as const,
       sortable: true,
       render: (row: VendorDayRow) => (
-        <StatusBadge variant={STATUS_VARIANT[row.status as string]} label={row.status as string} size="sm" />
+        <StatusBadge status={VD_STATUS_DOMAIN[row.status as string]} label={row.status as string} size="sm" />
       ),
     },
     {

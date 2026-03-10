@@ -75,7 +75,7 @@ export function Playbooks() {
                 <div key={exec.id} className="rounded-xl border border-amber-500/30 bg-card p-4">
                   <div className="mb-2 flex items-start justify-between">
                     <h4 className="text-sm font-medium text-text-bright">{pb.name}</h4>
-                    <StatusBadge variant="success" label="Active" size="sm" pulse />
+                    <StatusBadge status="active" size="sm" pulse />
                   </div>
                   <p className="mb-2 text-xs text-text-muted">{exec.accountName}</p>
 

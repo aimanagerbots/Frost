@@ -7,6 +7,14 @@ import type { DeliveryRun, DeliveryStop, DeliveryStopStatus, DeliveryRunStatus }
 import { ACCENT } from '@/design/colors';
 
 
+import type { DomainStatus } from '@/components/StatusBadge';
+
+const STOP_STATUS_DOMAIN: Partial<Record<DeliveryStopStatus, DomainStatus>> = {
+  pending: 'pending',
+  delivered: 'delivered',
+  failed: 'failed',
+};
+
 const stopStatusVariant = (s: DeliveryStopStatus) => {
   const map: Record<DeliveryStopStatus, 'muted' | 'info' | 'success' | 'danger'> = {
     pending: 'muted',
@@ -113,7 +121,12 @@ export function RouteDrawer({ run, open, onClose }: RouteDrawerProps) {
                         <div>
                           <div className="flex items-center gap-2">
                             <span className="text-xs font-medium text-text-muted">Stop {i + 1}</span>
-                            <StatusBadge label={status} variant={stopStatusVariant(status)} size="sm" />
+                            <StatusBadge
+                              {...(STOP_STATUS_DOMAIN[status]
+                                ? { status: STOP_STATUS_DOMAIN[status] }
+                                : { variant: stopStatusVariant(status), label: status })}
+                              size="sm"
+                            />
                           </div>
                           <h5 className="text-sm font-semibold text-text-default mt-1">{stop.accountName}</h5>
                           <p className="text-xs text-text-muted">{stop.address}, {stop.city}</p>

@@ -25,14 +25,15 @@ function formatCurrency(n: number): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(n);
 }
 
-function statusVariant(status: AccountOrder['status']) {
-  switch (status) {
-    case 'delivered': return 'success' as const;
-    case 'in-transit': return 'info' as const;
-    case 'processing': return 'warning' as const;
-    case 'cancelled': return 'danger' as const;
-  }
-}
+import type { DomainStatus } from '@/components/StatusBadge';
+
+// All AccountOrder statuses are valid DomainStatuses
+const ORDER_STATUS_DOMAIN: Record<AccountOrder['status'], DomainStatus> = {
+  delivered: 'delivered',
+  'in-transit': 'in-transit',
+  processing: 'processing',
+  cancelled: 'cancelled',
+};
 
 interface OrderRow extends Record<string, unknown> {
   id: string;
@@ -118,7 +119,7 @@ export function PurchasesTab({ accountId, account }: PurchasesTabProps) {
       accessor: 'status' as const,
       sortable: true,
       render: (row: OrderRow) => (
-        <StatusBadge variant={statusVariant(row.status as AccountOrder['status'])} label={row.status} size="sm" />
+        <StatusBadge status={ORDER_STATUS_DOMAIN[row.status as AccountOrder['status']]} size="sm" />
       ),
     },
   ], []);

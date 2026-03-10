@@ -35,6 +35,14 @@ function healthVariant(score: number) {
   return 'danger' as const;
 }
 
+import type { DomainStatus } from '@/components/StatusBadge';
+
+// Only 'active' and 'inactive' are DomainStatuses; others use variant fallback
+const ACCOUNT_STATUS_DOMAIN: Partial<Record<Account['status'], DomainStatus>> = {
+  active: 'active',
+  inactive: 'inactive',
+};
+
 function statusVariant(status: Account['status']) {
   switch (status) {
     case 'active': return 'success' as const;
@@ -99,8 +107,9 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
             size="sm"
           />
           <StatusBadge
-            variant={statusVariant(account.status)}
-            label={account.status}
+            {...(ACCOUNT_STATUS_DOMAIN[account.status]
+              ? { status: ACCOUNT_STATUS_DOMAIN[account.status]! }
+              : { variant: statusVariant(account.status), label: account.status })}
             size="sm"
           />
           {account.vmiEnrolled && (

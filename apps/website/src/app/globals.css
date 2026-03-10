@@ -79,6 +79,15 @@
   }
 }
 
+@keyframes cart-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(91, 184, 230, 0.5)) drop-shadow(0 0 8px rgba(91, 184, 230, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(91, 184, 230, 0.7)) drop-shadow(0 0 16px rgba(91, 184, 230, 0.4));
+  }
+}
+
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
@@ -239,6 +248,15 @@
   }
   .logo-glow-img:hover {
     animation: snowflake-glow 1s ease-in-out infinite;
+  }
+
+  /* Cart icon glow — soft pulsing halo when items in cart */
+  .cart-glow {
+    animation: cart-glow-pulse 2s ease-in-out infinite;
+  }
+  .cart-glow:hover {
+    animation: cart-glow-pulse 1.2s ease-in-out infinite;
+    filter: brightness(1.1);
   }
 
   /* Section padding */

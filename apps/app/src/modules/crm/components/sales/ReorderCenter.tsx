@@ -13,6 +13,14 @@ function formatCurrency(n: number): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(n);
 }
 
+import type { DomainStatus } from '@/components/StatusBadge';
+
+const REORDER_STATUS_DOMAIN: Record<string, DomainStatus | null> = {
+  pending: 'pending',
+  approved: 'approved',
+  rejected: 'rejected',
+};
+
 function statusVariant(status: string) {
   switch (status) {
     case 'pending': return 'warning' as const;
@@ -163,7 +171,12 @@ export function ReorderCenter() {
       header: 'Status',
       accessor: 'status' as const,
       render: (row) => (
-        <StatusBadge variant={statusVariant(row.status as string)} label={row.status as string} size="sm" />
+        <StatusBadge
+          {...(REORDER_STATUS_DOMAIN[row.status as string]
+            ? { status: REORDER_STATUS_DOMAIN[row.status as string]! }
+            : { variant: statusVariant(row.status as string), label: row.status as string })}
+          size="sm"
+        />
       ),
     },
   ];

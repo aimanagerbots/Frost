@@ -9,7 +9,7 @@ export default function BlogPage() {
     <div>
       <div className="pt-28 pb-8 px-6">
         <div className="max-w-7xl mx-auto">
-          <CategoryBanner alt="The Frost Journal" />
+          <CategoryBanner alt="Blog" />
         </div>
       </div>
       <ScrollReveal>

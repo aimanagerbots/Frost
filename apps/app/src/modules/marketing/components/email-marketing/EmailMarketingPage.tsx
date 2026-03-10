@@ -53,7 +53,9 @@ const columns = [
     accessor: 'status' as const,
     sortable: true,
     render: (row: EmailCampaign) => (
-      <StatusBadge label={row.status} variant={STATUS_VARIANT[row.status] ?? 'default'} size="sm" />
+      (row.status === 'draft' || row.status === 'scheduled')
+        ? <StatusBadge status={row.status as 'draft' | 'scheduled'} size="sm" />
+        : <StatusBadge label={row.status} variant={STATUS_VARIANT[row.status] ?? 'default'} size="sm" />
     ),
   },
   {
@@ -196,7 +198,10 @@ export function EmailMarketingPage() {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-sm font-semibold text-text-default truncate">{campaign.name}</p>
-                    <StatusBadge label={campaign.status} variant={STATUS_VARIANT[campaign.status] ?? 'default'} size="sm" />
+                    {(campaign.status === 'draft' || campaign.status === 'scheduled')
+                      ? <StatusBadge status={campaign.status as 'draft' | 'scheduled'} size="sm" />
+                      : <StatusBadge label={campaign.status} variant={STATUS_VARIANT[campaign.status] ?? 'default'} size="sm" />
+                    }
                   </div>
                   {campaign.stats && (
                     <div className="grid grid-cols-3 gap-2 text-center">

@@ -65,7 +65,10 @@ export function SEODrawer({ post, onClose }: SEODrawerProps) {
       <div className="space-y-5">
         {/* Status & Meta */}
         <div className="flex flex-wrap items-center gap-2">
-          <StatusBadge variant={statusVariant} label={post.status} dot />
+          {(post.status === 'draft' || post.status === 'review')
+            ? <StatusBadge status={post.status as 'draft' | 'review'} />
+            : <StatusBadge variant={statusVariant} label={post.status} dot />
+          }
           <span className="text-xs text-text-muted">by {post.author}</span>
           {post.publishedDate && (
             <span className="text-xs text-text-muted">· {post.publishedDate}</span>

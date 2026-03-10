@@ -4,24 +4,7 @@ import { DrawerPanel, StatusBadge } from '@/components';
 import type { Invoice } from '@/modules/finance/types';
 
 
-const statusVariant = (s: string) => {
-  switch (s) {
-    case 'paid': return 'success' as const;
-    case 'pending': return 'warning' as const;
-    case 'overdue': return 'danger' as const;
-    case 'partial': return 'info' as const;
-    default: return 'default' as const;
-  }
-};
-
-const complianceVariant = (s: string) => {
-  switch (s) {
-    case 'compliant': return 'success' as const;
-    case 'approaching': return 'warning' as const;
-    case 'overdue': return 'danger' as const;
-    default: return 'default' as const;
-  }
-};
+const INVOICE_DOMAIN_STATUSES = new Set(['paid', 'pending', 'overdue']);
 
 const dunningLabels = ['No Action', 'Email Sent', 'Follow-up Email', 'Phone Call', 'Escalation / Hold'];
 
@@ -46,8 +29,12 @@ export function ARDrawer({ invoice, onClose }: ARDrawerProps) {
       <div className="space-y-6">
         {/* Status Row */}
         <div className="flex items-center gap-2">
-          <StatusBadge variant={statusVariant(invoice.status)} label={invoice.status} dot />
-          <StatusBadge variant={complianceVariant(invoice.complianceStatus)} label={invoice.complianceStatus} dot />
+          {INVOICE_DOMAIN_STATUSES.has(invoice.status) ? (
+            <StatusBadge status={invoice.status as 'paid' | 'pending' | 'overdue'} />
+          ) : (
+            <StatusBadge variant="info" label={invoice.status} dot />
+          )}
+          <StatusBadge status={invoice.complianceStatus as 'compliant' | 'approaching' | 'overdue'} />
         </div>
 
         {/* Key Details */}

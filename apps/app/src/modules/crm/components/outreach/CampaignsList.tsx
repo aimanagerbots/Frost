@@ -9,12 +9,21 @@ import type { Campaign } from '../../types';
 import { ACCENT as CRM_ACCENT } from '@/design/colors';
 
 
+import type { DomainStatus } from '@/components/StatusBadge';
+
 const STATUS_VARIANT: Record<string, 'success' | 'info' | 'muted' | 'warning' | 'danger'> = {
   active: 'success',
   scheduled: 'info',
   completed: 'muted',
   paused: 'warning',
   draft: 'danger',
+};
+
+const CAMPAIGN_STATUS_DOMAIN: Record<string, DomainStatus | null> = {
+  active: 'active',
+  scheduled: 'scheduled',
+  draft: 'draft',
+  completed: 'complete',
 };
 
 const TYPE_LABELS: Record<string, string> = {
@@ -82,7 +91,12 @@ export function CampaignsList() {
       accessor: 'status' as const,
       sortable: true,
       render: (row: CampaignRow) => (
-        <StatusBadge variant={STATUS_VARIANT[row.status as string]} label={row.status as string} size="sm" />
+        <StatusBadge
+          {...(CAMPAIGN_STATUS_DOMAIN[row.status as string]
+            ? { status: CAMPAIGN_STATUS_DOMAIN[row.status as string]!, label: row.status === 'completed' ? 'Completed' : undefined }
+            : { variant: STATUS_VARIANT[row.status as string], label: row.status as string })}
+          size="sm"
+        />
       ),
     },
     {

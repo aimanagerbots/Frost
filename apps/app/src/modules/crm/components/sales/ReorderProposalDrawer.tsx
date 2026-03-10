@@ -19,6 +19,14 @@ function sourceVariant(source: string) {
   }
 }
 
+import type { DomainStatus } from '@/components/StatusBadge';
+
+const REORDER_STATUS_DOMAIN: Record<string, DomainStatus | null> = {
+  pending: 'pending',
+  approved: 'approved',
+  rejected: 'rejected',
+};
+
 function statusVariant(status: string) {
   switch (status) {
     case 'pending': return 'warning' as const;
@@ -57,7 +65,11 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
             <p className="text-sm text-text-muted">{proposal.daysSinceLastOrder} days since last order</p>
           </div>
           <div className="flex items-center gap-2">
-            <StatusBadge variant={statusVariant(proposal.status)} label={proposal.status} />
+            <StatusBadge
+              {...(REORDER_STATUS_DOMAIN[proposal.status]
+                ? { status: REORDER_STATUS_DOMAIN[proposal.status]! }
+                : { variant: statusVariant(proposal.status), label: proposal.status })}
+            />
             <StatusBadge variant={sourceVariant(proposal.source)} label={proposal.source.replace(/-/g, ' ')} />
           </div>
         </div>

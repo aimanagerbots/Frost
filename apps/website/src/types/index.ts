@@ -98,13 +98,16 @@ export interface CartItem {
   readonly brand: string;
   readonly price: number;
   readonly quantity: number;
-  readonly storeId: string;
-  readonly storeName: string;
-  readonly storeSlug: string;
+  readonly imageUrl?: string;
   readonly strainName?: string;
   readonly strainType?: string;
   readonly thcRange?: string;
-  readonly stockStatus: "in-stock" | "low-stock" | "out-of-stock";
+  /* Store fields are optional for frictionless add-to-cart.
+     Resolved later via location-based store matching. */
+  readonly storeId?: string;
+  readonly storeName?: string;
+  readonly storeSlug?: string;
+  readonly stockStatus?: "in-stock" | "low-stock" | "out-of-stock";
 }
 
 export type OrderStatus =

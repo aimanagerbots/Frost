@@ -70,7 +70,10 @@ export function ProfileTab({ account }: ProfileTabProps) {
             </div>
             <div className="flex justify-between">
               <dt className="text-text-muted">Status</dt>
-              <dd><StatusBadge variant={account.status === 'active' ? 'success' : 'warning'} label={account.status} size="sm" /></dd>
+              <dd>{account.status === 'active'
+                ? <StatusBadge status="active" size="sm" />
+                : <StatusBadge variant="warning" label={account.status} size="sm" />
+              }</dd>
             </div>
             <div className="flex justify-between">
               <dt className="text-text-muted">Segments</dt>

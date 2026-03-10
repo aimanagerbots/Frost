@@ -40,9 +40,15 @@ export function AdDrawer({ campaign, onClose }: AdDrawerProps) {
       <div className="space-y-5">
         {/* Status Row */}
         <div className="flex flex-wrap items-center gap-2">
-          <StatusBadge variant={STATUS_VARIANTS[campaign.status] ?? 'muted'} label={campaign.status} dot />
+          {(campaign.status === 'active' || campaign.status === 'draft')
+            ? <StatusBadge status={campaign.status as 'active' | 'draft'} />
+            : <StatusBadge variant={STATUS_VARIANTS[campaign.status] ?? 'muted'} label={campaign.status} dot />
+          }
           <span className="rounded-full bg-elevated px-2.5 py-0.5 text-xs text-text-bright">{PLATFORM_LABELS[campaign.platform]}</span>
-          <StatusBadge variant={COMPLIANCE_VARIANTS[campaign.complianceStatus] ?? 'muted'} label={campaign.complianceStatus} size="sm" />
+          {campaign.complianceStatus === 'approved'
+            ? <StatusBadge status="approved" size="sm" />
+            : <StatusBadge variant={COMPLIANCE_VARIANTS[campaign.complianceStatus] ?? 'muted'} label={campaign.complianceStatus} size="sm" />
+          }
         </div>
 
         {/* Compliance Warning */}

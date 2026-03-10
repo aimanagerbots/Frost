@@ -119,14 +119,13 @@ export function ContentPage() {
       header: 'Status',
       accessor: 'status' as const,
       sortable: true,
-      render: (row: ContentPost) => (
-        <StatusBadge
-          variant={STATUS_VARIANT[row.status]}
-          label={row.status}
-          size="sm"
-          dot
-        />
-      ),
+      render: (row: ContentPost) => {
+        const domainMap: Record<string, 'draft' | 'scheduled' | 'archived'> = { draft: 'draft', scheduled: 'scheduled', archived: 'archived' };
+        const s = domainMap[row.status];
+        return s
+          ? <StatusBadge status={s} size="sm" />
+          : <StatusBadge variant={STATUS_VARIANT[row.status]} label={row.status} size="sm" dot />;
+      },
     },
     {
       header: 'Date',
@@ -243,11 +242,10 @@ export function ContentPage() {
           <div className="space-y-6">
             {/* Status & Platform */}
             <div className="flex flex-wrap items-center gap-2">
-              <StatusBadge
-                variant={STATUS_VARIANT[selectedPost.status]}
-                label={selectedPost.status}
-                dot
-              />
+              {({ draft: 'draft', scheduled: 'scheduled', archived: 'archived' } as Record<string, 'draft' | 'scheduled' | 'archived'>)[selectedPost.status]
+                ? <StatusBadge status={({ draft: 'draft', scheduled: 'scheduled', archived: 'archived' } as Record<string, 'draft' | 'scheduled' | 'archived'>)[selectedPost.status]} />
+                : <StatusBadge variant={STATUS_VARIANT[selectedPost.status]} label={selectedPost.status} dot />
+              }
               <StatusBadge
                 variant={PLATFORM_VARIANT[selectedPost.platform] ?? 'default'}
                 label={selectedPost.platform}

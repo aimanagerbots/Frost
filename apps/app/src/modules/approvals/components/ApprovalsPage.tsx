@@ -22,12 +22,7 @@ const PRIORITY_VARIANT: Record<ApprovalRequest['priority'], 'danger' | 'warning'
   low: 'info',
 };
 
-const STATUS_VARIANT: Record<ApprovalRequest['status'], 'warning' | 'success' | 'danger' | 'info'> = {
-  pending: 'warning',
-  approved: 'success',
-  rejected: 'danger',
-  modified: 'info',
-};
+const APPROVAL_DOMAIN_STATUSES = new Set(['pending', 'approved', 'rejected']);
 
 const TYPE_LABELS: Record<ApprovalRequest['type'], string> = {
   email: 'Email',
@@ -200,12 +195,10 @@ export function ApprovalsPage() {
       accessor: 'status' as const,
       render: (row: ApprovalRequest) => {
         const effectiveStatus = localStatuses[row.id] ?? row.status;
-        return (
-          <StatusBadge
-            label={effectiveStatus.charAt(0).toUpperCase() + effectiveStatus.slice(1)}
-            variant={STATUS_VARIANT[effectiveStatus]}
-            size="sm"
-          />
+        return APPROVAL_DOMAIN_STATUSES.has(effectiveStatus) ? (
+          <StatusBadge status={effectiveStatus as 'pending' | 'approved' | 'rejected'} size="sm" />
+        ) : (
+          <StatusBadge variant="info" label={effectiveStatus} size="sm" />
         );
       },
     },
