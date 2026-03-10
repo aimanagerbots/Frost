@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { Suspense, useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
@@ -12,7 +12,7 @@ import { AppMegaMenu } from './AppMegaMenu';
 import { AppMobileMenu } from './AppMobileMenu';
 import { getSubCategories } from './sub-nav-data';
 
-export function AppHeader() {
+function AppHeaderInner() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -195,4 +195,36 @@ export function AppHeader() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setCommandPaletteOpen(true)}
-              className="rounded-lg p-2 text-text-muted hover:text-text-default transition-colo
+              className="rounded-lg p-2 text-text-muted hover:text-text-default transition-colors"
+              aria-label="Search"
+            >
+              <Search className="h-5 w-5" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(true)}
+              className="text-text-muted hover:text-text-default transition-colors"
+              aria-label="Open menu"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <AppMobileMenu
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+      />
+    </>
+  );
+}
+
+export function AppHeader() {
+  return (
+    <Suspense>
+      <AppHeaderInner />
+    </Suspense>
+  );
+}

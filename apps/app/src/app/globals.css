@@ -144,7 +144,7 @@
 
 @layer base {
   :root {
-    --header-height: 76px;
+    --header-height: 96px;
   }
   * {
     @apply border-border-default;

@@ -275,4 +275,15 @@ export function PortalHeader() {
 
       <PortalMobileMenu
         isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(f
+        onClose={() => setMobileMenuOpen(false)}
+        newOrderCount={newOrderCount}
+        unreadMessages={unreadMessages}
+      />
+
+      <PortalCartDrawer
+        isOpen={cartDrawerOpen}
+        onClose={() => setCartDrawerOpen(false)}
+      />
+    </>
+  );
+}
