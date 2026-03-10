@@ -138,40 +138,31 @@ export default function HomePage() {
             })}
           </div>
         </ScrollReveal>
-      </section>
-
-      {/* ── 3. Newsletter CTA Strip ── */}
-      <NewsletterStrip
-        heading="New drops, straight to your inbox"
-        subtext="Be the first to know when we release new strains, products, and dispensary partnerships."
-      />
-
-      {/* ── 4. Strain Library Hero ── */}
-      <section className="section-pad">
         <ScrollReveal>
-          <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-7xl px-6 mt-4 lg:mt-8">
             <Link
               href="/strains"
-              className="group relative block overflow-hidden rounded-2xl"
+              className="group relative flex items-center overflow-hidden rounded-xl border border-[#5BB8E6]/40 shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)] transition-shadow duration-300 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.6),0_0_40px_8px_rgba(91,184,230,0.3)]"
               style={{ aspectRatio: "8 / 3" }}
             >
-              {/* Placeholder image — wide cinematic */}
-              <Image
-                src={unsplashUrl(PHOTOS.strains.hero, 2560, 960)}
-                alt="Explore our strain library"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                sizes="100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/50 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-center p-8 sm:p-12 lg:p-16">
+              {/* Logo placeholder */}
+              <div className="absolute inset-0">
+                <Image
+                  src="/FrostLogo_SnowflakeOnly.png"
+                  alt="Explore our strain library"
+                  fill
+                  sizes="100vw"
+                  className="object-contain p-16 opacity-20 transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="relative flex flex-col justify-center p-8 sm:p-12 lg:p-16">
                 <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-accent-primary">
                   Strain Library
                 </p>
-                <h2 className="max-w-lg font-display text-3xl text-text-on-dark sm:text-4xl lg:text-5xl">
+                <h2 className="max-w-lg font-display text-3xl text-text-default sm:text-4xl lg:text-5xl">
                   Explore Our Genetics
                 </h2>
-                <p className="mt-3 max-w-md text-sm text-text-on-dark-muted sm:text-base">
+                <p className="mt-3 max-w-md text-sm text-text-muted sm:text-base">
                   Indica, Sativa, and Hybrid cultivars bred for flavor, potency, and consistency. Browse by type or effect.
                 </p>
                 <div className="mt-6">
@@ -185,7 +176,7 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ── 5. Social Proof ── */}
+      {/* ── 4. Social Proof ── */}
       <section className="section-pad">
         <h2 className="mb-4 text-center font-display text-[40px] text-text-default">
           What People Are Saying
@@ -280,29 +271,25 @@ export default function HomePage() {
         subtext="Product drops, strain spotlights, and dispensary updates — no spam, just the good stuff."
       />
 
-      {/* ── 10. From the Journal ── */}
+      {/* ── Blog ── */}
       <section className="section-pad">
-        <h2 className="mb-4 text-center font-display text-[40px] text-text-default">
-          From the Journal
-        </h2>
-        <p className="mx-auto mb-12 max-w-xl text-center text-text-muted">
-          Strain spotlights, industry insights, and stories from behind the scenes.
-        </p>
         <ScrollReveal>
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
-            {recentPosts.map((post) => (
-              <BlogPostCard
-                key={post.id}
-                title={post.title}
-                slug={post.slug}
-                excerpt={post.excerpt}
-                author={post.author}
-                date={post.date}
-                readTime={post.readTime}
-                category={post.category}
-                imageUrl={post.imageUrl}
-              />
-            ))}
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              {recentPosts.map((post) => (
+                <BlogPostCard
+                  key={post.id}
+                  title={post.title}
+                  slug={post.slug}
+                  excerpt={post.excerpt}
+                  author={post.author}
+                  date={post.date}
+                  readTime={post.readTime}
+                  category={post.category}
+                  imageUrl={post.imageUrl}
+                />
+              ))}
+            </div>
           </div>
         </ScrollReveal>
       </section>

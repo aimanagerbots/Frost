@@ -45,7 +45,7 @@ export function ChatPage() {
   const activeTab = useTeamChatStore((s) => s.activeTab);
 
   return (
-    <div className="flex h-[calc(100vh-7rem)] min-h-[500px] flex-col rounded-xl border border-default bg-card overflow-hidden">
+    <div className="flex h-[calc(100vh-7rem)] min-h-[500px] flex-col rounded-xl bg-card overflow-hidden">
       <TabBar />
       {activeTab === 'ai' && <AIChatPage />}
       {activeTab === 'dm' && <DirectMessagesPage />}

@@ -1,6 +1,6 @@
 'use client';
 
-import { LayoutDashboard, Activity } from 'lucide-react';
+import { LayoutDashboard, Activity, CheckCircle2 } from 'lucide-react';
 import { SectionHeader, MetricCard, LoadingSkeleton, ErrorState, EmptyState } from '@/components';
 import { useDashboardAlerts } from '@/modules/dashboard/hooks/useDashboardAlerts';
 import { useDashboardMetrics } from '@/modules/dashboard/hooks/useDashboardMetrics';
@@ -36,7 +36,7 @@ export function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="space-y-6 p-6">
+      <div className="space-y-4 p-6">
         <LoadingSkeleton variant="text" />
         <LoadingSkeleton variant="card" count={4} />
         <LoadingSkeleton variant="chart" count={2} />
@@ -56,7 +56,7 @@ export function DashboardPage() {
   }
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-4 p-6">
       <SectionHeader
         icon={LayoutDashboard}
         title="Dashboard"
@@ -69,19 +69,17 @@ export function DashboardPage() {
       />
 
       {/* Welcome Header */}
-      <div className="rounded-xl border border-default bg-card p-5">
-        <h2 className="text-xl font-bold text-text-bright">
-          {getGreeting()}, Team
-        </h2>
-        <p className="mt-1 text-sm text-text-muted">{formatDate()}</p>
-        <p className="mt-3 text-sm text-text-default leading-relaxed">
-          <span
-            className="mr-2 inline-block h-2 w-2 rounded-full"
-            style={{ backgroundColor: DASHBOARD_ACCENT }}
-          />
-          12 orders pending, 3 alerts need attention, manufacturing is running at 89% capacity.
-          On-time delivery rate holding steady at 94%.
-        </p>
+      <div className="flex items-center justify-between rounded-xl bg-card p-5">
+        <div>
+          <h2 className="font-display text-xl font-semibold text-text-bright">
+            {getGreeting()}, Team
+          </h2>
+          <p className="mt-1 text-sm text-text-muted">{formatDate()}</p>
+        </div>
+        <div className="flex items-center gap-2 rounded-full bg-green-500/15 px-3 py-1.5">
+          <CheckCircle2 className="h-4 w-4 text-green-400" />
+          <span className="text-sm font-medium text-green-400">Operational</span>
+        </div>
       </div>
 
       {/* Alerts */}
@@ -92,7 +90,7 @@ export function DashboardPage() {
         <EmptyState icon={Activity} title="No metrics" description="No dashboard metrics available yet." accentColor={DASHBOARD_ACCENT} />
       )}
       {metrics && metrics.length > 0 && (
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map((metric) => (
             <MetricCard
               key={metric.id}

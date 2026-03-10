@@ -59,7 +59,7 @@ export function ConfirmationDialog({
       aria-label={title}
     >
       <div
-        className="mx-4 w-full max-w-md rounded-xl border border-default bg-card p-6 shadow-2xl"
+        className="mx-4 w-full max-w-md rounded-xl bg-card p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-lg font-semibold text-text-bright">{title}</h2>

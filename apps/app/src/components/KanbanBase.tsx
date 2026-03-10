@@ -156,7 +156,7 @@ export function KanbanBase<T extends { id: string }>({
         {columns.map((col) => (
           <div
             key={col.id}
-            className="flex w-72 shrink-0 flex-col rounded-xl border border-default bg-card"
+            className="flex w-72 shrink-0 flex-col rounded-xl bg-card"
           >
             {/* Column header */}
             <div className="flex items-center justify-between border-b border-default px-3 py-2.5">

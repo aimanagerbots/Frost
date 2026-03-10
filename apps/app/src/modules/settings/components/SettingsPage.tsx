@@ -277,7 +277,7 @@ function AppearanceTab() {
   return (
     <div className="space-y-6">
       {/* Theme */}
-      <div className="rounded-xl border border-default bg-card p-5">
+      <div className="rounded-xl bg-card p-5">
         <h2 className="mb-1 text-lg font-semibold text-text-bright">Theme</h2>
         <p className="mb-4 text-xs text-text-muted">Switch between dark and light mode</p>
         <div className="flex gap-3">
@@ -297,7 +297,7 @@ function AppearanceTab() {
       </div>
 
       {/* Card Accent */}
-      <div className="rounded-xl border border-default bg-card p-5">
+      <div className="rounded-xl bg-card p-5">
         <h2 className="mb-1 text-lg font-semibold text-text-bright">Card Accent</h2>
         <p className="mb-4 text-xs text-text-muted">Position of the colored accent bar on cards</p>
         <div className="flex gap-3">
@@ -338,7 +338,7 @@ function AppearanceTab() {
       </div>
 
       {/* Tab Style */}
-      <div className="rounded-xl border border-default bg-card p-5">
+      <div className="rounded-xl bg-card p-5">
         <h2 className="mb-1 text-lg font-semibold text-text-bright">Tab Style</h2>
         <p className="mb-4 text-xs text-text-muted">Navigation style for module subcategories</p>
         <div className="flex gap-3">
@@ -375,7 +375,7 @@ function AppearanceTab() {
       </div>
 
       {/* Hover Intensity */}
-      <div className="rounded-xl border border-default bg-card p-5">
+      <div className="rounded-xl bg-card p-5">
         <h2 className="mb-1 text-lg font-semibold text-text-bright">Hover Intensity</h2>
         <p className="mb-4 text-xs text-text-muted">How visible the frost blue hover effect is on interactive elements</p>
         <div className="flex gap-3">

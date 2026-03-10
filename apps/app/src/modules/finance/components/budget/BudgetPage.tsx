@@ -143,7 +143,7 @@ export function BudgetPage() {
             return (
               <div
                 key={d.id}
-                className="cursor-pointer rounded-xl border border-default bg-card p-4 transition-colors hover:border-white/10"
+                className="cursor-pointer rounded-xl bg-card p-4 transition-colors hover:border-white/10"
                 onClick={() => setExpandedDiv(expanded ? null : d.id)}
               >
                 <div className="flex items-center justify-between">
@@ -222,7 +222,7 @@ export function BudgetPage() {
           {scenarios!.map((s) => (
             <div
               key={s.id}
-              className="cursor-pointer rounded-xl border border-default bg-card p-4 transition-colors hover:border-white/10"
+              className="cursor-pointer rounded-xl bg-card p-4 transition-colors hover:border-white/10"
               onClick={() => setSelectedScenario(s)}
             >
               <div className="mb-2 flex items-center gap-2">

@@ -32,7 +32,7 @@ export function TaskCard({ task }: TaskCardProps) {
   const categoryColor = CATEGORY_COLORS[task.category] || '#5BB8E6';
 
   return (
-    <div className="rounded-lg border border-default bg-card p-3 transition-shadow hover:shadow-md">
+    <div className="rounded-xl bg-card p-3 transition-shadow hover:shadow-md">
       {/* Title + Priority */}
       <div className="flex items-start gap-2">
         <div

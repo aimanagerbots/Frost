@@ -63,7 +63,7 @@ export function InteractionsTab({ accountId }: InteractionsTabProps) {
         </button>
       </div>
 
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <TimelineView items={items} />
       </div>
 

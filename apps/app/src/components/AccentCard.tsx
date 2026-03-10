@@ -27,7 +27,7 @@ export function AccentCard({
   return (
     <div
       className={cn(
-        'group relative rounded-xl border border-default bg-card transition-all duration-200',
+        'group relative rounded-xl bg-card transition-all duration-200',
         padding && PADDING_CLASSES[padding],
         onClick && 'cursor-pointer hover:bg-accent-hover hover:-translate-y-0.5',
         selected && 'ring-1',

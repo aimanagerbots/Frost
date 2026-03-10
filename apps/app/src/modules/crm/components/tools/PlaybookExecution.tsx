@@ -101,7 +101,7 @@ export function PlaybookExecutionView({ execution, playbook, onClose }: Playbook
                 return (
                   <div key={step.id} className={`relative flex items-start gap-3 rounded-lg p-2 ${isCurrent ? 'bg-amber-500/10' : ''}`}>
                     <div className={`relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs ${
-                      isCompleted ? 'bg-success text-white' : isCurrent ? 'bg-amber-500 text-white' : 'border border-default bg-card text-text-muted'
+                      isCompleted ? 'bg-success text-white' : isCurrent ? 'bg-amber-500 text-white' : 'bg-card text-text-muted'
                     }`}>
                       {isCompleted ? <CheckCircle className="h-3.5 w-3.5" /> : step.order}
                     </div>

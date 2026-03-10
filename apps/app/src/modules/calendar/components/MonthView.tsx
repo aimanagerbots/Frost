@@ -89,7 +89,7 @@ export function MonthView({ currentDate, events, onSelectDate, onSelectEvent }: 
   const grid = getMonthGrid(year, month, events);
 
   return (
-    <div className="rounded-xl border border-default bg-card overflow-hidden">
+    <div className="rounded-xl bg-card overflow-hidden">
       {/* Day headers */}
       <div className="grid grid-cols-7 border-b border-default">
         {DAY_HEADERS.map((day) => (

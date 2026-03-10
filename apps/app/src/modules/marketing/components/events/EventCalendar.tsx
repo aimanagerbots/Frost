@@ -95,7 +95,7 @@ export function EventCalendar({ events, onSelectEvent }: EventCalendarProps) {
   const goNext = () => setCurrentMonth((m) => new Date(m.getFullYear(), m.getMonth() + 1, 1));
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       {/* Month navigation */}
       <div className="mb-4 flex items-center justify-between">
         <button

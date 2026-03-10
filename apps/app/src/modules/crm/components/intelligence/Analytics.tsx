@@ -51,7 +51,7 @@ export function Analytics() {
       header: 'Category',
       accessor: 'category' as const,
       render: (row: ProductRow) => (
-        <span className="rounded-md bg-elevated px-2 py-0.5 text-xs capitalize text-text-muted">{row.category}</span>
+        <span className="rounded-full bg-elevated px-2 py-0.5 text-xs capitalize text-text-muted">{row.category}</span>
       ),
     },
     {

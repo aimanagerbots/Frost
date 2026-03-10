@@ -139,7 +139,7 @@ export function PackagingDrawer({ order, open, onClose }: PackagingDrawerProps) 
         {order.linkedOrderId && (
           <div>
             <div className="text-xs text-text-muted mb-1">Linked Order</div>
-            <span className="rounded-md bg-elevated px-2 py-0.5 text-xs text-text-default">{order.linkedOrderId}</span>
+            <span className="rounded-full bg-elevated px-2 py-0.5 text-xs text-text-default">{order.linkedOrderId}</span>
           </div>
         )}
       </div>

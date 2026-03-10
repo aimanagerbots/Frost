@@ -38,7 +38,7 @@ interface AccountDetailTabsProps {
 
 export function AccountDetailTabs({ activeTab, onTabChange, vmiEnrolled }: AccountDetailTabsProps) {
   return (
-    <div className="flex gap-1 overflow-x-auto rounded-xl border border-default bg-card p-1.5">
+    <div className="flex gap-1 overflow-x-auto rounded-xl bg-card p-1.5">
       {TAB_CONFIG.map(({ id, label, icon: Icon }) => {
         const isActive = activeTab === id;
         const isVmiDisabled = id === 'vmi' && !vmiEnrolled;

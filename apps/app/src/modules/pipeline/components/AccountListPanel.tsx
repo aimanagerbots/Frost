@@ -44,7 +44,7 @@ export function AccountListPanel({ status, phase, cell, onClose }: AccountListPa
   }
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4 md:p-6" style={{ borderTopColor: color }}>
+    <div className="rounded-xl bg-card p-4 md:p-6" style={{ borderTopColor: color }}>
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <PipelineBadge code={code} size="md" />

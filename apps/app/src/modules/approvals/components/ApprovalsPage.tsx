@@ -323,7 +323,7 @@ export function ApprovalsPage() {
             {pendingItems.map((request) => (
               <div
                 key={request.id}
-                className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-accent-hover"
+                className="rounded-xl bg-card p-4 transition-colors hover:bg-accent-hover"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0 flex-1">

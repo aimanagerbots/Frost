@@ -14,6 +14,16 @@ export const useSidebarStore = create<SidebarState>((set) => ({
   setMobileOpen: (open) => set({ mobileOpen: open }),
 }));
 
+interface MobileMenuState {
+  mobileMenuOpen: boolean;
+  setMobileMenuOpen: (open: boolean) => void;
+}
+
+export const useMobileMenuStore = create<MobileMenuState>((set) => ({
+  mobileMenuOpen: false,
+  setMobileMenuOpen: (open) => set({ mobileMenuOpen: open }),
+}));
+
 interface CommandPaletteState {
   commandPaletteOpen: boolean;
   setCommandPaletteOpen: (open: boolean) => void;

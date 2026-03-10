@@ -23,7 +23,7 @@ interface TrainingStatsProps {
 function StatsTooltip({ active, payload }: { active?: boolean; payload?: Array<{ value: number; payload: MonthlyStat }> }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-default bg-card px-3 py-2.5 shadow-xl">
+    <div className="rounded-xl bg-card px-3 py-2.5 shadow-xl">
       <div className="space-y-1">
         <div className="flex items-center justify-between gap-6">
           <span className="text-[11px] text-[#5BB8E6]">Participation</span>
@@ -36,7 +36,7 @@ function StatsTooltip({ active, payload }: { active?: boolean; payload?: Array<{
 
 export function TrainingStats({ monthlyStats, stats }: TrainingStatsProps) {
   return (
-    <div className="rounded-2xl border border-default bg-card p-5">
+    <div className="rounded-xl bg-card p-5">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">

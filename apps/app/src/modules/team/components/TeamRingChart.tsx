@@ -10,7 +10,7 @@ interface TeamRingChartProps {
 
 export function TeamRingChart({ roles, total }: TeamRingChartProps) {
   return (
-    <div className="rounded-2xl border border-default bg-card p-5">
+    <div className="rounded-xl bg-card p-5">
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h3 className="text-sm font-semibold text-text-bright">Team Overview</h3>

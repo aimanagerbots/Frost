@@ -45,18 +45,18 @@ export function PortalProductCard({ product, onAddToCart, className }: PortalPro
         {/* Badges */}
         <div className="absolute left-2 top-2 flex flex-col gap-1">
           {product.isNew && (
-            <span className="rounded-md bg-amber-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+            <span className="rounded-full bg-amber-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
               New
             </span>
           )}
           {product.isPopular && (
-            <span className="inline-flex items-center gap-0.5 rounded-md bg-blue-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+            <span className="inline-flex items-center gap-0.5 rounded-full bg-blue-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
               <TrendingUp className="h-3 w-3" />
               Popular
             </span>
           )}
           {product.promotionId && (
-            <span className="inline-flex items-center gap-0.5 rounded-md bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+            <span className="inline-flex items-center gap-0.5 rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
               <Tag className="h-3 w-3" />
               Promo
             </span>

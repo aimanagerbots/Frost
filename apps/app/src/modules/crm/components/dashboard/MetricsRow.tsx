@@ -79,7 +79,7 @@ export function MetricsRow({ metrics, kpiMetrics }: MetricsRowProps) {
             {kpiMetrics.map((kpi) => (
               <div
                 key={kpi.category}
-                className="rounded-xl border border-default bg-card p-3"
+                className="rounded-xl bg-card p-3"
               >
                 <p className="text-[11px] font-medium text-text-muted">
                   {kpi.label}

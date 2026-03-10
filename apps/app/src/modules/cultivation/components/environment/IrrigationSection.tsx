@@ -33,7 +33,7 @@ interface MetricCardProps {
 
 function MetricCard({ label, value, target, status = 'ok', icon }: MetricCardProps) {
   return (
-    <div className="flex items-start gap-3 rounded-xl border border-default bg-card p-3">
+    <div className="flex items-start gap-3 rounded-xl bg-card p-3">
       <div
         className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
         style={{ backgroundColor: `${ACCENT}15` }}
@@ -131,7 +131,7 @@ export function IrrigationSection({ roomId }: IrrigationSectionProps) {
 
       {/* Irrigation timeline */}
       {events && events.length > 0 && (
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <h4 className="text-xs font-semibold text-text-bright mb-3">Today&apos;s Irrigation Schedule</h4>
           <div className="flex items-center gap-1 overflow-x-auto pb-1">
             {events.map((event, i) => (
@@ -159,7 +159,7 @@ export function IrrigationSection({ roomId }: IrrigationSectionProps) {
 
       {/* Nutrient recipe */}
       {recipe && (
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="flex items-center justify-between mb-3">
             <h4 className="text-xs font-semibold text-text-bright">Active Recipe: {recipe.name}</h4>
             <span className="text-[10px] text-text-muted">NPK {recipe.npk} | EC {recipe.targetEc} | pH {recipe.targetPh}</span>

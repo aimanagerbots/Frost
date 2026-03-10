@@ -1,13 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-} from 'recharts';
-import { AccentCard } from './AccentCard';
+import { Activity, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
 interface Trend {
   value: number;
@@ -38,53 +32,47 @@ export function MetricCard({
   value,
   trend,
   accentColor,
-  sparklineData,
+  sparklineData: _sparklineData,
   onClick,
-  padding = 'sm',
+  padding = 'md',
   className,
 }: MetricCardProps) {
   const TrendIcon = trend ? TREND_CONFIG[trend.direction].icon : null;
   const trendColor = trend ? TREND_CONFIG[trend.direction].color : '';
 
   return (
-    <AccentCard
-      accentColor={accentColor}
+    <div
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
       onClick={onClick}
-      className={cn(PADDING_CLASSES[padding], className)}
+      onKeyDown={onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); } : undefined}
+      className={cn(
+        'rounded-xl bg-card',
+        PADDING_CLASSES[padding],
+        onClick && 'cursor-pointer transition-colors hover:bg-card-hover',
+        className,
+      )}
     >
-      <div className="pl-2">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[28px] font-bold leading-tight text-text-bright">
-              {value}
-            </div>
-            <div className="mt-1 text-xs text-text-muted">{label}</div>
-          </div>
-          {sparklineData && sparklineData.length > 1 && (
-            <div className="h-10 w-20">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={sparklineData.map((v) => ({ v }))}>
-                  <Line
-                    type="monotone"
-                    dataKey="v"
-                    stroke={accentColor}
-                    strokeWidth={1.5}
-                    dot={false}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          )}
+      <div className="flex items-center gap-3">
+        <div
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
+          style={{ backgroundColor: `${accentColor}1A` }}
+        >
+          <Activity className="h-4 w-4" style={{ color: accentColor }} />
         </div>
-        {trend && TrendIcon && (
-          <div className={cn('mt-2 flex items-center gap-1 text-xs', trendColor)}>
-            <TrendIcon className="h-3.5 w-3.5" />
-            <span className="font-medium">
-              {trend.direction === 'flat' ? '0%' : `${trend.value > 0 ? '+' : ''}${trend.value}%`}
-            </span>
-          </div>
-        )}
+        <div className="min-w-0">
+          <p className="font-display text-lg font-bold text-text-bright">{value}</p>
+          <p className="text-xs text-text-muted">{label}</p>
+        </div>
       </div>
-    </AccentCard>
+      {trend && TrendIcon && (
+        <div className={cn('mt-2 flex items-center gap-1 text-[11px]', trendColor)}>
+          <TrendIcon className="h-3 w-3" />
+          <span className="font-medium">
+            {trend.direction === 'flat' ? '0%' : `${trend.value > 0 ? '+' : ''}${trend.value}%`}
+          </span>
+        </div>
+      )}
+    </div>
   );
 }

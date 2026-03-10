@@ -102,7 +102,7 @@ export function InteractionComposer({ open, onClose, onSave }: InteractionCompos
                 className="w-full rounded-lg border border-default bg-base px-3 py-2 text-sm text-text-default placeholder:text-text-muted focus:border-hover focus:outline-none"
               />
               {filteredAccounts.length > 0 && (
-                <div className="absolute z-20 mt-1 w-full rounded-lg border border-default bg-card shadow-lg">
+                <div className="absolute z-20 mt-1 w-full rounded-xl bg-card shadow-lg">
                   {filteredAccounts.map((a) => (
                     <button
                       key={a.id}

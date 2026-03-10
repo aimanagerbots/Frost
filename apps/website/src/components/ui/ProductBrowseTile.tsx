@@ -104,7 +104,7 @@ export default function ProductBrowseTile({
   const badgeColor = STRAIN_COLORS[typeLower] ?? "#5BB8E6";
 
   return (
-    <div className="group rounded-xl border border-[#5BB8E6]/20 shadow-[0_0_8px_1px_rgba(91,184,230,0.25)] transition-shadow duration-300 hover:shadow-[0_0_14px_2px_rgba(91,184,230,0.4)]">
+    <div className="group rounded-xl border border-[#5BB8E6]/40 shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)] transition-shadow duration-300 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.6),0_0_40px_8px_rgba(91,184,230,0.3)]">
       {/* Image area */}
       <Link
         href={`/${categoryRoute}/${slug}`}

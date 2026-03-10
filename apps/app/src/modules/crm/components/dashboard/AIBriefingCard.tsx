@@ -100,7 +100,7 @@ export function AIBriefingCard({ items, userName = 'Jake' }: AIBriefingCardProps
             return (
               <div
                 key={item.id}
-                className="flex items-start gap-3 rounded-lg bg-card/50 p-3"
+                className="flex items-start gap-3 rounded-xl bg-card/50 p-3"
               >
                 <TypeIcon
                   className="mt-0.5 h-4 w-4 shrink-0"
@@ -119,7 +119,7 @@ export function AIBriefingCard({ items, userName = 'Jake' }: AIBriefingCardProps
                       return (
                         <button
                           key={action.label}
-                          className="flex items-center gap-1 rounded-md bg-elevated px-2 py-1 text-xs text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
+                          className="flex items-center gap-1 rounded-full bg-elevated px-2 py-1 text-xs text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
                         >
                           <ActionIcon className="h-3 w-3" />
                           {action.label}

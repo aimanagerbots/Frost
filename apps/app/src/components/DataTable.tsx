@@ -115,7 +115,7 @@ export function DataTable<T extends Record<string, unknown>>({
   }
 
   return (
-    <div className={cn('rounded-xl border border-default bg-card overflow-hidden', className)}>
+    <div className={cn('rounded-xl bg-card overflow-hidden', className)}>
       {searchable && (
         <div className="border-b border-default p-3">
           <div className="relative">

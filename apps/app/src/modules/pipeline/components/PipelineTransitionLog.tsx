@@ -30,7 +30,7 @@ export function PipelineTransitionLog({ transitions }: PipelineTransitionLogProp
   }
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4 md:p-6">
+    <div className="rounded-xl bg-card p-4 md:p-6">
       <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">
         Recent Transitions
       </h2>

@@ -29,7 +29,7 @@ export function BatchRow({ batch }: { batch: ManufacturingBatch }) {
   const completedStates = batch.previousStates.map((ps) => ps.state);
 
   return (
-    <div className="rounded-xl border border-default bg-card">
+    <div className="rounded-xl bg-card">
       {/* Collapsed row */}
       <button
         onClick={() => setExpanded(!expanded)}

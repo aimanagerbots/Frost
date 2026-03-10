@@ -42,7 +42,7 @@ function RepCard({ rep, expanded, onToggle }: { rep: LeaderboardRep; expanded: b
 
   return (
     <div
-      className={`rounded-xl border border-default bg-card transition-all ${isManager ? 'border-amber-500/30' : ''}`}
+      className={`rounded-xl bg-card transition-all ${isManager ? 'border-amber-500/30' : ''}`}
     >
       <button
         onClick={onToggle}

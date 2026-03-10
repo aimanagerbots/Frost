@@ -65,7 +65,7 @@ export function WorkOrderBoard() {
         <select
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default"
+          className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default"
         >
           <option value="">All Types</option>
           {TYPE_OPTIONS.map((t) => (
@@ -75,7 +75,7 @@ export function WorkOrderBoard() {
         <select
           value={filterPriority}
           onChange={(e) => setFilterPriority(e.target.value)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default"
+          className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default"
         >
           <option value="">All Priorities</option>
           {PRIORITY_OPTIONS.map((p) => (

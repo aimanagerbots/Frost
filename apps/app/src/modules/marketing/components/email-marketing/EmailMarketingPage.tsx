@@ -193,7 +193,7 @@ export function EmailMarketingPage() {
               {featuredCampaigns.map((campaign) => (
                 <div
                   key={campaign.id}
-                  className="rounded-xl border border-default bg-card p-4 cursor-pointer hover:bg-accent-hover"
+                  className="rounded-xl bg-card p-4 cursor-pointer hover:bg-accent-hover"
                   onClick={() => setSelectedCampaignId(campaign.id)}
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -291,7 +291,7 @@ export function EmailMarketingPage() {
           </div>
 
           {/* Step Content */}
-          <div className="rounded-xl border border-default bg-card p-6">
+          <div className="rounded-xl bg-card p-6">
             {/* Step 1: Details */}
             {builderStep === 1 && (
               <div className="space-y-4">
@@ -552,7 +552,7 @@ export function EmailMarketingPage() {
             {(templates ?? []).map((template) => (
               <div
                 key={template.id}
-                className="rounded-xl border border-default bg-card p-4 cursor-pointer hover:bg-accent-hover transition-colors"
+                className="rounded-xl bg-card p-4 cursor-pointer hover:bg-accent-hover transition-colors"
                 onClick={() => setSelectedTemplate(template)}
               >
                 <p className="mb-1 text-sm font-medium text-text-default">{template.name}</p>
@@ -576,7 +576,7 @@ export function EmailMarketingPage() {
           {/* Subscriber Growth */}
           <div>
             <h3 className="mb-3 text-sm font-semibold text-text-default">Subscriber Growth</h3>
-            <div className="rounded-xl border border-default bg-card p-4">
+            <div className="rounded-xl bg-card p-4">
               <div className="mb-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <TrendingUp className="h-4 w-4" style={{ color: ACCENT }} />
@@ -629,7 +629,7 @@ export function EmailMarketingPage() {
           </div>
 
           {/* Performance Trend Chart */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <h4 className="mb-3 text-sm font-semibold text-text-default">Performance Trend (30 Days)</h4>
             <ChartWrapper height={260}>
               <ResponsiveContainer width="100%" height="100%">
@@ -652,7 +652,7 @@ export function EmailMarketingPage() {
           </div>
 
           {/* Campaign Comparison Table */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <h4 className="mb-3 text-sm font-semibold text-text-default">Campaign Comparison</h4>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">

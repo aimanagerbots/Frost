@@ -42,7 +42,7 @@ export function NotesTab({ accountId }: NotesTabProps) {
   return (
     <div className="space-y-4">
       {/* Add note */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <textarea
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
@@ -64,7 +64,7 @@ export function NotesTab({ accountId }: NotesTabProps) {
       {/* Notes list */}
       <div className="space-y-2">
         {allNotes.map((note) => (
-          <div key={note.id} className="rounded-xl border border-default bg-card p-4">
+          <div key={note.id} className="rounded-xl bg-card p-4">
             <div className="flex items-start justify-between gap-2">
               <p className="text-sm text-text-default whitespace-pre-wrap">{note.content}</p>
               {note.pinned && <Pin className="h-4 w-4 shrink-0 text-[#5BB8E6]" />}

@@ -107,7 +107,7 @@ export function SearchOverlay({ open, onClose, onSelect, groups }: SearchOverlay
       onClick={onClose}
     >
       <div
-        className="mx-4 flex w-full max-w-xl flex-col overflow-hidden rounded-xl border border-default bg-card shadow-2xl"
+        className="mx-4 flex w-full max-w-xl flex-col overflow-hidden rounded-xl bg-card shadow-2xl"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={handleKeyDown}
         role="dialog"

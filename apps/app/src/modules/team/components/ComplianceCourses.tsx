@@ -30,7 +30,7 @@ export function ComplianceCourses({ people, monthlyStats, stats }: ComplianceCou
       </div>
 
       {/* Assign participant */}
-      <div className="rounded-2xl border border-default bg-card p-5 mb-3">
+      <div className="rounded-xl bg-card p-5 mb-3">
         <div className="flex items-center gap-2 mb-3">
           <h4 className="text-xs font-medium text-text-muted">Assign new participant</h4>
           <span className="h-4 w-4 rounded-full border border-border-hover flex items-center justify-center text-[8px] text-text-muted">?</span>
@@ -52,7 +52,7 @@ export function ComplianceCourses({ people, monthlyStats, stats }: ComplianceCou
       </div>
 
       {/* People list */}
-      <div className="rounded-2xl border border-default bg-card p-5 mb-3">
+      <div className="rounded-xl bg-card p-5 mb-3">
         <PeopleList people={people} />
 
         {/* Action row */}

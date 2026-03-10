@@ -62,7 +62,7 @@ function EventCard({ event, onClick }: { event: Event; onClick: (id: string) => 
   const typeColor = TYPE_COLORS[event.type] ?? ACCENT;
   return (
     <div
-      className="group cursor-pointer rounded-xl border border-default bg-card p-4 transition-all hover:bg-accent-hover hover:-translate-y-0.5"
+      className="group cursor-pointer rounded-xl bg-card p-4 transition-all hover:bg-accent-hover hover:-translate-y-0.5"
       role="button"
       tabIndex={0}
       onClick={() => onClick(event.id)}
@@ -234,7 +234,7 @@ export function EventsPage() {
           )}
 
           {/* Annual Budget Tracker */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-sm font-semibold text-text-bright">Annual Events Budget</h3>
               <span className="text-xs text-text-muted">${totalSpent.toLocaleString()} / ${totalBudget.toLocaleString()}</span>

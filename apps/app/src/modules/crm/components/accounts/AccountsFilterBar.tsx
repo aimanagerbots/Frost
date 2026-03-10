@@ -116,7 +116,7 @@ export function AccountsFilterBar({
       </button>
 
       {visible && (
-        <div className="flex flex-wrap items-center gap-2 rounded-lg border border-default bg-card p-3">
+        <div className="flex flex-wrap items-center gap-2 rounded-xl bg-card p-3">
           <SelectFilter
             value={filters.region}
             onChange={(v) => update('region', v)}

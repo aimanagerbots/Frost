@@ -295,7 +295,7 @@ export function ContentCalendarPage() {
           <select
             value={channelFilter}
             onChange={(e) => setChannelFilter(e.target.value as ChannelFilter)}
-            className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
+            className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
           >
             <option value="all">All</option>
             <option value="instagram">Instagram</option>
@@ -310,7 +310,7 @@ export function ContentCalendarPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
-            className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
+            className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none focus:ring-1 focus:ring-[#5BB8E6]"
           >
             <option value="all">All</option>
             <option value="idea">Idea</option>
@@ -324,7 +324,7 @@ export function ContentCalendarPage() {
       </div>
 
       {/* Calendar */}
-      <div className="rounded-xl border border-default bg-card">
+      <div className="rounded-xl bg-card">
         {/* Navigation Header */}
         <div className="flex items-center justify-between border-b border-default px-4 py-3">
           <button
@@ -439,7 +439,7 @@ export function ContentCalendarPage() {
           {STATUS_ORDER.map((status) => {
             const count = statusCounts[status] ?? 0;
             return (
-              <div key={status} className="rounded-xl border border-default bg-card p-3 text-center">
+              <div key={status} className="rounded-xl bg-card p-3 text-center">
                 <p className="text-2xl font-bold text-text-default">{count}</p>
                 <p className="text-xs text-text-muted">{STATUS_LABELS[status]}</p>
                 <div className="mx-auto mt-2 h-1 w-full rounded-full bg-base">
@@ -466,7 +466,7 @@ export function ContentCalendarPage() {
               <Pencil className="h-3.5 w-3.5" />
               Edit
             </button>
-            <button className="flex items-center gap-1.5 rounded-lg border border-default bg-card px-4 py-2 text-sm font-medium text-text-default transition-colors hover:bg-accent-hover">
+            <button className="flex items-center gap-1.5 rounded-xl bg-card px-4 py-2 text-sm font-medium text-text-default transition-colors hover:bg-accent-hover">
               <CalendarClock className="h-3.5 w-3.5" />
               Reschedule
             </button>

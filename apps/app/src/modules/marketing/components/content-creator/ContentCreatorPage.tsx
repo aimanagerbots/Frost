@@ -160,7 +160,7 @@ export function ContentCreatorPage() {
       {/* Two-panel layout: Chat + Content Library */}
       <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6">
         {/* Chat Interface */}
-        <div className="flex rounded-xl border border-default bg-card overflow-hidden" style={{ height: 'calc(100vh - 340px)', minHeight: 480 }}>
+        <div className="flex rounded-xl bg-card overflow-hidden" style={{ height: 'calc(100vh - 340px)', minHeight: 480 }}>
           {/* Sidebar */}
           <div
             className={`border-r border-default bg-base transition-all duration-200 flex flex-col ${sidebarCollapsed ? 'w-10' : 'w-64'}`}
@@ -263,7 +263,7 @@ export function ContentCreatorPage() {
                       className={`max-w-[75%] rounded-xl px-4 py-3 ${
                         msg.role === 'user'
                           ? 'bg-[#5BB8E6]/10 text-text-default'
-                          : 'border border-default bg-card text-text-default'
+                          : 'bg-card text-text-default'
                       }`}
                     >
                       <p className="whitespace-pre-wrap text-sm leading-relaxed">{msg.content}</p>
@@ -346,7 +346,7 @@ export function ContentCreatorPage() {
               )}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="rounded-xl border border-default bg-card px-4 py-3">
+                  <div className="rounded-xl bg-card px-4 py-3">
                     <div className="flex items-center gap-1.5">
                       <div className="h-2 w-2 animate-bounce rounded-full" style={{ backgroundColor: ACCENT, animationDelay: '0ms' }} />
                       <div className="h-2 w-2 animate-bounce rounded-full" style={{ backgroundColor: ACCENT, animationDelay: '150ms' }} />
@@ -384,7 +384,7 @@ export function ContentCreatorPage() {
         </div>
 
         {/* Content Library Panel */}
-        <div className="rounded-xl border border-default bg-card overflow-hidden flex flex-col" style={{ height: 'calc(100vh - 340px)', minHeight: 480 }}>
+        <div className="rounded-xl bg-card overflow-hidden flex flex-col" style={{ height: 'calc(100vh - 340px)', minHeight: 480 }}>
           <div className="border-b border-default px-4 py-3">
             <h3 className="text-sm font-semibold text-text-default">Content Library</h3>
           </div>
@@ -474,7 +474,7 @@ export function ContentCreatorPage() {
           <h3 className="mb-3 text-sm font-semibold text-text-default">Recent Creations</h3>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-3 lg:grid-cols-5">
             {recentPublished.map((piece) => (
-              <div key={piece.id} className="rounded-xl border border-default bg-card p-3">
+              <div key={piece.id} className="rounded-xl bg-card p-3">
                 <div className="mb-2 flex items-center justify-between">
                   <StatusBadge label={piece.platform} variant="info" size="sm" />
                   {piece.aiGenerated && (

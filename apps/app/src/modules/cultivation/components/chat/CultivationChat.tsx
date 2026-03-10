@@ -218,7 +218,7 @@ export function CultivationChat() {
   const hasMessages = messages.length > 0;
 
   return (
-    <div className="flex h-[calc(100vh-220px)] min-h-[500px] flex-col rounded-xl border border-default bg-card overflow-hidden">
+    <div className="flex h-[calc(100vh-220px)] min-h-[500px] flex-col rounded-xl bg-card overflow-hidden">
       {/* Header */}
       <div className="flex items-center gap-2 border-b border-default p-3">
         <div className="flex items-center gap-2 rounded-lg bg-[#5BB8E6]/15 px-4 py-2 text-sm font-medium text-[#5BB8E6]">

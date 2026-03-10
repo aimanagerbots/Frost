@@ -50,7 +50,7 @@ export function BatchTracker() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search batch number, strain, product..."
-            className="w-full rounded-lg border border-default bg-card py-2 pl-9 pr-3 text-sm text-text-default placeholder:text-text-muted"
+            className="w-full rounded-xl bg-card py-2 pl-9 pr-3 text-sm text-text-default placeholder:text-text-muted"
           />
         </div>
         <div className="flex gap-1">

@@ -121,21 +121,21 @@ export function GeneticsLibrary() {
 
       {/* Stats Row */}
       <div className="grid grid-cols-3 gap-4">
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="flex items-center gap-2 text-text-muted">
             <TreeDeciduous className="h-4 w-4" style={{ color: ACCENT }} />
             <span className="text-xs font-medium uppercase tracking-wider">Active Mothers</span>
           </div>
           <p className="mt-1 text-2xl font-bold text-text-bright">{stats.activeMothers}</p>
         </div>
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="flex items-center gap-2 text-text-muted">
             <Sprout className="h-4 w-4" style={{ color: ACCENT }} />
             <span className="text-xs font-medium uppercase tracking-wider">Clones Available</span>
           </div>
           <p className="mt-1 text-2xl font-bold text-text-bright">{stats.totalClones}</p>
         </div>
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="flex items-center gap-2 text-text-muted">
             <Library className="h-4 w-4" style={{ color: ACCENT }} />
             <span className="text-xs font-medium uppercase tracking-wider">Strains in Library</span>

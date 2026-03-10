@@ -99,7 +99,7 @@ export function ProductRecommendations() {
       </div>
 
       {/* Filter bar */}
-      <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-4">
+      <div className="flex flex-wrap items-center gap-3 rounded-xl bg-card p-4">
         <Filter className="h-4 w-4 text-text-muted" />
         <select
           value={categoryFilter}
@@ -148,7 +148,7 @@ export function ProductRecommendations() {
             return (
               <div
                 key={rec.id}
-                className={`rounded-xl border border-default bg-card p-4 transition-opacity ${isDismissed ? 'opacity-50' : ''}`}
+                className={`rounded-xl bg-card p-4 transition-opacity ${isDismissed ? 'opacity-50' : ''}`}
               >
                 <div className="mb-2 flex items-start justify-between">
                   <div>
@@ -156,7 +156,7 @@ export function ProductRecommendations() {
                     <span className="text-xs text-text-muted">{rec.accountName}</span>
                   </div>
                   <span
-                    className="rounded-md px-2 py-0.5 text-xs capitalize"
+                    className="rounded-full px-2 py-0.5 text-xs capitalize"
                     style={{ backgroundColor: `${CATEGORY_COLORS[rec.category]}20`, color: CATEGORY_COLORS[rec.category] }}
                   >
                     {rec.category}

@@ -116,7 +116,7 @@ export function RouteDrawer({ run, open, onClose }: RouteDrawerProps) {
                     {/* Timeline dot */}
                     <div className="absolute left-0 top-1">{stopIcon(status)}</div>
 
-                    <div className="rounded-lg border border-default bg-card p-3 space-y-2">
+                    <div className="rounded-xl bg-card p-3 space-y-2">
                       <div className="flex items-start justify-between">
                         <div>
                           <div className="flex items-center gap-2">

@@ -89,7 +89,7 @@ export function COAManager() {
       )}
 
       {/* Status Filters */}
-      <div className="flex items-center gap-1 overflow-x-auto rounded-xl border border-default bg-card p-2">
+      <div className="flex items-center gap-1 overflow-x-auto rounded-xl bg-card p-2">
         <button
           onClick={() => setStatusFilter(null)}
           className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${!statusFilter ? 'bg-elevated text-text-bright' : 'text-text-muted hover:text-text-default'}`}

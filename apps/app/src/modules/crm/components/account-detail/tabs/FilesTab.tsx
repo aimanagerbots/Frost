@@ -47,7 +47,7 @@ export function FilesTab({ accountId }: FilesTabProps) {
         </button>
       </div>
 
-      <div className="rounded-xl border border-default bg-card">
+      <div className="rounded-xl bg-card">
         {(files || []).map((file, i) => {
           const Icon = FILE_TYPE_ICONS[file.type] || File;
           return (

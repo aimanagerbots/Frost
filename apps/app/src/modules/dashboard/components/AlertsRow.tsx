@@ -1,81 +1,107 @@
 'use client';
 
-import { useState } from 'react';
-import { AlertTriangle, AlertCircle, Info, X, ExternalLink } from 'lucide-react';
+import { AlertTriangle, AlertCircle, Info, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { AccentCard } from '@/components';
 import type { DashboardAlert, AlertSeverity } from '@/modules/dashboard/types';
 
 interface AlertsRowProps {
   alerts: DashboardAlert[];
 }
 
-const SEVERITY_CONFIG: Record<AlertSeverity, { icon: typeof AlertTriangle; accentColor: string; iconColor: string }> = {
-  critical: { icon: AlertTriangle, accentColor: '#EF4444', iconColor: 'text-red-400' },
-  warning: { icon: AlertCircle, accentColor: '#F59E0B', iconColor: 'text-amber-400' },
-  info: { icon: Info, accentColor: '#3B82F6', iconColor: 'text-blue-400' },
+const SEVERITY_CONFIG: Record<
+  AlertSeverity,
+  {
+    icon: typeof AlertTriangle;
+    borderClass: string;
+    bgClass: string;
+    iconContainerClass: string;
+    iconClass: string;
+  }
+> = {
+  critical: {
+    icon: AlertTriangle,
+    borderClass: 'border-[#FB7185]/40',
+    bgClass: 'bg-[#FB7185]/5',
+    iconContainerClass: 'bg-[#FB7185]/15',
+    iconClass: 'text-[#FB7185]',
+  },
+  warning: {
+    icon: AlertCircle,
+    borderClass: 'border-[#FBBF24]/40',
+    bgClass: 'bg-[#FBBF24]/5',
+    iconContainerClass: 'bg-[#FBBF24]/15',
+    iconClass: 'text-[#FBBF24]',
+  },
+  info: {
+    icon: Info,
+    borderClass: 'border-border-default',
+    bgClass: 'bg-accent-primary/5',
+    iconContainerClass: 'bg-accent-primary/10',
+    iconClass: 'text-accent-primary',
+  },
 };
 
-export function AlertsRow({ alerts }: AlertsRowProps) {
-  const [dismissedIds, setDismissedIds] = useState<Set<string>>(new Set());
+const MAX_ALERTS = 5;
 
-  const visibleAlerts = alerts.filter((a) => !dismissedIds.has(a.id));
+export function AlertsRow({ alerts }: AlertsRowProps) {
+  const visibleAlerts = alerts.slice(0, MAX_ALERTS);
 
   if (visibleAlerts.length === 0) return null;
 
   return (
-    <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-text-bright">Alerts</h3>
-      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
+    <div className="rounded-xl bg-card p-3">
+      <div className="mb-3 flex items-center gap-2">
+        <AlertTriangle className="h-4 w-4 text-text-muted" />
+        <h3 className="text-sm font-semibold text-text-bright">Alerts</h3>
+        <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#FB7185] px-1.5 text-[10px] font-bold text-white">
+          {alerts.length}
+        </span>
+      </div>
+      <ul className="space-y-2">
         {visibleAlerts.map((alert) => {
           const config = SEVERITY_CONFIG[alert.severity];
           const Icon = config.icon;
 
           return (
-            <AccentCard
+            <li
               key={alert.id}
-              accentColor={config.accentColor}
-              className="min-w-[300px] max-w-[360px] flex-shrink-0 p-4"
+              className={cn(
+                'flex gap-3 rounded-lg border p-3',
+                config.borderClass,
+                config.bgClass
+              )}
             >
-              <div className="flex items-start gap-3">
-                <Icon className={cn('mt-0.5 h-4 w-4 flex-shrink-0', config.iconColor)} />
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium text-text-bright leading-snug">{alert.title}</p>
-                  <p className="mt-1 text-xs text-text-muted line-clamp-2">{alert.description}</p>
-                  <div className="mt-3 flex items-center gap-2">
-                    <span
-                      className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-medium"
-                      style={{
-                        backgroundColor: `${config.accentColor}15`,
-                        color: config.accentColor,
-                      }}
-                    >
-                      <span
-                        className="h-1.5 w-1.5 rounded-full"
-                        style={{ backgroundColor: config.accentColor }}
-                      />
-                      {alert.module}
-                    </span>
-                    <a
-                      href={alert.route}
-                      className="flex items-center gap-1 text-[10px] font-medium text-info hover:underline"
-                    >
-                      View <ExternalLink className="h-2.5 w-2.5" />
-                    </a>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setDismissedIds((prev) => new Set([...prev, alert.id]))}
-                  className="flex-shrink-0 rounded-md p-1 text-text-muted hover:bg-accent-hover hover:text-text-default transition-colors"
-                  aria-label="Dismiss alert"
-                >
-                  <X className="h-3.5 w-3.5" />
-                </button>
+              <div
+                className={cn(
+                  'flex h-8 w-8 shrink-0 items-center justify-center rounded-lg',
+                  config.iconContainerClass
+                )}
+              >
+                <Icon className={cn('h-4 w-4', config.iconClass)} />
               </div>
-            </AccentCard>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium text-text-default">
+                  {alert.title}
+                </p>
+                <p className="line-clamp-1 text-xs text-text-muted">
+                  {alert.description}
+                </p>
+                <div className="mt-1.5 flex items-center gap-3">
+                  <span className="text-[10px] text-text-muted">
+                    {alert.timestamp}
+                  </span>
+                  <a
+                    href={alert.route}
+                    className="flex items-center gap-1 text-[10px] font-medium text-info hover:underline"
+                  >
+                    View details <ExternalLink className="h-2.5 w-2.5" />
+                  </a>
+                </div>
+              </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 }

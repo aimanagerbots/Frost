@@ -41,7 +41,7 @@ export function HvacSection({ roomId }: HvacSectionProps) {
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {/* Supply Air Temp */}
-        <div className="flex items-start gap-3 rounded-xl border border-default bg-card p-3">
+        <div className="flex items-start gap-3 rounded-xl bg-card p-3">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-500/10">
             <Thermometer className="h-4 w-4 text-orange-400" />
           </div>
@@ -53,7 +53,7 @@ export function HvacSection({ roomId }: HvacSectionProps) {
         </div>
 
         {/* Return Air Temp */}
-        <div className="flex items-start gap-3 rounded-xl border border-default bg-card p-3">
+        <div className="flex items-start gap-3 rounded-xl bg-card p-3">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-500/10">
             <ArrowRightLeft className="h-4 w-4 text-orange-400" />
           </div>
@@ -65,7 +65,7 @@ export function HvacSection({ roomId }: HvacSectionProps) {
         </div>
 
         {/* Damper Position */}
-        <div className="flex items-start gap-3 rounded-xl border border-default bg-card p-3">
+        <div className="flex items-start gap-3 rounded-xl bg-card p-3">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-500/10">
             <Gauge className="h-4 w-4 text-orange-400" />
           </div>
@@ -77,7 +77,7 @@ export function HvacSection({ roomId }: HvacSectionProps) {
         </div>
 
         {/* Compressor */}
-        <div className="flex items-start gap-3 rounded-xl border border-default bg-card p-3">
+        <div className="flex items-start gap-3 rounded-xl bg-card p-3">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-500/10">
             <Fan className="h-4 w-4 text-orange-400" />
           </div>
@@ -94,7 +94,7 @@ export function HvacSection({ roomId }: HvacSectionProps) {
         </div>
 
         {/* Dehumidifier */}
-        <div className="flex items-start gap-3 rounded-xl border border-default bg-card p-3">
+        <div className="flex items-start gap-3 rounded-xl bg-card p-3">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-500/10">
             <Droplets className="h-4 w-4 text-orange-400" />
           </div>
@@ -109,7 +109,7 @@ export function HvacSection({ roomId }: HvacSectionProps) {
         </div>
 
         {/* Energy Usage */}
-        <div className="flex items-start gap-3 rounded-xl border border-default bg-card p-3">
+        <div className="flex items-start gap-3 rounded-xl bg-card p-3">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-500/10">
             <Zap className="h-4 w-4 text-orange-400" />
           </div>
@@ -121,7 +121,7 @@ export function HvacSection({ roomId }: HvacSectionProps) {
         </div>
 
         {/* Filter Status */}
-        <div className="flex items-start gap-3 rounded-xl border border-default bg-card p-3">
+        <div className="flex items-start gap-3 rounded-xl bg-card p-3">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-500/10">
             <Filter className="h-4 w-4 text-orange-400" />
           </div>

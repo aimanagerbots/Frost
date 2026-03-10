@@ -57,7 +57,7 @@ export function VendorDayCalendar({ vendorDays, onSelect }: VendorDayCalendarPro
   const monthName = new Date(year, month).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       {/* Month nav */}
       <div className="mb-4 flex items-center justify-between">
         <button

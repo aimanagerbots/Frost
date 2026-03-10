@@ -16,7 +16,7 @@ const HEALTH_COLORS: Record<string, { bg: string; border: string; text: string }
 
 export function PipelineVisualization({ nodes, onStateClick }: PipelineVisualizationProps) {
   return (
-    <div className="rounded-xl border border-default bg-card p-5">
+    <div className="rounded-xl bg-card p-5">
       <h3 className="mb-4 text-sm font-semibold text-text-bright">Readiness State Pipeline</h3>
       <div className="flex items-center gap-1 overflow-x-auto pb-2">
         {nodes.map((node, i) => {

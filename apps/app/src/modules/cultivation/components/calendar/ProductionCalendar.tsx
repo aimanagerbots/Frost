@@ -145,7 +145,7 @@ export function ProductionCalendar() {
     <div className="space-y-4">
       {/* ── Pipeline Impact Bar ─────────────────────────────── */}
       {pipeline && pipeline.total > 0 && (
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="flex items-center gap-2 mb-2">
             <Sprout className="h-4 w-4" style={{ color: ACCENT }} />
             <span className="text-sm font-medium text-default">Pipeline Impact</span>
@@ -208,13 +208,13 @@ export function ProductionCalendar() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setWeekOffset((o) => o - 1)}
-            className="rounded-lg border border-default bg-card p-1.5 text-muted-foreground hover:text-default transition-colors"
+            className="rounded-xl bg-card p-1.5 text-muted-foreground hover:text-default transition-colors"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
             onClick={() => setWeekOffset(0)}
-            className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm font-medium text-default hover:bg-card/80 transition-colors"
+            className="rounded-xl bg-card px-3 py-1.5 text-sm font-medium text-default hover:bg-card/80 transition-colors"
           >
             {weekOffset === 0
               ? 'This Week'
@@ -222,7 +222,7 @@ export function ProductionCalendar() {
           </button>
           <button
             onClick={() => setWeekOffset((o) => o + 1)}
-            className="rounded-lg border border-default bg-card p-1.5 text-muted-foreground hover:text-default transition-colors"
+            className="rounded-xl bg-card p-1.5 text-muted-foreground hover:text-default transition-colors"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
@@ -296,7 +296,7 @@ export function ProductionCalendar() {
                 >
                   {dayShort[i]}
                 </div>
-                <div className="flex-1 rounded-b-lg border border-default bg-card/50 p-1.5 space-y-1.5 min-h-[180px]">
+                <div className="flex-1 rounded-b-lg bg-card/50 p-1.5 space-y-1.5 min-h-[180px]">
                   {dayTasks.length === 0 && (
                     <p className="text-[10px] text-muted-foreground text-center mt-6">
                       {'No tasks'}
@@ -348,7 +348,7 @@ export function ProductionCalendar() {
 
       {/* ── Room View ───────────────────────────────────────── */}
       {viewMode === 'room' && rooms && (
-        <div className="rounded-xl border border-default bg-card overflow-hidden">
+        <div className="rounded-xl bg-card overflow-hidden">
           <div className="grid grid-cols-[160px_repeat(7,1fr)]">
             {/* Header row */}
             <div className="px-3 py-2 border-b border-r border-default bg-surface text-xs font-semibold text-muted-foreground">

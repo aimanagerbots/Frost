@@ -196,7 +196,7 @@ export function ReorderCenter() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value as FilterStatus)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-text-default outline-none"
+          className="rounded-xl bg-card px-3 py-1.5 text-sm text-text-default outline-none"
         >
           <option value="all">All Statuses</option>
           <option value="pending">Pending</option>
@@ -208,7 +208,7 @@ export function ReorderCenter() {
         <select
           value={filterSource}
           onChange={(e) => setFilterSource(e.target.value as FilterSource)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-text-default outline-none"
+          className="rounded-xl bg-card px-3 py-1.5 text-sm text-text-default outline-none"
         >
           <option value="all">All Sources</option>
           <option value="vmi-velocity">VMI Velocity</option>
@@ -218,7 +218,7 @@ export function ReorderCenter() {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as SortField)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-text-default outline-none"
+          className="rounded-xl bg-card px-3 py-1.5 text-sm text-text-default outline-none"
         >
           <option value="confidence">Sort: Confidence</option>
           <option value="totalValue">Sort: Value</option>

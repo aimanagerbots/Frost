@@ -27,7 +27,7 @@ interface MapTooltipProps {
 export function MapTooltip({ account, repName, x, y }: MapTooltipProps) {
   return (
     <div
-      className="pointer-events-none absolute z-50 w-56 rounded-xl border border-default bg-card p-3 shadow-xl"
+      className="pointer-events-none absolute z-50 w-56 rounded-xl bg-card p-3 shadow-xl"
       style={{ left: x + 12, top: y - 20 }}
     >
       <div className="mb-2 flex items-center justify-between">

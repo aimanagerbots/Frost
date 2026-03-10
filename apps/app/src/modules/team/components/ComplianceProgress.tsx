@@ -8,7 +8,7 @@ interface ComplianceProgressProps {
 
 export function ComplianceProgress({ rate, certified, needsTraining }: ComplianceProgressProps) {
   return (
-    <div className="rounded-2xl border border-default bg-card p-5">
+    <div className="rounded-xl bg-card p-5">
       {/* Progress bar */}
       <div className="flex items-center gap-3">
         <div className="flex-1 h-2.5 rounded-full bg-elevated overflow-hidden">

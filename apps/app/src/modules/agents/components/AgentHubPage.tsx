@@ -243,7 +243,7 @@ export function AgentHubPage() {
           <div className="flex h-full flex-col">
             {/* Agent Header */}
             <div className="mb-4 flex items-center gap-3 rounded-lg bg-elevated p-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-card text-xl">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-card text-xl">
                 {selectedAgent.avatar}
               </div>
               <div>
@@ -272,7 +272,7 @@ export function AgentHubPage() {
                 {selectedAgent.capabilities.map((cap) => (
                   <span
                     key={cap}
-                    className="rounded-md bg-elevated px-2 py-1 text-xs text-text-default"
+                    className="rounded-full bg-elevated px-2 py-1 text-xs text-text-default"
                   >
                     {cap}
                   </span>
@@ -345,7 +345,7 @@ export function AgentHubPage() {
       {/* Recent Actions Feed */}
       <div>
         <h2 className="mb-4 text-lg font-semibold text-text-bright">Recent Actions</h2>
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           {recentActions.length > 0 ? (
             <div className="space-y-3">
               {recentActions.map((action) => {
@@ -356,7 +356,7 @@ export function AgentHubPage() {
                     className="flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-accent-hover"
                   >
                     <div
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-default bg-card"
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-card"
                       style={{ borderColor: `${ACTION_TYPE_COLORS[action.type]}40` }}
                     >
                       <Icon

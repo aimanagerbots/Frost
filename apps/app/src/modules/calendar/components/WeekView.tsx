@@ -63,7 +63,7 @@ export function WeekView({ currentDate, events, onSelectEvent }: WeekViewProps) 
   }
 
   return (
-    <div className="rounded-xl border border-default bg-card overflow-hidden">
+    <div className="rounded-xl bg-card overflow-hidden">
       {/* Header row */}
       <div className="grid border-b border-default" style={{ gridTemplateColumns: '56px repeat(7, 1fr)' }}>
         <div className="border-r border-default" />

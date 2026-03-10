@@ -72,6 +72,9 @@
 }
 
 @layer base {
+  :root {
+    --header-height: 88px;
+  }
   * {
     @apply border-border-default;
   }

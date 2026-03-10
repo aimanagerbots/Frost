@@ -27,7 +27,7 @@ export function CategoryDistribution({ categories }: CategoryDistributionProps) 
         return (
           <div
             key={cat.category}
-            className="flex flex-col items-center gap-2 rounded-xl border border-default bg-card p-4 transition-colors hover:bg-accent-hover"
+            className="flex flex-col items-center gap-2 rounded-xl bg-card p-4 transition-colors hover:bg-accent-hover"
           >
             <div
               className="flex h-10 w-10 items-center justify-center rounded-lg"

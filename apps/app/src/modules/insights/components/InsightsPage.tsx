@@ -117,7 +117,7 @@ function InsightCard({ insight }: { insight: Insight }) {
   return (
     <div
       className={cn(
-        'rounded-xl border border-default bg-card p-4 border-l-4 transition-all duration-200 hover:bg-accent-hover',
+        'rounded-xl bg-card p-4 border-l-4 transition-all duration-200 hover:bg-accent-hover',
         SEVERITY_BORDER[insight.severity]
       )}
     >
@@ -290,7 +290,7 @@ export function InsightsPage() {
       />
 
       {/* Natural Language Query Bar */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <div className="flex gap-2">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />

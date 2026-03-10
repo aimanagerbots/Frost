@@ -42,7 +42,7 @@ export function ForecastView({ forecasts, monthlyRevenue }: ForecastViewProps) {
       {/* Forecast cards */}
       <div className="grid gap-4 md:grid-cols-3">
         {forecasts.map((f) => (
-          <div key={f.period} className="rounded-xl border border-default bg-card p-4">
+          <div key={f.period} className="rounded-xl bg-card p-4">
             <div className="mb-1 text-xs font-medium uppercase text-text-muted">{f.period} Forecast</div>
             <div className="text-2xl font-bold text-text-bright">${(f.predicted / 1000).toFixed(0)}K</div>
             <div className="mt-1 flex items-center gap-2">

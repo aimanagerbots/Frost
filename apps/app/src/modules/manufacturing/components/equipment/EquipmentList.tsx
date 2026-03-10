@@ -73,7 +73,7 @@ export function EquipmentList() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default"
+          className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default"
         >
           <option value="">All Status</option>
           <option value="operational">Operational</option>
@@ -84,7 +84,7 @@ export function EquipmentList() {
         <select
           value={filterLine}
           onChange={(e) => setFilterLine(e.target.value)}
-          className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default"
+          className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default"
         >
           <option value="">All Lines</option>
           {lineOptions.map((l) => (

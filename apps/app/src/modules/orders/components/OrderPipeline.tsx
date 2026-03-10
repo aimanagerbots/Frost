@@ -11,7 +11,7 @@ interface OrderPipelineProps {
 
 export function OrderPipeline({ stages, activeStatus, onStageClick }: OrderPipelineProps) {
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <h3 className="mb-3 text-sm font-semibold text-text-bright">Order Pipeline</h3>
       <div className="flex items-center gap-1 overflow-x-auto pb-2">
         {stages.map((stage, i) => (

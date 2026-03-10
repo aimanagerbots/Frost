@@ -79,7 +79,7 @@ export function HealthModelView({ model }: HealthModelViewProps) {
       </div>
 
       {/* Factors table */}
-      <div className="rounded-xl border border-default bg-card overflow-x-auto">
+      <div className="rounded-xl bg-card overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-default">
@@ -101,7 +101,7 @@ export function HealthModelView({ model }: HealthModelViewProps) {
       </div>
 
       {/* Correlations */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <h4 className="mb-3 text-sm font-medium text-text-bright">Key Correlations</h4>
         <div className="space-y-2">
           {model.correlations.map((c) => (

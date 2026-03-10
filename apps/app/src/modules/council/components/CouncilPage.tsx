@@ -73,7 +73,7 @@ function KnowledgeCard({
   return (
     <button
       onClick={onClick}
-      className="w-full rounded-xl border border-default bg-card p-4 text-left transition-all duration-200 hover:bg-accent-hover hover:-translate-y-0.5"
+      className="w-full rounded-xl bg-card p-4 text-left transition-all duration-200 hover:bg-accent-hover hover:-translate-y-0.5"
     >
       <div className="flex items-start justify-between gap-2">
         <h3 className="text-sm font-semibold text-text-bright line-clamp-2">
@@ -112,7 +112,7 @@ function SessionCard({
   onToggle: () => void;
 }) {
   return (
-    <div className="rounded-xl border border-default bg-card transition-all duration-200">
+    <div className="rounded-xl bg-card transition-all duration-200">
       <button
         onClick={onToggle}
         className="flex w-full items-start gap-3 p-4 text-left hover:bg-accent-hover rounded-xl"
@@ -327,7 +327,7 @@ export function CouncilPage() {
         {entriesLoading ? (
           <LoadingSkeleton variant="card" count={6} />
         ) : filteredEntries.length === 0 ? (
-          <div className="rounded-xl border border-default bg-card p-8 text-center">
+          <div className="rounded-xl bg-card p-8 text-center">
             <p className="text-sm text-text-muted">No entries found</p>
           </div>
         ) : (
@@ -380,7 +380,7 @@ export function CouncilPage() {
         </div>
 
         {demoLoading && (
-          <div className="mb-4 flex items-center gap-2 rounded-lg border border-default bg-card p-3">
+          <div className="mb-4 flex items-center gap-2 rounded-xl bg-card p-3">
             <Loader2 className="h-4 w-4 animate-spin" style={{ color: ACCENT }} />
             <span className="text-sm text-text-muted">
               Council agents are deliberating...

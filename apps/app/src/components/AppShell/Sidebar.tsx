@@ -42,9 +42,10 @@ export function Sidebar() {
 
       <aside
         className={cn(
-          'fixed inset-y-0 left-0 z-50 flex flex-col border-r border-border-default bg-card/80 backdrop-blur-xl transition-all duration-300 lg:translate-x-0 lg:static',
+          'fixed left-0 bottom-0 z-50 flex flex-col border-r border-border-default bg-card/80 backdrop-blur-xl transition-all duration-300 lg:translate-x-0 lg:static',
           collapsed ? 'w-16' : 'w-64',
-          mobileOpen ? 'translate-x-0' : '-translate-x-full'
+          mobileOpen ? 'translate-x-0 top-0' : '-translate-x-full top-0',
+          'lg:top-0'
         )}
       >
         {/* Logo area */}

@@ -16,7 +16,7 @@ export function PaymentComplianceTrafficLight({ data }: PaymentComplianceTraffic
   const total = data.green + data.amber + data.red;
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <div className="mb-4">
         <h3 className="text-sm font-semibold text-text-bright">Payment Compliance</h3>
         <p className="mt-0.5 text-xs text-text-muted">{total} accounts by reliability</p>

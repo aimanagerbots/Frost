@@ -119,7 +119,7 @@ export function CRMNavigation() {
 
   if (tabBarCollapsed) {
     return (
-      <div className="flex items-center gap-2 rounded-lg border border-default bg-card px-3 py-2">
+      <div className="flex items-center gap-2 rounded-xl bg-card px-3 py-2">
         <button
           onClick={toggleTabBar}
           className="flex items-center gap-1 text-xs text-text-muted hover:text-text-default transition-colors"
@@ -144,7 +144,7 @@ export function CRMNavigation() {
       {/* Tab bar */}
       <div
         ref={dropdownRef}
-        className="relative flex items-center gap-1 rounded-lg border border-default bg-card px-2"
+        className="relative flex items-center gap-1 rounded-xl bg-card px-2"
       >
         {CRM_TABS.map((tab) => {
           const isActive = activeTab === tab.id;

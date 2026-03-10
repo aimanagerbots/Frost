@@ -42,7 +42,7 @@ export function OpportunitiesTab({ accountId }: OpportunitiesTabProps) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {opportunities.map((opp) => (
-        <div key={opp.id} className="rounded-xl border border-default bg-card p-4">
+        <div key={opp.id} className="rounded-xl bg-card p-4">
           <div className="mb-2 flex items-start justify-between">
             <StatusBadge variant={typeVariant(opp.type)} label={opp.type.replace('-', ' ')} size="sm" />
             <span className="text-lg font-bold text-text-bright">{formatCurrency(opp.estimatedValue)}</span>

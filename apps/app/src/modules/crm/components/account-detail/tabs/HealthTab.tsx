@@ -53,7 +53,7 @@ export function HealthTab({ accountId }: HealthTabProps) {
     <div className="space-y-4">
       <div className="grid gap-4 md:grid-cols-2">
         {/* Score + Sparkline */}
-        <div className="rounded-xl border border-default bg-card p-6">
+        <div className="rounded-xl bg-card p-6">
           <div className="flex items-start justify-between">
             <div>
               <div className="text-5xl font-bold" style={{ color }}>{health.score}</div>
@@ -97,7 +97,7 @@ export function HealthTab({ accountId }: HealthTabProps) {
       </div>
 
       {/* Factors */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <h3 className="mb-3 text-sm font-semibold text-text-bright">Health Factors</h3>
         <div className="space-y-2">
           {health.factors.map((factor) => (
@@ -123,7 +123,7 @@ export function HealthTab({ accountId }: HealthTabProps) {
       <InteractionOrderOverlay data={getInteractionOrderData(accountId)} />
 
       {/* AI Recommendations */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <h3 className="mb-3 text-sm font-semibold text-text-bright">AI Recommendations</h3>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {health.recommendations.map((rec) => (

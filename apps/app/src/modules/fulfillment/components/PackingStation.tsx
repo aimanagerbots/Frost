@@ -61,7 +61,7 @@ export function PackingStation() {
             const progressPct = op.totalItems > 0 ? (op.itemsPacked / op.totalItems) * 100 : 0;
             const isSealed = op.status === 'sealed';
             return (
-              <div key={op.id} className="rounded-xl border border-default bg-card p-5 space-y-4">
+              <div key={op.id} className="rounded-xl bg-card p-5 space-y-4">
                 {/* Header */}
                 <div className="flex items-center justify-between">
                   <div>
@@ -139,7 +139,7 @@ export function PackingStation() {
       </div>
 
       {/* QC Checklist Card */}
-      <div className="rounded-xl border border-default bg-card p-5">
+      <div className="rounded-xl bg-card p-5">
         <h3 className="text-sm font-semibold text-text-bright mb-4">Quality Control Checklist</h3>
         <div className="space-y-3">
           {QC_ITEMS.map((item) => {

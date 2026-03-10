@@ -46,7 +46,7 @@ export function RoomSummaryGrid({ rooms, onSelectRoom }: RoomSummaryGridProps) {
             <button
               key={room.id}
               onClick={() => onSelectRoom(room.id)}
-              className="group flex flex-col rounded-xl border border-default bg-card p-4 text-left transition-all hover:border-[#5BB8E6]/30 hover:bg-card/80"
+              className="group flex flex-col rounded-xl bg-card p-4 text-left transition-all hover:border-[#5BB8E6]/30 hover:bg-card/80"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-2">

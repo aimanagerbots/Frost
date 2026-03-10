@@ -66,7 +66,9 @@
       "mcp__claude_ai_Vercel__list_deployments",
       "Bash(git add CLAUDE.md DEVELOPMENT_LOG.md .claude/settings.local.json)",
       "Bash(netstat -ano)",
-      "Bash(ls -la /c/Users/quinn/OneDrive/Documents/Frost/apps/website/*.ts)"
+      "Bash(ls -la /c/Users/quinn/OneDrive/Documents/Frost/apps/website/*.ts)",
+      "Bash(npx --workspace=apps/app next dev --port 3003)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx|local\\)$\")"
     ]
   }
 }

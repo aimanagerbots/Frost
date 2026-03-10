@@ -115,7 +115,7 @@ export function Playbooks() {
         <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">Available Playbooks</h3>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {playbooks.map((pb) => (
-            <div key={pb.id} className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-accent-hover">
+            <div key={pb.id} className="rounded-xl bg-card p-4 transition-colors hover:bg-accent-hover">
               <div className="mb-2 flex items-start justify-between">
                 <StatusBadge variant={TYPE_VARIANT[pb.type] || 'muted'} label={TYPE_LABELS[pb.type] || pb.type} size="sm" />
                 <span className="text-xs text-success">{pb.successRate}%</span>

@@ -177,7 +177,7 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
                 Reject
               </button>
               {showRejectMenu && (
-                <div className="absolute bottom-full left-0 mb-2 w-48 rounded-lg border border-default bg-card p-1 shadow-xl">
+                <div className="absolute bottom-full left-0 mb-2 w-48 rounded-xl bg-card p-1 shadow-xl">
                   {REJECT_REASONS.map((reason) => (
                     <button
                       key={reason}

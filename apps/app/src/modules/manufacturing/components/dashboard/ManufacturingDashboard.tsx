@@ -57,7 +57,7 @@ export function ManufacturingDashboard() {
         <ActiveWorkOrders />
 
         {/* Alerts */}
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <h3 className="mb-3 text-sm font-semibold text-text-bright">Alerts</h3>
           {alerts && alerts.length > 0 ? (
             <div className="space-y-2">

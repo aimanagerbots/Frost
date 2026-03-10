@@ -273,7 +273,7 @@ export function LaborPage() {
             {scheduling!.map((s) => (
               <div
                 key={s.dayOfWeek}
-                className="flex items-center justify-between rounded-lg border border-default bg-card px-4 py-2"
+                className="flex items-center justify-between rounded-xl bg-card px-4 py-2"
               >
                 <span className="w-24 text-sm font-medium text-text-bright">{s.dayOfWeek}</span>
                 <div className="flex items-center gap-4 text-xs text-text-muted">
@@ -328,7 +328,7 @@ export function LaborPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {recs!.map((r) => (
-            <div key={r.id} className="rounded-xl border border-default bg-card p-4">
+            <div key={r.id} className="rounded-xl bg-card p-4">
               <div className="mb-2 flex items-center justify-between">
                 <h3 className="text-sm font-medium text-text-bright">{r.title}</h3>
                 <StatusBadge label={r.priority} variant={PRIORITY_VARIANT[r.priority]} size="sm" />

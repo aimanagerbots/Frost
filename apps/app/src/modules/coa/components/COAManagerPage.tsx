@@ -150,7 +150,7 @@ export function COAManagerPage() {
       )}
 
       {/* Status Pipeline */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <h3 className="text-sm font-medium text-text-muted mb-3">Testing Pipeline</h3>
         <div className="flex items-center gap-1 overflow-x-auto">
           {STATUS_PIPELINE.map((stage, i) => {

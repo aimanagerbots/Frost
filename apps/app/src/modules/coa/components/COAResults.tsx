@@ -32,7 +32,7 @@ export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisp
   return (
     <div className="space-y-5">
       {/* Cannabinoid bars */}
-      <div className="rounded-xl border border-default bg-card p-4 space-y-3">
+      <div className="rounded-xl bg-card p-4 space-y-3">
         <h4 className="text-sm font-medium text-text-muted">Cannabinoid Profile</h4>
         {cannabinoids.map((c) => (
           <div key={c.label} className="space-y-1">
@@ -90,7 +90,7 @@ export function COAResultsDisplay({ results, highlightFailures }: COAResultsDisp
       )}
 
       {/* Contaminant table */}
-      <div className="rounded-xl border border-default bg-card p-4 space-y-3">
+      <div className="rounded-xl bg-card p-4 space-y-3">
         <h4 className="text-sm font-medium text-text-muted">Contaminant Testing</h4>
         <div className="rounded-lg border border-default overflow-hidden">
           <table className="w-full text-sm">

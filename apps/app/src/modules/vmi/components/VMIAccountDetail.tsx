@@ -147,7 +147,7 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
   ];
 
   return (
-    <div className="space-y-6 rounded-xl border border-default bg-card p-4 md:p-6">
+    <div className="space-y-6 rounded-xl bg-card p-4 md:p-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -287,7 +287,7 @@ export function VMIAccountDetail({ accountId, accountName, onClose }: VMIAccount
             {reorderItems.map((item) => (
               <div
                 key={item.sku}
-                className="flex items-center justify-between rounded-lg bg-card px-3 py-2 text-sm"
+                className="flex items-center justify-between rounded-xl bg-card px-3 py-2 text-sm"
               >
                 <div>
                   <span className="font-medium text-text-bright">{item.productName}</span>

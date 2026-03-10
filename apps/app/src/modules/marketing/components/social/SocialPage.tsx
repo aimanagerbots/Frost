@@ -89,7 +89,7 @@ function AccountCard({ account }: { account: SocialAccount }) {
   const color = PLATFORM_COLORS[account.platform] ?? ACCENT;
   const growth = PLATFORM_GROWTH[account.platform] ?? 0;
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <div className="rounded-lg p-2" style={{ backgroundColor: `${color}20`, color }}>
@@ -283,7 +283,7 @@ export function SocialPage() {
           </div>
 
           {/* Recent Posts Thumbnail Grid */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <h4 className="mb-3 text-sm font-semibold text-text-default">Recent Posts</h4>
             <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
               {(posts ?? []).slice(0, 12).map((post) => (
@@ -338,7 +338,7 @@ export function SocialPage() {
 
           {/* Best Posting Times Heat Map */}
           {heatMapData && heatMapData.length > 0 && (
-            <div className="rounded-xl border border-default bg-card p-4">
+            <div className="rounded-xl bg-card p-4">
               <h4 className="mb-3 text-sm font-semibold text-text-default">Best Posting Times</h4>
               <div className="grid grid-cols-[auto_repeat(12,1fr)] gap-1">
                 <div /> {/* empty corner */}
@@ -377,7 +377,7 @@ export function SocialPage() {
       {activeTab === 'composer' && (
         <div className="space-y-6">
           {/* Text Area with Character Counter */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <h3 className="mb-3 text-sm font-semibold text-text-default">Create Post</h3>
             <textarea
               value={composerText}
@@ -416,7 +416,7 @@ export function SocialPage() {
           </div>
 
           {/* Platform Toggles */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <div className="flex flex-wrap items-center gap-3">
               <span className="text-xs text-text-muted">Platforms:</span>
               {(['instagram', 'facebook', 'twitter'] as const).map((platform) => {
@@ -468,7 +468,7 @@ export function SocialPage() {
 
           {/* Hashtag Suggestions */}
           {hashtagSuggestions && hashtagSuggestions.length > 0 && (
-            <div className="rounded-xl border border-default bg-card p-4">
+            <div className="rounded-xl bg-card p-4">
               <h4 className="mb-2 text-sm font-semibold text-text-default">Hashtag Suggestions</h4>
               <div className="flex flex-wrap gap-1.5">
                 {hashtagSuggestions.slice(0, 8).map((s) => (
@@ -485,7 +485,7 @@ export function SocialPage() {
           )}
 
           {/* Scheduling & Post Actions */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <div className="flex flex-wrap items-center gap-2">
               <button className="flex items-center gap-1.5 rounded-lg border border-default px-3 py-1.5 text-xs text-text-muted hover:text-text-default transition-colors">
                 <Sparkles className="h-3.5 w-3.5" style={{ color: ACCENT }} />
@@ -525,7 +525,7 @@ export function SocialPage() {
       {activeTab === 'analytics' && (
         <div className="space-y-6">
           {/* Post Performance DataTable */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <h4 className="mb-3 text-sm font-semibold text-text-default">Post Performance</h4>
             <DataTable<SocialPost>
               data={posts ?? []}
@@ -542,13 +542,13 @@ export function SocialPage() {
           </div>
 
           {/* Top 5 Performing Posts */}
-          <div className="rounded-xl border border-default bg-card p-4">
+          <div className="rounded-xl bg-card p-4">
             <h4 className="mb-3 text-sm font-semibold text-text-default">Top Performing Posts</h4>
             <div className="space-y-2">
               {top5.map((post, i) => (
                 <div
                   key={post.id}
-                  className="flex items-center gap-3 rounded-lg border border-default bg-card p-3"
+                  className="flex items-center gap-3 rounded-xl bg-card p-3"
                 >
                   <span className="text-lg font-bold text-text-muted">#{i + 1}</span>
                   <div className="flex-1 min-w-0">

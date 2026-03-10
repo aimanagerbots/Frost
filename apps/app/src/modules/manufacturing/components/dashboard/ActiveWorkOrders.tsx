@@ -27,7 +27,7 @@ export function ActiveWorkOrders() {
   }
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <h3 className="mb-3 text-sm font-semibold text-text-bright">Active Work Orders</h3>
       {active.length === 0 ? (
         <p className="py-4 text-center text-xs text-text-muted">No active work orders</p>

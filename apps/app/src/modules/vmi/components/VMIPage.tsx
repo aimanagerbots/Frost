@@ -79,7 +79,7 @@ function AccountCard({
 
 function DailyEmailCard({ email }: { email: VMIDailyEmail }) {
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Mail className="h-4 w-4" style={{ color: ACCENT }} />

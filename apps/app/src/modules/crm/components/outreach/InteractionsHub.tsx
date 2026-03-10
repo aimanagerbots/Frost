@@ -135,7 +135,7 @@ export function InteractionsHub() {
       </div>
 
       {/* Filter bar + action */}
-      <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-4">
+      <div className="flex flex-wrap items-center gap-3 rounded-xl bg-card p-4">
         <Filter className="h-4 w-4 text-text-muted" />
 
         {/* Channel multi-select */}
@@ -213,7 +213,7 @@ export function InteractionsHub() {
       </div>
 
       {/* Timeline */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <h3 className="mb-4 text-sm font-medium text-text-bright">
           Activity Timeline
           <span className="ml-2 text-xs text-text-muted">({filtered.length} interactions)</span>

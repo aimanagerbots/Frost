@@ -58,7 +58,7 @@ export function DeliveryDashboard() {
       )}
 
       {/* Map Placeholder */}
-      <div className="rounded-xl border border-default bg-card flex flex-col items-center justify-center py-16 px-6" style={{ minHeight: 300 }}>
+      <div className="rounded-xl bg-card flex flex-col items-center justify-center py-16 px-6" style={{ minHeight: 300 }}>
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-elevated mb-4">
           <MapPin className="h-7 w-7 text-text-muted" />
         </div>
@@ -68,7 +68,7 @@ export function DeliveryDashboard() {
       </div>
 
       {/* Today's Delivery Schedule */}
-      <div className="rounded-xl border border-default bg-card p-5">
+      <div className="rounded-xl bg-card p-5">
         <h3 className="text-sm font-semibold text-text-bright mb-4">
           Today&apos;s Delivery Schedule
         </h3>

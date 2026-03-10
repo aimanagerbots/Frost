@@ -44,7 +44,7 @@ export function ActivityFeed({ activities }: ActivityFeedProps) {
   }));
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <h3 className="mb-4 text-sm font-semibold text-text-bright">Recent Activity</h3>
       <TimelineView items={timelineItems} />
     </div>

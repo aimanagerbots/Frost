@@ -71,7 +71,7 @@ export function EmailPage() {
         <MetricCard label="Avg Response Time" value={metrics?.avgResponseTime ?? '—'} accentColor="#5BB8E6" />
       </div>
 
-      <div className="flex h-[calc(100vh-20rem)] min-h-[400px] rounded-xl border border-default bg-card overflow-hidden">
+      <div className="flex h-[calc(100vh-20rem)] min-h-[400px] rounded-xl bg-card overflow-hidden">
         {/* Folder sidebar */}
         <div className="flex w-[200px] flex-col border-r border-default bg-base p-2">
           <button

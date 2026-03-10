@@ -70,7 +70,7 @@ export function AccountDetailHeader({ account, onBack }: AccountDetailHeaderProp
   const router = useRouter();
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4 md:p-6">
+    <div className="rounded-xl bg-card p-4 md:p-6">
       <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: CRM_ACCENT }} />
 
       <div className="flex flex-col gap-4">

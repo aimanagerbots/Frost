@@ -149,7 +149,7 @@ export function PriceBook() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search products..."
-          className="w-64 rounded-lg border border-default bg-card px-3 py-1.5 text-sm text-text-default placeholder:text-text-muted outline-none focus:border-hover"
+          className="w-64 rounded-xl bg-card px-3 py-1.5 text-sm text-text-default placeholder:text-text-muted outline-none focus:border-hover"
         />
         <div className="flex flex-wrap gap-1">
           {CATEGORIES.map((cat) => (

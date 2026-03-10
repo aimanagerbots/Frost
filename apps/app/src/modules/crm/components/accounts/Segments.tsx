@@ -136,7 +136,7 @@ export function Segments() {
 
       {/* Selected segment detail */}
       {selectedSegment && previewData && (
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="mb-4 flex items-center justify-between">
             <div>
               <h4 className="text-sm font-semibold text-text-bright">

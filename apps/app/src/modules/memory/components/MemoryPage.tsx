@@ -179,7 +179,7 @@ export function MemoryPage() {
           return (
             <div
               key={layer.name}
-              className="rounded-xl border border-default bg-card p-4 space-y-3"
+              className="rounded-xl bg-card p-4 space-y-3"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -215,7 +215,7 @@ export function MemoryPage() {
             placeholder="Search what the AI knows..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-lg border border-default bg-card py-2 pl-9 pr-4 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1"
+            className="w-full rounded-xl bg-card py-2 pl-9 pr-4 text-sm text-text-default placeholder:text-text-muted focus:outline-none focus:ring-1"
             style={{ '--tw-ring-color': MEMORY_ACCENT } as React.CSSProperties}
           />
         </div>
@@ -223,7 +223,7 @@ export function MemoryPage() {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none"
+            className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default focus:outline-none"
           >
             <option value="">All Categories</option>
             {Object.entries(CATEGORY_LABELS).map(([key, label]) => (
@@ -255,7 +255,7 @@ export function MemoryPage() {
             <button
               key={fact.id}
               onClick={() => setSelectedFact(fact)}
-              className="rounded-xl border border-default bg-card p-4 text-left hover:border-[var(--memory-accent)] transition-colors space-y-2"
+              className="rounded-xl bg-card p-4 text-left hover:border-[var(--memory-accent)] transition-colors space-y-2"
               style={{ '--memory-accent': MEMORY_ACCENT } as React.CSSProperties}
             >
               <p className="text-sm text-text-default leading-relaxed">{fact.content}</p>
@@ -287,7 +287,7 @@ export function MemoryPage() {
           ))}
         </div>
         {filteredFacts.length === 0 && (
-          <div className="rounded-xl border border-default bg-card p-8 text-center">
+          <div className="rounded-xl bg-card p-8 text-center">
             <p className="text-text-muted text-sm">No facts match the current filters.</p>
           </div>
         )}
@@ -302,7 +302,7 @@ export function MemoryPage() {
             return (
               <div
                 key={pattern.id}
-                className="rounded-xl border border-default bg-card p-4 space-y-2"
+                className="rounded-xl bg-card p-4 space-y-2"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">

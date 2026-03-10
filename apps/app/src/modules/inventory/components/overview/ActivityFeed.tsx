@@ -33,7 +33,7 @@ function timeAgo(timestamp: string): string {
 
 export function ActivityFeed({ events }: ActivityFeedProps) {
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <h3 className="mb-3 text-sm font-semibold text-text-bright">Recent Activity</h3>
       <div className="space-y-0">
         {events.slice(0, 10).map((event) => {

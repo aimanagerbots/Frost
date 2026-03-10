@@ -194,7 +194,7 @@ export function WashingtonMap({
             </div>
             {vmi && (
               <div className="mt-1">
-                <span className="text-[10px] font-semibold text-[#5BB8E6] bg-[#5BB8E6]/10 px-2 py-0.5 rounded-md">
+                <span className="text-[10px] font-semibold text-[#5BB8E6] bg-[#5BB8E6]/10 px-2 py-0.5 rounded-full">
                   VMI Enrolled
                 </span>
               </div>

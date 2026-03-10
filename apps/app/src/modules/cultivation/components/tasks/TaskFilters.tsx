@@ -32,7 +32,7 @@ export function TaskFilters({
       <select
         value={selectedRoom}
         onChange={(e) => onRoomChange(e.target.value)}
-        className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default outline-none"
+        className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default outline-none"
       >
         <option value="">All Rooms</option>
         {rooms.map((r) => (
@@ -43,14 +43,14 @@ export function TaskFilters({
       <select
         value={selectedPriority}
         onChange={(e) => onPriorityChange(e.target.value)}
-        className="rounded-lg border border-default bg-card px-3 py-1.5 text-xs text-text-default outline-none"
+        className="rounded-xl bg-card px-3 py-1.5 text-xs text-text-default outline-none"
       >
         {PRIORITIES.map((p) => (
           <option key={p.value} value={p.value}>{p.label}</option>
         ))}
       </select>
 
-      <div className="flex items-center rounded-lg border border-default bg-card">
+      <div className="flex items-center rounded-xl bg-card">
         <button
           onClick={() => onSortChange('dueDate')}
           className={`px-3 py-1.5 text-xs font-medium transition-colors ${

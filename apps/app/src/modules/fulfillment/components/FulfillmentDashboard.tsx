@@ -55,7 +55,7 @@ export function FulfillmentDashboard() {
       </div>
 
       {/* Fulfillment Progress Bar */}
-      <div className="rounded-xl border border-default bg-card p-6">
+      <div className="rounded-xl bg-card p-6">
         <h3 className="text-sm font-semibold text-text-bright mb-4">Today&apos;s Fulfillment Progress</h3>
 
         {/* Segmented bar */}

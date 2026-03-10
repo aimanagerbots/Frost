@@ -34,7 +34,7 @@ export function ProfileTab({ account }: ProfileTabProps) {
       {/* Two-column grid: Business Info + Delivery Preferences */}
       <div className="grid gap-4 md:grid-cols-2">
         {/* Business Info */}
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <h3 className="mb-3 text-sm font-semibold text-text-bright">Business Info</h3>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between">
@@ -87,7 +87,7 @@ export function ProfileTab({ account }: ProfileTabProps) {
         </div>
 
         {/* Delivery Preferences */}
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <h3 className="mb-3 text-sm font-semibold text-text-bright">Delivery Preferences</h3>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between">
@@ -131,7 +131,7 @@ export function ProfileTab({ account }: ProfileTabProps) {
       </div>
 
       {/* Category Mix */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <h3 className="mb-3 text-sm font-semibold text-text-bright">Category Mix</h3>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
           {account.categoryMix.map((cm) => (
@@ -147,7 +147,7 @@ export function ProfileTab({ account }: ProfileTabProps) {
       </div>
 
       {/* Contacts */}
-      <div className="rounded-xl border border-default bg-card p-4">
+      <div className="rounded-xl bg-card p-4">
         <h3 className="mb-3 text-sm font-semibold text-text-bright">
           Contacts ({account.contacts.length})
         </h3>

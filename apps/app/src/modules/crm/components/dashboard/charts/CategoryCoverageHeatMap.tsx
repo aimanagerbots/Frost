@@ -27,7 +27,7 @@ export function CategoryCoverageHeatMap({ data }: CategoryCoverageHeatMapProps) 
   const maxValue = Math.max(...data.flatMap((r) => CATEGORIES.map((c) => r.categories[c] ?? 0)), 1);
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <div className="mb-4">
         <h3 className="text-sm font-semibold text-text-bright">Category Coverage</h3>
         <p className="mt-0.5 text-xs text-text-muted">Revenue by category per top account</p>

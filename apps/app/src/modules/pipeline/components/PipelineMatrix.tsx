@@ -25,7 +25,7 @@ export function PipelineMatrix({ cells, selectedCell, onCellClick }: PipelineMat
   }
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4 md:p-6">
+    <div className="rounded-xl bg-card p-4 md:p-6">
       <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">
         A/I/R Pipeline Matrix
       </h2>

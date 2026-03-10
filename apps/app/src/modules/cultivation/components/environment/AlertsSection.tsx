@@ -56,7 +56,7 @@ export function AlertsSection({ roomId }: AlertsSectionProps) {
           <div className="h-1 w-6 rounded-full bg-[#5BB8E6]" />
           <h3 className="text-sm font-semibold text-text-bright">Alerts</h3>
         </div>
-        <div className="rounded-xl border border-default bg-card p-6 text-center">
+        <div className="rounded-xl bg-card p-6 text-center">
           <Check className="mx-auto h-6 w-6 text-success mb-2" />
           <p className="text-sm text-text-muted">No active alerts</p>
         </div>

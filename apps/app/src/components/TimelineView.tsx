@@ -86,7 +86,7 @@ export function TimelineView({
             >
               {/* Icon circle */}
               <div
-                className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-default bg-card"
+                className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-card"
                 style={item.iconColor ? { borderColor: `${item.iconColor}40` } : undefined}
               >
                 <Icon

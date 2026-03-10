@@ -137,7 +137,7 @@ function CompetitorCard({
   const trendColor = TREND_COLORS[competitor.trend];
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4 transition-all duration-200 hover:bg-accent-hover">
+    <div className="rounded-xl bg-card p-4 transition-all duration-200 hover:bg-accent-hover">
       <div className="flex items-start justify-between">
         <div>
           <h3 className="font-semibold text-text-bright">{competitor.name}</h3>

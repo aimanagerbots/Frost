@@ -17,6 +17,7 @@
     "@frost/tokens": "*",
     "@frost/types": "*",
     "@frost/ui": "*",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
     "@supabase/supabase-js": "^2.98.0",
     "@tanstack/react-query": "^5.90.21",
     "@types/supercluster": "^7.1.3",

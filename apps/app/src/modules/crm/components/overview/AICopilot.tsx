@@ -97,7 +97,7 @@ export function AICopilot() {
   const hasMessages = messages.length > 0;
 
   return (
-    <div className="flex h-[calc(100vh-220px)] min-h-[500px] rounded-xl border border-default bg-card overflow-hidden">
+    <div className="flex h-[calc(100vh-220px)] min-h-[500px] rounded-xl bg-card overflow-hidden">
       {/* Sidebar */}
       <ConversationSidebar
         conversations={conversations ?? []}

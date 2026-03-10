@@ -97,7 +97,7 @@ export function TerritoryMap() {
       )}
 
       {/* Filters */}
-      <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-3">
+      <div className="flex flex-wrap items-center gap-3 rounded-xl bg-card p-3">
         <span className="text-xs font-medium text-text-muted">Filters:</span>
 
         {/* Health tier toggles */}
@@ -199,7 +199,7 @@ export function TerritoryMap() {
 
       {/* Map + Panel */}
       <div
-        className="flex rounded-xl border border-default bg-card overflow-hidden"
+        className="flex rounded-xl bg-card overflow-hidden"
         style={{ height: 540 }}
       >
         {/* Map area */}
@@ -219,7 +219,7 @@ export function TerritoryMap() {
           />
 
           {/* Legend */}
-          <div className="absolute bottom-4 left-4 rounded-lg border border-default bg-card/90 p-2.5 backdrop-blur-sm z-10">
+          <div className="absolute bottom-4 left-4 rounded-xl bg-card/90 p-2.5 backdrop-blur-sm z-10">
             {colorMode === 'health' ? (
               <>
                 <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-text-muted">

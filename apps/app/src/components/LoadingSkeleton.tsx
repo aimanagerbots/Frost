@@ -24,7 +24,7 @@ function ShimmerBar({ className, style }: { className?: string; style?: React.CS
 
 function CardSkeleton() {
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <ShimmerBar className="mb-3 h-4 w-1/3" />
       <ShimmerBar className="mb-2 h-8 w-1/2" />
       <ShimmerBar className="h-3 w-2/3" />
@@ -66,7 +66,7 @@ function TableSkeleton() {
 
 function ChartSkeleton() {
   return (
-    <div className="relative h-[300px] rounded-xl border border-default bg-card p-4">
+    <div className="relative h-[300px] rounded-xl bg-card p-4">
       <ShimmerBar className="mb-4 h-4 w-1/4" />
       <div className="flex h-[calc(100%-2rem)] items-end gap-2">
         {[60, 80, 45, 90, 70, 55, 85, 40, 75, 65].map((h, i) => (

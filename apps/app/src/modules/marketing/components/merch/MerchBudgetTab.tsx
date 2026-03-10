@@ -58,7 +58,7 @@ export function MerchBudgetTab({ items }: MerchBudgetTabProps) {
   return (
     <div className="space-y-6">
       {/* Budget Summary */}
-      <div className="rounded-xl border border-default bg-card p-5">
+      <div className="rounded-xl bg-card p-5">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-sm font-semibold text-text-bright">Annual Merch Budget</h3>
           <span className="text-xs text-text-muted">${budget.spentYTD.toLocaleString()} / ${budget.annual.toLocaleString()}</span>

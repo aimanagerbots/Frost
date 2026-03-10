@@ -18,7 +18,7 @@ export function MaintenanceSchedule({ equipment }: { equipment: Equipment[] }) {
     .slice(0, 8);
 
   return (
-    <div className="rounded-xl border border-default bg-card p-4">
+    <div className="rounded-xl bg-card p-4">
       <div className="flex items-center gap-2 mb-3">
         <Calendar className="h-4 w-4 text-text-muted" />
         <h3 className="text-sm font-semibold text-text-bright">Upcoming Maintenance</h3>

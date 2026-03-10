@@ -51,7 +51,7 @@ function MerchCard({ item }: { item: MerchItem }) {
   const catColor = CATEGORY_COLORS[item.category] ?? ACCENT;
   const available = item.stock - item.allocated;
   return (
-    <div className="rounded-xl border border-default bg-card p-4 transition-all hover:bg-accent-hover">
+    <div className="rounded-xl bg-card p-4 transition-all hover:bg-accent-hover">
       {/* Image placeholder */}
       <div className="flex h-24 items-center justify-center rounded-lg bg-elevated mb-3">
         <Package className="h-8 w-8 text-text-muted" />

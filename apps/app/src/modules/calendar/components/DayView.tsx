@@ -31,7 +31,7 @@ export function DayView({ currentDate, events, onSelectEvent }: DayViewProps) {
   const hours = Array.from({ length: HOUR_END - HOUR_START }, (_, i) => HOUR_START + i);
 
   return (
-    <div className="rounded-xl border border-default bg-card overflow-hidden">
+    <div className="rounded-xl bg-card overflow-hidden">
       {/* All-day section */}
       {allDayEvents.length > 0 && (
         <div className="border-b border-default p-3">

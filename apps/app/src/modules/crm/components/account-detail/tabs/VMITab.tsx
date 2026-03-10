@@ -44,17 +44,17 @@ export function VMITab({ accountId, vmiEnrolled }: VMITabProps) {
     <div className="space-y-4">
       {/* Summary row */}
       <div className="grid gap-4 sm:grid-cols-3">
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="text-xs text-text-muted">Enrolled Since</div>
           <div className="text-lg font-bold text-text-bright">
             {vmi.enrolledDate ? new Date(vmi.enrolledDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '—'}
           </div>
         </div>
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="text-xs text-text-muted">Auto Reorders</div>
           <div className="text-lg font-bold text-text-bright">{vmi.autoReorderCount}</div>
         </div>
-        <div className="rounded-xl border border-default bg-card p-4">
+        <div className="rounded-xl bg-card p-4">
           <div className="text-xs text-text-muted">Last Reorder</div>
           <div className="text-lg font-bold text-text-bright">
             {vmi.lastReorderDate ? new Date(vmi.lastReorderDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '—'}

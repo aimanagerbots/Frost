@@ -173,7 +173,7 @@ export function WinLossLog() {
       </div>
 
       {/* Filter bar */}
-      <div className="flex flex-wrap items-center gap-3 rounded-xl border border-default bg-card p-4">
+      <div className="flex flex-wrap items-center gap-3 rounded-xl bg-card p-4">
         <Filter className="h-4 w-4 text-text-muted" />
         <select
           value={outcomeFilter}

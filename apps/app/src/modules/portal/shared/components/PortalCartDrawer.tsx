@@ -134,7 +134,7 @@ export function PortalCartDrawer({
                         <div className="mt-1 flex items-center gap-2">
                           <span
                             className={cn(
-                              'rounded-md px-1.5 py-0.5 text-[10px] font-medium capitalize',
+                              'rounded-full px-1.5 py-0.5 text-[10px] font-medium capitalize',
                               categoryColor
                             )}
                           >

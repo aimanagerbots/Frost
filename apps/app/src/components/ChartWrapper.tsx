@@ -65,7 +65,7 @@ export function ChartWrapper({
   return (
     <div
       className={cn(
-        'rounded-xl border border-default bg-card p-4',
+        'rounded-xl bg-card p-4',
         className
       )}
     >
