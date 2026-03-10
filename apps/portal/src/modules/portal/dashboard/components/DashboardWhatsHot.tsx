@@ -61,7 +61,7 @@ export function DashboardWhatsHot() {
             >
               <div className="mb-2 flex items-center gap-2">
                 <span
-                  className="rounded-md px-1.5 py-0.5 text-[10px] font-semibold uppercase"
+                  className="rounded-full px-1.5 py-0.5 text-[10px] font-semibold uppercase"
                   style={{
                     backgroundColor: `${categoryColor}15`,
                     color: categoryColor,
@@ -70,7 +70,7 @@ export function DashboardWhatsHot() {
                   {product.category}
                 </span>
                 {product.isNew && (
-                  <span className="rounded-md bg-accent-primary/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-accent-primary">
+                  <span className="rounded-full bg-accent-primary/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-accent-primary">
                     New
                   </span>
                 )}

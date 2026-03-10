@@ -64,7 +64,7 @@ export function MessageInput({ onSend, isTyping = false }: MessageInputProps) {
           className={cn(
             'flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl transition-colors',
             value.trim() && !isTyping
-              ? 'bg-accent-primary text-white hover:bg-accent-primary/80'
+              ? 'bg-accent-primary text-black hover:bg-accent-primary/80'
               : 'bg-elevated text-text-muted'
           )}
         >

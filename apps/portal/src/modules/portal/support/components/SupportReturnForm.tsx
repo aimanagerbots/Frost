@@ -263,7 +263,7 @@ export function SupportReturnForm({ className }: SupportReturnFormProps) {
             'text-sm font-medium transition-colors',
             isSubmitting || !hasSelectedItems
               ? 'bg-elevated text-text-muted cursor-not-allowed'
-              : 'bg-accent-primary text-white hover:bg-accent-primary/90'
+              : 'bg-accent-primary text-black hover:bg-accent-primary/90'
           )}
         >
           {isSubmitting ? (

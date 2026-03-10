@@ -483,7 +483,7 @@ export function ShopCheckout({ isOpen, onClose, className }: ShopCheckoutProps) 
               className={cn(
                 'flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors',
                 items.length > 0
-                  ? 'bg-accent-primary text-white hover:bg-accent-primary-hover'
+                  ? 'bg-accent-primary text-black hover:bg-accent-primary-hover'
                   : 'cursor-not-allowed bg-white/[0.06] text-text-muted'
               )}
             >

@@ -344,7 +344,7 @@ export function ShopProductDetail({
             className={cn(
               'flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors',
               product.inStock
-                ? 'bg-accent-primary text-white hover:bg-accent-primary-hover'
+                ? 'bg-accent-primary text-black hover:bg-accent-primary-hover'
                 : 'cursor-not-allowed bg-white/[0.06] text-text-muted'
             )}
           >

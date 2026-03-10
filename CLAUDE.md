@@ -65,7 +65,7 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Vercel production branch: main (all 3 projects)
 - DO NOT push to claude/research-claude-md-jau3A — that branch is retired
 - Vercel free tier = 100 deploys/day across ALL projects. Each push triggers 3 deploys (app + website + portal). Budget ~30 pushes/day max.
-- Domain: frost-orcin.vercel.app (app), frost-website.vercel.com (website)
+- Domain: frost-orcin.vercel.app (app), frost-website.vercel.app (website), frost-portal.vercel.app (portal)
 - Always verify with git status before committing to make sure nothing is left behind
 
 ## NotebookLM Integration

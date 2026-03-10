@@ -1,29 +1,12 @@
 'use client';
 
-import { useState, useSyncExternalStore, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import Image from 'next/image';
 
-const AGE_GATE_KEY = 'frost-age-verified';
-
-function getSnapshot(): boolean {
-  return localStorage.getItem(AGE_GATE_KEY) === 'true';
-}
-
-function getServerSnapshot(): boolean {
-  return false;
-}
-
-function subscribe(callback: () => void): () => void {
-  window.addEventListener('storage', callback);
-  return () => window.removeEventListener('storage', callback);
-}
-
 export function AgeGateModal() {
-  const isVerifiedInStorage = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const [dismissed, setDismissed] = useState(false);
 
   const handleConfirm = useCallback(() => {
-    localStorage.setItem(AGE_GATE_KEY, 'true');
     setDismissed(true);
   }, []);
 
@@ -31,7 +14,7 @@ export function AgeGateModal() {
     window.location.href = 'https://www.google.com';
   }, []);
 
-  if (isVerifiedInStorage || dismissed) {
+  if (dismissed) {
     return null;
   }
 
@@ -49,7 +32,7 @@ export function AgeGateModal() {
           alt="Frost"
           width={240}
           height={240}
-          className="h-[120px] w-[120px] mb-8"
+          className="h-[120px] w-[120px] mb-8 logo-glow-img"
         />
 
         {/* Question */}
@@ -60,7 +43,7 @@ export function AgeGateModal() {
           You must be of legal age to view this website.
         </p>
 
-        {/* Confirm button — matches login "Explore Demo" style */}
+        {/* Confirm button */}
         <button
           type="button"
           onClick={handleConfirm}
@@ -69,7 +52,7 @@ export function AgeGateModal() {
           Yes, I&apos;m 21+
         </button>
 
-        {/* Deny button — matches login "Sign In" style */}
+        {/* Deny button */}
         <button
           type="button"
           onClick={handleDeny}

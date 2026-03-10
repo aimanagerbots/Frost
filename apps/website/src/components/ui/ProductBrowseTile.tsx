@@ -137,9 +137,13 @@ export default function ProductBrowseTile({
         <div className="flex items-center gap-2">
           {strainType && (
             <span
-              className="rounded-full px-2 py-0.5 text-[10px] font-medium capitalize leading-none"
+              className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-medium capitalize leading-none"
               style={{ backgroundColor: `${badgeColor}20`, color: badgeColor }}
             >
+              <span
+                className="h-1.5 w-1.5 shrink-0 rounded-full"
+                style={{ backgroundColor: badgeColor }}
+              />
               {strainType}
             </span>
           )}

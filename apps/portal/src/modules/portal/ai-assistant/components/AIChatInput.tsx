@@ -81,7 +81,7 @@ export function AIChatInput({ onSend, isTyping }: AIChatInputProps) {
           className={cn(
             'flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors',
             value.trim() && !isTyping
-              ? 'bg-accent-primary text-white hover:bg-accent-primary/80'
+              ? 'bg-accent-primary text-black hover:bg-accent-primary/80'
               : 'bg-elevated text-text-muted cursor-not-allowed'
           )}
         >

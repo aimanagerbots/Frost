@@ -35,7 +35,7 @@ export default function SplashPage() {
         alt="Frost"
         width={240}
         height={240}
-        className="h-[120px] w-[120px] mb-10"
+        className="h-[120px] w-[120px] mb-10 logo-glow-img"
         priority
       />
 

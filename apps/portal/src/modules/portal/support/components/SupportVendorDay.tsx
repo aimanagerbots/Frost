@@ -200,7 +200,7 @@ export function SupportVendorDay({ className }: SupportVendorDayProps) {
             'mt-4 flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5',
             'text-sm font-medium transition-colors',
             selectedDate && selectedTime
-              ? 'bg-accent-primary text-white hover:bg-accent-primary/90'
+              ? 'bg-accent-primary text-black hover:bg-accent-primary/90'
               : 'bg-elevated text-text-muted cursor-not-allowed'
           )}
         >

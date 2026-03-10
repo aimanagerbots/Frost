@@ -210,7 +210,7 @@ export function SupportTicketForm({ className }: SupportTicketFormProps) {
             'text-sm font-medium transition-colors',
             isSubmitting || !subject.trim() || !description.trim()
               ? 'bg-elevated text-text-muted cursor-not-allowed'
-              : 'bg-accent-primary text-white hover:bg-accent-primary/90'
+              : 'bg-accent-primary text-black hover:bg-accent-primary/90'
           )}
         >
           {isSubmitting ? (

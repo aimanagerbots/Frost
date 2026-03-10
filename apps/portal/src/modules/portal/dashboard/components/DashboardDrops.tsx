@@ -71,7 +71,7 @@ export function DashboardDrops() {
                 <div className="min-w-0 flex-1">
                   <div className="mb-1.5 flex flex-wrap items-center gap-2">
                     <span
-                      className="rounded-md px-1.5 py-0.5 text-[10px] font-semibold uppercase"
+                      className="rounded-full px-1.5 py-0.5 text-[10px] font-semibold uppercase"
                       style={{
                         backgroundColor: `${categoryColor}15`,
                         color: categoryColor,
@@ -142,7 +142,7 @@ export function DashboardDrops() {
                       'rounded-lg px-4 py-2 text-xs font-semibold transition-colors',
                       drop.reserved
                         ? 'bg-white/5 text-text-muted cursor-default'
-                        : 'bg-accent-primary text-white hover:bg-accent-primary/90'
+                        : 'bg-accent-primary text-black hover:bg-accent-primary/90'
                     )}
                   >
                     {drop.reserved ? 'Reserved' : 'Reserve'}
