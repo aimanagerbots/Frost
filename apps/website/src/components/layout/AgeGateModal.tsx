@@ -2,13 +2,35 @@
 
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { Loader2 } from 'lucide-react';
+import { verifyPassword } from '@/app/(site)/actions';
 
-export function AgeGateModal() {
-  const [dismissed, setDismissed] = useState(false);
+interface AgeGateModalProps {
+  isAuthed: boolean;
+}
 
-  const handleConfirm = useCallback(() => {
-    setDismissed(true);
-  }, []);
+export function AgeGateModal({ isAuthed }: AgeGateModalProps) {
+  const router = useRouter();
+  const [dismissed, setDismissed] = useState(isAuthed);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleConfirm = useCallback(async () => {
+    setError('');
+    setIsLoading(true);
+
+    const result = await verifyPassword(password);
+
+    if (result.success) {
+      setDismissed(true);
+      router.refresh();
+    } else {
+      setError('Incorrect password');
+      setIsLoading(false);
+    }
+  }, [password, router]);
 
   const handleDeny = useCallback(() => {
     window.location.href = 'https://www.google.com';
@@ -23,7 +45,7 @@ export function AgeGateModal() {
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
       role="dialog"
       aria-modal="true"
-      aria-label="Age verification"
+      aria-label="Age and password verification"
     >
       <div className="relative z-10 mx-4 w-full max-w-sm flex flex-col items-center px-6">
         {/* Logo */}
@@ -39,17 +61,36 @@ export function AgeGateModal() {
         <h2 className="text-xl font-semibold text-white mb-2">
           Are you 21 or older?
         </h2>
-        <p className="text-sm text-white/30 mb-8 text-center">
+        <p className="text-sm text-white/30 mb-6 text-center">
           You must be of legal age to view this website.
         </p>
+
+        {/* Password field */}
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => { setPassword(e.target.value); setError(''); }}
+          onKeyDown={(e) => { if (e.key === 'Enter' && password) handleConfirm(); }}
+          placeholder="Enter password"
+          className="mb-3 w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white text-center placeholder:text-white/30 outline-none transition-colors focus:border-[#5BB8E6]/50 focus:bg-white/[0.05]"
+        />
+
+        {error && (
+          <p className="mb-2 text-center text-xs text-red-400">{error}</p>
+        )}
 
         {/* Confirm button */}
         <button
           type="button"
           onClick={handleConfirm}
-          className="mb-3 w-full rounded-lg bg-[#5BB8E6] py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110"
+          disabled={isLoading || !password}
+          className="mb-3 w-full flex items-center justify-center gap-2 rounded-lg bg-[#5BB8E6] py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110 disabled:opacity-60"
         >
-          Yes, I&apos;m 21+
+          {isLoading ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            "Yes, I\u2019m 21+"
+          )}
         </button>
 
         {/* Deny button */}

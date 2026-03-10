@@ -12,7 +12,7 @@ export default function AgeVerifyPage() {
           to adults 21 years of age or older.
         </p>
         <Link
-          href="/"
+          href="/home"
           className="mt-8 inline-block text-sm text-accent-primary transition-colors hover:text-accent-primary-hover"
         >
           Back to Home

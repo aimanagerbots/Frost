@@ -19,7 +19,7 @@ export function FilterBar({ options, active, onChange }: FilterBarProps) {
             className={`shrink-0 rounded-full px-5 py-2 text-sm font-sans font-medium transition-colors duration-200 ${
               isActive
                 ? "bg-accent-primary text-text-on-dark"
-                : "border border-border-default bg-transparent text-text-muted hover:border-border-hover hover:text-text-default"
+                : "border border-border-default bg-transparent text-text-default hover:border-border-hover hover:text-accent-primary"
             }`}
           >
             {option}

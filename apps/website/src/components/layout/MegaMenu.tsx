@@ -65,33 +65,56 @@ function CategoryPanel({ category }: { category: MegaMenuCategoryItem }) {
 }
 
 /* ── Generic multi-column panel for Strains / Resources ── */
-function ColumnsPanel({ columns }: { columns: MegaMenuColumn[] }) {
+function ColumnsPanel({
+  columns,
+  browseAllHref,
+  browseAllLabel,
+}: {
+  columns: MegaMenuColumn[];
+  browseAllHref?: string;
+  browseAllLabel?: string;
+}) {
   return (
-    <div
-      className="grid gap-8 p-6"
-      style={{ gridTemplateColumns: `repeat(${columns.length}, minmax(0, 1fr))` }}
-    >
-      {columns.map((col) => (
-        <div key={col.heading}>
-          <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-text-muted">
-            {col.heading}
-          </h3>
-          <ul className="space-y-2">
-            {col.links.map((link) => (
-              <li key={link.href}>
-                <NavigationMenu.Link asChild>
-                  <Link
-                    href={link.href}
-                    className="block text-sm text-text-default transition-colors hover:text-accent-primary"
-                  >
-                    {link.label}
-                  </Link>
-                </NavigationMenu.Link>
-              </li>
-            ))}
-          </ul>
+    <div className="p-6">
+      <div
+        className="grid gap-8"
+        style={{ gridTemplateColumns: `repeat(${columns.length}, minmax(0, 1fr))` }}
+      >
+        {columns.map((col) => (
+          <div key={col.heading}>
+            <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-text-muted">
+              {col.heading}
+            </h3>
+            <ul className="space-y-2">
+              {col.links.map((link) => (
+                <li key={link.href}>
+                  <NavigationMenu.Link asChild>
+                    <Link
+                      href={link.href}
+                      className="block text-sm text-text-default transition-colors hover:text-accent-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  </NavigationMenu.Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      {browseAllHref && browseAllLabel && (
+        <div className="mt-4 border-t border-border-default pt-3">
+          <NavigationMenu.Link asChild>
+            <Link
+              href={browseAllHref}
+              className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.05em] text-accent-primary transition-colors hover:text-accent-primary-hover"
+            >
+              {browseAllLabel}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </NavigationMenu.Link>
         </div>
-      ))}
+      )}
     </div>
   );
 }
@@ -220,7 +243,11 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
             />
           </NavigationMenu.Trigger>
           <PanelWrapper width={width}>
-            <ColumnsPanel columns={item.columns} />
+            <ColumnsPanel
+              columns={item.columns}
+              browseAllHref={item.label === 'Strain Library' ? '/strains' : undefined}
+              browseAllLabel={item.label === 'Strain Library' ? 'Browse All Strains' : undefined}
+            />
           </PanelWrapper>
         </NavigationMenu.Item>
       );

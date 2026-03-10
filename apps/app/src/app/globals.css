@@ -147,7 +147,7 @@
     @apply border-border-default;
   }
   body {
-    @apply bg-base text-text-default antialiased font-bold;
+    @apply bg-base text-text-default antialiased;
     font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
   }
 }

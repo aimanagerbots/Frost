@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, ShoppingBag } from 'lucide-react';
+import { Menu, ShoppingBag, Navigation } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@frost/ui';
 import { useOrderStore, useCartItemCount } from '@/stores/order-store';
@@ -83,9 +83,9 @@ export function Header() {
             />
           </Link>
 
-          {/* Mobile: location + browse toggle + cart + hamburger */}
+          {/* Mobile: my location + browse toggle + cart + hamburger */}
           <div className="flex items-center gap-2">
-            <LocationSelector />
+            <MyLocationButton />
             {isOrderPage && (
               <BrowseModeToggle />
             )}
@@ -138,6 +138,48 @@ function CartIconButton() {
           {itemCount > 99 ? '99+' : itemCount}
         </span>
       )}
+    </button>
+  );
+}
+
+/* ---------- My Location button (mobile) ---------- */
+
+function MyLocationButton() {
+  const userLocation = useOrderStore((s) => s.userLocation);
+  const setUserLocation = useOrderStore((s) => s.setUserLocation);
+  const hasLocation = userLocation !== null;
+
+  const handleClick = () => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setUserLocation({
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude,
+          label: 'My Location',
+        });
+      },
+      () => {
+        /* silently fail */
+      },
+    );
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      className={cn(
+        'flex items-center gap-1 rounded-full px-2.5 py-1.5 text-[10px] uppercase tracking-[0.04em] font-semibold transition-colors border',
+        hasLocation
+          ? 'border-[#5BB8E6]/30 text-[#5BB8E6] bg-[#5BB8E6]/10'
+          : 'border-white/[0.08] text-text-muted hover:text-text-default bg-white/[0.04]',
+      )}
+      aria-label="Use my location"
+    >
+      <Navigation className="h-3 w-3" />
+      <span className="whitespace-nowrap">
+        {hasLocation ? userLocation.label : 'My Location'}
+      </span>
     </button>
   );
 }

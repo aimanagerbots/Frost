@@ -98,8 +98,9 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Do NOT write frontend code without invoking the skill first.
 
 ## Website Password
-- Password gate: `frost2026` (test site only)
-- After password, there's also an age gate ("Yes, I'm 21+")
+- Password: `1313` (test site only, set in `.env.local` as `SITE_PASSWORD`)
+- Combined with age gate in a single modal (AgeGateModal) — no separate splash page
+- Cookie `site-auth` persists for 24 hours after successful entry
 
 ## Development Log (MANDATORY)
 - **Read `DEVELOPMENT_LOG.md` at the start of every session** — know where the project stands before doing anything

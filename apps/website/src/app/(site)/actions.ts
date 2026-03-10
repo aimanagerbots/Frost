@@ -11,7 +11,7 @@ export async function verifyPassword(password: string) {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      // No maxAge — session cookie, expires on browser close
+      maxAge: 60 * 60 * 24, // 24 hours
     });
     return { success: true };
   }
@@ -21,7 +21,7 @@ export async function verifyPassword(password: string) {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      // No maxAge — session cookie, expires on browser close
+      maxAge: 60 * 60 * 24, // 24 hours
     });
     return { success: true };
   }

@@ -64,11 +64,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Article body */}
       <ScrollReveal>
         <article className="py-12 px-6">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             {post.content.map((paragraph, index) => (
               <p
                 key={index}
-                className="font-sans text-lg leading-relaxed text-text-muted mb-6"
+                className="font-sans text-base font-light leading-relaxed text-text-default mb-6"
               >
                 {paragraph}
               </p>
@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Tags */}
       <div className="px-6 pb-12">
-        <div className="max-w-2xl mx-auto flex flex-wrap gap-2">
+        <div className="max-w-4xl mx-auto flex flex-wrap gap-2">
           {post.tags.map((tag) => (
             <span
               key={tag}

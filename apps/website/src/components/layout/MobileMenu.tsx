@@ -61,7 +61,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       {/* Panel */}
       <div
         className={cn(
-          'absolute inset-0 flex flex-col bg-base overflow-y-auto transition-transform duration-300 ease-out',
+          'absolute inset-0 flex flex-col bg-base h-dvh transition-transform duration-300 ease-out',
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
         role="dialog"
@@ -69,7 +69,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-label="Mobile navigation"
       >
         {/* Close */}
-        <div className="relative flex items-center justify-center px-6 py-4">
+        <div className="relative flex shrink-0 items-center justify-center px-6 py-4">
           <div className="relative h-8 w-8">
             <Image
               src="/FrostLogo_SnowflakeOnly.png"
@@ -89,7 +89,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </div>
 
         {/* Nav sections */}
-        <nav className="flex-1 px-6 pb-6">
+        <nav className="flex-1 overflow-y-auto px-6 pb-6">
           {MEGA_MENU.map((item, i) => {
             if (item.type === 'link') {
               return (

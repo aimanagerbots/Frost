@@ -6,19 +6,13 @@ import { BlogPageClient } from "./BlogPageClient";
 export default function BlogPage() {
   const posts = getAllPosts();
   return (
-    <div>
-      <div className="pt-28 pb-8 px-6">
-        <div className="max-w-7xl mx-auto">
-          <CategoryBanner alt="Blog" />
-        </div>
+    <section className="pt-28 pb-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <CategoryBanner alt="Blog" />
+        <ScrollReveal>
+          <BlogPageClient posts={posts} />
+        </ScrollReveal>
       </div>
-      <ScrollReveal>
-        <section className="section-pad px-6">
-          <div className="max-w-7xl mx-auto">
-            <BlogPageClient posts={posts} />
-          </div>
-        </section>
-      </ScrollReveal>
-    </div>
+    </section>
   );
 }

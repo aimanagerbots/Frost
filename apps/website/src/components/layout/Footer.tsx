@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Instagram, Facebook, Linkedin, Youtube, ArrowRight } from 'lucide-react';
 import { FOOTER_LINKS, COMPLIANCE_TEXT } from '@/lib/constants';
 
@@ -63,52 +62,39 @@ export function Footer() {
   return (
     <footer className="bg-dark">
       <div className="mx-auto max-w-7xl px-6" style={{ paddingTop: '80px', paddingBottom: '48px' }}>
-        {/* 5-column grid — brand col wider */}
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
-          {/* Brand column */}
-          <div className="flex flex-col gap-6">
-            <Link href="/" className="block">
-              <Image
-                src="/FrostLogo_wordmark.png"
-                alt="Frost"
-                width={197}
-                height={44}
-                className="brightness-0 invert"
+        {/* 5-column grid */}
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.5fr_1fr]">
+          {/* Stay Frosty column */}
+          <div>
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
+              Stay Frosty
+            </h3>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setEmail('');
+              }}
+              className="flex"
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                className="flex-1 min-w-0 rounded-l-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-text-on-dark placeholder:text-text-on-dark-muted/50 outline-none focus:border-accent-primary/50 transition-colors"
               />
-            </Link>
-
-            {/* Email signup */}
-            <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
-                Stay Frosty
-              </p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setEmail('');
-                }}
-                className="flex"
+              <button
+                type="submit"
+                className="rounded-r-lg bg-accent-primary px-3 py-2 text-black transition-colors hover:bg-accent-primary-hover"
+                aria-label="Subscribe"
               >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 min-w-0 rounded-l-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-text-on-dark placeholder:text-text-on-dark-muted/50 outline-none focus:border-accent-primary/50 transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="rounded-r-lg bg-accent-primary px-3 py-2 text-black transition-colors hover:bg-accent-primary-hover"
-                  aria-label="Subscribe"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
-            </div>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </form>
 
             {/* Social icons */}
-            <div className="flex flex-wrap gap-3">
+            <div className="mt-4 flex flex-wrap gap-3">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
@@ -166,8 +152,8 @@ export function Footer() {
 
           {/* Blog column */}
           <div>
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
-              <Link href="/blog" className="transition-colors hover:text-text-on-dark">
+            <h3 className="mb-4 text-xs font-normal uppercase tracking-widest text-text-on-dark">
+              <Link href="/blog" className="transition-colors hover:text-accent-primary">
                 Blog
               </Link>
             </h3>

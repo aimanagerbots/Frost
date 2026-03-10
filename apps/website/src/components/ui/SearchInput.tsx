@@ -13,13 +13,13 @@ export function SearchInput({
 }: SearchInputProps) {
   return (
     <div className="relative w-full">
-      <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
+      <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-text-default" />
       <input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-full border border-border-default bg-card py-3 pl-11 pr-4 text-sm font-sans text-text-default placeholder:text-text-muted focus:border-accent-primary focus:outline-none transition-colors"
+        className="w-full rounded-full border border-border-default bg-card py-3 pl-11 pr-4 text-sm font-sans text-text-default placeholder:text-text-default focus:border-accent-primary focus:outline-none transition-colors"
       />
     </div>
   );

@@ -64,7 +64,9 @@
       "mcp__claude_ai_Vercel__list_teams",
       "mcp__claude_ai_Vercel__list_projects",
       "mcp__claude_ai_Vercel__list_deployments",
-      "Bash(git add CLAUDE.md DEVELOPMENT_LOG.md .claude/settings.local.json)"
+      "Bash(git add CLAUDE.md DEVELOPMENT_LOG.md .claude/settings.local.json)",
+      "Bash(netstat -ano)",
+      "Bash(ls -la /c/Users/quinn/OneDrive/Documents/Frost/apps/website/*.ts)"
     ]
   }
 }

@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useState, useMemo } from "react";
 import { FilterBar } from "@/components/ui/FilterBar";
+import { SearchInput } from "@/components/ui/SearchInput";
 import { BlogPostCard } from "@/components/ui/BlogPostCard";
 import type { BlogPost } from "@/types";
 
@@ -15,56 +14,46 @@ interface BlogPageClientProps {
 
 export function BlogPageClient({ posts }: BlogPageClientProps) {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filtered =
-    activeFilter === "All"
-      ? posts
-      : posts.filter((post) => post.category === activeFilter);
-
-  const [featured, ...remaining] = filtered;
+  const filtered = useMemo(() => {
+    return posts.filter((post) => {
+      if (activeFilter !== "All" && post.category !== activeFilter) return false;
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        if (
+          !post.title.toLowerCase().includes(q) &&
+          !post.excerpt.toLowerCase().includes(q) &&
+          !post.author.toLowerCase().includes(q) &&
+          !post.category.toLowerCase().includes(q)
+        )
+          return false;
+      }
+      return true;
+    });
+  }, [posts, activeFilter, searchQuery]);
 
   return (
-    <div className="space-y-12">
-      {/* Category filter tabs */}
-      <FilterBar options={CATEGORIES} active={activeFilter} onChange={setActiveFilter} />
+    <div className="space-y-6">
+      {/* Filter bar + search — matches category page layout */}
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+        <div className="shrink-0">
+          <FilterBar options={CATEGORIES} active={activeFilter} onChange={setActiveFilter} />
+        </div>
+        <div className="flex-1">
+          <SearchInput value={searchQuery} onChange={setSearchQuery} placeholder="Search stories..." />
+        </div>
+      </div>
 
-      {/* Featured / newest post */}
-      {featured && (
-        <Link
-          href={`/blog/${featured.slug}`}
-          className="group block rounded-xl border border-border-default bg-card overflow-hidden hover-lift"
-        >
-          <div className="relative aspect-[16/9] overflow-hidden">
-            <Image
-              src={featured.imageUrl}
-              alt={featured.title}
-              fill
-              className="object-cover img-hover"
-              sizes="(max-width: 768px) 100vw, 100vw"
-              priority
-            />
-            <span className="absolute top-4 left-4 bg-accent-primary/90 text-text-on-dark text-xs uppercase tracking-wider rounded-full px-3 py-1 font-sans font-medium">
-              {featured.category}
-            </span>
-          </div>
-          <div className="p-6 space-y-3">
-            <h2 className="font-display text-3xl leading-snug text-text-default">
-              {featured.title}
-            </h2>
-            <p className="text-base text-text-muted font-sans leading-relaxed max-w-3xl">
-              {featured.excerpt}
-            </p>
-            <p className="text-sm text-text-muted font-sans">
-              {featured.author} &middot; {featured.date} &middot; {featured.readTime} min read
-            </p>
-          </div>
-        </Link>
-      )}
+      {/* Count */}
+      <p className="text-sm text-text-muted">
+        {filtered.length} {filtered.length === 1 ? "story" : "stories"}
+      </p>
 
-      {/* Remaining posts grid */}
-      {remaining.length > 0 && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {remaining.map((post) => (
+      {/* 5-up grid */}
+      {filtered.length > 0 ? (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          {filtered.map((post) => (
             <BlogPostCard
               key={post.id}
               title={post.title}
@@ -77,6 +66,11 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
               imageUrl={post.imageUrl}
             />
           ))}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center py-24 text-center">
+          <p className="font-display text-2xl text-text-default mb-2">No stories found</p>
+          <p className="text-sm text-text-muted">Try adjusting your filters or search query.</p>
         </div>
       )}
     </div>
