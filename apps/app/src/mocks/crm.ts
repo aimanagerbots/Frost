@@ -110,6 +110,7 @@ const greenfieldContacts: Contact[] = [
 
 const greenfield: Account = {
   id: 'acct-greenfield',
+  dispensaryId: 'disp-001',
   name: 'Greenfield Dispensary',
   dba: 'Greenfield Cannabis Co.',
   licenseNumber: 'WA-CCB-420891',
@@ -153,6 +154,7 @@ const greenfield: Account = {
 
 const pacificLeaf: Account = {
   id: 'acct-pacific-leaf',
+  dispensaryId: 'disp-002',
   name: 'Pacific Leaf',
   dba: 'Pacific Leaf Tacoma LLC',
   licenseNumber: 'WA-CCB-420456',
@@ -197,6 +199,7 @@ const pacificLeaf: Account = {
 
 const emeraldCity: Account = {
   id: 'acct-emerald-city',
+  dispensaryId: 'disp-003',
   name: 'Emerald City Cannabis',
   dba: 'ECC Holdings',
   licenseNumber: 'WA-CCB-420223',
@@ -241,6 +244,7 @@ const emeraldCity: Account = {
 
 const cascadeWellness: Account = {
   id: 'acct-cascade',
+  dispensaryId: 'disp-004',
   name: 'Cascade Wellness',
   dba: 'Cascade Wellness Dispensary',
   licenseNumber: 'WA-CCB-421102',
@@ -284,6 +288,7 @@ const cascadeWellness: Account = {
 
 const pugetSound: Account = {
   id: 'acct-puget-sound',
+  dispensaryId: 'disp-005',
   name: 'Puget Sound Provisions',
   dba: 'PSP Cannabis LLC',
   licenseNumber: 'WA-CCB-420667',
@@ -327,6 +332,7 @@ const pugetSound: Account = {
 
 const summitCannabis: Account = {
   id: 'acct-summit',
+  dispensaryId: 'disp-006',
   name: 'Summit Cannabis Co.',
   dba: 'Summit Cannabis LLC',
   licenseNumber: 'WA-CCB-420780',
@@ -371,6 +377,7 @@ const summitCannabis: Account = {
 
 const rainierRemedies: Account = {
   id: 'acct-rainier',
+  dispensaryId: 'disp-007',
   name: 'Rainier Remedies',
   dba: 'Rainier Remedies Inc',
   licenseNumber: 'WA-CCB-420512',
@@ -415,6 +422,7 @@ const rainierRemedies: Account = {
 
 const olympicGreens: Account = {
   id: 'acct-olympic',
+  dispensaryId: 'disp-008',
   name: 'Olympic Greens',
   dba: 'Olympic Greens Dispensary LLC',
   licenseNumber: 'WA-CCB-420634',
@@ -458,6 +466,7 @@ const olympicGreens: Account = {
 
 const spokaneValley: Account = {
   id: 'acct-spokane-valley',
+  dispensaryId: 'disp-009',
   name: 'Spokane Valley Dispensary',
   dba: 'SVD Cannabis Inc',
   licenseNumber: 'WA-CCB-421045',
@@ -500,6 +509,7 @@ const spokaneValley: Account = {
 
 const capitolHillCollective: Account = {
   id: 'acct-capitol-hill',
+  dispensaryId: 'disp-010',
   name: 'Capitol Hill Collective',
   dba: 'CHC Cannabis LLC',
   licenseNumber: 'WA-CCB-420188',
@@ -545,6 +555,7 @@ const capitolHillCollective: Account = {
 
 const harborCannabis: Account = {
   id: 'acct-harbor',
+  dispensaryId: 'disp-011',
   name: 'Harbor Cannabis',
   dba: 'Harbor Cannabis Co',
   licenseNumber: 'WA-CCB-421200',
@@ -590,6 +601,7 @@ const harborCannabis: Account = {
 
 const evergreenWellness: Account = {
   id: 'acct-evergreen',
+  dispensaryId: 'disp-012',
   name: 'Evergreen Wellness',
   dba: 'Evergreen Wellness Dispensary',
   licenseNumber: 'WA-CCB-421088',

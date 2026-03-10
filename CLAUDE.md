@@ -101,6 +101,14 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Password gate: `frost2026` (test site only)
 - After password, there's also an age gate ("Yes, I'm 21+")
 
+## Development Log (MANDATORY)
+- After completing ANY task, append an entry to `DEVELOPMENT_LOG.md` in the project root
+- Entry format: date, app affected, bullet list of changes, key files touched, commit hash (or "uncommitted")
+- Newest entries go at the top (reverse-chronological), separated by `---`
+- This is a running tally — never delete old entries, only append new ones
+- If a commit is made, update the most recent entry's commit hash from "uncommitted" to the actual hash
+- Keep entries concise: 2-5 bullets per task, only list key files (not every touched file)
+
 ## Do NOT
 - Install dependencies without stating why
 - Refactor code you weren't asked to change

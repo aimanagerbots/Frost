@@ -50,6 +50,10 @@ interface OrderState {
   /* ── Active order (post-checkout) ── */
   activeOrder: MockOrder | null;
   setActiveOrder: (order: MockOrder | null) => void;
+
+  /* ── Map viewport bounds (ephemeral, not persisted) ── */
+  mapBounds: { north: number; south: number; east: number; west: number } | null;
+  setMapBounds: (bounds: { north: number; south: number; east: number; west: number } | null) => void;
 }
 
 /* ------------------------------------------------------------------ */
@@ -135,6 +139,10 @@ export const useOrderStore = create<OrderState>()(
       /* ── Active order ── */
       activeOrder: null,
       setActiveOrder: (order) => set({ activeOrder: order }),
+
+      /* ── Map viewport bounds ── */
+      mapBounds: null,
+      setMapBounds: (bounds) => set({ mapBounds: bounds }),
     }),
     {
       name: 'frost-order-store',

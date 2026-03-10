@@ -28,19 +28,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div>
-      {/* Breadcrumb */}
-      <div className="pt-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-sm text-text-muted font-sans">
-            <Link href="/blog" className="text-accent-primary hover:underline">
-              Journal
-            </Link>
-            {" / "}
-            <span className="text-text-default">{post.title}</span>
-          </p>
-        </div>
-      </div>
-
       {/* Article header */}
       <header className="pt-8 pb-10 px-6">
         <div className="max-w-4xl mx-auto space-y-4">

@@ -619,18 +619,6 @@ export function CheckoutClient() {
   return (
     <div className="min-h-screen bg-black">
       <div className="max-w-3xl mx-auto px-4 py-10">
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-xs font-sans mb-8">
-          <Link
-            href="/order"
-            className="text-white/40 hover:text-white/60 transition-colors"
-          >
-            Order
-          </Link>
-          <span className="text-white/20">/</span>
-          <span className="text-white/70">Checkout</span>
-        </nav>
-
         {/* Step indicator */}
         <StepIndicator current={step} />
 

@@ -30,23 +30,6 @@ export function ProductDetailView({ product, category }: ProductDetailViewProps)
 
   return (
     <>
-      {/* Breadcrumb */}
-      <nav className="pt-24 pb-8 px-6" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-2 text-sm text-text-muted max-w-5xl mx-auto">
-          <li>
-            <Link href="/" className="hover:text-text-default transition-colors">Home</Link>
-          </li>
-          <li aria-hidden="true">/</li>
-          <li>
-            <Link href={`/${categoryRoute}`} className="hover:text-text-default transition-colors">
-              {categoryMeta.label}
-            </Link>
-          </li>
-          <li aria-hidden="true">/</li>
-          <li className="text-text-default">{product.name}</li>
-        </ol>
-      </nav>
-
       {/* Hero Image */}
       <ScrollReveal className="px-6 pb-16">
         <div className="relative aspect-[16/9] w-full max-w-5xl mx-auto rounded-xl overflow-hidden">

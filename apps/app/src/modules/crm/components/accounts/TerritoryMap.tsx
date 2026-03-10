@@ -1,15 +1,12 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { Map, Eye, EyeOff } from 'lucide-react';
+import { Map as MapIcon, Eye, EyeOff, Flame, Heart, Users } from 'lucide-react';
 import { MetricCard, LoadingSkeleton, EmptyState } from '@/components';
-import type { TerritoryAccount } from '@/modules/crm/types';
 import { useTerritoryData, useTerritoryMetrics } from '@/modules/crm/hooks/copilot-territory-hooks';
-import { WashingtonMap } from './territory/WashingtonMap';
+import { WashingtonMap, type ColorMode } from './territory/WashingtonMap';
 import { TerritoryPanel } from './territory/TerritoryPanel';
-import { MapTooltip } from './territory/MapTooltip';
 import { ACCENT as CRM_ACCENT } from '@/design/colors';
-
 
 const HEALTH_TIERS = [
   { key: 'healthy', label: 'Healthy (80+)', color: '#00E5A0' },
@@ -17,13 +14,6 @@ const HEALTH_TIERS = [
   { key: 'risk', label: 'At Risk (40-59)', color: '#5BB8E6' },
   { key: 'critical', label: 'Critical (<40)', color: '#FB7185' },
 ];
-
-interface TooltipState {
-  account: TerritoryAccount | null;
-  repName: string;
-  x: number;
-  y: number;
-}
 
 export function TerritoryMap() {
   const { data: territories, isLoading: terrLoading } = useTerritoryData();
@@ -33,18 +23,25 @@ export function TerritoryMap() {
   const [scaleByRevenue, setScaleByRevenue] = useState(false);
   const [healthFilter, setHealthFilter] = useState<Set<string>>(new Set());
   const [vmiFilter, setVmiFilter] = useState<boolean | null>(null);
-  const [tooltip, setTooltip] = useState<TooltipState>({
-    account: null,
-    repName: '',
-    x: 0,
-    y: 0,
-  });
+  const [colorMode, setColorMode] = useState<ColorMode>('health');
+  const [showHeatmap, setShowHeatmap] = useState(false);
+  const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null);
+  const [flyTo, setFlyTo] = useState<{ lat: number; lng: number; zoom?: number } | null>(null);
 
-  const handleHoverAccount = useCallback(
-    (account: TerritoryAccount | null, repName: string, x: number, y: number) => {
-      setTooltip({ account, repName, x, y });
+  const handleClickAccount = useCallback(
+    (accountId: string) => {
+      setSelectedAccountId(accountId);
+      if (territories) {
+        for (const t of territories) {
+          const account = t.accounts.find((a) => a.id === accountId);
+          if (account) {
+            setFlyTo({ lat: account.lat, lng: account.lng, zoom: 12 });
+            break;
+          }
+        }
+      }
     },
-    [],
+    [territories],
   );
 
   const toggleHealthTier = (tier: string) => {
@@ -61,7 +58,14 @@ export function TerritoryMap() {
   }
 
   if (!territories || territories.length === 0) {
-    return <EmptyState icon={Map} title="No territory data" description="Territory data is not available" accentColor={CRM_ACCENT} />;
+    return (
+      <EmptyState
+        icon={MapIcon}
+        title="No territory data"
+        description="Territory data is not available"
+        accentColor={CRM_ACCENT}
+      />
+    );
   }
 
   return (
@@ -149,64 +153,116 @@ export function TerritoryMap() {
           )}
           Scale by Revenue
         </button>
+
+        <div className="h-4 w-px bg-default" />
+
+        {/* Color mode toggle */}
+        <div className="flex items-center rounded-lg border border-default overflow-hidden">
+          <button
+            onClick={() => setColorMode('health')}
+            className={`flex items-center gap-1 px-2.5 py-1 text-[11px] transition-colors ${
+              colorMode === 'health'
+                ? 'bg-[#00E5A0]/15 text-[#00E5A0] font-medium'
+                : 'text-text-muted hover:text-text-default hover:bg-card'
+            }`}
+          >
+            <Heart className="h-3 w-3" />
+            Health
+          </button>
+          <div className="h-4 w-px bg-default" />
+          <button
+            onClick={() => setColorMode('territory')}
+            className={`flex items-center gap-1 px-2.5 py-1 text-[11px] transition-colors ${
+              colorMode === 'territory'
+                ? 'bg-[#3B82F6]/15 text-[#3B82F6] font-medium'
+                : 'text-text-muted hover:text-text-default hover:bg-card'
+            }`}
+          >
+            <Users className="h-3 w-3" />
+            Territory
+          </button>
+        </div>
+
+        {/* Heatmap toggle */}
+        <button
+          onClick={() => setShowHeatmap((p) => !p)}
+          className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition-colors ${
+            showHeatmap
+              ? 'border-[#F59E0B]/30 bg-[#F59E0B]/10 text-[#F59E0B]'
+              : 'border-default bg-base text-text-muted'
+          }`}
+        >
+          <Flame className="h-3 w-3" />
+          Revenue Heatmap
+        </button>
       </div>
 
       {/* Map + Panel */}
-      <div className="flex rounded-xl border border-default bg-card overflow-hidden">
+      <div
+        className="flex rounded-xl border border-default bg-card overflow-hidden"
+        style={{ height: 540 }}
+      >
         {/* Map area */}
-        <div className="relative flex-1 p-4">
+        <div className="relative flex-1">
           <WashingtonMap
             territories={territories}
             selectedRepId={selectedRepId}
             scaleByRevenue={scaleByRevenue}
             healthFilter={healthFilter}
             vmiFilter={vmiFilter}
-            onHoverAccount={handleHoverAccount}
-            onClickAccount={() => {}}
+            colorMode={colorMode}
+            showHeatmap={showHeatmap}
+            onHoverAccount={() => {}}
+            onClickAccount={handleClickAccount}
+            selectedAccountId={selectedAccountId}
+            flyTo={flyTo}
           />
 
-          {/* Tooltip */}
-          {tooltip.account && (
-            <MapTooltip
-              account={tooltip.account}
-              repName={tooltip.repName}
-              x={tooltip.x}
-              y={tooltip.y}
-            />
-          )}
-
           {/* Legend */}
-          <div className="absolute bottom-4 left-4 rounded-lg border border-default bg-card/90 p-2.5 backdrop-blur-sm">
-            <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
-              Health
-            </p>
-            <div className="space-y-1">
-              {HEALTH_TIERS.map((tier) => (
-                <div key={tier.key} className="flex items-center gap-1.5 text-[10px] text-text-muted">
-                  <div
-                    className="h-2.5 w-2.5 rounded-full"
-                    style={{ backgroundColor: tier.color }}
-                  />
-                  {tier.label}
-                </div>
-              ))}
-            </div>
-            <div className="mt-2 border-t border-default pt-1.5">
-              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
-                Reps
-              </p>
-              {territories
-                .filter((t) => t.bounds.length > 0)
-                .map((t) => (
-                  <div key={t.repId} className="flex items-center gap-1.5 text-[10px] text-text-muted">
+          <div className="absolute bottom-4 left-4 rounded-lg border border-default bg-card/90 p-2.5 backdrop-blur-sm z-10">
+            {colorMode === 'health' ? (
+              <>
+                <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                  Health
+                </p>
+                <div className="space-y-1">
+                  {HEALTH_TIERS.map((tier) => (
                     <div
-                      className="h-2.5 w-2.5 rounded"
-                      style={{ backgroundColor: t.color, opacity: 0.5 }}
-                    />
-                    {t.repName}
-                  </div>
-                ))}
-            </div>
+                      key={tier.key}
+                      className="flex items-center gap-1.5 text-[10px] text-text-muted"
+                    >
+                      <div
+                        className="h-2.5 w-2.5 rounded-full"
+                        style={{ backgroundColor: tier.color }}
+                      />
+                      {tier.label}
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                  Reps
+                </p>
+                <div className="space-y-1">
+                  {territories
+                    .filter((t) => t.bounds.length > 0)
+                    .map((t) => (
+                      <div
+                        key={t.repId}
+                        className="flex items-center gap-1.5 text-[10px] text-text-muted"
+                      >
+                        <div
+                          className="h-2.5 w-2.5 rounded"
+                          style={{ backgroundColor: t.color, opacity: 0.7 }}
+                        />
+                        {t.repName}
+                      </div>
+                    ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -214,8 +270,9 @@ export function TerritoryMap() {
         <TerritoryPanel
           territories={territories}
           selectedRepId={selectedRepId}
+          selectedAccountId={selectedAccountId}
           onSelectRep={setSelectedRepId}
-          onSelectAccount={() => {}}
+          onSelectAccount={handleClickAccount}
         />
       </div>
     </div>

@@ -16,8 +16,6 @@ interface StoreListPanelProps {
   products: { slug: string; name: string; category: string }[];
   selectedProduct: string | null;
   onProductSelect: (slug: string | null) => void;
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
   onUseMyLocation: () => void;
   hasLocation: boolean;
   regions: string[];
@@ -37,8 +35,6 @@ export default function StoreListPanel({
   products,
   selectedProduct,
   onProductSelect,
-  searchQuery,
-  onSearchChange,
   onUseMyLocation,
   hasLocation,
   regions,
@@ -62,32 +58,6 @@ export default function StoreListPanel({
       {/* ═══ SEARCH & FILTERS ═══ */}
       {!compact && (
         <div className="flex-shrink-0 p-4 space-y-3 border-b border-white/[0.06]">
-          {/* Search input */}
-          <div className="relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/25"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="Search by store name, city, or address..."
-              className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl pl-10 pr-4 py-3 text-white/90 text-sm placeholder:text-white/25 focus:outline-none focus:ring-2 focus:ring-[#5BB8E6]/40 focus:border-[#5BB8E6]/30 transition-all"
-            />
-          </div>
-
           {/* Use my location button */}
           <button
             type="button"
@@ -179,11 +149,10 @@ export default function StoreListPanel({
             <span className="text-[#5BB8E6]">{productName}</span>
           )}
         </p>
-        {(searchQuery || selectedRegion || selectedProduct) && (
+        {(selectedRegion || selectedProduct) && (
           <button
             type="button"
             onClick={() => {
-              onSearchChange('');
               onRegionSelect(null);
               onProductSelect(null);
             }}

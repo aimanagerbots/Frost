@@ -13,6 +13,7 @@ const dispensaries: DispensaryLocation[] = [
   // ─── 1–13: Canonical CRM dispensaries ───────────────────────────────
   {
     id: "disp-001",
+    crmAccountId: "acct-greenfield",
     name: "Greenfield Dispensary",
     slug: "greenfield-dispensary",
     dba: "Greenfield Cannabis Co.",
@@ -38,6 +39,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-002",
+    crmAccountId: "acct-pacific-leaf",
     name: "Pacific Leaf",
     slug: "pacific-leaf",
     dba: "Pacific Leaf Tacoma LLC",
@@ -63,6 +65,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-003",
+    crmAccountId: "acct-emerald-city",
     name: "Emerald City Cannabis",
     slug: "emerald-city-cannabis",
     dba: "ECC Holdings",
@@ -88,6 +91,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-004",
+    crmAccountId: "acct-cascade",
     name: "Cascade Wellness",
     slug: "cascade-wellness",
     dba: "Cascade Wellness Dispensary",
@@ -113,6 +117,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-005",
+    crmAccountId: "acct-puget-sound",
     name: "Puget Sound Provisions",
     slug: "puget-sound-provisions",
     dba: "PSP Cannabis LLC",
@@ -138,6 +143,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-006",
+    crmAccountId: "acct-summit",
     name: "Summit Cannabis Co.",
     slug: "summit-cannabis-co",
     dba: "Summit Cannabis LLC",
@@ -163,6 +169,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-007",
+    crmAccountId: "acct-rainier",
     name: "Rainier Remedies",
     slug: "rainier-remedies",
     dba: "Rainier Remedies Inc",
@@ -188,6 +195,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-008",
+    crmAccountId: "acct-olympic",
     name: "Olympic Greens",
     slug: "olympic-greens",
     dba: "Olympic Greens Dispensary LLC",
@@ -213,6 +221,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-009",
+    crmAccountId: "acct-spokane-valley",
     name: "Spokane Valley Dispensary",
     slug: "spokane-valley-dispensary",
     dba: "SVD Cannabis Inc",
@@ -238,6 +247,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-010",
+    crmAccountId: "acct-capitol-hill",
     name: "Capitol Hill Collective",
     slug: "capitol-hill-collective",
     dba: "CHC Cannabis LLC",
@@ -263,6 +273,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-011",
+    crmAccountId: "acct-harbor",
     name: "Harbor Cannabis",
     slug: "harbor-cannabis",
     dba: "Harbor Cannabis Co",
@@ -282,6 +293,7 @@ const dispensaries: DispensaryLocation[] = [
   },
   {
     id: "disp-012",
+    crmAccountId: "acct-evergreen",
     name: "Evergreen Wellness",
     slug: "evergreen-wellness",
     dba: "Evergreen Wellness Dispensary",

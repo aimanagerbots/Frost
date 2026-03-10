@@ -64,6 +64,8 @@ export interface Contact {
 
 export interface Account {
   id: string;
+  /** Link to corresponding DispensaryLocation.id on the website (e.g. "disp-001") */
+  dispensaryId?: string;
   name: string;
   dba: string;
   licenseNumber: string;

@@ -54,7 +54,11 @@
       "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost log --oneline -20)",
       "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost diff --name-only HEAD~5..HEAD)",
       "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost status)",
-      "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost ls-files)"
+      "Bash(git -C /c/Users/quinn/OneDrive/Documents/Frost ls-files)",
+      "Bash(npm run dev)",
+      "Bash(cat /c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\\\\\(site\\\\\\)/layout.tsx)",
+      "Bash(cat /c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\\\\\(site\\\\\\)/flower/page.tsx)",
+      "Bash(git add -A -- . ':!PHOTO-2026-03-09-13-37-59.jpg')"
     ]
   }
 }

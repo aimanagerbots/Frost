@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Link from "next/link";
 import type { ProductCategory, WebsiteProduct } from "@/types";
 import type { CategoryMeta } from "@/lib/constants";
 import { FilterBar } from "@/components/ui/FilterBar";
 import { SearchInput } from "@/components/ui/SearchInput";
 import { ProductCard } from "@/components/ui/ProductCard";
+import { CategoryBanner } from "@/components/ui/CategoryBanner";
 
 const FILTER_OPTIONS = ["All", "Indica", "Sativa", "Hybrid"];
 
@@ -49,25 +49,8 @@ export function CategoryPageClient({
 
   return (
     <div className="py-24 px-6">
-      {/* Breadcrumb */}
-      <nav className="font-sans text-sm text-text-muted mb-8">
-        <Link href="/products" className="hover:text-text-default transition-colors">
-          Products
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-text-default">{meta.label}</span>
-      </nav>
-
-      {/* Category header */}
-      <div className="pb-8">
-        <h1 className="font-display text-5xl text-text-default mb-3">
-          {meta.label}
-        </h1>
-        <p className="font-sans text-lg text-text-muted mb-2">{meta.tagline}</p>
-        <p className="font-sans text-sm text-text-muted">
-          {products.length} {products.length === 1 ? "product" : "products"}
-        </p>
-      </div>
+      {/* Category banner */}
+      <CategoryBanner alt={meta.label} />
 
       {/* Filter + Search row */}
       <div className="flex flex-row gap-4 mb-6">

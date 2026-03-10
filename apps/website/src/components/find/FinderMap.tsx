@@ -45,6 +45,7 @@ interface FinderMapProps {
   onPinHover: (id: string | null) => void;
   onNavigate: (slug: string) => void;
   flyTo?: { lat: number; lng: number; zoom?: number } | null;
+  onBoundsChange?: (bounds: { north: number; south: number; east: number; west: number }) => void;
 }
 
 /* ---------- cluster layer styles ---------- */
@@ -134,9 +135,24 @@ export default function FinderMap({
   onPinHover,
   onNavigate,
   flyTo,
+  onBoundsChange,
 }: FinderMapProps) {
   const mapRef = useRef<MapRef>(null);
   const [popupStore, setPopupStore] = useState<MapDispensary | null>(null);
+
+  /* report viewport bounds after movement or initial load */
+  const reportBounds = useCallback(() => {
+    const map = mapRef.current;
+    if (!map || !onBoundsChange) return;
+    const bounds = map.getBounds();
+    if (!bounds) return;
+    onBoundsChange({
+      north: bounds.getNorth(),
+      south: bounds.getSouth(),
+      east: bounds.getEast(),
+      west: bounds.getWest(),
+    });
+  }, [onBoundsChange]);
 
   /* fly to location when flyTo changes */
   useEffect(() => {
@@ -306,6 +322,8 @@ export default function FinderMap({
           handlePointClick(e);
         }}
         onMouseMove={handleMouseMove}
+        onMoveEnd={reportBounds}
+        onLoad={reportBounds}
         interactiveLayerIds={['clusters', 'unclustered-point']}
       >
         <NavigationControl position="top-right" showCompass={false} />

@@ -31,19 +31,6 @@ export default async function StrainDetailPage({
 
   return (
     <>
-      {/* Breadcrumb */}
-      <nav className="pt-24 pb-8 px-6" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-2 text-sm text-text-muted max-w-5xl mx-auto">
-          <li>
-            <Link href="/strains" className="hover:text-text-default transition-colors">
-              Strains
-            </Link>
-          </li>
-          <li aria-hidden="true">/</li>
-          <li className="text-text-default">{strain.name}</li>
-        </ol>
-      </nav>
-
       {/* Strain Art */}
       {strain.imageUrl && (
         <ScrollReveal className="px-6 pb-12">

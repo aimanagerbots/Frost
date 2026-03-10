@@ -7,6 +7,7 @@ import { CATEGORY_ROUTE_MAP, PRICE_RANGE_FILTERS } from "@/lib/constants";
 import { FilterBar } from "@/components/ui/FilterBar";
 import { SearchInput } from "@/components/ui/SearchInput";
 import { ProductTileCard } from "@/components/ui/ProductTileCard";
+import { CategoryBanner } from "@/components/ui/CategoryBanner";
 import { CategorySidebar } from "@/components/category/CategorySidebar";
 
 const STRAIN_FILTER_OPTIONS = ["All", "Indica", "Sativa", "Hybrid", "CBD"];
@@ -102,11 +103,8 @@ export function CategoryBrowseClient({
 
   return (
     <>
-      {/* Category header */}
-      <div className="mb-8">
-        <h1 className="font-display text-5xl text-text-default mb-3">{meta.label}</h1>
-        <p className="text-lg text-text-muted">{meta.tagline}</p>
-      </div>
+      {/* Category banner */}
+      <CategoryBanner alt={meta.label} />
 
       {/* Filter bar + search */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center mb-6">

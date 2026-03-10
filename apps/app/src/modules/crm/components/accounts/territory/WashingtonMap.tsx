@@ -1,54 +1,21 @@
 'use client';
 
-import { useState, useMemo, type MouseEvent } from 'react';
+import { useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
+import type { MapPin, PolygonLayer, HeatmapPoint } from '@/components';
 import type { TerritoryData, TerritoryAccount } from '@/modules/crm/types';
 import { healthColor } from './MapTooltip';
 
-// Simplified Washington State outline (lat/lng)
-const WA_OUTLINE: [number, number][] = [
-  [48.99, -117.03], // NE corner
-  [48.99, -122.76], // N border
-  [49.00, -123.32], // NW island area
-  [48.38, -124.69], // Olympic Peninsula NW
-  [47.96, -124.73], // Cape Flattery area
-  [46.94, -124.11], // Westport area
-  [46.27, -124.02], // Long Beach
-  [46.08, -123.87], // Columbia River mouth
-  [45.58, -122.76], // Portland area (S border)
-  [45.57, -117.03], // SE corner
-];
+const FrostMap = dynamic(
+  () => import('@/components/FrostMap').then((m) => m.FrostMap),
+  { ssr: false, loading: () => <div className="h-full w-full animate-pulse rounded-xl bg-card" /> },
+);
 
-// SVG viewBox bounds
-const MIN_LNG = -125.0;
-const MAX_LNG = -116.5;
-const MIN_LAT = 45.3;
-const MAX_LAT = 49.3;
-const SVG_W = 800;
-const SVG_H = 500;
+/* ---------- color mode ---------- */
 
-function lngToX(lng: number): number {
-  return ((lng - MIN_LNG) / (MAX_LNG - MIN_LNG)) * SVG_W;
-}
+export type ColorMode = 'health' | 'territory';
 
-function latToY(lat: number): number {
-  return ((MAX_LAT - lat) / (MAX_LAT - MIN_LAT)) * SVG_H;
-}
-
-function pointsToPath(points: [number, number][]): string {
-  return points
-    .map(([lat, lng], i) => `${i === 0 ? 'M' : 'L'}${lngToX(lng)},${latToY(lat)}`)
-    .join(' ') + ' Z';
-}
-
-function boundsToPath(bounds: { lat: number; lng: number }[][]): string {
-  return bounds
-    .map((poly) =>
-      poly
-        .map((p, i) => `${i === 0 ? 'M' : 'L'}${lngToX(p.lng)},${latToY(p.lat)}`)
-        .join(' ') + ' Z'
-    )
-    .join(' ');
-}
+/* ---------- props ---------- */
 
 interface WashingtonMapProps {
   territories: TerritoryData[];
@@ -56,9 +23,16 @@ interface WashingtonMapProps {
   scaleByRevenue: boolean;
   healthFilter: Set<string>;
   vmiFilter: boolean | null;
+  colorMode: ColorMode;
+  showHeatmap?: boolean;
   onHoverAccount: (account: TerritoryAccount | null, repName: string, x: number, y: number) => void;
   onClickAccount: (accountId: string) => void;
+  selectedAccountId?: string | null;
+  hoveredAccountId?: string | null;
+  flyTo?: { lat: number; lng: number; zoom?: number } | null;
 }
+
+/* ---------- component ---------- */
 
 export function WashingtonMap({
   territories,
@@ -66,121 +40,198 @@ export function WashingtonMap({
   scaleByRevenue,
   healthFilter,
   vmiFilter,
-  onHoverAccount,
+  colorMode,
+  showHeatmap = false,
   onClickAccount,
+  selectedAccountId = null,
+  hoveredAccountId = null,
+  flyTo,
 }: WashingtonMapProps) {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-
-  // Filter accounts based on health tier and VMI
+  /* filter accounts by health tier & VMI */
   const visibleTerritories = useMemo(() => {
     return territories.map((t) => ({
       ...t,
       accounts: t.accounts.filter((a) => {
-        // Health tier filter
-        const tier = a.health >= 80 ? 'healthy' : a.health >= 60 ? 'watch' : a.health >= 40 ? 'risk' : 'critical';
+        const tier =
+          a.health >= 80
+            ? 'healthy'
+            : a.health >= 60
+              ? 'watch'
+              : a.health >= 40
+                ? 'risk'
+                : 'critical';
         if (healthFilter.size > 0 && !healthFilter.has(tier)) return false;
-        // VMI filter
         if (vmiFilter !== null && a.vmiEnrolled !== vmiFilter) return false;
         return true;
       }),
     }));
   }, [territories, healthFilter, vmiFilter]);
 
-  const maxRevenue = useMemo(() => {
-    const all = territories.flatMap((t) => t.accounts);
-    return Math.max(...all.map((a) => a.revenue30d), 1);
-  }, [territories]);
+  /* convert territory accounts → MapPin[] */
+  const pins: MapPin[] = useMemo(() => {
+    const repColorMap = new Map(territories.map((t) => [t.repId, t.color]));
 
-  const handleDotMouseEnter = (
-    e: MouseEvent,
-    account: TerritoryAccount,
-    repName: string,
-  ) => {
-    setHoveredId(account.id);
-    const rect = (e.currentTarget as SVGElement).closest('svg')?.getBoundingClientRect();
-    if (rect) {
-      onHoverAccount(account, repName, e.clientX - rect.left, e.clientY - rect.top);
-    }
-  };
+    return visibleTerritories
+      .filter((t) => selectedRepId === null || selectedRepId === t.repId)
+      .flatMap((t) =>
+        t.accounts.map((account) => ({
+          id: account.id,
+          lat: account.lat,
+          lng: account.lng,
+          name: account.name,
+          color:
+            colorMode === 'health'
+              ? healthColor(account.health)
+              : repColorMap.get(t.repId) ?? '#5BB8E6',
+          size: scaleByRevenue ? undefined : undefined,
+          data: {
+            health: account.health,
+            revenue30d: account.revenue30d,
+            status: account.status,
+            vmiEnrolled: account.vmiEnrolled,
+            repId: t.repId,
+            repName: t.repName,
+            repColor: t.color,
+          },
+        })),
+      );
+  }, [visibleTerritories, selectedRepId, colorMode, scaleByRevenue, territories]);
 
-  const handleDotMouseLeave = () => {
-    setHoveredId(null);
-    onHoverAccount(null, '', 0, 0);
-  };
+  /* build polygon layers for territory boundaries */
+  const polygonLayers: PolygonLayer[] = useMemo(() => {
+    if (colorMode !== 'territory') return [];
 
-  const stateOutlinePath = pointsToPath(WA_OUTLINE);
+    return territories
+      .filter((t) => t.bounds.length > 0)
+      .filter((t) => selectedRepId === null || selectedRepId === t.repId)
+      .map((t) => ({
+        id: `territory-${t.repId}`,
+        coordinates: t.bounds.map((ring) =>
+          [...ring, ring[0]].map((p) => [p.lng, p.lat] as [number, number]),
+        ),
+        fillColor: t.color,
+        fillOpacity:
+          selectedRepId === null || selectedRepId === t.repId ? 0.12 : 0.03,
+        strokeColor: t.color,
+        strokeWidth: selectedRepId === t.repId ? 2.5 : 1.5,
+        label: t.repName,
+      }));
+  }, [territories, selectedRepId, colorMode]);
+
+  /* build heatmap data from account revenue */
+  const heatmapData: HeatmapPoint[] = useMemo(() => {
+    if (!showHeatmap) return [];
+    const maxRevenue = Math.max(
+      ...territories.flatMap((t) => t.accounts.map((a) => a.revenue30d)),
+      1,
+    );
+    return territories
+      .filter((t) => selectedRepId === null || selectedRepId === t.repId)
+      .flatMap((t) =>
+        t.accounts.map((a) => ({
+          lat: a.lat,
+          lng: a.lng,
+          weight: a.revenue30d / maxRevenue,
+        })),
+      );
+  }, [territories, selectedRepId, showHeatmap]);
+
+  /* popup renderer */
+  const renderPopup = useCallback(
+    (pin: MapPin, onClose: () => void) => {
+      const d = pin.data ?? {};
+      const health = d.health as number;
+      const revenue = d.revenue30d as number;
+      const repName = d.repName as string;
+      const status = d.status as string;
+      const vmi = d.vmiEnrolled as boolean;
+
+      return (
+        <div className="bg-[#0A0E17] border border-white/[0.12] rounded-2xl p-4 min-w-[240px] max-w-[280px] shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); onClose(); }}
+            className="absolute top-2.5 right-2.5 w-6 h-6 flex items-center justify-center rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white/40 hover:text-white/70 transition-all"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+          </button>
+
+          <h3 className="text-sm font-semibold text-white/90 pr-6 leading-tight">
+            {pin.name}
+          </h3>
+
+          <div className="mt-3 space-y-2 text-xs">
+            <div className="flex items-center justify-between">
+              <span className="text-white/35">Health</span>
+              <div className="flex items-center gap-1.5">
+                <div
+                  className="h-2 w-2 rounded-full"
+                  style={{ backgroundColor: healthColor(health) }}
+                />
+                <span className="font-medium text-white/80">{health}</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-white/35">30-Day Revenue</span>
+              <span className="font-medium text-white/80">
+                ${revenue?.toLocaleString() ?? '—'}
+              </span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-white/35">Rep</span>
+              <span className="text-white/70">{repName}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-white/35">Status</span>
+              <span className={`capitalize font-medium ${
+                status === 'active' ? 'text-emerald-400' :
+                status === 'at-risk' ? 'text-amber-400' :
+                status === 'churning' ? 'text-red-400' :
+                'text-white/50'
+              }`}>
+                {status}
+              </span>
+            </div>
+            {vmi && (
+              <div className="mt-1">
+                <span className="text-[10px] font-semibold text-[#5BB8E6] bg-[#5BB8E6]/10 px-2 py-0.5 rounded-md">
+                  VMI Enrolled
+                </span>
+              </div>
+            )}
+          </div>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose();
+              onClickAccount(pin.id);
+            }}
+            className="w-full mt-3 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-[#F59E0B]/15 border border-[#F59E0B]/25 text-xs font-medium text-[#F59E0B] hover:bg-[#F59E0B]/25 transition-all"
+          >
+            View Account
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+        </div>
+      );
+    },
+    [onClickAccount],
+  );
 
   return (
-    <svg
-      viewBox={`0 0 ${SVG_W} ${SVG_H}`}
-      className="h-full w-full"
-      style={{ maxHeight: '450px' }}
-    >
-      {/* State outline */}
-      <path
-        d={stateOutlinePath}
-        fill="#1A1F2E"
-        stroke="#2A3040"
-        strokeWidth={2}
-      />
-
-      {/* Territory regions */}
-      {visibleTerritories
-        .filter((t) => t.bounds.length > 0)
-        .map((t) => (
-          <path
-            key={`territory-${t.repId}`}
-            d={boundsToPath(t.bounds)}
-            fill={t.color}
-            fillOpacity={selectedRepId === null || selectedRepId === t.repId ? 0.12 : 0.03}
-            stroke={t.color}
-            strokeWidth={selectedRepId === t.repId ? 2 : 1}
-            strokeOpacity={0.4}
-            strokeDasharray={selectedRepId === t.repId ? 'none' : '4,4'}
-          />
-        ))}
-
-      {/* Account dots */}
-      {visibleTerritories
-        .filter((t) => selectedRepId === null || selectedRepId === t.repId)
-        .flatMap((t) =>
-          t.accounts.map((account) => {
-            const x = lngToX(account.lng);
-            const y = latToY(account.lat);
-            const baseR = scaleByRevenue
-              ? 4 + (account.revenue30d / maxRevenue) * 10
-              : 6;
-            const isHovered = hoveredId === account.id;
-
-            return (
-              <g key={account.id}>
-                {/* Glow on hover */}
-                {isHovered && (
-                  <circle
-                    cx={x}
-                    cy={y}
-                    r={baseR + 4}
-                    fill={healthColor(account.health)}
-                    fillOpacity={0.25}
-                  />
-                )}
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={isHovered ? baseR + 2 : baseR}
-                  fill={healthColor(account.health)}
-                  fillOpacity={0.9}
-                  stroke="#0A0E17"
-                  strokeWidth={1.5}
-                  className="cursor-pointer transition-all"
-                  onMouseEnter={(e) => handleDotMouseEnter(e, account, t.repName)}
-                  onMouseLeave={handleDotMouseLeave}
-                  onClick={() => onClickAccount(account.id)}
-                />
-              </g>
-            );
-          }),
-        )}
-    </svg>
+    <FrostMap
+      pins={pins}
+      selectedId={selectedAccountId}
+      hoveredId={hoveredAccountId}
+      onPinClick={(id) => onClickAccount(id)}
+      flyTo={flyTo}
+      renderPopup={renderPopup}
+      cluster={true}
+      polygonLayers={polygonLayers}
+      heatmapData={heatmapData}
+      showHeatmap={showHeatmap}
+      className="h-full w-full min-h-[450px]"
+    />
   );
 }

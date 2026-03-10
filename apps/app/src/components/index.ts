@@ -18,3 +18,5 @@ export { KanbanBase } from './KanbanBase';
 export { AccentCard } from './AccentCard';
 export { ModuleTabs } from './ModuleTabs';
 export type { TabItem } from './ModuleTabs';
+export { FrostMap } from './FrostMap';
+export type { MapPin, FrostMapProps, PolygonLayer, HeatmapPoint } from './FrostMap';
