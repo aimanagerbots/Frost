@@ -82,7 +82,7 @@ export default async function ProductDetailPage({
         {/* ── Stats Bar ──────────────────────────────────── */}
         <ScrollReveal>
           <div className="grid grid-cols-3 gap-4 max-w-xl">
-            <div className="bg-card border border-border-default rounded-xl p-4 text-center">
+            <div className="bg-card border border-[#5BB8E6]/40 rounded-xl p-4 text-center shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)]">
               <p className="text-xs uppercase tracking-wider text-text-muted mb-1">
                 THC
               </p>
@@ -90,7 +90,7 @@ export default async function ProductDetailPage({
                 {product.thcRange}
               </p>
             </div>
-            <div className="bg-card border border-border-default rounded-xl p-4 text-center">
+            <div className="bg-card border border-[#5BB8E6]/40 rounded-xl p-4 text-center shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)]">
               <p className="text-xs uppercase tracking-wider text-text-muted mb-1">
                 CBD
               </p>
@@ -98,7 +98,7 @@ export default async function ProductDetailPage({
                 {product.cbdRange}
               </p>
             </div>
-            <div className="bg-card border border-border-default rounded-xl p-4 text-center">
+            <div className="bg-card border border-[#5BB8E6]/40 rounded-xl p-4 text-center shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)]">
               <p className="text-xs uppercase tracking-wider text-text-muted mb-1">
                 Type
               </p>

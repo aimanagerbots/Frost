@@ -171,8 +171,10 @@ export function unsplashUrl(id: string, width = 1200, height = 800): string {
 export const NAV_LINKS = [
   { label: "Products", href: "/products" },
   { label: "Strains", href: "/strains" },
+  { label: "Merch", href: "/merch" },
   { label: "About", href: "/about" },
   { label: "Journal", href: "/blog" },
+  { label: "Account", href: "/account" },
 ] as const;
 
 /* ── Mega Menu ── */
@@ -359,6 +361,16 @@ export const MEGA_MENU: MegaMenuItem[] = [
         ],
       },
     ],
+  },
+  {
+    type: "link",
+    label: "Merch",
+    href: "/merch",
+  },
+  {
+    type: "link",
+    label: "Account",
+    href: "/account",
   },
   {
     type: "cta",

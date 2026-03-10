@@ -8,28 +8,8 @@ import {
 import { CATEGORIES, CATEGORY_SLUGS, unsplashUrl, PHOTOS } from "@/lib/constants";
 import { getProductsByCategory } from "@/mocks/products";
 import { blogPosts } from "@/mocks/blog-posts";
-import { Mail, MapPin, Leaf, FlaskConical, Package, Truck, Star, Quote } from "lucide-react";
-
-/* ── Inline Newsletter CTA Strip ── */
-function NewsletterStrip({ heading, subtext }: { heading: string; subtext: string }) {
-  return (
-    <section className="py-12 border-y border-border-default">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 px-6 text-center sm:flex-row sm:text-left">
-        <Mail className="h-8 w-8 shrink-0 text-accent-primary" />
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-text-default">{heading}</h3>
-          <p className="text-sm text-text-muted">{subtext}</p>
-        </div>
-        <Link
-          href="/newsletter"
-          className="shrink-0 rounded-full bg-accent-primary px-6 py-2.5 text-[12px] font-semibold uppercase tracking-[0.05em] text-text-on-dark transition-colors hover:bg-accent-primary-hover"
-        >
-          Subscribe
-        </Link>
-      </div>
-    </section>
-  );
-}
+import { MapPin, Leaf, FlaskConical, Package, Truck } from "lucide-react";
+import { ReviewCarousel } from "./ReviewCarousel";
 
 /* ── Social proof reviews ── */
 const REVIEWS = [
@@ -49,6 +29,48 @@ const REVIEWS = [
     quote: "I've tried every pre-roll brand in Washington. Frost's infused joints are the only ones I'll buy now. Smooth, potent, and they actually taste good.",
     name: "Derek L.",
     location: "Spokane, WA",
+    rating: 5,
+  },
+  {
+    quote: "The Gelato #41 from Frost is hands down the best I've had in Washington. Creamy, smooth, and the high is perfectly balanced.",
+    name: "Jenna M.",
+    location: "Olympia, WA",
+    rating: 5,
+  },
+  {
+    quote: "Switched to Frost's beverages for social events. Five milligrams is the perfect dose — I feel great without overdoing it.",
+    name: "Carlos R.",
+    location: "Bellingham, WA",
+    rating: 5,
+  },
+  {
+    quote: "Their budtenders actually know what they're talking about. Got a terpene-based recommendation and it was spot on. Customer for life.",
+    name: "Anika P.",
+    location: "Everett, WA",
+    rating: 5,
+  },
+  {
+    quote: "I appreciate that Frost lists full terpene profiles on every product. No other brand in the state does that consistently.",
+    name: "Tyrell W.",
+    location: "Vancouver, WA",
+    rating: 5,
+  },
+  {
+    quote: "The Wedding Cake is unreal. Slow-cured and you can taste the difference. This is what craft cannabis should be.",
+    name: "Megan F.",
+    location: "Kennewick, WA",
+    rating: 5,
+  },
+  {
+    quote: "Frost's sustainability practices actually back up their claims. The container return program is a nice touch most brands skip.",
+    name: "Noah J.",
+    location: "Redmond, WA",
+    rating: 5,
+  },
+  {
+    quote: "Best concentrates in the Pacific Northwest. Their live rosin is clean, flavorful, and hits like nothing else on the shelf.",
+    name: "Lily C.",
+    location: "Tacoma, WA",
     rating: 5,
   },
 ];
@@ -78,7 +100,7 @@ const PROCESS_STEPS = [
 ];
 
 export default function HomePage() {
-  const recentPosts = blogPosts.slice(0, 3);
+  const recentPosts = blogPosts.slice(0, 15);
 
   return (
     <div>
@@ -176,6 +198,26 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
+      {/* ── Order Frost ── */}
+      <section className="section-pad-lg bg-accent-primary">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <MapPin className="mx-auto mb-6 h-10 w-10 text-text-on-dark opacity-60" />
+          <h2 className="mb-6 font-display text-[48px] text-text-on-dark">
+            Order Frost
+          </h2>
+          <p className="mx-auto mb-10 max-w-xl text-lg text-text-on-dark/80">
+            We partner with select dispensaries across Washington State. Find the
+            closest location carrying Frost products and order today.
+          </p>
+          <Link
+            href="/order"
+            className="inline-block rounded-full border-2 border-text-on-dark px-8 py-3 font-medium text-text-on-dark transition-colors hover:bg-text-on-dark/10"
+          >
+            Order Now
+          </Link>
+        </div>
+      </section>
+
       {/* ── 4. Social Proof ── */}
       <section className="section-pad">
         <h2 className="mb-4 text-center font-display text-[40px] text-text-default">
@@ -184,40 +226,8 @@ export default function HomePage() {
         <p className="mx-auto mb-12 max-w-xl text-center text-text-muted">
           Real reviews from real customers across Washington State.
         </p>
-        <ScrollReveal>
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 md:grid-cols-3">
-            {REVIEWS.map((review) => (
-              <div
-                key={review.name}
-                className="rounded-xl border border-border-default bg-card p-6"
-              >
-                <Quote className="mb-4 h-6 w-6 text-accent-primary opacity-40" />
-                <div className="mb-4 flex gap-0.5">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-accent-primary text-accent-primary"
-                    />
-                  ))}
-                </div>
-                <p className="mb-6 text-sm leading-relaxed text-text-default font-sans">
-                  &ldquo;{review.quote}&rdquo;
-                </p>
-                <div>
-                  <p className="text-sm font-semibold text-text-default">{review.name}</p>
-                  <p className="text-xs text-text-muted">{review.location}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
+        <ReviewCarousel reviews={REVIEWS} />
       </section>
-
-      {/* ── 6. Newsletter CTA Strip ── */}
-      <NewsletterStrip
-        heading="Get 10% off your first order"
-        subtext="Sign up for the Frost newsletter and we'll send you a discount code for your local dispensary."
-      />
 
       {/* ── 7. How It's Made ── */}
       <section className="section-pad">
@@ -245,32 +255,6 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ── 8. Order ── */}
-      <section className="section-pad-lg bg-accent-primary">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <MapPin className="mx-auto mb-6 h-10 w-10 text-text-on-dark opacity-60" />
-          <h2 className="mb-6 font-display text-[48px] text-text-on-dark">
-            Order Frost
-          </h2>
-          <p className="mx-auto mb-10 max-w-xl text-lg text-text-on-dark/80">
-            We partner with select dispensaries across Washington State. Find the
-            closest location carrying Frost products and order today.
-          </p>
-          <Link
-            href="/order"
-            className="inline-block rounded-full border-2 border-text-on-dark px-8 py-3 font-medium text-text-on-dark transition-colors hover:bg-text-on-dark/10"
-          >
-            Order Now
-          </Link>
-        </div>
-      </section>
-
-      {/* ── 9. Newsletter CTA Strip ── */}
-      <NewsletterStrip
-        heading="Stay Frosty"
-        subtext="Product drops, strain spotlights, and dispensary updates — no spam, just the good stuff."
-      />
-
       {/* ── Blog ── */}
       <section className="section-pad">
         <ScrollReveal>
@@ -290,29 +274,18 @@ export default function HomePage() {
                 />
               ))}
             </div>
+            <div className="mt-10 text-center">
+              <Link
+                href="/blog"
+                className="inline-block rounded-full border border-border-default px-8 py-3 text-sm font-semibold uppercase tracking-[0.05em] text-text-default transition-colors hover:bg-card-hover"
+              >
+                View All Stories
+              </Link>
+            </div>
           </div>
         </ScrollReveal>
       </section>
 
-      {/* ── 11. Newsletter CTA (full closing) ── */}
-      <section className="section-pad-lg border-t border-border-default">
-        <div className="mx-auto max-w-2xl px-6 text-center">
-          <Mail className="mx-auto mb-6 h-10 w-10 text-accent-primary opacity-60" />
-          <h2 className="mb-4 font-display text-[40px] text-text-default">
-            Stay Frosty
-          </h2>
-          <p className="mx-auto mb-8 max-w-md text-text-muted">
-            Get product drops, strain spotlights, and dispensary updates delivered
-            to your inbox. No spam, just the good stuff.
-          </p>
-          <Link
-            href="/newsletter"
-            className="inline-block rounded-full bg-accent-primary px-8 py-3 text-sm font-semibold uppercase tracking-[0.05em] text-text-on-dark transition-colors hover:bg-accent-primary-hover"
-          >
-            Sign Up for Updates
-          </Link>
-        </div>
-      </section>
     </div>
   );
 }

@@ -78,6 +78,15 @@
   * {
     @apply border-border-default;
   }
+  /* Apply blue glow to all card containers */
+  .bg-card {
+    box-shadow: 0 0 12px 2px rgba(91, 184, 230, 0.4), 0 0 24px 4px rgba(91, 184, 230, 0.2);
+    border-color: rgba(91, 184, 230, 0.4);
+    transition: box-shadow 0.3s ease;
+  }
+  .bg-card:hover {
+    box-shadow: 0 0 20px 4px rgba(91, 184, 230, 0.6), 0 0 40px 8px rgba(91, 184, 230, 0.3);
+  }
   body {
     @apply bg-base text-text-default antialiased font-bold;
     font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
@@ -100,6 +109,14 @@
   }
   .logo-glow-img {
     animation: snowflake-glow 2s ease-in-out infinite;
+  }
+  .card-glow {
+    border: 1px solid rgba(91, 184, 230, 0.4);
+    box-shadow: 0 0 12px 2px rgba(91, 184, 230, 0.4), 0 0 24px 4px rgba(91, 184, 230, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+  .card-glow:hover {
+    box-shadow: 0 0 20px 4px rgba(91, 184, 230, 0.6), 0 0 40px 8px rgba(91, 184, 230, 0.3);
   }
   .cta-glow {
     background: linear-gradient(90deg, #5BB8E6, #4AE0D6, #5BB8E6, #7EC8F0, #5BB8E6);

@@ -63,7 +63,7 @@ export function Footer() {
     <footer className="bg-dark">
       <div className="mx-auto max-w-7xl px-6" style={{ paddingTop: '80px', paddingBottom: '48px' }}>
         {/* 5-column grid */}
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.5fr_1fr]">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1.5fr_1fr]">
           {/* Stay Frosty column */}
           <div>
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-on-dark-muted">
@@ -94,7 +94,7 @@ export function Footer() {
             </form>
 
             {/* Social icons */}
-            <div className="mt-4 flex flex-wrap gap-3">
+            <div className="mt-4 flex justify-center gap-3">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}

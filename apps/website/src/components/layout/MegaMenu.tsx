@@ -22,6 +22,8 @@ const NAV_PATH_MAP: Record<string, string> = {
   'Strain Library': '/strains',
   Blog: '/blog',
   Resources: '/faq',
+  Merch: '/merch',
+  Account: '/account',
 };
 
 interface MegaMenuProps {

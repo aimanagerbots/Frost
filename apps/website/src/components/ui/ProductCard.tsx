@@ -32,7 +32,7 @@ export function ProductCard({
   return (
     <Link
       href={`/${CATEGORY_ROUTE_MAP[category as ProductCategory] ?? category}/${slug}`}
-      className="group block rounded-xl border border-border-default bg-card overflow-hidden transition-colors hover:border-border-hover"
+      className="group block rounded-xl border border-[#5BB8E6]/40 bg-card overflow-hidden shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)] transition-all duration-300 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.6),0_0_40px_8px_rgba(91,184,230,0.3)]"
     >
       <div className="relative aspect-square overflow-hidden">
         <Image

@@ -201,6 +201,106 @@ export const blogPosts: BlogPost[] = [
     readTime: 7,
     tags: ["food pairing", "cuisine", "pacific northwest", "culture", "terpenes"],
   },
+  {
+    id: "post-11",
+    slug: "indica-vs-sativa-why-the-debate-is-more-nuanced-than-you-think",
+    title: "Indica vs Sativa: Why the Debate Is More Nuanced Than You Think",
+    excerpt:
+      "The classic indica-sativa divide has guided cannabis consumers for decades, but modern science suggests the real story is far more interesting.",
+    content: [
+      "Walk into any dispensary in Washington and you'll hear the same shorthand: indica for relaxation, sativa for energy. It's the most enduring framework in cannabis culture, a binary that has shaped how millions of people choose their products. But as our understanding of the plant deepens, a growing number of researchers, cultivators, and budtenders are pushing back against this oversimplification. The truth is that the indica-sativa distinction, as most consumers understand it, tells you very little about what a strain will actually do.",
+      "The terms indica and sativa originally described the physical characteristics of the plant, not the experience. Cannabis indica, first classified in the late 18th century, referred to short, bushy plants with broad leaves that originated in the Hindu Kush region. Cannabis sativa described tall, narrow-leafed plants from equatorial regions. These morphological differences are real and meaningful for cultivators making decisions about grow space, flowering time, and yield. But somewhere along the way, the industry mapped a set of experiential claims onto these botanical categories that the science simply doesn't support.",
+      "What actually determines how a particular strain affects you is its chemical profile: the specific combination of cannabinoids, terpenes, and flavonoids present in the flower. Two strains labeled 'indica' can produce wildly different experiences if their terpene profiles diverge. A myrcene-dominant indica might indeed produce the heavy, sedative effect people expect, but an indica rich in limonene and pinene could feel surprisingly uplifting. The same variability exists within sativas. The label on the jar tells you almost nothing about the chemistry inside.",
+      "This is why the cannabis industry is slowly shifting toward chemotype-based classification. Rather than sorting products into indica, sativa, and hybrid, forward-thinking dispensaries are organizing by terpene profile, cannabinoid ratio, and intended use. At Frost, we include detailed terpene breakdowns on every product because we believe informed consumers make better choices. When you know that you respond well to strains high in caryophyllene and linalool, you can find your ideal product regardless of whether it's called indica, sativa, or anything else.",
+      "None of this means you should abandon the indica-sativa framework entirely. For many consumers, it remains a useful starting point, a rough compass that narrows the field. But think of it as the first filter, not the last word. The real magic happens when you start paying attention to terpenes, trying new profiles, and building a personal map of what works for your body and your preferences. Cannabis is one of the most chemically complex plants on Earth, and reducing it to two categories has always been a disservice to its extraordinary diversity."
+    ],
+    author: "Sarah Kim",
+    date: "March 5, 2026",
+    category: "Education",
+    imageUrl: "https://images.unsplash.com/photo-1503262028195-93c528f03218?w=800&q=80",
+    readTime: 7,
+    tags: ["education", "indica", "sativa", "terpenes", "cannabis science"],
+  },
+  {
+    id: "post-12",
+    slug: "the-rise-of-cannabis-beverages-in-washington",
+    title: "The Rise of Cannabis Beverages in Washington",
+    excerpt:
+      "From sparkling tonics to craft sodas, cannabis beverages are rewriting the rules of social consumption in the Pacific Northwest.",
+    content: [
+      "Something interesting is happening in Washington's cannabis market. Walk into a well-stocked dispensary today and you'll find an entire cooler section that didn't exist three years ago: cannabis-infused beverages. Sparkling waters, craft sodas, tonics, lemonades, and even cold brew coffees now line the shelves alongside traditional flower and edibles. It's not a niche anymore. Cannabis beverages are the fastest-growing product category in the state, and the reasons behind the surge tell us something important about where consumption culture is heading.",
+      "The appeal of cannabis beverages starts with familiarity. Cracking open a can is a social ritual that everyone understands. There's no stigma, no learning curve, and no accessories required. For consumers who are curious about cannabis but uncomfortable with smoking or intimidated by the concentration of traditional edibles, a five-milligram sparkling water is the gentlest possible on-ramp. The format also appeals to experienced consumers looking for a sessionable option, something they can sip over the course of an evening without the intensity of a dab or the delayed onset of a brownie.",
+      "The technology behind modern cannabis beverages has improved dramatically. Early attempts at infused drinks were plagued by poor bioavailability, inconsistent dosing, and an unpleasant oily mouthfeel that reminded you with every sip that you were drinking something unnatural. Today's formulations use nanoemulsion technology to break cannabinoids into particles small enough to be absorbed quickly and evenly. The result is onset times as fast as fifteen minutes, predictable duration, and a clean taste that lets the beverage's actual flavor profile shine. It's a genuine leap forward in the edibles category.",
+      "At Frost, our beverage line has been one of the most exciting additions to our product portfolio. We partnered with a local craft beverage producer to develop three flavors: a ginger-lime sparkling tonic, a blackberry lemonade, and a blood orange soda. Each can contains exactly five milligrams of THC and two milligrams of CBD, designed for a mellow, social experience that pairs naturally with food, conversation, and outdoor activities. We spent months on the flavor development because we believe a cannabis beverage should taste as good as anything else in your fridge.",
+      "The cultural shift that beverages represent is perhaps more significant than the products themselves. Cannabis has spent decades defined by smoking culture, which inherently limits where, when, and with whom people feel comfortable consuming. Beverages dissolve those barriers. They fit seamlessly into barbecues, dinner parties, beach days, and movie nights. They offer a credible alternative to alcohol for people who want to participate socially without drinking. And they're introducing cannabis to demographics that flower and concentrates never reached. We're watching the normalization of cannabis happen in real time, one sparkling can at a time."
+    ],
+    author: "James Rivera",
+    date: "February 28, 2026",
+    category: "Culture",
+    imageUrl: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&q=80",
+    readTime: 7,
+    tags: ["beverages", "culture", "edibles", "social consumption", "innovation"],
+  },
+  {
+    id: "post-13",
+    slug: "microdosing-less-is-more",
+    title: "Microdosing: Less Is More",
+    excerpt:
+      "A growing number of cannabis consumers are discovering that smaller doses deliver bigger benefits. Here's how microdosing works and why it might be right for you.",
+    content: [
+      "In a market that has spent years chasing ever-higher THC percentages, a quiet countermovement is gaining ground. Microdosing, the practice of consuming very small amounts of cannabis, typically between one and five milligrams of THC, is becoming one of the most talked-about trends in the industry. The premise is simple: instead of seeking an intense high, microdosers aim for a subtle shift in mood, focus, or relaxation that enhances daily life without disrupting it. Think of it as the difference between a glass of wine with dinner and doing shots at the bar.",
+      "The science behind microdosing is still emerging, but early research and a mountain of anecdotal evidence suggest that cannabinoids can produce meaningful effects at doses far below the standard recreational serving. A 2012 study published in the Journal of Pain and Symptom Management found that cancer patients experienced significant pain relief at low doses of cannabinoids, with higher doses actually producing worse outcomes. This biphasic response, where low doses and high doses produce opposite effects, appears to be a fundamental characteristic of how cannabinoids interact with the endocannabinoid system.",
+      "In practice, microdosing looks different for everyone. Some people take a single two-milligram mint before a workday to take the edge off anxiety. Others use a low-dose tincture in the evening to ease into sleep without grogginess. Athletes are experimenting with microdosed topicals for recovery. Creative professionals report that sub-perceptual doses help them enter flow states without the cognitive impairment that higher doses can bring. The common thread is intentionality: microdosers aren't trying to get high, they're trying to get just right.",
+      "If you're interested in trying microdosing, start low and go slow. Choose a product with precise, consistent dosing, such as mints, capsules, or measured tinctures, rather than flower or concentrates where dosing is inherently variable. Begin with two milligrams and wait at least two hours before considering more. Keep a simple log of your dose, the time, and how you feel over the next few hours. After a week, you'll have a clear picture of your personal sweet spot. Many people find that their ideal microdose is lower than they expected.",
+      "At Frost, we've seen microdosing reshape how our customers think about cannabis. Our two-milligram mints and five-milligram beverages have become some of our best-selling products, often purchased by people who previously avoided cannabis altogether. There's something powerful about a consumption method that fits into a normal day without demanding anything from it. Microdosing isn't about less cannabis. It's about more life, with cannabis playing a supporting role rather than the lead."
+    ],
+    author: "Maya Chen",
+    date: "February 14, 2026",
+    category: "Education",
+    imageUrl: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80",
+    readTime: 7,
+    tags: ["microdosing", "education", "wellness", "low dose", "beginners"],
+  },
+  {
+    id: "post-14",
+    slug: "meet-the-frost-team-faces-behind-the-flower",
+    title: "Meet the Frost Team: Faces Behind the Flower",
+    excerpt:
+      "From our head cultivator to our newest budtender, these are the people who make Frost what it is. Pull up a chair and get to know the crew.",
+    content: [
+      "Every company says its people are its greatest asset, and every company is right. But in craft cannabis, the connection between the people and the product is unusually direct. The person who monitors the nutrient levels determines the terpene expression. The person who trims the buds determines the bag appeal. The person behind the counter determines whether a first-time customer becomes a lifelong one. At Frost, our team of twelve is the reason our flower tastes the way it does, our shop feels the way it does, and our reputation is what it is. Here's a look at some of the faces behind the brand.",
+      "Elena Vasquez, our head cultivator, joined Frost in 2021 after fifteen years in commercial horticulture, including a decade growing specialty tomatoes and peppers for restaurant supply. She brought a precision-agriculture mindset to cannabis that transformed our growing operation. Elena is the person who walks the flower rooms at six every morning, checking every plant by hand before the rest of the team arrives. She's obsessive about environmental consistency and has a near-photographic memory for how individual phenotypes behave across different growing conditions. When you compliment the quality of our flower, you're really complimenting Elena.",
+      "Marcus Wright runs our trim and processing operation. A former chef who spent eight years in professional kitchens, Marcus approaches cannabis with a craftsman's attention to detail and an artist's eye for presentation. He trained every member of our trim team personally and enforces a standard of hand-trimming that most operations would consider impractical. But Marcus insists, and the results speak for themselves. Our buds arrive on the shelf looking like they were prepared for a photo shoot, because in Marcus's world, every jar is a plate going out to a diner who deserves the best.",
+      "Behind the counter, our retail team is led by Aisha Okonkwo, who manages our dispensary with a warmth and knowledge that keep customers coming back week after week. Aisha came to cannabis from the specialty coffee world, where she managed a high-end roastery in Capitol Hill. She saw parallels between the two industries: the emphasis on terroir, the importance of processing, the way a knowledgeable guide can transform a casual purchase into a revelation. Aisha built our budtender training program from scratch, emphasizing terpene literacy, active listening, and the art of asking the right questions to match a customer with their ideal product.",
+      "There are more faces we could introduce: Jake, our lab coordinator who catches quality issues before they reach the shelf; Sam, who manages our sustainability initiatives and container return program; Priya, our newest budtender who brings an infectious enthusiasm that lights up the shop. But the point isn't to list every name. It's to show that Frost isn't a brand manufactured in a marketing department. It's a collection of real people who chose this industry because they believe in the plant and in doing things the right way. Next time you're in the shop, ask them about what they do. They love to talk about it."
+    ],
+    author: "David Torres",
+    date: "January 20, 2026",
+    category: "Company",
+    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    readTime: 8,
+    tags: ["team", "company", "people", "behind the scenes", "culture"],
+  },
+  {
+    id: "post-15",
+    slug: "gelato-41-italys-gift-to-cannabis-culture",
+    title: "Gelato #41: Italy's Gift to Cannabis Culture",
+    excerpt:
+      "Named after the frozen Italian dessert it uncannily resembles in flavor, Gelato #41 has become one of the most decorated and sought-after strains in the world.",
+    content: [
+      "Few strains have earned the kind of reverence that surrounds Gelato #41. Born in the Bay Area from a cross of Sunset Sherbet and Thin Mint Girl Scout Cookies, this particular phenotype was selected by the legendary Cookie Fam collective and quickly became the gold standard against which all dessert strains are measured. The name is no marketing gimmick. From the first whiff, Gelato #41 delivers an aroma so authentically sweet, creamy, and indulgent that it genuinely evokes a scoop of artisan gelato on a warm afternoon. It's the kind of strain that makes you pause, close your eyes, and just breathe in.",
+      "The terpene profile of Gelato #41 reads like a perfumer's dream. Dominant limonene provides a bright citrus top note, while linalool adds a soft floral sweetness that smooths every edge. Caryophyllene contributes a warm, peppery undertone that prevents the profile from becoming one-dimensionally sweet, and a subtle presence of humulene adds an earthy depth that grounds the whole bouquet. When properly grown and cured, the flavor on exhale is remarkably faithful to the aroma: creamy, citrusy, with a lingering sweetness that coats the palate like, well, gelato.",
+      "Visually, Gelato #41 is one of the most photogenic strains in cultivation. The buds are dense and chunky, with a structure that's tight without being rock-hard. Deep purples and forest greens dominate the palette, threaded through with bright orange pistils and blanketed in a heavy coat of frosty trichomes that catch the light like sugar crystals. It's the kind of flower that stops you mid-scroll when you see it on a menu, and it's even more impressive in person. Bag appeal alone would make it a best-seller, but Gelato #41 backs up its looks with substance.",
+      "The experience Gelato #41 delivers is as balanced as its lineage would suggest. There's an immediate cerebral lift that sharpens focus and brightens mood, followed by a gradual wave of physical relaxation that unwinds tension without sedation. It's functional enough for a creative afternoon but relaxing enough for an evening wind-down. Many consumers report a sense of euphoric contentment that makes mundane activities feel more enjoyable. It's the strain you reach for when you want to elevate an ordinary Tuesday into something a little more special.",
+      "At Frost, Gelato #41 holds a permanent spot in our rotation, and it consistently ranks among our top three sellers. Our cultivation team gives it the full craft treatment: a slow vegetative cycle to build structure, careful environmental control during flower to maximize trichome production, and an extended three-week cure that lets those complex terpenes reach their peak expression. Every batch is a labor of love, and we think it shows. If you haven't experienced a properly grown Gelato #41, you owe it to yourself to try what many consider the finest dessert strain ever created."
+    ],
+    author: "Maya Chen",
+    date: "December 28, 2025",
+    category: "Strain Spotlights",
+    imageUrl: "https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=800&q=80",
+    readTime: 7,
+    tags: ["strains", "hybrid", "gelato", "dessert strains", "craft cannabis"],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

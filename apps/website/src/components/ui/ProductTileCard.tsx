@@ -56,7 +56,7 @@ export function ProductTileCard({
   return (
     <Link
       href={`/${categoryRoute}/${slug}`}
-      className="group block rounded-lg overflow-hidden bg-elevated transition-shadow duration-300 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.5)] active:shadow-[0_0_12px_2px_rgba(91,184,230,0.3)]"
+      className="group block rounded-xl overflow-hidden border border-[#5BB8E6]/40 bg-elevated shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)] transition-all duration-300 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.6),0_0_40px_8px_rgba(91,184,230,0.3)]"
     >
       {/* Image */}
       <div className="relative aspect-square overflow-hidden">

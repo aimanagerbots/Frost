@@ -25,7 +25,7 @@ export function BlogPostCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group block rounded-xl border border-border-default bg-card overflow-hidden hover-lift"
+      className="group block rounded-xl border border-[#5BB8E6]/40 bg-card overflow-hidden shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)] transition-all duration-300 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.6),0_0_40px_8px_rgba(91,184,230,0.3)] hover:-translate-y-1"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image

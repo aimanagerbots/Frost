@@ -68,7 +68,10 @@
       "Bash(netstat -ano)",
       "Bash(ls -la /c/Users/quinn/OneDrive/Documents/Frost/apps/website/*.ts)",
       "Bash(npx --workspace=apps/app next dev --port 3003)",
-      "Bash(grep -E \"\\\\.\\(ts|tsx|local\\)$\")"
+      "Bash(grep -E \"\\\\.\\(ts|tsx|local\\)$\")",
+      "Bash(find . \\\\\\( -name \"*.ts\" -o -name \"*.tsx\" -o -name \"*.js\" -o -name \"*.jsx\" -o -name \"*.css\" \\\\\\) ! -path \"*/node_modules/*\" ! -path \"*/.next/*\" ! -path \"*/dist/*\" ! -path \"*/.turbo/*\" ! -name \"package-lock.json\" -exec cat {} +)",
+      "Bash(find apps/api -name \"*.py\" -exec cat {} +)",
+      "Bash(npx turbo build --filter=@frost/website)"
     ]
   }
 }

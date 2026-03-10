@@ -11,7 +11,7 @@ export function StrainCard({ slug, imageUrl, name }: StrainCardProps) {
   return (
     <Link
       href={`/strains/${slug}`}
-      className="group relative block aspect-square rounded-lg overflow-hidden bg-elevated transition-shadow duration-300 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.5)] active:shadow-[0_0_12px_2px_rgba(91,184,230,0.3)]"
+      className="group relative block aspect-square rounded-xl overflow-hidden border border-[#5BB8E6]/40 bg-elevated shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)] transition-all duration-300 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.6),0_0_40px_8px_rgba(91,184,230,0.3)]"
     >
       {imageUrl ? (
         <Image

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
 import type { MerchItem } from '@/types/merch';
@@ -23,7 +24,7 @@ interface MerchTileProps {
 
 export function MerchTile({ item, redeemMode = false }: MerchTileProps) {
   return (
-    <div className="group relative flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] transition-all duration-200 hover:border-white/[0.12] hover:bg-white/[0.04] hover:-translate-y-0.5">
+    <div className="group relative flex flex-col rounded-xl border border-[#5BB8E6]/40 bg-white/[0.02] shadow-[0_0_12px_2px_rgba(91,184,230,0.4),0_0_24px_4px_rgba(91,184,230,0.2)] transition-all duration-200 hover:shadow-[0_0_20px_4px_rgba(91,184,230,0.6),0_0_40px_8px_rgba(91,184,230,0.3)] hover:bg-white/[0.04] hover:-translate-y-0.5">
       {/* Image */}
       <div className="relative flex items-center justify-center overflow-hidden rounded-t-xl bg-white/[0.02] p-8">
         <Image
@@ -93,12 +94,20 @@ export function MerchTile({ item, redeemMode = false }: MerchTileProps) {
             </div>
           )}
 
-          <button
-            type="button"
-            className="rounded-full bg-white/[0.06] px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-white/80 transition-colors hover:bg-[#5BB8E6]/20 hover:text-[#5BB8E6]"
-          >
-            {redeemMode ? 'Redeem' : 'Add to Cart'}
-          </button>
+          <div className="flex items-center gap-2">
+            <Link
+              href={`/merch/${item.slug}`}
+              className="rounded-full bg-white/[0.06] px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-white/80 transition-colors hover:bg-white/[0.12]"
+            >
+              View
+            </Link>
+            <button
+              type="button"
+              className="rounded-full bg-[#5BB8E6]/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-[#5BB8E6] transition-colors hover:bg-[#5BB8E6]/25"
+            >
+              {redeemMode ? 'Redeem' : 'Add to Cart'}
+            </button>
+          </div>
         </div>
       </div>
     </div>
