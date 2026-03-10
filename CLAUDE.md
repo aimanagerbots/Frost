@@ -102,12 +102,14 @@ Reports #475569, Settings #94A3B8, System #64748B
 - After password, there's also an age gate ("Yes, I'm 21+")
 
 ## Development Log (MANDATORY)
+- **Read `DEVELOPMENT_LOG.md` at the start of every session** — know where the project stands before doing anything
 - After completing ANY task, append an entry to `DEVELOPMENT_LOG.md` in the project root
 - Entry format: date, app affected, bullet list of changes, key files touched, commit hash (or "uncommitted")
 - Newest entries go at the top (reverse-chronological), separated by `---`
 - This is a running tally — never delete old entries, only append new ones
 - If a commit is made, update the most recent entry's commit hash from "uncommitted" to the actual hash
 - Keep entries concise: 2-5 bullets per task, only list key files (not every touched file)
+- Also keep `Frost-Vault/01-Project/Development-Log.md` in sync (vault mirror for Obsidian search)
 
 ## Do NOT
 - Install dependencies without stating why

@@ -58,7 +58,13 @@
       "Bash(npm run dev)",
       "Bash(cat /c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\\\\\(site\\\\\\)/layout.tsx)",
       "Bash(cat /c/Users/quinn/OneDrive/Documents/Frost/apps/website/src/app/\\\\\\(site\\\\\\)/flower/page.tsx)",
-      "Bash(git add -A -- . ':!PHOTO-2026-03-09-13-37-59.jpg')"
+      "Bash(git add -A -- . ':!PHOTO-2026-03-09-13-37-59.jpg')",
+      "Bash(npx kill-port 3000 3001 3002)",
+      "Bash(npx kill-port 3000 3001 3002 3003 3004 3005 3006 3007 3008 3009 3010 3011 3012 3013 3014)",
+      "mcp__claude_ai_Vercel__list_teams",
+      "mcp__claude_ai_Vercel__list_projects",
+      "mcp__claude_ai_Vercel__list_deployments",
+      "Bash(git add CLAUDE.md DEVELOPMENT_LOG.md .claude/settings.local.json)"
     ]
   }
 }
