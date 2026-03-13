@@ -19,35 +19,47 @@ export default function SetPasswordPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [userName, setUserName] = useState('');
 
-  // On mount, check if Supabase has a session from the invite link token
+  // On mount, listen for Supabase to exchange the URL hash token for a session
   useEffect(() => {
-    async function handleToken() {
-      if (!supabase) {
-        setState('error');
-        setError('System not configured.');
-        return;
-      }
-
-      // Supabase automatically picks up the token from the URL hash
-      const { data, error: sessionError } = await supabase.auth.getSession();
-
-      if (sessionError || !data.session) {
-        // Try to exchange the hash params
-        const { data: hashData, error: hashError } = await supabase.auth.getUser();
-        if (hashError || !hashData.user) {
-          setState('expired');
-          return;
-        }
-        setUserName(hashData.user.user_metadata?.full_name || '');
-        setState('ready');
-        return;
-      }
-
-      setUserName(data.session.user.user_metadata?.full_name || '');
-      setState('ready');
+    if (!supabase) {
+      setState('error');
+      setError('System not configured.');
+      return;
     }
 
-    handleToken();
+    // Supabase client detects the hash fragment and fires onAuthStateChange
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+        if (session?.user) {
+          setUserName(session.user.user_metadata?.full_name || '');
+          setState('ready');
+        }
+      }
+      if (event === 'INITIAL_SESSION') {
+        if (session?.user) {
+          setUserName(session.user.user_metadata?.full_name || '');
+          setState('ready');
+        } else {
+          // No session from hash — check if hash params exist
+          const hash = window.location.hash;
+          if (!hash || !hash.includes('access_token')) {
+            setState('expired');
+          }
+          // If hash exists but no session yet, wait for SIGNED_IN event
+        }
+      }
+    });
+
+    // Timeout fallback — if no auth event fires in 5s, show expired
+    const timeout = setTimeout(() => {
+      if (state === 'loading') setState('expired');
+    }, 5000);
+
+    return () => {
+      subscription.unsubscribe();
+      clearTimeout(timeout);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
