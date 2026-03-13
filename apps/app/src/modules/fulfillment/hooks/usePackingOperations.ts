@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPackingOperations } from '@/mocks/fulfillment';
+import type { PackingOperation } from '../types';
 
 export function usePackingOperations() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['fulfillment', 'packing'],
-    queryFn: getPackingOperations,
+    demoQueryFn: getPackingOperations,
+    emptyValue: [] as PackingOperation[],
   });
 }

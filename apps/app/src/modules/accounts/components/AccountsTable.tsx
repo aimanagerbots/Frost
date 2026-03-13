@@ -30,9 +30,10 @@ function lookupHealthScore(clientName: string): number | null {
 }
 
 const TABS: { key: AccountListTab; label: string }[] = [
-  { key: 'active', label: 'Active' },
-  { key: 'inactive', label: 'Inactive' },
   { key: 'all', label: 'All Accounts' },
+  { key: 'active', label: 'Active' },
+  { key: 'recovery', label: 'Recovery' },
+  { key: 'inactive', label: 'Inactive' },
 ];
 
 const columns: Parameters<typeof DataTable<SalesAccount & Record<string, unknown>>>[0]['columns'] = [
@@ -149,7 +150,7 @@ export function AccountsTable({ tab, onTabChange, onRowClick }: AccountsTablePro
         searchPlaceholder="Search accounts by name, city, license..."
         loading={isLoading}
         onRowClick={(row) => onRowClick(row as unknown as SalesAccount)}
-        pageSize={15}
+        pageSize={0}
         emptyState={{
           title: 'No accounts found',
           description: 'No accounts match the current filter.',

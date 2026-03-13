@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getComplianceLicenses } from '@/mocks/crm-intelligence';
+import type { ComplianceLicense } from '@/modules/crm/types';
 
 export function useComplianceLicenses() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'compliance-licenses'],
-    queryFn: () => getComplianceLicenses(),
+    demoQueryFn: () => getComplianceLicenses(),
+    emptyValue: [] as ComplianceLicense[],
   });
 }

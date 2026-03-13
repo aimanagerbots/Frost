@@ -1,8 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCOASubmissions, getCOASubmission, getCOAMetrics } from '@/mocks/coa';
-import type { COAStatus } from '../types';
+import type { COASubmission, COAMetrics, COAStatus } from '../types';
 
 interface COAFilters {
   status?: COAStatus;
@@ -10,23 +10,32 @@ interface COAFilters {
 }
 
 export function useCOASubmissions(filters?: COAFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['coa', 'submissions', filters],
-    queryFn: () => getCOASubmissions(filters),
+    demoQueryFn: () => getCOASubmissions(filters),
+    emptyValue: [] as COASubmission[],
   });
 }
 
 export function useCOASubmission(id: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['coa', 'submission', id],
-    queryFn: () => getCOASubmission(id),
+    demoQueryFn: () => getCOASubmission(id),
+    emptyValue: undefined as COASubmission | undefined,
     enabled: !!id,
   });
 }
 
 export function useCOAMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['coa', 'metrics'],
-    queryFn: getCOAMetrics,
+    demoQueryFn: getCOAMetrics,
+    emptyValue: {
+      totalSubmissions: 0,
+      pendingResults: 0,
+      passRate: 0,
+      avgTurnaround: 0,
+      failedThisMonth: 0,
+    } as COAMetrics,
   });
 }

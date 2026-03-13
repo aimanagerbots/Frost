@@ -29,12 +29,11 @@ The Obsidian vault at `Frost-Vault/` is Claude Code's extended memory. It stores
 - When you hit a non-obvious technical decision → note it for a potential ADR
 - Do NOT batch notes for later — write them as you learn things
 
-## Session End — ALWAYS (no exceptions)
-1. Create a session log in `Frost-Vault/02-Sessions/` (use the Session Log template)
-2. Update `Frost-Vault/CLOCK.md` — today's date, what was accomplished, what's next
+## After Every Task — ALWAYS (sessions can end unexpectedly)
+1. Update `Frost-Vault/CLOCK.md` — current date, what was just done, what's next, active projects
+2. If a module was built or significantly changed → create/update `Frost-Vault/01-Project/Modules/[module].md`
 3. If an architectural decision was made → create ADR in `Frost-Vault/03-Decisions/`
-4. If a module was built or significantly changed → create/update `Frost-Vault/01-Project/Modules/[module].md`
-5. Update `Frost-Vault/01-Project/Development-Log.md` to mirror the root `DEVELOPMENT_LOG.md`
+4. CLOCK.md is the single source of truth for "where did we leave off" — keep it current always
 
 ## Conventions
 - YAML frontmatter on every note (type, date, status as needed)

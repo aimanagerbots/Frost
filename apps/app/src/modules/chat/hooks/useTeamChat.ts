@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import {
   getTeamMembers,
   getTeamChannels,
@@ -8,40 +8,46 @@ import {
   getChannelMessages,
   getDMMessages,
 } from '@/mocks/team-chat';
+import type { TeamMember, TeamChannel, TeamDM, TeamChatMessage } from '../types/team-chat';
 
 export function useTeamMembers() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['team-chat', 'members'],
-    queryFn: getTeamMembers,
+    demoQueryFn: getTeamMembers,
+    emptyValue: [] as TeamMember[],
   });
 }
 
 export function useTeamChannels() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['team-chat', 'channels'],
-    queryFn: getTeamChannels,
+    demoQueryFn: getTeamChannels,
+    emptyValue: [] as TeamChannel[],
   });
 }
 
 export function useTeamDMs() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['team-chat', 'dms'],
-    queryFn: getTeamDMs,
+    demoQueryFn: getTeamDMs,
+    emptyValue: [] as TeamDM[],
   });
 }
 
 export function useChannelMessages(channelId: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['team-chat', 'channel-messages', channelId],
-    queryFn: () => getChannelMessages(channelId),
+    demoQueryFn: () => getChannelMessages(channelId),
+    emptyValue: [] as TeamChatMessage[],
     enabled: !!channelId,
   });
 }
 
 export function useDMMessages(dmId: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['team-chat', 'dm-messages', dmId],
-    queryFn: () => getDMMessages(dmId),
+    demoQueryFn: () => getDMMessages(dmId),
+    emptyValue: [] as TeamChatMessage[],
     enabled: !!dmId,
   });
 }

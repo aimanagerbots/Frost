@@ -2,8 +2,31 @@
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuthStore } from '@/modules/auth/store';
-import { apiFetch } from '@/lib/api';
+import { supabase } from '@/lib/supabase';
 import type { UserFormData, ModuleOverride } from '@/modules/users/types';
+
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
+
+/** Call a Supabase Edge Function with the user's JWT */
+async function edgeFn(
+  fnName: string,
+  opts: { method: string; path?: string; body?: unknown; token: string },
+) {
+  const url = `${SUPABASE_URL}/functions/v1/${fnName}${opts.path ?? ''}`;
+  const res = await fetch(url, {
+    method: opts.method,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${opts.token}`,
+    },
+    body: opts.body ? JSON.stringify(opts.body) : undefined,
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Edge function error ${res.status}: ${text}`);
+  }
+  return res.json();
+}
 
 export function useCreateUser() {
   const queryClient = useQueryClient();
@@ -16,10 +39,10 @@ export function useCreateUser() {
         await new Promise((r) => setTimeout(r, 500));
         return { id: crypto.randomUUID(), ...data };
       }
-      return apiFetch('/api/auth/users/create', {
+      return edgeFn('manage-users', {
         method: 'POST',
-        body: JSON.stringify(data),
-        token: session?.access_token,
+        body: data,
+        token: session!.access_token,
       });
     },
     onSuccess: () => {
@@ -39,10 +62,11 @@ export function useUpdateUser() {
         await new Promise((r) => setTimeout(r, 500));
         return { id: userId, ...data };
       }
-      return apiFetch(`/api/auth/users/${userId}`, {
+      return edgeFn('manage-users', {
         method: 'PATCH',
-        body: JSON.stringify(data),
-        token: session?.access_token,
+        path: `/${userId}`,
+        body: data,
+        token: session!.access_token,
       });
     },
     onSuccess: () => {
@@ -62,9 +86,10 @@ export function useDeactivateUser() {
         await new Promise((r) => setTimeout(r, 500));
         return { user_id: userId };
       }
-      return apiFetch(`/api/auth/users/${userId}`, {
+      return edgeFn('manage-users', {
         method: 'DELETE',
-        token: session?.access_token,
+        path: `/${userId}`,
+        token: session!.access_token,
       });
     },
     onSuccess: () => {
@@ -84,10 +109,14 @@ export function useSetUserOverrides() {
         await new Promise((r) => setTimeout(r, 500));
         return { user_id: userId, count: overrides.length };
       }
-      return apiFetch(`/api/permissions/users/${userId}/overrides`, {
+
+      if (!supabase) throw new Error('Supabase not configured');
+
+      return edgeFn('manage-overrides', {
         method: 'PUT',
-        body: JSON.stringify({ overrides }),
-        token: session?.access_token,
+        path: `/${userId}`,
+        body: { overrides },
+        token: session!.access_token,
       });
     },
     onSuccess: (_data, variables) => {

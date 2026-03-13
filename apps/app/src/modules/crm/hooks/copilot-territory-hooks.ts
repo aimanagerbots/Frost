@@ -1,7 +1,7 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-import type { CopilotSuggestion, SegmentCriterion } from '@/modules/crm/types';
+import { useDemoQuery } from '@/lib/use-demo-query';
+import type { CopilotSuggestion, SegmentCriterion, TerritoryData, TerritoryMetrics, Segment, SegmentPreview } from '@/modules/crm/types';
 import type { CopilotConversation } from '@/mocks/crm-copilot';
 import {
   getCopilotConversations,
@@ -14,73 +14,80 @@ import { getSegments, getSegmentPreview } from '@/mocks/crm-segments';
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export function useCopilotConversations() {
-  return useQuery<CopilotConversation[]>({
+  return useDemoQuery<CopilotConversation[]>({
     queryKey: ['crm', 'copilot-conversations'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return getCopilotConversations();
     },
+    emptyValue: [] as CopilotConversation[],
   });
 }
 
 export function useCopilotConversation(conversationId?: string) {
-  return useQuery<CopilotConversation | undefined>({
+  return useDemoQuery<CopilotConversation | undefined>({
     queryKey: ['crm', 'copilot-conversation', conversationId],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return conversationId ? getCopilotConversation(conversationId) : undefined;
     },
+    emptyValue: undefined,
     enabled: !!conversationId,
   });
 }
 
 export function useCopilotSuggestions() {
-  return useQuery<CopilotSuggestion[]>({
+  return useDemoQuery<CopilotSuggestion[]>({
     queryKey: ['crm', 'copilot-suggestions'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return getCopilotSuggestions();
     },
+    emptyValue: [] as CopilotSuggestion[],
   });
 }
 
 export function useTerritoryData() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'territory-data'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return getTerritoryData();
     },
+    emptyValue: [] as TerritoryData[],
   });
 }
 
 export function useTerritoryMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'territory-metrics'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return getTerritoryMetrics();
     },
+    emptyValue: [] as TerritoryMetrics[],
   });
 }
 
 export function useSegments() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'segments'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return getSegments();
     },
+    emptyValue: [] as Segment[],
   });
 }
 
 export function useSegmentPreview(criteria?: SegmentCriterion[]) {
-  return useQuery({
+  return useDemoQuery<SegmentPreview>({
     queryKey: ['crm', 'segment-preview', criteria],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return getSegmentPreview(criteria ?? []);
     },
+    emptyValue: { accounts: [], totalCount: 0, totalRevenue: 0 },
     enabled: !!criteria && criteria.length > 0,
   });
 }

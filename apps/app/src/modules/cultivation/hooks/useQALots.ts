@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getQALots } from '@/mocks/cultivation';
+import type { QALot } from '../types';
 
 export function useQALots() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'qa-lots'],
-    queryFn: () => getQALots(),
+    demoQueryFn: () => getQALots(),
+    emptyValue: [] as QALot[],
   });
 }

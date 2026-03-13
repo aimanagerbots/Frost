@@ -1,14 +1,16 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPipelineVelocityMetrics } from '@/mocks/pipeline';
+import type { PipelineVelocityMetric } from '../types';
 
 export function usePipelineVelocity() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['pipeline', 'velocity'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((resolve) => setTimeout(resolve, 200));
       return getPipelineVelocityMetrics();
     },
+    emptyValue: [] as PipelineVelocityMetric[],
   });
 }

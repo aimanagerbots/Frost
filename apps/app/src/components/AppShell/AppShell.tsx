@@ -12,8 +12,13 @@ import { usePermissions } from '@/modules/auth/hooks/usePermissions';
 export function AppShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const { isDemoMode } = useAuthStore();
+  const { isDemoMode, initSession } = useAuthStore();
   const { canAccess, isLoading: permissionsLoading } = usePermissions();
+
+  // Restore Supabase session on app load (needed for API calls)
+  useEffect(() => {
+    initSession();
+  }, [initSession]);
 
   // Route protection: redirect to dashboard if user lacks permission
   useEffect(() => {

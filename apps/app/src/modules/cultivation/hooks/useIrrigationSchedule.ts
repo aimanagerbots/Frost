@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getIrrigationEvents } from '@/mocks/cultivation';
+import type { IrrigationEvent } from '../types';
 
 export function useIrrigationSchedule(roomId: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'irrigation-events', roomId],
-    queryFn: () => getIrrigationEvents(roomId),
+    demoQueryFn: () => getIrrigationEvents(roomId),
+    emptyValue: [] as IrrigationEvent[],
     enabled: !!roomId,
   });
 }

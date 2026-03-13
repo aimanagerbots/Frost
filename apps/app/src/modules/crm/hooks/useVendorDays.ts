@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getVendorDays } from '@/mocks/crm-outreach';
+import type { VendorDay } from '@/modules/crm/types';
 
 export function useVendorDays() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'vendor-days'],
-    queryFn: () => getVendorDays(),
+    demoQueryFn: () => getVendorDays(),
+    emptyValue: [] as VendorDay[],
   });
 }

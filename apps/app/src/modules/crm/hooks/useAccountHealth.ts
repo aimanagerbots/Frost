@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getAccountHealth } from '@/mocks/crm-details';
+import type { AccountHealthData } from '@/modules/crm/types';
 
 export function useAccountHealth(id: string) {
-  return useQuery({
+  return useDemoQuery<AccountHealthData>({
     queryKey: ['crm', 'account-health', id],
-    queryFn: () => getAccountHealth(id),
+    demoQueryFn: () => getAccountHealth(id),
+    emptyValue: { score: 0, trend: 'stable', factors: [], recommendations: [], history: [] },
     enabled: !!id,
   });
 }

@@ -1,7 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getInsights } from '@/mocks/insights';
+import type { Insight } from '../types';
 
 export function useInsights(filters?: {
   type?: string;
@@ -9,8 +10,9 @@ export function useInsights(filters?: {
   module?: string;
   actionable?: boolean;
 }) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['insights', 'list', filters],
-    queryFn: () => getInsights(filters),
+    demoQueryFn: () => getInsights(filters),
+    emptyValue: [] as Insight[],
   });
 }

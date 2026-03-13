@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getMemoryLayers } from '@/mocks/memory';
+import type { MemoryLayer } from '../types';
 
 export function useMemoryLayers() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['memory', 'layers'],
-    queryFn: () => getMemoryLayers(),
+    demoQueryFn: () => getMemoryLayers(),
+    emptyValue: [] as MemoryLayer[],
   });
 }

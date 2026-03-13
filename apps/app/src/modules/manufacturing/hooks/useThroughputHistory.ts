@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getThroughputHistory } from '@/mocks/manufacturing';
+import type { ThroughputDataPoint } from '../types';
 
 export function useThroughputHistory() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['manufacturing', 'throughput-history'],
-    queryFn: () => getThroughputHistory(),
+    demoQueryFn: () => getThroughputHistory(),
+    emptyValue: [] as ThroughputDataPoint[],
   });
 }

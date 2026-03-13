@@ -1,7 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getWorkOrders } from '@/mocks/manufacturing';
+import type { WorkOrder } from '../types';
 
 interface WorkOrderFilters {
   type?: string;
@@ -10,8 +11,9 @@ interface WorkOrderFilters {
 }
 
 export function useWorkOrders(filters?: WorkOrderFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['manufacturing', 'work-orders', filters],
-    queryFn: () => getWorkOrders(filters),
+    demoQueryFn: () => getWorkOrders(filters),
+    emptyValue: [] as WorkOrder[],
   });
 }

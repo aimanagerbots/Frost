@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCompliancePayments } from '@/mocks/crm-intelligence';
+import type { CompliancePayment } from '@/modules/crm/types';
 
 export function useCompliancePayments() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'compliance-payments'],
-    queryFn: () => getCompliancePayments(),
+    demoQueryFn: () => getCompliancePayments(),
+    emptyValue: [] as CompliancePayment[],
   });
 }

@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getManufacturingAlerts } from '@/mocks/manufacturing';
+import type { ManufacturingAlert } from '../types';
 
 export function useManufacturingAlerts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['manufacturing', 'alerts'],
-    queryFn: () => getManufacturingAlerts(),
+    demoQueryFn: () => getManufacturingAlerts(),
+    emptyValue: [] as ManufacturingAlert[],
   });
 }

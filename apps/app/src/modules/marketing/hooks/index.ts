@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import {
   getContentPieces,
   getContentTemplates,
@@ -19,118 +19,171 @@ import {
   getGapSuggestions,
   getCampaignPerformanceTrend,
 } from '@/mocks/marketing';
-import type { ContentFilter, EmailCampaignFilter } from '@/modules/marketing/types';
+import type {
+  ContentFilter,
+  EmailCampaignFilter,
+  ContentPiece,
+  ContentTemplate,
+  AIContentMessage,
+  SocialAccount,
+  SocialPost,
+  EmailCampaign,
+  EmailTemplate,
+  MarketingMetrics,
+  PostingTimeHeat,
+  FollowerGrowthPoint,
+  EngagementByType,
+  HashtagSuggestion,
+  GapSuggestion,
+  CampaignPerformanceTrend,
+  ContentLibraryCategory,
+} from '@/modules/marketing/types';
 
 export function useContentPieces(filters?: ContentFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'content', filters],
-    queryFn: () => getContentPieces(filters),
+    demoQueryFn: () => getContentPieces(filters),
+    emptyValue: [] as ContentPiece[],
   });
 }
 
 export function useContentTemplates() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'templates'],
-    queryFn: getContentTemplates,
+    demoQueryFn: getContentTemplates,
+    emptyValue: [] as ContentTemplate[],
   });
 }
 
 export function useContentChat(conversationId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'chat', conversationId],
-    queryFn: () => getContentChat(conversationId),
+    demoQueryFn: () => getContentChat(conversationId),
+    emptyValue: [] as AIContentMessage[],
   });
 }
 
 export function useSocialAccounts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'social-accounts'],
-    queryFn: getSocialAccounts,
+    demoQueryFn: getSocialAccounts,
+    emptyValue: [] as SocialAccount[],
   });
 }
 
 export function useSocialPosts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'social-posts'],
-    queryFn: getSocialPosts,
+    demoQueryFn: getSocialPosts,
+    emptyValue: [] as SocialPost[],
   });
 }
 
 export function useEmailCampaigns(filters?: EmailCampaignFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'email-campaigns', filters],
-    queryFn: () => getEmailCampaigns(filters),
+    demoQueryFn: () => getEmailCampaigns(filters),
+    emptyValue: [] as EmailCampaign[],
   });
 }
 
 export function useEmailCampaign(id: string | null) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'email-campaign', id],
-    queryFn: () => getEmailCampaign(id!),
+    demoQueryFn: () => getEmailCampaign(id!),
+    emptyValue: undefined as EmailCampaign | undefined,
     enabled: !!id,
   });
 }
 
 export function useEmailTemplates() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'email-templates'],
-    queryFn: getEmailTemplates,
+    demoQueryFn: getEmailTemplates,
+    emptyValue: [] as EmailTemplate[],
   });
 }
 
 export function useMarketingMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'metrics'],
-    queryFn: getMarketingMetrics,
+    demoQueryFn: getMarketingMetrics,
+    emptyValue: {
+      postsThisMonth: 0,
+      scheduledCount: 0,
+      draftsInPipeline: 0,
+      avgEngagementRate: 0,
+      contentGapDays: 0,
+      totalFollowers: 0,
+      emailsSentMTD: 0,
+      avgOpenRate: 0,
+      avgClickRate: 0,
+      activeCampaigns: 0,
+      listHealth: 0,
+      revenueAttributed: 0,
+    } as MarketingMetrics,
   });
 }
 
 export function useContentLibrary() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'content-library'],
-    queryFn: async () => getContentLibrary(),
+    demoQueryFn: async () => getContentLibrary(),
+    emptyValue: {
+      instagram_caption: [],
+      product_description: [],
+      email_copy: [],
+      blog_intro: [],
+      image_concept: [],
+    } as Record<ContentLibraryCategory, ContentPiece[]>,
   });
 }
 
 export function usePostingTimesHeatMap() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'posting-times'],
-    queryFn: async () => getPostingTimesHeatMap(),
+    demoQueryFn: async () => getPostingTimesHeatMap(),
+    emptyValue: [] as PostingTimeHeat[],
   });
 }
 
 export function useFollowerGrowth() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'follower-growth'],
-    queryFn: async () => getFollowerGrowth(),
+    demoQueryFn: async () => getFollowerGrowth(),
+    emptyValue: [] as FollowerGrowthPoint[],
   });
 }
 
 export function useEngagementByContentType() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'engagement-by-type'],
-    queryFn: async () => getEngagementByContentType(),
+    demoQueryFn: async () => getEngagementByContentType(),
+    emptyValue: [] as EngagementByType[],
   });
 }
 
 export function useHashtagSuggestions() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'hashtag-suggestions'],
-    queryFn: async () => getHashtagSuggestions(),
+    demoQueryFn: async () => getHashtagSuggestions(),
+    emptyValue: [] as HashtagSuggestion[],
   });
 }
 
 export function useGapSuggestions() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'gap-suggestions'],
-    queryFn: async () => getGapSuggestions(),
+    demoQueryFn: async () => getGapSuggestions(),
+    emptyValue: [] as GapSuggestion[],
   });
 }
 
 export function useCampaignPerformanceTrend(campaignId: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['marketing', 'campaign-trend', campaignId],
-    queryFn: () => getCampaignPerformanceTrend(campaignId),
+    demoQueryFn: () => getCampaignPerformanceTrend(campaignId),
+    emptyValue: [] as CampaignPerformanceTrend[],
     enabled: !!campaignId,
   });
 }

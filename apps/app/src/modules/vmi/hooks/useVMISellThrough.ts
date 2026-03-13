@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getVMISellThrough } from '@/mocks/vmi';
+import type { VMISellThrough } from '@/modules/vmi/types';
 
 export function useVMISellThrough(accountId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['vmi', 'sell-through', accountId],
-    queryFn: () => getVMISellThrough(accountId),
+    demoQueryFn: () => getVMISellThrough(accountId),
+    emptyValue: [] as VMISellThrough[],
     enabled: !!accountId,
   });
 }

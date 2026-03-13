@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { accounts } from '@/mocks/crm';
 
 export interface OrderFrequencyData {
@@ -93,12 +93,12 @@ function computeFrequencyData(): OrderFrequencyData[] {
 }
 
 export function useOrderFrequency() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'order-frequency'],
-    queryFn: () =>
+    demoQueryFn: () =>
       new Promise<OrderFrequencyData[]>((resolve) => {
         setTimeout(() => resolve(computeFrequencyData()), 300);
       }),
-    staleTime: 5 * 60 * 1000,
+    emptyValue: [] as OrderFrequencyData[],
   });
 }

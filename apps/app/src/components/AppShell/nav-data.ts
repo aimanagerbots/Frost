@@ -85,7 +85,69 @@ export interface NavCategory {
 /* ── Categories ────────────────────────────────────────────────────── */
 
 export const categories: NavCategory[] = [
-  /* ── 1. Grow (Cultivera Module 1) ─────────────────────────────── */
+  /* ── 1. Workspace (Frost) ──────────────────────────────────────── */
+  {
+    key: 'workspace',
+    label: 'Workspace',
+    icon: LayoutDashboard,
+    cultivera: false,
+    items: [
+      { label: 'Dashboard', href: '/dashboard', slug: 'dashboard', icon: LayoutDashboard, accent: ACCENT },
+      { label: 'Chat', href: '/chat', slug: 'chat', icon: MessageSquare, accent: ACCENT },
+      { label: 'Email', href: '/email', slug: 'email', icon: Mail, accent: ACCENT },
+      { label: 'Calendar', href: '/calendar', slug: 'calendar', icon: CalendarDays, accent: ACCENT },
+      { label: 'Tasks', href: '/tasks', slug: 'tasks', icon: CheckSquare, accent: ACCENT },
+      { label: 'Projects', href: '/projects', slug: 'projects', icon: FolderKanban, accent: ACCENT },
+      { label: 'Meetings', href: '/meetings', slug: 'meetings', icon: Video, accent: ACCENT },
+      { label: 'Docs', href: '/docs', slug: 'docs', icon: FileText, accent: ACCENT },
+      { label: 'Team', href: '/team', slug: 'team', icon: UsersRound, accent: ACCENT },
+    ],
+  },
+
+  /* ── 2. Marketing (Frost) ──────────────────────────────────────── */
+  {
+    key: 'marketing',
+    label: 'Marketing',
+    icon: Megaphone,
+    cultivera: false,
+    items: [
+      { label: 'Content Creator', href: '/content-creator', slug: 'content-creator', icon: Wand2, accent: ACCENT },
+      { label: 'Content Calendar', href: '/content-calendar', slug: 'content-calendar', icon: CalendarRange, accent: ACCENT },
+      { label: 'Social Media', href: '/social', slug: 'social', icon: Share2, accent: ACCENT },
+      { label: 'Email Marketing', href: '/email-marketing', slug: 'email-marketing', icon: SendHorizonal, accent: ACCENT },
+      { label: 'SEO / Blog', href: '/seo', slug: 'seo', icon: Search, accent: ACCENT },
+      { label: 'Events', href: '/events', slug: 'events', icon: PartyPopper, accent: ACCENT },
+      { label: 'Paid Ads', href: '/paid-ads', slug: 'paid-ads', icon: Megaphone, accent: ACCENT },
+      { label: 'Merchandise', href: '/merch', slug: 'merch', icon: ShoppingBag, accent: ACCENT },
+    ],
+  },
+
+  /* ── 3. Sales (Cultivera) ──────────────────────────────────────── */
+  {
+    key: 'sales',
+    label: 'Sales',
+    icon: Users,
+    cultivera: true,
+    items: [
+      { label: 'Dashboard', href: '/sales-dashboard', slug: 'sales-dashboard', icon: LayoutDashboard, accent: ACCENT },
+      { label: 'Accounts', href: '/accounts', slug: 'accounts', icon: Users, accent: ACCENT },
+      { label: 'Account Groups', href: '/account-groups', slug: 'account-groups', icon: UsersRound, accent: ACCENT },
+      { label: 'Carts', href: '/carts', slug: 'carts', icon: ShoppingBag, accent: ACCENT },
+      { label: 'Inventory', href: '/vmi', slug: 'vmi', icon: BarChart3, accent: ACCENT },
+      { label: 'Catalogs', href: '/catalogs', slug: 'catalogs', icon: BookOpen, accent: ACCENT },
+      { label: 'Orders', href: '/orders', slug: 'orders', icon: ClipboardList, accent: ACCENT },
+      { label: 'Sales Person Report', href: '/sales-person-report', slug: 'sales-person-report', icon: PieChart, accent: ACCENT },
+      { label: 'Order Summary', href: '/order-summary', slug: 'order-summary', icon: FileText, accent: ACCENT },
+    ],
+    extraItems: [
+      { label: 'CRM', href: '/crm', slug: 'crm', icon: Users, accent: ACCENT },
+      { label: 'Pipeline', href: '/pipeline', slug: 'pipeline', icon: GitBranch, accent: ACCENT },
+      { label: 'Competitor Intel', href: '/competitors', slug: 'competitors', icon: Target, accent: ACCENT },
+      { label: 'Cultivera', href: '/cultivera', slug: 'cultivera', icon: Store, accent: '#22D3EE' },
+    ],
+  },
+
+  /* ── 4. Grow (Cultivera) ───────────────────────────────────────── */
   {
     key: 'grow',
     label: 'Grow',
@@ -114,55 +176,7 @@ export const categories: NavCategory[] = [
     ],
   },
 
-  /* ── 2. Analytics (Cultivera Module 2) — NEW ───────────────────── */
-  {
-    key: 'analytics',
-    label: 'Analytics',
-    icon: LineChart,
-    cultivera: true,
-    items: [],
-    tabRoute: '/analytics',
-    tabs: [
-      { label: 'Client By Product', tab: 'client-by-product' },
-      { label: 'Product By Client', tab: 'product-by-client' },
-      { label: 'Expected Days of Inventory', tab: 'expected-days' },
-      { label: 'Harvest Yield', tab: 'harvest-yield' },
-      { label: 'Last Ordered By Account', tab: 'last-ordered' },
-      { label: 'Monthly Sales (12mo)', tab: 'monthly-sales' },
-      { label: 'Monthly Sales Comparison', tab: 'monthly-comparison' },
-      { label: 'Sales By Person', tab: 'sales-by-person' },
-      { label: 'Production Run I/O', tab: 'production-io' },
-      { label: 'Product-Line Sales by Account', tab: 'product-line-sales' },
-      { label: 'Sales Recommendations', tab: 'sales-recommendations' },
-    ],
-  },
-
-  /* ── 3. Sales (Cultivera Module 3) ─────────────────────────────── */
-  {
-    key: 'sales',
-    label: 'Sales',
-    icon: Users,
-    cultivera: true,
-    items: [
-      { label: 'Dashboard', href: '/sales-dashboard', slug: 'sales-dashboard', icon: LayoutDashboard, accent: ACCENT },
-      { label: 'Accounts', href: '/accounts', slug: 'accounts', icon: Users, accent: ACCENT },
-      { label: 'Account Groups', href: '/account-groups', slug: 'account-groups', icon: UsersRound, accent: ACCENT },
-      { label: 'Carts', href: '/carts', slug: 'carts', icon: ShoppingBag, accent: ACCENT },
-      { label: 'Inventory', href: '/vmi', slug: 'vmi', icon: BarChart3, accent: ACCENT },
-      { label: 'Catalogs', href: '/catalogs', slug: 'catalogs', icon: BookOpen, accent: ACCENT },
-      { label: 'Orders', href: '/orders', slug: 'orders', icon: ClipboardList, accent: ACCENT },
-      { label: 'Sales Person Report', href: '/sales-person-report', slug: 'sales-person-report', icon: PieChart, accent: ACCENT },
-      { label: 'Order Summary', href: '/order-summary', slug: 'order-summary', icon: FileText, accent: ACCENT },
-    ],
-    extraItems: [
-      { label: 'CRM', href: '/crm', slug: 'crm', icon: Users, accent: ACCENT },
-      { label: 'Pipeline', href: '/pipeline', slug: 'pipeline', icon: GitBranch, accent: ACCENT },
-      { label: 'Competitor Intel', href: '/competitors', slug: 'competitors', icon: Target, accent: ACCENT },
-      { label: 'Cultivera', href: '/cultivera', slug: 'cultivera', icon: Store, accent: '#22D3EE' },
-    ],
-  },
-
-  /* ── 4. Inventory Management (Cultivera Module 4) ──────────────── */
+  /* ── 5. Inventory Management (Cultivera) ───────────────────────── */
   {
     key: 'inventory',
     label: 'Inventory Mgmt',
@@ -195,7 +209,41 @@ export const categories: NavCategory[] = [
     ],
   },
 
-  /* ── 5. Fulfillment (Cultivera Module 5) ───────────────────────── */
+  /* ── 6. Manufacturing (Frost) ──────────────────────────────────── */
+  {
+    key: 'manufacturing',
+    label: 'Manufacturing',
+    icon: Factory,
+    cultivera: false,
+    items: [],
+    tabRoute: '/manufacturing',
+    tabs: [
+      { label: 'Dashboard', tab: 'dashboard' },
+      { label: 'Work Orders', tab: 'work-orders' },
+      { label: 'Production Lines', tab: 'production-lines' },
+      { label: 'Batch Tracker', tab: 'batch-tracker' },
+      { label: 'Equipment', tab: 'equipment' },
+    ],
+  },
+
+  /* ── 7. Packaging (Frost) ──────────────────────────────────────── */
+  {
+    key: 'packaging',
+    label: 'Packaging',
+    icon: Package,
+    cultivera: false,
+    items: [],
+    tabRoute: '/packaging',
+    tabs: [
+      { label: 'Dashboard', tab: 'dashboard' },
+      { label: 'Work Orders', tab: 'work-orders' },
+      { label: 'Packaging Lines', tab: 'packaging-lines' },
+      { label: 'Equipment', tab: 'equipment' },
+      { label: 'Order Tracker', tab: 'order-tracker' },
+    ],
+  },
+
+  /* ── 8. Fulfillment (Cultivera) ────────────────────────────────── */
   {
     key: 'fulfillment',
     label: 'Fulfillment',
@@ -218,7 +266,72 @@ export const categories: NavCategory[] = [
     ],
   },
 
-  /* ── 6. Configuration (Cultivera Module 6) ─────────────────────── */
+  /* ── 9. Delivery (Frost) ───────────────────────────────────────── */
+  {
+    key: 'delivery',
+    label: 'Delivery',
+    icon: Truck,
+    cultivera: false,
+    items: [
+      { label: 'Delivery', href: '/delivery', slug: 'delivery', icon: Truck, accent: ACCENT },
+    ],
+  },
+
+  /* ── 10. Accounting (Frost) ────────────────────────────────────── */
+  {
+    key: 'accounting',
+    label: 'Accounting',
+    icon: DollarSign,
+    cultivera: false,
+    items: [
+      { label: 'Finance Dashboard', href: '/finance', slug: 'finance', icon: DollarSign, accent: ACCENT },
+      { label: 'Accounts Receivable', href: '/ar', slug: 'ar', icon: ArrowDownToLine, accent: ACCENT },
+      { label: 'Accounts Payable', href: '/ap', slug: 'ap', icon: ArrowUpFromLine, accent: ACCENT },
+      { label: 'Budget & Planning', href: '/budget', slug: 'budget', icon: Calculator, accent: ACCENT },
+      { label: 'Labor & Payroll', href: '/labor', slug: 'labor', icon: HardHat, accent: ACCENT },
+      { label: 'Reports', href: '/reports', slug: 'reports', icon: PieChart, accent: ACCENT },
+    ],
+  },
+
+  /* ── 11. Analytics (Cultivera) ─────────────────────────────────── */
+  {
+    key: 'analytics',
+    label: 'Analytics',
+    icon: LineChart,
+    cultivera: true,
+    items: [],
+    tabRoute: '/analytics',
+    tabs: [
+      { label: 'Client By Product', tab: 'client-by-product' },
+      { label: 'Product By Client', tab: 'product-by-client' },
+      { label: 'Expected Days of Inventory', tab: 'expected-days' },
+      { label: 'Harvest Yield', tab: 'harvest-yield' },
+      { label: 'Last Ordered By Account', tab: 'last-ordered' },
+      { label: 'Monthly Sales (12mo)', tab: 'monthly-sales' },
+      { label: 'Monthly Sales Comparison', tab: 'monthly-comparison' },
+      { label: 'Sales By Person', tab: 'sales-by-person' },
+      { label: 'Production Run I/O', tab: 'production-io' },
+      { label: 'Product-Line Sales by Account', tab: 'product-line-sales' },
+      { label: 'Sales Recommendations', tab: 'sales-recommendations' },
+    ],
+  },
+
+  /* ── 12. Intelligence (Frost — renamed from AI) ────────────────── */
+  {
+    key: 'ai',
+    label: 'Intelligence',
+    icon: Bot,
+    cultivera: false,
+    items: [
+      { label: 'Agent Hub', href: '/agents', slug: 'agents', icon: Bot, accent: ACCENT },
+      { label: 'Approvals', href: '/approvals', slug: 'approvals', icon: ShieldCheck, accent: ACCENT },
+      { label: 'Council', href: '/council', slug: 'council', icon: BookOpen, accent: ACCENT },
+      { label: 'Insights', href: '/insights', slug: 'insights', icon: Sparkles, accent: ACCENT },
+      { label: 'Memory', href: '/memory', slug: 'memory', icon: Brain, accent: ACCENT },
+    ],
+  },
+
+  /* ── 13. Configuration (Cultivera) ─────────────────────────────── */
   {
     key: 'config',
     label: 'Configuration',
@@ -242,99 +355,6 @@ export const categories: NavCategory[] = [
       // Frost extras
       { label: 'Settings', href: '/settings', slug: 'settings', icon: Settings, accent: ACCENT },
       { label: 'System', href: '/system', slug: 'system', icon: Server, accent: ACCENT },
-    ],
-  },
-
-  /* ── Frost-only modules (cultivera: false) ──────────────────────── */
-
-  {
-    key: 'workspace',
-    label: 'Workspace',
-    icon: LayoutDashboard,
-    cultivera: false,
-    items: [
-      { label: 'Dashboard', href: '/dashboard', slug: 'dashboard', icon: LayoutDashboard, accent: ACCENT },
-      { label: 'Chat', href: '/chat', slug: 'chat', icon: MessageSquare, accent: ACCENT },
-      { label: 'Email', href: '/email', slug: 'email', icon: Mail, accent: ACCENT },
-      { label: 'Calendar', href: '/calendar', slug: 'calendar', icon: CalendarDays, accent: ACCENT },
-      { label: 'Tasks', href: '/tasks', slug: 'tasks', icon: CheckSquare, accent: ACCENT },
-      { label: 'Projects', href: '/projects', slug: 'projects', icon: FolderKanban, accent: ACCENT },
-      { label: 'Meetings', href: '/meetings', slug: 'meetings', icon: Video, accent: ACCENT },
-      { label: 'Docs', href: '/docs', slug: 'docs', icon: FileText, accent: ACCENT },
-      { label: 'Team', href: '/team', slug: 'team', icon: UsersRound, accent: ACCENT },
-    ],
-  },
-  {
-    key: 'marketing',
-    label: 'Marketing',
-    icon: Megaphone,
-    cultivera: false,
-    items: [
-      { label: 'Content Creator', href: '/content-creator', slug: 'content-creator', icon: Wand2, accent: ACCENT },
-      { label: 'Content Calendar', href: '/content-calendar', slug: 'content-calendar', icon: CalendarRange, accent: ACCENT },
-      { label: 'Social Media', href: '/social', slug: 'social', icon: Share2, accent: ACCENT },
-      { label: 'Email Marketing', href: '/email-marketing', slug: 'email-marketing', icon: SendHorizonal, accent: ACCENT },
-      { label: 'SEO / Blog', href: '/seo', slug: 'seo', icon: Search, accent: ACCENT },
-      { label: 'Events', href: '/events', slug: 'events', icon: PartyPopper, accent: ACCENT },
-      { label: 'Paid Ads', href: '/paid-ads', slug: 'paid-ads', icon: Megaphone, accent: ACCENT },
-      { label: 'Merchandise', href: '/merch', slug: 'merch', icon: ShoppingBag, accent: ACCENT },
-    ],
-  },
-  {
-    key: 'manufacturing',
-    label: 'Manufacturing',
-    icon: Factory,
-    cultivera: false,
-    items: [],
-    tabRoute: '/manufacturing',
-    tabs: [
-      { label: 'Dashboard', tab: 'dashboard' },
-      { label: 'Work Orders', tab: 'work-orders' },
-      { label: 'Production Lines', tab: 'production-lines' },
-      { label: 'Batch Tracker', tab: 'batch-tracker' },
-      { label: 'Equipment', tab: 'equipment' },
-    ],
-  },
-  {
-    key: 'packaging',
-    label: 'Packaging',
-    icon: Package,
-    cultivera: false,
-    items: [],
-    tabRoute: '/packaging',
-    tabs: [
-      { label: 'Dashboard', tab: 'dashboard' },
-      { label: 'Work Orders', tab: 'work-orders' },
-      { label: 'Packaging Lines', tab: 'packaging-lines' },
-      { label: 'Equipment', tab: 'equipment' },
-      { label: 'Order Tracker', tab: 'order-tracker' },
-    ],
-  },
-  {
-    key: 'accounting',
-    label: 'Accounting',
-    icon: DollarSign,
-    cultivera: false,
-    items: [
-      { label: 'Finance Dashboard', href: '/finance', slug: 'finance', icon: DollarSign, accent: ACCENT },
-      { label: 'Accounts Receivable', href: '/ar', slug: 'ar', icon: ArrowDownToLine, accent: ACCENT },
-      { label: 'Accounts Payable', href: '/ap', slug: 'ap', icon: ArrowUpFromLine, accent: ACCENT },
-      { label: 'Budget & Planning', href: '/budget', slug: 'budget', icon: Calculator, accent: ACCENT },
-      { label: 'Labor & Payroll', href: '/labor', slug: 'labor', icon: HardHat, accent: ACCENT },
-      { label: 'Reports', href: '/reports', slug: 'reports', icon: PieChart, accent: ACCENT },
-    ],
-  },
-  {
-    key: 'ai',
-    label: 'AI',
-    icon: Bot,
-    cultivera: false,
-    items: [
-      { label: 'Agent Hub', href: '/agents', slug: 'agents', icon: Bot, accent: ACCENT },
-      { label: 'Approvals', href: '/approvals', slug: 'approvals', icon: ShieldCheck, accent: ACCENT },
-      { label: 'Council', href: '/council', slug: 'council', icon: BookOpen, accent: ACCENT },
-      { label: 'Insights', href: '/insights', slug: 'insights', icon: Sparkles, accent: ACCENT },
-      { label: 'Memory', href: '/memory', slug: 'memory', icon: Brain, accent: ACCENT },
     ],
   },
 ];

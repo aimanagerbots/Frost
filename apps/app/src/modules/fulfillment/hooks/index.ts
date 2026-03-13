@@ -1,8 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getFulfillmentOrders, getFulfillmentOrder, getFulfillmentMetrics } from '@/mocks/fulfillment';
-import type { FulfillmentStatus, FulfillmentPriority } from '../types';
+import type { FulfillmentOrder, FulfillmentMetrics, FulfillmentStatus, FulfillmentPriority } from '../types';
 
 interface FulfillmentFilters {
   status?: FulfillmentStatus;
@@ -11,24 +11,34 @@ interface FulfillmentFilters {
 }
 
 export function useFulfillmentOrders(filters?: FulfillmentFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['fulfillment', 'orders', filters],
-    queryFn: () => getFulfillmentOrders(filters),
+    demoQueryFn: () => getFulfillmentOrders(filters),
+    emptyValue: [] as FulfillmentOrder[],
   });
 }
 
 export function useFulfillmentOrder(id: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['fulfillment', 'order', id],
-    queryFn: () => getFulfillmentOrder(id),
+    demoQueryFn: () => getFulfillmentOrder(id),
+    emptyValue: undefined as FulfillmentOrder | undefined,
     enabled: !!id,
   });
 }
 
 export function useFulfillmentMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['fulfillment', 'metrics'],
-    queryFn: getFulfillmentMetrics,
+    demoQueryFn: getFulfillmentMetrics,
+    emptyValue: {
+      totalOrders: 0,
+      completedToday: 0,
+      inProgress: 0,
+      avgPickTime: 0,
+      accuracyRate: 0,
+      itemsPerHour: 0,
+    } as FulfillmentMetrics,
   });
 }
 

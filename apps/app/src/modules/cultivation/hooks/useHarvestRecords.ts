@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getHarvestRecords } from '@/mocks/cultivation';
+import type { HarvestRecord } from '../types';
 
 export function useHarvestRecords() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'harvests'],
-    queryFn: () => getHarvestRecords(),
+    demoQueryFn: () => getHarvestRecords(),
+    emptyValue: [] as HarvestRecord[],
   });
 }

@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getForecasts } from '@/mocks/crm-intelligence';
+import type { Forecast } from '@/modules/crm/types';
 
 export function useForecasts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'forecasts'],
-    queryFn: () => getForecasts(),
+    demoQueryFn: () => getForecasts(),
+    emptyValue: [] as Forecast[],
   });
 }

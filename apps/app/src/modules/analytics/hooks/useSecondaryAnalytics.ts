@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { accounts, salesReps } from '@/mocks/crm';
 
 // ── Types ────────────────────────────────────────────────────────
@@ -79,12 +79,13 @@ function generateLastOrdered(): LastOrderedRow[] {
 }
 
 export function useLastOrderedByAccount() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['analytics', 'last-ordered'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       return generateLastOrdered();
     },
+    emptyValue: [] as LastOrderedRow[],
   });
 }
 
@@ -117,12 +118,13 @@ function generateMonthlySalesComparison(): MonthlyComparisonRow[] {
 }
 
 export function useMonthlySalesComparison() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['analytics', 'monthly-comparison'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       return generateMonthlySalesComparison();
     },
+    emptyValue: [] as MonthlyComparisonRow[],
   });
 }
 
@@ -152,12 +154,13 @@ function generateProductLineSales(): ProductLineSalesData[] {
 }
 
 export function useProductLineSalesByAccount() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['analytics', 'product-line-sales'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       return generateProductLineSales();
     },
+    emptyValue: [] as ProductLineSalesData[],
   });
 }
 
@@ -186,11 +189,12 @@ function generateExpectedDays(): ExpectedDaysRow[] {
 }
 
 export function useExpectedDaysOfInventory() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['analytics', 'expected-days'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       return generateExpectedDays();
     },
+    emptyValue: [] as ExpectedDaysRow[],
   });
 }

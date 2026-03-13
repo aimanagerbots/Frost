@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 
 export interface TeamRole {
   name: string;
@@ -90,8 +90,20 @@ async function fetchTeamDashboard(): Promise<TeamDashboardData> {
 }
 
 export function useTeamDashboard() {
-  return useQuery({
+  return useDemoQuery<TeamDashboardData>({
     queryKey: ['team', 'mobile-dashboard'],
-    queryFn: fetchTeamDashboard,
+    demoQueryFn: fetchTeamDashboard,
+    emptyValue: {
+      greeting: '',
+      subtitle: '',
+      teamTotal: 0,
+      roles: [],
+      complianceRate: 0,
+      certified: 0,
+      needsTraining: 0,
+      people: [],
+      stats: { participation: 0, avgTime: '0h', avgScore: '0/5.0' },
+      monthlyStats: [],
+    },
   });
 }

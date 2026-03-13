@@ -1,11 +1,18 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getDashboardCharts } from '@/mocks/dashboard';
+import type { DashboardChartsData } from '@/modules/dashboard/types';
 
 export function useDashboardCharts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['dashboard', 'charts'],
-    queryFn: getDashboardCharts,
+    demoQueryFn: getDashboardCharts,
+    emptyValue: {
+      revenueTrend: [],
+      ordersByStatus: [],
+      divisionWorkload: [],
+      topProducts: [],
+    } as DashboardChartsData,
   });
 }

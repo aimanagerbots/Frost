@@ -1,7 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPackagingEquipment } from '@/mocks/packaging';
+import type { PackagingEquipment } from '../types';
 
 interface PackagingEquipmentFilters {
   lineId?: string;
@@ -9,8 +10,9 @@ interface PackagingEquipmentFilters {
 }
 
 export function usePackagingEquipment(filters?: PackagingEquipmentFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['packaging', 'equipment', filters],
-    queryFn: () => getPackagingEquipment(filters),
+    demoQueryFn: () => getPackagingEquipment(filters),
+    emptyValue: [] as PackagingEquipment[],
   });
 }

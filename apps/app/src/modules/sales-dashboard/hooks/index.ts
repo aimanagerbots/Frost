@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import {
   MOCK_ACCOUNTS,
   MOCK_ORDERS,
@@ -76,9 +76,24 @@ function buildMetrics(myAccountsOnly: boolean, currentRep: string): SalesDashboa
 }
 
 export function useSalesDashboardMetrics(myAccountsOnly: boolean, currentRep: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['sales-dashboard', 'metrics', myAccountsOnly, currentRep],
-    queryFn: () => delay(buildMetrics(myAccountsOnly, currentRep)),
+    demoQueryFn: () => delay(buildMetrics(myAccountsOnly, currentRep)),
+    emptyValue: {
+      totalAccounts: 0,
+      activeAccounts: 0,
+      activeCarts: 0,
+      salesYTD: 0,
+      revenueYTD: 0,
+      ordersToday: 0,
+      ordersTodayTotal: 0,
+      ordersThisMonth: 0,
+      ordersThisMonthTotal: 0,
+      invoicesMTD: 0,
+      invoicesMTDTotal: 0,
+      futureSalesOrders: 0,
+      futureSalesTotal: 0,
+    } as SalesDashboardMetrics,
   });
 }
 
@@ -106,9 +121,10 @@ function buildWeeklySales(myAccountsOnly: boolean, currentRep: string): WeeklySa
 }
 
 export function useWeeklySales(myAccountsOnly: boolean, currentRep: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['sales-dashboard', 'weekly-sales', myAccountsOnly, currentRep],
-    queryFn: () => delay(buildWeeklySales(myAccountsOnly, currentRep)),
+    demoQueryFn: () => delay(buildWeeklySales(myAccountsOnly, currentRep)),
+    emptyValue: [] as WeeklySalesData[],
   });
 }
 
@@ -120,9 +136,10 @@ function buildActiveCarts(myAccountsOnly: boolean, currentRep: string): Cart[] {
 }
 
 export function useActiveCartsSummary(myAccountsOnly: boolean, currentRep: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['sales-dashboard', 'active-carts', myAccountsOnly, currentRep],
-    queryFn: () => delay(buildActiveCarts(myAccountsOnly, currentRep)),
+    demoQueryFn: () => delay(buildActiveCarts(myAccountsOnly, currentRep)),
+    emptyValue: [] as Cart[],
   });
 }
 
@@ -134,9 +151,10 @@ function buildRecentOrders(myAccountsOnly: boolean, currentRep: string): SalesOr
 }
 
 export function useRecentOrders(myAccountsOnly: boolean, currentRep: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['sales-dashboard', 'recent-orders', myAccountsOnly, currentRep],
-    queryFn: () => delay(buildRecentOrders(myAccountsOnly, currentRep)),
+    demoQueryFn: () => delay(buildRecentOrders(myAccountsOnly, currentRep)),
+    emptyValue: [] as SalesOrder[],
   });
 }
 
@@ -170,12 +188,16 @@ function buildTopOrderingClients(myAccountsOnly: boolean, currentRep: string): T
 }
 
 export function useRecentClients(myAccountsOnly: boolean, currentRep: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['sales-dashboard', 'recent-clients', myAccountsOnly, currentRep],
-    queryFn: () =>
+    demoQueryFn: () =>
       delay({
         topReorder: buildTopReorderAccounts(myAccountsOnly, currentRep),
         topOrdering: buildTopOrderingClients(myAccountsOnly, currentRep),
       }),
+    emptyValue: {
+      topReorder: [] as TopReorderAccount[],
+      topOrdering: [] as TopOrderingClient[],
+    },
   });
 }

@@ -1,25 +1,36 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getVMIAccounts, getVMIMetrics, getVMIDailyEmails } from '@/mocks/vmi';
+import type { VMIAccount, VMIMetrics, VMIDailyEmail } from '@/modules/vmi/types';
 
 export function useVMIAccounts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['vmi', 'accounts'],
-    queryFn: () => getVMIAccounts(),
+    demoQueryFn: () => getVMIAccounts(),
+    emptyValue: [] as VMIAccount[],
   });
 }
 
 export function useVMIMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['vmi', 'metrics'],
-    queryFn: () => getVMIMetrics(),
+    demoQueryFn: () => getVMIMetrics(),
+    emptyValue: {
+      enrolledAccounts: 0,
+      totalSKUs: 0,
+      reorderAlerts: 0,
+      avgDailyVelocity: 0,
+      avgMarketShare: 0,
+      fillRate: 0,
+    } as VMIMetrics,
   });
 }
 
 export function useVMIDailyEmails() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['vmi', 'daily-emails'],
-    queryFn: () => getVMIDailyEmails(),
+    demoQueryFn: () => getVMIDailyEmails(),
+    emptyValue: [] as VMIDailyEmail[],
   });
 }

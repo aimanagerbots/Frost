@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { MOCK_CARTS, MOCK_BATCH_ALLOCATIONS } from '@/mocks/sales';
 import type { Cart, BatchAllocation } from '@/modules/sales/types';
 import { useCartStore } from '../store';
@@ -14,12 +14,13 @@ function delay(ms: number) {
 export function useCarts() {
   const pendingCart = useCartStore((s) => s.pendingCart);
 
-  const query = useQuery<Cart[]>({
+  const query = useDemoQuery<Cart[]>({
     queryKey: ['carts'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(600);
       return MOCK_CARTS;
     },
+    emptyValue: [] as Cart[],
   });
 
   const data = useMemo(() => {
@@ -37,12 +38,13 @@ export function useCarts() {
 export function useCart(cartId: string | null) {
   const pendingCart = useCartStore((s) => s.pendingCart);
 
-  const query = useQuery<Cart | undefined>({
+  const query = useDemoQuery<Cart | undefined>({
     queryKey: ['cart', cartId],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(400);
       return MOCK_CARTS.find((c) => c.id === cartId);
     },
+    emptyValue: undefined,
     enabled: !!cartId,
   });
 
@@ -58,12 +60,13 @@ export function useCart(cartId: string | null) {
 
 /** Fetch batch allocations for a cart line item */
 export function useCartAllocation(lineItemId: string | null) {
-  return useQuery<BatchAllocation[]>({
+  return useDemoQuery<BatchAllocation[]>({
     queryKey: ['cart-allocation', lineItemId],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(500);
       return MOCK_BATCH_ALLOCATIONS;
     },
+    emptyValue: [] as BatchAllocation[],
     enabled: !!lineItemId,
   });
 }

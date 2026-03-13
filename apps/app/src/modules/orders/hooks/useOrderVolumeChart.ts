@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getOrderVolumeChart } from '@/mocks/orders';
+import type { OrderVolumeWeek } from '@/modules/orders/types';
 
 export function useOrderVolumeChart() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['orders', 'volume-chart'],
-    queryFn: getOrderVolumeChart,
+    demoQueryFn: getOrderVolumeChart,
+    emptyValue: [] as OrderVolumeWeek[],
   });
 }

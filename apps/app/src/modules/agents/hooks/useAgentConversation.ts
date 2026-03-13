@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getAgentConversation } from '@/mocks/agents';
+import type { AgentConversation } from '@/modules/agents/types';
 
 export function useAgentConversation(agentId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['agents', 'conversation', agentId],
-    queryFn: () => getAgentConversation(agentId!),
+    demoQueryFn: () => getAgentConversation(agentId!),
+    emptyValue: null as AgentConversation | null,
     enabled: !!agentId,
   });
 }

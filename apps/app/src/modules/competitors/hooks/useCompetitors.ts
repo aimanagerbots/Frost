@@ -1,18 +1,28 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCompetitors, getCompetitorMetrics } from '@/mocks/competitors';
+import type { Competitor, CompetitorMetrics } from '@/modules/competitors/types';
 
 export function useCompetitors() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['competitors', 'list'],
-    queryFn: () => getCompetitors(),
+    demoQueryFn: () => getCompetitors(),
+    emptyValue: [] as Competitor[],
   });
 }
 
 export function useCompetitorMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['competitors', 'metrics'],
-    queryFn: () => getCompetitorMetrics(),
+    demoQueryFn: () => getCompetitorMetrics(),
+    emptyValue: {
+      competitorsTracked: 0,
+      ourMarketShare: 0,
+      topThreat: '',
+      recentAlerts: 0,
+      avgPriceAdvantage: 0,
+      placementsLostThisMonth: 0,
+    } as CompetitorMetrics,
   });
 }

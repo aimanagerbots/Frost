@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCouncilSessions } from '@/mocks/council';
+import type { CouncilSession } from '../types';
 
 export function useCouncilSessions() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['council', 'sessions'],
-    queryFn: () => getCouncilSessions(),
+    demoQueryFn: () => getCouncilSessions(),
+    emptyValue: [] as CouncilSession[],
   });
 }

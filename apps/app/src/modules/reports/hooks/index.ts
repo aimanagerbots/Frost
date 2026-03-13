@@ -1,12 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getReports } from '@/mocks/reports';
-import type { ReportFilter } from '@/modules/reports/types';
+import type { ReportFilter, Report } from '@/modules/reports/types';
 
 export function useReports(filters?: ReportFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['reports', 'list', filters],
-    queryFn: () => getReports(filters),
+    demoQueryFn: () => getReports(filters),
+    emptyValue: [] as Report[],
   });
 }

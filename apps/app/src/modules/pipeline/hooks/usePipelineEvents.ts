@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { accounts } from '@/mocks/crm';
 import type { PipelineEvent, PipelineEventType } from '@/modules/pipeline/types/events';
 
@@ -130,8 +130,9 @@ async function fetchPipelineEvents(): Promise<PipelineEvent[]> {
 }
 
 export function usePipelineEvents() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['pipeline', 'events'],
-    queryFn: fetchPipelineEvents,
+    demoQueryFn: fetchPipelineEvents,
+    emptyValue: [] as PipelineEvent[],
   });
 }

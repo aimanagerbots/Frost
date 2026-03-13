@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getRevenueByCategory } from '@/mocks/orders';
+import type { CategoryRevenue } from '@/modules/orders/types';
 
 export function useRevenueByCategory() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['orders', 'revenue-by-category'],
-    queryFn: getRevenueByCategory,
+    demoQueryFn: getRevenueByCategory,
+    emptyValue: [] as CategoryRevenue[],
   });
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { MOCK_SALES_REP_REPORTS } from '@/mocks/sales';
 import type { SalesRepReport } from '@/modules/sales/types';
 import type { SalesRepReportFilters } from '../types';
@@ -36,12 +36,13 @@ function filterReports(
 }
 
 export function useSalesRepReport(filters: SalesRepReportFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['sales-person-report', filters],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       // Simulated API delay
       await new Promise((r) => setTimeout(r, 400));
       return filterReports(MOCK_SALES_REP_REPORTS, filters);
     },
+    emptyValue: [] as SalesRepReport[],
   });
 }

@@ -1,7 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getDeliveryRuns, getDeliveryRun, getDrivers, getDeliveryMetrics } from '@/mocks/delivery';
+import type { DeliveryRun, DeliveryDriver, DeliveryMetrics } from '../types';
 import type { DeliveryRunStatus } from '../types';
 
 interface DeliveryFilters {
@@ -10,31 +11,44 @@ interface DeliveryFilters {
 }
 
 export function useDeliveryRuns(filters?: DeliveryFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['delivery', 'runs', filters],
-    queryFn: () => getDeliveryRuns(filters),
+    demoQueryFn: () => getDeliveryRuns(filters),
+    emptyValue: [] as DeliveryRun[],
   });
 }
 
 export function useDeliveryRun(id: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['delivery', 'run', id],
-    queryFn: () => getDeliveryRun(id),
+    demoQueryFn: () => getDeliveryRun(id),
+    emptyValue: undefined as DeliveryRun | undefined,
     enabled: !!id,
   });
 }
 
 export function useDrivers() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['delivery', 'drivers'],
-    queryFn: getDrivers,
+    demoQueryFn: getDrivers,
+    emptyValue: [] as DeliveryDriver[],
   });
 }
 
 export function useDeliveryMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['delivery', 'metrics'],
-    queryFn: getDeliveryMetrics,
+    demoQueryFn: getDeliveryMetrics,
+    emptyValue: {
+      totalDeliveries: 0,
+      completedToday: 0,
+      inTransit: 0,
+      avgDeliveryTime: 0,
+      onTimeRate: 0,
+      driversActive: 0,
+      revenueDeliveredToday: 0,
+      paymentsCollectedToday: 0,
+    } as DeliveryMetrics,
   });
 }
 

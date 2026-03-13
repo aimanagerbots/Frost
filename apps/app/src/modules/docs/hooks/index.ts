@@ -1,12 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getDocuments } from '@/mocks/docs';
-import type { DocFilter } from '@/modules/docs/types';
+import type { DocFilter, Document } from '@/modules/docs/types';
 
 export function useDocuments(filters?: DocFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['docs', 'list', filters],
-    queryFn: () => getDocuments(filters),
+    demoQueryFn: () => getDocuments(filters),
+    emptyValue: [] as Document[],
   });
 }

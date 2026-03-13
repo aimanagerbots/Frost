@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import type { ProductFilter, QAFilterTab, BatchFilterTab, ManageMenuFilterTab } from '@/modules/inventory/types';
 import {
   MOCK_PRODUCTS, MOCK_BATCHES, MOCK_STRAINS, MOCK_QA_RESULTS, MOCK_DISCOUNTS,
@@ -11,9 +11,9 @@ import {
 const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 export function useProducts(filter?: ProductFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'products', filter],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       let items = [...MOCK_PRODUCTS];
       if (filter?.tab === 'available-for-sale') items = items.filter(p => p.availableForSale > 0);
@@ -28,13 +28,14 @@ export function useProducts(filter?: ProductFilter) {
       if (filter?.productLine) items = items.filter(p => p.productLine === filter.productLine);
       return items;
     },
+    emptyValue: [] as typeof MOCK_PRODUCTS,
   });
 }
 
 export function useBatches(tab?: BatchFilterTab) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'batches', tab],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       let items = [...MOCK_BATCHES];
       if (tab === 'available-for-sale') items = items.filter(b => b.unitsForSale > 0);
@@ -42,20 +43,22 @@ export function useBatches(tab?: BatchFilterTab) {
       else if (tab === 'excluded') items = items.filter(b => b.status === 'excluded');
       return items;
     },
+    emptyValue: [] as typeof MOCK_BATCHES,
   });
 }
 
 export function useStrains() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'strains'],
-    queryFn: async () => { await delay(200); return [...MOCK_STRAINS]; },
+    demoQueryFn: async () => { await delay(200); return [...MOCK_STRAINS]; },
+    emptyValue: [] as typeof MOCK_STRAINS,
   });
 }
 
 export function useQAResults(tab?: QAFilterTab) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'qa-results', tab],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(350);
       let items = [...MOCK_QA_RESULTS];
       if (tab === 'passed') items = items.filter(q => q.status === 'passed');
@@ -63,111 +66,126 @@ export function useQAResults(tab?: QAFilterTab) {
       else if (tab === 'pending') items = items.filter(q => q.status === 'pending');
       return items;
     },
+    emptyValue: [] as typeof MOCK_QA_RESULTS,
   });
 }
 
 export function useDiscounts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'discounts'],
-    queryFn: async () => { await delay(250); return [...MOCK_DISCOUNTS]; },
+    demoQueryFn: async () => { await delay(250); return [...MOCK_DISCOUNTS]; },
+    emptyValue: [] as typeof MOCK_DISCOUNTS,
   });
 }
 
 export function useRooms() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'rooms'],
-    queryFn: async () => { await delay(200); return [...MOCK_ROOMS]; },
+    demoQueryFn: async () => { await delay(200); return [...MOCK_ROOMS]; },
+    emptyValue: [] as typeof MOCK_ROOMS,
   });
 }
 
 export function useProductLines() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'product-lines'],
-    queryFn: async () => { await delay(200); return [...MOCK_PRODUCT_LINES]; },
+    demoQueryFn: async () => { await delay(200); return [...MOCK_PRODUCT_LINES]; },
+    emptyValue: [] as typeof MOCK_PRODUCT_LINES,
   });
 }
 
 export function useInventoryCategories() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'categories'],
-    queryFn: async () => { await delay(200); return [...MOCK_CATEGORIES]; },
+    demoQueryFn: async () => { await delay(200); return [...MOCK_CATEGORIES]; },
+    emptyValue: [] as typeof MOCK_CATEGORIES,
   });
 }
 
 export function useCatalogGroups() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'catalog-groups'],
-    queryFn: async () => { await delay(200); return [...MOCK_CATALOG_GROUPS]; },
+    demoQueryFn: async () => { await delay(200); return [...MOCK_CATALOG_GROUPS]; },
+    emptyValue: [] as typeof MOCK_CATALOG_GROUPS,
   });
 }
 
 export function useBackorders() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'backorders'],
-    queryFn: async () => { await delay(250); return [...MOCK_BACKORDERS]; },
+    demoQueryFn: async () => { await delay(250); return [...MOCK_BACKORDERS]; },
+    emptyValue: [] as typeof MOCK_BACKORDERS,
   });
 }
 
 export function useQALots() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'qa-lots'],
-    queryFn: async () => { await delay(250); return [...MOCK_QA_LOTS]; },
+    demoQueryFn: async () => { await delay(250); return [...MOCK_QA_LOTS]; },
+    emptyValue: [] as typeof MOCK_QA_LOTS,
   });
 }
 
 export function useQASamples() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'qa-samples'],
-    queryFn: async () => { await delay(250); return [...MOCK_QA_SAMPLES]; },
+    demoQueryFn: async () => { await delay(250); return [...MOCK_QA_SAMPLES]; },
+    emptyValue: [] as typeof MOCK_QA_SAMPLES,
   });
 }
 
 export function useEmployeeSamples() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'employee-samples'],
-    queryFn: async () => { await delay(200); return [...MOCK_EMPLOYEE_SAMPLES]; },
+    demoQueryFn: async () => { await delay(200); return [...MOCK_EMPLOYEE_SAMPLES]; },
+    emptyValue: [] as typeof MOCK_EMPLOYEE_SAMPLES,
   });
 }
 
 export function useDisposals() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'disposals'],
-    queryFn: async () => { await delay(250); return [...MOCK_DISPOSALS]; },
+    demoQueryFn: async () => { await delay(250); return [...MOCK_DISPOSALS]; },
+    emptyValue: [] as typeof MOCK_DISPOSALS,
   });
 }
 
 export function useProductTags() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'product-tags'],
-    queryFn: async () => { await delay(150); return [...MOCK_PRODUCT_TAGS]; },
+    demoQueryFn: async () => { await delay(150); return [...MOCK_PRODUCT_TAGS]; },
+    emptyValue: [] as typeof MOCK_PRODUCT_TAGS,
   });
 }
 
 export function useConversions() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'conversions'],
-    queryFn: async () => { await delay(200); return [...MOCK_CONVERSIONS]; },
+    demoQueryFn: async () => { await delay(200); return [...MOCK_CONVERSIONS]; },
+    emptyValue: [] as typeof MOCK_CONVERSIONS,
   });
 }
 
 export function useProductionRuns() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'production-runs'],
-    queryFn: async () => { await delay(250); return [...MOCK_PRODUCTION_RUNS]; },
+    demoQueryFn: async () => { await delay(250); return [...MOCK_PRODUCTION_RUNS]; },
+    emptyValue: [] as typeof MOCK_PRODUCTION_RUNS,
   });
 }
 
 export function useNonCannabisInventory() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'non-cannabis'],
-    queryFn: async () => { await delay(300); return [...MOCK_NON_CANNABIS]; },
+    demoQueryFn: async () => { await delay(300); return [...MOCK_NON_CANNABIS]; },
+    emptyValue: [] as typeof MOCK_NON_CANNABIS,
   });
 }
 
 export function useManageMenu(tab?: ManageMenuFilterTab) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['inventory', 'manage-menu', tab],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       let items = [...MOCK_MANAGE_MENU];
       if (tab === 'available-for-sale') items = items.filter(m => m.availableForSale > 0);
@@ -178,5 +196,6 @@ export function useManageMenu(tab?: ManageMenuFilterTab) {
       // 'more-categories' shows all (placeholder for future sub-category filtering)
       return items;
     },
+    emptyValue: [] as typeof MOCK_MANAGE_MENU,
   });
 }

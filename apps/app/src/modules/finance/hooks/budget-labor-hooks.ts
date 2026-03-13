@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import {
   getBudgetByDivision,
   getBudgetScenarios,
@@ -12,39 +12,92 @@ import {
   getLaborRecommendations,
   getCostPerUnitTrends,
 } from '@/mocks/finance-budget-labor';
+import type {
+  BudgetDivision,
+  BudgetScenario,
+  CapexItem,
+  TeamMemberCost,
+  LaborMetrics,
+  LaborAllocation,
+  SchedulingData,
+  LaborAIRecommendation,
+  CostPerUnitDataPoint,
+} from '@/modules/finance/types/budget-labor';
 
 export function useBudgetByDivision() {
-  return useQuery({ queryKey: ['finance', 'budget-divisions'], queryFn: getBudgetByDivision });
+  return useDemoQuery({
+    queryKey: ['finance', 'budget-divisions'],
+    demoQueryFn: getBudgetByDivision,
+    emptyValue: [] as BudgetDivision[],
+  });
 }
 
 export function useBudgetScenarios() {
-  return useQuery({ queryKey: ['finance', 'budget-scenarios'], queryFn: getBudgetScenarios });
+  return useDemoQuery({
+    queryKey: ['finance', 'budget-scenarios'],
+    demoQueryFn: getBudgetScenarios,
+    emptyValue: [] as BudgetScenario[],
+  });
 }
 
 export function useCapexItems() {
-  return useQuery({ queryKey: ['finance', 'capex'], queryFn: getCapexItems });
+  return useDemoQuery({
+    queryKey: ['finance', 'capex'],
+    demoQueryFn: getCapexItems,
+    emptyValue: [] as CapexItem[],
+  });
 }
 
 export function useLaborData() {
-  return useQuery({ queryKey: ['finance', 'labor-data'], queryFn: getLaborData });
+  return useDemoQuery({
+    queryKey: ['finance', 'labor-data'],
+    demoQueryFn: getLaborData,
+    emptyValue: [] as TeamMemberCost[],
+  });
 }
 
 export function useLaborMetrics() {
-  return useQuery({ queryKey: ['finance', 'labor-metrics'], queryFn: getLaborMetrics });
+  return useDemoQuery({
+    queryKey: ['finance', 'labor-metrics'],
+    demoQueryFn: getLaborMetrics,
+    emptyValue: {
+      totalHeadcount: 0,
+      totalLaborCost: 0,
+      costPerUnit: [],
+      revenuePerEmployee: 0,
+      overtimePercent: 0,
+    } as LaborMetrics,
+  });
 }
 
 export function useLaborAllocation() {
-  return useQuery({ queryKey: ['finance', 'labor-allocation'], queryFn: getLaborAllocation });
+  return useDemoQuery({
+    queryKey: ['finance', 'labor-allocation'],
+    demoQueryFn: getLaborAllocation,
+    emptyValue: [] as LaborAllocation[],
+  });
 }
 
 export function useSchedulingData() {
-  return useQuery({ queryKey: ['finance', 'scheduling'], queryFn: getSchedulingData });
+  return useDemoQuery({
+    queryKey: ['finance', 'scheduling'],
+    demoQueryFn: getSchedulingData,
+    emptyValue: [] as SchedulingData[],
+  });
 }
 
 export function useLaborRecommendations() {
-  return useQuery({ queryKey: ['finance', 'labor-recommendations'], queryFn: getLaborRecommendations });
+  return useDemoQuery({
+    queryKey: ['finance', 'labor-recommendations'],
+    demoQueryFn: getLaborRecommendations,
+    emptyValue: [] as LaborAIRecommendation[],
+  });
 }
 
 export function useCostPerUnitTrends() {
-  return useQuery({ queryKey: ['finance', 'cost-per-unit'], queryFn: getCostPerUnitTrends });
+  return useDemoQuery({
+    queryKey: ['finance', 'cost-per-unit'],
+    demoQueryFn: getCostPerUnitTrends,
+    emptyValue: [] as CostPerUnitDataPoint[],
+  });
 }

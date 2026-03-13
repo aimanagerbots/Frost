@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getStrain } from '@/mocks/cultivation';
+import type { Strain } from '../types';
 
 export function useStrain(id: string) {
-  return useQuery({
+  return useDemoQuery<Strain | undefined>({
     queryKey: ['cultivation', 'strain', id],
-    queryFn: () => getStrain(id),
+    demoQueryFn: () => getStrain(id),
+    emptyValue: undefined,
     enabled: !!id,
   });
 }

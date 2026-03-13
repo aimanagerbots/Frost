@@ -68,7 +68,10 @@ export function AccountDetail({ account, onBack }: AccountDetailProps) {
             <p className="text-xs text-text-muted">{account.address}, {account.city}</p>
 
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              <StatusBadge status={account.status} />
+              <StatusBadge
+                variant={account.status === 'active' ? 'success' : account.status === 'recovery' ? 'warning' : 'muted'}
+                label={account.status.charAt(0).toUpperCase() + account.status.slice(1)}
+              />
             </div>
 
             {/* Invite button */}

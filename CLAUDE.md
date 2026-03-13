@@ -99,17 +99,17 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Search `Frost-Vault/03-Decisions/` for ADRs related to the area you're changing
 - If the topic has been worked on before, READ the relevant vault notes before starting
 
-### Session End (ALWAYS do these)
-1. Create a session log in `Frost-Vault/02-Sessions/` using the Session Log template
-2. Update `Frost-Vault/CLOCK.md` with today's date, what was done, and what's next
+### After Every Task (ALWAYS — sessions can end unexpectedly)
+1. Update `Frost-Vault/CLOCK.md` — current date, what was just done, what's next, active projects
+2. If a module was built or significantly changed, create/update its note in `Frost-Vault/01-Project/Modules/`
 3. If you made an architectural decision, create an ADR in `Frost-Vault/03-Decisions/`
-4. If a module was built or significantly changed, create/update its note in `Frost-Vault/01-Project/Modules/`
 
 ### During Work (proactive note-taking)
 - When you discover important domain knowledge → add to relevant `01-Project/` note
 - When you learn something about a module's quirks or gotchas → update its module note
 - When the user shares context about the business → capture in `01-Project/Domain/`
 - Do NOT wait until session end to write notes — capture knowledge as you go
+- CLOCK.md is the single source of truth for "where did we leave off" — keep it current
 
 ## Frontend Design Skill (MANDATORY)
 - ALWAYS invoke the `frontend-design` skill before designing or building any frontend file — no exceptions.

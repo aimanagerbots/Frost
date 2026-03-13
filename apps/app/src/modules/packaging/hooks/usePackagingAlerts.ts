@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPackagingAlerts } from '@/mocks/packaging';
+import type { PackagingAlert } from '../types';
 
 export function usePackagingAlerts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['packaging', 'alerts'],
-    queryFn: () => getPackagingAlerts(),
+    demoQueryFn: () => getPackagingAlerts(),
+    emptyValue: [] as PackagingAlert[],
   });
 }

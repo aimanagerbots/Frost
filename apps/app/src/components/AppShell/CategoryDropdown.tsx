@@ -1,6 +1,7 @@
 'use client';
 
 import { Fragment, useState, useRef, useEffect, useMemo } from 'react';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@frost/ui';
@@ -82,21 +83,12 @@ export function CategoryDropdown() {
 
       {open && (
         <div className="absolute left-0 top-full mt-2 z-50 w-56 rounded-xl border border-border-default bg-base/95 shadow-2xl backdrop-blur-md py-2">
-          {visibleCategories.map((cat, idx) => {
+          {visibleCategories.map((cat) => {
             const Icon = cat.icon;
             const isActive = activeCategory?.key === cat.key;
-            const prevCat = visibleCategories[idx - 1];
-            const showDivider = cat.cultivera === false && prevCat?.cultivera === true;
 
             return (
               <Fragment key={cat.key}>
-                {showDivider && (
-                  <div className="my-1 border-t border-white/10">
-                    <span className="block px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/30">
-                      More
-                    </span>
-                  </div>
-                )}
                 <button
                   type="button"
                   onClick={() => handleSelect(cat)}
@@ -114,6 +106,15 @@ export function CategoryDropdown() {
                     )}
                   />
                   <span className="truncate">{cat.label}</span>
+                  {!cat.cultivera && (
+                    <Image
+                      src="/FrostLogo_SnowflakeOnly.png"
+                      alt="Frost"
+                      width={14}
+                      height={14}
+                      className="ml-auto shrink-0 opacity-50"
+                    />
+                  )}
                 </button>
               </Fragment>
             );

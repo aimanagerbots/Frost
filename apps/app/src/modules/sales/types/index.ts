@@ -2,7 +2,7 @@
 // Named SalesOrderStatus to avoid collision with existing Frost OrderStatus in src/modules/orders/types/
 
 export type SalesOrderStatus = 'submitted' | 'sublotted' | 'manifested' | 'quarantined' | 'invoiced' | 'paid' | 'partially-sublotted';
-export type AccountStatus = 'active' | 'inactive';
+export type AccountStatus = 'active' | 'inactive' | 'recovery';
 export type FulfillmentPriority = 'fifo' | 'newest-first' | 'highest-qa' | 'lowest-qa';
 export type AllocationMode = 'combine' | 'generate-multiple';
 

@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getAccountOrders } from '@/mocks/crm-details';
+import type { AccountOrder } from '@/modules/crm/types';
 
 export function useAccountOrders(id: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'account-orders', id],
-    queryFn: () => getAccountOrders(id),
+    demoQueryFn: () => getAccountOrders(id),
+    emptyValue: [] as AccountOrder[],
     enabled: !!id,
   });
 }

@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getAccountNotes } from '@/mocks/crm-details';
+import type { AccountNote } from '@/modules/crm/types';
 
 export function useAccountNotes(id: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'account-notes', id],
-    queryFn: () => getAccountNotes(id),
+    demoQueryFn: () => getAccountNotes(id),
+    emptyValue: [] as AccountNote[],
     enabled: !!id,
   });
 }

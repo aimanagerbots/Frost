@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     database_url: str = ""
 
     # Frontend URLs for CORS
-    app_url: str = "https://frost-app.vercel.app"
+    app_url: str = "https://frost-orcin.vercel.app"
     website_url: str = "https://frost-website.vercel.app"
     portal_url: str = "https://frost-portal.vercel.app"
 

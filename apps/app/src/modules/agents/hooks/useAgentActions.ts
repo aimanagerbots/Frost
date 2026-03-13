@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getAgentActions } from '@/mocks/agents';
+import type { AgentAction } from '@/modules/agents/types';
 
 export function useAgentActions(agentId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['agents', 'actions', agentId],
-    queryFn: () => getAgentActions(agentId),
+    demoQueryFn: () => getAgentActions(agentId),
+    emptyValue: [] as AgentAction[],
   });
 }

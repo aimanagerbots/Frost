@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useAuthStore } from '@/modules/auth/store';
-import { apiFetch } from '@/lib/api';
+import { supabase } from '@/lib/supabase';
 import type { UserProfile, UserPermissions } from '@/modules/users/types';
 
 // Mock users for demo mode
@@ -65,32 +65,36 @@ const MOCK_USERS: UserProfile[] = [
 
 export function useUsers() {
   const isDemoMode = useAuthStore((s) => s.isDemoMode);
-  const session = useAuthStore((s) => s.session);
 
   return useQuery({
-    queryKey: ['users', 'list'],
+    queryKey: ['users', 'list', isDemoMode],
     queryFn: async () => {
       if (isDemoMode) {
         await new Promise((r) => setTimeout(r, 400));
         return MOCK_USERS;
       }
-      return apiFetch<UserProfile[]>('/api/auth/users', {
-        token: session?.access_token,
-      });
+
+      if (!supabase) return [];
+
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .order('full_name');
+
+      if (error) throw new Error(error.message);
+      return data as UserProfile[];
     },
   });
 }
 
 export function useUserPermissions(userId: string | null) {
   const isDemoMode = useAuthStore((s) => s.isDemoMode);
-  const session = useAuthStore((s) => s.session);
 
   return useQuery({
-    queryKey: ['users', 'permissions', userId],
+    queryKey: ['users', 'permissions', userId, isDemoMode],
     queryFn: async () => {
       if (isDemoMode) {
         await new Promise((r) => setTimeout(r, 300));
-        // Mock: return all modules for admin, subset for others
         const user = MOCK_USERS.find((u) => u.id === userId);
         const allSlugs = [
           'chat', 'dashboard', 'email', 'calendar', 'tasks', 'projects', 'meetings', 'docs', 'team',
@@ -114,9 +118,65 @@ export function useUserPermissions(userId: string | null) {
           allowed_modules: allowed,
         } satisfies UserPermissions;
       }
-      return apiFetch<UserPermissions>(`/api/permissions/users/${userId}`, {
-        token: session?.access_token,
-      });
+
+      if (!supabase) throw new Error('Supabase not configured');
+
+      // Get user's role + department
+      const { data: profile, error: profileErr } = await supabase
+        .from('profiles')
+        .select('role, department')
+        .eq('id', userId!)
+        .single();
+
+      if (profileErr) throw new Error(profileErr.message);
+
+      // 1. Role base modules (workspace, intelligence, settings for everyone + admin extras)
+      const { data: roleDefaults, error: rdErr } = await supabase
+        .from('role_module_defaults')
+        .select('module_slug')
+        .eq('role', profile.role);
+
+      if (rdErr) throw new Error(rdErr.message);
+      const roleSlugs = (roleDefaults ?? []).map((r: { module_slug: string }) => r.module_slug);
+
+      // 2. Department modules (which sidebar sections this user's department unlocks)
+      let deptSlugs: string[] = [];
+      if (profile.department) {
+        const { data: deptModules, error: dmErr } = await supabase
+          .from('department_modules')
+          .select('module_slug')
+          .eq('department', profile.department);
+
+        if (dmErr) throw new Error(dmErr.message);
+        deptSlugs = (deptModules ?? []).map((d: { module_slug: string }) => d.module_slug);
+      }
+
+      // 3. Per-user overrides (fine-tuning on top)
+      const { data: overrides, error: ovErr } = await supabase
+        .from('user_module_overrides')
+        .select('module_slug, granted')
+        .eq('user_id', userId!);
+
+      if (ovErr) throw new Error(ovErr.message);
+      const overrideList = (overrides ?? []).map((o: { module_slug: string; granted: boolean }) => ({
+        module_slug: o.module_slug,
+        granted: o.granted,
+      }));
+
+      // Resolve: role base + department modules + overrides
+      const allowed = new Set([...roleSlugs, ...deptSlugs]);
+      for (const o of overrideList) {
+        if (o.granted) allowed.add(o.module_slug);
+        else allowed.delete(o.module_slug);
+      }
+
+      return {
+        user_id: userId!,
+        role: profile.role,
+        role_defaults: [...roleSlugs, ...deptSlugs],
+        overrides: overrideList,
+        allowed_modules: Array.from(allowed),
+      } satisfies UserPermissions;
     },
     enabled: !!userId,
   });

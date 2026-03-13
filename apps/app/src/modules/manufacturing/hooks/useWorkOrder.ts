@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getWorkOrder } from '@/mocks/manufacturing';
+import type { WorkOrder } from '../types';
 
 export function useWorkOrder(id: string) {
-  return useQuery({
+  return useDemoQuery<WorkOrder | undefined>({
     queryKey: ['manufacturing', 'work-order', id],
-    queryFn: () => getWorkOrder(id),
+    demoQueryFn: () => getWorkOrder(id),
+    emptyValue: undefined,
     enabled: !!id,
   });
 }

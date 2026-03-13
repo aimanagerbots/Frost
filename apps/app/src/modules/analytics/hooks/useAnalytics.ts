@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { MOCK_SALES_REP_REPORTS, MOCK_ACCOUNTS } from '@/mocks/sales';
 
 // ── Types ────────────────────────────────────────────────────────
@@ -51,24 +51,26 @@ function generateMonthlySales(): MonthlySalesRow[] {
 }
 
 export function useMonthlySales() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['analytics', 'monthly-sales'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       return generateMonthlySales();
     },
+    emptyValue: [] as MonthlySalesRow[],
   });
 }
 
 // ── Sales By Person ──────────────────────────────────────────────
 
 export function useSalesByPerson() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['analytics', 'sales-by-person'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       return MOCK_SALES_REP_REPORTS;
     },
+    emptyValue: [] as typeof MOCK_SALES_REP_REPORTS,
   });
 }
 
@@ -99,12 +101,13 @@ function generateClientByProductMatrix(): ClientByProductData {
 }
 
 export function useClientByProduct() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['analytics', 'client-by-product'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       return generateClientByProductMatrix();
     },
+    emptyValue: { accounts: [], categories: [], matrix: [] } as ClientByProductData,
   });
 }
 
@@ -126,11 +129,12 @@ function generateProductByClientMatrix(): ProductByClientData {
 }
 
 export function useProductByClient() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['analytics', 'product-by-client'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       return generateProductByClientMatrix();
     },
+    emptyValue: { products: [], clients: [], matrix: [] } as ProductByClientData,
   });
 }

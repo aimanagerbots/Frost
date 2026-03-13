@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getQASamples } from '@/mocks/cultivation';
+import type { QASample } from '../types';
 
 export function useQASamples() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'qa-samples'],
-    queryFn: () => getQASamples(),
+    demoQueryFn: () => getQASamples(),
+    emptyValue: [] as QASample[],
   });
 }

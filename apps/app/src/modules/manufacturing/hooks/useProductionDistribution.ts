@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getProductionDistribution } from '@/mocks/manufacturing';
+import type { ProductionDistribution } from '../types';
 
 export function useProductionDistribution() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['manufacturing', 'production-distribution'],
-    queryFn: () => getProductionDistribution(),
+    demoQueryFn: () => getProductionDistribution(),
+    emptyValue: [] as ProductionDistribution[],
   });
 }

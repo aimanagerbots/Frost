@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { accounts, interactions } from '@/mocks/crm';
 
 const CURRENT_DATE = '2026-03-12';
@@ -119,9 +119,9 @@ function computeNurtureStatuses(): NurtureAccountStatus[] {
 }
 
 export function useNurtureStatus() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'nurture'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 300));
       const statuses = computeNurtureStatuses();
       // Sort coldest first (null = never contacted = top)
@@ -132,5 +132,6 @@ export function useNurtureStatus() {
       });
       return statuses;
     },
+    emptyValue: [] as NurtureAccountStatus[],
   });
 }

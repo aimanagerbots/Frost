@@ -1,7 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPackagingOrders } from '@/mocks/packaging';
+import type { PackagingOrder } from '../types';
 
 interface PackagingOrderFilters {
   status?: string;
@@ -10,8 +11,9 @@ interface PackagingOrderFilters {
 }
 
 export function usePackagingOrders(filters?: PackagingOrderFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['packaging', 'orders', filters],
-    queryFn: () => getPackagingOrders(filters),
+    demoQueryFn: () => getPackagingOrders(filters),
+    emptyValue: [] as PackagingOrder[],
   });
 }

@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getReorderProposals } from '@/mocks/crm-sales';
+import type { ReorderProposal } from '@/modules/crm/types';
 
 export function useReorderProposals(filters?: { status?: string; source?: string }) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'reorder-proposals', filters],
-    queryFn: () => getReorderProposals(filters),
+    demoQueryFn: () => getReorderProposals(filters),
+    emptyValue: [] as ReorderProposal[],
   });
 }

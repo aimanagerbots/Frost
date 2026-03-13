@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getKnowledgeEntries } from '@/mocks/council';
+import type { KnowledgeEntry } from '../types';
 
 export function useKnowledgeBase(category?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['council', 'knowledge', category ?? 'all'],
-    queryFn: () => getKnowledgeEntries(category),
+    demoQueryFn: () => getKnowledgeEntries(category),
+    emptyValue: [] as KnowledgeEntry[],
   });
 }

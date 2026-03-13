@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { AD_CAMPAIGNS } from '@/mocks/cultivera';
 import type { AdCampaign } from '../types';
 
@@ -7,11 +7,12 @@ interface CultiveraMarketingData {
 }
 
 export function useCultiveraMarketing() {
-  return useQuery<CultiveraMarketingData>({
+  return useDemoQuery<CultiveraMarketingData>({
     queryKey: ['cultivera', 'marketing'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise(r => setTimeout(r, 200));
       return { campaigns: AD_CAMPAIGNS };
     },
+    emptyValue: { campaigns: [] },
   });
 }

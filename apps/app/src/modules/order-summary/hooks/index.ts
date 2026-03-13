@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { MOCK_ORDER_SUMMARY, SALES_REPS } from '@/mocks/sales';
 import type { OrderSummaryRow } from '@/modules/sales/types';
 import type { OrderSummaryFilters } from '../types';
@@ -59,9 +59,9 @@ function filterOrders(
 }
 
 export function useOrderSummary(filters: OrderSummaryFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['order-summary', filters],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       // Simulated API delay
       await new Promise((resolve) => setTimeout(resolve, 400));
 
@@ -74,15 +74,21 @@ export function useOrderSummary(filters: OrderSummaryFilters) {
         totalCount: filtered.length,
       };
     },
+    emptyValue: {
+      rows: [] as OrderSummaryRow[],
+      grandTotal: 0,
+      totalCount: 0,
+    },
   });
 }
 
 export function useSalesReps() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['sales-reps'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((resolve) => setTimeout(resolve, 100));
       return SALES_REPS;
     },
+    emptyValue: [] as string[],
   });
 }

@@ -107,8 +107,9 @@ export function DataTable<T extends Record<string, unknown>>({
     });
   }, [filtered, sortCol, sortDir, columns]);
 
-  const totalPages = Math.max(1, Math.ceil(sorted.length / pageSize));
-  const paged = sorted.slice(page * pageSize, (page + 1) * pageSize);
+  const showAll = pageSize === 0;
+  const totalPages = showAll ? 1 : Math.max(1, Math.ceil(sorted.length / pageSize));
+  const paged = showAll ? sorted : sorted.slice(page * pageSize, (page + 1) * pageSize);
 
   if (loading) {
     return <LoadingSkeleton variant="table" />;
@@ -203,31 +204,33 @@ export function DataTable<T extends Record<string, unknown>>({
             </table>
           </div>
 
-          {/* Pagination */}
-          <div className="flex items-center justify-between border-t border-default px-4 py-3">
-            <span className="text-xs text-text-muted">
-              {sorted.length} result{sorted.length !== 1 ? 's' : ''}
-            </span>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setPage((p) => Math.max(0, p - 1))}
-                disabled={page === 0}
-                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-accent-hover disabled:opacity-30"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
+          {/* Pagination — hidden when showing all */}
+          {!showAll && (
+            <div className="flex items-center justify-between border-t border-default px-4 py-3">
               <span className="text-xs text-text-muted">
-                {page + 1} / {totalPages}
+                {sorted.length} result{sorted.length !== 1 ? 's' : ''}
               </span>
-              <button
-                onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-                disabled={page >= totalPages - 1}
-                className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-accent-hover disabled:opacity-30"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setPage((p) => Math.max(0, p - 1))}
+                  disabled={page === 0}
+                  className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-accent-hover disabled:opacity-30"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <span className="text-xs text-text-muted">
+                  {page + 1} / {totalPages}
+                </span>
+                <button
+                  onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                  disabled={page >= totalPages - 1}
+                  className="flex h-7 w-7 items-center justify-center rounded-md border border-default text-text-muted transition-colors hover:bg-accent-hover disabled:opacity-30"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </>
       )}
     </div>

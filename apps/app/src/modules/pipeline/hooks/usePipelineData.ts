@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { accounts } from '@/mocks/crm';
 import { PIPELINE_PHASE_LABELS } from '@/modules/crm/types';
 import type { PipelineCellData, PipelineMetrics, PipelineStatus, PipelinePhase, PipelineTransition } from '../types';
@@ -84,11 +84,25 @@ function buildPipelineData() {
 }
 
 export function usePipelineData() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['pipeline', 'grid'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((resolve) => setTimeout(resolve, 300));
       return buildPipelineData();
+    },
+    emptyValue: {
+      cells: [] as PipelineCellData[],
+      metrics: {
+        totalActive: 0,
+        totalInactive: 0,
+        totalRecovery: 0,
+        totalAccounts: 0,
+        activeRevenue: 0,
+        recoveryRate: 0,
+        avgDaysToChurn: 0,
+        pipelineVelocity: 0,
+      } as PipelineMetrics,
+      recentTransitions: [] as RecentTransition[],
     },
   });
 }

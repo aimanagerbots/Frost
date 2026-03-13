@@ -1,17 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getEmails, getEmailMetrics } from '@/mocks/email';
-import type { EmailFolder } from '@/modules/email/types';
+import type { EmailFolder, Email, EmailMetrics } from '@/modules/email/types';
 
 export function useEmails(folder?: EmailFolder) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['email', 'list', folder],
-    queryFn: () => getEmails(folder),
+    demoQueryFn: () => getEmails(folder),
+    emptyValue: [] as Email[],
   });
 }
 
 export function useEmailMetrics() {
-  return useQuery({
+  return useDemoQuery<EmailMetrics>({
     queryKey: ['email', 'metrics'],
-    queryFn: getEmailMetrics,
+    demoQueryFn: getEmailMetrics,
+    emptyValue: { unread: 0, todayReceived: 0, needsResponse: 0, avgResponseTime: '0 hrs' },
   });
 }

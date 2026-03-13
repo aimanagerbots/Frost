@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPackagingThroughput } from '@/mocks/packaging';
+import type { PackagingThroughputDataPoint } from '../types';
 
 export function usePackagingThroughput() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['packaging', 'throughput'],
-    queryFn: () => getPackagingThroughput(),
+    demoQueryFn: () => getPackagingThroughput(),
+    emptyValue: [] as PackagingThroughputDataPoint[],
   });
 }

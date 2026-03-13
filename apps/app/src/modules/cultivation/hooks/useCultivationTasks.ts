@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCultivationTasks } from '@/mocks/cultivation';
+import type { CultivationTask } from '../types';
 
 export function useCultivationTasks(roomId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'tasks', roomId],
-    queryFn: () => getCultivationTasks(roomId),
+    demoQueryFn: () => getCultivationTasks(roomId),
+    emptyValue: [] as CultivationTask[],
   });
 }

@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getGrowRoom } from '@/mocks/cultivation';
+import type { GrowRoom } from '../types';
 
 export function useGrowRoom(id: string) {
-  return useQuery({
+  return useDemoQuery<GrowRoom | undefined>({
     queryKey: ['cultivation', 'grow-room', id],
-    queryFn: () => getGrowRoom(id),
+    demoQueryFn: () => getGrowRoom(id),
+    emptyValue: undefined,
     enabled: !!id,
   });
 }

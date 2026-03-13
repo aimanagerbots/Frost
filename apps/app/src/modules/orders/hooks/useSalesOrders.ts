@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { MOCK_ORDERS } from '@/mocks/sales';
 import type { SalesOrder, SalesOrderStatus } from '@/modules/sales/types';
 
@@ -59,22 +59,23 @@ function filterOrders(
 }
 
 export function useSalesOrders(filters: SalesOrderFilter = {}) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['salesOrders', 'list', filters],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       // Simulate network delay
       await new Promise((r) => setTimeout(r, 300));
       return filterOrders(MOCK_ORDERS, filters);
     },
+    emptyValue: [] as SalesOrder[],
   });
 }
 
 export type SalesOrderStatusTab = 'all' | SalesOrderStatus;
 
 export function useSalesOrderCounts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['salesOrders', 'counts'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((r) => setTimeout(r, 200));
       const counts: Record<string, number> = { all: MOCK_ORDERS.length };
       for (const order of MOCK_ORDERS) {
@@ -82,5 +83,6 @@ export function useSalesOrderCounts() {
       }
       return counts;
     },
+    emptyValue: {} as Record<string, number>,
   });
 }

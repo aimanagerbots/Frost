@@ -1,7 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getNonCannabisInventory } from '@/mocks/packaging';
+import type { NonCannabisInventory } from '../types';
 
 interface InventoryFilters {
   type?: string;
@@ -9,8 +10,9 @@ interface InventoryFilters {
 }
 
 export function useNonCannabisInventory(filters?: InventoryFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['packaging', 'materials', filters],
-    queryFn: () => getNonCannabisInventory(filters),
+    demoQueryFn: () => getNonCannabisInventory(filters),
+    emptyValue: [] as NonCannabisInventory[],
   });
 }

@@ -1,19 +1,26 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getContentPosts, getContentMetrics } from '@/mocks/content';
-import type { ContentFilter } from '@/modules/content/types';
+import type { ContentFilter, ContentPost } from '@/modules/content/types';
 
 export function useContentPosts(filters?: ContentFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['content', 'posts', filters],
-    queryFn: () => getContentPosts(filters),
+    demoQueryFn: () => getContentPosts(filters),
+    emptyValue: [] as ContentPost[],
   });
 }
 
 export function useContentMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['content', 'metrics'],
-    queryFn: () => getContentMetrics(),
+    demoQueryFn: () => getContentMetrics(),
+    emptyValue: {
+      postsThisMonth: 0,
+      avgEngagement: '0%',
+      emailOpenRate: '0%',
+      scheduledCount: 0,
+    },
   });
 }

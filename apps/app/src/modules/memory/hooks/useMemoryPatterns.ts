@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getMemoryPatterns } from '@/mocks/memory';
+import type { MemoryPattern } from '../types';
 
 export function useMemoryPatterns() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['memory', 'patterns'],
-    queryFn: () => getMemoryPatterns(),
+    demoQueryFn: () => getMemoryPatterns(),
+    emptyValue: [] as MemoryPattern[],
   });
 }

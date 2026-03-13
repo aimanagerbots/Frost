@@ -1,20 +1,37 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getSystemHealth, getBackgroundJobs, getAIModelUsage, getFeatureFlags } from '@/mocks/system';
+import type { SystemHealth, BackgroundJob, AIModelUsage, FeatureFlag } from '@/modules/system/types';
 
 export function useSystemHealth() {
-  return useQuery({ queryKey: ['system', 'health'], queryFn: () => getSystemHealth() });
+  return useDemoQuery({
+    queryKey: ['system', 'health'],
+    demoQueryFn: () => getSystemHealth(),
+    emptyValue: [] as SystemHealth[],
+  });
 }
 
 export function useBackgroundJobs() {
-  return useQuery({ queryKey: ['system', 'jobs'], queryFn: () => getBackgroundJobs() });
+  return useDemoQuery({
+    queryKey: ['system', 'jobs'],
+    demoQueryFn: () => getBackgroundJobs(),
+    emptyValue: [] as BackgroundJob[],
+  });
 }
 
 export function useAIModelUsage() {
-  return useQuery({ queryKey: ['system', 'ai-usage'], queryFn: () => getAIModelUsage() });
+  return useDemoQuery({
+    queryKey: ['system', 'ai-usage'],
+    demoQueryFn: () => getAIModelUsage(),
+    emptyValue: [] as AIModelUsage[],
+  });
 }
 
 export function useFeatureFlags() {
-  return useQuery({ queryKey: ['system', 'feature-flags'], queryFn: () => getFeatureFlags() });
+  return useDemoQuery({
+    queryKey: ['system', 'feature-flags'],
+    demoQueryFn: () => getFeatureFlags(),
+    emptyValue: [] as FeatureFlag[],
+  });
 }

@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getRoomAlerts } from '@/mocks/cultivation';
+import type { RoomAlert } from '../types';
 
 export function useRoomAlerts(roomId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'alerts', roomId],
-    queryFn: () => getRoomAlerts(roomId),
+    demoQueryFn: () => getRoomAlerts(roomId),
+    emptyValue: [] as RoomAlert[],
   });
 }

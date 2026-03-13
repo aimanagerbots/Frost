@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { MOCK_ACCOUNT_GROUPS, MOCK_ACCOUNTS } from '@/mocks/sales';
 import type { AccountGroup } from '@/modules/sales/types';
 import type { SalesAccount } from '@/modules/sales/types';
@@ -10,30 +10,32 @@ function delay(ms: number) {
 }
 
 export function useAccountGroups() {
-  return useQuery<AccountGroup[]>({
+  return useDemoQuery<AccountGroup[]>({
     queryKey: ['account-groups'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(400);
       return MOCK_ACCOUNT_GROUPS;
     },
+    emptyValue: [] as AccountGroup[],
   });
 }
 
 export function useAccountGroup(id: string | null) {
-  return useQuery<AccountGroup | undefined>({
+  return useDemoQuery<AccountGroup | undefined>({
     queryKey: ['account-groups', id],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return MOCK_ACCOUNT_GROUPS.find((g) => g.id === id);
     },
+    emptyValue: undefined,
     enabled: !!id,
   });
 }
 
 export function useGroupAccounts(groupId: string | null) {
-  return useQuery<SalesAccount[]>({
+  return useDemoQuery<SalesAccount[]>({
     queryKey: ['account-groups', groupId, 'accounts'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(350);
       // Simulate accounts belonging to this group — take a slice based on the group's accountCount
       const group = MOCK_ACCOUNT_GROUPS.find((g) => g.id === groupId);
@@ -41,16 +43,18 @@ export function useGroupAccounts(groupId: string | null) {
       const startIdx = MOCK_ACCOUNT_GROUPS.indexOf(group) * 3;
       return MOCK_ACCOUNTS.slice(startIdx, startIdx + group.accountCount);
     },
+    emptyValue: [] as SalesAccount[],
     enabled: !!groupId,
   });
 }
 
 export function useAllAccounts() {
-  return useQuery<SalesAccount[]>({
+  return useDemoQuery<SalesAccount[]>({
     queryKey: ['accounts'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await delay(300);
       return MOCK_ACCOUNTS;
     },
+    emptyValue: [] as SalesAccount[],
   });
 }

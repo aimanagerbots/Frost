@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCampaigns } from '@/mocks/crm-outreach';
+import type { Campaign } from '@/modules/crm/types';
 
 export function useCampaigns() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'campaigns'],
-    queryFn: () => getCampaigns(),
+    demoQueryFn: () => getCampaigns(),
+    emptyValue: [] as Campaign[],
   });
 }

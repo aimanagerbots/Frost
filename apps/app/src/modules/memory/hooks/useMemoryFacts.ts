@@ -1,7 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getMemoryFacts } from '@/mocks/memory';
+import type { MemoryFact } from '../types';
 
 export function useMemoryFacts(filters?: {
   category?: string;
@@ -9,8 +10,9 @@ export function useMemoryFacts(filters?: {
   minConfidence?: number;
   search?: string;
 }) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['memory', 'facts', filters],
-    queryFn: () => getMemoryFacts(filters),
+    demoQueryFn: () => getMemoryFacts(filters),
+    emptyValue: [] as MemoryFact[],
   });
 }

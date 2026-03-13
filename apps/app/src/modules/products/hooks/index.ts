@@ -1,19 +1,21 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getProductConcepts, getRDMetrics } from '@/mocks/products';
-import type { ProductFilter } from '@/modules/products/types';
+import type { ProductFilter, ProductConcept, RDMetrics } from '@/modules/products/types';
 
 export function useProductConcepts(filters?: ProductFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['products', 'concepts', filters],
-    queryFn: () => getProductConcepts(filters),
+    demoQueryFn: () => getProductConcepts(filters),
+    emptyValue: [] as ProductConcept[],
   });
 }
 
 export function useRDMetrics() {
-  return useQuery({
+  return useDemoQuery<RDMetrics>({
     queryKey: ['products', 'metrics'],
-    queryFn: () => getRDMetrics(),
+    demoQueryFn: () => getRDMetrics(),
+    emptyValue: { conceptsInPipeline: 0, avgTimeToLaunch: '0 weeks', launchesThisQuarter: 0, successRate: 0 },
   });
 }

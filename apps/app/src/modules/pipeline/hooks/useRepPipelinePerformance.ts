@@ -1,14 +1,16 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getRepPipelineStats } from '@/mocks/pipeline';
+import type { RepPipelineStats } from '../types';
 
 export function useRepPipelinePerformance(repId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['pipeline', 'rep-performance', repId],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((resolve) => setTimeout(resolve, 250));
       return getRepPipelineStats(repId);
     },
+    emptyValue: [] as RepPipelineStats[],
   });
 }

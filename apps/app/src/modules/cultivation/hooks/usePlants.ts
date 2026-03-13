@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPlants } from '@/mocks/cultivation';
+import type { Plant } from '../types';
 
 export function usePlants(filters?: { roomId?: string; stage?: string; health?: string; search?: string }) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'plants', filters],
-    queryFn: () => getPlants(filters),
+    demoQueryFn: () => getPlants(filters),
+    emptyValue: [] as Plant[],
   });
 }

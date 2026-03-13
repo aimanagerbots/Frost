@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getProductRecommendations } from '@/mocks/crm-intelligence';
+import type { ProductRecommendation } from '@/modules/crm/types';
 
 export function useProductRecommendations(accountId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'product-recommendations', accountId],
-    queryFn: () => getProductRecommendations(accountId),
+    demoQueryFn: () => getProductRecommendations(accountId),
+    emptyValue: [] as ProductRecommendation[],
   });
 }

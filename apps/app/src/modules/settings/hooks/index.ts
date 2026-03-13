@@ -1,20 +1,47 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCompanyProfile, getIntegrations, getNotificationPreferences, getCommunicationChannels } from '@/mocks/settings';
+import type { CompanyProfile, Integration, NotificationPreference, CommunicationChannel } from '@/modules/settings/types';
 
 export function useCompanyProfile() {
-  return useQuery({ queryKey: ['settings', 'company'], queryFn: () => getCompanyProfile() });
+  return useDemoQuery({
+    queryKey: ['settings', 'company'],
+    demoQueryFn: () => getCompanyProfile(),
+    emptyValue: {
+      name: '',
+      license: '',
+      address: '',
+      city: '',
+      state: '',
+      zip: '',
+      phone: '',
+      email: '',
+      timezone: '',
+    } as CompanyProfile,
+  });
 }
 
 export function useIntegrations() {
-  return useQuery({ queryKey: ['settings', 'integrations'], queryFn: () => getIntegrations() });
+  return useDemoQuery({
+    queryKey: ['settings', 'integrations'],
+    demoQueryFn: () => getIntegrations(),
+    emptyValue: [] as Integration[],
+  });
 }
 
 export function useNotificationPreferences() {
-  return useQuery({ queryKey: ['settings', 'notifications'], queryFn: () => getNotificationPreferences() });
+  return useDemoQuery({
+    queryKey: ['settings', 'notifications'],
+    demoQueryFn: () => getNotificationPreferences(),
+    emptyValue: [] as NotificationPreference[],
+  });
 }
 
 export function useCommunicationChannels() {
-  return useQuery({ queryKey: ['settings', 'communications'], queryFn: () => getCommunicationChannels() });
+  return useDemoQuery({
+    queryKey: ['settings', 'communications'],
+    demoQueryFn: () => getCommunicationChannels(),
+    emptyValue: [] as CommunicationChannel[],
+  });
 }

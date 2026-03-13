@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getDashboardMetrics } from '@/mocks/dashboard';
+import type { DashboardMetric } from '@/modules/dashboard/types';
 
 export function useDashboardMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['dashboard', 'metrics'],
-    queryFn: getDashboardMetrics,
+    demoQueryFn: getDashboardMetrics,
+    emptyValue: [] as DashboardMetric[],
   });
 }

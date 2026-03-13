@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getTopAccounts } from '@/mocks/orders';
+import type { TopAccount } from '@/modules/orders/types';
 
 export function useTopAccounts() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['orders', 'top-accounts'],
-    queryFn: getTopAccounts,
+    demoQueryFn: getTopAccounts,
+    emptyValue: [] as TopAccount[],
   });
 }

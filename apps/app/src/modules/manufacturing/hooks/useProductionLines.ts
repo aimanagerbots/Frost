@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getProductionLines } from '@/mocks/manufacturing';
+import type { ProductionLine } from '../types';
 
 export function useProductionLines() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['manufacturing', 'production-lines'],
-    queryFn: () => getProductionLines(),
+    demoQueryFn: () => getProductionLines(),
+    emptyValue: [] as ProductionLine[],
   });
 }

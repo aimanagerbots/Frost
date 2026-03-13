@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getDisposalRecords } from '@/mocks/cultivation';
+import type { DisposalRecord } from '../types';
 
 export function useDisposalRecords() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'disposal-records'],
-    queryFn: () => getDisposalRecords(),
+    demoQueryFn: () => getDisposalRecords(),
+    emptyValue: [] as DisposalRecord[],
   });
 }

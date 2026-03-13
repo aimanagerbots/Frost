@@ -1,19 +1,21 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getProjects, getProjectMetrics } from '@/mocks/projects';
-import type { ProjectFilter } from '@/modules/projects/types';
+import type { ProjectFilter, Project } from '@/modules/projects/types';
 
 export function useProjects(filters?: ProjectFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['projects', 'list', filters],
-    queryFn: () => getProjects(filters),
+    demoQueryFn: () => getProjects(filters),
+    emptyValue: [] as Project[],
   });
 }
 
 export function useProjectMetrics() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['projects', 'metrics'],
-    queryFn: () => getProjectMetrics(),
+    demoQueryFn: () => getProjectMetrics(),
+    emptyValue: { active: 0, onTrack: 0, behind: 0, completedThisQuarter: 0 },
   });
 }

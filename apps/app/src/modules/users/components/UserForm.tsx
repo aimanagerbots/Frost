@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Save, Trash2, Loader2 } from 'lucide-react';
+import { Send, Save, Trash2, Loader2 } from 'lucide-react';
 import { useCreateUser, useUpdateUser, useDeactivateUser } from '@/modules/users/hooks/useUserMutations';
 import { ROLE_LABELS, DEPARTMENT_LABELS } from '@/modules/auth/types';
 import type { UserRole, Department } from '@/modules/auth/types';
@@ -19,7 +19,6 @@ const ALL_DEPARTMENTS = Object.keys(DEPARTMENT_LABELS) as Department[];
 export function UserForm({ user, isCreating, onSuccess }: UserFormProps) {
   const [fullName, setFullName] = useState(user?.full_name ?? '');
   const [email, setEmail] = useState(user?.email ?? '');
-  const [password, setPassword] = useState('');
   const [role, setRole] = useState<string>(user?.role ?? 'viewer');
   const [department, setDepartment] = useState(user?.department ?? '');
   const [title, setTitle] = useState(user?.title ?? '');
@@ -39,17 +38,11 @@ export function UserForm({ user, isCreating, onSuccess }: UserFormProps) {
       setError('Name and email are required.');
       return;
     }
-    if (isCreating && password.length < 8) {
-      setError('Password must be at least 8 characters.');
-      return;
-    }
-
     try {
       if (isCreating) {
         await createUser.mutateAsync({
           full_name: fullName.trim(),
           email: email.trim(),
-          password,
           role,
           department: department || null,
           title: title.trim() || null,
@@ -118,19 +111,10 @@ export function UserForm({ user, isCreating, onSuccess }: UserFormProps) {
         />
       </div>
 
-      {/* Password (create only) */}
+      {/* Invite notice */}
       {isCreating && (
-        <div>
-          <label className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-text-muted">
-            Password
-          </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-lg border border-border-default bg-base px-3 py-2 text-sm text-text-bright placeholder-text-muted/50 outline-none focus:border-[#94A3B8] transition-colors"
-            placeholder="Minimum 8 characters"
-          />
+        <div className="rounded-lg border border-[#5BB8E6]/20 bg-[#5BB8E6]/5 px-4 py-3 text-sm text-[#5BB8E6]/80">
+          An invite email will be sent. The user will set their own password.
         </div>
       )}
 
@@ -193,8 +177,8 @@ export function UserForm({ user, isCreating, onSuccess }: UserFormProps) {
           className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors hover:brightness-110 disabled:opacity-50"
           style={{ backgroundColor: '#94A3B8' }}
         >
-          {isSaving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
-          {isCreating ? 'Create User' : 'Save Changes'}
+          {isSaving ? <Loader2 size={16} className="animate-spin" /> : isCreating ? <Send size={16} /> : <Save size={16} />}
+          {isCreating ? 'Send Invite' : 'Save Changes'}
         </button>
 
         {!isCreating && user?.is_active && (

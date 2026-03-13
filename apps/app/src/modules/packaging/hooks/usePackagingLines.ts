@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPackagingLines } from '@/mocks/packaging';
+import type { PackagingLine } from '../types';
 
 export function usePackagingLines() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['packaging', 'lines'],
-    queryFn: () => getPackagingLines(),
+    demoQueryFn: () => getPackagingLines(),
+    emptyValue: [] as PackagingLine[],
   });
 }

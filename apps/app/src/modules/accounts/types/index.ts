@@ -10,7 +10,7 @@ export type {
 } from '@/modules/sales/types';
 
 /** Tab filter for the accounts list view */
-export type AccountListTab = 'active' | 'inactive' | 'all';
+export type AccountListTab = 'all' | 'active' | 'recovery' | 'inactive';
 
 /** Tab for the account detail view */
 export type AccountDetailTab = 'analytics' | 'orders' | 'notes' | 'recommendations' | 'discounts';

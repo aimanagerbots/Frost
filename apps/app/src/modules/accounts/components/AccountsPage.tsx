@@ -14,7 +14,7 @@ const ACCENT = '#F59E0B';
 
 export function AccountsPage() {
   const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null);
-  const [tab, setTab] = useState<AccountListTab>('active');
+  const [tab, setTab] = useState<AccountListTab>('all');
   const [showQuickFilters, setShowQuickFilters] = useState(false);
   const [showExportMenu, setShowExportMenu] = useState(false);
   const [showAddNonCannabis, setShowAddNonCannabis] = useState(false);

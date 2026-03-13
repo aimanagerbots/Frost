@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getEquipment } from '@/mocks/manufacturing';
+import type { Equipment } from '../types';
 
 export function useEquipment(lineId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['manufacturing', 'equipment', lineId],
-    queryFn: () => getEquipment(lineId),
+    demoQueryFn: () => getEquipment(lineId),
+    emptyValue: [] as Equipment[],
   });
 }

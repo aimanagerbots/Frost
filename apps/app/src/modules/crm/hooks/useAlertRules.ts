@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { accounts, interactions } from '@/mocks/crm';
 import type { Account, Interaction, BriefingItem } from '@/modules/crm/types';
 import type { DashboardAlert } from '@/modules/dashboard/types';
@@ -246,9 +246,9 @@ function toDashboardAlert(trigger: AlertTrigger, index: number): DashboardAlert 
 }
 
 export function useAlertRules() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'alert-rules'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((resolve) => setTimeout(resolve, 300));
 
       const context: AlertContext = {
@@ -277,6 +277,11 @@ export function useAlertRules() {
         briefingItems,
         dashboardAlerts,
       };
+    },
+    emptyValue: {
+      alerts: [] as AlertTrigger[],
+      briefingItems: [] as BriefingItem[],
+      dashboardAlerts: [] as DashboardAlert[],
     },
   });
 }

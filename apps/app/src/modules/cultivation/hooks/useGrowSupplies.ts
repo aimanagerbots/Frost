@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getGrowSupplies } from '@/mocks/cultivation';
+import type { GrowSupply } from '../types';
 
 export function useGrowSupplies(filters?: { category?: string; status?: string }) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'supplies', filters],
-    queryFn: () => getGrowSupplies(filters),
+    demoQueryFn: () => getGrowSupplies(filters),
+    emptyValue: [] as GrowSupply[],
   });
 }

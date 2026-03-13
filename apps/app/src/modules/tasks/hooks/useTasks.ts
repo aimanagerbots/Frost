@@ -1,12 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getTasks } from '@/mocks/tasks';
-import type { TaskFilter } from '@/modules/tasks/types';
+import type { Task, TaskFilter } from '@/modules/tasks/types';
 
 export function useTasks(filters?: TaskFilter) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['tasks', 'list', filters],
-    queryFn: () => getTasks(filters),
+    demoQueryFn: () => getTasks(filters),
+    emptyValue: [] as Task[],
   });
 }

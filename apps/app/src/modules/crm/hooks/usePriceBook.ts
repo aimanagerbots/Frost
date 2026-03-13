@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPriceBook } from '@/mocks/crm-sales';
+import type { PriceBookEntry } from '@/modules/crm/types';
 
 export function usePriceBook(filters?: { category?: string; search?: string }) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'price-book', filters],
-    queryFn: () => getPriceBook(filters),
+    demoQueryFn: () => getPriceBook(filters),
+    emptyValue: [] as PriceBookEntry[],
   });
 }

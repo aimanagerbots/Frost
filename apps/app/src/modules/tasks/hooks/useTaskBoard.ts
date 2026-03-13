@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getTaskBoard } from '@/mocks/tasks';
+import type { TaskBoard } from '@/modules/tasks/types';
 
 export function useTaskBoard() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['tasks', 'board'],
-    queryFn: getTaskBoard,
+    demoQueryFn: getTaskBoard,
+    emptyValue: { columns: [] } as TaskBoard,
   });
 }

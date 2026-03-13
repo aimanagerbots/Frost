@@ -1,16 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getChatConversations, getChatSuggestions } from '@/mocks/chat';
+import type { ChatConversation, ChatSuggestion } from '../types';
 
 export function useChatConversations() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['chat', 'conversations'],
-    queryFn: getChatConversations,
+    demoQueryFn: getChatConversations,
+    emptyValue: [] as ChatConversation[],
   });
 }
 
 export function useChatSuggestions() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['chat', 'suggestions'],
-    queryFn: getChatSuggestions,
+    demoQueryFn: getChatSuggestions,
+    emptyValue: [] as ChatSuggestion[],
   });
 }

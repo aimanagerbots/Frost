@@ -1,12 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getAccountDeliveries } from '@/mocks/crm-details';
+import type { AccountDeliverySummary } from '@/modules/crm/types';
 
 export function useAccountDeliveries(id: string) {
-  return useQuery({
+  return useDemoQuery<AccountDeliverySummary>({
     queryKey: ['crm', 'account-deliveries', id],
-    queryFn: () => getAccountDeliveries(id),
+    demoQueryFn: () => getAccountDeliveries(id),
+    emptyValue: { preferredWindow: '', avgDeliveryMinutes: 0, onTimeRate: 0, deliveries: [] },
     enabled: !!id,
   });
 }

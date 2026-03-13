@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getOrderPipeline } from '@/mocks/orders';
+import type { OrderPipelineStage } from '@/modules/orders/types';
 
 export function useOrderPipeline() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['orders', 'pipeline'],
-    queryFn: getOrderPipeline,
+    demoQueryFn: getOrderPipeline,
+    emptyValue: [] as OrderPipelineStage[],
   });
 }

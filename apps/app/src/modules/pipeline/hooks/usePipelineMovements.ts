@@ -1,14 +1,16 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getPipelineMovements } from '@/mocks/pipeline';
+import type { PipelineMovement } from '../types';
 
 export function usePipelineMovements(months?: number) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['pipeline', 'movements', months],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((resolve) => setTimeout(resolve, 250));
       return getPipelineMovements(months);
     },
+    emptyValue: [] as PipelineMovement[],
   });
 }

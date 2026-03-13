@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getManufacturingBatches } from '@/mocks/manufacturing';
+import type { ManufacturingBatch } from '../types';
 
 export function useManufacturingBatches(filters?: { category?: string }) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['manufacturing', 'batches', filters],
-    queryFn: () => getManufacturingBatches(filters),
+    demoQueryFn: () => getManufacturingBatches(filters),
+    emptyValue: [] as ManufacturingBatch[],
   });
 }

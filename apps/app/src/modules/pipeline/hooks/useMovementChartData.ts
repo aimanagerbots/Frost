@@ -1,14 +1,16 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getMovementChartData } from '@/mocks/pipeline';
+import type { MovementChartData } from '../types';
 
 export function useMovementChartData() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['pipeline', 'movement-chart'],
-    queryFn: async () => {
+    demoQueryFn: async () => {
       await new Promise((resolve) => setTimeout(resolve, 200));
       return getMovementChartData();
     },
+    emptyValue: [] as MovementChartData[],
   });
 }

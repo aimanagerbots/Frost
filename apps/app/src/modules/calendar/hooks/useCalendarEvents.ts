@@ -1,7 +1,8 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCalendarEvents } from '@/mocks/calendar';
+import type { CalendarEvent } from '@/modules/calendar/types';
 
 interface CalendarFilters {
   types?: string[];
@@ -9,8 +10,9 @@ interface CalendarFilters {
 }
 
 export function useCalendarEvents(filters?: CalendarFilters) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['calendar', 'events', filters],
-    queryFn: () => getCalendarEvents(filters),
+    demoQueryFn: () => getCalendarEvents(filters),
+    emptyValue: [] as CalendarEvent[],
   });
 }

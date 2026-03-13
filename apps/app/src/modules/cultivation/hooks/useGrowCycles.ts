@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getGrowCycles } from '@/mocks/cultivation';
+import type { GrowCycle } from '../types';
 
 export function useGrowCycles() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['cultivation', 'grow-cycles'],
-    queryFn: () => getGrowCycles(),
+    demoQueryFn: () => getGrowCycles(),
+    emptyValue: [] as GrowCycle[],
   });
 }

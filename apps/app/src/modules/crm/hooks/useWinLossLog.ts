@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getWinLossLog } from '@/mocks/crm-intelligence';
+import type { WinLossEntry } from '@/modules/crm/types';
 
 export function useWinLossLog() {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['crm', 'win-loss-log'],
-    queryFn: () => getWinLossLog(),
+    demoQueryFn: () => getWinLossLog(),
+    emptyValue: [] as WinLossEntry[],
   });
 }

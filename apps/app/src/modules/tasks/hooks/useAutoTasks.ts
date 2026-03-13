@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { usePipelineEvents } from '@/modules/pipeline/hooks';
 import { accounts } from '@/mocks/crm';
 import type { Task } from '@/modules/tasks/types';
@@ -96,12 +96,13 @@ function eventToTask(event: PipelineEvent): Task {
 export function useAutoTasks() {
   const { data: events } = usePipelineEvents();
 
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['tasks', 'auto-generated'],
-    queryFn: async (): Promise<Task[]> => {
+    demoQueryFn: async (): Promise<Task[]> => {
       await new Promise((resolve) => setTimeout(resolve, 200));
       return (events ?? []).map(eventToTask);
     },
+    emptyValue: [] as Task[],
     enabled: !!events && events.length > 0,
   });
 }

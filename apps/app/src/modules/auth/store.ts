@@ -49,7 +49,7 @@ export const useAuthStore = create<AuthState>()(
       isAuthenticated: true,
       isDemoMode: true,
       isLoading: false,
-      user: { id: 'demo', name: 'Demo User', email: 'demo@frost.com', role: 'admin', department: null },
+      user: { id: 'demo', name: 'Demo User', email: 'demo@frostcannabis.co', role: 'admin', department: null },
       session: null,
       error: null,
     });
@@ -60,8 +60,34 @@ export const useAuthStore = create<AuthState>()(
     set((state) => ({ isDemoMode: !state.isDemoMode }));
   },
 
-  // --- Real Supabase auth ---
+  // --- Real Supabase auth (with demo credential intercept) ---
   loginWithEmail: async (email, password) => {
+    // Admin login: admin@frostcannabis.co / cultivera1
+    if (email.toLowerCase() === 'admin@frostcannabis.co' && password === 'cultivera1') {
+      set({
+        isAuthenticated: true,
+        isDemoMode: false,
+        isLoading: false,
+        user: { id: 'admin', name: 'Admin', email: 'admin@frostcannabis.co', role: 'admin', department: null },
+        session: null,
+        error: null,
+      });
+      return;
+    }
+
+    // Demo login: demo@frostcannabis.co / frost2026
+    if (email.toLowerCase() === 'demo@frostcannabis.co' && password === 'frost2026') {
+      set({
+        isAuthenticated: true,
+        isDemoMode: true,
+        isLoading: false,
+        user: { id: 'demo', name: 'Demo User', email: 'demo@frostcannabis.co', role: 'admin', department: null },
+        session: null,
+        error: null,
+      });
+      return;
+    }
+
     if (!supabase) {
       set({ error: 'Supabase not configured. Use demo mode or set environment variables.' });
       return;
@@ -122,6 +148,10 @@ export const useAuthStore = create<AuthState>()(
   },
 
   initSession: async () => {
+    // Don't touch Supabase if already in demo mode
+    const current = useAuthStore.getState();
+    if (current.isDemoMode) return;
+
     if (!supabase) return;
 
     set({ isLoading: true });

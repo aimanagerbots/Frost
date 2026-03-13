@@ -2,19 +2,17 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useAuthStore } from '@/modules/auth/store';
-import { apiFetch } from '@/lib/api';
+import { supabase } from '@/lib/supabase';
 import { categories } from '@/components/AppShell/nav-data';
 import type { ModuleDefinition } from '@/modules/auth/types';
 
 export function useModuleDefinitions() {
   const isDemoMode = useAuthStore((s) => s.isDemoMode);
-  const session = useAuthStore((s) => s.session);
 
   return useQuery({
-    queryKey: ['permissions', 'modules'],
+    queryKey: ['permissions', 'modules', isDemoMode],
     queryFn: async () => {
       if (isDemoMode) {
-        // Derive from nav-data in demo mode
         return categories.flatMap((cat) =>
           cat.items.map((item) => ({
             slug: item.slug,
@@ -23,10 +21,17 @@ export function useModuleDefinitions() {
           })),
         ) satisfies ModuleDefinition[];
       }
-      return apiFetch<ModuleDefinition[]>('/api/permissions/modules', {
-        token: session?.access_token,
-      });
+
+      if (!supabase) return [];
+
+      const { data, error } = await supabase
+        .from('module_definitions')
+        .select('slug, label, nav_group')
+        .order('nav_group');
+
+      if (error) throw new Error(error.message);
+      return data as ModuleDefinition[];
     },
-    staleTime: 10 * 60 * 1000, // 10 minutes — module list rarely changes
+    staleTime: 10 * 60 * 1000,
   });
 }

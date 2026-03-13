@@ -1,11 +1,13 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useDemoQuery } from '@/lib/use-demo-query';
 import { getCompetitorProducts } from '@/mocks/competitors';
+import type { CompetitorProduct } from '@/modules/competitors/types';
 
 export function useCompetitorProducts(competitorId?: string) {
-  return useQuery({
+  return useDemoQuery({
     queryKey: ['competitors', 'products', competitorId],
-    queryFn: () => getCompetitorProducts(competitorId),
+    demoQueryFn: () => getCompetitorProducts(competitorId),
+    emptyValue: [] as CompetitorProduct[],
   });
 }
