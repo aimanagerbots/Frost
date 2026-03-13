@@ -1,14 +1,29 @@
 'use client';
 
 import { LoadingSkeleton } from '@/components';
-import { useCRMDashboard } from '@/modules/crm/hooks';
+import { useCRMDashboard, useAlertRules } from '@/modules/crm/hooks';
 import { AIBriefingCard } from './AIBriefingCard';
+import type { BriefingItem } from '@/modules/crm/types';
 import { MetricsRow } from './MetricsRow';
 import { ChartsSection } from './ChartsSection';
 import { ActivityFeed } from './ActivityFeed';
 
+function deduplicateBriefingItems(
+  existing: BriefingItem[],
+  generated: BriefingItem[]
+): BriefingItem[] {
+  const existingMessages = new Set(
+    existing.map((item) => item.message.toLowerCase().slice(0, 60))
+  );
+  const unique = generated.filter(
+    (item) => !existingMessages.has(item.message.toLowerCase().slice(0, 60))
+  );
+  return [...existing, ...unique];
+}
+
 export function CRMDashboard() {
   const { data, isLoading } = useCRMDashboard();
+  const { data: alertRulesData } = useAlertRules();
 
   if (isLoading || !data) {
     return (
@@ -20,9 +35,13 @@ export function CRMDashboard() {
     );
   }
 
+  const combinedBriefingItems = alertRulesData
+    ? deduplicateBriefingItems(data.briefingItems, alertRulesData.briefingItems)
+    : data.briefingItems;
+
   return (
     <div className="space-y-6">
-      <AIBriefingCard items={data.briefingItems} />
+      <AIBriefingCard items={combinedBriefingItems} />
       <MetricsRow metrics={data.metrics} kpiMetrics={data.kpiMetrics} />
       <ChartsSection
         revenueByCategoryWeeks={data.revenueByCategoryWeeks}

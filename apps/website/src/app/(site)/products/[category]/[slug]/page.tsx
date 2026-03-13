@@ -123,6 +123,29 @@ export default async function ProductDetailPage({
           </div>
         </ScrollReveal>
 
+      </section>
+
+      {/* ── Find CTA Section ─────────────────────────────── */}
+      <section className="bg-accent-primary px-6 py-20">
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <h2 className="font-display text-3xl text-text-on-dark">
+            Find This Product Near You
+          </h2>
+          <p className="text-text-on-dark/70 font-sans text-lg leading-relaxed max-w-xl mx-auto">
+            Visit one of our retail partners to experience {product.name} in
+            person. Available at licensed dispensaries across the state.
+          </p>
+          <Link
+            href="/products"
+            className="inline-flex items-center justify-center border border-text-on-dark text-text-on-dark rounded-full px-8 py-3 text-sm uppercase tracking-widest font-sans font-medium transition-colors duration-200 hover:bg-text-on-dark/10"
+          >
+            Find a Retailer
+          </Link>
+        </div>
+      </section>
+
+      {/* ── Product Details ──────────────────────────────── */}
+      <section className="px-6 py-16 max-w-5xl mx-auto space-y-10">
         {/* ── Description ────────────────────────────────── */}
         <ScrollReveal>
           <p className="font-sans text-lg leading-relaxed text-text-muted max-w-2xl">
@@ -201,25 +224,6 @@ export default async function ProductDetailPage({
             )}
           </div>
         </ScrollReveal>
-      </section>
-
-      {/* ── Find CTA Section ─────────────────────────────── */}
-      <section className="bg-accent-primary px-6 py-20">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="font-display text-3xl text-text-on-dark">
-            Find This Product Near You
-          </h2>
-          <p className="text-text-on-dark/70 font-sans text-lg leading-relaxed max-w-xl mx-auto">
-            Visit one of our retail partners to experience {product.name} in
-            person. Available at licensed dispensaries across the state.
-          </p>
-          <Link
-            href="/products"
-            className="inline-flex items-center justify-center border border-text-on-dark text-text-on-dark rounded-full px-8 py-3 text-sm uppercase tracking-widest font-sans font-medium transition-colors duration-200 hover:bg-text-on-dark/10"
-          >
-            Find a Retailer
-          </Link>
-        </div>
       </section>
 
       {/* ── Compliance Warning ────────────────────────────── */}

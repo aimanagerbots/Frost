@@ -1,472 +1,252 @@
 import type {
-  CannabisInventoryItem,
-  NonCannabisItem,
-  COASubmission,
-  LabPartner,
-  InventoryAlert,
-  ActivityFeedEvent,
-  PipelineStateNode,
-  InventoryOverviewMetrics,
-  CategoryDistribution,
-  InventoryFilter,
-  ProductCategory,
-  ReadinessState,
-  Brand,
-  StrainType,
-  COAStatus,
+  Product, Batch, Strain, QAResult, Discount, InventoryRoom,
+  ProductLine, InventoryCategory, CatalogGroup, Backorder,
+  QALot, QASample, EmployeeSample, Disposal, ProductTag,
+  ConversionRule, ProductionRun, NonCannabisItem, ManageMenuRow,
 } from '@/modules/inventory/types';
 
-// ═══════════════════════════════════════════════════════════════
-// CANNABIS INVENTORY — 75 items
-// ═══════════════════════════════════════════════════════════════
+function p(o: Omit<Product, never>): Product { return o as Product; }
+function b(o: Omit<Batch, never>): Batch { return o as Batch; }
 
-let _id = 0;
-function ci(
-  productName: string, category: ProductCategory, strain: string, strainType: StrainType,
-  readinessState: ReadinessState, quantity: number, unit: CannabisInventoryItem['unit'],
-  batchNumber: string, thc: number, cbd: number, coaStatus: COAStatus,
-  location: string, brand: Brand, value: number,
-  extra?: Partial<CannabisInventoryItem>,
-): CannabisInventoryItem {
-  _id++;
-  const catPrefix = { flower: 'FL', preroll: 'PR', vaporizer: 'VP', concentrate: 'CN', edible: 'ED', beverage: 'BV' }[category];
-  const strainCode = strain.replace(/[^A-Z]/gi, '').substring(0, 2).toUpperCase();
-  return {
-    id: `inv-${String(_id).padStart(3, '0')}`,
-    sku: `${catPrefix}-${strainCode}-${extra?.packageSize?.replace(/[^0-9g]/g, '') || String(_id).padStart(2, '0')}`,
-    productName, category, strain, strainType, readinessState, quantity, unit,
-    batchNumber, thc, cbd, coaStatus, location, brand, value,
-    lastUpdated: extra?.lastUpdated ?? '2026-03-07',
-    ...extra,
-  };
-}
-
-// --- FLOWER (30 items) ---
-const flower: CannabisInventoryItem[] = [
-  // Growing (5)
-  ci('Wedding Cake Clone', 'flower', 'Wedding Cake', 'hybrid', 'growing', 48, 'plants', 'B2026-0301', 0, 0, 'not-tested', 'Greenhouse A', 'Frost Farms', 96, { lastUpdated: '2026-03-05' }),
-  ci('Blue Dream Seedling', 'flower', 'Blue Dream', 'sativa', 'growing', 36, 'plants', 'B2026-0302', 0, 0, 'not-tested', 'Greenhouse B', 'Frost Farms', 72, { lastUpdated: '2026-03-04' }),
-  ci('Gelato Clone', 'flower', 'Gelato', 'hybrid', 'growing', 42, 'plants', 'B2026-0303', 0, 0, 'not-tested', 'Greenhouse A', 'Northern Lights Co.', 84, { lastUpdated: '2026-03-06' }),
-  ci('OG Kush Seedling', 'flower', 'OG Kush', 'indica', 'growing', 30, 'plants', 'B2026-0304', 0, 0, 'not-tested', 'Greenhouse C', 'Frost Farms', 60, { lastUpdated: '2026-03-03' }),
-  ci('Jack Herer Clone', 'flower', 'Jack Herer', 'sativa', 'growing', 24, 'plants', 'B2026-0305', 0, 0, 'not-tested', 'Greenhouse B', 'Northern Lights Co.', 48, { lastUpdated: '2026-03-02' }),
-
-  // Harvested (3)
-  ci('Gorilla Glue Harvest', 'flower', 'Gorilla Glue', 'hybrid', 'harvested', 24, 'lbs', 'B2026-0280', 26.5, 0.8, 'not-tested', 'Dry Room 1', 'Frost Farms', 2880, { lastUpdated: '2026-03-06' }),
-  ci('Zkittlez Harvest', 'flower', 'Zkittlez', 'indica', 'harvested', 18, 'lbs', 'B2026-0281', 23.4, 0.5, 'not-tested', 'Dry Room 2', 'Glacier Extracts', 2160, { lastUpdated: '2026-03-05' }),
-  ci('GSC Harvest', 'flower', 'GSC', 'hybrid', 'harvested', 15, 'lbs', 'B2026-0282', 25.1, 0.7, 'not-tested', 'Dry Room 1', 'Frost Farms', 1800, { lastUpdated: '2026-03-04' }),
-
-  // Dried (3)
-  ci('Wedding Cake Dried', 'flower', 'Wedding Cake', 'hybrid', 'dried', 18, 'lbs', 'B2026-0270', 27.3, 0.6, 'not-tested', 'Cure Room A', 'Frost Farms', 3600, { lastUpdated: '2026-03-03' }),
-  ci('Blue Dream Dried', 'flower', 'Blue Dream', 'sativa', 'dried', 14, 'lbs', 'B2026-0271', 22.8, 0.4, 'not-tested', 'Cure Room B', 'Frost Farms', 2520, { lastUpdated: '2026-03-02' }),
-  ci('OG Kush Dried', 'flower', 'OG Kush', 'indica', 'dried', 12, 'lbs', 'B2026-0272', 24.2, 1.1, 'not-tested', 'Cure Room A', 'Northern Lights Co.', 2400, { lastUpdated: '2026-03-01' }),
-
-  // Bucked (2)
-  ci('Gelato Bucked', 'flower', 'Gelato', 'hybrid', 'bucked', 10, 'lbs', 'B2026-0260', 26.7, 0.6, 'not-tested', 'Processing Room A', 'Frost Farms', 2200, { lastUpdated: '2026-02-28' }),
-  ci('Jack Herer Bucked', 'flower', 'Jack Herer', 'sativa', 'bucked', 8, 'lbs', 'B2026-0261', 21.9, 0.8, 'not-tested', 'Processing Room B', 'Northern Lights Co.', 1600, { lastUpdated: '2026-02-27' }),
-
-  // Bulk Ready (3)
-  ci('Blue Dream Bulk', 'flower', 'Blue Dream', 'sativa', 'bulk-ready', 8, 'lbs', 'B2026-0250', 22.5, 0.4, 'not-tested', 'Vault A', 'Frost Farms', 2400, { lastUpdated: '2026-02-25' }),
-  ci('Wedding Cake Bulk', 'flower', 'Wedding Cake', 'hybrid', 'bulk-ready', 6, 'lbs', 'B2026-0251', 27.8, 0.5, 'not-tested', 'Vault A', 'Frost Farms', 2100, { lastUpdated: '2026-02-24' }),
-  ci('Gelato Bulk', 'flower', 'Gelato', 'hybrid', 'bulk-ready', 5, 'lbs', 'B2026-0252', 26.4, 0.6, 'not-tested', 'Vault B', 'Northern Lights Co.', 1750, { lastUpdated: '2026-02-23' }),
-
-  // COA Pending (2)
-  ci('Gorilla Glue Bulk (Testing)', 'flower', 'Gorilla Glue', 'hybrid', 'coa-pending', 3, 'batches', 'B2026-0240', 26.2, 0.8, 'pending', 'Lab Queue', 'Frost Farms', 3600, { lastUpdated: '2026-03-05' }),
-  ci('OG Kush Bulk (Testing)', 'flower', 'OG Kush', 'indica', 'coa-pending', 2, 'batches', 'B2026-0241', 24.6, 1.0, 'pending', 'Lab Queue', 'Northern Lights Co.', 2400, { lastUpdated: '2026-03-04' }),
-
-  // COA Passed (3)
-  ci('Blue Dream (COA Passed)', 'flower', 'Blue Dream', 'sativa', 'coa-passed', 4, 'batches', 'B2026-0230', 22.3, 0.4, 'passed', 'Pack Staging', 'Frost Farms', 4800, { lastUpdated: '2026-03-03' }),
-  ci('Wedding Cake (COA Passed)', 'flower', 'Wedding Cake', 'hybrid', 'coa-passed', 3, 'batches', 'B2026-0231', 27.5, 0.5, 'passed', 'Pack Staging', 'Frost Farms', 4200, { lastUpdated: '2026-03-02' }),
-  ci('GSC (COA Passed)', 'flower', 'GSC', 'hybrid', 'coa-passed', 2, 'batches', 'B2026-0232', 24.5, 0.7, 'passed', 'Pack Staging', 'Glacier Extracts', 2800, { lastUpdated: '2026-03-01' }),
-
-  // Packaged (4)
-  ci('Wedding Cake 3.5g', 'flower', 'Wedding Cake', 'hybrid', 'packaged', 340, 'units', 'B2026-0220', 27.5, 0.5, 'passed', 'Finished Goods', 'Frost Farms', 9520, { packageSize: '3.5g', lastUpdated: '2026-03-06' }),
-  ci('Blue Dream 7g', 'flower', 'Blue Dream', 'sativa', 'packaged', 120, 'units', 'B2026-0221', 22.3, 0.4, 'passed', 'Finished Goods', 'Frost Farms', 4800, { packageSize: '7g', lastUpdated: '2026-03-05' }),
-  ci('Gelato 3.5g', 'flower', 'Gelato', 'hybrid', 'packaged', 280, 'units', 'B2026-0222', 26.8, 0.6, 'passed', 'Finished Goods', 'Northern Lights Co.', 7840, { packageSize: '3.5g', lastUpdated: '2026-03-04' }),
-  ci('OG Kush 14g', 'flower', 'OG Kush', 'indica', 'packaged', 60, 'units', 'B2026-0223', 24.0, 1.1, 'passed', 'Finished Goods', 'Northern Lights Co.', 3600, { packageSize: '14g', lastUpdated: '2026-03-03' }),
-
-  // Fulfilled (2)
-  ci('Wedding Cake 3.5g', 'flower', 'Wedding Cake', 'hybrid', 'fulfilled', 120, 'units', 'B2026-0210', 27.5, 0.5, 'passed', 'Fulfillment Room', 'Frost Farms', 3360, { packageSize: '3.5g', lastUpdated: '2026-03-07' }),
-  ci('Blue Dream 3.5g', 'flower', 'Blue Dream', 'sativa', 'fulfilled', 85, 'units', 'B2026-0211', 22.3, 0.4, 'passed', 'Fulfillment Room', 'Frost Farms', 2380, { packageSize: '3.5g', lastUpdated: '2026-03-06' }),
-
-  // Delivered (1)
-  ci('GSC 3.5g', 'flower', 'GSC', 'hybrid', 'delivered', 200, 'units', 'B2026-0200', 24.5, 0.7, 'passed', 'Route A', 'Glacier Extracts', 5600, { packageSize: '3.5g', lastUpdated: '2026-03-07' }),
+// ─── Products (25 items) ──────────────────────────────────────────────────────
+export const MOCK_PRODUCTS: Product[] = [
+  p({ id: 'p-001', sku: 'FL-PP-3.5G', name: 'Premium Flower - Platinum Pineapple 3.5g', labelName: 'Platinum Pineapple 3.5g', inventoryType: 6, productLine: 'Premium Flower', subProductLine: 'Sativa', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Platinum Pineapple', unitPrice: 45, expiryMonths: 12, catalogGroup: 'Retail', catalogName: 'Premium Flower Collection', category: 'flower', subCategory: 'Indoor', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Award-winning sativa dominant with tropical pineapple and citrus notes.', productDisclaimer: 'For use only by persons 21+. Keep out of reach of children.', images: [], overrideQaValues: false, qaValues: { cbd: 0.5, cbda: 0.6, thc: 28.4, thca: 31.2, total: 30.1 }, availableForSale: 144, allocated: 24, onHold: 12, totalInStock: 180, status: 'active' }),
+  p({ id: 'p-002', sku: 'FL-GC-3.5G', name: 'Premium Flower - Green Crack 3.5g', labelName: 'Green Crack 3.5g', inventoryType: 6, productLine: 'Premium Flower', subProductLine: 'Sativa', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Green Crack', unitPrice: 42, expiryMonths: 12, catalogGroup: 'Retail', catalogName: 'Premium Flower Collection', category: 'flower', subCategory: 'Indoor', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Classic energetic sativa with mango and citrus terpene profile.', productDisclaimer: 'For use only by persons 21+. Keep out of reach of children.', images: [], overrideQaValues: false, qaValues: { cbd: 0.4, cbda: 0.5, thc: 24.1, thca: 26.8, total: 25.9 }, availableForSale: 96, allocated: 36, onHold: 0, totalInStock: 132, status: 'active' }),
+  p({ id: 'p-003', sku: 'FL-MB-3.5G', name: 'Premium Flower - Moonbow 3.5g', labelName: 'Moonbow 3.5g', inventoryType: 6, productLine: 'Premium Flower', subProductLine: 'Hybrid', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Moonbow', unitPrice: 48, expiryMonths: 12, catalogGroup: 'Retail', catalogName: 'Premium Flower Collection', category: 'flower', subCategory: 'Indoor', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Exotic hybrid with notes of grape, berry, and gas. Dense frosty buds.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.3, cbda: 0.4, thc: 30.2, thca: 33.5, total: 32.1 }, availableForSale: 72, allocated: 12, onHold: 6, totalInStock: 90, status: 'active' }),
+  p({ id: 'p-004', sku: 'FL-OC-3.5G', name: 'Premium Flower - Orange Crush 3.5g', labelName: 'Orange Crush 3.5g', inventoryType: 6, productLine: 'Premium Flower', subProductLine: 'Sativa', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Orange Crush', unitPrice: 40, expiryMonths: 12, catalogGroup: 'Retail', catalogName: 'Premium Flower Collection', category: 'flower', subCategory: 'Indoor', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Bright citrus forward sativa with uplifting energetic effects.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.6, cbda: 0.7, thc: 22.8, thca: 25.3, total: 24.4 }, availableForSale: 120, allocated: 48, onHold: 0, totalInStock: 168, status: 'active' }),
+  p({ id: 'p-005', sku: 'FL-SK-3.5G', name: 'Premium Flower - Skatalite 3.5g', labelName: 'Skatalite 3.5g', inventoryType: 6, productLine: 'Premium Flower', subProductLine: 'Indica', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Skatalite', unitPrice: 44, expiryMonths: 12, catalogGroup: 'Retail', catalogName: 'Premium Flower Collection', category: 'flower', subCategory: 'Indoor', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Relaxing indica with earthy pine and sweet berry notes.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.8, cbda: 0.9, thc: 26.5, thca: 29.4, total: 28.2 }, availableForSale: 60, allocated: 18, onHold: 6, totalInStock: 84, status: 'active' }),
+  p({ id: 'p-006', sku: 'FL-WF-3.5G', name: 'Premium Flower - White Fire OG 3.5g', labelName: 'White Fire OG 3.5g', inventoryType: 6, productLine: 'Premium Flower', subProductLine: 'Hybrid', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'White Fire OG', unitPrice: 46, expiryMonths: 12, catalogGroup: 'Retail', catalogName: 'Premium Flower Collection', category: 'flower', subCategory: 'Indoor', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Potent hybrid with fuel, earth, and sweet citrus aromas.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.4, cbda: 0.5, thc: 29.8, thca: 33.1, total: 31.5 }, availableForSale: 84, allocated: 24, onHold: 0, totalInStock: 108, status: 'active' }),
+  p({ id: 'p-007', sku: 'FL-PP-7G', name: 'Premium Flower - Platinum Pineapple 7g', labelName: 'Platinum Pineapple 7g', inventoryType: 6, productLine: 'Premium Flower', subProductLine: 'Sativa', packageSize: '7g', labelTemplate: 'Standard Flower', strain: 'Platinum Pineapple', unitPrice: 80, expiryMonths: 12, catalogGroup: 'Retail', catalogName: 'Premium Flower Collection', category: 'flower', subCategory: 'Indoor', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Award-winning sativa in a larger 7g format.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.5, cbda: 0.6, thc: 28.4, thca: 31.2, total: 30.1 }, availableForSale: 48, allocated: 12, onHold: 0, totalInStock: 60, status: 'active' }),
+  p({ id: 'p-008', sku: 'PR-PP-1G', name: 'RTM | Preroll Material - Platinum Pineapple 1g', labelName: 'Platinum Pineapple Preroll 1g', inventoryType: 28, productLine: 'RTM | Preroll Material', subProductLine: 'Sativa', packageSize: '1g', labelTemplate: 'Preroll', strain: 'Platinum Pineapple', unitPrice: 12, expiryMonths: 6, catalogGroup: 'Retail', catalogName: 'Preroll Collection', category: 'preroll', subCategory: 'Singles', minOrderLimit: 5, marketIncrementQuantity: 5, showAsDOHCompliant: true, productDescription: 'Single 1g preroll of premium Platinum Pineapple flower.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.5, cbda: 0.6, thc: 27.8, thca: 30.8, total: 29.5 }, availableForSale: 240, allocated: 60, onHold: 0, totalInStock: 300, status: 'active' }),
+  p({ id: 'p-009', sku: 'PR-GC-1G', name: 'RTM | Preroll Material - Green Crack 1g', labelName: 'Green Crack Preroll 1g', inventoryType: 28, productLine: 'RTM | Preroll Material', subProductLine: 'Sativa', packageSize: '1g', labelTemplate: 'Preroll', strain: 'Green Crack', unitPrice: 11, expiryMonths: 6, catalogGroup: 'Retail', catalogName: 'Preroll Collection', category: 'preroll', subCategory: 'Singles', minOrderLimit: 5, marketIncrementQuantity: 5, showAsDOHCompliant: true, productDescription: 'Single 1g preroll of classic Green Crack.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.4, cbda: 0.5, thc: 23.5, thca: 26.1, total: 25.2 }, availableForSale: 180, allocated: 40, onHold: 20, totalInStock: 240, status: 'active' }),
+  p({ id: 'p-010', sku: 'PR-MB-2PK', name: 'RTM | Preroll Material - Moonbow 2-Pack', labelName: 'Moonbow Preroll 2pk', inventoryType: 28, productLine: 'RTM | Preroll Material', subProductLine: 'Hybrid', packageSize: '2-pack 0.75g', labelTemplate: 'Preroll Multi', strain: 'Moonbow', unitPrice: 18, expiryMonths: 6, catalogGroup: 'Retail', catalogName: 'Preroll Collection', category: 'preroll', subCategory: 'Multi-Pack', minOrderLimit: 5, marketIncrementQuantity: 5, showAsDOHCompliant: true, productDescription: '2-pack of 0.75g Moonbow prerolls.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.3, cbda: 0.4, thc: 29.6, thca: 32.8, total: 31.4 }, availableForSale: 120, allocated: 24, onHold: 0, totalInStock: 144, status: 'active' }),
+  p({ id: 'p-011', sku: 'CN-PP-LR1G', name: 'RTM | Hydrocarbon Concentrate - Platinum Pineapple Live Resin 1g', labelName: 'PP Live Resin 1g', inventoryType: 17, productLine: 'RTM | Extraction Material', subProductLine: 'Live Resin', packageSize: '1g', labelTemplate: 'Concentrate', strain: 'Platinum Pineapple', unitPrice: 55, expiryMonths: 18, catalogGroup: 'Retail', catalogName: 'Concentrate Collection', category: 'concentrate', subCategory: 'Live Resin', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Fresh-frozen live resin extraction. Full terpene profile preserved.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 1.2, cbda: 1.4, thc: 68.5, thca: 75.2, total: 74.1 }, availableForSale: 48, allocated: 12, onHold: 0, totalInStock: 60, status: 'active' }),
+  p({ id: 'p-012', sku: 'CN-MB-BD1G', name: 'RTM | Hydrocarbon Concentrate - Moonbow Badder 1g', labelName: 'Moonbow Badder 1g', inventoryType: 17, productLine: 'RTM | Extraction Material', subProductLine: 'Badder', packageSize: '1g', labelTemplate: 'Concentrate', strain: 'Moonbow', unitPrice: 52, expiryMonths: 18, catalogGroup: 'Retail', catalogName: 'Concentrate Collection', category: 'concentrate', subCategory: 'Badder', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Whipped badder consistency. Exceptional flavor and potency.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.8, cbda: 0.9, thc: 72.3, thca: 79.8, total: 78.2 }, availableForSale: 36, allocated: 6, onHold: 0, totalInStock: 42, status: 'active' }),
+  p({ id: 'p-013', sku: 'VP-GC-CART', name: 'RTM | Vaporizer - Green Crack Cart 1g', labelName: 'Green Crack Vape Cart 1g', inventoryType: 24, productLine: 'RTM | Vaporizer Material', subProductLine: '510 Cartridge', packageSize: '1g', labelTemplate: 'Cartridge', strain: 'Green Crack', unitPrice: 48, expiryMonths: 12, catalogGroup: 'Retail', catalogName: 'Vaporizer Collection', category: 'vaporizer', subCategory: '510 Cart', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'CO2 oil in a 510 thread ceramic cartridge.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 2.1, cbda: 0.3, thc: 80.4, thca: 2.2, total: 85.3 }, availableForSale: 0, allocated: 0, onHold: 0, totalInStock: 0, status: 'not-for-sale' }),
+  p({ id: 'p-014', sku: 'ED-OC-GUM10', name: 'Solid Infused Edible - Orange Crush Gummies 10pk', labelName: 'Orange Crush Gummies 10pk', inventoryType: 22, productLine: 'Edible Line', subProductLine: 'Gummies', packageSize: '10-pack 10mg', labelTemplate: 'Edible Standard', strain: 'N/A', unitPrice: 25, expiryMonths: 6, catalogGroup: 'Retail', catalogName: 'Edible Collection', category: 'edible', subCategory: 'Gummies', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: '10 gummies at 10mg THC each. Orange citrus flavor.', productDisclaimer: 'For use only by persons 21+. Start low and go slow.', images: [], overrideQaValues: true, qaValues: { cbd: 0.0, cbda: 0.0, thc: 10.0, thca: 0.0, total: 10.0 }, availableForSale: 200, allocated: 30, onHold: 10, totalInStock: 240, status: 'active' }),
+  p({ id: 'p-015', sku: 'BV-FS-TNC30', name: 'Tincture - Full Spectrum 1500mg 30ml', labelName: 'Full Spectrum Tincture 1500mg', inventoryType: 35, productLine: 'Wellness Line', subProductLine: 'Tinctures', packageSize: '30ml', labelTemplate: 'Tincture', strain: 'Blend', unitPrice: 65, expiryMonths: 24, catalogGroup: 'Retail', catalogName: 'Wellness Collection', category: 'beverage', subCategory: 'Tincture', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Full spectrum CO2 extracted tincture in MCT oil. 50mg THC per mL.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: true, qaValues: { cbd: 15.0, cbda: 0.0, thc: 50.0, thca: 0.0, total: 65.0 }, availableForSale: 80, allocated: 10, onHold: 0, totalInStock: 90, status: 'active' }),
+  p({ id: 'p-016', sku: 'BDL-PP-3.5G', name: 'RTP | Budlets - Platinum Pineapple 3.5g', labelName: 'PP Budlets 3.5g', inventoryType: 6, productLine: 'RTP | Budlets', subProductLine: 'Sativa', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Platinum Pineapple', unitPrice: 32, expiryMonths: 12, catalogGroup: 'Value', catalogName: 'Budlet Collection', category: 'flower', subCategory: 'Budlets', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Value-tier Budlets of Platinum Pineapple at 3.5g.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.4, cbda: 0.5, thc: 22.0, thca: 24.4, total: 23.3 }, availableForSale: 88, allocated: 16, onHold: 0, totalInStock: 104, status: 'active' }),
+  p({ id: 'p-017', sku: 'BDL-MB-3.5G', name: 'RTP | Budlets - Moonbow 3.5g', labelName: 'Moonbow Budlets 3.5g', inventoryType: 6, productLine: 'RTP | Budlets', subProductLine: 'Hybrid', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Moonbow', unitPrice: 34, expiryMonths: 12, catalogGroup: 'Value', catalogName: 'Budlet Collection', category: 'flower', subCategory: 'Budlets', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Value-tier Moonbow Budlets at 3.5g.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.3, cbda: 0.4, thc: 25.0, thca: 27.7, total: 26.5 }, availableForSale: 64, allocated: 8, onHold: 0, totalInStock: 72, status: 'active' }),
+  p({ id: 'p-018', sku: 'BDL-OC-3.5G', name: 'RTP | Budlets - Orange Crush 3.5g', labelName: 'Orange Crush Budlets 3.5g', inventoryType: 6, productLine: 'RTP | Budlets', subProductLine: 'Sativa', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Orange Crush', unitPrice: 30, expiryMonths: 12, catalogGroup: 'Value', catalogName: 'Budlet Collection', category: 'flower', subCategory: 'Budlets', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Value-tier Orange Crush Budlets at 3.5g.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.6, cbda: 0.7, thc: 19.8, thca: 22.0, total: 21.1 }, availableForSale: 0, allocated: 0, onHold: 0, totalInStock: 0, status: 'not-for-sale' }),
+  p({ id: 'p-019', sku: 'BDL-SK-3.5G', name: 'RTP | Budlets - Skatalite 3.5g', labelName: 'Skatalite Budlets 3.5g', inventoryType: 6, productLine: 'RTP | Budlets', subProductLine: 'Indica', packageSize: '3.5g', labelTemplate: 'Standard Flower', strain: 'Skatalite', unitPrice: 33, expiryMonths: 12, catalogGroup: 'Value', catalogName: 'Budlet Collection', category: 'flower', subCategory: 'Budlets', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Value-tier Skatalite Budlets at 3.5g.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.7, cbda: 0.8, thc: 23.4, thca: 26.0, total: 24.8 }, availableForSale: 56, allocated: 8, onHold: 4, totalInStock: 68, status: 'active' }),
+  p({ id: 'p-020', sku: 'CN-WF-ROS1G', name: 'RTM | Fresh Frozen - White Fire OG Rosin 1g', labelName: 'WFO Live Rosin 1g', inventoryType: 38, productLine: 'RTM | Extraction Material', subProductLine: 'Rosin', packageSize: '1g', labelTemplate: 'Concentrate', strain: 'White Fire OG', unitPrice: 70, expiryMonths: 18, catalogGroup: 'Retail', catalogName: 'Concentrate Collection', category: 'concentrate', subCategory: 'Live Rosin', minOrderLimit: 1, marketIncrementQuantity: 1, showAsDOHCompliant: true, productDescription: 'Solventless live rosin from fresh-frozen White Fire OG.', productDisclaimer: 'For use only by persons 21+.', images: [], overrideQaValues: false, qaValues: { cbd: 0.6, cbda: 0.8, thc: 65.4, thca: 72.1, total: 70.2 }, availableForSale: 24, allocated: 6, onHold: 0, totalInStock: 30, status: 'active' }),
 ];
 
-// --- PREROLL (12 items) ---
-const preroll: CannabisInventoryItem[] = [
-  ci('Wedding Cake Preroll 1g', 'preroll', 'Wedding Cake', 'hybrid', 'packaged', 200, 'units', 'B2026-0310', 27.0, 0.5, 'passed', 'Finished Goods', 'Frost Farms', 2000, { packageSize: '1g', lastUpdated: '2026-03-06' }),
-  ci('Blue Dream Infused Preroll 1g', 'preroll', 'Blue Dream', 'sativa', 'packaged', 150, 'units', 'B2026-0311', 32.0, 0.4, 'passed', 'Finished Goods', 'Frost Farms', 1950, { packageSize: '1g infused', lastUpdated: '2026-03-05' }),
-  ci('OG Kush Preroll 5-Pack', 'preroll', 'OG Kush', 'indica', 'packaged', 80, 'units', 'B2026-0312', 24.0, 1.1, 'passed', 'Finished Goods', 'Northern Lights Co.', 2400, { packageSize: '5x0.5g', lastUpdated: '2026-03-04' }),
-  ci('GSC Infused Preroll 1g', 'preroll', 'GSC', 'hybrid', 'packaged', 120, 'units', 'B2026-0313', 30.5, 0.7, 'passed', 'Finished Goods', 'Glacier Extracts', 1560, { packageSize: '1g infused', lastUpdated: '2026-03-03' }),
-  ci('Jack Herer Preroll 1g', 'preroll', 'Jack Herer', 'sativa', 'fulfilled', 60, 'units', 'B2026-0314', 21.9, 0.8, 'passed', 'Fulfillment Room', 'Northern Lights Co.', 600, { packageSize: '1g', lastUpdated: '2026-03-07' }),
-  ci('Gorilla Glue 5-Pack', 'preroll', 'Gorilla Glue', 'hybrid', 'fulfilled', 40, 'units', 'B2026-0315', 26.0, 0.7, 'passed', 'Fulfillment Room', 'Frost Farms', 1200, { packageSize: '5x0.5g', lastUpdated: '2026-03-06' }),
-  ci('Wedding Cake Preroll (Rolling)', 'preroll', 'Wedding Cake', 'hybrid', 'bulk-ready', 15, 'lbs', 'B2026-0316', 27.0, 0.5, 'passed', 'Roll Room', 'Frost Farms', 3000, { lastUpdated: '2026-03-05' }),
-  ci('Blue Dream Preroll (Rolling)', 'preroll', 'Blue Dream', 'sativa', 'bulk-ready', 10, 'lbs', 'B2026-0317', 22.0, 0.4, 'passed', 'Roll Room', 'Frost Farms', 2000, { lastUpdated: '2026-03-04' }),
-  ci('Gelato Preroll 1g', 'preroll', 'Gelato', 'hybrid', 'coa-passed', 2, 'batches', 'B2026-0318', 26.8, 0.6, 'passed', 'Pack Staging', 'Northern Lights Co.', 2400, { packageSize: '1g', lastUpdated: '2026-03-03' }),
-  ci('Zkittlez Preroll 1g', 'preroll', 'Zkittlez', 'indica', 'coa-pending', 1, 'batches', 'B2026-0319', 23.0, 0.5, 'pending', 'Lab Queue', 'Glacier Extracts', 1200, { packageSize: '1g', lastUpdated: '2026-03-02' }),
-  ci('OG Kush Infused 1g', 'preroll', 'OG Kush', 'indica', 'delivered', 100, 'units', 'B2026-0320', 28.0, 1.0, 'passed', 'Route B', 'Northern Lights Co.', 1300, { packageSize: '1g infused', lastUpdated: '2026-03-07' }),
-  ci('Sour Diesel Preroll 1g', 'preroll', 'Sour Diesel', 'sativa', 'packaged', 90, 'units', 'B2026-0321', 25.5, 0.3, 'passed', 'Finished Goods', 'Frost Farms', 900, { packageSize: '1g', lastUpdated: '2026-03-06' }),
+// ─── Batches (12 items) ───────────────────────────────────────────────────────
+export const MOCK_BATCHES: Batch[] = [
+  b({ id: 'b-001', barcode: 'GF41598605597285', productName: 'Premium Flower - Platinum Pineapple', room: 'Vault A', batchDate: '2026-02-15', qaStatus: 'passed', available: 144, unitsForSale: 144, unitsOnHold: 12, unitsAllocated: 24, unitsInStock: 180, status: 'available' }),
+  b({ id: 'b-002', barcode: 'GF41598605545594', productName: 'Premium Flower - Green Crack', room: 'Vault A', batchDate: '2026-02-18', qaStatus: 'passed', available: 96, unitsForSale: 96, unitsOnHold: 0, unitsAllocated: 36, unitsInStock: 132, status: 'available' }),
+  b({ id: 'b-003', barcode: 'WA.J415BB6.IN2NAB', productName: 'Premium Flower - Moonbow', room: 'Vault B', batchDate: '2026-02-20', qaStatus: 'passed', available: 72, unitsForSale: 72, unitsOnHold: 6, unitsAllocated: 12, unitsInStock: 90, status: 'available' }),
+  b({ id: 'b-004', barcode: 'GF41598605601122', productName: 'RTM | Preroll Material - Platinum Pineapple', room: 'Pack Staging', batchDate: '2026-02-22', qaStatus: 'passed', available: 240, unitsForSale: 240, unitsOnHold: 0, unitsAllocated: 60, unitsInStock: 300, status: 'available' }),
+  b({ id: 'b-005', barcode: 'GF41598605611233', productName: 'RTM | Hydrocarbon Concentrate - PP Live Resin', room: 'Cold Storage', batchDate: '2026-02-10', qaStatus: 'passed', available: 48, unitsForSale: 48, unitsOnHold: 0, unitsAllocated: 12, unitsInStock: 60, status: 'available' }),
+  b({ id: 'b-006', barcode: 'GF41598605622344', productName: 'Premium Flower - Orange Crush', room: 'Vault A', batchDate: '2026-02-25', qaStatus: null, available: 0, unitsForSale: 0, unitsOnHold: 0, unitsAllocated: 0, unitsInStock: 120, status: 'not-for-sale' }),
+  b({ id: 'b-007', barcode: 'GF41598605633455', productName: 'RTM | Vaporizer - Green Crack Cart', room: 'Cold Storage', batchDate: '2026-01-30', qaStatus: 'failed', available: 0, unitsForSale: 0, unitsOnHold: 0, unitsAllocated: 0, unitsInStock: 0, status: 'excluded' }),
+  b({ id: 'b-008', barcode: 'GF41598605644566', productName: 'Edible - Orange Crush Gummies', room: 'Pack Staging', batchDate: '2026-02-28', qaStatus: 'passed', available: 200, unitsForSale: 200, unitsOnHold: 10, unitsAllocated: 30, unitsInStock: 240, status: 'available' }),
+  b({ id: 'b-009', barcode: 'GF41598605655677', productName: 'Premium Flower - Skatalite', room: 'Vault B', batchDate: '2026-02-12', qaStatus: 'passed', available: 60, unitsForSale: 60, unitsOnHold: 6, unitsAllocated: 18, unitsInStock: 84, status: 'available' }),
+  b({ id: 'b-010', barcode: 'GF41598605666788', productName: 'RTM | Preroll Material - Green Crack', room: 'Pack Staging', batchDate: '2026-02-24', qaStatus: 'pending', available: 0, unitsForSale: 0, unitsOnHold: 20, unitsAllocated: 40, unitsInStock: 240, status: 'not-for-sale' }),
+  b({ id: 'b-011', barcode: 'GF41598605677899', productName: 'Tincture - Full Spectrum 1500mg', room: 'Cold Storage', batchDate: '2026-01-20', qaStatus: 'passed', available: 80, unitsForSale: 80, unitsOnHold: 0, unitsAllocated: 10, unitsInStock: 90, status: 'available' }),
+  b({ id: 'b-012', barcode: 'GF41598605688900', productName: 'Budlets - White Fire OG', room: 'Vault A', batchDate: '2026-03-01', qaStatus: null, available: 0, unitsForSale: 0, unitsOnHold: 0, unitsAllocated: 0, unitsInStock: 0, status: 'not-for-sale' }),
 ];
 
-// --- VAPORIZER (12 items) ---
-const vaporizer: CannabisInventoryItem[] = [
-  ci('Gelato Live Resin Cart 1g', 'vaporizer', 'Gelato', 'hybrid', 'packaged', 240, 'units', 'B2026-0410', 85.6, 0.5, 'passed', 'Finished Goods', 'Glacier Extracts', 7680, { packageSize: '1g cart', lastUpdated: '2026-03-06' }),
-  ci('Blue Dream 510 Cart 1g', 'vaporizer', 'Blue Dream', 'sativa', 'packaged', 180, 'units', 'B2026-0411', 90.0, 0.2, 'passed', 'Finished Goods', 'Frost Farms', 4680, { packageSize: '1g cart', lastUpdated: '2026-03-05' }),
-  ci('Sour Diesel Disposable 0.5g', 'vaporizer', 'Sour Diesel', 'sativa', 'packaged', 160, 'units', 'B2026-0412', 88.1, 0.3, 'passed', 'Finished Goods', 'Frost Farms', 4480, { packageSize: '0.5g disposable', lastUpdated: '2026-03-04' }),
-  ci('OG Kush Cart 0.5g', 'vaporizer', 'OG Kush', 'indica', 'packaged', 100, 'units', 'B2026-0413', 89.5, 1.0, 'passed', 'Finished Goods', 'Northern Lights Co.', 2200, { packageSize: '0.5g cart', lastUpdated: '2026-03-03' }),
-  ci('Wedding Cake Live Resin Cart', 'vaporizer', 'Wedding Cake', 'hybrid', 'fulfilled', 50, 'units', 'B2026-0414', 86.8, 0.4, 'passed', 'Fulfillment Room', 'Glacier Extracts', 1600, { packageSize: '1g cart', lastUpdated: '2026-03-07' }),
-  ci('GSC Disposable 0.5g', 'vaporizer', 'GSC', 'hybrid', 'fulfilled', 30, 'units', 'B2026-0415', 85.5, 0.6, 'passed', 'Fulfillment Room', 'Glacier Extracts', 840, { packageSize: '0.5g disposable', lastUpdated: '2026-03-06' }),
-  ci('Blue Dream Distillate', 'vaporizer', 'Blue Dream', 'sativa', 'bulk-ready', 3, 'lbs', 'B2026-0416', 91.2, 0.2, 'not-tested', 'Distillate Vault', 'Frost Farms', 6300, { lastUpdated: '2026-03-03' }),
-  ci('OG Kush Distillate', 'vaporizer', 'OG Kush', 'indica', 'bulk-ready', 2, 'lbs', 'B2026-0417', 90.5, 1.0, 'not-tested', 'Distillate Vault', 'Northern Lights Co.', 4200, { lastUpdated: '2026-03-02' }),
-  ci('Gorilla Glue Cart 1g', 'vaporizer', 'Gorilla Glue', 'hybrid', 'coa-passed', 3, 'batches', 'B2026-0418', 88.0, 0.8, 'passed', 'Pack Staging', 'Frost Farms', 3600, { packageSize: '1g cart', lastUpdated: '2026-03-04' }),
-  ci('Zkittlez Cart 0.5g', 'vaporizer', 'Zkittlez', 'indica', 'coa-pending', 1, 'batches', 'B2026-0419', 87.2, 0.5, 'pending', 'Lab Queue', 'Glacier Extracts', 1200, { packageSize: '0.5g cart', lastUpdated: '2026-03-05' }),
-  ci('Sour Diesel Cart 1g', 'vaporizer', 'Sour Diesel', 'sativa', 'delivered', 80, 'units', 'B2026-0420', 88.1, 0.3, 'passed', 'Route A', 'Frost Farms', 2240, { packageSize: '1g cart', lastUpdated: '2026-03-07' }),
-  ci('Gelato Disposable 0.5g', 'vaporizer', 'Gelato', 'hybrid', 'packaged', 90, 'units', 'B2026-0421', 84.0, 0.5, 'passed', 'Finished Goods', 'Glacier Extracts', 2520, { packageSize: '0.5g disposable', lastUpdated: '2026-03-05' }),
+// ─── Strains (16 items) ───────────────────────────────────────────────────────
+export const MOCK_STRAINS: Strain[] = [
+  { id: 's-001', name: 'Platinum Pineapple', image: null, isActive: true },
+  { id: 's-002', name: 'Green Crack', image: null, isActive: true },
+  { id: 's-003', name: 'Moonbow', image: null, isActive: true },
+  { id: 's-004', name: 'Orange Crush', image: null, isActive: true },
+  { id: 's-005', name: 'Skatalite', image: null, isActive: true },
+  { id: 's-006', name: 'White Fire OG', image: null, isActive: true },
+  { id: 's-007', name: 'Wedding Cake', image: null, isActive: true },
+  { id: 's-008', name: 'Blue Dream', image: null, isActive: true },
+  { id: 's-009', name: 'Gorilla Glue #4', image: null, isActive: true },
+  { id: 's-010', name: 'OG Kush', image: null, isActive: true },
+  { id: 's-011', name: 'GSC (Girl Scout Cookies)', image: null, isActive: true },
+  { id: 's-012', name: 'Zkittlez', image: null, isActive: true },
+  { id: 's-013', name: 'Jack Herer', image: null, isActive: false },
+  { id: 's-014', name: 'Gelato', image: null, isActive: false },
+  { id: 's-015', name: 'Chemdawg', image: null, isActive: false },
+  { id: 's-016', name: 'Sour Diesel', image: null, isActive: false },
 ];
 
-// --- CONCENTRATE (10 items) ---
-const concentrate: CannabisInventoryItem[] = [
-  ci('Gelato Live Resin 1g', 'concentrate', 'Gelato', 'hybrid', 'packaged', 120, 'units', 'B2026-0510', 83.0, 0.5, 'passed', 'Finished Goods', 'Glacier Extracts', 4560, { packageSize: '1g', lastUpdated: '2026-03-06' }),
-  ci('OG Kush Shatter 1g', 'concentrate', 'OG Kush', 'indica', 'packaged', 100, 'units', 'B2026-0511', 85.2, 1.1, 'passed', 'Finished Goods', 'Northern Lights Co.', 2800, { packageSize: '1g', lastUpdated: '2026-03-05' }),
-  ci('Wedding Cake Live Rosin 1g', 'concentrate', 'Wedding Cake', 'hybrid', 'packaged', 60, 'units', 'B2026-0512', 81.5, 0.4, 'passed', 'Finished Goods', 'Frost Farms', 3120, { packageSize: '1g', lastUpdated: '2026-03-04' }),
-  ci('Gelato Diamonds 1g', 'concentrate', 'Gelato', 'hybrid', 'packaged', 48, 'units', 'B2026-0513', 91.5, 0.3, 'passed', 'Finished Goods', 'Glacier Extracts', 2304, { packageSize: '1g', lastUpdated: '2026-03-03' }),
-  ci('Blue Dream Wax 1g', 'concentrate', 'Blue Dream', 'sativa', 'coa-pending', 2, 'batches', 'B2026-0514', 80.8, 0.3, 'pending', 'Lab Queue', 'Frost Farms', 2400, { packageSize: '1g', lastUpdated: '2026-03-05' }),
-  ci('Gorilla Glue Shatter Bulk', 'concentrate', 'Gorilla Glue', 'hybrid', 'bulk-ready', 3, 'lbs', 'B2026-0515', 84.6, 0.7, 'not-tested', 'Clean Room', 'Frost Farms', 4800, { lastUpdated: '2026-03-02' }),
-  ci('OG Kush Wax Processing', 'concentrate', 'OG Kush', 'indica', 'dried', 5, 'lbs', 'B2026-0516', 78.5, 1.0, 'not-tested', 'Extraction Lab', 'Northern Lights Co.', 3000, { lastUpdated: '2026-03-01' }),
-  ci('Wedding Cake Rosin Bulk', 'concentrate', 'Wedding Cake', 'hybrid', 'coa-passed', 2, 'batches', 'B2026-0517', 81.5, 0.4, 'passed', 'Pack Staging', 'Frost Farms', 3200, { lastUpdated: '2026-03-04' }),
-  ci('Sour Diesel Shatter 1g', 'concentrate', 'Sour Diesel', 'sativa', 'fulfilled', 40, 'units', 'B2026-0518', 82.0, 0.3, 'passed', 'Fulfillment Room', 'Frost Farms', 1120, { packageSize: '1g', lastUpdated: '2026-03-07' }),
-  ci('Zkittlez Live Resin 1g', 'concentrate', 'Zkittlez', 'indica', 'coa-pending', 1, 'batches', 'B2026-0519', 79.0, 0.5, 'pending', 'Lab Queue', 'Glacier Extracts', 1600, { packageSize: '1g', lastUpdated: '2026-03-06' }),
+// ─── QA Results (12 items) ────────────────────────────────────────────────────
+export const MOCK_QA_RESULTS: QAResult[] = [
+  { id: 'qa-001', qaLot: 'GF41598605597285', subLot: 'GF41598605597285-A', status: 'passed', inventoryType: 6, strain: 'Platinum Pineapple', dateOfManufacture: '2026-02-15', dateOfHarvest: '2026-01-28', cbd: 0.5, cbda: 0.6, thc: 28.4, thca: 31.2, total: 30.1, pdfUrl: '/coa/GF41598605597285.pdf', changedBy: 'Sarah K.', dateChanged: '2026-02-20' },
+  { id: 'qa-002', qaLot: 'GF41598605545594', subLot: 'GF41598605545594-A', status: 'passed', inventoryType: 6, strain: 'Green Crack', dateOfManufacture: '2026-02-18', dateOfHarvest: '2026-02-01', cbd: 0.4, cbda: 0.5, thc: 24.1, thca: 26.8, total: 25.9, pdfUrl: '/coa/GF41598605545594.pdf', changedBy: 'Sarah K.', dateChanged: '2026-02-23' },
+  { id: 'qa-003', qaLot: 'WA.J415BB6.IN2NAB', subLot: 'WA.J415BB6.IN2NAB-A', status: 'passed', inventoryType: 6, strain: 'Moonbow', dateOfManufacture: '2026-02-20', dateOfHarvest: '2026-02-03', cbd: 0.3, cbda: 0.4, thc: 30.2, thca: 33.5, total: 32.1, pdfUrl: '/coa/WA.J415BB6.IN2NAB.pdf', changedBy: 'Mike T.', dateChanged: '2026-02-25' },
+  { id: 'qa-004', qaLot: 'GF41598605611233', subLot: 'GF41598605611233-A', status: 'passed', inventoryType: 17, strain: 'Platinum Pineapple', dateOfManufacture: '2026-02-10', dateOfHarvest: '2026-01-15', cbd: 1.2, cbda: 1.4, thc: 68.5, thca: 75.2, total: 74.1, pdfUrl: '/coa/GF41598605611233.pdf', changedBy: 'Sarah K.', dateChanged: '2026-02-15' },
+  { id: 'qa-005', qaLot: 'GF41598605622344', subLot: 'GF41598605622344-A', status: 'pending', inventoryType: 6, strain: 'Orange Crush', dateOfManufacture: '2026-02-25', dateOfHarvest: '2026-02-08', cbd: 0, cbda: 0, thc: 0, thca: 0, total: 0, pdfUrl: null, changedBy: '—', dateChanged: '2026-03-01' },
+  { id: 'qa-006', qaLot: 'GF41598605633455', subLot: 'GF41598605633455-A', status: 'failed', inventoryType: 24, strain: 'Green Crack', dateOfManufacture: '2026-01-30', dateOfHarvest: '2026-01-10', cbd: 2.1, cbda: 0.3, thc: 78.4, thca: 2.2, total: 82.3, pdfUrl: '/coa/GF41598605633455.pdf', changedBy: 'Mike T.', dateChanged: '2026-02-05' },
+  { id: 'qa-007', qaLot: 'GF41598605644566', subLot: 'GF41598605644566-A', status: 'passed', inventoryType: 22, strain: 'N/A', dateOfManufacture: '2026-02-28', dateOfHarvest: '—', cbd: 0.0, cbda: 0.0, thc: 10.0, thca: 0.0, total: 10.0, pdfUrl: '/coa/GF41598605644566.pdf', changedBy: 'Sarah K.', dateChanged: '2026-03-05' },
+  { id: 'qa-008', qaLot: 'GF41598605655677', subLot: 'GF41598605655677-A', status: 'passed', inventoryType: 6, strain: 'Skatalite', dateOfManufacture: '2026-02-12', dateOfHarvest: '2026-01-25', cbd: 0.8, cbda: 0.9, thc: 26.5, thca: 29.4, total: 28.2, pdfUrl: '/coa/GF41598605655677.pdf', changedBy: 'Mike T.', dateChanged: '2026-02-18' },
+  { id: 'qa-009', qaLot: 'GF41598605666788', subLot: 'GF41598605666788-A', status: 'pending', inventoryType: 28, strain: 'Green Crack', dateOfManufacture: '2026-02-24', dateOfHarvest: '2026-02-05', cbd: 0, cbda: 0, thc: 0, thca: 0, total: 0, pdfUrl: null, changedBy: '—', dateChanged: '2026-03-02' },
+  { id: 'qa-010', qaLot: 'GF41598605677899', subLot: 'GF41598605677899-A', status: 'passed', inventoryType: 35, strain: 'Blend', dateOfManufacture: '2026-01-20', dateOfHarvest: '—', cbd: 15.0, cbda: 0.0, thc: 50.0, thca: 0.0, total: 65.0, pdfUrl: '/coa/GF41598605677899.pdf', changedBy: 'Sarah K.', dateChanged: '2026-01-28' },
+  { id: 'qa-011', qaLot: 'GF41598605688900', subLot: 'GF41598605688900-A', status: 'passed', inventoryType: 6, strain: 'White Fire OG', dateOfManufacture: '2026-03-01', dateOfHarvest: '2026-02-12', cbd: 0.4, cbda: 0.5, thc: 29.8, thca: 33.1, total: 31.5, pdfUrl: '/coa/GF41598605688900.pdf', changedBy: 'Mike T.', dateChanged: '2026-03-06' },
+  { id: 'qa-012', qaLot: 'GF41598605699011', subLot: 'GF41598605699011-A', status: 'pending', inventoryType: 6, strain: 'Skatalite', dateOfManufacture: '2026-03-05', dateOfHarvest: '2026-02-18', cbd: 0, cbda: 0, thc: 0, thca: 0, total: 0, pdfUrl: null, changedBy: '—', dateChanged: '2026-03-10' },
 ];
 
-// --- EDIBLE (7 items) ---
-const edible: CannabisInventoryItem[] = [
-  ci('Watermelon Gummies 10pk', 'edible', 'Zkittlez', 'indica', 'packaged', 400, 'units', 'B2026-0610', 10.0, 0.5, 'passed', 'Finished Goods', 'Frost Farms', 5600, { packageSize: '10pk 100mg', lastUpdated: '2026-03-06' }),
-  ci('Mango Gummies 10pk', 'edible', 'Gelato', 'hybrid', 'packaged', 300, 'units', 'B2026-0611', 10.0, 0.5, 'passed', 'Finished Goods', 'Frost Farms', 4200, { packageSize: '10pk 100mg', lastUpdated: '2026-03-05' }),
-  ci('Dark Chocolate Bites 4pk', 'edible', 'GSC', 'hybrid', 'packaged', 200, 'units', 'B2026-0612', 25.0, 1.0, 'passed', 'Finished Goods', 'Glacier Extracts', 3600, { packageSize: '4pk 100mg', lastUpdated: '2026-03-04' }),
-  ci('Sour Apple Gummies 10pk', 'edible', 'Sour Diesel', 'sativa', 'fulfilled', 150, 'units', 'B2026-0613', 10.0, 0.5, 'passed', 'Fulfillment Room', 'Frost Farms', 2100, { packageSize: '10pk 100mg', lastUpdated: '2026-03-07' }),
-  ci('Blueberry Gummies 10pk', 'edible', 'Blue Dream', 'sativa', 'fulfilled', 80, 'units', 'B2026-0614', 10.0, 0.5, 'passed', 'Fulfillment Room', 'Frost Farms', 1120, { packageSize: '10pk 100mg', lastUpdated: '2026-03-06' }),
-  ci('Caramel Chews 5pk', 'edible', 'OG Kush', 'indica', 'delivered', 60, 'units', 'B2026-0615', 20.0, 1.0, 'passed', 'Route A', 'Northern Lights Co.', 1080, { packageSize: '5pk 100mg', lastUpdated: '2026-03-07' }),
-  ci('Mint Chocolate Bar', 'edible', 'Jack Herer', 'sativa', 'coa-passed', 1, 'batches', 'B2026-0616', 10.0, 0.5, 'passed', 'Pack Staging', 'Frost Farms', 1400, { packageSize: '100mg bar', lastUpdated: '2026-03-03' }),
+// ─── Discounts (6 items) ──────────────────────────────────────────────────────
+export const MOCK_DISCOUNTS: Discount[] = [
+  { id: 'd-001', name: 'Spring Launch 10%', fromDate: '2026-03-01', toDate: '2026-03-31', discountType: 'percent', discountAmount: 10, description: 'Spring launch promotion for all retail accounts.', appliesToAllProducts: true, appliesToAllClients: true, status: 'active' },
+  { id: 'd-002', name: 'Premium Flower $5 Off', fromDate: '2026-03-10', toDate: '2026-03-20', discountType: 'amount', discountAmount: 5, description: 'Flash sale on premium flower line.', appliesToAllProducts: false, appliesToAllClients: true, status: 'active' },
+  { id: 'd-003', name: 'New Account Welcome 15%', fromDate: '2026-01-01', toDate: '2026-12-31', discountType: 'percent', discountAmount: 15, description: 'Welcome discount for newly onboarded retail accounts.', appliesToAllProducts: true, appliesToAllClients: false, status: 'active' },
+  { id: 'd-004', name: 'Q1 Closeout 20%', fromDate: '2026-02-01', toDate: '2026-02-28', discountType: 'percent', discountAmount: 20, description: 'End of Q1 clearance on slow-moving SKUs.', appliesToAllProducts: false, appliesToAllClients: true, status: 'expired' },
+  { id: 'd-005', name: 'Concentrate Bundle $10 Off', fromDate: '2026-04-01', toDate: '2026-04-15', discountType: 'amount', discountAmount: 10, description: 'Upcoming concentrate promotion for April.', appliesToAllProducts: false, appliesToAllClients: true, status: 'upcoming' },
+  { id: 'd-006', name: 'Loyalty 5%', fromDate: '2026-01-01', toDate: '2026-12-31', discountType: 'percent', discountAmount: 5, description: 'Ongoing loyalty discount for accounts with 12+ month history.', appliesToAllProducts: true, appliesToAllClients: false, status: 'active' },
 ];
 
-// --- BEVERAGE (4 items) ---
-const beverage: CannabisInventoryItem[] = [
-  ci('Lemon Fizz CBD Seltzer', 'beverage', 'CBD Lemon', 'hybrid', 'packaged', 480, 'units', 'B2026-0710', 2.0, 10.0, 'passed', 'Cold Storage', 'Frost Farms', 3840, { packageSize: '12oz can', lastUpdated: '2026-03-06' }),
-  ci('Blueberry Lemonade Seltzer', 'beverage', 'Blueberry', 'hybrid', 'packaged', 360, 'units', 'B2026-0711', 5.0, 5.0, 'passed', 'Cold Storage', 'Frost Farms', 2880, { packageSize: '12oz can', lastUpdated: '2026-03-05' }),
-  ci('Mango THC Seltzer', 'beverage', 'Mango Haze', 'sativa', 'fulfilled', 200, 'units', 'B2026-0712', 5.0, 2.0, 'passed', 'Fulfillment Room', 'Frost Farms', 1600, { packageSize: '12oz can', lastUpdated: '2026-03-07' }),
-  ci('Berry Blast Powder Mix 5pk', 'beverage', 'Mixed Berry', 'hybrid', 'delivered', 120, 'units', 'B2026-0713', 5.0, 5.0, 'passed', 'Route B', 'Northern Lights Co.', 1440, { packageSize: '5pk sachets', lastUpdated: '2026-03-07' }),
+// ─── Inventory Rooms (8 items) ────────────────────────────────────────────────
+export const MOCK_ROOMS: InventoryRoom[] = [
+  { id: 'r-001', name: 'Greenhouse A', roomType: 'grow', capacity: 200, currentOccupancy: 90, assignedBatches: 3 },
+  { id: 'r-002', name: 'Greenhouse B', roomType: 'grow', capacity: 200, currentOccupancy: 60, assignedBatches: 2 },
+  { id: 'r-003', name: 'Greenhouse C', roomType: 'grow', capacity: 150, currentOccupancy: 30, assignedBatches: 1 },
+  { id: 'r-004', name: 'Dry Room 1', roomType: 'dry', capacity: 50, currentOccupancy: 24, assignedBatches: 2 },
+  { id: 'r-005', name: 'Dry Room 2', roomType: 'dry', capacity: 50, currentOccupancy: 18, assignedBatches: 1 },
+  { id: 'r-006', name: 'Cure Room A', roomType: 'cure', capacity: 40, currentOccupancy: 30, assignedBatches: 2 },
+  { id: 'r-007', name: 'Vault A', roomType: 'storage', capacity: 500, currentOccupancy: 300, assignedBatches: 4 },
+  { id: 'r-008', name: 'Pack Staging', roomType: 'staging', capacity: 200, currentOccupancy: 120, assignedBatches: 3 },
 ];
 
-const allCannabis: CannabisInventoryItem[] = [
-  ...flower, ...preroll, ...vaporizer, ...concentrate, ...edible, ...beverage,
+// ─── Product Lines (6 items) ──────────────────────────────────────────────────
+export const MOCK_PRODUCT_LINES: ProductLine[] = [
+  { id: 'pl-001', name: 'Premium Flower', subLines: ['Sativa', 'Indica', 'Hybrid'], activeProducts: 6 },
+  { id: 'pl-002', name: 'RTP | Budlets', subLines: ['Sativa', 'Indica', 'Hybrid'], activeProducts: 4 },
+  { id: 'pl-003', name: 'RTM | Preroll Material', subLines: ['Sativa', 'Indica', 'Hybrid', 'Multi-Pack'], activeProducts: 3 },
+  { id: 'pl-004', name: 'RTM | Extraction Material', subLines: ['Live Resin', 'Badder', 'Rosin', 'Kief'], activeProducts: 3 },
+  { id: 'pl-005', name: 'RTM | Vaporizer Material', subLines: ['510 Cartridge', 'All-In-One', 'Pod'], activeProducts: 1 },
+  { id: 'pl-006', name: 'Wellness Line', subLines: ['Tinctures', 'Capsules', 'Topicals'], activeProducts: 2 },
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// NON-CANNABIS MATERIALS — 35 items
-// ═══════════════════════════════════════════════════════════════
-
-const nonCannabis: NonCannabisItem[] = [
-  // Containers (10)
-  { id: 'nc-001', name: 'Glass Jar 1g', category: 'containers', sku: 'NC-GJ-01', currentStock: 2400, unit: 'each', reorderPoint: 1000, reorderQuantity: 5000, supplier: 'Pacific Glass Co', lastOrdered: '2026-02-15', status: 'in-stock', unitCost: 0.45 },
-  { id: 'nc-002', name: 'Glass Jar 3.5g', category: 'containers', sku: 'NC-GJ-35', currentStock: 800, unit: 'each', reorderPoint: 1500, reorderQuantity: 5000, supplier: 'Pacific Glass Co', lastOrdered: '2026-02-15', status: 'critical', unitCost: 0.55 },
-  { id: 'nc-003', name: 'Glass Jar 7g', category: 'containers', sku: 'NC-GJ-07', currentStock: 1800, unit: 'each', reorderPoint: 800, reorderQuantity: 3000, supplier: 'Pacific Glass Co', lastOrdered: '2026-02-15', status: 'in-stock', unitCost: 0.65 },
-  { id: 'nc-004', name: 'Glass Jar 14g', category: 'containers', sku: 'NC-GJ-14', currentStock: 600, unit: 'each', reorderPoint: 400, reorderQuantity: 2000, supplier: 'Pacific Glass Co', lastOrdered: '2026-02-15', status: 'in-stock', unitCost: 0.85 },
-  { id: 'nc-005', name: 'Glass Jar 28g', category: 'containers', sku: 'NC-GJ-28', currentStock: 300, unit: 'each', reorderPoint: 200, reorderQuantity: 1000, supplier: 'Pacific Glass Co', lastOrdered: '2026-01-28', status: 'in-stock', unitCost: 1.10 },
-  { id: 'nc-006', name: 'Mylar Bags 3.5g', category: 'containers', sku: 'NC-MB-35', currentStock: 4200, unit: 'each', reorderPoint: 2000, reorderQuantity: 10000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-20', status: 'in-stock', unitCost: 0.12 },
-  { id: 'nc-007', name: 'Mylar Bags 7g', category: 'containers', sku: 'NC-MB-07', currentStock: 1500, unit: 'each', reorderPoint: 1000, reorderQuantity: 5000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-20', status: 'in-stock', unitCost: 0.15 },
-  { id: 'nc-008', name: 'Preroll Tubes (CR)', category: 'containers', sku: 'NC-PT-01', currentStock: 450, unit: 'each', reorderPoint: 1000, reorderQuantity: 5000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-10', status: 'critical', unitCost: 0.18 },
-  { id: 'nc-009', name: 'Vape Cart Shell 1g (CCELL)', category: 'containers', sku: 'NC-VC-10', currentStock: 3600, unit: 'each', reorderPoint: 2000, reorderQuantity: 5000, supplier: 'CCELL Direct', lastOrdered: '2026-02-10', status: 'in-stock', unitCost: 1.85 },
-  { id: 'nc-010', name: 'Vape Cart Shell 0.5g (CCELL)', category: 'containers', sku: 'NC-VC-05', currentStock: 200, unit: 'each', reorderPoint: 1000, reorderQuantity: 3000, supplier: 'CCELL Direct', lastOrdered: '2026-01-28', status: 'critical', unitCost: 1.65 },
-
-  // Labels (8)
-  { id: 'nc-011', name: 'Product Labels — Flower SKUs', category: 'labels', sku: 'NC-LB-FL', currentStock: 8500, unit: 'each', reorderPoint: 3000, reorderQuantity: 15000, supplier: 'NW Label Co', lastOrdered: '2026-02-18', status: 'in-stock', unitCost: 0.04 },
-  { id: 'nc-012', name: 'Product Labels — Preroll SKUs', category: 'labels', sku: 'NC-LB-PR', currentStock: 5200, unit: 'each', reorderPoint: 2000, reorderQuantity: 10000, supplier: 'NW Label Co', lastOrdered: '2026-02-18', status: 'in-stock', unitCost: 0.04 },
-  { id: 'nc-013', name: 'Product Labels — Cartridge SKUs', category: 'labels', sku: 'NC-LB-VP', currentStock: 4100, unit: 'each', reorderPoint: 2000, reorderQuantity: 10000, supplier: 'NW Label Co', lastOrdered: '2026-02-18', status: 'in-stock', unitCost: 0.04 },
-  { id: 'nc-014', name: 'Product Labels — Concentrate SKUs', category: 'labels', sku: 'NC-LB-CN', currentStock: 3200, unit: 'each', reorderPoint: 1500, reorderQuantity: 8000, supplier: 'NW Label Co', lastOrdered: '2026-02-18', status: 'in-stock', unitCost: 0.04 },
-  { id: 'nc-015', name: 'Product Labels — Edible SKUs', category: 'labels', sku: 'NC-LB-ED', currentStock: 2800, unit: 'each', reorderPoint: 1500, reorderQuantity: 8000, supplier: 'NW Label Co', lastOrdered: '2026-02-18', status: 'in-stock', unitCost: 0.05 },
-  { id: 'nc-016', name: 'Compliance Labels (WA)', category: 'labels', sku: 'NC-LB-WA', currentStock: 12000, unit: 'each', reorderPoint: 5000, reorderQuantity: 25000, supplier: 'NW Label Co', lastOrdered: '2026-02-25', status: 'in-stock', unitCost: 0.03 },
-  { id: 'nc-017', name: 'Batch/Lot Stickers', category: 'labels', sku: 'NC-LB-BT', currentStock: 9000, unit: 'each', reorderPoint: 4000, reorderQuantity: 20000, supplier: 'NW Label Co', lastOrdered: '2026-02-25', status: 'in-stock', unitCost: 0.02 },
-  { id: 'nc-018', name: 'COA Insert Cards', category: 'labels', sku: 'NC-LB-COA', currentStock: 7000, unit: 'each', reorderPoint: 3000, reorderQuantity: 15000, supplier: 'NW Label Co', lastOrdered: '2026-02-12', status: 'in-stock', unitCost: 0.06 },
-
-  // Packaging (12)
-  { id: 'nc-019', name: 'Display Boxes (6-unit)', category: 'packaging', sku: 'NC-BX-06', currentStock: 1200, unit: 'each', reorderPoint: 500, reorderQuantity: 2000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-15', status: 'in-stock', unitCost: 0.35 },
-  { id: 'nc-020', name: 'Display Boxes (12-unit)', category: 'packaging', sku: 'NC-BX-12', currentStock: 800, unit: 'each', reorderPoint: 300, reorderQuantity: 1000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-15', status: 'in-stock', unitCost: 0.50 },
-  { id: 'nc-021', name: 'Boveda 62% Humidity Packs', category: 'packaging', sku: 'NC-HM-62', currentStock: 6400, unit: 'each', reorderPoint: 3000, reorderQuantity: 10000, supplier: 'Boveda Inc', lastOrdered: '2026-02-20', status: 'in-stock', unitCost: 0.28 },
-  { id: 'nc-022', name: 'Shrink Wrap Bands', category: 'packaging', sku: 'NC-SW-01', currentStock: 12000, unit: 'each', reorderPoint: 5000, reorderQuantity: 25000, supplier: 'Pacific Packaging', lastOrdered: '2026-01-30', status: 'in-stock', unitCost: 0.01 },
-  { id: 'nc-023', name: 'Tamper-Evident Seals', category: 'packaging', sku: 'NC-TE-01', currentStock: 8000, unit: 'each', reorderPoint: 4000, reorderQuantity: 20000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-05', status: 'in-stock', unitCost: 0.02 },
-  { id: 'nc-024', name: 'Child-Resistant Caps (jar)', category: 'packaging', sku: 'NC-CR-JR', currentStock: 3500, unit: 'each', reorderPoint: 2000, reorderQuantity: 10000, supplier: 'Pacific Glass Co', lastOrdered: '2026-02-15', status: 'in-stock', unitCost: 0.22 },
-  { id: 'nc-025', name: 'Child-Resistant Caps (tube)', category: 'packaging', sku: 'NC-CR-TB', currentStock: 900, unit: 'each', reorderPoint: 1000, reorderQuantity: 5000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-10', status: 'low', unitCost: 0.15 },
-
-  // Other (5)
-  { id: 'nc-026', name: 'Exit Bags (WA required)', category: 'other', sku: 'NC-EB-01', currentStock: 3400, unit: 'each', reorderPoint: 2000, reorderQuantity: 10000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-05', status: 'in-stock', unitCost: 0.08 },
-  { id: 'nc-027', name: 'Printed Inserts (brand card)', category: 'other', sku: 'NC-PI-01', currentStock: 5000, unit: 'each', reorderPoint: 2500, reorderQuantity: 10000, supplier: 'NW Label Co', lastOrdered: '2026-02-12', status: 'in-stock', unitCost: 0.07 },
-  { id: 'nc-028', name: 'Shipping Boxes (small)', category: 'other', sku: 'NC-SB-SM', currentStock: 400, unit: 'each', reorderPoint: 300, reorderQuantity: 1000, supplier: 'Uline', lastOrdered: '2026-02-20', status: 'in-stock', unitCost: 1.20 },
-  { id: 'nc-029', name: 'Shipping Boxes (medium)', category: 'other', sku: 'NC-SB-MD', currentStock: 250, unit: 'each', reorderPoint: 200, reorderQuantity: 500, supplier: 'Uline', lastOrdered: '2026-02-20', status: 'in-stock', unitCost: 1.80 },
-  { id: 'nc-030', name: 'Shipping Boxes (large)', category: 'other', sku: 'NC-SB-LG', currentStock: 100, unit: 'each', reorderPoint: 100, reorderQuantity: 300, supplier: 'Uline', lastOrdered: '2026-01-15', status: 'low', unitCost: 2.50 },
-
-  // Additional on-order / out-of-stock
-  { id: 'nc-031', name: 'Beverage Cans 12oz', category: 'containers', sku: 'NC-BC-12', currentStock: 1800, unit: 'each', reorderPoint: 1000, reorderQuantity: 5000, supplier: 'Ball Corp', lastOrdered: '2026-02-25', status: 'in-stock', unitCost: 0.30 },
-  { id: 'nc-032', name: 'Concentrate Jars 1g (glass)', category: 'containers', sku: 'NC-CJ-01', currentStock: 50, unit: 'each', reorderPoint: 500, reorderQuantity: 2000, supplier: 'Pacific Glass Co', lastOrdered: '2026-01-20', status: 'critical', unitCost: 0.75 },
-  { id: 'nc-033', name: 'Edible Boxes (custom print)', category: 'packaging', sku: 'NC-EB-CP', currentStock: 1500, unit: 'each', reorderPoint: 800, reorderQuantity: 3000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-18', status: 'in-stock', unitCost: 0.42 },
-  { id: 'nc-034', name: 'Preroll 5-Pack Boxes', category: 'packaging', sku: 'NC-PB-05', currentStock: 0, unit: 'each', reorderPoint: 500, reorderQuantity: 2000, supplier: 'Pacific Packaging', lastOrdered: '2026-02-28', status: 'on-order', unitCost: 0.38 },
-  { id: 'nc-035', name: 'Strain Stickers (custom)', category: 'labels', sku: 'NC-SS-01', currentStock: 0, unit: 'roll', reorderPoint: 10, reorderQuantity: 50, supplier: 'NW Label Co', lastOrdered: '2026-03-01', status: 'out-of-stock', unitCost: 12.00 },
+// ─── Categories (6 items) ─────────────────────────────────────────────────────
+export const MOCK_CATEGORIES: InventoryCategory[] = [
+  { id: 'cat-001', name: 'Flower', inventoryType: 6, activeProducts: 11 },
+  { id: 'cat-002', name: 'Preroll', inventoryType: 28, activeProducts: 3 },
+  { id: 'cat-003', name: 'Vaporizer', inventoryType: 24, activeProducts: 1 },
+  { id: 'cat-004', name: 'Concentrate', inventoryType: 17, activeProducts: 3 },
+  { id: 'cat-005', name: 'Edible', inventoryType: 22, activeProducts: 1 },
+  { id: 'cat-006', name: 'Beverage / Tincture', inventoryType: 35, activeProducts: 1 },
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// COA SUBMISSIONS — 28 submissions
-// ═══════════════════════════════════════════════════════════════
-
-const coaSubmissions: COASubmission[] = [
-  // PASSED (18)
-  { id: 'coa-001', batchNumber: 'B2026-0220', productName: 'Wedding Cake 3.5g', category: 'flower', strain: 'Wedding Cake', labName: 'Confidence Analytics', dateSubmitted: '2026-02-20', dateExpected: '2026-02-24', dateReceived: '2026-02-23', status: 'passed', expirationDate: '2026-08-23', results: { thc: 27.5, cbd: 0.5, totalTerpenes: 3.8, moisture: 8.2, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-002', batchNumber: 'B2026-0221', productName: 'Blue Dream 7g', category: 'flower', strain: 'Blue Dream', labName: 'Confidence Analytics', dateSubmitted: '2026-02-18', dateExpected: '2026-02-22', dateReceived: '2026-02-21', status: 'passed', expirationDate: '2026-08-21', results: { thc: 22.3, cbd: 0.4, totalTerpenes: 2.9, moisture: 9.1, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-003', batchNumber: 'B2026-0222', productName: 'Gelato 3.5g', category: 'flower', strain: 'Gelato', labName: 'Steep Hill', dateSubmitted: '2026-02-15', dateExpected: '2026-02-20', dateReceived: '2026-02-19', status: 'passed', expirationDate: '2026-08-19', results: { thc: 26.8, cbd: 0.6, totalTerpenes: 4.2, moisture: 7.8, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-004', batchNumber: 'B2026-0223', productName: 'OG Kush 14g', category: 'flower', strain: 'OG Kush', labName: 'Cannalysis Labs', dateSubmitted: '2026-02-12', dateExpected: '2026-02-17', dateReceived: '2026-02-17', status: 'passed', expirationDate: '2026-08-17', results: { thc: 24.0, cbd: 1.1, totalTerpenes: 3.1, moisture: 8.5, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-005', batchNumber: 'B2026-0410', productName: 'Gelato Live Resin Cart 1g', category: 'vaporizer', strain: 'Gelato', labName: 'Confidence Analytics', dateSubmitted: '2026-02-22', dateExpected: '2026-02-26', dateReceived: '2026-02-25', status: 'passed', expirationDate: '2026-08-25', results: { thc: 85.6, cbd: 0.5, totalTerpenes: 8.2, moisture: 0.3, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-006', batchNumber: 'B2026-0411', productName: 'Blue Dream 510 Cart 1g', category: 'vaporizer', strain: 'Blue Dream', labName: 'Steep Hill', dateSubmitted: '2026-02-20', dateExpected: '2026-02-25', dateReceived: '2026-02-24', status: 'passed', expirationDate: '2026-08-24', results: { thc: 90.0, cbd: 0.2, totalTerpenes: 5.5, moisture: 0.2, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-007', batchNumber: 'B2026-0510', productName: 'Gelato Live Resin 1g', category: 'concentrate', strain: 'Gelato', labName: 'Confidence Analytics', dateSubmitted: '2026-02-18', dateExpected: '2026-02-22', dateReceived: '2026-02-21', status: 'passed', expirationDate: '2026-08-21', results: { thc: 83.0, cbd: 0.5, totalTerpenes: 6.8, moisture: 1.2, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-008', batchNumber: 'B2026-0511', productName: 'OG Kush Shatter 1g', category: 'concentrate', strain: 'OG Kush', labName: 'Steep Hill', dateSubmitted: '2026-02-16', dateExpected: '2026-02-21', dateReceived: '2026-02-20', status: 'passed', expirationDate: '2026-08-20', results: { thc: 85.2, cbd: 1.1, totalTerpenes: 4.5, moisture: 0.8, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-009', batchNumber: 'B2026-0310', productName: 'Wedding Cake Preroll 1g', category: 'preroll', strain: 'Wedding Cake', labName: 'Confidence Analytics', dateSubmitted: '2026-02-22', dateExpected: '2026-02-26', dateReceived: '2026-02-25', status: 'passed', expirationDate: '2026-08-25', results: { thc: 27.0, cbd: 0.5, totalTerpenes: 3.2, moisture: 10.1, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-010', batchNumber: 'B2026-0610', productName: 'Watermelon Gummies 10pk', category: 'edible', strain: 'Zkittlez', labName: 'Cannalysis Labs', dateSubmitted: '2026-02-25', dateExpected: '2026-03-01', dateReceived: '2026-02-28', status: 'passed', expirationDate: '2026-08-28', results: { thc: 10.0, cbd: 0.5, totalTerpenes: 0.8, moisture: 12.0, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-011', batchNumber: 'B2026-0710', productName: 'Lemon Fizz CBD Seltzer', category: 'beverage', strain: 'CBD Lemon', labName: 'Confidence Analytics', dateSubmitted: '2026-02-24', dateExpected: '2026-02-28', dateReceived: '2026-02-27', status: 'passed', expirationDate: '2026-08-27', results: { thc: 2.0, cbd: 10.0, totalTerpenes: 0.5, moisture: 95.0, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-012', batchNumber: 'B2026-0232', productName: 'GSC Flower Bulk', category: 'flower', strain: 'GSC', labName: 'Steep Hill', dateSubmitted: '2026-02-20', dateExpected: '2026-02-25', dateReceived: '2026-02-24', status: 'passed', expirationDate: '2026-08-24', results: { thc: 24.5, cbd: 0.7, totalTerpenes: 3.4, moisture: 8.8, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-013', batchNumber: 'B2026-0418', productName: 'Gorilla Glue Cart 1g', category: 'vaporizer', strain: 'Gorilla Glue', labName: 'Confidence Analytics', dateSubmitted: '2026-02-25', dateExpected: '2026-03-01', dateReceived: '2026-02-28', status: 'passed', expirationDate: '2026-08-28', results: { thc: 88.0, cbd: 0.8, totalTerpenes: 6.2, moisture: 0.4, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-014', batchNumber: 'B2026-0412', productName: 'Sour Diesel Disposable', category: 'vaporizer', strain: 'Sour Diesel', labName: 'Cannalysis Labs', dateSubmitted: '2026-02-18', dateExpected: '2026-02-23', dateReceived: '2026-02-23', status: 'passed', expirationDate: '2026-08-23', results: { thc: 88.1, cbd: 0.3, totalTerpenes: 4.8, moisture: 0.2, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-015', batchNumber: 'B2026-0512', productName: 'Wedding Cake Live Rosin', category: 'concentrate', strain: 'Wedding Cake', labName: 'Confidence Analytics', dateSubmitted: '2026-02-22', dateExpected: '2026-02-26', dateReceived: '2026-02-25', status: 'passed', expirationDate: '2026-08-25', results: { thc: 81.5, cbd: 0.4, totalTerpenes: 7.1, moisture: 1.0, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-016', batchNumber: 'B2026-0318', productName: 'Gelato Preroll 1g', category: 'preroll', strain: 'Gelato', labName: 'Steep Hill', dateSubmitted: '2026-02-24', dateExpected: '2026-02-28', dateReceived: '2026-02-28', status: 'passed', expirationDate: '2026-08-28', results: { thc: 26.8, cbd: 0.6, totalTerpenes: 3.9, moisture: 9.5, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-017', batchNumber: 'B2026-0517', productName: 'Wedding Cake Rosin Bulk', category: 'concentrate', strain: 'Wedding Cake', labName: 'Confidence Analytics', dateSubmitted: '2026-02-26', dateExpected: '2026-03-02', dateReceived: '2026-03-01', status: 'passed', expirationDate: '2026-09-01', results: { thc: 81.5, cbd: 0.4, totalTerpenes: 7.3, moisture: 0.9, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-  { id: 'coa-018', batchNumber: 'B2026-0616', productName: 'Mint Chocolate Bar', category: 'edible', strain: 'Jack Herer', labName: 'Cannalysis Labs', dateSubmitted: '2026-02-25', dateExpected: '2026-03-01', dateReceived: '2026-03-01', status: 'passed', expirationDate: '2026-09-01', results: { thc: 10.0, cbd: 0.5, totalTerpenes: 0.6, moisture: 11.5, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass' } },
-
-  // FAILED (3)
-  { id: 'coa-019', batchNumber: 'B2026-0519', productName: 'Zkittlez Live Resin 1g', category: 'concentrate', strain: 'Zkittlez', labName: 'Steep Hill', dateSubmitted: '2026-03-01', dateExpected: '2026-03-06', dateReceived: '2026-03-05', status: 'failed', results: { thc: 79.0, cbd: 0.5, totalTerpenes: 5.2, moisture: 1.8, contaminants: 'fail', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'fail', failureReasons: ['Residual solvent (butane) at 12ppm — limit is 10ppm'] } },
-  { id: 'coa-020', batchNumber: 'B2026-0245', productName: 'Purple Punch Bulk', category: 'flower', strain: 'Purple Punch', labName: 'Confidence Analytics', dateSubmitted: '2026-02-10', dateExpected: '2026-02-14', dateReceived: '2026-02-14', status: 'failed', results: { thc: 19.8, cbd: 0.1, totalTerpenes: 2.8, moisture: 14.5, contaminants: 'pass', pesticides: 'pass', heavyMetals: 'pass', residualSolvents: 'pass', failureReasons: ['Moisture content 14.5% — limit is 13%'] } },
-  { id: 'coa-021', batchNumber: 'B2026-0420A', productName: 'GSC Live Resin Cart', category: 'vaporizer', strain: 'GSC', labName: 'Cannalysis Labs', dateSubmitted: '2026-01-28', dateExpected: '2026-02-02', dateReceived: '2026-02-02', status: 'failed', results: { thc: 82.5, cbd: 0.6, totalTerpenes: 5.8, moisture: 0.5, contaminants: 'fail', pesticides: 'fail', heavyMetals: 'pass', residualSolvents: 'pass', failureReasons: ['Myclobutanil detected at 0.15ppm — limit is 0.10ppm'] } },
-
-  // IN-TESTING (2)
-  { id: 'coa-022', batchNumber: 'B2026-0240', productName: 'Gorilla Glue Bulk', category: 'flower', strain: 'Gorilla Glue', labName: 'Confidence Analytics', dateSubmitted: '2026-03-05', dateExpected: '2026-03-09', status: 'in-testing' },
-  { id: 'coa-023', batchNumber: 'B2026-0419', productName: 'Zkittlez Cart 0.5g', category: 'vaporizer', strain: 'Zkittlez', labName: 'Steep Hill', dateSubmitted: '2026-03-05', dateExpected: '2026-03-10', status: 'in-testing' },
-
-  // SUBMITTED (5)
-  { id: 'coa-024', batchNumber: 'B2026-0241', productName: 'OG Kush Bulk', category: 'flower', strain: 'OG Kush', labName: 'Cannalysis Labs', dateSubmitted: '2026-03-06', dateExpected: '2026-03-11', status: 'submitted' },
-  { id: 'coa-025', batchNumber: 'B2026-0514', productName: 'Blue Dream Wax 1g', category: 'concentrate', strain: 'Blue Dream', labName: 'Steep Hill', dateSubmitted: '2026-03-06', dateExpected: '2026-03-11', status: 'submitted' },
-  { id: 'coa-026', batchNumber: 'B2026-0319', productName: 'Zkittlez Preroll 1g', category: 'preroll', strain: 'Zkittlez', labName: 'Confidence Analytics', dateSubmitted: '2026-03-06', dateExpected: '2026-03-10', status: 'submitted' },
-  { id: 'coa-027', batchNumber: 'B2026-0711A', productName: 'Mango THC Seltzer', category: 'beverage', strain: 'Mango Haze', labName: 'Cannalysis Labs', dateSubmitted: '2026-03-07', dateExpected: '2026-03-12', status: 'submitted' },
-  { id: 'coa-028', batchNumber: 'B2026-0616A', productName: 'Raspberry Gummies 10pk', category: 'edible', strain: 'Raspberry Kush', labName: 'Confidence Analytics', dateSubmitted: '2026-03-07', dateExpected: '2026-03-11', status: 'submitted' },
+// ─── Catalog Groups (4 items) ─────────────────────────────────────────────────
+export const MOCK_CATALOG_GROUPS: CatalogGroup[] = [
+  { id: 'cg-001', groupName: 'Retail Catalog', catalogName: 'Main Retail', productCount: 20, active: true },
+  { id: 'cg-002', groupName: 'Premium Collection', catalogName: 'Premium Flower Collection', productCount: 6, active: true },
+  { id: 'cg-003', groupName: 'Value Line', catalogName: 'Budlet Collection', productCount: 4, active: true },
+  { id: 'cg-004', groupName: 'Wellness', catalogName: 'Wellness Collection', productCount: 2, active: false },
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// LAB PARTNERS
-// ═══════════════════════════════════════════════════════════════
-
-const labPartners: LabPartner[] = [
-  { id: 'lab-001', name: 'Confidence Analytics', location: 'Seattle, WA', avgTurnaround: 3.8, testsThisMonth: 23, passRate: 96, contactEmail: 'testing@confidenceanalytics.com', contactPhone: '(206) 555-0142' },
-  { id: 'lab-002', name: 'Steep Hill', location: 'Seattle, WA', avgTurnaround: 4.5, testsThisMonth: 12, passRate: 91, contactEmail: 'submissions@steephill.com', contactPhone: '(206) 555-0198' },
-  { id: 'lab-003', name: 'Cannalysis Labs', location: 'Yakima, WA', avgTurnaround: 5.1, testsThisMonth: 8, passRate: 93, contactEmail: 'lab@cannalysis.com', contactPhone: '(509) 555-0167' },
+// ─── Backorders (5 items) ─────────────────────────────────────────────────────
+export const MOCK_BACKORDERS: Backorder[] = [
+  { id: 'bo-001', orderNumber: 'ORD-2026-0441', clientName: 'Zoobees Doobees', productName: 'Premium Flower - Moonbow 3.5g', qtyOrdered: 48, qtyAvailable: 24, fulfillmentPriority: 'fifo', dateCreated: '2026-03-08', expectedFulfillment: '2026-03-15', qaStatus: 'passed', status: 'partial' },
+  { id: 'bo-002', orderNumber: 'ORD-2026-0442', clientName: 'Green Harbor Dispensary', productName: 'RTM | Vaporizer - Green Crack Cart 1g', qtyOrdered: 60, qtyAvailable: 0, fulfillmentPriority: 'fifo', dateCreated: '2026-03-09', expectedFulfillment: '2026-03-20', qaStatus: 'failed', status: 'pending' },
+  { id: 'bo-003', orderNumber: 'ORD-2026-0443', clientName: 'Northern Leaf', productName: 'RTM | Preroll Material - Green Crack 1g', qtyOrdered: 120, qtyAvailable: 120, fulfillmentPriority: 'highest-qa', dateCreated: '2026-03-05', expectedFulfillment: '2026-03-12', qaStatus: 'passed', status: 'fulfilled' },
+  { id: 'bo-004', orderNumber: 'ORD-2026-0444', clientName: 'Cascade Cannabis Co.', productName: 'Edible - Orange Crush Gummies 10pk', qtyOrdered: 80, qtyAvailable: 40, fulfillmentPriority: 'fifo', dateCreated: '2026-03-10', expectedFulfillment: '2026-03-18', qaStatus: 'passed', status: 'partial' },
+  { id: 'bo-005', orderNumber: 'ORD-2026-0445', clientName: 'Pine Street Provisioning', productName: 'Tincture - Full Spectrum 1500mg', qtyOrdered: 30, qtyAvailable: 0, fulfillmentPriority: 'newest-first', dateCreated: '2026-03-11', expectedFulfillment: '2026-03-22', qaStatus: 'pending', status: 'pending' },
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// ALERTS — 14 active alerts
-// ═══════════════════════════════════════════════════════════════
-
-const alerts: InventoryAlert[] = [
-  { id: 'alert-001', severity: 'critical', type: 'low-stock', title: 'Gelato 3.5g Glass Jars — 12 remaining', description: 'Glass Jar 3.5g stock at 800 units, reorder point is 1,500. Lead time from Pacific Glass Co is 2 weeks.', affectedItems: ['nc-002'], timestamp: '2026-03-07T08:00:00Z', recommendedAction: 'Place emergency reorder with Pacific Glass Co for 5,000 units', actionLabel: 'Reorder', acknowledged: false },
-  { id: 'alert-002', severity: 'critical', type: 'low-stock', title: 'Preroll Tubes (CR) critically low', description: 'Only 450 tubes remaining, reorder point is 1,000. Current burn rate is ~80/day. Will run out in ~6 days.', affectedItems: ['nc-008'], timestamp: '2026-03-07T07:30:00Z', recommendedAction: 'Place urgent reorder with Pacific Packaging for 5,000 tubes', actionLabel: 'Reorder', acknowledged: false },
-  { id: 'alert-003', severity: 'critical', type: 'low-stock', title: 'Vape Cart Shell 0.5g — 200 remaining', description: 'CCELL 0.5g shells at 200 units, reorder point is 1,000. CCELL lead time is 3 weeks.', affectedItems: ['nc-010'], timestamp: '2026-03-07T07:00:00Z', recommendedAction: 'Contact CCELL Direct for expedited order of 3,000 shells', actionLabel: 'Reorder', acknowledged: false },
-  { id: 'alert-004', severity: 'critical', type: 'failed-coa', title: 'Zkittlez Live Resin — COA FAILED', description: 'Batch B2026-0519 failed: residual solvent (butane) at 12ppm, limit is 10ppm. Batch quarantined.', affectedItems: ['coa-019'], timestamp: '2026-03-05T14:30:00Z', recommendedAction: 'Review extraction process parameters and schedule remediation', actionLabel: 'Investigate', acknowledged: false },
-  { id: 'alert-005', severity: 'warning', type: 'expiring-coa', title: 'Blue Dream 7g — COA expires March 21', description: 'COA for batch B2026-0221 expires in 14 days. 120 units still in stock.', affectedItems: ['coa-002'], timestamp: '2026-03-07T06:00:00Z', recommendedAction: 'Schedule retesting with Confidence Analytics before March 15', actionLabel: 'Schedule Retest', acknowledged: false },
-  { id: 'alert-006', severity: 'warning', type: 'expiring-coa', title: 'Gelato 3.5g — COA expires March 19', description: 'COA for batch B2026-0222 expires in 12 days. 280 units still in stock.', affectedItems: ['coa-003'], timestamp: '2026-03-07T06:00:00Z', recommendedAction: 'Submit retest to Steep Hill or accelerate sales of remaining stock', actionLabel: 'Schedule Retest', acknowledged: false },
-  { id: 'alert-007', severity: 'warning', type: 'aging', title: 'OG Kush Bulk — 45 days in COA Pending', description: 'Batch B2026-0241 has been in COA Pending for 45 days. Expected turnaround was 5 days.', affectedItems: ['inv-019'], timestamp: '2026-03-07T06:00:00Z', recommendedAction: 'Contact Cannalysis Labs about delayed results for B2026-0241', actionLabel: 'Contact Lab', acknowledged: false },
-  { id: 'alert-008', severity: 'warning', type: 'aging', title: 'Wedding Cake 3.5g — fulfilled 14+ days', description: '120 units fulfilled on Feb 21 but not yet delivered. Orders may be stale.', affectedItems: ['inv-027'], timestamp: '2026-03-07T06:00:00Z', recommendedAction: 'Check delivery schedule and verify order status', actionLabel: 'View Orders', acknowledged: false },
-  { id: 'alert-009', severity: 'warning', type: 'reconciliation', title: 'Bamboo shows 48 units, Frost shows 52', description: 'Wedding Cake 3.5g (B2026-0220) has a 4-unit discrepancy between Frost inventory and Bamboo traceability system.', affectedItems: ['inv-024'], timestamp: '2026-03-06T16:00:00Z', recommendedAction: 'Perform physical count and reconcile with Bamboo', actionLabel: 'Reconcile', acknowledged: false },
-  { id: 'alert-010', severity: 'warning', type: 'reconciliation', title: 'Bamboo shows 238 carts, Frost shows 240', description: 'Gelato Live Resin Cart 1g (B2026-0410) has a 2-unit discrepancy.', affectedItems: ['inv-043'], timestamp: '2026-03-06T16:00:00Z', recommendedAction: 'Verify cart count at Finished Goods and update Bamboo', actionLabel: 'Reconcile', acknowledged: false },
-  { id: 'alert-011', severity: 'info', type: 'out-of-stock', title: 'Wedding Cake Infused Preroll — 0 units packaged', description: 'No packaged inventory for Wedding Cake Infused Preroll. 3 pending orders waiting.', affectedItems: [], timestamp: '2026-03-07T09:00:00Z', recommendedAction: 'Prioritize infused preroll production in next roll session', actionLabel: 'View Orders', acknowledged: false },
-  { id: 'alert-012', severity: 'info', type: 'out-of-stock', title: 'Preroll 5-Pack Boxes on order', description: 'Preroll 5-Pack packaging boxes are out of stock. Reorder placed Feb 28, expected delivery March 10.', affectedItems: ['nc-034'], timestamp: '2026-03-07T06:00:00Z', recommendedAction: 'Track shipment status with Pacific Packaging', actionLabel: 'Track Order', acknowledged: false },
-  { id: 'alert-013', severity: 'warning', type: 'low-stock', title: 'Concentrate Jars 1g critically low', description: 'Only 50 glass concentrate jars remaining. Reorder point is 500.', affectedItems: ['nc-032'], timestamp: '2026-03-07T07:00:00Z', recommendedAction: 'Place urgent reorder with Pacific Glass Co', actionLabel: 'Reorder', acknowledged: false },
-  { id: 'alert-014', severity: 'info', type: 'low-stock', title: 'Child-Resistant Caps (tube) approaching reorder', description: '900 units remaining, reorder point is 1,000. Burn rate ~50/day.', affectedItems: ['nc-025'], timestamp: '2026-03-07T06:00:00Z', recommendedAction: 'Schedule reorder within 2 days', actionLabel: 'Reorder', acknowledged: false },
+// ─── QA Lots (8 items) ────────────────────────────────────────────────────────
+export const MOCK_QA_LOTS: QALot[] = [
+  { id: 'ql-001', lotNumber: 'GF41598605597285', assignedBatches: 2, testLab: 'Confidence Analytics', submittedDate: '2026-02-16', resultStatus: 'passed', expirationDate: '2027-02-16' },
+  { id: 'ql-002', lotNumber: 'GF41598605545594', assignedBatches: 1, testLab: 'SC Labs WA', submittedDate: '2026-02-19', resultStatus: 'passed', expirationDate: '2027-02-19' },
+  { id: 'ql-003', lotNumber: 'WA.J415BB6.IN2NAB', assignedBatches: 1, testLab: 'Confidence Analytics', submittedDate: '2026-02-21', resultStatus: 'passed', expirationDate: '2027-02-21' },
+  { id: 'ql-004', lotNumber: 'GF41598605622344', assignedBatches: 1, testLab: 'SC Labs WA', submittedDate: '2026-03-01', resultStatus: 'pending', expirationDate: '—' },
+  { id: 'ql-005', lotNumber: 'GF41598605633455', assignedBatches: 1, testLab: 'Confidence Analytics', submittedDate: '2026-01-31', resultStatus: 'failed', expirationDate: '—' },
+  { id: 'ql-006', lotNumber: 'GF41598605644566', assignedBatches: 1, testLab: 'Phytalab WA', submittedDate: '2026-03-01', resultStatus: 'passed', expirationDate: '2026-09-01' },
+  { id: 'ql-007', lotNumber: 'GF41598605666788', assignedBatches: 1, testLab: 'SC Labs WA', submittedDate: '2026-03-02', resultStatus: 'pending', expirationDate: '—' },
+  { id: 'ql-008', lotNumber: 'GF41598605699011', assignedBatches: 1, testLab: 'Confidence Analytics', submittedDate: '2026-03-06', resultStatus: 'pending', expirationDate: '—' },
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// ACTIVITY FEED — 18 recent events
-// ═══════════════════════════════════════════════════════════════
-
-const activityFeed: ActivityFeedEvent[] = [
-  { id: 'evt-001', timestamp: '2026-03-07T10:30:00Z', productName: 'Wedding Cake 3.5g', batchNumber: 'B2026-0220', eventType: 'packaged', description: '50 units packaged at Packaging Line A' },
-  { id: 'evt-002', timestamp: '2026-03-07T09:15:00Z', productName: 'Blue Dream Bulk', batchNumber: 'B2026-0250', eventType: 'coa-submitted', description: 'COA submitted to Confidence Analytics' },
-  { id: 'evt-003', timestamp: '2026-03-07T08:00:00Z', productName: 'Gelato Live Resin Cart 1g', batchNumber: 'B2026-0410', eventType: 'fulfilled', description: '50 units allocated to Order #ORD-2026-0445' },
-  { id: 'evt-004', timestamp: '2026-03-06T16:45:00Z', productName: 'GSC 3.5g', batchNumber: 'B2026-0200', eventType: 'delivered', description: '200 units delivered to Herbal Wellness (Route A)' },
-  { id: 'evt-005', timestamp: '2026-03-06T14:30:00Z', productName: 'Gorilla Glue Cart 1g', batchNumber: 'B2026-0418', eventType: 'coa-passed', description: 'COA PASSED — THC 88.0%, all contaminant tests clear' },
-  { id: 'evt-006', timestamp: '2026-03-06T12:00:00Z', productName: 'OG Kush Shatter 1g', batchNumber: 'B2026-0511', eventType: 'packaged', description: '25 units packaged at Concentrate Line' },
-  { id: 'evt-007', timestamp: '2026-03-06T10:30:00Z', productName: 'Wedding Cake Preroll 1g', batchNumber: 'B2026-0310', eventType: 'packaged', description: '100 units packaged at Roll Room 1' },
-  { id: 'evt-008', timestamp: '2026-03-05T16:00:00Z', productName: 'Zkittlez Live Resin 1g', batchNumber: 'B2026-0519', eventType: 'coa-failed', description: 'COA FAILED — residual solvent 12ppm (limit 10ppm)' },
-  { id: 'evt-009', timestamp: '2026-03-05T14:00:00Z', productName: 'Gorilla Glue Harvest', batchNumber: 'B2026-0280', eventType: 'harvested', description: '24 lbs harvested from Greenhouse A, moved to Dry Room 1' },
-  { id: 'evt-010', timestamp: '2026-03-05T11:00:00Z', productName: 'Sour Diesel Cart 1g', batchNumber: 'B2026-0420', eventType: 'delivered', description: '80 units delivered to Green Leaf Dispensary (Route A)' },
-  { id: 'evt-011', timestamp: '2026-03-05T09:00:00Z', productName: 'Blue Dream Infused Preroll', batchNumber: 'B2026-0311', eventType: 'fulfilled', description: '30 units allocated to Order #ORD-2026-0442' },
-  { id: 'evt-012', timestamp: '2026-03-04T15:30:00Z', productName: 'Gelato Preroll 1g', batchNumber: 'B2026-0318', eventType: 'coa-passed', description: 'COA PASSED — THC 26.8%, moisture 9.5%' },
-  { id: 'evt-013', timestamp: '2026-03-04T13:00:00Z', productName: 'Preroll Tubes (CR)', eventType: 'reorder', description: 'Stock below reorder point — 450 remaining, reorder point 1,000' },
-  { id: 'evt-014', timestamp: '2026-03-04T10:00:00Z', productName: 'OG Kush 14g', batchNumber: 'B2026-0223', eventType: 'packaged', description: '30 units packaged at Packaging Line B' },
-  { id: 'evt-015', timestamp: '2026-03-03T16:00:00Z', productName: 'Caramel Chews 5pk', batchNumber: 'B2026-0615', eventType: 'delivered', description: '60 units delivered to Mountain High (Route A)' },
-  { id: 'evt-016', timestamp: '2026-03-03T12:00:00Z', productName: 'Wedding Cake Rosin Bulk', batchNumber: 'B2026-0517', eventType: 'coa-passed', description: 'COA PASSED — THC 81.5%, terpenes 7.3%' },
-  { id: 'evt-017', timestamp: '2026-03-02T14:00:00Z', productName: 'Blue Dream Dried', batchNumber: 'B2026-0271', eventType: 'harvested', description: '14 lbs moved from Dry Room to Cure Room B' },
-  { id: 'evt-018', timestamp: '2026-03-01T10:00:00Z', productName: 'CCELL 0.5g Shells', eventType: 'alert', description: 'Stock critically low — 200 remaining, reorder point 1,000' },
+// ─── QA Samples (6 items) ─────────────────────────────────────────────────────
+export const MOCK_QA_SAMPLES: QASample[] = [
+  { id: 'qs-001', sampleId: 'SMPL-2026-0301', productName: 'Premium Flower - Orange Crush', batchNumber: 'GF41598605622344', lab: 'SC Labs WA', submissionDate: '2026-03-01', expectedReturn: '2026-03-08', status: 'in-testing' },
+  { id: 'qs-002', sampleId: 'SMPL-2026-0302', productName: 'RTM | Preroll Material - Green Crack', batchNumber: 'GF41598605666788', lab: 'Confidence Analytics', submissionDate: '2026-03-02', expectedReturn: '2026-03-09', status: 'in-testing' },
+  { id: 'qs-003', sampleId: 'SMPL-2026-0303', productName: 'Premium Flower - Skatalite', batchNumber: 'GF41598605699011', lab: 'Confidence Analytics', submissionDate: '2026-03-06', expectedReturn: '2026-03-13', status: 'submitted' },
+  { id: 'qs-004', sampleId: 'SMPL-2026-0285', productName: 'Premium Flower - Platinum Pineapple', batchNumber: 'GF41598605597285', lab: 'SC Labs WA', submissionDate: '2026-02-16', expectedReturn: '2026-02-23', status: 'passed' },
+  { id: 'qs-005', sampleId: 'SMPL-2026-0277', productName: 'RTM | Vaporizer - Green Crack Cart', batchNumber: 'GF41598605633455', lab: 'Confidence Analytics', submissionDate: '2026-01-31', expectedReturn: '2026-02-07', status: 'failed' },
+  { id: 'qs-006', sampleId: 'SMPL-2026-0290', productName: 'Edible - Orange Crush Gummies', batchNumber: 'GF41598605644566', lab: 'Phytalab WA', submissionDate: '2026-03-01', expectedReturn: '2026-03-07', status: 'passed' },
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// COMPUTED HELPERS
-// ═══════════════════════════════════════════════════════════════
+// ─── Employee Samples (5 items) ───────────────────────────────────────────────
+export const MOCK_EMPLOYEE_SAMPLES: EmployeeSample[] = [
+  { id: 'es-001', employeeName: 'Jake Torres', productSampled: 'Premium Flower - Platinum Pineapple 3.5g', date: '2026-03-10', quantity: 1, purpose: 'quality-control', approvedBy: 'Manager: Lisa Chen' },
+  { id: 'es-002', employeeName: 'Maria Vasquez', productSampled: 'Edible - Orange Crush Gummies 10pk', date: '2026-03-09', quantity: 1, purpose: 'education', approvedBy: 'Manager: Lisa Chen' },
+  { id: 'es-003', employeeName: 'Devon Reed', productSampled: 'RTM | Hydrocarbon Concentrate - PP Live Resin 1g', date: '2026-03-08', quantity: 1, purpose: 'quality-control', approvedBy: 'Manager: Tom Park' },
+  { id: 'es-004', employeeName: 'Kenji Nakamura', productSampled: 'Premium Flower - Moonbow 3.5g', date: '2026-03-07', quantity: 1, purpose: 'demo', approvedBy: 'Manager: Tom Park' },
+  { id: 'es-005', employeeName: 'Aisha Johnson', productSampled: 'Tincture - Full Spectrum 1500mg 30ml', date: '2026-03-06', quantity: 1, purpose: 'education', approvedBy: 'Manager: Lisa Chen' },
+];
 
-function computePipeline(): PipelineStateNode[] {
-  const stateOrder: ReadinessState[] = [
-    'growing', 'harvested', 'dried', 'bucked', 'trimmed', 'bulk-ready',
-    'coa-pending', 'coa-passed', 'packaged', 'fulfilled', 'delivered',
-  ];
-  const stateLabels: Record<ReadinessState, string> = {
-    growing: 'Growing', harvested: 'Harvested', dried: 'Dried',
-    bucked: 'Bucked', trimmed: 'Trimmed', 'bulk-ready': 'Bulk Ready',
-    'coa-pending': 'COA Pending', 'coa-passed': 'COA Passed',
-    packaged: 'Packaged', fulfilled: 'Fulfilled', delivered: 'Delivered',
-  };
-  const stateUnits: Record<ReadinessState, string> = {
-    growing: 'plants', harvested: 'lbs', dried: 'lbs',
-    bucked: 'lbs', trimmed: 'lbs', 'bulk-ready': 'lbs',
-    'coa-pending': 'batches', 'coa-passed': 'batches',
-    packaged: 'units', fulfilled: 'units', delivered: 'units',
-  };
-  const thresholds: Record<ReadinessState, { low: number; critical: number }> = {
-    growing: { low: 30, critical: 10 }, harvested: { low: 10, critical: 5 },
-    dried: { low: 10, critical: 5 }, bucked: { low: 5, critical: 2 },
-    trimmed: { low: 5, critical: 2 }, 'bulk-ready': { low: 5, critical: 2 },
-    'coa-pending': { low: 5, critical: 8 }, 'coa-passed': { low: 3, critical: 1 },
-    packaged: { low: 200, critical: 50 }, fulfilled: { low: 50, critical: 20 },
-    delivered: { low: 50, critical: 20 },
-  };
+// ─── Disposals (5 items) ──────────────────────────────────────────────────────
+export const MOCK_DISPOSALS: Disposal[] = [
+  { id: 'dis-001', disposalId: 'DSP-2026-0041', productName: 'RTM | Vaporizer - Green Crack Cart 1g', batchNumber: 'GF41598605633455', quantity: 60, unit: 'units', disposalReason: 'compliance', disposalMethod: 'On-Site Compost', date: '2026-02-10', employee: 'Mike T.', witness: 'Sarah K.' },
+  { id: 'dis-002', disposalId: 'DSP-2026-0035', productName: 'Trim Waste - Platinum Pineapple', batchNumber: 'B2026-0280', quantity: 2.5, unit: 'lbs', disposalReason: 'waste', disposalMethod: 'Licensed Waste Hauler', date: '2026-02-05', employee: 'Jake T.', witness: 'Devon R.' },
+  { id: 'dis-003', disposalId: 'DSP-2026-0028', productName: 'Premium Flower - Gorilla Glue Damaged', batchNumber: 'B2026-0281', quantity: 12, unit: 'units', disposalReason: 'damage', disposalMethod: 'On-Site Compost', date: '2026-01-28', employee: 'Sarah K.', witness: 'Mike T.' },
+  { id: 'dis-004', disposalId: 'DSP-2026-0020', productName: 'Preroll - OG Kush 1g (Expired)', batchNumber: 'B2026-0200', quantity: 24, unit: 'units', disposalReason: 'expiration', disposalMethod: 'Licensed Waste Hauler', date: '2026-01-20', employee: 'Devon R.', witness: 'Jake T.' },
+  { id: 'dis-005', disposalId: 'DSP-2026-0015', productName: 'Fan Leaf / Stem Waste', batchNumber: 'B2026-0270', quantity: 5.2, unit: 'lbs', disposalReason: 'waste', disposalMethod: 'On-Site Compost', date: '2026-01-15', employee: 'Mike T.', witness: 'Sarah K.' },
+];
 
-  return stateOrder.map((state) => {
-    const items = allCannabis.filter((i) => i.readinessState === state);
-    const count = items.reduce((sum, i) => sum + i.quantity, 0);
-    const t = thresholds[state];
-    const health = count <= t.critical ? 'critical' : count <= t.low ? 'low' : 'healthy';
-    return { state, label: stateLabels[state], count, unit: stateUnits[state], health };
-  });
-}
+// ─── Product Tags (6 items) ───────────────────────────────────────────────────
+export const MOCK_PRODUCT_TAGS: ProductTag[] = [
+  { id: 'pt-001', name: 'Staff Pick', color: '#8B5CF6', assignedProducts: 4 },
+  { id: 'pt-002', name: 'New Arrival', color: '#22C55E', assignedProducts: 3 },
+  { id: 'pt-003', name: 'Limited Run', color: '#F59E0B', assignedProducts: 2 },
+  { id: 'pt-004', name: 'DOH Compliant', color: '#3B82F6', assignedProducts: 19 },
+  { id: 'pt-005', name: 'Featured', color: '#EC4899', assignedProducts: 5 },
+  { id: 'pt-006', name: 'Clearance', color: '#EF4444', assignedProducts: 1 },
+];
 
-function computeCategories(): CategoryDistribution[] {
-  const labels: Record<ProductCategory, string> = {
-    flower: 'Flower', preroll: 'Prerolls', vaporizer: 'Vaporizers',
-    concentrate: 'Concentrates', edible: 'Edibles', beverage: 'Beverages',
-  };
-  const trends: Record<ProductCategory, number> = {
-    flower: 5, preroll: 12, vaporizer: 8, concentrate: -3, edible: 15, beverage: 22,
-  };
+// ─── Conversion Rules (4 items) ───────────────────────────────────────────────
+export const MOCK_CONVERSIONS: ConversionRule[] = [
+  { id: 'cv-001', fromProduct: 'Flower Lot (Bulk Lbs)', toProduct: 'Premium Flower 3.5g Units', conversionRatio: 130.06, unit: 'lbs → units', active: true },
+  { id: 'cv-002', fromProduct: 'Flower Lot (Bulk Lbs)', toProduct: 'Preroll 1g Units', conversionRatio: 453.6, unit: 'lbs → units', active: true },
+  { id: 'cv-003', fromProduct: 'Concentrate (Bulk g)', toProduct: 'Vaporizer Cart 1g Units', conversionRatio: 0.9, unit: 'g → units', active: true },
+  { id: 'cv-004', fromProduct: 'Flower Lot (Bulk Lbs)', toProduct: 'Budlets 3.5g Units', conversionRatio: 130.06, unit: 'lbs → units', active: false },
+];
 
-  return (['flower', 'preroll', 'vaporizer', 'concentrate', 'edible', 'beverage'] as ProductCategory[]).map((cat) => {
-    const items = allCannabis.filter((i) => i.category === cat && ['packaged', 'fulfilled'].includes(i.readinessState));
-    const count = items.reduce((sum, i) => sum + i.quantity, 0);
-    const value = items.reduce((sum, i) => sum + i.value, 0);
-    const lowStock = count < 100;
-    return { category: cat, label: labels[cat], count, value, trend: trends[cat], lowStock };
-  });
-}
+// ─── Production Runs (5 items) ────────────────────────────────────────────────
+export const MOCK_PRODUCTION_RUNS: ProductionRun[] = [
+  { id: 'pr-001', runId: 'PRD-2026-0041', productName: 'Preroll - Platinum Pineapple 1g (300 units)', bomComponents: ['Flower: PP 300g', 'Tubes: 300x', 'Labels: 300x'], quantityProduced: 300, date: '2026-03-08', status: 'complete' },
+  { id: 'pr-002', runId: 'PRD-2026-0042', productName: 'Gummies - Orange Crush 10pk (200 units)', bomComponents: ['THC Distillate: 20g', 'Gummy Base: 4kg', 'Packaging: 200x'], quantityProduced: 200, date: '2026-03-09', status: 'complete' },
+  { id: 'pr-003', runId: 'PRD-2026-0043', productName: 'Flower - Moonbow 3.5g (72 units)', bomComponents: ['Flower: MB 252g', 'Mylar Bags: 72x', 'Labels: 72x'], quantityProduced: 0, date: '2026-03-11', status: 'in-progress' },
+  { id: 'pr-004', runId: 'PRD-2026-0044', productName: 'Vape Cart - Green Crack 1g (60 units)', bomComponents: ['CO2 Oil: 60ml', 'Cart Hardware: 60x', 'Labels: 60x'], quantityProduced: 0, date: '2026-03-14', status: 'planned' },
+  { id: 'pr-005', runId: 'PRD-2026-0045', productName: 'Budlets - White Fire OG 3.5g (84 units)', bomComponents: ['Flower: WFO 294g', 'Bags: 84x', 'Labels: 84x'], quantityProduced: 0, date: '2026-03-16', status: 'planned' },
+];
 
-function computeMetrics(): InventoryOverviewMetrics {
-  const packaged = allCannabis.filter((i) => ['packaged', 'fulfilled'].includes(i.readinessState));
-  const uniqueSKUs = new Set(packaged.map((i) => i.sku)).size;
-  const totalValue = allCannabis.reduce((sum, i) => sum + i.value, 0);
-  const belowReorder = nonCannabis.filter((i) => i.currentStock < i.reorderPoint).length;
-  const coaPending = coaSubmissions.filter((s) => s.status === 'submitted' || s.status === 'in-testing').length;
-  const expiringCOAs = coaSubmissions.filter((s) => {
-    if (!s.expirationDate) return false;
-    const exp = new Date(s.expirationDate);
-    const cutoff = new Date('2026-04-06');
-    return exp <= cutoff && s.status === 'passed';
-  }).length;
+// ─── Non-Cannabis Materials (10 items) ───────────────────────────────────────
+export const MOCK_NON_CANNABIS: NonCannabisItem[] = [
+  { id: 'nc-001', name: '3.5g Child-Resistant Mylar Bags', category: 'packaging', sku: 'PKG-MYLAR-3.5G', currentStock: 2400, unit: 'units', reorderPoint: 500, reorderQuantity: 2000, supplier: 'CannaPack Supply Co.', lastOrdered: '2026-02-15', status: 'in-stock', unitCost: 0.18 },
+  { id: 'nc-002', name: '7g Child-Resistant Mylar Bags', category: 'packaging', sku: 'PKG-MYLAR-7G', currentStock: 800, unit: 'units', reorderPoint: 300, reorderQuantity: 1000, supplier: 'CannaPack Supply Co.', lastOrdered: '2026-02-10', status: 'in-stock', unitCost: 0.22 },
+  { id: 'nc-003', name: '1g Preroll Tubes (Black)', category: 'containers', sku: 'CTN-TUBE-1G', currentStock: 150, unit: 'units', reorderPoint: 500, reorderQuantity: 2000, supplier: 'WA Packaging Solutions', lastOrdered: '2026-01-20', status: 'critical', unitCost: 0.12 },
+  { id: 'nc-004', name: 'Flower Labels (3.5g)', category: 'labels', sku: 'LBL-FL-3.5G', currentStock: 3200, unit: 'units', reorderPoint: 1000, reorderQuantity: 5000, supplier: 'ProLabel Inc.', lastOrdered: '2026-02-20', status: 'in-stock', unitCost: 0.08 },
+  { id: 'nc-005', name: 'Concentrate Container 1g (Glass)', category: 'containers', sku: 'CTN-GLASS-1G', currentStock: 420, unit: 'units', reorderPoint: 200, reorderQuantity: 1000, supplier: 'Glass Vault Supply', lastOrdered: '2026-02-01', status: 'in-stock', unitCost: 0.45 },
+  { id: 'nc-006', name: 'Vape Cart Hardware 510 1ml', category: 'other', sku: 'VPH-510-1ML', currentStock: 60, unit: 'units', reorderPoint: 200, reorderQuantity: 500, supplier: 'CCell Direct', lastOrdered: '2026-02-28', status: 'low', unitCost: 2.20 },
+  { id: 'nc-007', name: 'Gummy Packaging 10-Pack Boxes', category: 'packaging', sku: 'PKG-GUMMY-10PK', currentStock: 900, unit: 'units', reorderPoint: 300, reorderQuantity: 1000, supplier: 'CannaPack Supply Co.', lastOrdered: '2026-02-25', status: 'in-stock', unitCost: 0.35 },
+  { id: 'nc-008', name: 'Tincture Dropper Bottles 30ml', category: 'containers', sku: 'CTN-DROP-30ML', currentStock: 240, unit: 'units', reorderPoint: 100, reorderQuantity: 500, supplier: 'Glass Vault Supply', lastOrdered: '2026-01-30', status: 'in-stock', unitCost: 0.80 },
+  { id: 'nc-009', name: 'Tamper-Evident Seals', category: 'labels', sku: 'LBL-TAMPER', currentStock: 5000, unit: 'units', reorderPoint: 2000, reorderQuantity: 10000, supplier: 'ProLabel Inc.', lastOrdered: '2026-02-18', status: 'in-stock', unitCost: 0.03 },
+  { id: 'nc-010', name: 'Retail Dispensary Bags (8x10)', category: 'packaging', sku: 'PKG-RETAIL-SM', currentStock: 0, unit: 'units', reorderPoint: 500, reorderQuantity: 2000, supplier: 'WA Packaging Solutions', lastOrdered: '2026-02-05', status: 'out-of-stock', unitCost: 0.15 },
+];
 
-  return {
-    totalSKUs: uniqueSKUs + 100,
-    totalValue,
-    belowReorderPoint: belowReorder,
-    coaPending,
-    avgDaysInPipeline: 94,
-    expiringCOAs,
-  };
-}
-
-// ═══════════════════════════════════════════════════════════════
-// EXPORTS — async getters matching TanStack Query pattern
-// ═══════════════════════════════════════════════════════════════
-
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-export async function getCannabisInventory(filters?: InventoryFilter): Promise<CannabisInventoryItem[]> {
-  await delay(300);
-  let result = [...allCannabis];
-  if (filters?.category) result = result.filter((i) => i.category === filters.category);
-  if (filters?.readinessState) result = result.filter((i) => i.readinessState === filters.readinessState);
-  if (filters?.strain) result = result.filter((i) => i.strain.toLowerCase().includes(filters.strain!.toLowerCase()));
-  if (filters?.brand) result = result.filter((i) => i.brand === filters.brand);
-  if (filters?.thcMin != null) result = result.filter((i) => i.thc >= filters.thcMin!);
-  if (filters?.thcMax != null) result = result.filter((i) => i.thc <= filters.thcMax!);
-  if (filters?.packageSize) result = result.filter((i) => i.packageSize === filters.packageSize);
-  if (filters?.coaStatus) result = result.filter((i) => i.coaStatus === filters.coaStatus);
-  if (filters?.stockLevel === 'low-stock') result = result.filter((i) => i.quantity > 0 && i.quantity < 100);
-  if (filters?.stockLevel === 'out-of-stock') result = result.filter((i) => i.quantity === 0);
-  if (filters?.stockLevel === 'in-stock') result = result.filter((i) => i.quantity >= 100);
-  if (filters?.search) {
-    const q = filters.search.toLowerCase();
-    result = result.filter((i) =>
-      i.productName.toLowerCase().includes(q) || i.strain.toLowerCase().includes(q) ||
-      i.sku.toLowerCase().includes(q) || i.batchNumber.toLowerCase().includes(q)
-    );
-  }
-  return result;
-}
-
-export async function getNonCannabisInventory(): Promise<NonCannabisItem[]> {
-  await delay(200);
-  return [...nonCannabis];
-}
-
-export async function getCOASubmissions(filters?: { status?: COASubmission['status']; search?: string }): Promise<COASubmission[]> {
-  await delay(300);
-  let result = [...coaSubmissions];
-  if (filters?.status) result = result.filter((s) => s.status === filters.status);
-  if (filters?.search) {
-    const q = filters.search.toLowerCase();
-    result = result.filter((s) =>
-      s.batchNumber.toLowerCase().includes(q) || s.productName.toLowerCase().includes(q) ||
-      s.strain.toLowerCase().includes(q) || s.labName.toLowerCase().includes(q)
-    );
-  }
-  return result;
-}
-
-export async function getLabPartners(): Promise<LabPartner[]> {
-  await delay(200);
-  return [...labPartners];
-}
-
-export async function getInventoryAlerts(): Promise<InventoryAlert[]> {
-  await delay(200);
-  return [...alerts];
-}
-
-export async function getActivityFeed(): Promise<ActivityFeedEvent[]> {
-  await delay(200);
-  return [...activityFeed];
-}
-
-export async function getPipelineNodes(): Promise<PipelineStateNode[]> {
-  await delay(200);
-  return computePipeline();
-}
-
-export async function getOverviewMetrics(): Promise<InventoryOverviewMetrics> {
-  await delay(200);
-  return computeMetrics();
-}
-
-export async function getCategoryDistribution(): Promise<CategoryDistribution[]> {
-  await delay(200);
-  return computeCategories();
-}
+// ─── Manage Menu Rows ─────────────────────────────────────────────────────────
+const backorderAmounts = [0, 0, 6, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0];
+const lastAdjustedDates = [
+  '2026-03-11', '2026-03-10', '2026-03-09', '2026-03-08', '2026-03-07',
+  '2026-03-06', '2026-03-05', '2026-03-04', '2026-03-03', '2026-03-02',
+  '2026-03-01', '2026-02-28', '2026-02-27', '2026-02-26', '2026-02-25',
+  '2026-02-24', '2026-02-23', '2026-02-22', '2026-02-21', '2026-02-20',
+];
+const portalAvailability = [
+  true, true, true, true, true, true, true, true, true, false,
+  true, true, false, true, true, true, true, false, true, true,
+];
+export const MOCK_MANAGE_MENU: ManageMenuRow[] = MOCK_PRODUCTS.map((prod, i) => ({
+  id: prod.id,
+  productName: prod.name,
+  inventoryType: prod.inventoryType,
+  availableForSale: prod.availableForSale,
+  allocated: prod.allocated,
+  unitsOnBackorder: backorderAmounts[i] ?? 0,
+  onHold: prod.onHold,
+  totalInStock: prod.totalInStock,
+  unitPrice: prod.unitPrice,
+  status: prod.status,
+  lastAdjusted: lastAdjustedDates[i] ?? '2026-02-20',
+  availableOnPortal: portalAvailability[i] ?? true,
+} as ManageMenuRow));

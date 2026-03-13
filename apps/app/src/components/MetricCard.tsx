@@ -1,5 +1,6 @@
 'use client';
 
+import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Activity, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
@@ -11,8 +12,10 @@ interface Trend {
 interface MetricCardProps {
   label: string;
   value: string | number;
+  subValue?: string;
   trend?: Trend;
   accentColor: string;
+  icon?: LucideIcon;
   sparklineData?: number[];
   onClick?: () => void;
   padding?: 'sm' | 'md' | 'lg';
@@ -30,8 +33,10 @@ const PADDING_CLASSES = { sm: 'p-3', md: 'p-5', lg: 'p-6' } as const;
 export function MetricCard({
   label,
   value,
+  subValue,
   trend,
   accentColor,
+  icon: Icon,
   sparklineData: _sparklineData,
   onClick,
   padding = 'md',
@@ -39,6 +44,7 @@ export function MetricCard({
 }: MetricCardProps) {
   const TrendIcon = trend ? TREND_CONFIG[trend.direction].icon : null;
   const trendColor = trend ? TREND_CONFIG[trend.direction].color : '';
+  const IconComponent = Icon ?? Activity;
 
   return (
     <div
@@ -58,11 +64,12 @@ export function MetricCard({
           className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
           style={{ backgroundColor: `${accentColor}1A` }}
         >
-          <Activity className="h-4 w-4" style={{ color: accentColor }} />
+          <IconComponent className="h-4 w-4" style={{ color: accentColor }} />
         </div>
         <div className="min-w-0">
           <p className="font-display text-lg font-bold text-text-bright">{value}</p>
           <p className="text-xs text-text-muted">{label}</p>
+          {subValue && <p className="mt-0.5 text-[11px] text-text-muted">{subValue}</p>}
         </div>
       </div>
       {trend && TrendIcon && (

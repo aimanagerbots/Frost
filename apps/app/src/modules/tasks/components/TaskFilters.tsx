@@ -99,6 +99,18 @@ export function TaskFilters({ filters, onChange }: TaskFiltersProps) {
         <option value="COA">COA</option>
         <option value="Products">Products</option>
       </select>
+
+      {/* Pipeline */}
+      <select
+        value={filters.pipelineCode ?? ''}
+        onChange={(e) => update({ pipelineCode: e.target.value || undefined })}
+        className={selectClass}
+      >
+        <option value="">All Pipeline</option>
+        <option value="A">Active (A*)</option>
+        <option value="I">Inactive (I*)</option>
+        <option value="R">Recovery (R*)</option>
+      </select>
     </div>
   );
 }

@@ -1,0 +1,30 @@
+[
+  {
+    "type": "data-table",
+    "count": 2,
+    "sampleHeaders": [
+      "Partner Name",
+      "Order #",
+      "Manifest Date",
+      "Delivery Date",
+      "Status"
+    ]
+  },
+  {
+    "type": "form",
+    "formCount": 18,
+    "fieldCount": 20
+  },
+  {
+    "type": "chart",
+    "count": 5
+  },
+  {
+    "type": "modal/dialog",
+    "count": 53
+  },
+  {
+    "type": "list",
+    "count": 4
+  }
+]

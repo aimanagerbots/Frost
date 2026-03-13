@@ -5,6 +5,7 @@ import { SectionHeader, MetricCard, LoadingSkeleton, ErrorState, EmptyState } fr
 import { useDashboardAlerts } from '@/modules/dashboard/hooks/useDashboardAlerts';
 import { useDashboardMetrics } from '@/modules/dashboard/hooks/useDashboardMetrics';
 import { useDashboardCharts } from '@/modules/dashboard/hooks/useDashboardCharts';
+import { useAlertRules } from '@/modules/crm/hooks/useAlertRules';
 import { AlertsRow } from './AlertsRow';
 import { DashboardCharts } from './DashboardCharts';
 import { QuickActions } from './QuickActions';
@@ -31,6 +32,7 @@ export function DashboardPage() {
   const { data: alerts, isLoading: alertsLoading, error: alertsError, refetch: refetchAlerts } = useDashboardAlerts();
   const { data: metrics, isLoading: metricsLoading, error: metricsError, refetch: refetchMetrics } = useDashboardMetrics();
   const { data: charts, isLoading: chartsLoading, error: chartsError, refetch: refetchCharts } = useDashboardCharts();
+  const { data: proactiveAlerts } = useAlertRules();
 
   const isLoading = alertsLoading || metricsLoading || chartsLoading;
 
@@ -83,7 +85,16 @@ export function DashboardPage() {
       </div>
 
       {/* Alerts */}
-      {alerts && <AlertsRow alerts={alerts} />}
+      {alerts && (
+        <AlertsRow
+          alerts={[
+            ...alerts,
+            ...(proactiveAlerts?.dashboardAlerts ?? []).filter(
+              (pa) => !alerts.some((a) => a.id === pa.id)
+            ),
+          ]}
+        />
+      )}
 
       {/* KPI Metrics */}
       {metrics?.length === 0 && (

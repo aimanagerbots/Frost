@@ -1,0 +1,6 @@
+{
+  "--brand-primary": "#0AbAb4",
+  "--brand-primary-hover": "#099a9e",
+  "--brand-primary-light": "rgba(10, 171, 180, 0.1)",
+  "--brand-primary-border": "rgba(10, 171, 180, 0.3)"
+}

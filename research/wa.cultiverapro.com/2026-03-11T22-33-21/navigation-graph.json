@@ -1,0 +1,1148 @@
+[
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: Sales Grow Analytics Sales Inventory Management Fulfillment Configuration",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\000-dropdown-Sales-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configurati.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: Sales",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\001-dropdown-Sales.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\003-dropdown-3.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: 0",
+    "to": "https://wa.cultiverapro.com/sales#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\004-dropdown-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: 0",
+    "to": "https://wa.cultiverapro.com/sales#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\005-dropdown-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: 2",
+    "to": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\006-dropdown-2.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: 2",
+    "to": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\007-dropdown-2.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\008-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\009-dropdown-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: G&S GREENERY Company Profile Marketplace Settings Profile Settings Lock Logout",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\010-dropdown-G-S-GREENERY-Company-Profile-Marketplace-Settings-Profile-Settings-Lock.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "dropdown: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\011-dropdown-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "expandable: Sales Grow Analytics Sales Inventory Management Fulfillment Configuration a.disa",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\012-expandable-Sales-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configura.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "expandable: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/sales#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\013-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "expandable: .k-list .k-item { margin-bottom: 5px; line-height: 20px; border-bottom: 1px soli",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\014-expandable-k-list-k-item-margin-bottom-5px-line-height-20px-border-bottom-1px-so.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "expandable: Dashboard Accounts Account Groups Carts Inventory Catalogs Orders Sales Person R",
+    "to": "https://wa.cultiverapro.com/sales#/products",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\015-expandable-Dashboard-Accounts-Account-Groups-Carts-Inventory-Catalogs-Orders-Sal.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "button: Sales",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\016-button-Sales.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "button: 0",
+    "to": "https://wa.cultiverapro.com/sales#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\017-button-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "button: 2",
+    "to": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\018-button-2.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "button: PRC Conway (PO-949112-339795)",
+    "to": "https://wa.cultiverapro.com/sales#/cart/2",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\019-button-PRC-Conway-PO-949112-339795-.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "button: PRC Arlington (PO-949112-339791)",
+    "to": "https://wa.cultiverapro.com/sales#/cart/1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\020-button-PRC-Arlington-PO-949112-339791-.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: Sales",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\021-toggle-Sales.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\022-toggle-22.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: 0",
+    "to": "https://wa.cultiverapro.com/sales#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\023-toggle-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: 2",
+    "to": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\024-toggle-2.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\025-toggle-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\026-toggle-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\027-toggle-27.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\028-toggle-28.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/sales#/dashboard",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/sales#/dashboard [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Home-Dashboard\\states\\029-toggle-29.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: Grow Grow Analytics Sales Inventory Management Fulfillment Configuration",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\000-dropdown-Grow-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configuratio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: Grow",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\001-dropdown-Grow.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\003-dropdown-3.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\004-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\005-dropdown-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: G&S GREENERY Company Profile Profile Settings Lock Logout",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\006-dropdown-G-S-GREENERY-Company-Profile-Profile-Settings-Lock-Logout.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\007-dropdown-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/app-grow [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\008-dropdown-8.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "expandable: Grow Grow Analytics Sales Inventory Management Fulfillment Configuration a.disab",
+    "to": "https://wa.cultiverapro.com/app-grow [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\009-expandable-Grow-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configurat.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "expandable: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/app-grow [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\010-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "expandable: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/app-grow [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\011-expandable-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Pe.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "expandable: Grow Board Dashboard equalizer Grow Cycles Plants grain Grow Sources dashboard R",
+    "to": "https://wa.cultiverapro.com/app-grow/#/rooms",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\012-expandable-Grow-Board-Dashboard-equalizer-Grow-Cycles-Plants-grain-Grow-Sources-.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "expandable: ",
+    "to": "https://wa.cultiverapro.com/app-grow [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\013-expandable-13.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "button: Grow",
+    "to": "https://wa.cultiverapro.com/app-grow [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\014-button-Grow.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "toggle: Grow",
+    "to": "https://wa.cultiverapro.com/app-grow [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\015-toggle-Grow.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/app-grow [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\016-toggle-16.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "toggle: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/app-grow [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\017-toggle-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-grow",
+    "action": "toggle: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/app-grow [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Grow\\states\\018-toggle-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "dropdown: Analytics Grow Analytics Sales Inventory Management Fulfillment Configuration",
+    "to": "https://wa.cultiverapro.com/app-analytics [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\000-dropdown-Analytics-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configu.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "dropdown: Analytics",
+    "to": "https://wa.cultiverapro.com/app-analytics [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\001-dropdown-Analytics.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "dropdown: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/app-analytics [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/app-analytics [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\003-dropdown-3.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "dropdown: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/app-analytics [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\004-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "dropdown: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/app-analytics [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\005-dropdown-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "dropdown: G&S GREENERY Company Profile Profile Settings Lock Logout",
+    "to": "https://wa.cultiverapro.com/app-analytics [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\006-dropdown-G-S-GREENERY-Company-Profile-Profile-Settings-Lock-Logout.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "dropdown: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/app-analytics [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\007-dropdown-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "expandable: Analytics Grow Analytics Sales Inventory Management Fulfillment Configuration a.",
+    "to": "https://wa.cultiverapro.com/app-analytics [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\008-expandable-Analytics-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Confi.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "expandable: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/app-analytics [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\009-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "expandable: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/app-analytics [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\010-expandable-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Pe.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "expandable: equalizer Dashboard",
+    "to": "https://wa.cultiverapro.com/app-analytics [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\011-expandable-equalizer-Dashboard.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "button: Analytics",
+    "to": "https://wa.cultiverapro.com/app-analytics [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\012-button-Analytics.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "toggle: Analytics",
+    "to": "https://wa.cultiverapro.com/app-analytics [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\013-toggle-Analytics.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/app-analytics [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\014-toggle-14.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "toggle: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/app-analytics [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\015-toggle-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/app-analytics",
+    "action": "toggle: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/app-analytics [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Analytics\\states\\016-toggle-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: Sales Grow Analytics Sales Inventory Management Fulfillment Configuration",
+    "to": "https://wa.cultiverapro.com/crm#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\000-dropdown-Sales-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configurati.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: Sales",
+    "to": "https://wa.cultiverapro.com/crm#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\001-dropdown-Sales.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/crm#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/crm#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\003-dropdown-3.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: 0",
+    "to": "https://wa.cultiverapro.com/crm#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\004-dropdown-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: 0",
+    "to": "https://wa.cultiverapro.com/crm#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\005-dropdown-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: 2",
+    "to": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\006-dropdown-2.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: 2",
+    "to": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\007-dropdown-2.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/crm#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\008-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/crm#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\009-dropdown-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: G&S GREENERY Company Profile Marketplace Settings Profile Settings Lock Logout",
+    "to": "https://wa.cultiverapro.com/crm#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\010-dropdown-G-S-GREENERY-Company-Profile-Marketplace-Settings-Profile-Settings-Lock.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "dropdown: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/crm#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\011-dropdown-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "expandable: Sales Grow Analytics Sales Inventory Management Fulfillment Configuration a.disa",
+    "to": "https://wa.cultiverapro.com/crm#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\012-expandable-Sales-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configura.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "expandable: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/crm#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\013-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "expandable: .k-list .k-item { margin-bottom: 5px; line-height: 20px; border-bottom: 1px soli",
+    "to": "https://wa.cultiverapro.com/crm#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\014-expandable-k-list-k-item-margin-bottom-5px-line-height-20px-border-bottom-1px-so.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "expandable: Dashboard Accounts Account Groups Carts Inventory Catalogs Orders Sales Person R",
+    "to": "https://wa.cultiverapro.com/crm#/products",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\015-expandable-Dashboard-Accounts-Account-Groups-Carts-Inventory-Catalogs-Orders-Sal.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "button: Sales",
+    "to": "https://wa.cultiverapro.com/crm#/ [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\016-button-Sales.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "button: 0",
+    "to": "https://wa.cultiverapro.com/crm#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\017-button-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "button: 2",
+    "to": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\018-button-2.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "button: PRC Conway (PO-949112-339795)",
+    "to": "https://wa.cultiverapro.com/crm#/cart/2",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\019-button-PRC-Conway-PO-949112-339795-.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "button: PRC Arlington (PO-949112-339791)",
+    "to": "https://wa.cultiverapro.com/crm#/cart/1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\020-button-PRC-Arlington-PO-949112-339791-.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: Sales",
+    "to": "https://wa.cultiverapro.com/crm#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\021-toggle-Sales.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/crm#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\022-toggle-22.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: 0",
+    "to": "https://wa.cultiverapro.com/crm#/invitations",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\023-toggle-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: 2",
+    "to": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\024-toggle-2.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/crm#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\025-toggle-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/crm#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\026-toggle-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/crm#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\027-toggle-27.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/crm#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\028-toggle-28.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/crm#/",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/crm#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Sales\\states\\029-toggle-29.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: Inventory Management Grow Analytics Sales Inventory Management Fulfillment Confi",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\000-dropdown-Inventory-Management-Grow-Analytics-Sales-Inventory-Management-Fulfillm.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: Inventory Management",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\001-dropdown-Inventory-Management.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\003-dropdown-3.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\004-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\005-dropdown-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: G&S GREENERY Company Profile Marketplace Settings Profile Settings Lock Logout",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\006-dropdown-G-S-GREENERY-Company-Profile-Marketplace-Settings-Profile-Settings-Lock.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\007-dropdown-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: Product-Line",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\008-dropdown-Product-Line.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\009-dropdown-9.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\010-dropdown-10.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: Sub Product-Line",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\011-dropdown-Sub-Product-Line.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\012-dropdown-12.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\013-dropdown-13.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: Product-tag",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\014-dropdown-Product-tag.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\015-dropdown-15.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\016-dropdown-16.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "dropdown: Batches RTM | Extraction Material - Placeholder Not Available $0.00 0.00 0.00 0.",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\017-dropdown-Batches-RTM-Extraction-Material-Placeholder-Not-Available-0-00-0-00-0-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "expandable: Inventory Management Grow Analytics Sales Inventory Management Fulfillment Confi",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\018-expandable-Inventory-Management-Grow-Analytics-Sales-Inventory-Management-Fulfil.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "expandable: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\019-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "expandable: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\020-expandable-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Pe.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "expandable: style Manage Menu library_books Batches library_books Non-Cannabis Inventory tra",
+    "to": "https://wa.cultiverapro.com/inventory/#/strains",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\021-expandable-style-Manage-Menu-library_books-Batches-library_books-Non-Cannabis-In.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "expandable: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\022-expandable-22.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "expandable: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\023-expandable-23.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "expandable: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\024-expandable-24.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "button: Inventory Management",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\025-button-Inventory-Management.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "button: Share Menu",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\026-button-Share-Menu.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "button: Save Price Changes",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\027-button-Save-Price-Changes.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "toggle: Inventory Management",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\028-toggle-Inventory-Management.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/inventory/#/",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/inventory/#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Inventory-Management\\states\\029-toggle-29.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: Fulfillment Grow Analytics Sales Inventory Management Fulfillment Configuration",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\000-dropdown-Fulfillment-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Confi.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: Fulfillment",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\001-dropdown-Fulfillment.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\003-dropdown-3.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\004-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\005-dropdown-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: G&S GREENERY Company Profile Marketplace Settings Profile Settings Logout",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\006-dropdown-G-S-GREENERY-Company-Profile-Marketplace-Settings-Profile-Settings-Logo.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\007-dropdown-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: 0",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\008-dropdown-0.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: 20selectAll510202550100",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\009-dropdown-20selectAll510202550100.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: 20select",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\010-dropdown-20select.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "dropdown: select",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\011-dropdown-select.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "expandable: Fulfillment Grow Analytics Sales Inventory Management Fulfillment Configuration ",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\012-expandable-Fulfillment-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Con.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "expandable: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\013-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "expandable: .k-list .k-item { margin-bottom: 5px; line-height: 20px; border-bottom: 1px soli",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\014-expandable-k-list-k-item-margin-bottom-5px-line-height-20px-border-bottom-1px-so.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "expandable: Orders Vehicles Drivers Delivery Agents Quarantine Schedule Delivery Schedule Tr",
+    "to": "https://wa.cultiverapro.com/fulfillment#/fulfillment/quarantine-release-schedule",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\015-expandable-Orders-Vehicles-Drivers-Delivery-Agents-Quarantine-Schedule-Delivery-.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "expandable: 20selectAll510202550100",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\016-expandable-20selectAll510202550100.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "button: Fulfillment",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\017-button-Fulfillment.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "button: Search",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\018-button-Search.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Fulfillment",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\019-toggle-Fulfillment.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\020-toggle-20.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\021-toggle-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\022-toggle-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Submitted",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\023-toggle-Submitted.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Partially Sublotted",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\024-toggle-Partially-Sublotted.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Sublotted",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\025-toggle-Sublotted.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Ready For Manifest",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\026-toggle-Ready-For-Manifest.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Manifested",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\027-toggle-Manifested.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Quarantined",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\028-toggle-Quarantined.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/fulfillment#/",
+    "action": "toggle: Invoiced",
+    "to": "https://wa.cultiverapro.com/fulfillment#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Fulfillment\\states\\029-toggle-Invoiced.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "dropdown: Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+    "to": "https://wa.cultiverapro.com/configuration#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\000-dropdown-Configuration-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Con.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "dropdown: Configuration",
+    "to": "https://wa.cultiverapro.com/configuration#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\001-dropdown-Configuration.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "dropdown: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/configuration#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/configuration#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\003-dropdown-3.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "dropdown: Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+    "to": "https://wa.cultiverapro.com/configuration#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\004-dropdown-Profile-Company-Profile-Marketplace-Settings-Notifications-Settings-Log.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "dropdown: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/configuration#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\005-dropdown-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "dropdown: G&S GREENERY Customer Profile Marketplace Settings Profile Settings Lock Logout",
+    "to": "https://wa.cultiverapro.com/configuration#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\006-dropdown-G-S-GREENERY-Customer-Profile-Marketplace-Settings-Profile-Settings-Loc.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "dropdown: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/configuration#/ [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\007-dropdown-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "expandable: Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+    "to": "https://wa.cultiverapro.com/configuration#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\008-expandable-Configuration-Grow-Analytics-Sales-Inventory-Management-Fulfillment-C.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "expandable: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/configuration#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\009-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "expandable: Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+    "to": "https://wa.cultiverapro.com/configuration#/ [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\010-expandable-Profile-Company-Profile-Marketplace-Settings-Notifications-Settings-L.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "expandable: Account Management Marketplace Settings Client Note Attributes Statuses Notifica",
+    "to": "https://wa.cultiverapro.com/configuration#/roles",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\011-expandable-Account-Management-Marketplace-Settings-Client-Note-Attributes-Status.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "button: Configuration",
+    "to": "https://wa.cultiverapro.com/configuration#/ [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\012-button-Configuration.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "button: Add New Sales Person",
+    "to": "https://wa.cultiverapro.com/configuration#/new-user",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\013-button-Add-New-Sales-Person.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "toggle: Configuration",
+    "to": "https://wa.cultiverapro.com/configuration#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\014-toggle-Configuration.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/configuration#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\015-toggle-15.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "toggle: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/configuration#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\016-toggle-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/",
+    "action": "toggle: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/configuration#/ [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Configuration\\states\\017-toggle-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "dropdown: Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\000-dropdown-Configuration-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Con.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "dropdown: Configuration",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\001-dropdown-Configuration.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "dropdown: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "dropdown: ",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\003-dropdown-3.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "dropdown: Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\004-dropdown-Profile-Company-Profile-Marketplace-Settings-Notifications-Settings-Log.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "dropdown: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\005-dropdown-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "dropdown: G&S GREENERY Customer Profile Marketplace Settings Profile Settings Lock Logout",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\006-dropdown-G-S-GREENERY-Customer-Profile-Marketplace-Settings-Profile-Settings-Loc.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "dropdown: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [dropdown open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\007-dropdown-G-S-GREENERY.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "expandable: Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\008-expandable-Configuration-Grow-Analytics-Sales-Inventory-Management-Fulfillment-C.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "expandable: You have 0 new notifications View all notifications × Close .notifications-list ",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\009-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "expandable: Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [expandable open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\010-expandable-Profile-Company-Profile-Marketplace-Settings-Notifications-Settings-L.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "expandable: Account Management Marketplace Settings Client Note Attributes Statuses Notifica",
+    "to": "https://wa.cultiverapro.com/configuration#/roles",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\011-expandable-Account-Management-Marketplace-Settings-Client-Note-Attributes-Status.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "button: Configuration",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [button open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\012-button-Configuration.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "toggle: Configuration",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\013-toggle-Configuration.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "toggle: ",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\014-toggle-14.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "toggle: Michael Perkins",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\015-toggle-Michael-Perkins.png"
+  },
+  {
+    "from": "https://wa.cultiverapro.com/configuration#/notifications",
+    "action": "toggle: G&S GREENERY",
+    "to": "https://wa.cultiverapro.com/configuration#/notifications [toggle open]",
+    "screenshot": "C:\\Users\\seatt\\OneDrive\\Frost 2\\Frost\\research\\wa.cultiverapro.com\\2026-03-11T22-33-21\\Notifications\\states\\016-toggle-G-S-GREENERY.png"
+  }
+]

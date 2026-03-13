@@ -1,245 +1,266 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { ClipboardList } from 'lucide-react';
+import { ClipboardList, Filter, Search } from 'lucide-react';
 import { DataTable, StatusBadge, LoadingSkeleton, ErrorState } from '@/components';
-import { useOrders } from '../hooks/useOrders';
-import { useOrderPipeline } from '../hooks/useOrderPipeline';
-import { OrderPipeline } from './OrderPipeline';
-import { OrderDrawer } from './OrderDrawer';
-import type { Order, OrderFilter, OrderStatus } from '@/modules/orders/types';
-import { ACCENT as ORDERS_ACCENT } from '@/design/colors';
-
 import type { DomainStatus } from '@/components/StatusBadge';
+import type { SalesOrder, SalesOrderStatus } from '@/modules/sales/types';
+import { useSalesOrders, useSalesOrderCounts } from '../hooks/useSalesOrders';
+import type { SalesOrderFilter, SalesOrderStatusTab } from '../hooks/useSalesOrders';
+import { OrderStatusTabs } from './OrderStatusTabs';
+import { OrderQuickFiltersModal } from './OrderQuickFiltersModal';
 
-const ORDER_STATUS_TO_DOMAIN: Record<OrderStatus, DomainStatus> = {
-  pending: 'pending',
-  confirmed: 'confirmed',
-  'in-production': 'in-production',
-  packaged: 'packaged',
-  fulfilled: 'fulfilled',
-  shipped: 'shipped',
-  delivered: 'delivered',
+const SALES_STATUS_TO_DOMAIN: Record<SalesOrderStatus, DomainStatus> = {
+  submitted: 'pending',
+  'partially-sublotted': 'processing',
+  sublotted: 'processing',
+  manifested: 'shipped',
+  quarantined: 'review',
+  invoiced: 'invoiced',
   paid: 'paid',
 };
 
-const selectClass =
-  'rounded-lg border border-default bg-elevated px-2.5 py-1.5 text-xs text-text-default outline-none focus:border-hover';
+// Extend SalesOrder with index signature for DataTable compatibility
+type TableSalesOrder = SalesOrder & Record<string, unknown>;
 
+function toTableOrder(order: SalesOrder): TableSalesOrder {
+  return { ...order } as TableSalesOrder;
+}
+
+function formatDate(dateStr?: string): string {
+  if (!dateStr) return '--';
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+function formatShortDate(dateStr?: string): string {
+  if (!dateStr) return '--';
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+  });
+}
 
 export function OrdersQueue() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const accountParam = searchParams.get('account');
-  const [filters, setFilters] = useState<OrderFilter>(accountParam ? { accountId: accountParam } : {});
-  const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
+  const [activeStatusTab, setActiveStatusTab] = useState<SalesOrderStatusTab>('all');
+  const [filters, setFilters] = useState<SalesOrderFilter>({});
+  const [showQuickFilters, setShowQuickFilters] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const { data: orders, isLoading: ordersLoading, error: ordersError, refetch: refetchOrders } = useOrders(filters);
-  const { data: pipeline, isLoading: pipelineLoading, error: pipelineError, refetch: refetchPipeline } = useOrderPipeline();
+  // Combine status tab with other filters
+  const combinedFilters: SalesOrderFilter = {
+    ...filters,
+    status: activeStatusTab === 'all' ? undefined : activeStatusTab,
+    search: searchTerm || undefined,
+  };
 
-  const isLoading = ordersLoading || pipelineLoading;
+  const { data: orders, isLoading, error, refetch } = useSalesOrders(combinedFilters);
+  const { data: counts } = useSalesOrderCounts();
 
   if (isLoading) {
     return (
-      <div className="space-y-6">
-        <LoadingSkeleton variant="card" count={3} />
+      <div className="space-y-4">
+        <LoadingSkeleton variant="card" count={1} />
         <LoadingSkeleton variant="table" />
       </div>
     );
   }
 
-  const error = ordersError || pipelineError;
   if (error) {
     return (
       <ErrorState
-        title="Failed to load orders"
+        title="Failed to load sales orders"
         message={error.message}
-        onRetry={() => { refetchOrders(); refetchPipeline(); }}
+        onRetry={() => refetch()}
       />
     );
   }
+
+  const tableData = (orders ?? []).map(toTableOrder);
 
   const tableColumns = [
     {
       header: 'Order #',
       accessor: 'orderNumber' as const,
       sortable: true,
-      render: (row: Order) => (
+      render: (row: TableSalesOrder) => (
         <span className="text-sm font-medium text-text-bright">{row.orderNumber}</span>
       ),
     },
     {
-      header: 'Date',
-      accessor: 'createdAt' as const,
+      header: 'Submitted By',
+      accessor: 'submittedBy' as const,
       sortable: true,
-      hideBelow: 'md' as const,
-      render: (row: Order) =>
-        new Date(row.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-    },
-    {
-      header: 'Account',
-      accessor: 'accountName' as const,
-      sortable: true,
-      render: (row: Order) => (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            router.push(`/crm?account=${row.accountId}`);
-          }}
-          className="text-sm text-[#5BB8E6] hover:underline"
-        >
-          {row.accountName}
-        </button>
+      hideBelow: 'lg' as const,
+      render: (row: TableSalesOrder) => (
+        <span className="text-sm text-text-default">{row.submittedBy}</span>
       ),
     },
     {
-      header: 'Items',
-      accessor: (row: Order) => row.items.length,
+      header: 'Submitted',
+      accessor: 'submittedDate' as const,
       sortable: true,
-      hideBelow: 'lg' as const,
-      render: (row: Order) => <span className="text-text-muted">{row.items.length}</span>,
+      hideBelow: 'md' as const,
+      render: (row: TableSalesOrder) => (
+        <span className="text-sm text-text-muted">{formatShortDate(row.submittedDate)}</span>
+      ),
     },
     {
-      header: 'Total',
-      accessor: 'total' as const,
+      header: 'Client',
+      accessor: 'clientName' as const,
       sortable: true,
-      render: (row: Order) => (
-        <span className="font-medium text-text-bright">${row.total.toLocaleString()}</span>
+      render: (row: TableSalesOrder) => (
+        <span className="text-sm font-medium text-text-default">{row.clientName}</span>
+      ),
+    },
+    {
+      header: 'City',
+      accessor: 'city' as const,
+      sortable: true,
+      hideBelow: 'lg' as const,
+      render: (row: TableSalesOrder) => (
+        <span className="text-sm text-text-muted">{row.city}</span>
       ),
     },
     {
       header: 'Status',
       accessor: 'status' as const,
       sortable: true,
-      render: (row: Order) => (
+      render: (row: TableSalesOrder) => (
         <StatusBadge
-          status={ORDER_STATUS_TO_DOMAIN[row.status]}
+          status={SALES_STATUS_TO_DOMAIN[row.status]}
+          label={row.status.replace(/-/g, ' ')}
           size="sm"
         />
       ),
     },
     {
-      header: 'Payment',
-      accessor: 'paymentStatus' as const,
+      header: 'Manifest Date',
+      accessor: 'manifestedDate' as const,
       sortable: true,
       hideBelow: 'md' as const,
-      render: (row: Order) => (
-        <StatusBadge
-          status={row.paymentStatus === 'received' ? 'paid' : row.paymentStatus as DomainStatus}
-          label={row.paymentStatus}
-          size="sm"
-        />
+      render: (row: TableSalesOrder) => (
+        <span className="text-sm text-text-muted">{formatDate(row.manifestedDate)}</span>
       ),
     },
     {
-      header: 'Rep',
-      accessor: 'assignedRep' as const,
+      header: 'Est. Delivery',
+      accessor: 'estDeliveryDate' as const,
+      sortable: true,
+      hideBelow: 'md' as const,
+      render: (row: TableSalesOrder) => (
+        <span className="text-sm text-text-muted">{formatDate(row.estDeliveryDate)}</span>
+      ),
+    },
+    {
+      header: 'Released',
+      accessor: 'releasedDate' as const,
       sortable: true,
       hideBelow: 'lg' as const,
-      render: (row: Order) => (
-        <span className="text-xs text-text-muted">{row.assignedRep.split(' ')[0]}</span>
+      render: (row: TableSalesOrder) => (
+        <span className="text-sm text-text-muted">{formatDate(row.releasedDate)}</span>
+      ),
+    },
+    {
+      header: 'Total',
+      accessor: 'orderTotal' as const,
+      sortable: true,
+      render: (row: TableSalesOrder) => (
+        <span className="text-sm font-semibold text-text-bright">
+          ${row.orderTotal.toLocaleString()}
+        </span>
       ),
     },
   ];
 
-  function handlePipelineClick(status: OrderStatus) {
-    setFilters((prev) => ({
-      ...prev,
-      status: prev.status === status ? undefined : status,
-    }));
-  }
+  const activeFilterCount = [
+    filters.clientName,
+    filters.city,
+    filters.submittedBy,
+    filters.backordersOnly,
+    filters.hideReleased,
+  ].filter(Boolean).length;
 
   return (
-    <div className="space-y-6">
-      {/* Pipeline */}
-      {pipeline && (
-        <OrderPipeline
-          stages={pipeline}
-          activeStatus={filters.status}
-          onStageClick={handlePipelineClick}
-        />
-      )}
+    <div className="space-y-4">
+      {/* Status Tabs */}
+      <OrderStatusTabs
+        activeTab={activeStatusTab}
+        onTabChange={setActiveStatusTab}
+        counts={counts}
+      />
 
-      {/* Filters */}
-      <div className="flex flex-wrap items-center gap-2">
-        <select
-          value={filters.status ?? ''}
-          onChange={(e) =>
-            setFilters((prev) => ({
-              ...prev,
-              status: (e.target.value || undefined) as OrderFilter['status'],
-            }))
-          }
-          className={selectClass}
-        >
-          <option value="">All Statuses</option>
-          <option value="pending">Pending</option>
-          <option value="confirmed">Confirmed</option>
-          <option value="in-production">In Production</option>
-          <option value="packaged">Packaged</option>
-          <option value="fulfilled">Fulfilled</option>
-          <option value="shipped">Shipped</option>
-          <option value="delivered">Delivered</option>
-          <option value="paid">Paid</option>
-        </select>
+      {/* Toolbar: toggle filters + search */}
+      <div className="flex flex-wrap items-center gap-3">
+        {/* Toggle checkboxes */}
+        <label className="flex items-center gap-1.5 text-xs text-text-default cursor-pointer">
+          <input
+            type="checkbox"
+            checked={!!filters.hideReleased}
+            onChange={(e) =>
+              setFilters((f) => ({ ...f, hideReleased: e.target.checked || undefined }))
+            }
+            className="h-3.5 w-3.5 rounded border-default bg-elevated accent-[#F59E0B]"
+          />
+          Hide Released
+        </label>
 
-        <select
-          value={filters.paymentStatus ?? ''}
-          onChange={(e) =>
-            setFilters((prev) => ({
-              ...prev,
-              paymentStatus: (e.target.value || undefined) as OrderFilter['paymentStatus'],
-            }))
-          }
-          className={selectClass}
-        >
-          <option value="">All Payment</option>
-          <option value="pending">Pending</option>
-          <option value="received">Received</option>
-          <option value="overdue">Overdue</option>
-        </select>
+        <div className="flex-1" />
 
-        <select
-          value={filters.category ?? ''}
-          onChange={(e) =>
-            setFilters((prev) => ({
-              ...prev,
-              category: e.target.value || undefined,
-            }))
-          }
-          className={selectClass}
+        {/* Partner Name search */}
+        <div className="relative">
+          <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-text-muted" />
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Find order..."
+            className="w-52 rounded-lg border border-default bg-elevated py-1.5 pl-8 pr-3 text-xs text-text-default placeholder-text-muted outline-none focus:border-hover"
+          />
+        </div>
+
+        {/* Quick Filters button */}
+        <button
+          onClick={() => setShowQuickFilters(true)}
+          className="relative flex items-center gap-1.5 rounded-lg border border-default bg-elevated px-3 py-1.5 text-xs font-medium text-text-default transition-colors hover:border-hover hover:text-text-bright"
         >
-          <option value="">All Categories</option>
-          <option value="flower">Flower</option>
-          <option value="preroll">Preroll</option>
-          <option value="vaporizer">Vaporizer</option>
-          <option value="concentrate">Concentrate</option>
-          <option value="edible">Edible</option>
-          <option value="beverage">Beverage</option>
-        </select>
+          <Filter className="h-3.5 w-3.5" />
+          Filters
+          {activeFilterCount > 0 && (
+            <span
+              className="flex h-4 w-4 items-center justify-center rounded-full text-[10px] font-bold text-white"
+              style={{ backgroundColor: '#F59E0B' }}
+            >
+              {activeFilterCount}
+            </span>
+          )}
+        </button>
       </div>
 
       {/* Orders Table */}
-      <DataTable<Order>
-        data={orders ?? []}
+      <DataTable<TableSalesOrder>
+        data={tableData}
         columns={tableColumns}
-        searchable
-        searchPlaceholder="Search orders..."
-        onRowClick={(row) => setSelectedOrderId(row.id)}
-        pageSize={12}
+        searchable={false}
+        onRowClick={() => {}}
+        pageSize={20}
         emptyState={{
           icon: ClipboardList,
           title: 'No orders found',
-          description: 'Try adjusting your filters.',
-          accentColor: ORDERS_ACCENT,
+          description: 'Try adjusting your filters or search term.',
+          accentColor: '#F59E0B',
         }}
       />
 
-      <OrderDrawer
-        orderId={selectedOrderId}
-        open={!!selectedOrderId}
-        onClose={() => setSelectedOrderId(null)}
+      {/* Quick Filters Modal */}
+      <OrderQuickFiltersModal
+        open={showQuickFilters}
+        onClose={() => setShowQuickFilters(false)}
+        currentFilters={filters}
+        onApply={setFilters}
       />
     </div>
   );

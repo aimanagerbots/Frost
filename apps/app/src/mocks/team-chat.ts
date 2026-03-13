@@ -1285,13 +1285,13 @@ const DMS: TeamDM[] = [
   {
     id: 'dm-marcus',
     participantIds: ['tm-you', 'tm-marcus'],
-    unreadCount: 2,
+    unreadCount: 0,
     lastMessage: lastMsg(DM_MARCUS_MESSAGES),
   },
   {
     id: 'dm-maria',
     participantIds: ['tm-you', 'tm-maria'],
-    unreadCount: 3,
+    unreadCount: 0,
     lastMessage: lastMsg(DM_MARIA_MESSAGES),
   },
   {

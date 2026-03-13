@@ -1,0 +1,620 @@
+<!DOCTYPE html><html id="s2sapp" ng-controller="mainCtrl" class="k-webkit k-webkit120 js cssanimations no-csstransforms3d csstransitions js no-touch cssanimations ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="expires" content="0">
+    <title ng-bind="title + ' | Cultivera - Configurations'" class="ng-binding">Account Assignments | Cultivera - Configurations</title>
+
+    <link href="/css/kendo/kendo.common.min.css" rel="stylesheet">
+    <!--<link href="/css/kendo/kendo.material.min.css" rel="stylesheet"/>-->
+    <link href="/css/kendo/kendo.silver.min.css" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.min.css">
+
+    <!-- RTL support - for demo only -->
+    <!-- css for libs -->
+    <!-- select2 -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/select2.css">
+
+    <!-- libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="/css/libs/font-awesome.css"/>-->
+    <link rel="stylesheet" type="text/css" href="/css/libs/nanoscroller.css">
+    <link rel="stylesheet" type="text/css" href="/css/angular.css">
+    <link rel="stylesheet" type="text/css" href="/css/loading-bar.css">
+
+    <!-- global styles -->
+    <!--<link rel="stylesheet" type="text/css" href="/css/compiled/theme_styles.css"/>-->
+    <link href="/scss/theme/theme_styles.min.css?v307" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/css/libs/bootstrap-editable.css">
+
+    <!-- jquery-ui -->
+    <link href="/node_modules/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+
+    <!-- nouslider -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/jquery.nouislider.css">
+
+    <!-- morris charts -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/morris.css">
+
+    <!-- jVector maps -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/jquery-jvectormap-1.2.2.css">
+
+    <!-- weather icons -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/weather-icons.css">
+
+    <!-- timeline -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/timeline.css">
+
+    <!-- dataTables -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/dataTables.fixedHeader.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/dataTables.tableTools.css">
+
+    <!-- footables -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/footable.core.css">
+
+    <!-- notifications - all types -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-default.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-growl.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-bar.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-attached.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-other.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-theme.css">
+
+    <!-- nifty modal windows -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/nifty-component.css">
+
+    <!-- hopscotch - tour plugin -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/hopscotch.css">
+
+    <!-- xcharts -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/xcharts.css">
+
+    <!-- dropzone -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/dropzone.css">
+
+    <!-- gallery -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/gallery-component.css">
+
+    <!-- wizard -->
+    <link rel="stylesheet" type="text/css" href="/css/compiled/wizard.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/bootstrap-wizard.css">
+
+    <!-- summernote wysiwyg -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/summernote.min.css">
+
+    <!-- s2s -->
+    <link href="/css/s2s.min.css?1" rel="stylesheet">
+    <link href="/css/custom-style.css" rel="stylesheet">
+
+    <!-- sweet alert -->
+    <link href="/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <!-- flip clock -->
+    <link href="/bower_components/flipclock/flipclock.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon">
+
+    <!-- google font libraries -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LHR3V8R92H&amp;cx=c&amp;gtm=4e63a1"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-73970432-4"></script>
+    <script src="/app.s2s/appSettings.js?v308"></script>
+    <script src="/js/s2/ga.js?v308"></script>
+
+    <script>
+        window.__cb = "340216A"
+    </script>
+</head>
+<!-- theme-white , -->
+<body class="theme-whbl fixed-header fixed-leftmenu " ss-pagelayout="">
+    <div id="theme-wrapper">
+        <!-- For Corner Expand effect -->
+        <div class="notification-shape shape-box" id="notification-shape" data-path-to="m 0,0 500,0 0,500 -500,0 z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="none">
+                <path d="m 0,0 500,0 0,500 0,-500 z"></path>
+            </svg>
+        </div>
+        <header class="navbar ng-scope" id="header-navbar" ng-controller="headerController as vm">
+            <div class="container">
+                <div class="navbar-brand hidden-sm hidden-xs hidden-xxs">
+                    <a href="#/dasboard" id="logo" class="navbar-brand log-navbar-xs">
+                        <img src="/img/logo/cultivera-pro-logo-large-white.png" alt="" class="hidden-sm hidden-xs hidden-xxs normal-logo logo-white2" style="height: 47px; margin-top: -5px;">
+                    </a>
+                </div>
+                <div class="navbar-brand hidden-lg hidden-md" style="max-width: 110px">
+                    <a href="#/dasboard" id="logo" class="navbar-brand log-navbar-md">
+                        <img src="/img/logo/cultivera-pro-logo-large-white.png" alt="" class="normal-logo logo-white" style="height: 33px; margin-top: -5px;">
+                    </a>
+                </div>
+
+
+                <div class="clearfix">
+                    <div class="nav-no-collapse navbar-left pull-left ng-isolate-scope" s2s-applist="" selected-app="set"><ul class="nav navbar-nav pull-left">
+    <li class="dropdown">
+        <a class="btn dropdown-toggle" data-toggle="dropdown">
+            <span style="font-size: 1.6em"><i class="fa fa-gears"> </i> <span class="ng-binding"> Configuration </span> </span>  &nbsp; <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" style="font-size: 1.6em">
+            <!-- ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/app-grow">
+                    <i class="fa fa-tree" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Grow </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/app-analytics">
+                    <i class="fa fa-line-chart" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Analytics </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/crm#/">
+                    <i class="fa fa-cubes" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Sales </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/inventory/#/">
+                    <i class="fa fa-th-large" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Inventory Management </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/fulfillment#/">
+                    <i class="fa fa-external-link-square" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Fulfillment </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope selected" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/configuration#/">
+                    <i class="fa fa-gears" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Configuration </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --> 
+        </ul>
+    </li>
+</ul>
+<style>
+    a.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+</style></div>
+
+                    <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+
+                    <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+                        <ul class="nav navbar-nav pull-left">
+                            <li>
+                                <a class="btn" id="make-small-nav">
+                                    <i class="fa fa-exchange fa-2x"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown ng-isolate-scope">
+
+    <a class="btn dropdown-toggle" data-toggle="dropdown" style="color: white;">
+        <i class="fa fa-bell"></i>
+        <!-- ngIf: notification && notification.NotReadCount > 0 -->
+    </a>
+    <ul class="dropdown-menu notifications-list">
+
+        <li class="pointer">
+            <div class="pointer-inner">
+                <div class="arrow"></div>
+            </div>
+        </li>
+
+        <!-- ngIf: notification --><li class="item-header ng-binding ng-scope" ng-if="notification">
+            You have 0 new notifications
+        </li><!-- end ngIf: notification -->
+
+        <!-- ngRepeat: notif in notification.Notifications -->
+
+        <li class="item-footer">
+            <a href="#/all-notifications">
+                View all notifications
+            </a>
+        </li>
+    </ul>
+
+    <div id="notificationModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                
+                    <h4 class="modal-title ng-binding"><i class="fa fa-bell-o"></i> </h4>
+
+                </div>
+                <div class="modal-body">
+                    <div style="overflow-x: auto">
+                    <small style="text-decoration: underline" class="pull-right ng-binding" ng-bind="notificationMessage.Date|date:'MM/dd/yyyy hh:mm'"></small>
+                    <br> <br>
+                        <p ng-bind-html="asHtml(notificationMessage.Body)" class="ng-binding"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .notifications-list li.item a > div.content{
+            display: inline-block;
+            width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .read {
+            color: #777;
+            font-weight: normal !important;
+        }
+
+        .notread {
+            color: #333;
+            font-weight: 700 !important;
+        }
+
+
+
+    </style>
+
+</li>
+                            <s2s-invitation></s2s-invitation>
+                            <s2s-portal-order></s2s-portal-order>
+                        </ul>
+                    </div>
+
+                    <div class="nav-no-collapse pull-right" id="header-nav">
+                        <ul class="nav navbar-nav pull-right">
+                          
+                            <li class="dropdown profile-dropdown">
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="#/user-profile"><i class="fa fa-user"></i>Profile</a></li>
+                                    <li><a href="#/company-profile"><i class="fa fa-group"></i>Company Profile</a></li>
+                                    <li><a href="#/market-settings"><i class="fa fa-shopping-cart"></i>Marketplace Settings</a></li>
+                                    <li><a href="/configuration#/notifications"><i class="fa fa-bell"></i>Notifications</a></li>
+                                    <li><a href=""><i class="fa fa-cog"></i>Settings</a></li>
+                                    <li><a href="" ng-click="vm.logout()"><i class="fa fa-power-off"></i>Logout</a></li>
+                                </ul>
+                                <a class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="/images/user.png" alt="">
+                                    <span class="hidden-md hidden-sm hidden-xs hidden-xxs ng-binding">Michael&nbsp;Perkins</span> <b class="caret"></b>
+                                </a>
+                            </li>
+                            <li class="hidden-sm hidden-xs hidden-xxs">
+                                <a class="btn" href="" ng-click="vm.logout()">
+                                    <i class="fa fa-power-off"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </header>
+        <div id="page-wrapper" class="container">
+            <div class="row">
+                <!--<ng-include src="'/app.s2s/layout/sidebar.html'"></ng-include>-->
+                <div id="nav-col" ng-controller="sidebarController as vms" style="z-index: 19" class="ng-scope">
+
+                    <section id="col-left" class="col-left-nano">
+                        <div id="col-left-inner" class="col-left-nano-content">
+                            <div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
+                                <!--<img alt="" src="/images/user.png" style="width: 42px;margin-left: auto"/>-->
+                                <div id="companyName" class="user-box">
+                                    <span class="name">
+                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                            <span style="text-transform: capitalize" class="ng-binding"> G&amp;S GREENERY </span>
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#/company-profile"><i class="fa fa-group"></i>Customer Profile</a></li>
+                                            <li><a href="#/market-settings"><i class="fa fa-shopping-cart"></i>Marketplace Settings</a></li>
+                                            <li><a href="#/user-profile"><i class="fa fa-user"></i>Profile</a></li>
+                                            <li><a href="#/setting/sync-setting"><i class="fa fa-cog"></i>Settings</a></li>
+                                            <li><a href="" ng-click="vms.lock()"><i class="fa fa-lock"></i>Lock</a></li>
+                                            <li><a href="" ng-click="vms.logout()"><i class="fa fa-power-off"></i>Logout</a></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="collapse navbar-collapse navbar-ex1-collapse bigNav" id="sidebar-nav" bs-navbar="">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <!-- ngIf: c.con.rKDgCOneNu --><li ng-if="c.con.rKDgCOneNu" data-match-route="/account-management" class="ng-scope">
+                                        <a href="#/account-management">
+                                            <i class="fa fa-user"></i>
+                                            <span>Account Management</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rKDgCOneNu -->  
+                                    <!-- ngIf: c.con.rKDgCOneNu --><li ng-if="c.con.rKDgCOneNu" data-match-route="/account-management" class="ng-scope">
+                                    
+                                        <a href="#/market-settings">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <span>Marketplace Settings</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rKDgCOneNu -->
+
+                                    <!-- ngIf: c.con.rmhFYFU36Q --><li ng-if="c.con.rmhFYFU36Q" data-match-route="/client-note-attribute" class="ng-scope">
+                                        <a href="#/client-note-attributes">
+                                            <i class="fa fa-file-text"></i>
+                                            <span>Client Note Attributes</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rmhFYFU36Q -->                    
+
+                                    <!-- ngIf: c.con.rfCyNFhmtg --><li ng-if="c.con.rfCyNFhmtg" data-match-route="/statuses" class="ng-scope">
+                                        <a href="#/statuses">
+                                            <i class="fa fa-list-ul"></i>
+                                            <span>Statuses</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rfCyNFhmtg -->
+                                    
+                                    <!-- ngIf: c.con.rmhFYFUwerr -->   
+
+                                    <!-- ngIf: c.con.rfCyNFhmtg --><li ng-if="c.con.rfCyNFhmtg" data-match-route="/exteranlNotfication" class="ng-scope">
+                                        <a href="#/exteranlNotfication">
+                                            <i class="fa fa-bell-o"></i>
+                                            <span>Notifications </span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rfCyNFhmtg -->
+
+                                    <!-- ngIf: c.con.rZvBB4Wpgk --><li ng-if="c.con.rZvBB4Wpgk" data-match-route="/routes" class="ng-scope">
+                                        <a href="#/routes">
+                                            <i class="fa fa-location-arrow"></i>
+                                            <span>Routes</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rZvBB4Wpgk -->
+
+                                    <!-- ngIf: c.con.rtTs6PWq5D --><li ng-if="c.con.rtTs6PWq5D" data-match-route="/users" class="ng-scope">
+                                        <a href="#/users">
+                                            <i class="fa fa-user"></i>
+                                            <span>Users</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rtTs6PWq5D -->
+                                    <!-- ngIf: c.con.rpoTs7udvx --><li ng-if="c.con.rpoTs7udvx" data-match-route="/roles" class="ng-scope">
+                                        <a href="#/roles">
+                                            <i class="fa fa-group"></i>
+                                            <span>Roles</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rpoTs7udvx -->
+
+                                    <!-- ngIf: c.con.rnfFAjjr7Y --><li ng-if="c.con.rnfFAjjr7Y" data-match-route="/audit" class="ng-scope">
+                                        <a href="#/audit">
+                                            <i class="fa fa-key"></i>
+                                            <span>Audit</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rnfFAjjr7Y -->
+                                    <!-- ngIf: c.con.r9eTnWdJl8 --><li ng-if="c.con.r9eTnWdJl8" data-match-route="/setting/sync-setting" class="ng-scope">
+                                        <a href="#/setting/sync-setting">
+                                            <i class="fa fa-refresh"></i>
+                                            <span>Sync Settings</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.r9eTnWdJl8 -->
+                                    <!-- ngIf: c.con.rKNaseVXOk --><li ng-if="c.con.rKNaseVXOk" data-match-route="/setting/locations-setting" class="ng-scope">
+                                        <a href="#/setting/locations-setting">
+                                            <i class="fa fa-location-arrow"></i>
+                                            <span>Locations</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.con.rKNaseVXOk -->       
+                                    <li data-match-route="/accounting">
+                                        <a href="#/chart-of-accounts">
+                                            <i class="fa fa-book"></i>
+                                            <span>Chart of Accounts</span>
+                                        </a>                                        
+                                    </li>
+                                     <li data-match-route="/quickBook-setting">
+                                        <a href="#/quickBook-setting">
+                                            <i><img class="logoimage" src="../../img/qb.jpg" style="width: 30px;"></i>
+                                            <span>QuickBooks Setting</span>
+                                        </a>
+                                    </li>                                
+                                    <li data-match-route="/cultivera-api-key">
+                                        <a href="#/cultivera-api-key">
+                                            <i class="fa fa-chrome"></i>
+                                            <span>Cultivera API Key</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <div id="nav-col-submenu"></div>
+                </div>
+
+                <div id="content-wrapper" class="white-wrapper">
+                    <div class="row" style="opacity: 1;">
+                        <div class="col-lg-12">
+
+                            <div class="slide-main-container">
+                                <!-- ngView: --><div ng-view="" autoscroll="true" class="slide-main-animation ng-scope"><s2s-help-content s-system-name="config-account-assignment" class="ng-scope ng-isolate-scope"><link href="../../../css/venobox/venobox.css" rel="stylesheet">
+<link href="../../../css/help-content-style.css" rel="stylesheet">
+<div class="help-tool closed">
+    <a class="help-tool-cog s2-tb tb-success" style=""> Help</a>
+    <div class="help-tool-options" style="display: none;">
+
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <input id="txtFilterHelp" type="text" class="form-control  ng-pristine ng-untouched ng-valid ng-empty" placeholder="Type keyword here to search for help.." ng-model="helpFilterCriteria.Filter" ng-keyup="$event.keyCode == 13 &amp;&amp; txtFilterChanged()" ng-change="txtFilterChanged()" style="">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button" ng-click="clearSearchBoxClick()" ng-disabled="helpFilterCriteria.Filter===''" disabled="disabled"><i class="fa fa-remove"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="helpContentHr">
+        <div class="row helpListContainer" ng-hide="loading" style="">
+            <div ng-show="helpContentList.length===0 &amp;&amp; userSearchTriggered===false" class="alert alert-info help-cont-alert ng-hide">
+                <i class="fa fa-info-circle fa-fw fa-lg"></i>Sorry, no help available for this section.
+            </div>
+            <div ng-show="userSearchTriggered &amp;&amp; helpContentList.length===0" class="alert alert-danger help-cont-alert ng-hide">
+                <i class="fa fa-times-circle fa-fw fa-lg"></i>Sorry, no result found.
+            </div>
+            <!-- ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope" style="">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="false" class="row help-row ng-hide" style="">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://eboltsolutions.atlassian.net/wiki/spaces/CS/pages/394494007/Create+New+User+Account">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Create New User Account</div>
+        </div>
+    </a>
+</div>
+<div ng-show="true" class="row help-row">
+    <a target="_blank" href="https://eboltsolutions.atlassian.net/wiki/spaces/CS/pages/394494007/Create+New+User+Account">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Create New User Account</div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">Add a new user account</div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="true" class="row help-row">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Configuration_AccountAssignment.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Account Assignment</div>
+        </div>
+    </a>
+</div>
+<div ng-show="false" class="row help-row ng-hide" style="">
+    <a target="_blank" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Configuration_AccountAssignment.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Account Assignment</div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">Assign accounts to a user en masse</div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id -->
+        </div>
+        <div ng-show="loading" class="row ng-hide" style="text-align: center;">
+            <i class="fa fa-spinner fa-spin help-load-spinner"></i>
+        </div>
+        <div class="h6 sysNameLable pull-right ng-binding">config-account-assignment</div>
+    </div>
+</div>
+</s2s-help-content>
+<div class="row ng-scope">
+    <div class="col-lg-12">
+        <div id="content-header" class="clearfix">
+            <div class="pull-left">
+                <ol class="breadcrumb">
+                    <li><a href="#/account-management">Manage Accounts</a></li>
+                </ol>
+                <h1> Manage Accounts </h1>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="row ng-scope">
+    <div class="col-lg-12">
+        <a class="btn btn-success" href="#/new-user"><i class="fa fa-plus"></i> Add New Sales Person</a>
+        <div kendo-grid="" id="gridUsersList" options="vm.UsersList" class="kendo-grid-bootstrap k-grid k-widget" data-role="grid">
+        <table role="grid"><colgroup><col><col></colgroup><thead class="k-grid-header" role="rowgroup"><tr role="row"><th scope="col" role="columnheader" data-field="Name" rowspan="1" data-title="Name" data-index="0" id="e174fe43-c6d7-44c3-a08a-3bb27b3b587a" class="k-header ng-scope" data-role="columnsorter"><a class="k-link" href="#">Name</a></th><th scope="col" role="columnheader" data-field="NumberOfClientsAssigned" rowspan="1" data-title="Assigned Clients" data-index="1" id="7a1807bf-42f2-4c18-a6a4-ebf5ace555ef" class="k-header ng-scope" data-role="columnsorter"><a class="k-link" href="#">Assigned Clients</a></th></tr></thead><tbody role="rowgroup"><tr data-uid="0698012a-c396-4ab1-914e-e341d775abb6" role="row" class="ng-scope"><td role="gridcell"><a href="#/sales-person/8590">Support Cultivera</a></td><td role="gridcell"><span ng-bind="dataItem.NumberOfClientsAssigned" class="ng-binding">0</span></td></tr><tr class="k-alt ng-scope" data-uid="0718b2e7-3ee8-4f9d-a329-e04f85aaf0b5" role="row"><td role="gridcell"><a href="#/sales-person/8602">Nichole Cluff</a></td><td role="gridcell"><span ng-bind="dataItem.NumberOfClientsAssigned" class="ng-binding">93</span></td></tr><tr data-uid="e278a77b-5bbf-4338-bd5b-2c9f38606432" role="row" class="ng-scope"><td role="gridcell"><a href="#/sales-person/8603">Stacia Hartwell</a></td><td role="gridcell"><span ng-bind="dataItem.NumberOfClientsAssigned" class="ng-binding">0</span></td></tr><tr class="k-alt ng-scope" data-uid="510947a3-1af2-4d2d-a206-1e8ca5563173" role="row"><td role="gridcell"><a href="#/sales-person/8605">Richard Maloney</a></td><td role="gridcell"><span ng-bind="dataItem.NumberOfClientsAssigned" class="ng-binding">62</span></td></tr><tr data-uid="648dacd5-9e57-49f7-bf84-dd53496290ff" role="row" class="ng-scope"><td role="gridcell"><a href="#/sales-person/8634">Michael Perkins</a></td><td role="gridcell"><span ng-bind="dataItem.NumberOfClientsAssigned" class="ng-binding">0</span></td></tr></tbody></table></div>
+    </div>
+
+</div></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ngInclude: "/app/views/common/footer.html" --><div ng-include="&quot;/app/views/common/footer.html&quot;" class="ng-scope"><footer id="footer-bar" class="row ng-scope">
+	<p id="footer-copyright" class="col-xs-12">
+		Powered by Σbolt Solutions ™.
+	</p>
+</footer></div>
+                </div>
+            </div>
+
+            <div data-terms-and-conditions="" class="ng-scope"><div id="termsAndConditionsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Terms and Conditions</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    We've recently update our terms and conditions. <br>
+                    Please read and accept them.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="ignoreTermsAndConditions();" data-dismiss="modal">Maybe Later</button>
+                <button type="button" class="btn btn-success" ng-click="viewTermsAndConditions();">View Terms and Conditions</button>
+            </div>
+        </div>
+    </div>
+</div></div>
+            <div data-refresh-jwt="" class="ng-scope"><div id="refreshJwtModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Your Session Token is About to Expire</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Your session is about to expire. <br>
+                    Would you like to refresh it now?
+                </p>
+                <div id="refreshJwtTextClock" style="font-size:300%">
+                    <span id="refreshJwtHoursSpan">12</span> h
+                    <span id="refreshJwtMinutesSpan">00</span> m
+                    <span id="refreshJwtSecondsSpan">00</span> s
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="vm.hideModal();" data-dismiss="modal"> No </button>
+                <button type="button" class="btn btn-success" ng-click="vm.refreshJwt();"> Yes </button>
+            </div>
+        </div>
+    </div>
+</div></div>
+        </div>
+    </div>
+
+    <script src="/js/s2/vendor.js"></script>
+    <script src="/js/s2/utils.js"></script>
+    <script src="/app.configuration/s2-module-dependencies.js?v307"></script>
+    <script src="/js/s2/app-support.js?v307"></script>
+    <script src="/app.configuration/app.js?v307"></script>
+    <s2s-system-notification></s2s-system-notification>
+
+
+</body></html>

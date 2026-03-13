@@ -81,16 +81,35 @@ Reports #475569, Settings #94A3B8, System #64748B
 - Rate limit: 50 queries/day on free tier — be strategic, batch related questions
 - If not authenticated, tell the user a browser window will open for Google login
 
-## Obsidian Vault (Extended Memory)
+## Obsidian Vault (Extended Memory) — MANDATORY
 - `Frost-Vault/` is an Obsidian vault inside the monorepo — gitignored, not committed
 - It extends MEMORY.md with deeper project knowledge, session logs, and architecture decisions
 - **Folder structure**: 00-Inbox, 01-Project (Architecture/Modules/Domain/Deployment/Brand), 02-Sessions, 03-Decisions (ADRs), 04-Reference, 05-Templates
-- Read specific vault notes on demand when you need deep context — do NOT load the entire vault
-- Write session logs after completing significant work (use the Session Log template)
-- Create Architecture Decision Records for non-trivial decisions (use the Decision Record template)
 - Conventions: YAML frontmatter on every note, `[[wikilinks]]` for cross-references, one topic per note
 - MEMORY.md = hot operational facts (needed every session). Vault = depth (read on demand).
 - See `.claude/rules/vault-integration.md` for full read/write guidelines
+
+### Session Start (ALWAYS do these)
+1. Read `Frost-Vault/CLOCK.md` — know the date, active projects, and last session summary
+2. Read the latest file in `Frost-Vault/02-Sessions/` — understand where you left off
+3. Read `DEVELOPMENT_LOG.md` — know what was built recently
+
+### Before Any Task (ALWAYS do these)
+- Search `Frost-Vault/01-Project/Modules/` for notes related to the module you're working on
+- Search `Frost-Vault/03-Decisions/` for ADRs related to the area you're changing
+- If the topic has been worked on before, READ the relevant vault notes before starting
+
+### Session End (ALWAYS do these)
+1. Create a session log in `Frost-Vault/02-Sessions/` using the Session Log template
+2. Update `Frost-Vault/CLOCK.md` with today's date, what was done, and what's next
+3. If you made an architectural decision, create an ADR in `Frost-Vault/03-Decisions/`
+4. If a module was built or significantly changed, create/update its note in `Frost-Vault/01-Project/Modules/`
+
+### During Work (proactive note-taking)
+- When you discover important domain knowledge → add to relevant `01-Project/` note
+- When you learn something about a module's quirks or gotchas → update its module note
+- When the user shares context about the business → capture in `01-Project/Domain/`
+- Do NOT wait until session end to write notes — capture knowledge as you go
 
 ## Frontend Design Skill (MANDATORY)
 - ALWAYS invoke the `frontend-design` skill before designing or building any frontend file — no exceptions.

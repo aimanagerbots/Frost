@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useCallback } from 'react';
 import { CalendarDays, ChevronLeft, ChevronRight, Clock, Users, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { SectionHeader, StatusBadge, LoadingSkeleton, DrawerPanel, ErrorState, EmptyState } from '@/components';
 import { useCalendarEvents } from '../hooks';
-import { MonthView } from './MonthView';
+import { InfiniteMonthView, type InfiniteMonthViewHandle } from './InfiniteMonthView';
 import { WeekView } from './WeekView';
 import { DayView } from './DayView';
 import type { CalendarEvent, CalendarViewMode, EventType } from '../types';
@@ -67,6 +67,12 @@ export function CalendarPage() {
   const [selectedTypes, setSelectedTypes] = useState<Set<EventType>>(
     new Set(EVENT_TYPES.map((t) => t.value))
   );
+  // Tracks which month is currently in view when using the infinite month scroll
+  const [visibleMonth, setVisibleMonth] = useState<{ year: number; month: number }>({
+    year: new Date().getFullYear(),
+    month: new Date().getMonth(),
+  });
+  const infiniteMonthRef = useRef<InfiniteMonthViewHandle>(null);
 
   const { data: allEvents, isLoading, error, refetch } = useCalendarEvents();
 
@@ -88,6 +94,38 @@ export function CalendarPage() {
     setCurrentDate(date);
     setView('day');
   };
+
+  const handleVisibleMonthChange = useCallback((year: number, month: number) => {
+    setVisibleMonth({ year, month });
+  }, []);
+
+  // Navigate: in month view, scroll the infinite calendar; in other views, shift currentDate
+  const handleNavigate = (direction: -1 | 1) => {
+    if (view === 'month') {
+      const { year, month } = visibleMonth;
+      let m = month + direction;
+      let y = year;
+      if (m < 0) { m = 11; y--; }
+      if (m > 11) { m = 0; y++; }
+      infiniteMonthRef.current?.scrollToMonth(y, m);
+    } else {
+      setCurrentDate((d) => navigateDate(d, view, direction));
+    }
+  };
+
+  const handleToday = () => {
+    const today = new Date();
+    if (view === 'month') {
+      infiniteMonthRef.current?.scrollToMonth(today.getFullYear(), today.getMonth());
+    } else {
+      setCurrentDate(today);
+    }
+  };
+
+  // Header label: in month view, reflect the scroll position
+  const headerLabel = view === 'month'
+    ? new Date(visibleMonth.year, visibleMonth.month, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+    : formatHeaderDate(currentDate, view);
 
   const eventCount = filteredEvents.length;
 
@@ -133,27 +171,27 @@ export function CalendarPage() {
         {/* Date navigation */}
         <div className="flex items-center gap-2">
           <button
-            onClick={() => setCurrentDate(navigateDate(currentDate, view, -1))}
+            onClick={() => handleNavigate(-1)}
             className="flex h-8 w-8 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
             aria-label="Previous"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
-            onClick={() => setCurrentDate(new Date())}
+            onClick={handleToday}
             className="rounded-lg border border-default px-3 py-1 text-xs font-medium text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
           >
             Today
           </button>
           <button
-            onClick={() => setCurrentDate(navigateDate(currentDate, view, 1))}
+            onClick={() => handleNavigate(1)}
             className="flex h-8 w-8 items-center justify-center rounded-lg border border-default text-text-muted transition-colors hover:bg-accent-hover hover:text-text-default"
             aria-label="Next"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
           <h2 className="ml-2 text-sm font-semibold text-text-bright">
-            {formatHeaderDate(currentDate, view)}
+            {headerLabel}
           </h2>
         </div>
 
@@ -191,11 +229,12 @@ export function CalendarPage() {
 
       {/* Calendar View */}
       {view === 'month' && (
-        <MonthView
-          currentDate={currentDate}
+        <InfiniteMonthView
+          ref={infiniteMonthRef}
           events={filteredEvents}
           onSelectDate={handleSelectDate}
           onSelectEvent={setSelectedEvent}
+          onVisibleMonthChange={handleVisibleMonthChange}
         />
       )}
       {view === 'week' && (

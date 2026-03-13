@@ -492,3 +492,78 @@ export async function getPackagingMetrics(): Promise<PackagingMetrics> {
   await delay(300);
   return metrics;
 }
+
+// -- Packaging Lines, Equipment, Alerts, Throughput --
+import type { PackagingLine, PackagingEquipment, PackagingAlert, PackagingThroughputDataPoint } from '@/modules/packaging/types';
+
+const packagingLines: PackagingLine[] = [
+  { id: 'pkgl-001', name: 'Flower Packaging Line', category: 'flower', status: 'running', currentOrderId: 'pkg-005', currentOrderProduct: 'Wedding Cake 3.5g', packagesCompletedToday: 450, packagesTarget: 600, workers: ['Aisha Williams', 'Marcus Chen'], equipmentIds: ['pkeq-001', 'pkeq-002', 'pkeq-003', 'pkeq-013', 'pkeq-017', 'pkeq-018'], steps: ['Weigh & Fill', 'Humidity Pack', 'Seal Jar', 'Label', 'Shrink Wrap', 'QC'] },
+  { id: 'pkgl-002', name: 'Preroll Packaging Line', category: 'preroll', status: 'running', currentOrderId: 'pkg-015', currentOrderProduct: 'OG Kush Preroll 3-Pack', packagesCompletedToday: 280, packagesTarget: 400, workers: ['David Okonkwo'], equipmentIds: ['pkeq-004', 'pkeq-005', 'pkeq-014'], steps: ['Load Tubes', 'Pack Boxes', 'Label', 'Shrink Wrap', 'QC'] },
+  { id: 'pkgl-003', name: 'Vaporizer Packaging Line', category: 'vaporizer', status: 'running', currentOrderId: 'pkg-007', currentOrderProduct: 'Gelato Live Resin 510 Cart 1g', packagesCompletedToday: 190, packagesTarget: 250, workers: ['Rachel Kim', 'Jordan Lee'], equipmentIds: ['pkeq-006', 'pkeq-007', 'pkeq-016'], steps: ['Insert Cart', 'Box', 'Label', 'Seal', 'QC'] },
+  { id: 'pkgl-004', name: 'Concentrate Packaging Line', category: 'concentrate', status: 'idle', currentOrderId: null, currentOrderProduct: null, packagesCompletedToday: 150, packagesTarget: 300, workers: ['Aisha Williams'], equipmentIds: ['pkeq-008', 'pkeq-009'], steps: ['Fill Container', 'Label', 'Shrink Wrap', 'QC'] },
+  { id: 'pkgl-005', name: 'Edible Packaging Line', category: 'edible', status: 'maintenance', currentOrderId: null, currentOrderProduct: null, packagesCompletedToday: 0, packagesTarget: 200, workers: [], equipmentIds: ['pkeq-010'], steps: ['Fill Pouch', 'Seal', 'Label', 'QC'] },
+  { id: 'pkgl-006', name: 'Beverage Packaging Line', category: 'beverage', status: 'idle', currentOrderId: null, currentOrderProduct: null, packagesCompletedToday: 80, packagesTarget: 150, workers: ['Marcus Chen'], equipmentIds: ['pkeq-011', 'pkeq-012', 'pkeq-015'], steps: ['Apply Sleeve', 'Date Code', 'Label', 'Case Pack', 'QC'] },
+];
+
+const packagingEquipment: PackagingEquipment[] = [
+  { id: 'pkeq-001', name: 'Auto Flower Filler', packagingLineId: 'pkgl-001', packagingLineName: 'Flower Packaging Line', status: 'operational', lastMaintained: '2024-11-20T00:00:00Z', nextMaintenanceDue: '2024-12-20T00:00:00Z', hoursSinceLastMaintenance: 240, lifetimeHours: 3200 },
+  { id: 'pkeq-002', name: 'Jar Capper / Sealer', packagingLineId: 'pkgl-001', packagingLineName: 'Flower Packaging Line', status: 'operational', lastMaintained: '2024-11-25T00:00:00Z', nextMaintenanceDue: '2024-12-25T00:00:00Z', hoursSinceLastMaintenance: 144, lifetimeHours: 2100 },
+  { id: 'pkeq-003', name: 'Shrink Tunnel #1', packagingLineId: 'pkgl-001', packagingLineName: 'Flower Packaging Line', status: 'needs-maintenance', lastMaintained: '2024-10-15T00:00:00Z', nextMaintenanceDue: '2024-12-01T00:00:00Z', hoursSinceLastMaintenance: 580, lifetimeHours: 4800, notes: 'Belt tension worn - schedule ASAP' },
+  { id: 'pkeq-004', name: 'Tube Loader (Auto)', packagingLineId: 'pkgl-002', packagingLineName: 'Preroll Packaging Line', status: 'operational', lastMaintained: '2024-11-18T00:00:00Z', nextMaintenanceDue: '2024-12-18T00:00:00Z', hoursSinceLastMaintenance: 312, lifetimeHours: 1900 },
+  { id: 'pkeq-005', name: 'Box Sealer / Labeler', packagingLineId: 'pkgl-002', packagingLineName: 'Preroll Packaging Line', status: 'operational', lastMaintained: '2024-11-22T00:00:00Z', nextMaintenanceDue: '2024-12-22T00:00:00Z', hoursSinceLastMaintenance: 216, lifetimeHours: 1400 },
+  { id: 'pkeq-006', name: 'Cart Box Assembly', packagingLineId: 'pkgl-003', packagingLineName: 'Vaporizer Packaging Line', status: 'operational', lastMaintained: '2024-11-28T00:00:00Z', nextMaintenanceDue: '2024-12-28T00:00:00Z', hoursSinceLastMaintenance: 72, lifetimeHours: 980 },
+  { id: 'pkeq-007', name: 'Shrink Tunnel #2', packagingLineId: 'pkgl-003', packagingLineName: 'Vaporizer Packaging Line', status: 'operational', lastMaintained: '2024-11-15T00:00:00Z', nextMaintenanceDue: '2024-12-15T00:00:00Z', hoursSinceLastMaintenance: 384, lifetimeHours: 2600 },
+  { id: 'pkeq-008', name: 'Concentrate Filler', packagingLineId: 'pkgl-004', packagingLineName: 'Concentrate Packaging Line', status: 'operational', lastMaintained: '2024-11-24T00:00:00Z', nextMaintenanceDue: '2024-12-24T00:00:00Z', hoursSinceLastMaintenance: 168, lifetimeHours: 1200 },
+  { id: 'pkeq-009', name: 'Label Applicator #1', packagingLineId: 'pkgl-004', packagingLineName: 'Concentrate Packaging Line', status: 'needs-maintenance', lastMaintained: '2024-10-20T00:00:00Z', nextMaintenanceDue: '2024-11-20T00:00:00Z', hoursSinceLastMaintenance: 720, lifetimeHours: 5100, notes: 'Overdue - feed roller slipping' },
+  { id: 'pkeq-010', name: 'Pouch Fill and Seal', packagingLineId: 'pkgl-005', packagingLineName: 'Edible Packaging Line', status: 'in-maintenance', lastMaintained: '2024-12-01T06:00:00Z', nextMaintenanceDue: '2024-12-08T00:00:00Z', hoursSinceLastMaintenance: 8, lifetimeHours: 3400, notes: 'Seal jaw replacement in progress' },
+  { id: 'pkeq-011', name: 'Can Sleeve Applicator', packagingLineId: 'pkgl-006', packagingLineName: 'Beverage Packaging Line', status: 'operational', lastMaintained: '2024-11-26T00:00:00Z', nextMaintenanceDue: '2024-12-26T00:00:00Z', hoursSinceLastMaintenance: 120, lifetimeHours: 760 },
+  { id: 'pkeq-012', name: 'Case Packer', packagingLineId: 'pkgl-006', packagingLineName: 'Beverage Packaging Line', status: 'operational', lastMaintained: '2024-11-20T00:00:00Z', nextMaintenanceDue: '2024-12-20T00:00:00Z', hoursSinceLastMaintenance: 264, lifetimeHours: 1800 },
+  { id: 'pkeq-013', name: 'QC Scale Station #1', packagingLineId: 'pkgl-001', packagingLineName: 'Flower Packaging Line', status: 'operational', lastMaintained: '2024-11-29T00:00:00Z', nextMaintenanceDue: '2025-01-29T00:00:00Z', hoursSinceLastMaintenance: 48, lifetimeHours: 620 },
+  { id: 'pkeq-014', name: 'QC Scale Station #2', packagingLineId: 'pkgl-002', packagingLineName: 'Preroll Packaging Line', status: 'operational', lastMaintained: '2024-11-29T00:00:00Z', nextMaintenanceDue: '2025-01-29T00:00:00Z', hoursSinceLastMaintenance: 48, lifetimeHours: 540 },
+  { id: 'pkeq-015', name: 'Date Code Printer', packagingLineId: 'pkgl-006', packagingLineName: 'Beverage Packaging Line', status: 'operational', lastMaintained: '2024-11-27T00:00:00Z', nextMaintenanceDue: '2024-12-27T00:00:00Z', hoursSinceLastMaintenance: 96, lifetimeHours: 1100 },
+  { id: 'pkeq-016', name: 'Label Applicator #2', packagingLineId: 'pkgl-003', packagingLineName: 'Vaporizer Packaging Line', status: 'operational', lastMaintained: '2024-11-23T00:00:00Z', nextMaintenanceDue: '2024-12-23T00:00:00Z', hoursSinceLastMaintenance: 192, lifetimeHours: 890 },
+  { id: 'pkeq-017', name: 'Label Applicator #3', packagingLineId: 'pkgl-001', packagingLineName: 'Flower Packaging Line', status: 'down', lastMaintained: '2024-11-01T00:00:00Z', nextMaintenanceDue: '2024-11-15T00:00:00Z', hoursSinceLastMaintenance: 720, lifetimeHours: 4200, notes: 'Awaiting parts - motor replacement' },
+  { id: 'pkeq-018', name: 'Humidity Pack Inserter', packagingLineId: 'pkgl-001', packagingLineName: 'Flower Packaging Line', status: 'operational', lastMaintained: '2024-11-21T00:00:00Z', nextMaintenanceDue: '2024-12-21T00:00:00Z', hoursSinceLastMaintenance: 228, lifetimeHours: 2900 },
+];
+
+const packagingAlerts: PackagingAlert[] = [
+  { id: 'pka-001', severity: 'critical', message: '5-Pack Box stock at 120 units - below reorder point. 2 active orders blocked.', timestamp: '2024-12-01T09:15:00Z', relatedId: 'nci-009' },
+  { id: 'pka-002', severity: 'critical', message: 'Label Applicator #3 is DOWN on Flower Line. Throughput reduced by ~30%.', timestamp: '2024-12-01T07:00:00Z', relatedId: 'pkeq-017' },
+  { id: 'pka-003', severity: 'warning', message: 'Concentrate Container 0.5g critically low (45 units). pkg-012 blocked.', timestamp: '2024-12-01T08:30:00Z', relatedId: 'nci-017' },
+  { id: 'pka-004', severity: 'warning', message: 'Shrink Tunnel #1 belt tension needs service - schedule before next shift.', timestamp: '2024-12-01T06:00:00Z', relatedId: 'pkeq-003' },
+  { id: 'pka-005', severity: 'warning', message: 'Label Applicator #1 feed roller slipping on Concentrate Line. Overdue 14 days.', timestamp: '2024-12-01T08:00:00Z', relatedId: 'pkeq-009' },
+  { id: 'pka-006', severity: 'info', message: 'Edible Line back online est. 14:00 today - seal jaw replacement in progress.', timestamp: '2024-12-01T06:30:00Z', relatedId: 'pkeq-010' },
+];
+
+const throughputHistory: PackagingThroughputDataPoint[] = [
+  { date: 'Nov 25', units: 890, target: 1000 },
+  { date: 'Nov 26', units: 1020, target: 1000 },
+  { date: 'Nov 27', units: 760, target: 1000 },
+  { date: 'Nov 28', units: 940, target: 1000 },
+  { date: 'Nov 29', units: 1080, target: 1000 },
+  { date: 'Nov 30', units: 1150, target: 1000 },
+  { date: 'Dec 1', units: 1070, target: 1000 },
+];
+
+export async function getPackagingLines(): Promise<PackagingLine[]> {
+  await delay(300);
+  return packagingLines;
+}
+
+export async function getPackagingEquipment(filters?: { lineId?: string; status?: string }): Promise<PackagingEquipment[]> {
+  await delay(300);
+  let result = packagingEquipment;
+  if (filters?.lineId) result = result.filter((e) => e.packagingLineId === filters.lineId);
+  if (filters?.status) result = result.filter((e) => e.status === filters.status);
+  return result;
+}
+
+export async function getPackagingAlerts(): Promise<PackagingAlert[]> {
+  await delay(200);
+  return packagingAlerts;
+}
+
+export async function getPackagingThroughput(): Promise<PackagingThroughputDataPoint[]> {
+  await delay(200);
+  return throughputHistory;
+}

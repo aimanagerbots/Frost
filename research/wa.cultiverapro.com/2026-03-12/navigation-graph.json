@@ -1,0 +1,158 @@
+{
+  "app": "Cultivera Pro",
+  "url": "https://wa.cultiverapro.com",
+  "scraped": "2026-03-12",
+  "tenant": "G&S GREENERY",
+  "architecture": "AngularJS SPA — 6 separate sub-applications with hash routing",
+  "subApps": [
+    {
+      "id": "grow",
+      "path": "/app-grow",
+      "label": "Grow",
+      "rootRoute": "#/",
+      "pages": [
+        { "id": "grow-overview", "route": "#/", "label": "Overview", "description": "Kanban board of grow stages" },
+        { "id": "grow-dashboard", "route": "#/dashboard", "label": "Dashboard" },
+        { "id": "grow-cycles", "route": "#/grow-cycles", "label": "Grow Cycles" },
+        { "id": "grow-plants", "route": "#/plants", "label": "Plants" },
+        { "id": "grow-sources", "route": "#/grow-sources", "label": "Grow Sources" },
+        { "id": "grow-rooms", "route": "#/rooms", "label": "Rooms" },
+        { "id": "grow-harvest", "route": "#/harvest", "label": "Harvest" },
+        { "id": "grow-qa-lot", "route": "#/qa-lot", "label": "QA Lot" },
+        { "id": "grow-qa-sample", "route": "#/qa-sample", "label": "QA Sample" },
+        { "id": "grow-disposal", "route": "#/disposal", "label": "Disposal" }
+      ]
+    },
+    {
+      "id": "analytics",
+      "path": "/app-analytics",
+      "label": "Analytics",
+      "rootRoute": "#/",
+      "pages": [
+        { "id": "analytics-overview", "route": "#/", "label": "Overview", "description": "12 report card grid" }
+      ]
+    },
+    {
+      "id": "sales",
+      "path": "/crm",
+      "label": "Sales",
+      "rootRoute": "#/",
+      "pages": [
+        { "id": "sales-dashboard", "route": "#/dashboard", "label": "Dashboard" },
+        { "id": "sales-accounts", "route": "#/accounts", "label": "Accounts" },
+        { "id": "sales-account-groups", "route": "#/account-groups", "label": "Account Groups" },
+        { "id": "sales-carts", "route": "#/open-carts", "label": "Carts" },
+        { "id": "sales-inventory", "route": "#/products", "label": "Inventory" },
+        { "id": "sales-catalogs", "route": "#/product-catalogs", "label": "Catalogs" },
+        { "id": "sales-orders", "route": "#/orders", "label": "Orders" },
+        { "id": "sales-person-report", "route": "#/sales-person-report", "label": "Sales Person Report" },
+        { "id": "sales-order-summary", "route": "#/order-summary", "label": "Order Summary" }
+      ]
+    },
+    {
+      "id": "inventory",
+      "path": "/inventory/",
+      "label": "Inventory Management",
+      "rootRoute": "#/",
+      "pages": [
+        { "id": "inv-overview", "route": "#/product-menu", "label": "Overview / Manage Menu" },
+        { "id": "inv-batches", "route": "#/batches", "label": "Batches" },
+        { "id": "inv-non-cannabis", "route": "#/non-cannabis-inventory", "label": "Non-Cannabis Inventory" },
+        { "id": "inv-production", "route": "#/production", "label": "Production (BOMs)" },
+        { "id": "inv-categories", "route": "#/categories", "label": "Categories" },
+        { "id": "inv-product-lines", "route": "#/product-lines", "label": "Product Lines" },
+        { "id": "inv-products", "route": "#/products", "label": "Products" },
+        { "id": "inv-catalog-groups", "route": "#/catalog-groups", "label": "Catalog Groups" },
+        { "id": "inv-strains", "route": "#/strains", "label": "Strains" },
+        { "id": "inv-rooms", "route": "#/inventory-rooms", "label": "Inventory Rooms" },
+        { "id": "inv-discount", "route": "#/discount-promotion", "label": "Discount & Promotion" },
+        { "id": "inv-backorders", "route": "#/backorders", "label": "Backorders" },
+        { "id": "inv-qa-result", "route": "#/qa-result", "label": "QA Result (COA)" },
+        { "id": "inv-conversions", "route": "#/conversions-for-orders", "label": "Conversions for Orders" },
+        { "id": "inv-product-tag", "route": "#/product-tag", "label": "Product Tag" },
+        { "id": "inv-qa-lot", "route": "#/qa-lot", "label": "QA Lot" },
+        { "id": "inv-qa-sample", "route": "#/qa-sample", "label": "QA Sample" },
+        { "id": "inv-employee-sample", "route": "#/employee-sample", "label": "Employee Sample" },
+        { "id": "inv-disposal", "route": "#/disposal", "label": "Disposal" }
+      ]
+    },
+    {
+      "id": "fulfillment",
+      "path": "/fulfillment",
+      "label": "Fulfillment",
+      "rootRoute": "#/orders",
+      "pages": [
+        { "id": "ful-orders", "route": "#/orders", "label": "Orders" },
+        { "id": "ful-vehicles", "route": "#/vehicles", "label": "Vehicles" },
+        { "id": "ful-drivers", "route": "#/drivers", "label": "Drivers" },
+        { "id": "ful-delivery-agents", "route": "#/delivery-agents", "label": "Delivery Agents" },
+        { "id": "ful-quarantine", "route": "#/fulfillment/quarantine-release-schedule", "label": "Quarantine Schedule" },
+        { "id": "ful-delivery-schedule", "route": "#/fulfillment/delivery-schedule", "label": "Delivery Schedule" },
+        { "id": "ful-transfer-inbound", "route": "#/inbound", "label": "Transfer Inbound" },
+        { "id": "ful-transfer-outbound", "route": "#/outbound", "label": "Transfer Outbound" }
+      ]
+    },
+    {
+      "id": "configuration",
+      "path": "/configuration",
+      "label": "Configuration",
+      "rootRoute": "#/account-assignment",
+      "pages": [
+        { "id": "cfg-account-mgmt", "route": "#/account-management", "label": "Account Management" },
+        { "id": "cfg-marketplace", "route": "#/market-settings", "label": "Marketplace Settings" },
+        { "id": "cfg-client-notes", "route": "#/client-note-attributes", "label": "Client Note Attributes" },
+        { "id": "cfg-statuses", "route": "#/statuses", "label": "Statuses" },
+        { "id": "cfg-notifications", "route": "#/exteranlNotfication", "label": "Notifications" },
+        { "id": "cfg-routes", "route": "#/routes", "label": "Routes" },
+        { "id": "cfg-users", "route": "#/users", "label": "Users" },
+        { "id": "cfg-roles", "route": "#/roles", "label": "Roles" },
+        { "id": "cfg-audit", "route": "#/audit", "label": "Audit" },
+        { "id": "cfg-sync", "route": "#/setting/sync-setting", "label": "Sync Settings" },
+        { "id": "cfg-locations", "route": "#/setting/locations-setting", "label": "Locations" },
+        { "id": "cfg-chart-accounts", "route": "#/chart-of-accounts", "label": "Chart of Accounts" },
+        { "id": "cfg-quickbooks", "route": "#/quickBook-setting", "label": "QuickBooks Setting" },
+        { "id": "cfg-api-key", "route": "#/cultivera-api-key", "label": "Cultivera API Key" }
+      ]
+    }
+  ],
+  "drillDownTrails": [
+    {
+      "trail": "Sales → Carts → row click → Cart Detail",
+      "from": "sales-carts",
+      "to": "cart-detail",
+      "trigger": "click date/link in row",
+      "screenshot": "sales/states/cart-detail-prc-conway.png",
+      "note": "Cart detail shows 16 line items, $621.60 total for PRC Conway"
+    },
+    {
+      "trail": "Fulfillment → Transfer Inbound → TSID row click → Transfer Detail",
+      "from": "ful-transfer-inbound",
+      "to": "transfer-inbound-detail",
+      "trigger": "click TSID link in row",
+      "screenshot": "fulfillment/states/transfer-inbound-detail.png",
+      "note": "Non-Cannabis transfer from Richards Packaging Inc, In Transit"
+    },
+    {
+      "trail": "Grow → Disposal → Destroyed tab",
+      "from": "grow-disposal",
+      "to": "disposal-destroyed-tab",
+      "trigger": "click Destroyed tab",
+      "screenshot": "grow/states/disposal-destroyed-tab.png",
+      "note": "261 destroyed records with Source TSID, Disposal TSID, Strain, Qty, etc."
+    },
+    {
+      "trail": "Analytics → Overview → report card click → Report Detail",
+      "from": "analytics-overview",
+      "to": "analytics-report-detail",
+      "trigger": "click report card",
+      "screenshot": "analytics/states/client-by-product-report.png",
+      "note": "Tabbed report with filter status tabs"
+    }
+  ],
+  "navigationNotes": [
+    "NEVER navigate by constructing URLs — always use module switcher clicks for cross-module nav",
+    "ALWAYS click sidebar items for within-module navigation",
+    "SPA with hash routing — direct URL navigation causes 404 for non-root routes",
+    "Exception: /configuration sub-app appears to support direct URL navigation to hash routes"
+  ]
+}

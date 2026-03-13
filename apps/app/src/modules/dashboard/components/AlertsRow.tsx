@@ -20,14 +20,14 @@ const SEVERITY_CONFIG: Record<
 > = {
   critical: {
     icon: AlertTriangle,
-    borderClass: 'border-[#FB7185]/40',
+    borderClass: 'border-border-default',
     bgClass: 'bg-[#FB7185]/5',
     iconContainerClass: 'bg-[#FB7185]/15',
     iconClass: 'text-[#FB7185]',
   },
   warning: {
     icon: AlertCircle,
-    borderClass: 'border-[#FBBF24]/40',
+    borderClass: 'border-border-default',
     bgClass: 'bg-[#FBBF24]/5',
     iconContainerClass: 'bg-[#FBBF24]/15',
     iconClass: 'text-[#FBBF24]',

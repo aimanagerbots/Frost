@@ -177,11 +177,11 @@ export function LocationSelector() {
   const hasLocation = userLocation !== null;
 
   const pillClasses = [
-    'flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors cursor-pointer select-none',
+    'flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors cursor-pointer select-none header-pill-glow',
     'border bg-white/[0.04]',
     hasLocation
-      ? 'border-[#5BB8E6]/30 text-text-default'
-      : 'border-white/[0.08] text-text-muted hover:border-white/[0.15] hover:text-text-default',
+      ? 'border-[#5BB8E6]/30 text-white'
+      : 'border-white/[0.08] text-white hover:border-white/[0.15]',
   ].join(' ');
 
   return (
@@ -195,7 +195,7 @@ export function LocationSelector() {
         aria-haspopup="true"
       >
         <MapPinIcon className="h-3.5 w-3.5 shrink-0" />
-        <span className="text-[11px] uppercase tracking-[0.04em] whitespace-nowrap">
+        <span className="text-[14px] uppercase tracking-[0.04em] whitespace-nowrap" style={{ textShadow: '0 0 6px rgba(255,255,255,0.65), 0 0 16px rgba(255,255,255,0.3)' }}>
           {hasLocation ? userLocation.label : 'Set location'}
         </span>
         {hasLocation && (

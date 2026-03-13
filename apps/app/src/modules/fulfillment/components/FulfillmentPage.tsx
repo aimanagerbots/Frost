@@ -1,41 +1,51 @@
 'use client';
 
-import { useState } from 'react';
-import { BoxSelect, LayoutDashboard, ClipboardList, Package } from 'lucide-react';
-import { SectionHeader, ModuleTabs } from '@/components';
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { BoxSelect, Truck, ClipboardList, Package } from 'lucide-react';
+import { SectionHeader, EmptyState, LoadingSkeleton } from '@/components';
 import { FulfillmentDashboard } from './FulfillmentDashboard';
 import { PickLists } from './PickLists';
 import { PackingStation } from './PackingStation';
 import { ACCENT } from '@/design/colors';
 
 
-type FulfillmentTab = 'dashboard' | 'pick-lists' | 'packing-station';
+const STUB_TABS: Record<string, { label: string; icon: typeof BoxSelect }> = {
+  vehicles: { label: 'Vehicles', icon: Truck },
+  drivers: { label: 'Drivers', icon: ClipboardList },
+  'delivery-agents': { label: 'Delivery Agents', icon: Package },
+  'quarantine-schedule': { label: 'Quarantine Schedule', icon: BoxSelect },
+  'delivery-schedule': { label: 'Delivery Schedule', icon: BoxSelect },
+  'transfer-inbound': { label: 'Transfer Inbound', icon: BoxSelect },
+  'transfer-outbound': { label: 'Transfer Outbound', icon: BoxSelect },
+  delivery: { label: 'Delivery', icon: Truck },
+};
 
-const TABS: { id: FulfillmentTab; label: string; icon: typeof LayoutDashboard }[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'pick-lists', label: 'Pick Lists', icon: ClipboardList },
-  { id: 'packing-station', label: 'Packing Station', icon: Package },
-];
-
-export function FulfillmentPage() {
-  const [activeTab, setActiveTab] = useState<FulfillmentTab>('dashboard');
+function FulfillmentContent() {
+  const searchParams = useSearchParams();
+  const activeTab = searchParams.get('tab') ?? 'orders';
+  const stub = STUB_TABS[activeTab];
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-6">
       <SectionHeader icon={BoxSelect} title="Fulfillment" accentColor={ACCENT} />
-
-      {/* Tab Bar */}
-      <ModuleTabs
-        tabs={TABS}
-        activeTab={activeTab}
-        onTabChange={(tab) => setActiveTab(tab as FulfillmentTab)}
-        accentColor={ACCENT}
-      />
-
-      {/* Tab Content */}
-      {activeTab === 'dashboard' && <FulfillmentDashboard />}
-      {activeTab === 'pick-lists' && <PickLists />}
-      {activeTab === 'packing-station' && <PackingStation />}
+      {activeTab === 'orders' && <FulfillmentDashboard />}
+      {stub && (
+        <EmptyState
+          icon={stub.icon}
+          title={stub.label}
+          description="This section is coming soon."
+          accentColor={ACCENT}
+        />
+      )}
     </div>
+  );
+}
+
+export function FulfillmentPage() {
+  return (
+    <Suspense fallback={<LoadingSkeleton variant="card" count={3} />}>
+      <FulfillmentContent />
+    </Suspense>
   );
 }

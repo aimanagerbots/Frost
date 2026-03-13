@@ -1,66 +1,82 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { Warehouse, LayoutGrid, List, Package, FlaskConical, AlertTriangle } from 'lucide-react';
-import { SectionHeader, ModuleTabs } from '@/components';
-import { useOverviewMetrics } from '@/modules/inventory/hooks';
-import { InventoryOverview } from './overview/InventoryOverview';
-import { CannabisInventory } from './cannabis/CannabisInventory';
-import { NonCannabisInventory } from './materials/NonCannabisInventory';
-import { COAManager } from './coa/COAManager';
-import { InventoryAlerts } from './alerts/InventoryAlerts';
-import type { ReadinessState } from '@/modules/inventory/types';
-import { ACCENT as INVENTORY_ACCENT } from '@/design/colors';
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Warehouse } from 'lucide-react';
+import { SectionHeader, LoadingSkeleton } from '@/components';
+import { ManageMenuTab } from './manage-menu/ManageMenuTab';
+import { BatchesTab } from './batches/BatchesTab';
+import { NonCannabisTab } from './non-cannabis/NonCannabisTab';
+import { ProductionTab } from './production/ProductionTab';
+import { CategoriesTab } from './categories/CategoriesTab';
+import { ProductLinesTab } from './product-lines/ProductLinesTab';
+import { ProductsTab } from './products/ProductsTab';
+import { CatalogGroupsTab } from './catalog-groups/CatalogGroupsTab';
+import { StrainsTab } from './strains/StrainsTab';
+import { RoomsTab } from './rooms/RoomsTab';
+import { DiscountsTab } from './discounts/DiscountsTab';
+import { BackordersTab } from './backorders/BackordersTab';
+import { QAResultTab } from './qa-result/QAResultTab';
+import { ConversionsTab } from './conversions/ConversionsTab';
+import { ProductTagTab } from './product-tag/ProductTagTab';
+import { QALotTab } from './qa-lot/QALotTab';
+import { QASampleTab } from './qa-sample/QASampleTab';
+import { EmployeeSampleTab } from './employee-sample/EmployeeSampleTab';
+import { DisposalTab } from './disposal/DisposalTab';
+import { useProducts } from '@/modules/inventory/hooks';
 
+const ACCENT = '#8B5CF6';
 
-type InventoryTab = 'overview' | 'cannabis' | 'non-cannabis' | 'coa' | 'alerts';
+function InventoryContent() {
+  const searchParams = useSearchParams();
+  const activeTab = searchParams.get('tab') ?? 'menu-batches';
+  const { data: products } = useProducts();
 
-const TABS: { id: InventoryTab; label: string; icon: typeof LayoutGrid }[] = [
-  { id: 'overview', label: 'Overview', icon: LayoutGrid },
-  { id: 'cannabis', label: 'Cannabis Inventory', icon: List },
-  { id: 'non-cannabis', label: 'Non-Cannabis Materials', icon: Package },
-  { id: 'coa', label: 'COA Manager', icon: FlaskConical },
-  { id: 'alerts', label: 'Alerts', icon: AlertTriangle },
-];
-
-export function InventoryLayout() {
-  const [activeTab, setActiveTab] = useState<InventoryTab>('overview');
-  const [pipelineFilter, setPipelineFilter] = useState<ReadinessState | undefined>();
-  const { data: metrics } = useOverviewMetrics();
-
-  const handlePipelineClick = useCallback((state: ReadinessState) => {
-    setPipelineFilter(state);
-    setActiveTab('cannabis');
-  }, []);
+  const totalSKUs = products?.length ?? 0;
+  const totalForSale = products?.reduce((s, p) => s + p.availableForSale, 0) ?? 0;
+  const outOfStock = products?.filter(p => p.totalInStock === 0).length ?? 0;
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-6">
       <SectionHeader
         icon={Warehouse}
         title="Inventory"
-        subtitle="Track products across the pipeline"
-        accentColor={INVENTORY_ACCENT}
+        subtitle="Products, batches, QA results, and compliance"
+        accentColor={ACCENT}
         stats={[
-          { label: 'SKUs', value: metrics?.totalSKUs ?? 0 },
-          { label: 'Value', value: `$${((metrics?.totalValue ?? 0) / 1000).toFixed(0)}K` },
-          { label: 'Alerts', value: metrics?.belowReorderPoint ?? 0 },
+          { label: 'SKUs', value: totalSKUs },
+          { label: 'Available', value: totalForSale },
+          { label: 'Out of Stock', value: outOfStock },
         ]}
       />
 
-      {/* Tab Bar */}
-      <ModuleTabs
-        tabs={TABS}
-        activeTab={activeTab}
-        onTabChange={(tab) => { setActiveTab(tab as InventoryTab); if (tab !== 'cannabis') setPipelineFilter(undefined); }}
-        accentColor={INVENTORY_ACCENT}
-      />
-
-      {/* Tab Content */}
-      {activeTab === 'overview' && <InventoryOverview onStateClick={handlePipelineClick} />}
-      {activeTab === 'cannabis' && <CannabisInventory initialState={pipelineFilter} />}
-      {activeTab === 'non-cannabis' && <NonCannabisInventory />}
-      {activeTab === 'coa' && <COAManager />}
-      {activeTab === 'alerts' && <InventoryAlerts />}
+      {activeTab === 'menu-batches'          && <ManageMenuTab />}
+      {activeTab === 'batches'               && <BatchesTab />}
+      {activeTab === 'non-cannabis'          && <NonCannabisTab />}
+      {activeTab === 'production-categories' && <ProductionTab />}
+      {activeTab === 'categories'            && <CategoriesTab />}
+      {activeTab === 'product-lines'         && <ProductLinesTab />}
+      {activeTab === 'products-tab'          && <ProductsTab />}
+      {activeTab === 'products-catalog'      && <CatalogGroupsTab />}
+      {activeTab === 'strains'               && <StrainsTab />}
+      {activeTab === 'rooms'                 && <RoomsTab />}
+      {activeTab === 'discounts'             && <DiscountsTab />}
+      {activeTab === 'back-orders'           && <BackordersTab />}
+      {activeTab === 'qa-result'             && <QAResultTab />}
+      {activeTab === 'conversions'           && <ConversionsTab />}
+      {activeTab === 'product-tag'           && <ProductTagTab />}
+      {activeTab === 'qa-lot'               && <QALotTab />}
+      {activeTab === 'qa-sample'             && <QASampleTab />}
+      {activeTab === 'employee-sample'       && <EmployeeSampleTab />}
+      {activeTab === 'disposal'              && <DisposalTab />}
     </div>
+  );
+}
+
+export function InventoryLayout() {
+  return (
+    <Suspense fallback={<LoadingSkeleton variant="list" />}>
+      <InventoryContent />
+    </Suspense>
   );
 }

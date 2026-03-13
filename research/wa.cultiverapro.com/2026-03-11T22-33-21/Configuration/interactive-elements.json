@@ -1,0 +1,272 @@
+[
+  {
+    "type": "dropdown",
+    "text": "Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+    "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 207,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Configuration",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 207,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+    "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown ng-isolate-scope",
+    "rect": {
+      "x": 477,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 477,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1)",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown profile-dropdown",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Michael Perkins",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "G&S GREENERY Customer Profile Marketplace Settings Profile Settings Lock Logout",
+    "selector": "#user-left-box",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "clearfix hidden-sm hidden-xs dropdown profile2-dropdown",
+    "rect": {
+      "x": 0,
+      "y": 50,
+      "w": 220,
+      "h": 75
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "G&S GREENERY",
+    "selector": "#companyName > span.name > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 40,
+      "y": 88,
+      "w": 115,
+      "h": 17
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+    "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse navbar-left pull-left ng-isolate-scope",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 207,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+    "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse navbar-left pull-left hidden-sm hidden-xs",
+    "rect": {
+      "x": 428,
+      "y": 0,
+      "w": 100,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+    "selector": "#header-nav",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse pull-right",
+    "rect": {
+      "x": 1196,
+      "y": 0,
+      "w": 236,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "Account Management Marketplace Settings Client Note Attributes Statuses Notifica",
+    "selector": "#sidebar-nav",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "collapse navbar-collapse navbar-ex1-collapse bigNav",
+    "rect": {
+      "x": 0,
+      "y": 125,
+      "w": 220,
+      "h": 672
+    }
+  },
+  {
+    "type": "button",
+    "text": "Configuration",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 207,
+      "h": 50
+    }
+  },
+  {
+    "type": "button",
+    "text": "Add New Sales Person",
+    "selector": "div.slide-main-container > div.slide-main-animation > div.row:nth-of-type(2) > div.col-lg-12 > a.btn.btn-success",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn btn-success",
+    "rect": {
+      "x": 237,
+      "y": 149,
+      "w": 184,
+      "h": 34
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Configuration",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 207,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 477,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Michael Perkins",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "G&S GREENERY",
+    "selector": "#companyName > span.name > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 40,
+      "y": 88,
+      "w": 115,
+      "h": 17
+    }
+  }
+]

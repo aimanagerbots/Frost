@@ -2,6 +2,8 @@
 
 import { DrawerPanel, StatusBadge, TimelineView } from '@/components';
 import { useOrder } from '@/modules/orders/hooks/useOrder';
+import { PipelineBadge } from '@/modules/pipeline/components/PipelineBadge';
+import { accounts as crmAccounts } from '@/mocks/crm';
 import type { OrderStatus } from '@/modules/orders/types';
 import {
   Package, CreditCard, FileText,
@@ -15,6 +17,23 @@ interface OrderDrawerProps {
 }
 
 import type { DomainStatus } from '@/components/StatusBadge';
+
+function getPaymentComplianceLight(
+  paymentStatus: string,
+  createdAt: string
+): { color: string; label: string } {
+  if (paymentStatus === 'received' || paymentStatus === 'paid') {
+    return { color: '#22C55E', label: 'Payment received — compliant' };
+  }
+  const created = new Date(createdAt);
+  const now = new Date('2026-03-12');
+  const ageMs = now.getTime() - created.getTime();
+  const ageDays = Math.floor(ageMs / (1000 * 60 * 60 * 24));
+  if (paymentStatus === 'pending' && ageDays < 30) {
+    return { color: '#F59E0B', label: `Payment pending — ${ageDays} days old` };
+  }
+  return { color: '#EF4444', label: `Payment ${paymentStatus} — ${ageDays} days overdue` };
+}
 
 const ORDER_STATUS_TO_DOMAIN: Record<OrderStatus, DomainStatus> = {
   pending: 'pending',
@@ -32,6 +51,8 @@ export function OrderDrawer({ orderId, open, onClose }: OrderDrawerProps) {
 
   if (!order) return null;
 
+  const accountPipeline = crmAccounts.find((a) => a.name === order.accountName)?.pipeline;
+
   const timelineItems = [
     { id: 'created', timestamp: order.createdAt, icon: FileText, title: 'Order Created', description: `Order ${order.orderNumber} placed` },
     order.confirmedAt && { id: 'confirmed', timestamp: order.confirmedAt, icon: CheckCircle, iconColor: '#5BB8E6', title: 'Order Confirmed', description: 'Order accepted and queued for production' },
@@ -47,6 +68,18 @@ export function OrderDrawer({ orderId, open, onClose }: OrderDrawerProps) {
         <div className="flex flex-wrap items-center gap-2">
           <StatusBadge status={ORDER_STATUS_TO_DOMAIN[order.status]} />
           <StatusBadge status={order.paymentStatus === 'received' ? 'paid' : order.paymentStatus as DomainStatus} label={`Payment: ${order.paymentStatus}`} />
+          {(() => {
+            const light = getPaymentComplianceLight(order.paymentStatus, order.createdAt);
+            return (
+              <span
+                className="relative inline-flex h-3 w-3 rounded-full"
+                style={{ backgroundColor: light.color }}
+                title={light.label}
+              >
+                <span className="sr-only">{light.label}</span>
+              </span>
+            );
+          })()}
           <span className="text-xs text-text-muted">
             {order.paymentMethod.toUpperCase()}
           </span>
@@ -56,7 +89,10 @@ export function OrderDrawer({ orderId, open, onClose }: OrderDrawerProps) {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Account</h4>
-            <p className="mt-1 text-sm text-text-bright">{order.accountName}</p>
+            <div className="mt-1 flex items-center gap-2">
+              <p className="text-sm text-text-bright">{order.accountName}</p>
+              {accountPipeline && <PipelineBadge code={accountPipeline.code} />}
+            </div>
           </div>
           <div>
             <h4 className="text-xs font-semibold uppercase text-text-muted tracking-wider">Sales Rep</h4>

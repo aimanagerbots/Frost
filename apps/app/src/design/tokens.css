@@ -40,3 +40,31 @@
   --danger: #FB7185;
   --info: #38BDF8;
 }
+
+/* Light theme */
+.light {
+  --bg-base: #FFFFFF;
+  --bg-card: #F8F8FC;
+  --bg-card-hover: #F0F0F8;
+  --bg-elevated: #EBEBF2;
+
+  --border-default: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.18);
+
+  --text-default: rgba(0, 0, 0, 0.85);
+  --text-muted: rgba(0, 0, 0, 0.45);
+  --text-bright: #000000;
+}
+
+/* Sidebar always stays dark regardless of theme */
+.light aside {
+  --bg-base: #000000;
+  --bg-card: #0A0A0F;
+  --bg-card-hover: #111118;
+  --bg-elevated: #161620;
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --text-default: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-bright: #FFFFFF;
+}

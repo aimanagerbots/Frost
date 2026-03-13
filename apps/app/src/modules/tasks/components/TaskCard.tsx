@@ -2,6 +2,7 @@
 
 import { User, Factory, Bot, Video, Calendar } from 'lucide-react';
 import { AccentCard, StatusBadge } from '@/components';
+import { PipelineBadge } from '@/modules/pipeline/components/PipelineBadge';
 import { cn } from '@/lib/utils';
 import type { Task, TaskPriority, TaskSource } from '@/modules/tasks/types';
 
@@ -59,6 +60,9 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
           <span className="rounded-full bg-elevated px-1.5 py-0.5 text-[10px] text-text-muted">
             {task.module}
           </span>
+        )}
+        {task.pipelineCode && (
+          <PipelineBadge code={task.pipelineCode} size="sm" />
         )}
       </div>
 

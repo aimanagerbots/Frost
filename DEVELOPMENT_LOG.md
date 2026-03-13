@@ -6,6 +6,144 @@
 
 ---
 
+## 2026-03-12 — Sales Intelligence Phase 5: V2 AI Enhancements (uncommitted)
+- **AI Briefing on Sales Dashboard (5A)**: Created `SalesBriefingWidget.tsx` — compact AI briefing card using `useAlertRules`, filtered to sales-relevant types, added to SalesDashboardPage
+- **Health Score on Accounts Table (5A)**: Added Health column to AccountsTable with colored score badge (green ≥80, blue ≥60, amber ≥40, red <40)
+- **Payment Compliance Traffic Light (5A)**: Added colored dot to OrderDrawer header — green (paid), amber (pending <30d), red (overdue ≥30d)
+- **Pipeline-Aware Reorder Proposals (5B)**: Added `pipelineCode` to ReorderProposal, created `usePipelineRecommendation` hook with A/I/R strategy text, added Pipeline column + "Pipeline Strategy" card to ReorderCenter/Drawer
+- **Create Cart from AI Recommendation (5C)**: Created `carts/store.ts` (Zustand), "Create Cart" button on ReorderProposalDrawer, AI cart banner on CartsPage, merged pending cart into hooks
+- **Key files**: `SalesBriefingWidget.tsx`, `AccountsTable.tsx`, `OrderDrawer.tsx`, `usePipelineRecommendation.ts`, `ReorderCenter.tsx`, `ReorderProposalDrawer.tsx`, `carts/store.ts`, `CartsPage.tsx`
+- **Verification**: tsc + build + lint = 0 errors
+
+---
+
+## 2026-03-12 — Sales Intelligence Phase 4: Cultivera Parity — Analytics Reports (uncommitted)
+- **Scope reduction**: 4A (VMI), 4D (Sales Person Report), 4E (Order Summary) already built — only 4B + 4C analytics needed
+- **Core Reports (4B)**: Built `MonthlySalesChart` (Recharts BarChart + MetricCards), `SalesByPersonTable` (DataTable + grand total), `ClientByProductMatrix` (heat-mapped matrix), `ProductByClientMatrix` (transposed scrollable matrix)
+- **Secondary Reports (4C)**: Built `LastOrderedTable` (aging status badges), `MonthlySalesComparison` (grouped BarChart current vs prior year), `ProductLineSalesTable` (collapsible grouped table + progress bars), `ExpectedDaysInventory` (6-card grid with status indicators)
+- **Hooks**: Created `useAnalytics.ts` (4 hooks) and `useSecondaryAnalytics.ts` (4 hooks) with realistic cannabis dispensary mock data
+- **Layout**: Updated `AnalyticsLayout.tsx` with 8-tab navigation bar routing to components, EmptyState fallback for remaining tabs
+- **Key files**: `analytics/hooks/useAnalytics.ts`, `analytics/hooks/useSecondaryAnalytics.ts`, `analytics/components/*.tsx`, `analytics/components/AnalyticsLayout.tsx`
+- **Verification**: tsc + build + lint = 0 errors
+
+---
+
+## 2026-03-12 — Sales Intelligence Phase 3: Salesperson Intelligence (uncommitted)
+- **Sentiment Score (3A)**: Added `sentimentScore` + `sentimentTrend` to Account type, created `SentimentChart.tsx` sparkline with monthly trend + breakdown, wired into HealthTab, added mock values to all 30 accounts
+- **Nurture Tracker (3B)**: Created `useNurtureStatus` hook (tracks days since last contact per channel, flags "going cold" accounts), `NurtureTracker.tsx` component with MetricCards + cold accounts alert + DataTable with channel grid
+- **Order Frequency Intelligence (3C)**: Created `useOrderFrequency` hook (avg days between orders, trend, predicted next order, overdue detection), added "Declining Order Frequency" callout section to ReorderCenter
+- **Proactive Alert Rules (3D)**: Created `useAlertRules` hook (6 rules: health <50, declining health, sentiment <40, reorder overdue, license expiring, going cold), wired into CRMDashboard AIBriefingCard and main Dashboard AlertsRow
+- **Key files**: `crm/types/index.ts`, `SentimentChart.tsx`, `useNurtureStatus.ts`, `NurtureTracker.tsx`, `useOrderFrequency.ts`, `ReorderCenter.tsx`, `useAlertRules.ts`, `CRMDashboard.tsx`, `DashboardPage.tsx`
+- **Verification**: tsc + build + lint = 0 errors
+
+---
+
+## 2026-03-12 — Sales Intelligence Phase 2: Pipeline → Task Auto-Generation (uncommitted)
+- **Pipeline Event Engine**: Created `pipeline/types/events.ts` (PipelineEvent, PipelineEventRule, 5 PIPELINE_EVENT_RULES) and `pipeline/hooks/usePipelineEvents.ts` (TanStack Query hook checking all CRM accounts against 5 threshold rules: health < 40, phase stale > 30d, newly inactive, license expiring, payment overdue)
+- **Auto-Task Generator**: Created `tasks/hooks/useAutoTasks.ts` (converts PipelineEvents → Task objects with severity-based due dates, rep lookup, human-readable titles)
+- **Mock data**: Added 15 static pipeline-generated tasks (task-p01 through task-p15) to `src/mocks/tasks.ts` covering all 5 event types
+- **TaskCard UI**: Added PipelineBadge (A3/I1/R2) to task cards when `pipelineCode` is present
+- **TaskFilters UI**: Added Pipeline filter dropdown (All / Active / Inactive / Recovery) with prefix matching support
+- **Key files**: `pipeline/types/events.ts`, `pipeline/hooks/usePipelineEvents.ts`, `tasks/hooks/useAutoTasks.ts`, `tasks/components/TaskCard.tsx`, `tasks/components/TaskFilters.tsx`, `mocks/tasks.ts`
+- **Verification**: tsc + build + lint = 0 errors
+
+---
+
+## 2026-03-12 — Inventory P4: WA Compliance Tabs (QA Lot, QA Sample, Employee Sample, Disposal) (uncommitted)
+- **QA Lot tab**: Filter tabs (All/Passed/Failed/Pending), full column set (Lot Number, Assigned Batches, Test Lab, Submitted Date, Result Status, Expiration Date), InvStatusBadge
+- **QA Sample tab**: Filter tabs (All/Submitted/In Testing/Passed/Failed), full column set (Sample ID, Product, Batch Number, Lab, Submitted, Expected Return, Status), InvStatusBadge
+- **Employee Sample tab**: Colored purpose badges (QC=green, Education=blue, Demo=amber), drawer form (Employee Name, Product, Quantity, Purpose, Approved By), wired "Log Sample" button
+- **Disposal tab**: Colored reason badges (Waste=gray, Overstock=blue, Damage=amber, Compliance=red, Expiration=purple), separate Quantity + Unit columns, drawer form (Product, Batch Number, Quantity, Unit, Reason, Method, Employee, Witness), wired "Log Disposal" button
+- **InventoryLayout fix**: Replaced `useEffect`+`setState` URL sync with derived initial state to fix `react-hooks/set-state-in-effect` lint error
+- All 19 inventory tabs now complete — P1 through P4 done
+- Build + lint + TypeScript: zero errors, zero warnings
+- Key files: `components/qa-lot/QALotTab.tsx`, `components/qa-sample/QASampleTab.tsx`, `components/employee-sample/EmployeeSampleTab.tsx`, `components/disposal/DisposalTab.tsx`, `components/InventoryLayout.tsx`
+
+---
+
+## 2026-03-12 — Inventory P3: Reference Tables (Product Lines, Categories, Catalog Groups, Product Tags, Production) (uncommitted)
+- **Product Lines tab**: Expandable hierarchy rows (Product Line → sub-lines), inline name edit, add drawer with comma-separated sub-lines
+- **Categories tab**: Table with METRC inventory type codes, inline name edit, add drawer with METRC type selector
+- **Catalog Groups tab**: Table with clickable active/inactive toggle, add drawer with group name + catalog name + active checkbox
+- **Product Tags tab**: Table with color swatches + hex codes, add drawer with color picker presets + custom hex input, delete button per tag
+- **Production tab**: Cleaned up to read-only (removed unused "+ New Run" button), added overflow-x-auto wrapper + empty state
+- All tabs follow P1/P2 patterns: same table structure, drawer forms, InvStatusBadge, toolbar layout
+- Build + lint + TypeScript: zero errors, zero warnings
+- Key files: `components/product-lines/ProductLinesTab.tsx`, `components/categories/CategoriesTab.tsx`, `components/catalog-groups/CatalogGroupsTab.tsx`, `components/product-tag/ProductTagTab.tsx`, `components/production/ProductionTab.tsx`
+
+---
+
+## 2026-03-12 — Inventory P2: Core Ops Tabs (Rooms, Backorders, Non-Cannabis, Conversions) (uncommitted)
+
+**App:** app
+**Changes:**
+- Enhanced 4 inventory tabs with Cultivera Pro parity features
+- Rooms: filter tabs by room type (All/Grow/Dry/Cure/Storage/Staging), Add Room drawer, derived status column (At Capacity/Active/Available)
+- Backorders: filter tabs (All/Pending/Partial/Fulfilled), Add Backorder drawer, Expected Fulfillment + QA Status columns, conditional row tinting (red for zero qty, purple for partial)
+- Non-Cannabis: reordered 11 columns to match spec, category filter tabs, search by name/SKU, Add Item drawer, red row tint when below reorder point
+- Conversions: inline-editable conversion ratio (click to edit), toggle active/inactive badges, unit column, Add Rule drawer
+- Added `expectedFulfillment` + `qaStatus` to Backorder type and mock data
+- Added `unit` to ConversionRule type and mock data
+- Added `at-capacity` status to InvStatusBadge
+
+**Key files:**
+- `apps/app/src/modules/inventory/components/rooms/RoomsTab.tsx`
+- `apps/app/src/modules/inventory/components/backorders/BackordersTab.tsx`
+- `apps/app/src/modules/inventory/components/non-cannabis/NonCannabisTab.tsx`
+- `apps/app/src/modules/inventory/components/conversions/ConversionsTab.tsx`
+- `apps/app/src/modules/inventory/types/index.ts`
+- `apps/app/src/mocks/inventory.ts`
+
+---
+
+## 2026-03-12 — Inventory P1: Cultivera-Parity Enhancements for 6 Tabs (uncommitted)
+
+**App:** app
+**Changes:**
+- Enhanced 6 existing inventory tabs to match Cultivera Pro layout exactly (columns, filters, forms, actions)
+- Manage Menu: 7 filter tabs, 9 columns including Units On Backorder + Last Adjusted
+- Batches: full toolbar with product/barcode search, location/room dropdowns, export/depleted/scan buttons
+- Products: CreateProductForm drawer with 23+ fields (35 METRC inventory types, strains, product lines, etc.)
+- Strains: pagination controls (per-page selector, prev/next, page count)
+- QA Result: search toolbar, Add QA Result drawer, Import WCIA Lab Result modal, expandable rows with cannabinoid columns
+- Discounts: simplified to Cultivera columns (Name, Description, From/To Date, Discount), View Expired toggle
+- Added `ManageMenuFilterTab`, `unitsOnBackorder`, `lastAdjusted`, `availableOnPortal` to types + mock data
+- Removed dead legacy files: alerts/, cannabis/, coa/, overview/ directories + 6 unused hook files (old 5-tab system)
+- Fixed all lint warnings (unused imports/variables)
+- Zero TypeScript errors, zero lint errors, clean build
+
+**Key files:**
+- `src/modules/inventory/components/manage-menu/ManageMenuTab.tsx`
+- `src/modules/inventory/components/batches/BatchesTab.tsx`
+- `src/modules/inventory/components/products/ProductsTab.tsx`
+- `src/modules/inventory/components/products/CreateProductForm.tsx` (new)
+- `src/modules/inventory/components/strains/StrainsTab.tsx`
+- `src/modules/inventory/components/qa-result/QAResultTab.tsx`
+- `src/modules/inventory/components/discounts/DiscountsTab.tsx`
+- `src/modules/inventory/types/index.ts`
+- `src/modules/inventory/hooks/useInventory.ts`
+- `src/mocks/inventory.ts`
+
+---
+
+## 2026-03-12 — Inventory Module Rebuild: 19-Tab Cultivera-Parity System (uncommitted)
+
+**App:** app
+**Changes:**
+- Rebuilt entire `/inventory` route from 5-tab custom system to 19-tab Cultivera-parity system
+- New types: all WA METRC inventory type codes (5–40), 20+ Cultivera-aligned entities (Product, Batch, Strain, QAResult, Discount, Room, etc.)
+- New mock data: 20 Products, 12 Batches, 16 Strains, 12 QA Results, 6 Discounts, 8 Rooms, and more
+- New hooks: `useProducts`, `useBatches`, `useStrains`, `useQAResults` + 15 more via `useInventory.ts`
+- Created 19 tab components: ProductsTab (5-col card grid), BatchesTab, QAResultTab (master-detail expand), StrainsTab (inline edit), ManageMenuTab, DiscountsTab, RoomsTab, BackordersTab, CategoriesTab, ProductLinesTab, CatalogGroupsTab, ProductTagTab, QALotTab, QASampleTab, EmployeeSampleTab, DisposalTab, ConversionsTab, NonCannabisTab, ProductionTab
+- Created `InvStatusBadge` wrapper for inventory-specific status strings not in DomainStatus union
+- Added `icon` and `subValue` optional props to shared `MetricCard` component
+- Fixed pre-existing Cultivera module missing hooks (useCultiveraDashboard, useSyncStatus, useOrderIntake, useCultiveraMarketing) and barrel index
+- Build: 0 errors, 0 lint errors
+
+**Key files:** `src/modules/inventory/types/index.ts`, `src/mocks/inventory.ts`, `src/modules/inventory/hooks/useInventory.ts`, `src/modules/inventory/components/InventoryLayout.tsx`, all 19 tab components, `src/modules/inventory/components/InventoryStatusBadge.tsx`
+
+---
+
 ## 2026-03-09 — Territory Map + CRM Coordinates (uncommitted)
 
 **App:** app, website, shared

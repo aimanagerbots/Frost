@@ -1,0 +1,27 @@
+[
+  {
+    "type": "card",
+    "count": 1759
+  },
+  {
+    "type": "form",
+    "formCount": 56,
+    "fieldCount": 39
+  },
+  {
+    "type": "chart",
+    "count": 2
+  },
+  {
+    "type": "modal/dialog",
+    "count": 99
+  },
+  {
+    "type": "list",
+    "count": 12
+  },
+  {
+    "type": "badge/chip",
+    "count": 164
+  }
+]

@@ -9,6 +9,15 @@ import {
   Package,
   Dna,
   MessageSquare,
+  LayoutDashboard,
+  RefreshCw,
+  Sprout,
+  Home,
+  Scissors,
+  FlaskConical,
+  TestTube,
+  Trash2,
+  Eye,
 } from 'lucide-react';
 import { ModuleTabs } from '@/components';
 import { useCultivationStore } from '../store';
@@ -17,11 +26,22 @@ import { ACCENT } from '@/design/colors';
 
 
 const TABS: { id: CultivationView; label: string; icon: React.ElementType }[] = [
+  // Cultivera tabs first
+  { id: 'overview', label: 'Overview', icon: Eye },
+  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'grow-cycles', label: 'Grow Cycles', icon: RefreshCw },
+  { id: 'plants', label: 'Plants', icon: Sprout },
+  { id: 'grow-sources', label: 'Grow Sources', icon: Dna },
+  { id: 'rooms', label: 'Rooms', icon: Home },
+  { id: 'harvest', label: 'Harvest', icon: Scissors },
+  { id: 'qa-lot', label: 'QA Lot', icon: FlaskConical },
+  { id: 'qa-sample', label: 'QA Sample', icon: TestTube },
+  { id: 'disposal', label: 'Disposal', icon: Trash2 },
+  // Frost extras
   { id: 'environment', label: 'Environment', icon: Activity },
   { id: 'tasks', label: 'Tasks', icon: KanbanSquare },
   { id: 'calendar', label: 'Calendar', icon: CalendarDays },
   { id: 'supplies', label: 'Supplies', icon: Package },
-  { id: 'genetics', label: 'Genetics', icon: Dna },
   { id: 'chat', label: 'AI Chat', icon: MessageSquare },
 ];
 
@@ -30,13 +50,13 @@ export function CultivationNav() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Sync URL → store on mount
+  // Sync URL → store on mount; reads 'tab' param (sidebar), falls back to 'view' (legacy)
   useEffect(() => {
-    const view = searchParams.get('view') as CultivationView | null;
+    const tab = (searchParams.get('tab') ?? searchParams.get('view')) as CultivationView | null;
     const roomId = searchParams.get('room');
-    if (view) {
-      setView(view);
-      if (view === 'environment' && roomId) {
+    if (tab) {
+      setView(tab);
+      if (tab === 'environment' && roomId) {
         setEnvironmentRoom(roomId);
       }
     }
@@ -45,7 +65,7 @@ export function CultivationNav() {
   // Sync store → URL on change
   useEffect(() => {
     const params = new URLSearchParams();
-    params.set('view', activeView);
+    params.set('tab', activeView);
     if (activeView === 'environment' && selectedEnvironmentRoomId) {
       params.set('room', selectedEnvironmentRoomId);
     }

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frost — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --frost-blue: #5BB8E6;
+      --frost-blue-dim: rgba(91, 184, 230, 0.18);
+      --frost-blue-glow: rgba(91, 184, 230, 0.35);
+      --frost-blue-hover: #4DA8D6;
+      --bg: #09090F;
+      --card: #0E0E18;
+      --card-border: rgba(91, 184, 230, 0.22);
+      --card-border-hover: rgba(91, 184, 230, 0.45);
+      --input-bg: #13131F;
+      --input-border: rgba(255, 255, 255, 0.08);
+      --input-border-focus: rgba(91, 184, 230, 0.5);
+      --text: rgba(255, 255, 255, 0.9);
+      --text-muted: rgba(255, 255, 255, 0.38);
+      --icon-color: rgba(91, 184, 230, 0.7);
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      padding-top: 2vh;
+    }
+
+    /* Subtle radial glow behind card */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 50% 50%, rgba(91, 184, 230, 0.055) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Noise texture overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .login-wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 44px 36px 22px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+      animation: cardIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    /* Corner accent lines — matching reference */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 20px;
+      background: linear-gradient(
+        135deg,
+        rgba(91, 184, 230, 0.4) 0%,
+        transparent 40%,
+        transparent 60%,
+        rgba(91, 184, 230, 0.2) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 1px;
+      pointer-events: none;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Snowflake badge */
+    .avatar-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 52px;
+    }
+
+    .avatar-badge img {
+      width: 148px;
+      height: 148px;
+      object-fit: contain;
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      animation: formIn 0.5s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes formIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      padding: 0 14px;
+      height: 42px;
+      gap: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .input-row:focus-within {
+      border-color: var(--input-border-focus);
+      box-shadow: 0 0 0 3px rgba(91, 184, 230, 0.1);
+    }
+
+    .input-row svg {
+      flex-shrink: 0;
+      color: var(--icon-color);
+      width: 16px;
+      height: 16px;
+    }
+
+    .input-row input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    .input-row input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .forgot {
+      text-align: center;
+      margin-top: -2px;
+    }
+
+    .forgot a {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--frost-blue);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .forgot a:hover {
+      opacity: 1;
+    }
+
+    .btn-login {
+      margin-top: 2px;
+      width: 100%;
+      height: 42px;
+      background: var(--frost-blue);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(91, 184, 230, 0.3);
+    }
+
+    .btn-login:hover {
+      background: var(--frost-blue-hover);
+      box-shadow: 0 4px 28px rgba(91, 184, 230, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-login:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 12px rgba(91, 184, 230, 0.25);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="card">
+      <!-- Snowflake badge -->
+      <div class="avatar-wrap">
+        <div class="avatar-badge">
+          <img src="../apps/app/public/FrostLogo_SnowflakeOnly.png" alt="Frost" />
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form onsubmit="return false">
+        <!-- Email -->
+        <div class="input-row">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <input type="email" placeholder="Email address" autocomplete="email" />
+        </div>
+
+        <!-- Password -->
+        <div class="input-row">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+          </svg>
+          <input type="password" placeholder="Password" autocomplete="current-password" />
+        </div>
+
+        <!-- Forgot -->
+        <div class="forgot">
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button class="btn-login" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

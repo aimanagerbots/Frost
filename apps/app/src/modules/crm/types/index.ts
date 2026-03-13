@@ -109,6 +109,8 @@ export interface Account {
     revenue: number;
   }[];
   contacts: Contact[];
+  sentimentScore?: number;        // 0-100, aggregated from interactions
+  sentimentTrend?: 'improving' | 'stable' | 'declining';
 }
 
 export interface Interaction {
@@ -464,6 +466,7 @@ export interface ReorderProposal {
   reasoning: string;
   daysSinceLastOrder: number;
   status: 'pending' | 'approved' | 'sent' | 'ordered' | 'rejected';
+  pipelineCode?: string;
   createdAt: string;
   modifiedAt: string;
   draftEmail: string;

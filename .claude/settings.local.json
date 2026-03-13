@@ -71,7 +71,14 @@
       "Bash(grep -E \"\\\\.\\(ts|tsx|local\\)$\")",
       "Bash(find . \\\\\\( -name \"*.ts\" -o -name \"*.tsx\" -o -name \"*.js\" -o -name \"*.jsx\" -o -name \"*.css\" \\\\\\) ! -path \"*/node_modules/*\" ! -path \"*/.next/*\" ! -path \"*/dist/*\" ! -path \"*/.turbo/*\" ! -name \"package-lock.json\" -exec cat {} +)",
       "Bash(find apps/api -name \"*.py\" -exec cat {} +)",
-      "Bash(npx turbo build --filter=@frost/website)"
+      "Bash(npx turbo build --filter=@frost/website)",
+      "Bash(gh repo:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_type",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_install",
+      "Bash(gh api:*)"
     ]
   }
 }

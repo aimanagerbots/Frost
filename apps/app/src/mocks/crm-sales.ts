@@ -9,6 +9,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-001',
     accountId: 'acct-greenfield',
     accountName: 'Greenfield Dispensary',
+    pipelineCode: 'A5',
     proposedProducts: [
       { sku: 'FL-BD-8TH', name: 'Blue Dream Premium Flower — Eighth (3.5g)', category: 'flower', qty: 24, unitPrice: 28, lastOrderPrice: 28 },
       { sku: 'FL-WC-8TH', name: 'Wedding Cake Premium Flower — Eighth (3.5g)', category: 'flower', qty: 18, unitPrice: 32, lastOrderPrice: 30 },
@@ -28,6 +29,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-002',
     accountId: 'acct-rainier',
     accountName: 'Rainier Remedies',
+    pipelineCode: 'A4',
     proposedProducts: [
       { sku: 'ED-GUM-10PK', name: 'Hybrid Gummies — 10pk (100mg)', category: 'edible', qty: 12, unitPrice: 14, lastOrderPrice: 14 },
       { sku: 'BV-SPK-4PK', name: 'Sparkling Lemonade — 4pk (40mg)', category: 'beverage', qty: 8, unitPrice: 6, lastOrderPrice: 6 },
@@ -46,6 +48,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-003',
     accountId: 'acct-olympic',
     accountName: 'Olympic Greens',
+    pipelineCode: 'A3',
     proposedProducts: [
       { sku: 'PR-OGK-6PK', name: 'OG Kush Preroll — 6-Pack', category: 'preroll', qty: 30, unitPrice: 12, lastOrderPrice: 12 },
       { sku: 'PR-GG-1G', name: 'Gorilla Glue Preroll — 1g Single', category: 'preroll', qty: 60, unitPrice: 5, lastOrderPrice: 5 },
@@ -66,6 +69,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-004',
     accountId: 'acct-cascade',
     accountName: 'Cascade Wellness',
+    pipelineCode: 'A3',
     proposedProducts: [
       { sku: 'VP-DIST-1G', name: 'Distillate Cartridge — 1g (Hybrid)', category: 'vaporizer', qty: 24, unitPrice: 22, lastOrderPrice: 22 },
       { sku: 'VP-LR-05G', name: 'Live Resin Pod — 0.5g (Indica)', category: 'vaporizer', qty: 18, unitPrice: 28, lastOrderPrice: 28 },
@@ -84,6 +88,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-005',
     accountId: 'acct-puget-sound',
     accountName: 'Puget Sound Provisions',
+    pipelineCode: 'A3',
     proposedProducts: [
       { sku: 'CN-SH-1G', name: 'Shatter — 1g (Sativa)', category: 'concentrate', qty: 12, unitPrice: 18, lastOrderPrice: 18 },
       { sku: 'CN-WAX-1G', name: 'Live Resin Wax — 1g (Hybrid)', category: 'concentrate', qty: 12, unitPrice: 24, lastOrderPrice: 22 },
@@ -103,6 +108,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-006',
     accountId: 'acct-summit',
     accountName: 'Summit Cannabis Co.',
+    pipelineCode: 'A3',
     proposedProducts: [
       { sku: 'FL-GSC-8TH', name: 'Girl Scout Cookies Flower — Eighth (3.5g)', category: 'flower', qty: 36, unitPrice: 30, lastOrderPrice: 30 },
       { sku: 'ED-CHOC-BAR', name: 'Dark Chocolate Bar — 100mg', category: 'edible', qty: 20, unitPrice: 16, lastOrderPrice: 16 },
@@ -121,6 +127,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-007',
     accountId: 'acct-spokane-valley',
     accountName: 'Spokane Valley Dispensary',
+    pipelineCode: 'A2',
     proposedProducts: [
       { sku: 'FL-NL-8TH', name: 'Northern Lights Flower — Eighth (3.5g)', category: 'flower', qty: 24, unitPrice: 26, lastOrderPrice: 26 },
       { sku: 'PR-NL-3PK', name: 'Northern Lights Preroll — 3-Pack', category: 'preroll', qty: 36, unitPrice: 8, lastOrderPrice: 8 },
@@ -139,6 +146,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-008',
     accountId: 'acct-capitol-hill',
     accountName: 'Capitol Hill Collective',
+    pipelineCode: 'A4',
     proposedProducts: [
       { sku: 'VP-DISP-05G', name: 'Disposable Vape — 0.5g (Sativa)', category: 'vaporizer', qty: 36, unitPrice: 18, lastOrderPrice: 18 },
       { sku: 'ED-GUM-5PK', name: 'Sativa Gummies — 5pk (50mg)', category: 'edible', qty: 24, unitPrice: 10, lastOrderPrice: 10 },
@@ -159,6 +167,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-009',
     accountId: 'acct-pacific-leaf',
     accountName: 'Pacific Leaf',
+    pipelineCode: 'A4',
     proposedProducts: [
       { sku: 'FL-PP-8TH', name: 'Purple Punch Flower — Eighth (3.5g)', category: 'flower', qty: 30, unitPrice: 30, lastOrderPrice: 30 },
       { sku: 'CN-RSN-1G', name: 'Rosin — 1g (Indica)', category: 'concentrate', qty: 12, unitPrice: 30, lastOrderPrice: 30 },
@@ -177,6 +186,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-010',
     accountId: 'acct-emerald-city',
     accountName: 'Emerald City Cannabis',
+    pipelineCode: 'A5',
     proposedProducts: [
       { sku: 'FL-GG-QTR', name: 'Gorilla Glue Flower — Quarter (7g)', category: 'flower', qty: 18, unitPrice: 42, lastOrderPrice: 42 },
       { sku: 'PR-MX-VARIETY', name: 'Mixed Strain Preroll Variety — 6-Pack', category: 'preroll', qty: 24, unitPrice: 11, lastOrderPrice: 11 },
@@ -196,6 +206,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-011',
     accountId: 'acct-harbor',
     accountName: 'Harbor Cannabis',
+    pipelineCode: 'A2',
     proposedProducts: [
       { sku: 'FL-BD-QTR', name: 'Blue Dream Flower — Quarter (7g)', category: 'flower', qty: 12, unitPrice: 40, lastOrderPrice: 40 },
     ],
@@ -213,6 +224,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-012',
     accountId: 'acct-evergreen',
     accountName: 'Evergreen Wellness',
+    pipelineCode: 'A2',
     proposedProducts: [
       { sku: 'ED-GUM-10PK', name: 'Hybrid Gummies — 10pk (100mg)', category: 'edible', qty: 24, unitPrice: 14, lastOrderPrice: 14 },
       { sku: 'ED-MINT-TIN', name: 'Peppermint Mints — Tin (20ct, 100mg)', category: 'edible', qty: 18, unitPrice: 12, lastOrderPrice: 12 },
@@ -231,6 +243,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-013',
     accountId: 'acct-cascade',
     accountName: 'Cascade Wellness',
+    pipelineCode: 'A3',
     proposedProducts: [
       { sku: 'FL-WC-8TH', name: 'Wedding Cake Flower — Eighth (3.5g)', category: 'flower', qty: 24, unitPrice: 32, lastOrderPrice: 32 },
     ],
@@ -250,6 +263,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-014',
     accountId: 'acct-greenfield',
     accountName: 'Greenfield Dispensary',
+    pipelineCode: 'A5',
     proposedProducts: [
       { sku: 'ED-CHOC-BAR', name: 'Dark Chocolate Bar — 100mg', category: 'edible', qty: 18, unitPrice: 16, lastOrderPrice: 16 },
       { sku: 'BV-LEMON-CAN', name: 'Lemon Sparkling Water — Single (10mg)', category: 'beverage', qty: 48, unitPrice: 4, lastOrderPrice: 4 },
@@ -268,6 +282,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-015',
     accountId: 'acct-pacific-leaf',
     accountName: 'Pacific Leaf',
+    pipelineCode: 'A4',
     proposedProducts: [
       { sku: 'VP-LR-1G', name: 'Live Resin Cartridge — 1g (Sativa)', category: 'vaporizer', qty: 18, unitPrice: 35, lastOrderPrice: 35 },
     ],
@@ -285,6 +300,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-016',
     accountId: 'acct-olympic',
     accountName: 'Olympic Greens',
+    pipelineCode: 'A3',
     proposedProducts: [
       { sku: 'PR-BD-1G', name: 'Blue Dream Preroll — 1g Single', category: 'preroll', qty: 72, unitPrice: 6, lastOrderPrice: 6 },
       { sku: 'PR-SD-1G', name: 'Sour Diesel Preroll — 1g Single', category: 'preroll', qty: 48, unitPrice: 5, lastOrderPrice: 5 },
@@ -303,6 +319,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-017',
     accountId: 'acct-puget-sound',
     accountName: 'Puget Sound Provisions',
+    pipelineCode: 'A3',
     proposedProducts: [
       { sku: 'FL-BD-8TH', name: 'Blue Dream Flower — Eighth (3.5g)', category: 'flower', qty: 36, unitPrice: 28, lastOrderPrice: 28 },
       { sku: 'FL-JH-8TH', name: 'Jack Herer Flower — Eighth (3.5g)', category: 'flower', qty: 24, unitPrice: 30, lastOrderPrice: 30 },
@@ -323,6 +340,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-018',
     accountId: 'acct-summit',
     accountName: 'Summit Cannabis Co.',
+    pipelineCode: 'A3',
     proposedProducts: [
       { sku: 'BV-COLD-BREW', name: 'Cannabis Cold Brew Coffee — 12oz (20mg)', category: 'beverage', qty: 24, unitPrice: 7, lastOrderPrice: 7 },
     ],
@@ -340,6 +358,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-019',
     accountId: 'acct-rainier',
     accountName: 'Rainier Remedies',
+    pipelineCode: 'A4',
     proposedProducts: [
       { sku: 'CN-BATTER-1G', name: 'Batter — 1g (Hybrid)', category: 'concentrate', qty: 18, unitPrice: 22, lastOrderPrice: 0 },
     ],
@@ -357,6 +376,7 @@ const reorderProposals: ReorderProposal[] = [
     id: 'prop-020',
     accountId: 'acct-spokane-valley',
     accountName: 'Spokane Valley Dispensary',
+    pipelineCode: 'A2',
     proposedProducts: [
       { sku: 'VP-DISP-1G', name: 'Disposable Vape — 1g (Indica)', category: 'vaporizer', qty: 24, unitPrice: 22, lastOrderPrice: 22 },
     ],

@@ -1,0 +1,19 @@
+[
+  {
+    "type": "card",
+    "count": 12
+  },
+  {
+    "type": "form",
+    "formCount": 2,
+    "fieldCount": 1
+  },
+  {
+    "type": "chart",
+    "count": 2
+  },
+  {
+    "type": "modal/dialog",
+    "count": 21
+  }
+]

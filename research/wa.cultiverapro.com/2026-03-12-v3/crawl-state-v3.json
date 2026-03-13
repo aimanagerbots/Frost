@@ -1,0 +1,77 @@
+{
+  "version": "site-scrape-v3",
+  "url": "https://wa.cultiverapro.com",
+  "tenant": "G&S GREENERY",
+  "crawlDate": "2026-03-12",
+  "status": "sales-complete-swarm-pending",
+  "startedAt": "2026-03-12T00:00:00Z",
+
+  "priorities": {
+    "p1_drilldowns": "in-progress",
+    "p2_createModals": "pending",
+    "p3_enumHarvesting": "pending",
+    "p4_analyticsReports": "pending"
+  },
+
+  "drilldowns": {
+    "sales_account_detail": "pending",
+    "sales_order_detail": "pending",
+    "grow_cycle_detail": "pending",
+    "grow_plant_detail": "pending",
+    "grow_harvest_detail": "pending",
+    "grow_qa_lot_detail": "pending",
+    "inventory_batch_detail": "complete",
+    "inventory_product_detail": "complete",
+    "inventory_coa_detail": "no-data",
+    "fulfillment_delivery_detail": "pending",
+    "config_sales_person_detail": "pending",
+    "config_audit_detail": "pending"
+  },
+
+  "createModals": {
+    "sales_add_account": "pending",
+    "sales_new_order": "pending",
+    "grow_new_cycle": "pending",
+    "grow_add_plant": "pending",
+    "grow_add_room": "pending",
+    "inventory_add_product": "complete",
+    "inventory_add_strain": "complete",
+    "fulfillment_add_vehicle": "pending",
+    "fulfillment_add_driver": "pending",
+    "fulfillment_new_inbound_transfer": "pending",
+    "config_add_user": "pending"
+  },
+
+  "enumHarvesting": {
+    "disposal_reason": "pending",
+    "plant_source_type": "pending",
+    "inventory_type": "complete",
+    "discount_type": "complete",
+    "user_role": "pending",
+    "delivery_route": "pending"
+  },
+
+  "swarmAgents": {
+    "sales":         { "status": "complete",     "assigned": "Terminal 1", "screenshots": 51 },
+    "grow":          { "status": "pending",     "assigned": "Terminal 2", "screenshots": 0 },
+    "analytics":     { "status": "pending",     "assigned": "Terminal 3", "screenshots": 0 },
+    "inventory":     { "status": "complete",    "assigned": "Terminal 4", "screenshots": 14 },
+    "fulfillment":   { "status": "pending",     "assigned": "Terminal 5", "screenshots": 0 },
+    "configuration": { "status": "pending",     "assigned": "Terminal 5", "screenshots": 0 }
+  },
+
+  "analyticsReports": {
+    "client_by_product": "already_captured_v2",
+    "product_by_client": "pending",
+    "expected_days_inventory": "pending",
+    "harvest_yield": "pending",
+    "last_ordered_by_account": "pending",
+    "monthly_sales_12mo": "pending",
+    "monthly_sales_comparison": "pending",
+    "monthly_sales_by_rep": "pending",
+    "production_run_io": "pending",
+    "product_line_by_account": "pending",
+    "sales_recommendations": "pending",
+    "report_12": "pending"
+  }
+}

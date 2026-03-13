@@ -20,26 +20,13 @@ interface SectionHeaderProps {
 }
 
 export function SectionHeader({
-  icon: Icon,
-  title,
-  accentColor,
   actions,
   className,
 }: SectionHeaderProps) {
+  if (!actions) return null;
   return (
-    <div
-      className={cn(
-        'flex items-center justify-between border-b border-default px-1 py-2',
-        className
-      )}
-    >
-      <div className="flex items-center gap-2">
-        <Icon className="h-4 w-4" style={{ color: accentColor }} />
-        <h1 className="text-sm font-semibold text-text-bright">{title}</h1>
-      </div>
-      {actions && (
-        <div className="flex items-center gap-2">{actions}</div>
-      )}
+    <div className={cn('flex items-center justify-end pb-3', className)}>
+      <div className="flex items-center gap-2">{actions}</div>
     </div>
   );
 }

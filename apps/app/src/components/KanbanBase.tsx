@@ -32,8 +32,10 @@ interface KanbanBaseProps<T extends { id: string }> {
   renderCard: (item: T) => ReactNode;
   onDragEnd: (itemId: string, fromColumnId: string, toColumnId: string) => void;
   columnHeaderExtra?: (columnId: string, count: number) => ReactNode;
+  renderColumnTitle?: (columnId: string, title: string) => ReactNode;
   emptyColumnMessage?: string;
   loading?: boolean;
+  fullWidth?: boolean;
 }
 
 function SortableCard<T extends { id: string }>({
@@ -92,8 +94,10 @@ export function KanbanBase<T extends { id: string }>({
   renderCard,
   onDragEnd,
   columnHeaderExtra,
+  renderColumnTitle,
   emptyColumnMessage,
   loading = false,
+  fullWidth = false,
 }: KanbanBaseProps<T>) {
   const [activeItem, setActiveItem] = useState<T | null>(null);
 
@@ -152,11 +156,11 @@ export function KanbanBase<T extends { id: string }>({
 
   return (
     <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="flex gap-4 overflow-x-auto pb-4">
+      <div className={`flex gap-4 pb-4 ${fullWidth ? 'w-full' : 'overflow-x-auto'}`}>
         {columns.map((col) => (
           <div
             key={col.id}
-            className="flex w-72 shrink-0 flex-col rounded-xl bg-card"
+            className={`flex flex-col rounded-xl bg-card ${fullWidth ? 'min-w-0 flex-1' : 'w-72 shrink-0'}`}
           >
             {/* Column header */}
             <div className="flex items-center justify-between border-b border-default px-3 py-2.5">
@@ -165,7 +169,9 @@ export function KanbanBase<T extends { id: string }>({
                   className="h-2.5 w-2.5 rounded-full"
                   style={{ backgroundColor: col.color }}
                 />
-                <span className="text-sm font-medium text-text-bright">{col.title}</span>
+                {renderColumnTitle ? renderColumnTitle(col.id, col.title) : (
+                  <span className="text-sm font-medium text-text-bright">{col.title}</span>
+                )}
                 <span
                   className="rounded-full px-1.5 py-0.5 text-[10px] font-semibold"
                   style={{

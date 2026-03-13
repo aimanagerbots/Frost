@@ -11,7 +11,7 @@ interface CultivationStore {
 }
 
 export const useCultivationStore = create<CultivationStore>((set) => ({
-  activeView: 'environment',
+  activeView: 'overview',
   selectedRoomId: null,
   selectedEnvironmentRoomId: null,
   setView: (view) => set({ activeView: view, selectedRoomId: null }),

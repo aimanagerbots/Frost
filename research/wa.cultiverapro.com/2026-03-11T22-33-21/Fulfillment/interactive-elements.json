@@ -1,0 +1,557 @@
+[
+  {
+    "type": "dropdown",
+    "text": "Fulfillment Grow Analytics Sales Inventory Management Fulfillment Configuration",
+    "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 174,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Fulfillment",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 174,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+    "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown ng-isolate-scope",
+    "rect": {
+      "x": 445,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 445,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2)",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown profile-dropdown",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Michael Perkins",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "G&S GREENERY Company Profile Marketplace Settings Profile Settings Logout",
+    "selector": "#user-left-box",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "clearfix hidden-sm hidden-xs dropdown profile2-dropdown",
+    "rect": {
+      "x": 0,
+      "y": 50,
+      "w": 220,
+      "h": 75
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "G&S GREENERY",
+    "selector": "#companyName > span.name > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 40,
+      "y": 88,
+      "w": 115,
+      "h": 17
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "0",
+    "selector": "#grdOrders > div.k-pager-wrap.k-grid-pager:nth-of-type(5) > ul.k-pager-numbers.k-reset > li:nth-of-type(2) > span.k-state-selected",
+    "tag": "span",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-state-selected",
+    "rect": {
+      "x": 308,
+      "y": 291,
+      "w": 30,
+      "h": 30
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "20selectAll510202550100",
+    "selector": "#grdOrders > div.k-pager-wrap.k-grid-pager:nth-of-type(5) > span.k-pager-sizes.k-label:nth-of-type(1) > span.k-widget.k-dropdown",
+    "tag": "span",
+    "ariaLabel": "",
+    "role": "listbox",
+    "classes": "k-widget k-dropdown k-header",
+    "rect": {
+      "x": 430,
+      "y": 291,
+      "w": 63,
+      "h": 31
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "20select",
+    "selector": "#grdOrders > div.k-pager-wrap.k-grid-pager:nth-of-type(5) > span.k-pager-sizes.k-label:nth-of-type(1) > span.k-widget.k-dropdown > span.k-dropdown-wrap.k-state-default",
+    "tag": "span",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-dropdown-wrap k-state-default",
+    "rect": {
+      "x": 430,
+      "y": 292,
+      "w": 63,
+      "h": 30
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "select",
+    "selector": "div.k-pager-wrap.k-grid-pager:nth-of-type(5) > span.k-pager-sizes.k-label:nth-of-type(1) > span.k-widget.k-dropdown > span.k-dropdown-wrap.k-state-default > span.k-select:nth-of-type(2)",
+    "tag": "span",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-select",
+    "rect": {
+      "x": 466,
+      "y": 293,
+      "w": 27,
+      "h": 28
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "Fulfillment Grow Analytics Sales Inventory Management Fulfillment Configuration ",
+    "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse navbar-left pull-left ng-isolate-scope",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 174,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+    "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse navbar-left pull-left hidden-sm hidden-xs",
+    "rect": {
+      "x": 395,
+      "y": 0,
+      "w": 100,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": ".k-list .k-item { margin-bottom: 5px; line-height: 20px; border-bottom: 1px soli",
+    "selector": "#header-nav",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse pull-right",
+    "rect": {
+      "x": 946,
+      "y": 0,
+      "w": 486,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "Orders Vehicles Drivers Delivery Agents Quarantine Schedule Delivery Schedule Tr",
+    "selector": "#sidebar-nav",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "collapse navbar-collapse navbar-ex1-collapse bigNav",
+    "rect": {
+      "x": 0,
+      "y": 125,
+      "w": 220,
+      "h": 384
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "",
+    "selector": "#grdOrders > div.k-grid-content.k-auto-scrollable:nth-of-type(4) > div.k-grid-content-expander",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-grid-content-expander",
+    "rect": {
+      "x": 238,
+      "y": 286,
+      "w": 1156,
+      "h": 1
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "20selectAll510202550100",
+    "selector": "#grdOrders > div.k-pager-wrap.k-grid-pager:nth-of-type(5) > span.k-pager-sizes.k-label:nth-of-type(1) > span.k-widget.k-dropdown",
+    "tag": "span",
+    "ariaLabel": "",
+    "role": "listbox",
+    "classes": "k-widget k-dropdown k-header",
+    "rect": {
+      "x": 430,
+      "y": 291,
+      "w": 63,
+      "h": 31
+    }
+  },
+  {
+    "type": "button",
+    "text": "Fulfillment",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 174,
+      "h": 50
+    }
+  },
+  {
+    "type": "button",
+    "text": "Search",
+    "selector": "#grdOrders > div.k-toolbar.k-widget:nth-of-type(1) > div:nth-of-type(5) > button.btn.btn-sm",
+    "tag": "button",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn btn-sm btn-primary",
+    "rect": {
+      "x": 1227,
+      "y": 153,
+      "w": 82,
+      "h": 32
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Fulfillment",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 174,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 445,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Michael Perkins",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "G&S GREENERY",
+    "selector": "#companyName > span.name > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 40,
+      "y": 88,
+      "w": 115,
+      "h": 17
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Submitted",
+    "selector": "#ShowSubmitted",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope k-toolbar-first-visible",
+    "rect": {
+      "x": 242,
+      "y": 155,
+      "w": 87,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Partially Sublotted",
+    "selector": "#ShowPartiallySublotted",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 333,
+      "y": 155,
+      "w": 156,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Sublotted",
+    "selector": "#ShowSublotted",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 494,
+      "y": 155,
+      "w": 88,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Ready For Manifest",
+    "selector": "#ShowReadyForManifest",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 587,
+      "y": 155,
+      "w": 149,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Manifested",
+    "selector": "#ShowManifested",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 741,
+      "y": 155,
+      "w": 94,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Quarantined",
+    "selector": "#ShowQuarantined",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 839,
+      "y": 155,
+      "w": 107,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Invoiced",
+    "selector": "#ShowInvoiced",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 951,
+      "y": 155,
+      "w": 76,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "#grdOrders > div.k-toolbar.k-widget:nth-of-type(2) > div.k-toolbar-first-visible:nth-of-type(2) > input.form-check-input",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "form-check-input ng-pristine ng-untouched ng-valid ng-empty",
+    "rect": {
+      "x": 249,
+      "y": 205,
+      "w": 13,
+      "h": 13
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "#grdOrders > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(3) > input.form-check-input",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "form-check-input ng-pristine ng-untouched ng-valid ng-empty",
+    "rect": {
+      "x": 443,
+      "y": 205,
+      "w": 13,
+      "h": 13
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "#grdOrders > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > input.form-check-input",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "form-check-input ng-pristine ng-untouched ng-valid ng-empty",
+    "rect": {
+      "x": 612,
+      "y": 205,
+      "w": 13,
+      "h": 13
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "#grdOrders > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > input.form-check-input",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "form-check-input ng-pristine ng-untouched ng-valid ng-not-empty",
+    "rect": {
+      "x": 714,
+      "y": 205,
+      "w": 13,
+      "h": 13
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "#grdOrders > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(7) > input.form-check-input",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "form-check-input ng-pristine ng-untouched ng-valid ng-not-empty",
+    "rect": {
+      "x": 835,
+      "y": 205,
+      "w": 13,
+      "h": 13
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "#grdOrders > div.k-toolbar.k-widget:nth-of-type(2) > div.k-toolbar-last-visible:nth-of-type(8) > input.form-check-input",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "form-check-input ng-pristine ng-untouched ng-valid ng-empty",
+    "rect": {
+      "x": 960,
+      "y": 205,
+      "w": 13,
+      "h": 13
+    }
+  }
+]

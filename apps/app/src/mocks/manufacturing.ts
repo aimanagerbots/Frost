@@ -9,6 +9,7 @@ import type {
   ProductionDistribution,
   ManufacturingAlert,
 } from '@/modules/manufacturing/types';
+import type { Task } from '@/modules/tasks/types';
 
 // ── Operators ──────────────────────────────────────────────
 const operators = {
@@ -1090,4 +1091,36 @@ export async function getProductionDistribution(): Promise<ProductionDistributio
 export async function getManufacturingAlerts(): Promise<ManufacturingAlert[]> {
   await delay(200);
   return manufacturingAlerts;
+}
+
+// ── Task Bridge ──────────────────────────────────────────────
+function workOrderStatusToTaskStatus(status: WorkOrder['status']): Task['status'] {
+  switch (status) {
+    case 'queued': return 'todo';
+    case 'in-progress': return 'in-progress';
+    case 'completed': return 'done';
+    case 'blocked': return 'blocked';
+  }
+}
+
+function workOrderToTask(wo: WorkOrder): Task {
+  return {
+    id: wo.id,
+    title: wo.title,
+    description: wo.description,
+    status: workOrderStatusToTaskStatus(wo.status),
+    priority: wo.priority,
+    assignee: wo.assignee,
+    dueDate: wo.dueDate,
+    createdAt: wo.createdAt,
+    completedAt: wo.completedAt,
+    module: 'Manufacturing',
+    moduleRoute: '/manufacturing',
+    tags: [wo.type, wo.pipelineType.toLowerCase().replace(/\s+/g, '-')],
+    source: 'work-order',
+  };
+}
+
+export function getManufacturingWorkOrderTasks(): Task[] {
+  return workOrders.map(workOrderToTask);
 }

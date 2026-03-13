@@ -1,0 +1,557 @@
+[
+  {
+    "type": "dropdown",
+    "text": "Inventory Management Grow Analytics Sales Inventory Management Fulfillment Confi",
+    "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 292,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Inventory Management",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 292,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+    "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown ng-isolate-scope",
+    "rect": {
+      "x": 563,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 563,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1)",
+    "tag": "li",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown profile-dropdown",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Michael Perkins",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "G&S GREENERY Company Profile Marketplace Settings Profile Settings Lock Logout",
+    "selector": "#user-left-box",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "clearfix hidden-sm hidden-xs dropdown profile2-dropdown",
+    "rect": {
+      "x": 0,
+      "y": 50,
+      "w": 220,
+      "h": 75
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "G&S GREENERY",
+    "selector": "#companyName > span.name > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 40,
+      "y": 88,
+      "w": 115,
+      "h": 17
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Product-Line",
+    "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(4) > div.k-widget.k-multiselect",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-widget k-multiselect k-header",
+    "rect": {
+      "x": 825,
+      "y": 187,
+      "w": 122,
+      "h": 31
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(4) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-multiselect-wrap k-floatwrap",
+    "rect": {
+      "x": 826,
+      "y": 188,
+      "w": 120,
+      "h": 29
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(4) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "listbox",
+    "classes": "k-input k-readonly",
+    "rect": {
+      "x": 826,
+      "y": 189,
+      "w": 108,
+      "h": 28
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Sub Product-Line",
+    "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > div.k-widget.k-multiselect",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-widget k-multiselect k-header",
+    "rect": {
+      "x": 953,
+      "y": 187,
+      "w": 142,
+      "h": 31
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-multiselect-wrap k-floatwrap",
+    "rect": {
+      "x": 954,
+      "y": 188,
+      "w": 140,
+      "h": 29
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "listbox",
+    "classes": "k-input k-readonly",
+    "rect": {
+      "x": 954,
+      "y": 189,
+      "w": 137,
+      "h": 28
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Product-tag",
+    "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > div.k-widget.k-multiselect",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-widget k-multiselect k-header",
+    "rect": {
+      "x": 1100,
+      "y": 187,
+      "w": 122,
+      "h": 31
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-multiselect-wrap k-floatwrap",
+    "rect": {
+      "x": 1101,
+      "y": 188,
+      "w": 120,
+      "h": 29
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "",
+    "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "listbox",
+    "classes": "k-input k-readonly",
+    "rect": {
+      "x": 1101,
+      "y": 189,
+      "w": 101,
+      "h": 28
+    }
+  },
+  {
+    "type": "dropdown",
+    "text": "Batches RTM | Extraction Material - Placeholder Not Available $0.00 0.00 0.00 0.",
+    "selector": "#gridmenuList > div.k-grid-content.k-auto-scrollable:nth-of-type(4) > table.k-selectable",
+    "tag": "table",
+    "ariaLabel": "",
+    "role": "grid",
+    "classes": "k-selectable",
+    "rect": {
+      "x": 238,
+      "y": 277,
+      "w": 1186,
+      "h": 4957
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "Inventory Management Grow Analytics Sales Inventory Management Fulfillment Confi",
+    "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse navbar-left pull-left ng-isolate-scope",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 292,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+    "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse navbar-left pull-left hidden-sm hidden-xs",
+    "rect": {
+      "x": 513,
+      "y": 0,
+      "w": 100,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+    "selector": "#header-nav",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "nav-no-collapse pull-right",
+    "rect": {
+      "x": 1196,
+      "y": 0,
+      "w": 236,
+      "h": 50
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "style Manage Menu library_books Batches library_books Non-Cannabis Inventory tra",
+    "selector": "#sidebar-nav",
+    "tag": "div",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "collapse navbar-collapse navbar-ex1-collapse bigNav",
+    "rect": {
+      "x": 0,
+      "y": 125,
+      "w": 220,
+      "h": 850
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "",
+    "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(4) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "listbox",
+    "classes": "k-input k-readonly",
+    "rect": {
+      "x": 826,
+      "y": 189,
+      "w": 108,
+      "h": 28
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "",
+    "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "listbox",
+    "classes": "k-input k-readonly",
+    "rect": {
+      "x": 954,
+      "y": 189,
+      "w": 137,
+      "h": 28
+    }
+  },
+  {
+    "type": "expandable",
+    "text": "",
+    "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "listbox",
+    "classes": "k-input k-readonly",
+    "rect": {
+      "x": 1101,
+      "y": 189,
+      "w": 101,
+      "h": 28
+    }
+  },
+  {
+    "type": "button",
+    "text": "Inventory Management",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 292,
+      "h": 50
+    }
+  },
+  {
+    "type": "button",
+    "text": "Share Menu",
+    "selector": "#content-header > div.pull-right:nth-of-type(2) > s2s-share-inventory > button.s2-tb.tb-generate",
+    "tag": "button",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "s2-tb tb-generate",
+    "rect": {
+      "x": 1300,
+      "y": 65,
+      "w": 125,
+      "h": 36
+    }
+  },
+  {
+    "type": "button",
+    "text": "Save Price Changes",
+    "selector": "#savePrice",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-button k-button-icontext k-grid-save-changes btn btn-success",
+    "rect": {
+      "x": 243,
+      "y": 141,
+      "w": 158,
+      "h": 34
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Inventory Management",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 221,
+      "y": 0,
+      "w": 292,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "btn dropdown-toggle",
+    "rect": {
+      "x": 563,
+      "y": 0,
+      "w": 50,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Michael Perkins",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 1206,
+      "y": 0,
+      "w": 179,
+      "h": 50
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "G&S GREENERY",
+    "selector": "#companyName > span.name > a.dropdown-toggle",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "dropdown-toggle",
+    "rect": {
+      "x": 40,
+      "y": 88,
+      "w": 115,
+      "h": 17
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "All",
+    "selector": "#All",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope k-toolbar-first-visible",
+    "rect": {
+      "x": 242,
+      "y": 189,
+      "w": 38,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Avail. For Sale",
+    "selector": "#AvailableForSale",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 285,
+      "y": 189,
+      "w": 115,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Not For Sale",
+    "selector": "#NotForSale",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 405,
+      "y": 189,
+      "w": 103,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "Avail. on retail portal",
+    "selector": "#AvailableOnRetailPortal",
+    "tag": "a",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "k-toggle-button k-button ng-scope",
+    "rect": {
+      "x": 513,
+      "y": 189,
+      "w": 174,
+      "h": 28
+    }
+  },
+  {
+    "type": "toggle",
+    "text": "",
+    "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(8) > div.checkbox > label > input",
+    "tag": "input",
+    "ariaLabel": "",
+    "role": "",
+    "classes": "ng-pristine ng-untouched ng-valid ng-empty",
+    "rect": {
+      "x": 1235,
+      "y": 198,
+      "w": 13,
+      "h": 13
+    }
+  }
+]

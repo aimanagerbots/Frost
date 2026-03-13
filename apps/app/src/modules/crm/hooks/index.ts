@@ -30,7 +30,11 @@ export { useProductRecommendations } from './useProductRecommendations';
 export { useComplianceLicenses } from './useComplianceLicenses';
 export { useCompliancePayments } from './useCompliancePayments';
 export { useWinLossLog } from './useWinLossLog';
+export { useOrderFrequency } from './useOrderFrequency';
 export { usePlaybooks, usePlaybookExecutions } from './usePlaybooks';
+
+// Alert Rules
+export { useAlertRules } from './useAlertRules';
 
 // Copilot & Territory
 export {
@@ -42,3 +46,9 @@ export {
   useSegments,
   useSegmentPreview,
 } from './copilot-territory-hooks';
+
+// Nurture
+export { useNurtureStatus } from './useNurtureStatus';
+
+// Pipeline Recommendations
+export { usePipelineRecommendation } from './usePipelineRecommendation';

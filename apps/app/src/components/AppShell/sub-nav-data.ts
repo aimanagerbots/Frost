@@ -6,8 +6,8 @@ export interface SubNavItem {
 
 /**
  * Maps module base paths to their sub-category tabs.
- * The header renders these as horizontal nav links when the user
- * is inside one of these modules.
+ * Used by tab-based categories to render sidebar items
+ * and by modules that have internal tab navigation.
  */
 export const MODULE_SUB_CATEGORIES: Record<string, SubNavItem[]> = {
   '/crm': [
@@ -38,11 +38,22 @@ export const MODULE_SUB_CATEGORIES: Record<string, SubNavItem[]> = {
     { label: 'Equipment', tab: 'equipment' },
   ],
   '/inventory': [
-    { label: 'Overview', tab: 'overview' },
-    { label: 'Cannabis', tab: 'cannabis' },
-    { label: 'Non-Cannabis', tab: 'non-cannabis' },
-    { label: 'COA Manager', tab: 'coa' },
-    { label: 'Alerts', tab: 'alerts' },
+    { label: 'Manage Menu Batches', tab: 'menu-batches' },
+    { label: 'Non-Cannabis Inventory', tab: 'non-cannabis' },
+    { label: 'Production Categories', tab: 'production-categories' },
+    { label: 'Product Lines', tab: 'product-lines' },
+    { label: 'Products Catalog Groups', tab: 'products-catalog' },
+    { label: 'Strains', tab: 'strains' },
+    { label: 'Inventory Rooms', tab: 'rooms' },
+    { label: 'Discount & Promotion', tab: 'discounts' },
+    { label: 'Back Orders', tab: 'back-orders' },
+    { label: 'QA Result', tab: 'qa-result' },
+    { label: 'Conversions for Orders', tab: 'conversions' },
+    { label: 'Product Tag', tab: 'product-tag' },
+    { label: 'QA Lot', tab: 'qa-lot' },
+    { label: 'QA Sample', tab: 'qa-sample' },
+    { label: 'Employee Sample', tab: 'employee-sample' },
+    { label: 'Disposal', tab: 'disposal' },
   ],
 };
 

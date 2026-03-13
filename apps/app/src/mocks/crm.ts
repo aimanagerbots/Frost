@@ -150,6 +150,8 @@ const greenfield: Account = {
     { category: 'beverage', percentage: 5, revenue: 24360 },
   ],
   contacts: greenfieldContacts,
+  sentimentScore: 88,
+  sentimentTrend: 'improving',
 };
 
 const pacificLeaf: Account = {
@@ -195,6 +197,8 @@ const pacificLeaf: Account = {
   contacts: [
     { id: 'contact-david-kim', name: 'David Kim', role: 'buyer', phone: '(253) 555-0267', email: 'david@pacificleaf.com', preferredChannel: 'sms', isPrimary: true },
   ],
+  sentimentScore: 62,
+  sentimentTrend: 'stable',
 };
 
 const emeraldCity: Account = {
@@ -240,6 +244,8 @@ const emeraldCity: Account = {
   contacts: [
     { id: 'contact-amanda-torres', name: 'Amanda Torres', role: 'buyer', phone: '(206) 555-0389', email: 'amanda@emeraldcitycannabis.com', preferredChannel: 'phone', isPrimary: true },
   ],
+  sentimentScore: 35,
+  sentimentTrend: 'declining',
 };
 
 const cascadeWellness: Account = {
@@ -284,6 +290,8 @@ const cascadeWellness: Account = {
   contacts: [
     { id: 'contact-tom-wheeler', name: 'Tom Wheeler', role: 'buyer', phone: '(509) 555-0145', email: 'tom@cascadewellness.com', preferredChannel: 'email', isPrimary: true },
   ],
+  sentimentScore: 71,
+  sentimentTrend: 'stable',
 };
 
 const pugetSound: Account = {
@@ -328,6 +336,8 @@ const pugetSound: Account = {
   contacts: [
     { id: 'contact-lisa-park', name: 'Lisa Park', role: 'buyer', phone: '(360) 555-0221', email: 'lisa@pugetsoundprovisions.com', preferredChannel: 'email', isPrimary: true },
   ],
+  sentimentScore: 80,
+  sentimentTrend: 'improving',
 };
 
 const summitCannabis: Account = {
@@ -373,6 +383,8 @@ const summitCannabis: Account = {
     { id: 'contact-grant-holloway', name: 'Grant Holloway', role: 'owner', phone: '(360) 555-0440', email: 'grant@summitcannabis.com', preferredChannel: 'email', isPrimary: true },
     { id: 'contact-beth-simon', name: 'Beth Simon', role: 'buyer', phone: '(360) 555-0441', email: 'beth@summitcannabis.com', preferredChannel: 'email', isPrimary: false },
   ],
+  sentimentScore: 78,
+  sentimentTrend: 'stable',
 };
 
 const rainierRemedies: Account = {
@@ -418,6 +430,8 @@ const rainierRemedies: Account = {
     { id: 'contact-victor-almeida', name: 'Victor Almeida', role: 'owner', phone: '(253) 555-0520', email: 'victor@rainierremedies.com', preferredChannel: 'phone', isPrimary: true },
     { id: 'contact-jenny-wu', name: 'Jenny Wu', role: 'buyer', phone: '(253) 555-0521', email: 'jenny@rainierremedies.com', preferredChannel: 'sms', isPrimary: false },
   ],
+  sentimentScore: 73,
+  sentimentTrend: 'stable',
 };
 
 const olympicGreens: Account = {
@@ -505,6 +519,8 @@ const spokaneValley: Account = {
   contacts: [
     { id: 'contact-paul-hernandez', name: 'Paul Hernandez', role: 'manager', phone: '(509) 555-1045', email: 'paul@spokanevalleydispensary.com', preferredChannel: 'phone', isPrimary: true },
   ],
+  sentimentScore: 55,
+  sentimentTrend: 'declining',
 };
 
 const capitolHillCollective: Account = {
@@ -551,6 +567,8 @@ const capitolHillCollective: Account = {
     { id: 'contact-naomi-chen', name: 'Naomi Chen', role: 'owner', phone: '(206) 555-0188', email: 'naomi@capitolhillcollective.com', preferredChannel: 'email', isPrimary: true },
     { id: 'contact-alex-rivera', name: 'Alex Rivera', role: 'buyer', phone: '(206) 555-0189', email: 'alex@capitolhillcollective.com', preferredChannel: 'sms', isPrimary: false },
   ],
+  sentimentScore: 85,
+  sentimentTrend: 'improving',
 };
 
 const harborCannabis: Account = {
@@ -597,6 +615,8 @@ const harborCannabis: Account = {
   contacts: [
     { id: 'contact-earl-dawkins', name: 'Earl Dawkins', role: 'owner', phone: '(360) 555-1200', email: 'earl@harborcannabis.com', preferredChannel: 'phone', isPrimary: true },
   ],
+  sentimentScore: 42,
+  sentimentTrend: 'declining',
 };
 
 const evergreenWellness: Account = {
@@ -644,6 +664,8 @@ const evergreenWellness: Account = {
     { id: 'contact-maria-santos', name: 'Maria Santos', role: 'buyer', phone: '(509) 555-1088', email: 'maria@evergreenwellness.com', preferredChannel: 'email', isPrimary: true },
     { id: 'contact-raj-patel', name: 'Raj Patel', role: 'owner', phone: '(509) 555-1089', email: 'raj@evergreenwellness.com', preferredChannel: 'phone', isPrimary: false },
   ],
+  sentimentScore: 76,
+  sentimentTrend: 'improving',
 };
 
 // --- Generated Accounts ---
@@ -682,6 +704,8 @@ function makeAccount(
     contacts: [
       { id: `contact-${id}`, name: contactName, role: contactRole, phone: contactPhone, email: contactEmail, preferredChannel: 'email', isPrimary: true },
     ],
+    sentimentScore: Math.max(20, Math.min(95, health + [-10, 5, 0][Math.abs(id.charCodeAt(id.length - 1)) % 3])),
+    sentimentTrend: (['improving', 'stable', 'declining'] as const)[Math.abs(id.charCodeAt(id.length - 1)) % 3],
   };
 }
 

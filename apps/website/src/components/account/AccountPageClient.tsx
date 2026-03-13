@@ -315,13 +315,15 @@ function SweepstakesTab() {
 function MerchShopTab() {
   const items = getMerchItems();
   return (
-    <div>
-      <p className="mb-6 text-sm text-white/40">
-        Redeem your Frost points for exclusive merchandise, or purchase with cash.
-      </p>
-      <Suspense fallback={null}>
-        <MerchBrowseClient items={[...items]} redeemMode />
-      </Suspense>
+    <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen px-6">
+      <div className="mx-auto max-w-7xl">
+        <p className="mb-6 text-sm text-white/40">
+          Redeem your Frost points for exclusive merchandise, or purchase with cash.
+        </p>
+        <Suspense fallback={null}>
+          <MerchBrowseClient items={[...items]} redeemMode />
+        </Suspense>
+      </div>
     </div>
   );
 }

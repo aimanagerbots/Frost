@@ -1,0 +1,969 @@
+<!DOCTYPE html><html id="s2sapp" ng-controller="mainCtrl" class="k-webkit k-webkit120 js cssanimations no-csstransforms3d csstransitions js no-touch cssanimations ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="expires" content="0">
+    <meta name="description" content="Maximize efficiency with Cultivera Pro, the definitive seed-to-sale software for the cannabis industry. Featuring a built-in CRM system, advanced sales tracking, and precise inventory management, our solution streamlines your operations from cultivation to sale. Embrace comprehensive grow and production management tools, enhanced by top-tier compliance reporting and analytics. Ensure regulatory adherence and make informed decisions with our all-encompassing platform designed for cannabis business success.">
+    <meta name="keywords" content="Seed-to-Sale Software, Cannabis Business CRM, Cannabis Inventory Management, Cannabis Grow Management, Cannabis Production Software, Cannabis Compliance Reporting, Cannabis Business Analytics, Seed-to-Sale Tracking, Cannabis Industry Software, Cannabis Business Management, Cannabis Sales Tracking, Cannabis Fulfillment Solutions, Complete Cannabis Software Solution, Cannabis Regulatory Compliance, Cultivera Pro">
+
+    <title ng-bind="title + ' | Cultivera - CRM'" class="ng-binding">Order List | Cultivera - CRM</title>
+    
+    <link href="/css/kendo/kendo.common.min.css" rel="stylesheet">
+    <!--<link href="/css/kendo/kendo.material.min.css" rel="stylesheet"/>-->
+    <link href="/css/kendo/kendo.silver.min.css" rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/app.fulfillment/style/fulfillment-style.min.css">
+    <!-- RTL support - for demo only -->
+    <!-- css for libs -->
+    <!-- select2 -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/select2.css">
+    <!-- libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500" rel="stylesheet" type="text/css">
+    <!--<link rel="stylesheet" type="text/css" href="/css/libs/font-awesome.css" />-->
+    <link rel="stylesheet" type="text/css" href="/css/libs/nanoscroller.css">
+    <link rel="stylesheet" type="text/css" href="/css/angular.css">
+    <link rel="stylesheet" type="text/css" href="/css/loading-bar.css">
+    <!-- global styles -->
+    <link href="/scss/theme/theme_styles.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/libs/bootstrap-editable.css">
+    <!-- nouslider -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/jquery.nouislider.css">
+    <!-- morris charts -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/morris.css">
+    <!-- jVector maps -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/jquery-jvectormap-1.2.2.css">
+    <!-- weather icons -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/weather-icons.css">
+    <!-- timeline -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/timeline.css">
+    <!-- dataTables -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/dataTables.fixedHeader.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/dataTables.tableTools.css">
+    <!-- footables -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/footable.core.css">
+    <!-- notifications - all types -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-default.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-growl.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-bar.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-attached.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-other.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-theme.css">
+    <!-- nifty modal windows -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/nifty-component.css">
+    <!-- hopscotch - tour plugin -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/hopscotch.css">
+    <!-- xcharts -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/xcharts.css">
+    <!-- dropzone -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/dropzone.css">
+    <!-- gallery -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/gallery-component.css">
+    <!-- wizard -->
+    <link rel="stylesheet" type="text/css" href="/css/compiled/wizard.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/bootstrap-wizard.css">
+    <!-- summernote wysiwyg -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/summernote.min.css">
+    <!-- s2s -->
+    <link href="/css/s2s.min.css?v307" rel="stylesheet">
+    <link href="/css/custom-style.css?v307" rel="stylesheet">
+    <!-- sweet alert -->
+    <link href="/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <!-- flip clock -->
+    <link href="/bower_components/flipclock/flipclock.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon">
+    <!-- google font libraries -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <script src="/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- google maps - change the API key for production version -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LHR3V8R92H&amp;cx=c&amp;gtm=4e63a1"></script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOQMw0m_mHr8r8fJ-VxCw7WA1PCFRnOo0"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-73970432-4"></script>
+    <script src="/app.s2s/appSettings.js?v308"></script>
+    <script src="/js/s2/ga.js?v308"></script>
+
+    <script>
+        window.__cb = "340216A"
+    </script>
+</head>
+<!-- theme-white ,  -->
+<body class="theme-whbl fixed-header fixed-leftmenu " ss-pagelayout="">
+    <div id="theme-wrapper">
+        <!-- For Corner Expand effect -->
+        <div class="notification-shape shape-box" id="notification-shape" data-path-to="m 0,0 500,0 0,500 -500,0 z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="none">
+                <path d="m 0,0 500,0 0,500 0,-500 z"></path>
+            </svg>
+        </div>
+        <header class="navbar ng-scope" id="header-navbar" ng-controller="headerController as vm">
+            <div class="container">
+                <div class="navbar-brand hidden-sm hidden-xs hidden-xxs">
+                    <a href="#/dasboard" id="logo" class="navbar-brand log-navbar-xs">
+                        <img src="/img/logo/cultivera-pro-logo-large-white.png" alt="" class="hidden-sm hidden-xs hidden-xxs normal-logo logo-white2" style="height: 47px; margin-top: -5px;">
+                    </a>
+                </div>
+                <div class="navbar-brand hidden-lg hidden-md" style="max-width: 110px">
+                    <a href="#/dasboard" id="logo" class="navbar-brand log-navbar-md">
+                        <img src="/img/logo/cultivera-pro-logo-large-white.png" alt="" class="normal-logo logo-white" style="height: 33px; margin-top: -5px;">
+                    </a>
+                </div>
+
+                <div class="clearfix">
+                    <div class="nav-no-collapse navbar-left pull-left ng-isolate-scope" s2s-applist="" selected-app="ful"><ul class="nav navbar-nav pull-left">
+    <li class="dropdown">
+        <a class="btn dropdown-toggle" data-toggle="dropdown">
+            <span style="font-size: 1.6em"><i class="fa fa-external-link-square"> </i> <span class="ng-binding"> Fulfillment </span> </span>  &nbsp; <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" style="font-size: 1.6em">
+            <!-- ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/app-grow">
+                    <i class="fa fa-tree" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Grow </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/app-analytics">
+                    <i class="fa fa-line-chart" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Analytics </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/crm#/">
+                    <i class="fa fa-cubes" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Sales </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/inventory/#/">
+                    <i class="fa fa-th-large" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Inventory Management </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope selected" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/fulfillment#/">
+                    <i class="fa fa-external-link-square" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Fulfillment </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/configuration#/">
+                    <i class="fa fa-gears" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Configuration </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --> 
+        </ul>
+    </li>
+</ul>
+<style>
+    a.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+</style></div>
+                    <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+                        <ul class="nav navbar-nav pull-left">
+                            <li>
+                                <a class="btn" id="make-small-nav">
+                                    <i class="fa fa-exchange fa-2x"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown ng-isolate-scope">
+
+    <a class="btn dropdown-toggle" data-toggle="dropdown" style="color: white;">
+        <i class="fa fa-bell"></i>
+        <!-- ngIf: notification && notification.NotReadCount > 0 -->
+    </a>
+    <ul class="dropdown-menu notifications-list">
+
+        <li class="pointer">
+            <div class="pointer-inner">
+                <div class="arrow"></div>
+            </div>
+        </li>
+
+        <!-- ngIf: notification --><li class="item-header ng-binding ng-scope" ng-if="notification">
+            You have 0 new notifications
+        </li><!-- end ngIf: notification -->
+
+        <!-- ngRepeat: notif in notification.Notifications -->
+
+        <li class="item-footer">
+            <a href="#/all-notifications">
+                View all notifications
+            </a>
+        </li>
+    </ul>
+
+    <div id="notificationModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                
+                    <h4 class="modal-title ng-binding"><i class="fa fa-bell-o"></i> </h4>
+
+                </div>
+                <div class="modal-body">
+                    <div style="overflow-x: auto">
+                    <small style="text-decoration: underline" class="pull-right ng-binding" ng-bind="notificationMessage.Date|date:'MM/dd/yyyy hh:mm'"></small>
+                    <br> <br>
+                        <p ng-bind-html="asHtml(notificationMessage.Body)" class="ng-binding"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .notifications-list li.item a > div.content{
+            display: inline-block;
+            width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .read {
+            color: #777;
+            font-weight: normal !important;
+        }
+
+        .notread {
+            color: #333;
+            font-weight: 700 !important;
+        }
+
+
+
+    </style>
+
+</li>
+                            <s2s-invitation></s2s-invitation>
+                            <s2s-portal-order></s2s-portal-order>
+                        </ul>
+                    </div>
+                    <div class="nav-no-collapse pull-right" id="header-nav">
+                        <ul class="nav navbar-nav pull-right">
+                            <li class="hidden-xs mobile-search ng-isolate-scope" s-type="fulfillment">
+    <span tabindex="-1" role="presentation" class="k-widget k-autocomplete k-header form-control k-state-default" style="margin-top: 8px; width: 250px;"><input type="text" class="form-control k-input" placeholder="Find Order..." id="order-searchbox" style="margin-top: 8px; width: 100%;" data-role="autocomplete" autocomplete="off" role="textbox" aria-haspopup="true" aria-disabled="false" aria-readonly="false" aria-owns="order-searchbox_listbox" aria-autocomplete="list"><span class="k-icon k-loading" style="display:none"></span></span>
+    <style>
+        .k-list .k-item {
+            margin-bottom: 5px;
+            line-height: 20px;
+            border-bottom: 1px solid #DDD;
+        }
+
+        #order-searchbox {
+            margin-top: 3px !important;
+        }
+
+        #order-searchbox:focus {
+            box-shadow: none;
+        }
+
+        .mobile-search > .k-autocomplete.k-state-default, .mobile-search > .k-autocomplete.k-state-hover {
+            background: #fff !important;
+            border-radius: 2px !important;
+        }
+
+        .mobile-search > .k-autocomplete {
+            border: white solid 1px !important;
+        }
+
+        .mobile-search > .k-autocomplete:hover {
+            border: #bdbdbd solid 1px !important;
+        }
+    </style>
+</li>
+                            <li class="dropdown profile-dropdown">
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="#/user-profile"><i class="fa fa-user"></i>Profile</a></li>
+                                    <li><a href="#/company-profile"><i class="fa fa-group"></i>Company Profile</a></li>
+                                    <li><a href="/configuration#/notifications"><i class="fa fa-bell"></i>Notifications</a></li>
+                                    <li><a href=""><i class="fa fa-cog"></i>Settings</a></li>
+                                    <li><a href="" ng-click="vm.lock()"><i class="fa fa-lock"></i>Lock</a></li>
+                                    <li><a href="" ng-click="vm.logout()"><i class="fa fa-power-off"></i>Logout</a></li>
+                                </ul>
+                                <a class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="/images/user.png" alt="">
+                                    <span class="hidden-md hidden-sm hidden-xs hidden-xxs ng-binding">Michael&nbsp;Perkins</span> <b class="caret"></b>
+                                </a>
+                            </li>
+                            <li class="hidden-sm hidden-xs hidden-xxs">
+                                <a class="btn" href="" ng-click="vm.logout()">
+                                    <i class="fa fa-power-off"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div id="page-wrapper" class="container">
+            <div class="row">
+                <!--<ng-include src="'/app.s2s/layout/sidebar.html'"></ng-include>-->
+                <div id="nav-col" ng-controller="sidebarController as vms" style="z-index: 19" class="ng-scope">
+                    <section id="col-left" class="col-left-nano">
+                        <div id="col-left-inner" class="col-left-nano-content">
+                            <div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
+                                <!--<img alt="" src="/images/user.png" style="width: 42px;margin-left: auto" />-->
+                                <div id="companyName" class="user-box">
+                                    <span class="name">
+                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                            <span style="text-transform:capitalize" class="ng-binding"> G&amp;S GREENERY </span>
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#/company-profile"><i class="fa fa-user"></i>Company Profile</a></li>
+                                            <li><a href="#/market-settings"><i class="fa fa-shopping-cart"></i>Marketplace Settings</a></li>
+                                            <li><a href="#/user-profile"><i class="fa fa-user"></i>Profile</a></li>
+                                            
+                                            <li><a href="#/setting/sync-setting"><i class="fa fa-cog"></i>Settings</a></li>
+                                            <li><a href="" ng-click="vms.logout()"><i class="fa fa-power-off"></i>Logout</a></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="collapse navbar-collapse navbar-ex1-collapse bigNav" id="sidebar-nav" bs-navbar="">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <!-- ngIf: c.ful.rZ8ah585Wa --><li ng-if="c.ful.rZ8ah585Wa" data-match-route="/orders" class="ng-scope active">
+                                        <a href="#/orders">
+                                            <i class="fa fa-opencart"></i> &nbsp;
+                                            <span>Orders</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.ful.rZ8ah585Wa -->
+                                    <!-- ngIf: c.ful.rZC6S77eUI --><li ng-if="c.ful.rZC6S77eUI" data-match-route="/vehicles" class="ng-scope">
+                                        <a href="#/vehicles">
+                                            <i class="fa fa-car"></i>
+                                            <span>Vehicles</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.ful.rZC6S77eUI -->
+                                    <!-- ngIf: c.ful.r9FfFRanef --><li ng-if="c.ful.r9FfFRanef" data-match-route="/drivers" class="ng-scope">
+                                        <a href="#/drivers">
+                                            <i class="fa fa-user"></i>
+                                            <span>Drivers</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.ful.r9FfFRanef -->
+                                    <li>
+                                        <a href="#/delivery-agents">
+                                            <i class="fa fa-truck"></i>
+                                            <span>Delivery Agents</span>
+                                        </a>
+                                    </li>
+                                    <!-- ngIf: c.ful.rwMfHbTC9P --><li ng-if="c.ful.rwMfHbTC9P" data-match-route="/fulfillment/quarantine-release-schedule" class="ng-scope">
+                                        <a href="#/fulfillment/quarantine-release-schedule">
+                                            <i class="fa fa-unlock"></i>
+                                            <span style="display: inline-block;">Quarantine Schedule</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.ful.rwMfHbTC9P -->
+
+                                    <!-- ngIf: c.ful.rwMfHbTC9P --><li ng-if="c.ful.rwMfHbTC9P" data-match-route="/fulfillment/delivery-schedule" class="ng-scope">
+                                        <a href="#/fulfillment/delivery-schedule">
+                                            <i class="fa fa-list-alt"></i>
+                                            <span>Delivery Schedule</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.ful.rwMfHbTC9P -->
+
+                                    <li data-match-route="/inbound">
+                                        <a href="#/inbound">
+                                            <i class="fa fa-arrow-left"></i>
+                                            <span>Transfer Inbound</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-match-route="/outbound">
+                                        <a href="#/outbound">
+                                            <i class="fa fa-arrow-right"></i>
+                                            <span>Transfer Outbound</span>
+                                        </a>
+                                    </li>
+
+                                    <!-- ngIf: c.ful.rZbnupuRTW -->
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <div id="nav-col-submenu"></div>
+                </div>
+                <div id="content-wrapper" class="white-wrapper">
+                    <div class="row" style="opacity: 1;">
+                        <div class="col-lg-12">
+                            <div class="slide-main-container">
+                                <!-- ngView: --><div ng-view="" autoscroll="true" class="slide-main-animation ng-scope"><s2s-help-content s-system-name="fulfillment-order" class="ng-scope ng-isolate-scope"><link href="../../../css/venobox/venobox.css" rel="stylesheet">
+<link href="../../../css/help-content-style.css" rel="stylesheet">
+<div class="help-tool closed">
+    <a class="help-tool-cog s2-tb tb-success" style=""> Help</a>
+    <div class="help-tool-options" style="display: none;">
+
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <input id="txtFilterHelp" type="text" class="form-control  ng-pristine ng-untouched ng-valid ng-empty" placeholder="Type keyword here to search for help.." ng-model="helpFilterCriteria.Filter" ng-keyup="$event.keyCode == 13 &amp;&amp; txtFilterChanged()" ng-change="txtFilterChanged()" style="">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button" ng-click="clearSearchBoxClick()" ng-disabled="helpFilterCriteria.Filter===''" disabled="disabled"><i class="fa fa-remove"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="helpContentHr">
+        <div class="row helpListContainer" ng-hide="loading" style="">
+            <div ng-show="helpContentList.length===0 &amp;&amp; userSearchTriggered===false" class="alert alert-info help-cont-alert ng-hide">
+                <i class="fa fa-info-circle fa-fw fa-lg"></i>Sorry, no help available for this section.
+            </div>
+            <div ng-show="userSearchTriggered &amp;&amp; helpContentList.length===0" class="alert alert-danger help-cont-alert ng-hide">
+                <i class="fa fa-times-circle fa-fw fa-lg"></i>Sorry, no result found.
+            </div>
+            <!-- ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope" style="">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="true" class="row help-row">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Fulfillment_ConversionsForOrders&amp;Sublot.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Conversions for Orders</div>
+        </div>
+    </a>
+</div>
+<div ng-show="false" class="row help-row ng-hide" style="">
+    <a target="_blank" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Fulfillment_ConversionsForOrders&amp;Sublot.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Conversions for Orders</div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">Converting and Sublotting package-to-order products</div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="true" class="row help-row">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Fulfillment_Invoice&amp;Manifest.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Invoice and Manifest</div>
+        </div>
+    </a>
+</div>
+<div ng-show="false" class="row help-row ng-hide" style="">
+    <a target="_blank" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Fulfillment_Invoice&amp;Manifest.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Invoice and Manifest</div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">Manifesting and invoicing an order </div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="true" class="row help-row">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Fulfillment_MergeOrders.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Merge Orders </div>
+        </div>
+    </a>
+</div>
+<div ng-show="false" class="row help-row ng-hide" style="">
+    <a target="_blank" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Fulfillment_MergeOrders.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Merge Orders </div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">Merging sublotted orders </div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="true" class="row help-row">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Fulfillment_Orders_NoQaResultsWarning.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">No QA Results Warning</div>
+        </div>
+    </a>
+</div>
+<div ng-show="false" class="row help-row ng-hide" style="">
+    <a target="_blank" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Fulfillment_Orders_NoQaResultsWarning.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">No QA Results Warning</div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">This feature warns users that one or more lots in a submitted order is missing QA results</div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id -->
+        </div>
+        <div ng-show="loading" class="row ng-hide" style="text-align: center;">
+            <i class="fa fa-spinner fa-spin help-load-spinner"></i>
+        </div>
+        <div class="h6 sysNameLable pull-right ng-binding">fulfillment-order</div>
+    </div>
+</div>
+</s2s-help-content>
+<div class="row ng-scope" ng-show="vm.orderSummary">
+    <div class="col-lg-3 col-sm-3 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="fa fa-shopping-cart emerald-bg"></i>
+            <span class="headline">Submitted</span>
+            <span class="value">
+                <span class="timer ng-binding" data-from="0" data-to="" data-speed="10" data-refresh-interval="50">
+                    
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="fa fa-cube emerald-bg"></i>
+            <span class="headline">Manifested</span>
+            <span class="value">
+                <span class="timer ng-binding" data-from="0" data-to="" data-speed="2" data-refresh-interval="30">
+                    
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="fa fa-lock red-bg"></i>
+            <span class="headline">Quarantined</span>
+            <span class="value">
+                <span class="timer ng-binding" data-from="83" data-to="" data-speed="900" data-refresh-interval="60">
+                    
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="fa fa-money green-bg"></i>
+            <span class="headline">Invoiced</span>
+            <span class="value">
+                <span class="timer ng-binding" data-from="0" data-to="" data-speed="2" data-refresh-interval="60">
+                    
+                </span>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<div class="row ng-scope">
+
+    <div class="col-lg-12 ">
+
+        <div kendo-grid="" id="grdOrders" options="vm.orders" class="kendo-grid-bootstrap k-grid k-widget" style="border-color: rgb(255, 255, 255);" data-role="grid">
+            <div kendo-toolbar="" k-options="vm.toolbarOptions" data-role="toolbar" class="k-toolbar k-widget k-toolbar-resizable" data-uid="d140750c-03ce-4bbd-8ace-7f85029ac30d" tabindex="0" style="touch-action: pan-y;"><div tabindex="0" class="k-overflow-anchor k-button" style="visibility: hidden; width: 1px;"><span class="k-icon k-i-arrow-s"></span></div><a href="" tabindex="0" class="k-toggle-button k-button ng-scope k-toolbar-first-visible" id="ShowSubmitted" data-uid="dd1a7ea5-f32b-41e4-b6a4-81d36169c561" data-overflow="never" style="visibility: visible;">Submitted</a><a href="" tabindex="0" class="k-toggle-button k-button ng-scope" id="ShowPartiallySublotted" data-uid="53843541-abe8-4b62-b57a-014f62ff7f92" data-overflow="never" style="visibility: visible;">Partially Sublotted</a><a href="" tabindex="0" class="k-toggle-button k-button ng-scope" id="ShowSublotted" data-uid="2e532bbd-b9e6-4316-8b8b-d2b3f4fe7b94" data-overflow="never" style="visibility: visible;">Sublotted</a><a href="" tabindex="0" class="k-toggle-button k-button ng-scope" id="ShowReadyForManifest" data-uid="876c43a1-cc0f-4ca2-9be7-241bed50d280" data-overflow="never" style="visibility: visible;">Ready For Manifest</a><a href="" tabindex="0" class="k-toggle-button k-button ng-scope" id="ShowManifested" data-uid="b4820194-762f-4a5a-aaf0-4e7a7a1f8fbd" data-overflow="never" style="visibility: visible;">Manifested</a><a href="" tabindex="0" class="k-toggle-button k-button ng-scope" id="ShowQuarantined" data-uid="6c081e57-bad1-4396-bfbe-9f1f86752108" data-overflow="never" style="visibility: visible;">Quarantined</a><a href="" tabindex="0" class="k-toggle-button k-button ng-scope" id="ShowInvoiced" data-uid="7e6a8d37-e8b4-495f-81b1-4bacb45c689f" data-overflow="never" style="visibility: visible;">Invoiced</a><div data-uid="4ce804d5-af54-4e6c-a3b6-130733e250bb" data-overflow="never" class="k-separator ng-scope" style="visibility: visible;">&nbsp;</div><div data-uid="4ff24355-96c6-40ef-adeb-7897497e4d66" data-overflow="never" style="visibility: visible;" class="ng-scope"><input type="text" class="k-textbox ng-pristine ng-untouched ng-valid ng-empty" id="kgroupName" ng-model="vm.orderFilters.PartnerName" placeholder="Partner Name" "="" ng-keyup="$event.keyCode == 13 &amp;&amp; vm.filter()" style=""></div><div data-uid="55c3135f-d067-4871-bbc9-7abaff0a4eb7" data-overflow="never" class="k-separator ng-scope" style="visibility: visible;">&nbsp;</div><div data-uid="33824b4a-b9ab-4e53-ad28-876eb9d7655a" data-overflow="never" style="visibility: visible;" class="ng-scope">&nbsp;<button class="btn btn-sm btn-primary" ng-click="vm.filter()"> <i class="fa fa-search fa-lg"></i> Search</button></div><div data-uid="8569a574-f55b-4ec0-9f51-46b3b6b83a6f" data-overflow="auto" class="k-separator ng-scope" style="visibility: visible;">&nbsp;</div><div data-uid="fdd95d27-38dd-4d39-92d2-b87ffe49d6cc" data-overflow="auto" style="visibility: visible;" class="ng-scope k-toolbar-last-visible"><button class="k-button btn-info" ng-click="vm.showUserDefinedFilterModal()"> <i class="fa fa-filter fa-lg"></i> </button></div></div>
+            <div kendo-toolbar="" k-options="vm.toolbarOptions2" data-role="toolbar" class="k-toolbar k-widget k-toolbar-resizable" data-uid="e32e078b-fba6-4e6b-ac35-47a9e4158a34" tabindex="0" style="touch-action: pan-y;"><div tabindex="0" class="k-overflow-anchor k-button" style="visibility: hidden; width: 1px;"><span class="k-icon k-i-arrow-s"></span></div><div data-uid="cf1c9d4d-0a8b-42f8-bdbd-05e54c0fee5a" data-overflow="never" style="visibility: visible;" class="ng-scope k-toolbar-first-visible"><input type="checkbox" style="margin-left: 10px; margin-right: 5px;" class="form-check-input ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.orderFilters.HideNonSamplesOnly" ng-change="vm.hideNonSamplesOnly()">Hide Non-"Samples Only"</div><div data-uid="6efaded3-d1f1-4457-a0e8-defe97f8829a" data-overflow="never" style="visibility: visible;" class="ng-scope"><input type="checkbox" style="margin-left: 10px; margin-right: 5px;" class="form-check-input ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.orderFilters.HideSamplesOnly " ng-change="vm.hideSamplesOnly()">Hide "Samples Only"</div><div data-uid="d279b807-15e1-488a-8452-a958a88b344b" data-overflow="never" class="k-separator ng-scope" style="visibility: visible;">&nbsp;</div><div data-uid="975d4b13-055f-40c9-9066-c879789968b1" data-overflow="never" style="visibility: visible;" class="ng-scope"><input type="checkbox" style="margin-left: 10px; margin-right: 5px;" class="form-check-input ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.orderFilters.ShowBackorders" ng-change="vm.filter()">Backorders</div><div data-uid="41f7e576-c3f3-433f-9d01-f5f235309a54" data-overflow="never" style="visibility: visible;" class="ng-scope"><input type="checkbox" style="margin-left: 10px; margin-right: 5px;" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="vm.orderFilters.HideReleased" ng-change="vm.filter()">Hide Released</div><div data-uid="e16ce114-6ae4-411a-85a7-5c4f80149f4a" data-overflow="never" style="visibility: visible;" class="ng-scope"><input type="checkbox" style="margin-left: 10px; margin-right: 5px;" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="vm.orderFilters.HideCancelled" ng-change="vm.filter()">Hide Cancelled</div><div data-uid="ff338199-661e-4d88-b12d-d0fdeb6b8e9e" data-overflow="never" style="visibility: visible;" class="ng-scope k-toolbar-last-visible"><input type="checkbox" style="margin-left: 10px; margin-right: 5px;" class="form-check-input ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.orderFilters.ShowOnlyNonCannabis" ng-change="vm.filter()">Non-Cannabis</div></div>
+        <div class="k-grid-header" style="padding-right: 15px;"><div class="k-grid-header-wrap k-auto-scrollable"><table role="grid"><colgroup><col style="width:180px"><col style="width:100px"><col style="width:50px"><col style="width:40px"><col style="width:260px"><col style="width:50px"></colgroup><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader" data-field="Tradename" rowspan="1" data-title="Partner Name" data-index="0" id="c34add20-7840-406a-afa5-2ae4841dc9cb" class="k-header ng-scope" data-role="columnsorter"><a class="k-link" href="#">Partner Name</a></th><th scope="col" role="columnheader" data-field="OrderNo" rowspan="1" data-title="Order #" data-index="1" id="55d0afe9-7c77-425b-aa93-dc1c9ca4a7bb" class="k-header ng-scope" data-role="columnsorter"><a class="k-link" href="#">Order #</a></th><th scope="col" role="columnheader" data-field="ManifestedDate" rowspan="1" data-title="Manifest Date" data-index="2" id="a5fc0937-61fe-4d5b-bf8d-ceb47edcd448" class="k-header ng-scope" data-role="columnsorter"><a class="k-link" href="#">Manifest Date</a></th><th scope="col" role="columnheader" data-field="EstimateDeliveryDate" rowspan="1" data-title="Delivery Date" data-index="3" id="df8dbf11-7293-4489-a246-7b34e542e6c1" class="k-header ng-scope" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a class="k-link" href="#">Delivery Date<span class="k-icon k-i-arrow-n"></span></a></th><th scope="col" role="columnheader" data-field="Status" rowspan="1" data-title="Status" data-index="4" id="1b9d3147-b705-4d46-9c55-12e138aee4f5" class="k-header ng-scope" data-role="columnsorter"><a class="k-link" href="#">Status</a></th><th scope="col" role="columnheader" rowspan="1" data-index="5" id="b1c3f545-5ab5-4a35-8be1-67ce1580497d" class="k-header ng-scope"></th></tr></thead></table></div></div><div class="k-grid-content k-auto-scrollable"><table role="grid"><colgroup><col style="width:180px"><col style="width:100px"><col style="width:50px"><col style="width:40px"><col style="width:260px"><col style="width:50px"></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 1156px;"></div></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a href="#" title="Go to the first page" class="k-link k-pager-nav k-pager-first k-state-disabled" data-page="1" tabindex="-1"><span class="k-icon k-i-seek-w">Go to the first page</span></a><a href="#" title="Go to the previous page" class="k-link k-pager-nav  k-state-disabled" data-page="1" tabindex="-1"><span class="k-icon k-i-arrow-w">Go to the previous page</span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">0</span></li><li><span class="k-state-selected">0</span></li></ul><a href="#" title="Go to the next page" class="k-link k-pager-nav  k-state-disabled" data-page="0" tabindex="-1"><span class="k-icon k-i-arrow-e">Go to the next page</span></a><a href="#" title="Go to the last page" class="k-link k-pager-nav k-pager-last k-state-disabled" data-page="0" tabindex="-1"><span class="k-icon k-i-seek-e">Go to the last page</span></a><span class="k-pager-sizes k-label"><span title="" style="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-readonly="false" aria-busy="false" aria-activedescendant="be1ae601-cf5f-41db-b723-659fa9ba7e42"><span unselectable="on" class="k-dropdown-wrap k-state-default"><span unselectable="on" class="k-input">20</span><span unselectable="on" class="k-select"><span unselectable="on" class="k-icon k-i-arrow-s">select</span></span></span><select data-role="dropdownlist" style="display: none;"><option value="all">All</option><option value="5">5</option><option value="10">10</option><option value="20">20</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></span>items per page</span><a href="#" class="k-pager-refresh k-link" title="Refresh"><span class="k-icon k-i-refresh">Refresh</span></a><span class="k-pager-info k-label">No items to display</span></div></div>
+
+    </div>
+</div>
+
+<div generate-document="" document-generation-control="vm.documentGenerationControl" class="ng-scope ng-isolate-scope">    <div id="documentGenerationModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title ng-binding"><i class="fa fa-gears"></i> Generate Documents - Order#-</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <input ng-model="model.PurchaseOrder" type="checkbox" id="checkbox-1" class="ng-pristine ng-untouched ng-valid ng-empty" style=""> <label for="checkbox-1">Purchase Order</label> 
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <input ng-model="model.Picklist" type="checkbox" id="checkbox-2" class="ng-pristine ng-untouched ng-valid ng-empty" style=""> <label for="checkbox-2">Picklist</label> 
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <input ng-model="model.Manifest" type="checkbox" id="checkbox-4" class="ng-pristine ng-untouched ng-valid ng-empty" style=""> <label for="checkbox-4">Manifest</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <input ng-model="model.Invoice" type="checkbox" id="checkbox-5" class="ng-pristine ng-untouched ng-valid ng-empty" style=""> <label for="checkbox-5">Invoice</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <input ng-model="model.Labels" type="checkbox" id="checkbox-3" class="ng-pristine ng-untouched ng-valid ng-empty" style=""> <label for="checkbox-3">Labels and Packaging List</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="order-files">
+                            <h5>Available Documents</h5>
+                            <ul style="padding-left: 5px;">
+                                <!-- ngRepeat: f in files -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button ng-click="generateDocument()" type="button" class="btn btn-primary">Generate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+<s2s-quick-filter s-user-filter-model="vm.userFilterModel" s-options="vm.createUserFilterOptions" class="ng-scope ng-isolate-scope"><div class="modal fade" id="userDefinedFilterModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <div class="row">
+                    <div class="clearfix">
+                        <h1 class="pull-left">Quick filters</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal ng-pristine ng-valid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <!-- ngRepeat: criteria in filterCriterion -->
+
+                                <!-- ngIf: filterCriterion.length === 0 --><div class="col-md-12 col-sm-12 ng-scope" ng-if="filterCriterion.length === 0">
+                                   <h2> You don't have any filters set up for the grid.</h2>
+                                </div><!-- end ngIf: filterCriterion.length === 0 -->
+
+                            </div>
+                        </div>
+                    </div>
+
+                   <!-- ngIf: sortField.DisplayName != null -->
+
+                    <div class="row" style="margin-left: 1px;">
+                        <!-- ngIf: sortField.DisplayName != null -->
+
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="saveCurrentGridSort()">
+                    Remember grid sort
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="showUserDefinedFilterCriteria()">
+                    Save Current Filter
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="modalDisplayName" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Quick Filter Display Name
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body center-block">
+
+                <div class="mb-3" style="padding: 20px">
+                    <label for="txtDisplayName" class="col-form-label">Filter Name:</label>
+                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" name="txtDisplayName" id="txtDisplayName" ng-model="filterName" style="">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success btn-lg" ng-click="saveCurrentFilter()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+</s2s-quick-filter>
+
+
+
+<script id="order-Status-template" type="text/kendo-ui-template" class="ng-scope">
+    #if(IsCanceled){#
+    <span class="stat label label-danger s2-text">Order Canceled </span>
+    #}else if(Status=="Submitted"){#
+    <span class="stat label label-primary s2-text">Submitted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Sublotted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Manifested <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Quarantined <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Invoiced <i class="fa fa-arrow-circle-right"></i></span>
+    # } else if(Status=="Sublotted") {#
+    <span class="stat label label-primary s2-text">Submitted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Sublotted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Manifested <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Quarantined <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Invoiced <i class="fa fa-arrow-circle-right"></i></span>
+    # } else if(Status=="PartiallySublotted") {#
+    <span class="stat label label-primary s2-text">Submitted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-warning s2-text" title="Partially Sublotted">Sublotted <i class="fa fa-warning"></i></span>
+    <span class="stat label label-default s2-text">Manifested <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Quarantined <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Invoiced <i class="fa fa-arrow-circle-right"></i></span>
+    # } else if(Status=="ReadyForManifest") {#
+    <span class="stat label label-primary s2-text">Submitted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Sublotted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Ready for Manifest <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Quarantined <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Invoiced <i class="fa fa-arrow-circle-right"></i></span>
+    # }else if(Status=="Manifested") {#
+    <span class="stat label label-primary s2-text">Submitted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Sublotted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Manifested <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Quarantined <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Invoiced <i class="fa fa-arrow-circle-right"></i></span>
+    # }  else if(Status=="Quarantined") {#
+    <span class="stat label label-primary s2-text">Submitted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Sublotted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Manifested <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Quarantined <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-default s2-text">Invoiced <i class="fa fa-arrow-circle-right"></i></span>
+    #} else if(Status=="Invoiced") {#
+    <span class="stat label label-primary s2-text">Submitted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Sublotted <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Manifested <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Quarantined <i class="fa fa-arrow-circle-right"></i></span>
+    <span class="stat label label-primary s2-text">Invoiced <i class="fa fa-arrow-circle-right"></i></span>
+    #}#
+
+</script>
+
+<script id="orderNoTemplate" type="text/x-kendo-template" class="ng-scope">
+    #if(IsCanceled){#
+    <span class='order-link'><i class="fa fa-link"></i>  ORD-#:OrderNo# </span>
+    #}else{#
+    <a href='\\#/order/#:OrderId#'> <i ng-show={{dataItem.IsPortalOrder}} class="fa fa-link fa-2x"></i> <span class='order-link'> ORD-#:OrderNo# </span> </a>
+    #}#
+    <span ng-if="dataItem.IsNonCannabis" class="label label-info">NC</span>
+</script>
+
+<script id="documentGenerationTemplate" type="text/x-kendo-template" class="ng-scope">
+    <div>
+        <button style="font-size:.9em" ng-click="vm.documentGenerationControl.show(#:OrderId#, #:OrderNo#)" 
+                class="s2-tb tb-generate pull-right">
+            <i class="fa fa-file-pdf-o"></i>&nbsp;Docs</button>
+    </div>
+    
+</script>
+
+<script id="partnerNameTemplate" type="text/x-kendo-template" class="ng-scope">
+
+    #if(IsExportedToQuickBooks){#
+    <span ng-show="{{dataItem.IsExportedToQuickBooks}}">
+        <img src="../../../images/quickbook.png" style="width: 15px;height: 15px" class="pull-right" />
+    </span>
+    #}#
+
+    <span>#:Tradename#</span>
+    #if(IsNewOrder){#
+    <i class="text-info fa-2x fa fa-clock-o pull-right" kendo-tooltip k-content="'New Order'"></i>
+    #}#
+    #if(UnderQuarantine){#
+    <span class="label label-danger pull-right"> QUARANTINED  </span>
+    #}#
+
+    #if(Released){#
+    <span class="label label-info  pull-right"> Released  </span>
+    #}#
+    #if(IsBackOrder){#
+    <span class="label label-warning  pull-right"> BackOrder  </span>
+    #}#
+    #if(IsAllSample){#
+    <span class="label   pull-right"><span class="s2-badge s2-i-warning s2-text-1x"><i class="fa fa-gift"></i> &nbsp;Samples Only</span></span>
+    #}#
+
+    #if(HasNotes){#
+    <a class='btn btn-link text-info  pull-right' ng-click="vm.showNotes(#:OrderId#)">
+
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-comment fa-stack-2x"></i>
+            <i class="fa fa-stack-1x" style="color: white;font-size: 12px;">#:NoteCount# </i>
+        </span>
+
+    </a>
+    #} else  {#
+    <a class='btn btn-link text-info  pull-right text-mute' ng-click="vm.showNotes(#:OrderId#)"><i class='fa fa-comment fa-2x' style="color:\\#ded7d7"></i></a>
+    # } #
+
+   
+</script>
+<style class="ng-scope">
+    span.stat{
+        margin-left:-5px;
+        border-radius: 0;
+    }
+</style>
+<!-- ngInclude: --><ng-include src="'/app.fulfillment/order/orders/modal/delivery.incld.html?4'" class="ng-scope">
+
+<div id="modalDelivery" class="modal fade ng-scope" role="dialog" tabindex="-1" data-backdrop="static">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" data-ember-action="1544">×</button>
+                <h4 class="modal-title">Delivery </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required">
+                    <div class="form-group">
+                        <label for="drlDeliveryType" class="col-sm-2 control-label">Delivery Type</label>
+                        <div class="col-sm-10">
+                            <select name="drlDeliveryType" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-model="vm.deliveryType" ng-options="deliveryType.id as deliveryType.name for deliveryType in  vm.deliveryTypes" required=""><option value="" class="" selected="selected">-Select Delivery Type-</option></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDeriver" class="col-sm-2 control-label">Deriver </label>
+                        <div class="col-sm-10">
+                            <span tabindex="-1" role="presentation" class="k-widget k-autocomplete k-header k-textbox ng-pristine ng-untouched ng-valid k-state-default ng-empty" style=""><input kendo-auto-complete="" ng-model="vm.deriverNames" class="k-textbox ng-pristine ng-untouched ng-valid k-input ng-empty" k-data-source="vm.derivers" data-role="autocomplete" type="text" autocomplete="off" role="textbox" aria-haspopup="true" aria-disabled="false" aria-readonly="false" aria-autocomplete="list" aria-owns="" style="width: 100%;"><span class="k-icon k-loading" style="display:none"></span></span>
+                         
+                        </div>
+                    </div>      <div class="form-group">
+                        <label for="inputDeriverDate" class="col-sm-2 control-label">Delivery Date</label>
+                        <div class="col-sm-10">
+                            <span class="k-widget k-datepicker k-header" style=""><span class="k-picker-wrap k-state-default"><input id="inputDeriverDate" value="" ng-model="vm.deliveryDate" data-role="datepicker" type="text" class="k-input ng-pristine ng-untouched ng-valid ng-empty" role="combobox" aria-expanded="false" aria-owns="inputDeriverDate_dateview" aria-disabled="false" aria-readonly="false" style="width: 100%;"><span unselectable="on" class="k-select" role="button" aria-controls="inputDeriverDate_dateview"><span unselectable="on" class="k-icon k-i-calendar">select</span></span></span></span>
+                       
+                        </div>
+                    </div>
+               
+                </form>
+
+             
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-w-sm" ng-click="vm.submitPriceAdjustment()">Save</button>
+                <button type="button" class="btn btn-default btn-w-sm" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script class="ng-scope">
+            $(document).ready(function() {
+             $("#inputDeriverDate").kendoDatePicker();
+                
+            });
+</script></ng-include>
+<!-- ngInclude: --><ng-include src="'/app.fulfillment/order/orders/modal/notes_modal.tmpl.html?'" class="ng-scope"><div id="orderNotesModal" class="modal fade ng-scope" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Notes</h4>
+            </div>
+            <div class="modal-body">
+                <div class="note-add">
+                    <textarea style="width: 100%;" ng-model="vm.orderNotes.newNote" placeholder="type your note here" class="ng-pristine ng-untouched ng-valid ng-empty"></textarea>
+                    <button class="btn btn-primary" ng-click="vm.addNote()"> <i class="fa fa-plus"></i> add note</button>
+                </div>
+                <!-- ngRepeat: note in vm.orderNotes.notes -->
+            </div>
+        </div>
+    </div>
+</div></ng-include></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ngInclude: "/app/views/common/footer.html" --><div ng-include="&quot;/app/views/common/footer.html&quot;" class="ng-scope"><footer id="footer-bar" class="row ng-scope">
+	<p id="footer-copyright" class="col-xs-12">
+		Powered by Σbolt Solutions ™.
+	</p>
+</footer></div>
+                </div>
+            </div>
+
+            <div data-terms-and-conditions="" class="ng-scope"><div id="termsAndConditionsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Terms and Conditions</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    We've recently update our terms and conditions. <br>
+                    Please read and accept them.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="ignoreTermsAndConditions();" data-dismiss="modal">Maybe Later</button>
+                <button type="button" class="btn btn-success" ng-click="viewTermsAndConditions();">View Terms and Conditions</button>
+            </div>
+        </div>
+    </div>
+</div></div>
+            <div data-refresh-jwt="" class="ng-scope"><div id="refreshJwtModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Your Session Token is About to Expire</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Your session is about to expire. <br>
+                    Would you like to refresh it now?
+                </p>
+                <div id="refreshJwtTextClock" style="font-size:300%">
+                    <span id="refreshJwtHoursSpan">12</span> h
+                    <span id="refreshJwtMinutesSpan">00</span> m
+                    <span id="refreshJwtSecondsSpan">00</span> s
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="vm.hideModal();" data-dismiss="modal"> No </button>
+                <button type="button" class="btn btn-success" ng-click="vm.refreshJwt();"> Yes </button>
+            </div>
+        </div>
+    </div>
+</div></div>
+        </div>
+    </div>
+    <script src="/js/s2/vendor.js?30912-8"></script>
+    <script src="/js/s2/utils.js?30912-8"></script>
+    <script src="/app.fulfillment/s2-module-dependencies.js?30912-8"></script>
+    <script src="/js/s2/app-support.js?30912-8"></script>
+    <script src="/app.fulfillment/app.js?30912-8"></script>
+    <s2s-system-notification></s2s-system-notification>
+
+
+<div class="k-list-container k-popup k-group k-reset" id="order-searchbox-list" data-role="popup" style="display: none; position: absolute;"><div class="k-group-header" style="display:none"></div><div class="k-list-scroller" unselectable="on"><ul unselectable="on" class="k-list k-reset" tabindex="-1" aria-hidden="true" id="order-searchbox_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div></div><ul class="k-overflow-container k-list-container k-popup k-group k-reset" data-role="popup" data-uid="d140750c-03ce-4bbd-8ace-7f85029ac30d" style="display: none; position: absolute;"><li data-uid="8569a574-f55b-4ec0-9f51-46b3b6b83a6f" class="k-separator k-item k-state-default k-overflow-hidden ng-scope">&nbsp;</li><li data-uid="fdd95d27-38dd-4d39-92d2-b87ffe49d6cc" data-overflow="auto" class="k-overflow-hidden ng-scope"><span></span></li></ul><ul class="k-overflow-container k-list-container k-popup k-group k-reset" data-role="popup" data-uid="e32e078b-fba6-4e6b-ac35-47a9e4158a34" style="display: none; position: absolute;"></ul><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="inputDeriverDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div class="k-group-header" style="display:none"></div><div class="k-list-scroller" unselectable="on"><ul unselectable="on" class="k-list k-reset" tabindex="-1" aria-hidden="true" aria-live="polite" data-role="staticlist" role="listbox"></ul></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div class="k-group-header" style="display:none"></div><div class="k-list-scroller" unselectable="on"><ul unselectable="on" class="k-list k-reset" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li tabindex="-1" role="option" unselectable="on" class="k-item" data-offset-index="0">All</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-offset-index="1">5</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-offset-index="2">10</li><li tabindex="-1" role="option" unselectable="on" class="k-item k-state-selected k-state-focused" aria-selected="true" data-offset-index="3" id="be1ae601-cf5f-41db-b723-659fa9ba7e42">20</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-offset-index="4">25</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-offset-index="5">50</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-offset-index="6">100</li></ul></div></div></body></html>

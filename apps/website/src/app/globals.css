@@ -259,6 +259,17 @@
     filter: brightness(1.1);
   }
 
+  /* Steady white glow — no animation, very subtle */
+  .header-text-glow {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.65), 0 0 16px rgba(255, 255, 255, 0.3), 0 0 32px rgba(255, 255, 255, 0.12) !important;
+  }
+  .header-pill-glow {
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.08), 0 0 20px 3px rgba(255, 255, 255, 0.04);
+  }
+  .header-icon-glow {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.12));
+  }
+
   /* Section padding */
   .section-pad {
     padding-top: 80px;

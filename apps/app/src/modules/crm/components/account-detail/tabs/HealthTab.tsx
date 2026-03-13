@@ -14,6 +14,7 @@ import { useAccountHealth } from '../../../hooks';
 import { InteractionOrderOverlay } from '../../dashboard/charts/InteractionOrderOverlay';
 import { getInteractionOrderData } from '@/mocks/crm-kpi-charts';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { SentimentChart } from '../SentimentChart';
 
 interface HealthTabProps {
   accountId: string;
@@ -137,6 +138,9 @@ export function HealthTab({ accountId }: HealthTabProps) {
           ))}
         </div>
       </div>
+
+      {/* Sentiment Analysis */}
+      <SentimentChart accountId={accountId} />
     </div>
   );
 }

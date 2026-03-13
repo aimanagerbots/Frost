@@ -1,0 +1,2179 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - img
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link [ref=e6] [cursor=pointer]:
+          - /url: "#/dasboard"
+        - generic [ref=e7]:
+          - list [ref=e9]:
+            - listitem [ref=e10]:
+              - generic [ref=e12] [cursor=pointer]:
+                - generic [ref=e13]: 
+                - text: Inventory Management
+          - text: 
+          - list [ref=e16]:
+            - listitem [ref=e17]:
+              - generic [ref=e19] [cursor=pointer]: 
+            - listitem [ref=e20]:
+              - generic [ref=e22] [cursor=pointer]: 
+              - text: 
+          - list [ref=e24]:
+            - listitem [ref=e25]:
+              - generic [ref=e1908] [cursor=pointer]: Michael Perkins
+            - listitem [ref=e28]:
+              - link "" [ref=e29] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e30]: 
+    - generic [ref=e32]:
+      - generic [ref=e35]:
+        - generic [ref=e39] [cursor=pointer]:
+          - text: G&S GREENERY
+          - generic [ref=e40]: 
+        - list [ref=e42]:
+          - listitem [ref=e43]:
+            - link "style Manage Menu" [ref=e44] [cursor=pointer]:
+              - /url: "#/product-menu"
+              - generic [ref=e45]: style
+              - text: Manage Menu
+          - listitem [ref=e46]:
+            - link "library_books Batches" [ref=e47] [cursor=pointer]:
+              - /url: "#/batch-products"
+              - generic [ref=e48]: library_books
+              - text: Batches
+          - listitem [ref=e49]:
+            - link "library_books Non-Cannabis Inventory" [ref=e50] [cursor=pointer]:
+              - /url: "#/non-cannabis-inventories"
+              - generic [ref=e51]: library_books
+              - text: Non-Cannabis Inventory
+          - listitem [ref=e52]:
+            - link "track_changes Production" [ref=e53] [cursor=pointer]:
+              - /url: "#/production"
+              - generic [ref=e54]: track_changes
+              - text: Production
+          - listitem [ref=e55]:
+            - link " Categories" [ref=e56] [cursor=pointer]:
+              - /url: "#/categories"
+              - generic [ref=e57]: 
+              - text: Categories
+          - listitem [ref=e58]:
+            - link "view_compact Product-Lines" [ref=e59] [cursor=pointer]:
+              - /url: "#/product-lines"
+              - generic [ref=e60]: view_compact
+              - text: Product-Lines
+          - listitem [ref=e61]:
+            - link " Products" [ref=e62] [cursor=pointer]:
+              - /url: "#/products"
+              - generic [ref=e63]: 
+              - text: Products
+          - listitem [ref=e64]:
+            - link "developer_board Catalog Groups" [ref=e65] [cursor=pointer]:
+              - /url: "#/catalog-groups"
+              - generic [ref=e66]: developer_board
+              - text: Catalog Groups
+          - listitem [ref=e67]:
+            - link "toys Strains" [ref=e68] [cursor=pointer]:
+              - /url: "#/strains"
+              - generic [ref=e69]: toys
+              - text: Strains
+          - listitem [ref=e70]:
+            - link "dashboard Inventory Rooms" [ref=e71] [cursor=pointer]:
+              - /url: "#/rooms"
+              - generic [ref=e72]: dashboard
+              - text: Inventory Rooms
+          - listitem [ref=e73]:
+            - link "Discount & Promotion" [ref=e74] [cursor=pointer]:
+              - /url: "#/discount-promotion"
+              - generic [ref=e75]: 
+              - text: Discount & Promotion
+          - listitem [ref=e76]:
+            - link "assignment_return Backorders" [ref=e77] [cursor=pointer]:
+              - /url: "#/backorder"
+              - generic [ref=e78]: assignment_return
+              - text: Backorders
+          - listitem [ref=e79]:
+            - link " QA Result" [ref=e80] [cursor=pointer]:
+              - /url: "#/qa-result"
+              - generic [ref=e81]: 
+              - text: QA Result
+          - listitem [ref=e82]:
+            - link " Conversions for Orders" [ref=e83] [cursor=pointer]:
+              - /url: "#/flower-conversion"
+              - generic [ref=e84]: 
+              - text: Conversions for Orders
+          - listitem [ref=e85]:
+            - link "label Product Tag" [ref=e86] [cursor=pointer]:
+              - /url: "#/product-tag"
+              - generic [ref=e87]: label
+              - text: Product Tag
+          - listitem [ref=e88]:
+            - link "filter_none QA Lot" [ref=e89] [cursor=pointer]:
+              - /url: "#/qa-lot"
+              - generic [ref=e90]: filter_none
+              - text: QA Lot
+          - listitem [ref=e91]:
+            - link " QA Sample" [ref=e92] [cursor=pointer]:
+              - /url: "#/qa-sample"
+              - generic [ref=e93]: 
+              - text: QA Sample
+          - listitem [ref=e94]:
+            - link "assignment_ind Employee Sample" [ref=e95] [cursor=pointer]:
+              - /url: "#/employee-sample"
+              - generic [ref=e96]: assignment_ind
+              - text: Employee Sample
+          - listitem [ref=e97]:
+            - link "delete_sweep Disposal" [ref=e98] [cursor=pointer]:
+              - /url: "#/disposals"
+              - generic [ref=e99]: delete_sweep
+              - text: Disposal
+      - generic [ref=e100]:
+        - generic [ref=e104]:
+          - generic:
+            - generic:
+              - generic [ref=e105] [cursor=pointer]: Help
+              - text:                   
+          - generic [ref=e108]:
+            - heading "Manage Menu" [level=1] [ref=e110]
+            - generic [ref=e112]:
+              - button " Share Menu" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]: 
+                - text: Share Menu
+              - text:     
+          - generic [ref=e117]:
+            - link "Save Price Changes" [ref=e119] [cursor=pointer]:
+              - /url: ""
+              - text: Save Price Changes
+            - generic [ref=e120]:
+              - link "All" [ref=e123] [cursor=pointer]:
+                - /url: ""
+              - link "Avail. For Sale" [ref=e124] [cursor=pointer]:
+                - /url: ""
+              - link "Not For Sale" [ref=e125] [cursor=pointer]:
+                - /url: ""
+              - link "Avail. on retail portal" [ref=e126] [cursor=pointer]:
+                - /url: ""
+              - textbox "Filter Products" [ref=e129]
+              - generic [ref=e132]:
+                - listbox
+                - listbox [ref=e133]: Product-Line
+              - generic [ref=e1911]:
+                - listbox
+                - listbox [ref=e1912]: Sub Product-Line
+              - generic [ref=e1915]:
+                - listbox
+                - listbox [ref=e1916]: Product-tag
+              - generic [ref=e136] [cursor=pointer]:
+                - checkbox "Non-Cannabis" [ref=e137]
+                - text: Non-Cannabis
+              - button "" [ref=e139] [cursor=pointer]:
+                - generic [ref=e140]: 
+              - button "" [ref=e143] [cursor=pointer]:
+                - generic [ref=e144]: 
+            - grid [ref=e147]:
+              - rowgroup [ref=e158]:
+                - row "Product Name Status Price Units For Sale Units Allocated Units On Backorder Units On Hold Units in Stock Last Adjusted" [ref=e159]:
+                  - columnheader "Product Name" [ref=e160]:
+                    - link "Product Name" [ref=e161] [cursor=pointer]:
+                      - /url: "#"
+                  - columnheader "Status" [ref=e162]:
+                    - link "Status" [ref=e163] [cursor=pointer]:
+                      - /url: "#"
+                  - columnheader "Price" [ref=e164]:
+                    - link "Price" [ref=e165] [cursor=pointer]:
+                      - /url: "#"
+                  - columnheader "Units For Sale" [ref=e166]:
+                    - link "Units For Sale" [ref=e167] [cursor=pointer]:
+                      - /url: "#"
+                  - columnheader "Units Allocated" [ref=e168]:
+                    - link "Units Allocated" [ref=e169] [cursor=pointer]:
+                      - /url: "#"
+                  - columnheader "Units On Backorder" [ref=e170]:
+                    - link "Units On Backorder" [ref=e171] [cursor=pointer]:
+                      - /url: "#"
+                  - columnheader "Units On Hold" [ref=e172]:
+                    - link "Units On Hold" [ref=e173] [cursor=pointer]:
+                      - /url: "#"
+                  - columnheader "Units in Stock" [ref=e174]:
+                    - link "Units in Stock" [ref=e175] [cursor=pointer]:
+                      - /url: "#"
+                  - columnheader "Last Adjusted" [ref=e176]:
+                    - link "Last Adjusted" [ref=e177] [cursor=pointer]:
+                      - /url: "#"
+            - grid [ref=e179]:
+              - rowgroup [ref=e190]:
+                - row "Batches RTM | Extraction Material - Placeholder Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e191]:
+                  - gridcell "Batches RTM | Extraction Material - Placeholder" [ref=e192]:
+                    - link "Batches" [ref=e193] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=18"
+                    - link "RTM | Extraction Material - Placeholder" [ref=e194] [cursor=pointer]:
+                      - /url: "#/product/18"
+                  - gridcell "Not Available" [ref=e195]
+                  - gridcell "$0.00" [ref=e196]
+                  - gridcell "0.00" [ref=e197]:
+                    - generic [ref=e198]: "0.00"
+                  - gridcell "0.00" [ref=e199]
+                  - gridcell "0.00" [ref=e200]
+                  - gridcell "0.00" [ref=e201]
+                  - gridcell "0.00" [ref=e202]
+                  - gridcell "never" [ref=e203]:
+                    - generic [ref=e205]: never
+                - row "Batches RTM | Fresh Frozen - Placeholder Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e206]:
+                  - gridcell "Batches RTM | Fresh Frozen - Placeholder" [ref=e207]:
+                    - link "Batches" [ref=e208] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=19"
+                    - link "RTM | Fresh Frozen - Placeholder" [ref=e209] [cursor=pointer]:
+                      - /url: "#/product/19"
+                  - gridcell "Not Available" [ref=e210]
+                  - gridcell "$0.00" [ref=e211]
+                  - gridcell "0.00" [ref=e212]:
+                    - generic [ref=e213]: "0.00"
+                  - gridcell "0.00" [ref=e214]
+                  - gridcell "0.00" [ref=e215]
+                  - gridcell "0.00" [ref=e216]
+                  - gridcell "0.00" [ref=e217]
+                  - gridcell "never" [ref=e218]:
+                    - generic [ref=e220]: never
+                - row "Batches RTM | Hydrocarbon Concentrate - Placeholder Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e221]:
+                  - gridcell "Batches RTM | Hydrocarbon Concentrate - Placeholder" [ref=e222]:
+                    - link "Batches" [ref=e223] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=20"
+                    - link "RTM | Hydrocarbon Concentrate - Placeholder" [ref=e224] [cursor=pointer]:
+                      - /url: "#/product/20"
+                  - gridcell "Not Available" [ref=e225]
+                  - gridcell "$0.00" [ref=e226]
+                  - gridcell "0.00" [ref=e227]:
+                    - generic [ref=e228]: "0.00"
+                  - gridcell "0.00" [ref=e229]
+                  - gridcell "0.00" [ref=e230]
+                  - gridcell "0.00" [ref=e231]
+                  - gridcell "0.00" [ref=e232]
+                  - gridcell "never" [ref=e233]:
+                    - generic [ref=e235]: never
+                - row "Batches RTM | Preroll Material - 1513 Not Available $0.00 255.00 0.00 0.00 0.00 255.00 never" [ref=e236]:
+                  - gridcell "Batches RTM | Preroll Material - 1513" [ref=e237]:
+                    - link "Batches" [ref=e238] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=22"
+                    - link "RTM | Preroll Material - 1513" [ref=e239] [cursor=pointer]:
+                      - /url: "#/product/22"
+                  - gridcell "Not Available" [ref=e240]
+                  - gridcell "$0.00" [ref=e241]
+                  - gridcell "255.00" [ref=e242]:
+                    - generic [ref=e243]: "255.00"
+                  - gridcell "0.00" [ref=e244]
+                  - gridcell "0.00" [ref=e245]
+                  - gridcell "0.00" [ref=e246]
+                  - gridcell "255.00" [ref=e247]
+                  - gridcell "never" [ref=e248]:
+                    - generic [ref=e250]: never
+                - row "Batches RTM | Preroll Material - 1970 Not Available $0.00 635.00 0.00 0.00 0.00 635.00 never" [ref=e251]:
+                  - gridcell "Batches RTM | Preroll Material - 1970" [ref=e252]:
+                    - link "Batches" [ref=e253] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=23"
+                    - link "RTM | Preroll Material - 1970" [ref=e254] [cursor=pointer]:
+                      - /url: "#/product/23"
+                  - gridcell "Not Available" [ref=e255]
+                  - gridcell "$0.00" [ref=e256]
+                  - gridcell "635.00" [ref=e257]:
+                    - generic [ref=e258]: "635.00"
+                  - gridcell "0.00" [ref=e259]
+                  - gridcell "0.00" [ref=e260]
+                  - gridcell "0.00" [ref=e261]
+                  - gridcell "635.00" [ref=e262]
+                  - gridcell "never" [ref=e263]:
+                    - generic [ref=e265]: never
+                - row "Batches RTM | Preroll Material - 2024 Not Available $0.00 285.00 0.00 0.00 0.00 285.00 never" [ref=e266]:
+                  - gridcell "Batches RTM | Preroll Material - 2024" [ref=e267]:
+                    - link "Batches" [ref=e268] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=24"
+                    - link "RTM | Preroll Material - 2024" [ref=e269] [cursor=pointer]:
+                      - /url: "#/product/24"
+                  - gridcell "Not Available" [ref=e270]
+                  - gridcell "$0.00" [ref=e271]
+                  - gridcell "285.00" [ref=e272]:
+                    - generic [ref=e273]: "285.00"
+                  - gridcell "0.00" [ref=e274]
+                  - gridcell "0.00" [ref=e275]
+                  - gridcell "0.00" [ref=e276]
+                  - gridcell "285.00" [ref=e277]
+                  - gridcell "never" [ref=e278]:
+                    - generic [ref=e280]: never
+                - row "Batches RTM | Preroll Material - 2042 Not Available $0.00 125.00 0.00 0.00 0.00 125.00 never" [ref=e281]:
+                  - gridcell "Batches RTM | Preroll Material - 2042" [ref=e282]:
+                    - link "Batches" [ref=e283] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=25"
+                    - link "RTM | Preroll Material - 2042" [ref=e284] [cursor=pointer]:
+                      - /url: "#/product/25"
+                  - gridcell "Not Available" [ref=e285]
+                  - gridcell "$0.00" [ref=e286]
+                  - gridcell "125.00" [ref=e287]:
+                    - generic [ref=e288]: "125.00"
+                  - gridcell "0.00" [ref=e289]
+                  - gridcell "0.00" [ref=e290]
+                  - gridcell "0.00" [ref=e291]
+                  - gridcell "125.00" [ref=e292]
+                  - gridcell "never" [ref=e293]:
+                    - generic [ref=e295]: never
+                - row "Batches RTM | Preroll Material - 2079 Not Available $0.00 180.00 0.00 0.00 0.00 180.00 never" [ref=e296]:
+                  - gridcell "Batches RTM | Preroll Material - 2079" [ref=e297]:
+                    - link "Batches" [ref=e298] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=26"
+                    - link "RTM | Preroll Material - 2079" [ref=e299] [cursor=pointer]:
+                      - /url: "#/product/26"
+                  - gridcell "Not Available" [ref=e300]
+                  - gridcell "$0.00" [ref=e301]
+                  - gridcell "180.00" [ref=e302]:
+                    - generic [ref=e303]: "180.00"
+                  - gridcell "0.00" [ref=e304]
+                  - gridcell "0.00" [ref=e305]
+                  - gridcell "0.00" [ref=e306]
+                  - gridcell "180.00" [ref=e307]
+                  - gridcell "never" [ref=e308]:
+                    - generic [ref=e310]: never
+                - row "Batches RTM | Preroll Material - 2081 Not Available $0.00 195.00 0.00 0.00 0.00 195.00 never" [ref=e311]:
+                  - gridcell "Batches RTM | Preroll Material - 2081" [ref=e312]:
+                    - link "Batches" [ref=e313] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=27"
+                    - link "RTM | Preroll Material - 2081" [ref=e314] [cursor=pointer]:
+                      - /url: "#/product/27"
+                  - gridcell "Not Available" [ref=e315]
+                  - gridcell "$0.00" [ref=e316]
+                  - gridcell "195.00" [ref=e317]:
+                    - generic [ref=e318]: "195.00"
+                  - gridcell "0.00" [ref=e319]
+                  - gridcell "0.00" [ref=e320]
+                  - gridcell "0.00" [ref=e321]
+                  - gridcell "195.00" [ref=e322]
+                  - gridcell "never" [ref=e323]:
+                    - generic [ref=e325]: never
+                - row "Batches RTM | Preroll Material - 2082 Not Available $0.00 660.00 0.00 0.00 0.00 660.00 never" [ref=e326]:
+                  - gridcell "Batches RTM | Preroll Material - 2082" [ref=e327]:
+                    - link "Batches" [ref=e328] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=28"
+                    - link "RTM | Preroll Material - 2082" [ref=e329] [cursor=pointer]:
+                      - /url: "#/product/28"
+                  - gridcell "Not Available" [ref=e330]
+                  - gridcell "$0.00" [ref=e331]
+                  - gridcell "660.00" [ref=e332]:
+                    - generic [ref=e333]: "660.00"
+                  - gridcell "0.00" [ref=e334]
+                  - gridcell "0.00" [ref=e335]
+                  - gridcell "0.00" [ref=e336]
+                  - gridcell "660.00" [ref=e337]
+                  - gridcell "never" [ref=e338]:
+                    - generic [ref=e340]: never
+                - row "Batches RTM | Preroll Material - 2144 Not Available $0.00 85.00 0.00 0.00 0.00 85.00 never" [ref=e341]:
+                  - gridcell "Batches RTM | Preroll Material - 2144" [ref=e342]:
+                    - link "Batches" [ref=e343] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=29"
+                    - link "RTM | Preroll Material - 2144" [ref=e344] [cursor=pointer]:
+                      - /url: "#/product/29"
+                  - gridcell "Not Available" [ref=e345]
+                  - gridcell "$0.00" [ref=e346]
+                  - gridcell "85.00" [ref=e347]:
+                    - generic [ref=e348]: "85.00"
+                  - gridcell "0.00" [ref=e349]
+                  - gridcell "0.00" [ref=e350]
+                  - gridcell "0.00" [ref=e351]
+                  - gridcell "85.00" [ref=e352]
+                  - gridcell "never" [ref=e353]:
+                    - generic [ref=e355]: never
+                - row "Batches RTM | Preroll Material - 2166 Not Available $0.00 20.00 0.00 0.00 0.00 20.00 never" [ref=e356]:
+                  - gridcell "Batches RTM | Preroll Material - 2166" [ref=e357]:
+                    - link "Batches" [ref=e358] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=30"
+                    - link "RTM | Preroll Material - 2166" [ref=e359] [cursor=pointer]:
+                      - /url: "#/product/30"
+                  - gridcell "Not Available" [ref=e360]
+                  - gridcell "$0.00" [ref=e361]
+                  - gridcell "20.00" [ref=e362]:
+                    - generic [ref=e363]: "20.00"
+                  - gridcell "0.00" [ref=e364]
+                  - gridcell "0.00" [ref=e365]
+                  - gridcell "0.00" [ref=e366]
+                  - gridcell "20.00" [ref=e367]
+                  - gridcell "never" [ref=e368]:
+                    - generic [ref=e370]: never
+                - row "Batches RTM | Preroll Material - Platinum Pineapple Not Available $0.00 1,010.00 0.00 0.00 0.00 1,010.00 never" [ref=e371]:
+                  - gridcell "Batches RTM | Preroll Material - Platinum Pineapple" [ref=e372]:
+                    - link "Batches" [ref=e373] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=33"
+                    - link "RTM | Preroll Material - Platinum Pineapple" [ref=e374] [cursor=pointer]:
+                      - /url: "#/product/33"
+                  - gridcell "Not Available" [ref=e375]
+                  - gridcell "$0.00" [ref=e376]
+                  - gridcell "1,010.00" [ref=e377]:
+                    - generic [ref=e378]: 1,010.00
+                  - gridcell "0.00" [ref=e379]
+                  - gridcell "0.00" [ref=e380]
+                  - gridcell "0.00" [ref=e381]
+                  - gridcell "1,010.00" [ref=e382]
+                  - gridcell "never" [ref=e383]:
+                    - generic [ref=e385]: never
+                - row "Batches RTM | Preroll Material - Green Crack Not Available $0.00 924.00 76.00 0.00 0.00 1,000.00 never" [ref=e386]:
+                  - gridcell "Batches RTM | Preroll Material - Green Crack" [ref=e387]:
+                    - link "Batches" [ref=e388] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=49"
+                    - link "RTM | Preroll Material - Green Crack" [ref=e389] [cursor=pointer]:
+                      - /url: "#/product/49"
+                  - gridcell "Not Available" [ref=e390]
+                  - gridcell "$0.00" [ref=e391]
+                  - gridcell "924.00" [ref=e392]:
+                    - generic [ref=e393]: "924.00"
+                  - gridcell "76.00" [ref=e394]:
+                    - generic [ref=e395]: "76.00"
+                  - gridcell "0.00" [ref=e396]
+                  - gridcell "0.00" [ref=e397]
+                  - gridcell "1,000.00" [ref=e398]
+                  - gridcell "never" [ref=e399]:
+                    - generic [ref=e401]: never
+                - row "Batches RTM | Preroll Material - Moonbow Not Available $0.00 776.00 114.00 0.00 0.00 890.00 never" [ref=e402]:
+                  - gridcell "Batches RTM | Preroll Material - Moonbow" [ref=e403]:
+                    - link "Batches" [ref=e404] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=53"
+                    - link "RTM | Preroll Material - Moonbow" [ref=e405] [cursor=pointer]:
+                      - /url: "#/product/53"
+                  - gridcell "Not Available" [ref=e406]
+                  - gridcell "$0.00" [ref=e407]
+                  - gridcell "776.00" [ref=e408]:
+                    - generic [ref=e409]: "776.00"
+                  - gridcell "114.00" [ref=e410]:
+                    - generic [ref=e411]: "114.00"
+                  - gridcell "0.00" [ref=e412]
+                  - gridcell "0.00" [ref=e413]
+                  - gridcell "890.00" [ref=e414]
+                  - gridcell "never" [ref=e415]:
+                    - generic [ref=e417]: never
+                - row "Batches RTM | Preroll Material - Orange Crush Not Available $0.00 486.00 114.00 0.00 0.00 600.00 never" [ref=e418]:
+                  - gridcell "Batches RTM | Preroll Material - Orange Crush" [ref=e419]:
+                    - link "Batches" [ref=e420] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=54"
+                    - link "RTM | Preroll Material - Orange Crush" [ref=e421] [cursor=pointer]:
+                      - /url: "#/product/54"
+                  - gridcell "Not Available" [ref=e422]
+                  - gridcell "$0.00" [ref=e423]
+                  - gridcell "486.00" [ref=e424]:
+                    - generic [ref=e425]: "486.00"
+                  - gridcell "114.00" [ref=e426]:
+                    - generic [ref=e427]: "114.00"
+                  - gridcell "0.00" [ref=e428]
+                  - gridcell "0.00" [ref=e429]
+                  - gridcell "600.00" [ref=e430]
+                  - gridcell "never" [ref=e431]:
+                    - generic [ref=e433]: never
+                - row "Batches RTM | Preroll Material - Skatalite Not Available $0.00 886.00 114.00 0.00 0.00 1,000.00 never" [ref=e434]:
+                  - gridcell "Batches RTM | Preroll Material - Skatalite" [ref=e435]:
+                    - link "Batches" [ref=e436] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=59"
+                    - link "RTM | Preroll Material - Skatalite" [ref=e437] [cursor=pointer]:
+                      - /url: "#/product/59"
+                  - gridcell "Not Available" [ref=e438]
+                  - gridcell "$0.00" [ref=e439]
+                  - gridcell "886.00" [ref=e440]:
+                    - generic [ref=e441]: "886.00"
+                  - gridcell "114.00" [ref=e442]:
+                    - generic [ref=e443]: "114.00"
+                  - gridcell "0.00" [ref=e444]
+                  - gridcell "0.00" [ref=e445]
+                  - gridcell "1,000.00" [ref=e446]
+                  - gridcell "never" [ref=e447]:
+                    - generic [ref=e449]: never
+                - row "Batches RTM | Preroll Material - White Fire OG Not Available $0.00 1,651.00 114.00 0.00 0.00 1,765.00 never" [ref=e450]:
+                  - gridcell "Batches RTM | Preroll Material - White Fire OG" [ref=e451]:
+                    - link "Batches" [ref=e452] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=61"
+                    - link "RTM | Preroll Material - White Fire OG" [ref=e453] [cursor=pointer]:
+                      - /url: "#/product/61"
+                  - gridcell "Not Available" [ref=e454]
+                  - gridcell "$0.00" [ref=e455]
+                  - gridcell "1,651.00" [ref=e456]:
+                    - generic [ref=e457]: 1,651.00
+                  - gridcell "114.00" [ref=e458]:
+                    - generic [ref=e459]: "114.00"
+                  - gridcell "0.00" [ref=e460]
+                  - gridcell "0.00" [ref=e461]
+                  - gridcell "1,765.00" [ref=e462]
+                  - gridcell "never" [ref=e463]:
+                    - generic [ref=e465]: never
+                - row "Batches RTP | Budlets - Platinum Pineapple Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e466]:
+                  - gridcell "Batches RTP | Budlets - Platinum Pineapple" [ref=e467]:
+                    - link "Batches" [ref=e468] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=76"
+                    - link "RTP | Budlets - Platinum Pineapple" [ref=e469] [cursor=pointer]:
+                      - /url: "#/product/76"
+                  - gridcell "Not Available" [ref=e470]
+                  - gridcell "$0.00" [ref=e471]
+                  - gridcell "0.00" [ref=e472]:
+                    - generic [ref=e473]: "0.00"
+                  - gridcell "0.00" [ref=e474]
+                  - gridcell "0.00" [ref=e475]
+                  - gridcell "0.00" [ref=e476]
+                  - gridcell "0.00" [ref=e477]
+                  - gridcell "never" [ref=e478]:
+                    - generic [ref=e480]: never
+                - row "Batches RTP | Budlets - Moonbow Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e481]:
+                  - gridcell "Batches RTP | Budlets - Moonbow" [ref=e482]:
+                    - link "Batches" [ref=e483] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=96"
+                    - link "RTP | Budlets - Moonbow" [ref=e484] [cursor=pointer]:
+                      - /url: "#/product/96"
+                  - gridcell "Not Available" [ref=e485]
+                  - gridcell "$0.00" [ref=e486]
+                  - gridcell "0.00" [ref=e487]:
+                    - generic [ref=e488]: "0.00"
+                  - gridcell "0.00" [ref=e489]
+                  - gridcell "0.00" [ref=e490]
+                  - gridcell "0.00" [ref=e491]
+                  - gridcell "0.00" [ref=e492]
+                  - gridcell "never" [ref=e493]:
+                    - generic [ref=e495]: never
+                - row "Batches RTP | Budlets - Orange Crush Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e496]:
+                  - gridcell "Batches RTP | Budlets - Orange Crush" [ref=e497]:
+                    - link "Batches" [ref=e498] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=97"
+                    - link "RTP | Budlets - Orange Crush" [ref=e499] [cursor=pointer]:
+                      - /url: "#/product/97"
+                  - gridcell "Not Available" [ref=e500]
+                  - gridcell "$0.00" [ref=e501]
+                  - gridcell "0.00" [ref=e502]:
+                    - generic [ref=e503]: "0.00"
+                  - gridcell "0.00" [ref=e504]
+                  - gridcell "0.00" [ref=e505]
+                  - gridcell "0.00" [ref=e506]
+                  - gridcell "0.00" [ref=e507]
+                  - gridcell "never" [ref=e508]:
+                    - generic [ref=e510]: never
+                - row "Batches RTP | Budlets - Skatalite Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e511]:
+                  - gridcell "Batches RTP | Budlets - Skatalite" [ref=e512]:
+                    - link "Batches" [ref=e513] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=102"
+                    - link "RTP | Budlets - Skatalite" [ref=e514] [cursor=pointer]:
+                      - /url: "#/product/102"
+                  - gridcell "Not Available" [ref=e515]
+                  - gridcell "$0.00" [ref=e516]
+                  - gridcell "0.00" [ref=e517]:
+                    - generic [ref=e518]: "0.00"
+                  - gridcell "0.00" [ref=e519]
+                  - gridcell "0.00" [ref=e520]
+                  - gridcell "0.00" [ref=e521]
+                  - gridcell "0.00" [ref=e522]
+                  - gridcell "never" [ref=e523]:
+                    - generic [ref=e525]: never
+                - row "Batches RTP | Budlets - White Fire OG Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e526]:
+                  - gridcell "Batches RTP | Budlets - White Fire OG" [ref=e527]:
+                    - link "Batches" [ref=e528] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=104"
+                    - link "RTP | Budlets - White Fire OG" [ref=e529] [cursor=pointer]:
+                      - /url: "#/product/104"
+                  - gridcell "Not Available" [ref=e530]
+                  - gridcell "$0.00" [ref=e531]
+                  - gridcell "0.00" [ref=e532]:
+                    - generic [ref=e533]: "0.00"
+                  - gridcell "0.00" [ref=e534]
+                  - gridcell "0.00" [ref=e535]
+                  - gridcell "0.00" [ref=e536]
+                  - gridcell "0.00" [ref=e537]
+                  - gridcell "never" [ref=e538]:
+                    - generic [ref=e540]: never
+                - row "Batches RTP | Distillate - Placeholder Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e541]:
+                  - gridcell "Batches RTP | Distillate - Placeholder" [ref=e542]:
+                    - link "Batches" [ref=e543] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=106"
+                    - link "RTP | Distillate - Placeholder" [ref=e544] [cursor=pointer]:
+                      - /url: "#/product/106"
+                  - gridcell "Not Available" [ref=e545]
+                  - gridcell "$0.00" [ref=e546]
+                  - gridcell "0.00" [ref=e547]:
+                    - generic [ref=e548]: "0.00"
+                  - gridcell "0.00" [ref=e549]
+                  - gridcell "0.00" [ref=e550]
+                  - gridcell "0.00" [ref=e551]
+                  - gridcell "0.00" [ref=e552]
+                  - gridcell "never" [ref=e553]:
+                    - generic [ref=e555]: never
+                - row "Batches RTP | Hydrocarbon Concentrate - Placeholder Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e556]:
+                  - gridcell "Batches RTP | Hydrocarbon Concentrate - Placeholder" [ref=e557]:
+                    - link "Batches" [ref=e558] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=107"
+                    - link "RTP | Hydrocarbon Concentrate - Placeholder" [ref=e559] [cursor=pointer]:
+                      - /url: "#/product/107"
+                  - gridcell "Not Available" [ref=e560]
+                  - gridcell "$0.00" [ref=e561]
+                  - gridcell "0.00" [ref=e562]:
+                    - generic [ref=e563]: "0.00"
+                  - gridcell "0.00" [ref=e564]
+                  - gridcell "0.00" [ref=e565]
+                  - gridcell "0.00" [ref=e566]
+                  - gridcell "0.00" [ref=e567]
+                  - gridcell "never" [ref=e568]:
+                    - generic [ref=e570]: never
+                - row "Batches RTP | Premium Flower - 1083 Not Available $0.00 505.00 0.00 0.00 0.00 505.00 never" [ref=e571]:
+                  - gridcell "Batches RTP | Premium Flower - 1083" [ref=e572]:
+                    - link "Batches" [ref=e573] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=108"
+                    - link "RTP | Premium Flower - 1083" [ref=e574] [cursor=pointer]:
+                      - /url: "#/product/108"
+                  - gridcell "Not Available" [ref=e575]
+                  - gridcell "$0.00" [ref=e576]
+                  - gridcell "505.00" [ref=e577]:
+                    - generic [ref=e578]: "505.00"
+                  - gridcell "0.00" [ref=e579]
+                  - gridcell "0.00" [ref=e580]
+                  - gridcell "0.00" [ref=e581]
+                  - gridcell "505.00" [ref=e582]
+                  - gridcell "never" [ref=e583]:
+                    - generic [ref=e585]: never
+                - row "Batches RTP | Premium Flower - 1513 Not Available $0.00 960.00 0.00 0.00 0.00 960.00 never" [ref=e586]:
+                  - gridcell "Batches RTP | Premium Flower - 1513" [ref=e587]:
+                    - link "Batches" [ref=e588] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=109"
+                    - link "RTP | Premium Flower - 1513" [ref=e589] [cursor=pointer]:
+                      - /url: "#/product/109"
+                  - gridcell "Not Available" [ref=e590]
+                  - gridcell "$0.00" [ref=e591]
+                  - gridcell "960.00" [ref=e592]:
+                    - generic [ref=e593]: "960.00"
+                  - gridcell "0.00" [ref=e594]
+                  - gridcell "0.00" [ref=e595]
+                  - gridcell "0.00" [ref=e596]
+                  - gridcell "960.00" [ref=e597]
+                  - gridcell "never" [ref=e598]:
+                    - generic [ref=e600]: never
+                - row "Batches RTP | Premium Flower - 1970 Not Available $0.00 1,635.00 0.00 0.00 0.00 1,635.00 never" [ref=e601]:
+                  - gridcell "Batches RTP | Premium Flower - 1970" [ref=e602]:
+                    - link "Batches" [ref=e603] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=110"
+                    - link "RTP | Premium Flower - 1970" [ref=e604] [cursor=pointer]:
+                      - /url: "#/product/110"
+                  - gridcell "Not Available" [ref=e605]
+                  - gridcell "$0.00" [ref=e606]
+                  - gridcell "1,635.00" [ref=e607]:
+                    - generic [ref=e608]: 1,635.00
+                  - gridcell "0.00" [ref=e609]
+                  - gridcell "0.00" [ref=e610]
+                  - gridcell "0.00" [ref=e611]
+                  - gridcell "1,635.00" [ref=e612]
+                  - gridcell "never" [ref=e613]:
+                    - generic [ref=e615]: never
+                - row "Batches RTP | Premium Flower - 2024 Not Available $0.00 2,315.00 0.00 0.00 0.00 2,315.00 never" [ref=e616]:
+                  - gridcell "Batches RTP | Premium Flower - 2024" [ref=e617]:
+                    - link "Batches" [ref=e618] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=111"
+                    - link "RTP | Premium Flower - 2024" [ref=e619] [cursor=pointer]:
+                      - /url: "#/product/111"
+                  - gridcell "Not Available" [ref=e620]
+                  - gridcell "$0.00" [ref=e621]
+                  - gridcell "2,315.00" [ref=e622]:
+                    - generic [ref=e623]: 2,315.00
+                  - gridcell "0.00" [ref=e624]
+                  - gridcell "0.00" [ref=e625]
+                  - gridcell "0.00" [ref=e626]
+                  - gridcell "2,315.00" [ref=e627]
+                  - gridcell "never" [ref=e628]:
+                    - generic [ref=e630]: never
+                - row "Batches RTP | Premium Flower - 2042 Not Available $0.00 1,045.00 0.00 0.00 0.00 1,045.00 never" [ref=e631]:
+                  - gridcell "Batches RTP | Premium Flower - 2042" [ref=e632]:
+                    - link "Batches" [ref=e633] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=112"
+                    - link "RTP | Premium Flower - 2042" [ref=e634] [cursor=pointer]:
+                      - /url: "#/product/112"
+                  - gridcell "Not Available" [ref=e635]
+                  - gridcell "$0.00" [ref=e636]
+                  - gridcell "1,045.00" [ref=e637]:
+                    - generic [ref=e638]: 1,045.00
+                  - gridcell "0.00" [ref=e639]
+                  - gridcell "0.00" [ref=e640]
+                  - gridcell "0.00" [ref=e641]
+                  - gridcell "1,045.00" [ref=e642]
+                  - gridcell "never" [ref=e643]:
+                    - generic [ref=e645]: never
+                - row "Batches RTP | Premium Flower - 2079 Not Available $0.00 1,210.00 0.00 0.00 0.00 1,210.00 never" [ref=e646]:
+                  - gridcell "Batches RTP | Premium Flower - 2079" [ref=e647]:
+                    - link "Batches" [ref=e648] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=113"
+                    - link "RTP | Premium Flower - 2079" [ref=e649] [cursor=pointer]:
+                      - /url: "#/product/113"
+                  - gridcell "Not Available" [ref=e650]
+                  - gridcell "$0.00" [ref=e651]
+                  - gridcell "1,210.00" [ref=e652]:
+                    - generic [ref=e653]: 1,210.00
+                  - gridcell "0.00" [ref=e654]
+                  - gridcell "0.00" [ref=e655]
+                  - gridcell "0.00" [ref=e656]
+                  - gridcell "1,210.00" [ref=e657]
+                  - gridcell "never" [ref=e658]:
+                    - generic [ref=e660]: never
+                - row "Batches RTP | Premium Flower - 2081 Not Available $0.00 560.00 0.00 0.00 0.00 560.00 never" [ref=e661]:
+                  - gridcell "Batches RTP | Premium Flower - 2081" [ref=e662]:
+                    - link "Batches" [ref=e663] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=114"
+                    - link "RTP | Premium Flower - 2081" [ref=e664] [cursor=pointer]:
+                      - /url: "#/product/114"
+                  - gridcell "Not Available" [ref=e665]
+                  - gridcell "$0.00" [ref=e666]
+                  - gridcell "560.00" [ref=e667]:
+                    - generic [ref=e668]: "560.00"
+                  - gridcell "0.00" [ref=e669]
+                  - gridcell "0.00" [ref=e670]
+                  - gridcell "0.00" [ref=e671]
+                  - gridcell "560.00" [ref=e672]
+                  - gridcell "never" [ref=e673]:
+                    - generic [ref=e675]: never
+                - row "Batches RTP | Premium Flower - 2082 Not Available $0.00 2,850.00 0.00 0.00 0.00 2,850.00 never" [ref=e676]:
+                  - gridcell "Batches RTP | Premium Flower - 2082" [ref=e677]:
+                    - link "Batches" [ref=e678] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=115"
+                    - link "RTP | Premium Flower - 2082" [ref=e679] [cursor=pointer]:
+                      - /url: "#/product/115"
+                  - gridcell "Not Available" [ref=e680]
+                  - gridcell "$0.00" [ref=e681]
+                  - gridcell "2,850.00" [ref=e682]:
+                    - generic [ref=e683]: 2,850.00
+                  - gridcell "0.00" [ref=e684]
+                  - gridcell "0.00" [ref=e685]
+                  - gridcell "0.00" [ref=e686]
+                  - gridcell "2,850.00" [ref=e687]
+                  - gridcell "never" [ref=e688]:
+                    - generic [ref=e690]: never
+                - row "Batches RTP | Premium Flower - 2144 Not Available $0.00 650.00 0.00 0.00 0.00 650.00 never" [ref=e691]:
+                  - gridcell "Batches RTP | Premium Flower - 2144" [ref=e692]:
+                    - link "Batches" [ref=e693] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=116"
+                    - link "RTP | Premium Flower - 2144" [ref=e694] [cursor=pointer]:
+                      - /url: "#/product/116"
+                  - gridcell "Not Available" [ref=e695]
+                  - gridcell "$0.00" [ref=e696]
+                  - gridcell "650.00" [ref=e697]:
+                    - generic [ref=e698]: "650.00"
+                  - gridcell "0.00" [ref=e699]
+                  - gridcell "0.00" [ref=e700]
+                  - gridcell "0.00" [ref=e701]
+                  - gridcell "650.00" [ref=e702]
+                  - gridcell "never" [ref=e703]:
+                    - generic [ref=e705]: never
+                - row "Batches RTP | Premium Flower - 2166 Not Available $0.00 250.00 0.00 0.00 0.00 250.00 never" [ref=e706]:
+                  - gridcell "Batches RTP | Premium Flower - 2166" [ref=e707]:
+                    - link "Batches" [ref=e708] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=117"
+                    - link "RTP | Premium Flower - 2166" [ref=e709] [cursor=pointer]:
+                      - /url: "#/product/117"
+                  - gridcell "Not Available" [ref=e710]
+                  - gridcell "$0.00" [ref=e711]
+                  - gridcell "250.00" [ref=e712]:
+                    - generic [ref=e713]: "250.00"
+                  - gridcell "0.00" [ref=e714]
+                  - gridcell "0.00" [ref=e715]
+                  - gridcell "0.00" [ref=e716]
+                  - gridcell "250.00" [ref=e717]
+                  - gridcell "never" [ref=e718]:
+                    - generic [ref=e720]: never
+                - row "Batches RTP | Premium Flower - Platinum Pineapple Available $0.00 6,751.00 0.00 0.00 0.00 6,751.00 never" [ref=e721]:
+                  - gridcell "Batches RTP | Premium Flower - Platinum Pineapple" [ref=e722]:
+                    - link "Batches" [ref=e723] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=120"
+                    - link "RTP | Premium Flower - Platinum Pineapple" [ref=e724] [cursor=pointer]:
+                      - /url: "#/product/120"
+                  - gridcell "Available" [ref=e725]
+                  - gridcell "$0.00" [ref=e726]
+                  - gridcell "6,751.00" [ref=e727]:
+                    - generic [ref=e728]: 6,751.00
+                  - gridcell "0.00" [ref=e729]
+                  - gridcell "0.00" [ref=e730]
+                  - gridcell "0.00" [ref=e731]
+                  - gridcell "6,751.00" [ref=e732]
+                  - gridcell "never" [ref=e733]:
+                    - generic [ref=e735]: never
+                - row "Batches RTP | Premium Flower - Green Crack Available $0.00 6,124.10 21.90 0.00 0.00 6,146.00 never" [ref=e736]:
+                  - gridcell "Batches RTP | Premium Flower - Green Crack" [ref=e737]:
+                    - link "Batches" [ref=e738] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=136"
+                    - link "RTP | Premium Flower - Green Crack" [ref=e739] [cursor=pointer]:
+                      - /url: "#/product/136"
+                  - gridcell "Available" [ref=e740]
+                  - gridcell "$0.00" [ref=e741]
+                  - gridcell "6,124.10" [ref=e742]:
+                    - generic [ref=e743]: 6,124.10
+                  - gridcell "21.90" [ref=e744]:
+                    - generic [ref=e745]: "21.90"
+                  - gridcell "0.00" [ref=e746]
+                  - gridcell "0.00" [ref=e747]
+                  - gridcell "6,146.00" [ref=e748]
+                  - gridcell "never" [ref=e749]:
+                    - generic [ref=e751]: never
+                - row "Batches RTP | Premium Flower - Moonbow Available $0.00 10,065.40 14.60 0.00 0.00 10,080.00 never" [ref=e752]:
+                  - gridcell "Batches RTP | Premium Flower - Moonbow" [ref=e753]:
+                    - link "Batches" [ref=e754] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=140"
+                    - link "RTP | Premium Flower - Moonbow" [ref=e755] [cursor=pointer]:
+                      - /url: "#/product/140"
+                  - gridcell "Available" [ref=e756]
+                  - gridcell "$0.00" [ref=e757]
+                  - gridcell "10,065.40" [ref=e758]:
+                    - generic [ref=e759]: 10,065.40
+                  - gridcell "14.60" [ref=e760]:
+                    - generic [ref=e761]: "14.60"
+                  - gridcell "0.00" [ref=e762]
+                  - gridcell "0.00" [ref=e763]
+                  - gridcell "10,080.00" [ref=e764]
+                  - gridcell "never" [ref=e765]:
+                    - generic [ref=e767]: never
+                - row "Batches RTP | Premium Flower - Orange Crush Available $0.00 2,283.10 21.90 0.00 0.00 2,305.00 never" [ref=e768]:
+                  - gridcell "Batches RTP | Premium Flower - Orange Crush" [ref=e769]:
+                    - link "Batches" [ref=e770] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=141"
+                    - link "RTP | Premium Flower - Orange Crush" [ref=e771] [cursor=pointer]:
+                      - /url: "#/product/141"
+                  - gridcell "Available" [ref=e772]
+                  - gridcell "$0.00" [ref=e773]
+                  - gridcell "2,283.10" [ref=e774]:
+                    - generic [ref=e775]: 2,283.10
+                  - gridcell "21.90" [ref=e776]:
+                    - generic [ref=e777]: "21.90"
+                  - gridcell "0.00" [ref=e778]
+                  - gridcell "0.00" [ref=e779]
+                  - gridcell "2,305.00" [ref=e780]
+                  - gridcell "never" [ref=e781]:
+                    - generic [ref=e783]: never
+                - row "Batches RTP | Premium Flower - Skatalite Available $0.00 6,530.00 0.00 0.00 0.00 6,530.00 never" [ref=e784]:
+                  - gridcell "Batches RTP | Premium Flower - Skatalite" [ref=e785]:
+                    - link "Batches" [ref=e786] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=146"
+                    - link "RTP | Premium Flower - Skatalite" [ref=e787] [cursor=pointer]:
+                      - /url: "#/product/146"
+                  - gridcell "Available" [ref=e788]
+                  - gridcell "$0.00" [ref=e789]
+                  - gridcell "6,530.00" [ref=e790]:
+                    - generic [ref=e791]: 6,530.00
+                  - gridcell "0.00" [ref=e792]
+                  - gridcell "0.00" [ref=e793]
+                  - gridcell "0.00" [ref=e794]
+                  - gridcell "6,530.00" [ref=e795]
+                  - gridcell "never" [ref=e796]:
+                    - generic [ref=e798]: never
+                - row "Batches RTP | Premium Flower - White Fire OG Not Available $0.00 120.00 0.00 0.00 0.00 120.00 never" [ref=e799]:
+                  - gridcell "Batches RTP | Premium Flower - White Fire OG" [ref=e800]:
+                    - link "Batches" [ref=e801] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=148"
+                    - link "RTP | Premium Flower - White Fire OG" [ref=e802] [cursor=pointer]:
+                      - /url: "#/product/148"
+                  - gridcell "Not Available" [ref=e803]
+                  - gridcell "$0.00" [ref=e804]
+                  - gridcell "120.00" [ref=e805]:
+                    - generic [ref=e806]: "120.00"
+                  - gridcell "0.00" [ref=e807]
+                  - gridcell "0.00" [ref=e808]
+                  - gridcell "0.00" [ref=e809]
+                  - gridcell "120.00" [ref=e810]
+                  - gridcell "never" [ref=e811]:
+                    - generic [ref=e813]: never
+                - row "Batches RTP | Vape | Hydrocarbon Concentrate - Placeholder Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e814]:
+                  - gridcell "Batches RTP | Vape | Hydrocarbon Concentrate - Placeholder" [ref=e815]:
+                    - link "Batches" [ref=e816] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=151"
+                    - link "RTP | Vape | Hydrocarbon Concentrate - Placeholder" [ref=e817] [cursor=pointer]:
+                      - /url: "#/product/151"
+                  - gridcell "Not Available" [ref=e818]
+                  - gridcell "$0.00" [ref=e819]
+                  - gridcell "0.00" [ref=e820]:
+                    - generic [ref=e821]: "0.00"
+                  - gridcell "0.00" [ref=e822]
+                  - gridcell "0.00" [ref=e823]
+                  - gridcell "0.00" [ref=e824]
+                  - gridcell "0.00" [ref=e825]
+                  - gridcell "never" [ref=e826]:
+                    - generic [ref=e828]: never
+                - row "Batches WIP | Premium Flower - Placeholder Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e829]:
+                  - gridcell "Batches WIP | Premium Flower - Placeholder" [ref=e830]:
+                    - link "Batches" [ref=e831] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=152"
+                    - link "WIP | Premium Flower - Placeholder" [ref=e832] [cursor=pointer]:
+                      - /url: "#/product/152"
+                  - gridcell "Not Available" [ref=e833]
+                  - gridcell "$0.00" [ref=e834]
+                  - gridcell "0.00" [ref=e835]:
+                    - generic [ref=e836]: "0.00"
+                  - gridcell "0.00" [ref=e837]
+                  - gridcell "0.00" [ref=e838]
+                  - gridcell "0.00" [ref=e839]
+                  - gridcell "0.00" [ref=e840]
+                  - gridcell "never" [ref=e841]:
+                    - generic [ref=e843]: never
+                - row "Batches Concentrate - Placeholder - 0.5g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e844]:
+                  - gridcell "Batches Concentrate - Placeholder - 0.5g" [ref=e845]:
+                    - link "Batches" [ref=e846] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=153"
+                    - link "Concentrate - Placeholder - 0.5g" [ref=e847] [cursor=pointer]:
+                      - /url: "#/product/153"
+                  - gridcell "Not Available" [ref=e848]
+                  - gridcell "$0.00" [ref=e849]
+                  - gridcell "0.00" [ref=e850]:
+                    - generic [ref=e851]: "0.00"
+                  - gridcell "0.00" [ref=e852]
+                  - gridcell "0.00" [ref=e853]
+                  - gridcell "0.00" [ref=e854]
+                  - gridcell "0.00" [ref=e855]
+                  - gridcell "never" [ref=e856]:
+                    - generic [ref=e858]: never
+                - row "Batches Concentrate - Placeholder - 1g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e859]:
+                  - gridcell "Batches Concentrate - Placeholder - 1g" [ref=e860]:
+                    - link "Batches" [ref=e861] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=154"
+                    - link "Concentrate - Placeholder - 1g" [ref=e862] [cursor=pointer]:
+                      - /url: "#/product/154"
+                  - gridcell "Not Available" [ref=e863]
+                  - gridcell "$0.00" [ref=e864]
+                  - gridcell "0.00" [ref=e865]:
+                    - generic [ref=e866]: "0.00"
+                  - gridcell "0.00" [ref=e867]
+                  - gridcell "0.00" [ref=e868]
+                  - gridcell "0.00" [ref=e869]
+                  - gridcell "0.00" [ref=e870]
+                  - gridcell "never" [ref=e871]:
+                    - generic [ref=e873]: never
+                - row "Batches Distillate Cart - Placeholder - 0.5g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e874]:
+                  - gridcell "Batches Distillate Cart - Placeholder - 0.5g" [ref=e875]:
+                    - link "Batches" [ref=e876] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=155"
+                    - link "Distillate Cart - Placeholder - 0.5g" [ref=e877] [cursor=pointer]:
+                      - /url: "#/product/155"
+                  - gridcell "Not Available" [ref=e878]
+                  - gridcell "$0.00" [ref=e879]
+                  - gridcell "0.00" [ref=e880]:
+                    - generic [ref=e881]: "0.00"
+                  - gridcell "0.00" [ref=e882]
+                  - gridcell "0.00" [ref=e883]
+                  - gridcell "0.00" [ref=e884]
+                  - gridcell "0.00" [ref=e885]
+                  - gridcell "never" [ref=e886]:
+                    - generic [ref=e888]: never
+                - row "Batches Distillate Cart - Placeholder - 1g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e889]:
+                  - gridcell "Batches Distillate Cart - Placeholder - 1g" [ref=e890]:
+                    - link "Batches" [ref=e891] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=156"
+                    - link "Distillate Cart - Placeholder - 1g" [ref=e892] [cursor=pointer]:
+                      - /url: "#/product/156"
+                  - gridcell "Not Available" [ref=e893]
+                  - gridcell "$0.00" [ref=e894]
+                  - gridcell "0.00" [ref=e895]:
+                    - generic [ref=e896]: "0.00"
+                  - gridcell "0.00" [ref=e897]
+                  - gridcell "0.00" [ref=e898]
+                  - gridcell "0.00" [ref=e899]
+                  - gridcell "0.00" [ref=e900]
+                  - gridcell "never" [ref=e901]:
+                    - generic [ref=e903]: never
+                - row "Batches Infused Flavored Preroll - Placeholder - 0.5g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e904]:
+                  - gridcell "Batches Infused Flavored Preroll - Placeholder - 0.5g" [ref=e905]:
+                    - link "Batches" [ref=e906] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=157"
+                    - link "Infused Flavored Preroll - Placeholder - 0.5g" [ref=e907] [cursor=pointer]:
+                      - /url: "#/product/157"
+                  - gridcell "Not Available" [ref=e908]
+                  - gridcell "$0.00" [ref=e909]
+                  - gridcell "0.00" [ref=e910]:
+                    - generic [ref=e911]: "0.00"
+                  - gridcell "0.00" [ref=e912]
+                  - gridcell "0.00" [ref=e913]
+                  - gridcell "0.00" [ref=e914]
+                  - gridcell "0.00" [ref=e915]
+                  - gridcell "never" [ref=e916]:
+                    - generic [ref=e918]: never
+                - row "Batches Infused Flavored Preroll - Placeholder - 10pk(10x0.5g) Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e919]:
+                  - gridcell "Batches Infused Flavored Preroll - Placeholder - 10pk(10x0.5g)" [ref=e920]:
+                    - link "Batches" [ref=e921] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=158"
+                    - link "Infused Flavored Preroll - Placeholder - 10pk(10x0.5g)" [ref=e922] [cursor=pointer]:
+                      - /url: "#/product/158"
+                  - gridcell "Not Available" [ref=e923]
+                  - gridcell "$0.00" [ref=e924]
+                  - gridcell "0.00" [ref=e925]:
+                    - generic [ref=e926]: "0.00"
+                  - gridcell "0.00" [ref=e927]
+                  - gridcell "0.00" [ref=e928]
+                  - gridcell "0.00" [ref=e929]
+                  - gridcell "0.00" [ref=e930]
+                  - gridcell "never" [ref=e931]:
+                    - generic [ref=e933]: never
+                - row "Batches Infused Flavored Preroll - Placeholder - 2pk (2x0.5g) Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e934]:
+                  - gridcell "Batches Infused Flavored Preroll - Placeholder - 2pk (2x0.5g)" [ref=e935]:
+                    - link "Batches" [ref=e936] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=159"
+                    - link "Infused Flavored Preroll - Placeholder - 2pk (2x0.5g)" [ref=e937] [cursor=pointer]:
+                      - /url: "#/product/159"
+                  - gridcell "Not Available" [ref=e938]
+                  - gridcell "$0.00" [ref=e939]
+                  - gridcell "0.00" [ref=e940]:
+                    - generic [ref=e941]: "0.00"
+                  - gridcell "0.00" [ref=e942]
+                  - gridcell "0.00" [ref=e943]
+                  - gridcell "0.00" [ref=e944]
+                  - gridcell "0.00" [ref=e945]
+                  - gridcell "never" [ref=e946]:
+                    - generic [ref=e948]: never
+                - row "Batches Infused Preroll - Placeholder - 0.5g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e949]:
+                  - gridcell "Batches Infused Preroll - Placeholder - 0.5g" [ref=e950]:
+                    - link "Batches" [ref=e951] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=160"
+                    - link "Infused Preroll - Placeholder - 0.5g" [ref=e952] [cursor=pointer]:
+                      - /url: "#/product/160"
+                  - gridcell "Not Available" [ref=e953]
+                  - gridcell "$0.00" [ref=e954]
+                  - gridcell "0.00" [ref=e955]:
+                    - generic [ref=e956]: "0.00"
+                  - gridcell "0.00" [ref=e957]
+                  - gridcell "0.00" [ref=e958]
+                  - gridcell "0.00" [ref=e959]
+                  - gridcell "0.00" [ref=e960]
+                  - gridcell "never" [ref=e961]:
+                    - generic [ref=e963]: never
+                - row "Batches Infused Preroll - Placeholder - 10pk(10x0.5g) Not Available $11.65 0.00 0.00 0.00 0.00 0.00 $11.65 " [ref=e964]:
+                  - gridcell "Batches Infused Preroll - Placeholder - 10pk(10x0.5g)" [ref=e965]:
+                    - link "Batches" [ref=e966] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=161"
+                    - link "Infused Preroll - Placeholder - 10pk(10x0.5g)" [ref=e967] [cursor=pointer]:
+                      - /url: "#/product/161"
+                  - gridcell "Not Available" [ref=e968]
+                  - gridcell "$11.65" [ref=e969]
+                  - gridcell "0.00" [ref=e970]:
+                    - generic [ref=e971]: "0.00"
+                  - gridcell "0.00" [ref=e972]
+                  - gridcell "0.00" [ref=e973]
+                  - gridcell "0.00" [ref=e974]
+                  - gridcell "0.00" [ref=e975]
+                  - gridcell "$11.65 " [ref=e976]:
+                    - generic [ref=e977]:
+                      - text: $11.65
+                      - generic [ref=e979]: 
+                - row "Batches Infused Preroll - Placeholder - 2pk (2x0.5g) Not Available $4.00 0.00 0.00 0.00 0.00 0.00 $4.00 " [ref=e980]:
+                  - gridcell "Batches Infused Preroll - Placeholder - 2pk (2x0.5g)" [ref=e981]:
+                    - link "Batches" [ref=e982] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=162"
+                    - link "Infused Preroll - Placeholder - 2pk (2x0.5g)" [ref=e983] [cursor=pointer]:
+                      - /url: "#/product/162"
+                  - gridcell "Not Available" [ref=e984]
+                  - gridcell "$4.00" [ref=e985]
+                  - gridcell "0.00" [ref=e986]:
+                    - generic [ref=e987]: "0.00"
+                  - gridcell "0.00" [ref=e988]
+                  - gridcell "0.00" [ref=e989]
+                  - gridcell "0.00" [ref=e990]
+                  - gridcell "0.00" [ref=e991]
+                  - gridcell "$4.00 " [ref=e992]:
+                    - generic [ref=e993]:
+                      - text: $4.00
+                      - generic [ref=e995]: 
+                - row "Batches Premium Budlets - (S) Platinum Pineapple - 14g market G&S GREENERY Available $25.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e996]:
+                  - gridcell "Batches Premium Budlets - (S) Platinum Pineapple - 14g market G&S GREENERY" [ref=e997]:
+                    - link "Batches" [ref=e998] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=166"
+                    - link "Premium Budlets - (S) Platinum Pineapple - 14g" [ref=e999] [cursor=pointer]:
+                      - /url: "#/product/166"
+                    - link "market G&S GREENERY" [ref=e1000] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1001]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1002]
+                  - gridcell "$25.00" [ref=e1003]
+                  - gridcell "0.00" [ref=e1004]:
+                    - generic [ref=e1005]: "0.00"
+                  - gridcell "0.00" [ref=e1006]
+                  - gridcell "0.00" [ref=e1007]
+                  - gridcell "0.00" [ref=e1008]
+                  - gridcell "0.00" [ref=e1009]
+                  - gridcell "$5.00 " [ref=e1010]:
+                    - generic [ref=e1011]:
+                      - text: $5.00
+                      - generic [ref=e1013]: 
+                - row "Batches Premium Budlets - (S) Platinum Pineapple - 28g market G&S GREENERY Available $45.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1014]:
+                  - gridcell "Batches Premium Budlets - (S) Platinum Pineapple - 28g market G&S GREENERY" [ref=e1015]:
+                    - link "Batches" [ref=e1016] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=167"
+                    - link "Premium Budlets - (S) Platinum Pineapple - 28g" [ref=e1017] [cursor=pointer]:
+                      - /url: "#/product/167"
+                    - link "market G&S GREENERY" [ref=e1018] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1019]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1020]
+                  - gridcell "$45.00" [ref=e1021]
+                  - gridcell "0.00" [ref=e1022]:
+                    - generic [ref=e1023]: "0.00"
+                  - gridcell "0.00" [ref=e1024]
+                  - gridcell "0.00" [ref=e1025]
+                  - gridcell "0.00" [ref=e1026]
+                  - gridcell "0.00" [ref=e1027]
+                  - gridcell "$5.00 " [ref=e1028]:
+                    - generic [ref=e1029]:
+                      - text: $5.00
+                      - generic [ref=e1031]: 
+                - row "Batches Premium Budlets - (S) Platinum Pineapple - 7g market G&S GREENERY Available $12.50 0.00 0.00 0.00 0.00 0.00 $2.50 " [ref=e1032]:
+                  - gridcell "Batches Premium Budlets - (S) Platinum Pineapple - 7g market G&S GREENERY" [ref=e1033]:
+                    - link "Batches" [ref=e1034] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=168"
+                    - link "Premium Budlets - (S) Platinum Pineapple - 7g" [ref=e1035] [cursor=pointer]:
+                      - /url: "#/product/168"
+                    - link "market G&S GREENERY" [ref=e1036] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1037]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1038]
+                  - gridcell "$12.50" [ref=e1039]
+                  - gridcell "0.00" [ref=e1040]:
+                    - generic [ref=e1041]: "0.00"
+                  - gridcell "0.00" [ref=e1042]
+                  - gridcell "0.00" [ref=e1043]
+                  - gridcell "0.00" [ref=e1044]
+                  - gridcell "0.00" [ref=e1045]
+                  - gridcell "$2.50 " [ref=e1046]:
+                    - generic [ref=e1047]:
+                      - text: $2.50
+                      - generic [ref=e1049]: 
+                - row "Batches Premium Budlets - (S) Green Crack - 14g market G&S GREENERY Available $25.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1050]:
+                  - gridcell "Batches Premium Budlets - (S) Green Crack - 14g market G&S GREENERY" [ref=e1051]:
+                    - link "Batches" [ref=e1052] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=214"
+                    - link "Premium Budlets - (S) Green Crack - 14g" [ref=e1053] [cursor=pointer]:
+                      - /url: "#/product/214"
+                    - link "market G&S GREENERY" [ref=e1054] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1055]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1056]
+                  - gridcell "$25.00" [ref=e1057]
+                  - gridcell "0.00" [ref=e1058]:
+                    - generic [ref=e1059]: "0.00"
+                  - gridcell "0.00" [ref=e1060]
+                  - gridcell "0.00" [ref=e1061]
+                  - gridcell "0.00" [ref=e1062]
+                  - gridcell "0.00" [ref=e1063]
+                  - gridcell "$5.00 " [ref=e1064]:
+                    - generic [ref=e1065]:
+                      - text: $5.00
+                      - generic [ref=e1067]: 
+                - row "Batches Premium Budlets - (S) Green Crack - 28g market G&S GREENERY Available $45.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1068]:
+                  - gridcell "Batches Premium Budlets - (S) Green Crack - 28g market G&S GREENERY" [ref=e1069]:
+                    - link "Batches" [ref=e1070] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=215"
+                    - link "Premium Budlets - (S) Green Crack - 28g" [ref=e1071] [cursor=pointer]:
+                      - /url: "#/product/215"
+                    - link "market G&S GREENERY" [ref=e1072] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1073]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1074]
+                  - gridcell "$45.00" [ref=e1075]
+                  - gridcell "0.00" [ref=e1076]:
+                    - generic [ref=e1077]: "0.00"
+                  - gridcell "0.00" [ref=e1078]
+                  - gridcell "0.00" [ref=e1079]
+                  - gridcell "0.00" [ref=e1080]
+                  - gridcell "0.00" [ref=e1081]
+                  - gridcell "$5.00 " [ref=e1082]:
+                    - generic [ref=e1083]:
+                      - text: $5.00
+                      - generic [ref=e1085]: 
+                - row "Batches Premium Budlets - (S) Green Crack - 7g market G&S GREENERY Available $12.50 0.00 0.00 0.00 0.00 0.00 $2.50 " [ref=e1086]:
+                  - gridcell "Batches Premium Budlets - (S) Green Crack - 7g market G&S GREENERY" [ref=e1087]:
+                    - link "Batches" [ref=e1088] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=216"
+                    - link "Premium Budlets - (S) Green Crack - 7g" [ref=e1089] [cursor=pointer]:
+                      - /url: "#/product/216"
+                    - link "market G&S GREENERY" [ref=e1090] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1091]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1092]
+                  - gridcell "$12.50" [ref=e1093]
+                  - gridcell "0.00" [ref=e1094]:
+                    - generic [ref=e1095]: "0.00"
+                  - gridcell "0.00" [ref=e1096]
+                  - gridcell "0.00" [ref=e1097]
+                  - gridcell "0.00" [ref=e1098]
+                  - gridcell "0.00" [ref=e1099]
+                  - gridcell "$2.50 " [ref=e1100]:
+                    - generic [ref=e1101]:
+                      - text: $2.50
+                      - generic [ref=e1103]: 
+                - row "Batches Premium Budlets - (H) Moonbow - 14g market G&S GREENERY Available $25.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1104]:
+                  - gridcell "Batches Premium Budlets - (H) Moonbow - 14g market G&S GREENERY" [ref=e1105]:
+                    - link "Batches" [ref=e1106] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=226"
+                    - link "Premium Budlets - (H) Moonbow - 14g" [ref=e1107] [cursor=pointer]:
+                      - /url: "#/product/226"
+                    - link "market G&S GREENERY" [ref=e1108] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1109]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1110]
+                  - gridcell "$25.00" [ref=e1111]
+                  - gridcell "0.00" [ref=e1112]:
+                    - generic [ref=e1113]: "0.00"
+                  - gridcell "0.00" [ref=e1114]
+                  - gridcell "0.00" [ref=e1115]
+                  - gridcell "0.00" [ref=e1116]
+                  - gridcell "0.00" [ref=e1117]
+                  - gridcell "$5.00 " [ref=e1118]:
+                    - generic [ref=e1119]:
+                      - text: $5.00
+                      - generic [ref=e1121]: 
+                - row "Batches Premium Budlets - (H) Moonbow - 28g market G&S GREENERY Available $45.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1122]:
+                  - gridcell "Batches Premium Budlets - (H) Moonbow - 28g market G&S GREENERY" [ref=e1123]:
+                    - link "Batches" [ref=e1124] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=227"
+                    - link "Premium Budlets - (H) Moonbow - 28g" [ref=e1125] [cursor=pointer]:
+                      - /url: "#/product/227"
+                    - link "market G&S GREENERY" [ref=e1126] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1127]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1128]
+                  - gridcell "$45.00" [ref=e1129]
+                  - gridcell "0.00" [ref=e1130]:
+                    - generic [ref=e1131]: "0.00"
+                  - gridcell "0.00" [ref=e1132]
+                  - gridcell "0.00" [ref=e1133]
+                  - gridcell "0.00" [ref=e1134]
+                  - gridcell "0.00" [ref=e1135]
+                  - gridcell "$5.00 " [ref=e1136]:
+                    - generic [ref=e1137]:
+                      - text: $5.00
+                      - generic [ref=e1139]: 
+                - row "Batches Premium Budlets - (H) Moonbow - 7g market G&S GREENERY Available $12.50 0.00 0.00 0.00 0.00 0.00 $2.50 " [ref=e1140]:
+                  - gridcell "Batches Premium Budlets - (H) Moonbow - 7g market G&S GREENERY" [ref=e1141]:
+                    - link "Batches" [ref=e1142] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=228"
+                    - link "Premium Budlets - (H) Moonbow - 7g" [ref=e1143] [cursor=pointer]:
+                      - /url: "#/product/228"
+                    - link "market G&S GREENERY" [ref=e1144] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1145]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1146]
+                  - gridcell "$12.50" [ref=e1147]
+                  - gridcell "0.00" [ref=e1148]:
+                    - generic [ref=e1149]: "0.00"
+                  - gridcell "0.00" [ref=e1150]
+                  - gridcell "0.00" [ref=e1151]
+                  - gridcell "0.00" [ref=e1152]
+                  - gridcell "0.00" [ref=e1153]
+                  - gridcell "$2.50 " [ref=e1154]:
+                    - generic [ref=e1155]:
+                      - text: $2.50
+                      - generic [ref=e1157]: 
+                - row "Batches Premium Budlets - (H) Orange Crush - 14g market G&S GREENERY Available $25.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1158]:
+                  - gridcell "Batches Premium Budlets - (H) Orange Crush - 14g market G&S GREENERY" [ref=e1159]:
+                    - link "Batches" [ref=e1160] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=229"
+                    - link "Premium Budlets - (H) Orange Crush - 14g" [ref=e1161] [cursor=pointer]:
+                      - /url: "#/product/229"
+                    - link "market G&S GREENERY" [ref=e1162] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1163]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1164]
+                  - gridcell "$25.00" [ref=e1165]
+                  - gridcell "0.00" [ref=e1166]:
+                    - generic [ref=e1167]: "0.00"
+                  - gridcell "0.00" [ref=e1168]
+                  - gridcell "0.00" [ref=e1169]
+                  - gridcell "0.00" [ref=e1170]
+                  - gridcell "0.00" [ref=e1171]
+                  - gridcell "$5.00 " [ref=e1172]:
+                    - generic [ref=e1173]:
+                      - text: $5.00
+                      - generic [ref=e1175]: 
+                - row "Batches Premium Budlets - (H) Orange Crush - 28g market G&S GREENERY Available $45.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1176]:
+                  - gridcell "Batches Premium Budlets - (H) Orange Crush - 28g market G&S GREENERY" [ref=e1177]:
+                    - link "Batches" [ref=e1178] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=230"
+                    - link "Premium Budlets - (H) Orange Crush - 28g" [ref=e1179] [cursor=pointer]:
+                      - /url: "#/product/230"
+                    - link "market G&S GREENERY" [ref=e1180] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1181]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1182]
+                  - gridcell "$45.00" [ref=e1183]
+                  - gridcell "0.00" [ref=e1184]:
+                    - generic [ref=e1185]: "0.00"
+                  - gridcell "0.00" [ref=e1186]
+                  - gridcell "0.00" [ref=e1187]
+                  - gridcell "0.00" [ref=e1188]
+                  - gridcell "0.00" [ref=e1189]
+                  - gridcell "$5.00 " [ref=e1190]:
+                    - generic [ref=e1191]:
+                      - text: $5.00
+                      - generic [ref=e1193]: 
+                - row "Batches Premium Budlets - (H) Orange Crush - 7g market G&S GREENERY Available $12.50 0.00 0.00 0.00 0.00 0.00 $2.50 " [ref=e1194]:
+                  - gridcell "Batches Premium Budlets - (H) Orange Crush - 7g market G&S GREENERY" [ref=e1195]:
+                    - link "Batches" [ref=e1196] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=231"
+                    - link "Premium Budlets - (H) Orange Crush - 7g" [ref=e1197] [cursor=pointer]:
+                      - /url: "#/product/231"
+                    - link "market G&S GREENERY" [ref=e1198] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1199]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1200]
+                  - gridcell "$12.50" [ref=e1201]
+                  - gridcell "0.00" [ref=e1202]:
+                    - generic [ref=e1203]: "0.00"
+                  - gridcell "0.00" [ref=e1204]
+                  - gridcell "0.00" [ref=e1205]
+                  - gridcell "0.00" [ref=e1206]
+                  - gridcell "0.00" [ref=e1207]
+                  - gridcell "$2.50 " [ref=e1208]:
+                    - generic [ref=e1209]:
+                      - text: $2.50
+                      - generic [ref=e1211]: 
+                - row "Batches Premium Budlets - (S) Skatalite - 14g market G&S GREENERY Available $25.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1212]:
+                  - gridcell "Batches Premium Budlets - (S) Skatalite - 14g market G&S GREENERY" [ref=e1213]:
+                    - link "Batches" [ref=e1214] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=244"
+                    - link "Premium Budlets - (S) Skatalite - 14g" [ref=e1215] [cursor=pointer]:
+                      - /url: "#/product/244"
+                    - link "market G&S GREENERY" [ref=e1216] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1217]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1218]
+                  - gridcell "$25.00" [ref=e1219]
+                  - gridcell "0.00" [ref=e1220]:
+                    - generic [ref=e1221]: "0.00"
+                  - gridcell "0.00" [ref=e1222]
+                  - gridcell "0.00" [ref=e1223]
+                  - gridcell "0.00" [ref=e1224]
+                  - gridcell "0.00" [ref=e1225]
+                  - gridcell "$5.00 " [ref=e1226]:
+                    - generic [ref=e1227]:
+                      - text: $5.00
+                      - generic [ref=e1229]: 
+                - row "Batches Premium Budlets - (S) Skatalite - 28g market G&S GREENERY Available $45.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1230]:
+                  - gridcell "Batches Premium Budlets - (S) Skatalite - 28g market G&S GREENERY" [ref=e1231]:
+                    - link "Batches" [ref=e1232] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=245"
+                    - link "Premium Budlets - (S) Skatalite - 28g" [ref=e1233] [cursor=pointer]:
+                      - /url: "#/product/245"
+                    - link "market G&S GREENERY" [ref=e1234] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1235]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1236]
+                  - gridcell "$45.00" [ref=e1237]
+                  - gridcell "0.00" [ref=e1238]:
+                    - generic [ref=e1239]: "0.00"
+                  - gridcell "0.00" [ref=e1240]
+                  - gridcell "0.00" [ref=e1241]
+                  - gridcell "0.00" [ref=e1242]
+                  - gridcell "0.00" [ref=e1243]
+                  - gridcell "$5.00 " [ref=e1244]:
+                    - generic [ref=e1245]:
+                      - text: $5.00
+                      - generic [ref=e1247]: 
+                - row "Batches Premium Budlets - (S) Skatalite - 7g market G&S GREENERY Available $12.50 0.00 0.00 0.00 0.00 0.00 $2.50 " [ref=e1248]:
+                  - gridcell "Batches Premium Budlets - (S) Skatalite - 7g market G&S GREENERY" [ref=e1249]:
+                    - link "Batches" [ref=e1250] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=246"
+                    - link "Premium Budlets - (S) Skatalite - 7g" [ref=e1251] [cursor=pointer]:
+                      - /url: "#/product/246"
+                    - link "market G&S GREENERY" [ref=e1252] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1253]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1254]
+                  - gridcell "$12.50" [ref=e1255]
+                  - gridcell "0.00" [ref=e1256]:
+                    - generic [ref=e1257]: "0.00"
+                  - gridcell "0.00" [ref=e1258]
+                  - gridcell "0.00" [ref=e1259]
+                  - gridcell "0.00" [ref=e1260]
+                  - gridcell "0.00" [ref=e1261]
+                  - gridcell "$2.50 " [ref=e1262]:
+                    - generic [ref=e1263]:
+                      - text: $2.50
+                      - generic [ref=e1265]: 
+                - row "Batches Premium Budlets - (H) White Fire OG - 14g market G&S GREENERY Available $25.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1266]:
+                  - gridcell "Batches Premium Budlets - (H) White Fire OG - 14g market G&S GREENERY" [ref=e1267]:
+                    - link "Batches" [ref=e1268] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=250"
+                    - link "Premium Budlets - (H) White Fire OG - 14g" [ref=e1269] [cursor=pointer]:
+                      - /url: "#/product/250"
+                    - link "market G&S GREENERY" [ref=e1270] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1271]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1272]
+                  - gridcell "$25.00" [ref=e1273]
+                  - gridcell "0.00" [ref=e1274]:
+                    - generic [ref=e1275]: "0.00"
+                  - gridcell "0.00" [ref=e1276]
+                  - gridcell "0.00" [ref=e1277]
+                  - gridcell "0.00" [ref=e1278]
+                  - gridcell "0.00" [ref=e1279]
+                  - gridcell "$5.00 " [ref=e1280]:
+                    - generic [ref=e1281]:
+                      - text: $5.00
+                      - generic [ref=e1283]: 
+                - row "Batches Premium Budlets - (H) White Fire OG - 28g market G&S GREENERY Available $45.00 0.00 0.00 0.00 0.00 0.00 $5.00 " [ref=e1284]:
+                  - gridcell "Batches Premium Budlets - (H) White Fire OG - 28g market G&S GREENERY" [ref=e1285]:
+                    - link "Batches" [ref=e1286] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=251"
+                    - link "Premium Budlets - (H) White Fire OG - 28g" [ref=e1287] [cursor=pointer]:
+                      - /url: "#/product/251"
+                    - link "market G&S GREENERY" [ref=e1288] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1289]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1290]
+                  - gridcell "$45.00" [ref=e1291]
+                  - gridcell "0.00" [ref=e1292]:
+                    - generic [ref=e1293]: "0.00"
+                  - gridcell "0.00" [ref=e1294]
+                  - gridcell "0.00" [ref=e1295]
+                  - gridcell "0.00" [ref=e1296]
+                  - gridcell "0.00" [ref=e1297]
+                  - gridcell "$5.00 " [ref=e1298]:
+                    - generic [ref=e1299]:
+                      - text: $5.00
+                      - generic [ref=e1301]: 
+                - row "Batches Premium Budlets - (H) White Fire OG - 7g market G&S GREENERY Available $12.50 0.00 0.00 0.00 0.00 0.00 $2.50 " [ref=e1302]:
+                  - gridcell "Batches Premium Budlets - (H) White Fire OG - 7g market G&S GREENERY" [ref=e1303]:
+                    - link "Batches" [ref=e1304] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=252"
+                    - link "Premium Budlets - (H) White Fire OG - 7g" [ref=e1305] [cursor=pointer]:
+                      - /url: "#/product/252"
+                    - link "market G&S GREENERY" [ref=e1306] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1307]
+                      - text: G&S GREENERY
+                  - gridcell "Available" [ref=e1308]
+                  - gridcell "$12.50" [ref=e1309]
+                  - gridcell "0.00" [ref=e1310]:
+                    - generic [ref=e1311]: "0.00"
+                  - gridcell "0.00" [ref=e1312]
+                  - gridcell "0.00" [ref=e1313]
+                  - gridcell "0.00" [ref=e1314]
+                  - gridcell "0.00" [ref=e1315]
+                  - gridcell "$2.50 " [ref=e1316]:
+                    - generic [ref=e1317]:
+                      - text: $2.50
+                      - generic [ref=e1319]: 
+                - row "Batches Premium Flower (S) Platinum Pineapple - 14g market G&S GREENERY Available  $33.35 24.00 0.00 0.00 0.00 24.00 $33.35 " [ref=e1320]:
+                  - gridcell "Batches Premium Flower (S) Platinum Pineapple - 14g market G&S GREENERY" [ref=e1321]:
+                    - link "Batches" [ref=e1322] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=261"
+                    - link "Premium Flower (S) Platinum Pineapple - 14g" [ref=e1323] [cursor=pointer]:
+                      - /url: "#/product/261"
+                    - link "market G&S GREENERY" [ref=e1324] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1325]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1326]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1327]:
+                      - generic [ref=e1328]: 
+                  - gridcell "$33.35" [ref=e1329]
+                  - gridcell "24.00" [ref=e1330]:
+                    - generic [ref=e1331]: "24.00"
+                  - gridcell "0.00" [ref=e1332]
+                  - gridcell "0.00" [ref=e1333]
+                  - gridcell "0.00" [ref=e1334]
+                  - gridcell "24.00" [ref=e1335]
+                  - gridcell "$33.35 " [ref=e1336]:
+                    - generic [ref=e1337]:
+                      - text: $33.35
+                      - generic [ref=e1339]: 
+                - row "Batches Premium Flower (S) Platinum Pineapple - 1g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e1340]:
+                  - gridcell "Batches Premium Flower (S) Platinum Pineapple - 1g" [ref=e1341]:
+                    - link "Batches" [ref=e1342] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=262"
+                    - link "Premium Flower (S) Platinum Pineapple - 1g" [ref=e1343] [cursor=pointer]:
+                      - /url: "#/product/262"
+                  - gridcell "Not Available" [ref=e1344]
+                  - gridcell "$0.00" [ref=e1345]
+                  - gridcell "0.00" [ref=e1346]:
+                    - generic [ref=e1347]: "0.00"
+                  - gridcell "0.00" [ref=e1348]
+                  - gridcell "0.00" [ref=e1349]
+                  - gridcell "0.00" [ref=e1350]
+                  - gridcell "0.00" [ref=e1351]
+                  - gridcell "never" [ref=e1352]:
+                    - generic [ref=e1354]: never
+                - row "Batches Premium Flower (S) Platinum Pineapple - 28g market G&S GREENERY Available  $50.00 12.00 0.00 0.00 0.00 12.00 $50.00 " [ref=e1355]:
+                  - gridcell "Batches Premium Flower (S) Platinum Pineapple - 28g market G&S GREENERY" [ref=e1356]:
+                    - link "Batches" [ref=e1357] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=263"
+                    - link "Premium Flower (S) Platinum Pineapple - 28g" [ref=e1358] [cursor=pointer]:
+                      - /url: "#/product/263"
+                    - link "market G&S GREENERY" [ref=e1359] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1360]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1361]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1362]:
+                      - generic [ref=e1363]: 
+                  - gridcell "$50.00" [ref=e1364]
+                  - gridcell "12.00" [ref=e1365]:
+                    - generic [ref=e1366]: "12.00"
+                  - gridcell "0.00" [ref=e1367]
+                  - gridcell "0.00" [ref=e1368]
+                  - gridcell "0.00" [ref=e1369]
+                  - gridcell "12.00" [ref=e1370]
+                  - gridcell "$50.00 " [ref=e1371]:
+                    - generic [ref=e1372]:
+                      - text: $50.00
+                      - generic [ref=e1374]: 
+                - row "Batches Premium Flower (S) Platinum Pineapple - 3.5g market G&S GREENERY Available  $10.00 288.00 0.00 0.00 0.00 288.00 $10.00 " [ref=e1375]:
+                  - gridcell "Batches Premium Flower (S) Platinum Pineapple - 3.5g market G&S GREENERY" [ref=e1376]:
+                    - link "Batches" [ref=e1377] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=264"
+                    - link "Premium Flower (S) Platinum Pineapple - 3.5g" [ref=e1378] [cursor=pointer]:
+                      - /url: "#/product/264"
+                    - link "market G&S GREENERY" [ref=e1379] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1380]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1381]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1382]:
+                      - generic [ref=e1383]: 
+                  - gridcell "$10.00" [ref=e1384]
+                  - gridcell "288.00" [ref=e1385]:
+                    - generic [ref=e1386]: "288.00"
+                  - gridcell "0.00" [ref=e1387]
+                  - gridcell "0.00" [ref=e1388]
+                  - gridcell "0.00" [ref=e1389]
+                  - gridcell "288.00" [ref=e1390]
+                  - gridcell "$10.00 " [ref=e1391]:
+                    - generic [ref=e1392]:
+                      - text: $10.00
+                      - generic [ref=e1394]: 
+                - row "Batches Premium Flower (S) Platinum Pineapple - 7g market G&S GREENERY Available  $18.35 0.00 0.00 0.00 0.00 0.00 $8.35 " [ref=e1395]:
+                  - gridcell "Batches Premium Flower (S) Platinum Pineapple - 7g market G&S GREENERY" [ref=e1396]:
+                    - link "Batches" [ref=e1397] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=265"
+                    - link "Premium Flower (S) Platinum Pineapple - 7g" [ref=e1398] [cursor=pointer]:
+                      - /url: "#/product/265"
+                    - link "market G&S GREENERY" [ref=e1399] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1400]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1401]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1402]:
+                      - generic [ref=e1403]: 
+                  - gridcell "$18.35" [ref=e1404]
+                  - gridcell "0.00" [ref=e1405]:
+                    - generic [ref=e1406]: "0.00"
+                  - gridcell "0.00" [ref=e1407]
+                  - gridcell "0.00" [ref=e1408]
+                  - gridcell "0.00" [ref=e1409]
+                  - gridcell "0.00" [ref=e1410]
+                  - gridcell "$8.35 " [ref=e1411]:
+                    - generic [ref=e1412]:
+                      - text: $8.35
+                      - generic [ref=e1414]: 
+                - row "Batches Premium Flower (S) Green Crack - 14g market G&S GREENERY Available  $33.35 23.00 1.00 0.00 0.00 24.00 $33.35 " [ref=e1415]:
+                  - gridcell "Batches Premium Flower (S) Green Crack - 14g market G&S GREENERY" [ref=e1416]:
+                    - link "Batches" [ref=e1417] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=341"
+                    - link "Premium Flower (S) Green Crack - 14g" [ref=e1418] [cursor=pointer]:
+                      - /url: "#/product/341"
+                    - link "market G&S GREENERY" [ref=e1419] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1420]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1421]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1422]:
+                      - generic [ref=e1423]: 
+                  - gridcell "$33.35" [ref=e1424]
+                  - gridcell "23.00" [ref=e1425]:
+                    - generic [ref=e1426]: "23.00"
+                  - gridcell "1.00" [ref=e1427]:
+                    - generic [ref=e1428]: "1.00"
+                  - gridcell "0.00" [ref=e1429]
+                  - gridcell "0.00" [ref=e1430]
+                  - gridcell "24.00" [ref=e1431]
+                  - gridcell "$33.35 " [ref=e1432]:
+                    - generic [ref=e1433]:
+                      - text: $33.35
+                      - generic [ref=e1435]: 
+                - row "Batches Premium Flower (S) Green Crack - 1g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e1436]:
+                  - gridcell "Batches Premium Flower (S) Green Crack - 1g" [ref=e1437]:
+                    - link "Batches" [ref=e1438] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=342"
+                    - link "Premium Flower (S) Green Crack - 1g" [ref=e1439] [cursor=pointer]:
+                      - /url: "#/product/342"
+                  - gridcell "Not Available" [ref=e1440]
+                  - gridcell "$0.00" [ref=e1441]
+                  - gridcell "0.00" [ref=e1442]:
+                    - generic [ref=e1443]: "0.00"
+                  - gridcell "0.00" [ref=e1444]
+                  - gridcell "0.00" [ref=e1445]
+                  - gridcell "0.00" [ref=e1446]
+                  - gridcell "0.00" [ref=e1447]
+                  - gridcell "never" [ref=e1448]:
+                    - generic [ref=e1450]: never
+                - row "Batches Premium Flower (S) Green Crack - 28g market G&S GREENERY Available  $50.00 12.00 0.00 0.00 0.00 12.00 $50.00 " [ref=e1451]:
+                  - gridcell "Batches Premium Flower (S) Green Crack - 28g market G&S GREENERY" [ref=e1452]:
+                    - link "Batches" [ref=e1453] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=343"
+                    - link "Premium Flower (S) Green Crack - 28g" [ref=e1454] [cursor=pointer]:
+                      - /url: "#/product/343"
+                    - link "market G&S GREENERY" [ref=e1455] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1456]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1457]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1458]:
+                      - generic [ref=e1459]: 
+                  - gridcell "$50.00" [ref=e1460]
+                  - gridcell "12.00" [ref=e1461]:
+                    - generic [ref=e1462]: "12.00"
+                  - gridcell "0.00" [ref=e1463]
+                  - gridcell "0.00" [ref=e1464]
+                  - gridcell "0.00" [ref=e1465]
+                  - gridcell "12.00" [ref=e1466]
+                  - gridcell "$50.00 " [ref=e1467]:
+                    - generic [ref=e1468]:
+                      - text: $50.00
+                      - generic [ref=e1470]: 
+                - row "Batches Premium Flower (S) Green Crack - 3.5g market G&S GREENERY Available  $10.00 273.00 15.00 0.00 0.00 288.00 $10.00 " [ref=e1471]:
+                  - gridcell "Batches Premium Flower (S) Green Crack - 3.5g market G&S GREENERY" [ref=e1472]:
+                    - link "Batches" [ref=e1473] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=344"
+                    - link "Premium Flower (S) Green Crack - 3.5g" [ref=e1474] [cursor=pointer]:
+                      - /url: "#/product/344"
+                    - link "market G&S GREENERY" [ref=e1475] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1476]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1477]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1478]:
+                      - generic [ref=e1479]: 
+                  - gridcell "$10.00" [ref=e1480]
+                  - gridcell "273.00" [ref=e1481]:
+                    - generic [ref=e1482]: "273.00"
+                  - gridcell "15.00" [ref=e1483]:
+                    - generic [ref=e1484]: "15.00"
+                  - gridcell "0.00" [ref=e1485]
+                  - gridcell "0.00" [ref=e1486]
+                  - gridcell "288.00" [ref=e1487]
+                  - gridcell "$10.00 " [ref=e1488]:
+                    - generic [ref=e1489]:
+                      - text: $10.00
+                      - generic [ref=e1491]: 
+                - row "Batches Premium Flower (S) Green Crack - 7g market G&S GREENERY Available  $18.35 0.00 0.00 0.00 0.00 0.00 $18.35 " [ref=e1492]:
+                  - gridcell "Batches Premium Flower (S) Green Crack - 7g market G&S GREENERY" [ref=e1493]:
+                    - link "Batches" [ref=e1494] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=345"
+                    - link "Premium Flower (S) Green Crack - 7g" [ref=e1495] [cursor=pointer]:
+                      - /url: "#/product/345"
+                    - link "market G&S GREENERY" [ref=e1496] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1497]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1498]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1499]:
+                      - generic [ref=e1500]: 
+                  - gridcell "$18.35" [ref=e1501]
+                  - gridcell "0.00" [ref=e1502]:
+                    - generic [ref=e1503]: "0.00"
+                  - gridcell "0.00" [ref=e1504]
+                  - gridcell "0.00" [ref=e1505]
+                  - gridcell "0.00" [ref=e1506]
+                  - gridcell "0.00" [ref=e1507]
+                  - gridcell "$18.35 " [ref=e1508]:
+                    - generic [ref=e1509]:
+                      - text: $18.35
+                      - generic [ref=e1511]: 
+                - row "Batches Premium Flower (H) Moonbow - 14g market G&S GREENERY Available  $33.35 23.00 1.00 0.00 0.00 24.00 $33.35 " [ref=e1512]:
+                  - gridcell "Batches Premium Flower (H) Moonbow - 14g market G&S GREENERY" [ref=e1513]:
+                    - link "Batches" [ref=e1514] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=361"
+                    - link "Premium Flower (H) Moonbow - 14g" [ref=e1515] [cursor=pointer]:
+                      - /url: "#/product/361"
+                    - link "market G&S GREENERY" [ref=e1516] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1517]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1518]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1519]:
+                      - generic [ref=e1520]: 
+                  - gridcell "$33.35" [ref=e1521]
+                  - gridcell "23.00" [ref=e1522]:
+                    - generic [ref=e1523]: "23.00"
+                  - gridcell "1.00" [ref=e1524]:
+                    - generic [ref=e1525]: "1.00"
+                  - gridcell "0.00" [ref=e1526]
+                  - gridcell "0.00" [ref=e1527]
+                  - gridcell "24.00" [ref=e1528]
+                  - gridcell "$33.35 " [ref=e1529]:
+                    - generic [ref=e1530]:
+                      - text: $33.35
+                      - generic [ref=e1532]: 
+                - row "Batches Premium Flower (H) Moonbow - 1g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e1533]:
+                  - gridcell "Batches Premium Flower (H) Moonbow - 1g" [ref=e1534]:
+                    - link "Batches" [ref=e1535] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=362"
+                    - link "Premium Flower (H) Moonbow - 1g" [ref=e1536] [cursor=pointer]:
+                      - /url: "#/product/362"
+                  - gridcell "Not Available" [ref=e1537]
+                  - gridcell "$0.00" [ref=e1538]
+                  - gridcell "0.00" [ref=e1539]:
+                    - generic [ref=e1540]: "0.00"
+                  - gridcell "0.00" [ref=e1541]
+                  - gridcell "0.00" [ref=e1542]
+                  - gridcell "0.00" [ref=e1543]
+                  - gridcell "0.00" [ref=e1544]
+                  - gridcell "never" [ref=e1545]:
+                    - generic [ref=e1547]: never
+                - row "Batches Premium Flower (H) Moonbow - 28g market G&S GREENERY Available  $50.00 12.00 0.00 0.00 0.00 12.00 $50.00 " [ref=e1548]:
+                  - gridcell "Batches Premium Flower (H) Moonbow - 28g market G&S GREENERY" [ref=e1549]:
+                    - link "Batches" [ref=e1550] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=363"
+                    - link "Premium Flower (H) Moonbow - 28g" [ref=e1551] [cursor=pointer]:
+                      - /url: "#/product/363"
+                    - link "market G&S GREENERY" [ref=e1552] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1553]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1554]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1555]:
+                      - generic [ref=e1556]: 
+                  - gridcell "$50.00" [ref=e1557]
+                  - gridcell "12.00" [ref=e1558]:
+                    - generic [ref=e1559]: "12.00"
+                  - gridcell "0.00" [ref=e1560]
+                  - gridcell "0.00" [ref=e1561]
+                  - gridcell "0.00" [ref=e1562]
+                  - gridcell "12.00" [ref=e1563]
+                  - gridcell "$50.00 " [ref=e1564]:
+                    - generic [ref=e1565]:
+                      - text: $50.00
+                      - generic [ref=e1567]: 
+                - row "Batches Premium Flower (H) Moonbow - 3.5g market G&S GREENERY Available  $10.00 273.00 15.00 0.00 0.00 288.00 $10.00 " [ref=e1568]:
+                  - gridcell "Batches Premium Flower (H) Moonbow - 3.5g market G&S GREENERY" [ref=e1569]:
+                    - link "Batches" [ref=e1570] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=364"
+                    - link "Premium Flower (H) Moonbow - 3.5g" [ref=e1571] [cursor=pointer]:
+                      - /url: "#/product/364"
+                    - link "market G&S GREENERY" [ref=e1572] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1573]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1574]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1575]:
+                      - generic [ref=e1576]: 
+                  - gridcell "$10.00" [ref=e1577]
+                  - gridcell "273.00" [ref=e1578]:
+                    - generic [ref=e1579]: "273.00"
+                  - gridcell "15.00" [ref=e1580]:
+                    - generic [ref=e1581]: "15.00"
+                  - gridcell "0.00" [ref=e1582]
+                  - gridcell "0.00" [ref=e1583]
+                  - gridcell "288.00" [ref=e1584]
+                  - gridcell "$10.00 " [ref=e1585]:
+                    - generic [ref=e1586]:
+                      - text: $10.00
+                      - generic [ref=e1588]: 
+                - row "Batches Premium Flower (H) Moonbow - 7g market G&S GREENERY Available  $18.35 0.00 0.00 0.00 0.00 0.00 $18.35 " [ref=e1589]:
+                  - gridcell "Batches Premium Flower (H) Moonbow - 7g market G&S GREENERY" [ref=e1590]:
+                    - link "Batches" [ref=e1591] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=365"
+                    - link "Premium Flower (H) Moonbow - 7g" [ref=e1592] [cursor=pointer]:
+                      - /url: "#/product/365"
+                    - link "market G&S GREENERY" [ref=e1593] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1594]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1595]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1596]:
+                      - generic [ref=e1597]: 
+                  - gridcell "$18.35" [ref=e1598]
+                  - gridcell "0.00" [ref=e1599]:
+                    - generic [ref=e1600]: "0.00"
+                  - gridcell "0.00" [ref=e1601]
+                  - gridcell "0.00" [ref=e1602]
+                  - gridcell "0.00" [ref=e1603]
+                  - gridcell "0.00" [ref=e1604]
+                  - gridcell "$18.35 " [ref=e1605]:
+                    - generic [ref=e1606]:
+                      - text: $18.35
+                      - generic [ref=e1608]: 
+                - row "Batches Premium Flower (H) Orange Crush - 14g market G&S GREENERY Available  $33.35 23.00 1.00 0.00 0.00 24.00 $33.35 " [ref=e1609]:
+                  - gridcell "Batches Premium Flower (H) Orange Crush - 14g market G&S GREENERY" [ref=e1610]:
+                    - link "Batches" [ref=e1611] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=366"
+                    - link "Premium Flower (H) Orange Crush - 14g" [ref=e1612] [cursor=pointer]:
+                      - /url: "#/product/366"
+                    - link "market G&S GREENERY" [ref=e1613] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1614]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1615]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1616]:
+                      - generic [ref=e1617]: 
+                  - gridcell "$33.35" [ref=e1618]
+                  - gridcell "23.00" [ref=e1619]:
+                    - generic [ref=e1620]: "23.00"
+                  - gridcell "1.00" [ref=e1621]:
+                    - generic [ref=e1622]: "1.00"
+                  - gridcell "0.00" [ref=e1623]
+                  - gridcell "0.00" [ref=e1624]
+                  - gridcell "24.00" [ref=e1625]
+                  - gridcell "$33.35 " [ref=e1626]:
+                    - generic [ref=e1627]:
+                      - text: $33.35
+                      - generic [ref=e1629]: 
+                - row "Batches Premium Flower (H) Orange Crush - 1g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e1630]:
+                  - gridcell "Batches Premium Flower (H) Orange Crush - 1g" [ref=e1631]:
+                    - link "Batches" [ref=e1632] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=367"
+                    - link "Premium Flower (H) Orange Crush - 1g" [ref=e1633] [cursor=pointer]:
+                      - /url: "#/product/367"
+                  - gridcell "Not Available" [ref=e1634]
+                  - gridcell "$0.00" [ref=e1635]
+                  - gridcell "0.00" [ref=e1636]:
+                    - generic [ref=e1637]: "0.00"
+                  - gridcell "0.00" [ref=e1638]
+                  - gridcell "0.00" [ref=e1639]
+                  - gridcell "0.00" [ref=e1640]
+                  - gridcell "0.00" [ref=e1641]
+                  - gridcell "never" [ref=e1642]:
+                    - generic [ref=e1644]: never
+                - row "Batches Premium Flower (H) Orange Crush - 28g market G&S GREENERY Available  $50.00 11.00 1.00 0.00 0.00 12.00 $50.00 " [ref=e1645]:
+                  - gridcell "Batches Premium Flower (H) Orange Crush - 28g market G&S GREENERY" [ref=e1646]:
+                    - link "Batches" [ref=e1647] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=368"
+                    - link "Premium Flower (H) Orange Crush - 28g" [ref=e1648] [cursor=pointer]:
+                      - /url: "#/product/368"
+                    - link "market G&S GREENERY" [ref=e1649] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1650]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1651]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1652]:
+                      - generic [ref=e1653]: 
+                  - gridcell "$50.00" [ref=e1654]
+                  - gridcell "11.00" [ref=e1655]:
+                    - generic [ref=e1656]: "11.00"
+                  - gridcell "1.00" [ref=e1657]:
+                    - generic [ref=e1658]: "1.00"
+                  - gridcell "0.00" [ref=e1659]
+                  - gridcell "0.00" [ref=e1660]
+                  - gridcell "12.00" [ref=e1661]
+                  - gridcell "$50.00 " [ref=e1662]:
+                    - generic [ref=e1663]:
+                      - text: $50.00
+                      - generic [ref=e1665]: 
+                - row "Batches Premium Flower (H) Orange Crush - 3.5g market G&S GREENERY Available  $10.00 273.00 15.00 0.00 0.00 288.00 $10.00 " [ref=e1666]:
+                  - gridcell "Batches Premium Flower (H) Orange Crush - 3.5g market G&S GREENERY" [ref=e1667]:
+                    - link "Batches" [ref=e1668] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=369"
+                    - link "Premium Flower (H) Orange Crush - 3.5g" [ref=e1669] [cursor=pointer]:
+                      - /url: "#/product/369"
+                    - link "market G&S GREENERY" [ref=e1670] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1671]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1672]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1673]:
+                      - generic [ref=e1674]: 
+                  - gridcell "$10.00" [ref=e1675]
+                  - gridcell "273.00" [ref=e1676]:
+                    - generic [ref=e1677]: "273.00"
+                  - gridcell "15.00" [ref=e1678]:
+                    - generic [ref=e1679]: "15.00"
+                  - gridcell "0.00" [ref=e1680]
+                  - gridcell "0.00" [ref=e1681]
+                  - gridcell "288.00" [ref=e1682]
+                  - gridcell "$10.00 " [ref=e1683]:
+                    - generic [ref=e1684]:
+                      - text: $10.00
+                      - generic [ref=e1686]: 
+                - row "Batches Premium Flower (H) Orange Crush - 7g market G&S GREENERY Available  $18.35 0.00 0.00 0.00 0.00 0.00 $18.35 " [ref=e1687]:
+                  - gridcell "Batches Premium Flower (H) Orange Crush - 7g market G&S GREENERY" [ref=e1688]:
+                    - link "Batches" [ref=e1689] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=370"
+                    - link "Premium Flower (H) Orange Crush - 7g" [ref=e1690] [cursor=pointer]:
+                      - /url: "#/product/370"
+                    - link "market G&S GREENERY" [ref=e1691] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1692]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1693]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1694]:
+                      - generic [ref=e1695]: 
+                  - gridcell "$18.35" [ref=e1696]
+                  - gridcell "0.00" [ref=e1697]:
+                    - generic [ref=e1698]: "0.00"
+                  - gridcell "0.00" [ref=e1699]
+                  - gridcell "0.00" [ref=e1700]
+                  - gridcell "0.00" [ref=e1701]
+                  - gridcell "0.00" [ref=e1702]
+                  - gridcell "$18.35 " [ref=e1703]:
+                    - generic [ref=e1704]:
+                      - text: $18.35
+                      - generic [ref=e1706]: 
+                - row "Batches Premium Flower (S) Skatalite - 14g market G&S GREENERY Available  $33.35 46.00 2.00 0.00 0.00 48.00 $33.35 " [ref=e1707]:
+                  - gridcell "Batches Premium Flower (S) Skatalite - 14g market G&S GREENERY" [ref=e1708]:
+                    - link "Batches" [ref=e1709] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=391"
+                    - link "Premium Flower (S) Skatalite - 14g" [ref=e1710] [cursor=pointer]:
+                      - /url: "#/product/391"
+                    - link "market G&S GREENERY" [ref=e1711] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1712]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1713]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1714]:
+                      - generic [ref=e1715]: 
+                  - gridcell "$33.35" [ref=e1716]
+                  - gridcell "46.00" [ref=e1717]:
+                    - generic [ref=e1718]: "46.00"
+                  - gridcell "2.00" [ref=e1719]:
+                    - generic [ref=e1720]: "2.00"
+                  - gridcell "0.00" [ref=e1721]
+                  - gridcell "0.00" [ref=e1722]
+                  - gridcell "48.00" [ref=e1723]
+                  - gridcell "$33.35 " [ref=e1724]:
+                    - generic [ref=e1725]:
+                      - text: $33.35
+                      - generic [ref=e1727]: 
+                - row "Batches Premium Flower (S) Skatalite - 1g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e1728]:
+                  - gridcell "Batches Premium Flower (S) Skatalite - 1g" [ref=e1729]:
+                    - link "Batches" [ref=e1730] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=392"
+                    - link "Premium Flower (S) Skatalite - 1g" [ref=e1731] [cursor=pointer]:
+                      - /url: "#/product/392"
+                  - gridcell "Not Available" [ref=e1732]
+                  - gridcell "$0.00" [ref=e1733]
+                  - gridcell "0.00" [ref=e1734]:
+                    - generic [ref=e1735]: "0.00"
+                  - gridcell "0.00" [ref=e1736]
+                  - gridcell "0.00" [ref=e1737]
+                  - gridcell "0.00" [ref=e1738]
+                  - gridcell "0.00" [ref=e1739]
+                  - gridcell "never" [ref=e1740]:
+                    - generic [ref=e1742]: never
+                - row "Batches Premium Flower (S) Skatalite - 28g market G&S GREENERY Available  $50.00 23.00 1.00 0.00 0.00 24.00 $50.00 " [ref=e1743]:
+                  - gridcell "Batches Premium Flower (S) Skatalite - 28g market G&S GREENERY" [ref=e1744]:
+                    - link "Batches" [ref=e1745] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=393"
+                    - link "Premium Flower (S) Skatalite - 28g" [ref=e1746] [cursor=pointer]:
+                      - /url: "#/product/393"
+                    - link "market G&S GREENERY" [ref=e1747] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1748]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1749]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1750]:
+                      - generic [ref=e1751]: 
+                  - gridcell "$50.00" [ref=e1752]
+                  - gridcell "23.00" [ref=e1753]:
+                    - generic [ref=e1754]: "23.00"
+                  - gridcell "1.00" [ref=e1755]:
+                    - generic [ref=e1756]: "1.00"
+                  - gridcell "0.00" [ref=e1757]
+                  - gridcell "0.00" [ref=e1758]
+                  - gridcell "24.00" [ref=e1759]
+                  - gridcell "$50.00 " [ref=e1760]:
+                    - generic [ref=e1761]:
+                      - text: $50.00
+                      - generic [ref=e1763]: 
+                - row "Batches Premium Flower (S) Skatalite - 3.5g market G&S GREENERY Available  $10.00 465.00 15.00 0.00 0.00 480.00 $10.00 " [ref=e1764]:
+                  - gridcell "Batches Premium Flower (S) Skatalite - 3.5g market G&S GREENERY" [ref=e1765]:
+                    - link "Batches" [ref=e1766] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=394"
+                    - link "Premium Flower (S) Skatalite - 3.5g" [ref=e1767] [cursor=pointer]:
+                      - /url: "#/product/394"
+                    - link "market G&S GREENERY" [ref=e1768] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1769]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1770]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1771]:
+                      - generic [ref=e1772]: 
+                  - gridcell "$10.00" [ref=e1773]
+                  - gridcell "465.00" [ref=e1774]:
+                    - generic [ref=e1775]: "465.00"
+                  - gridcell "15.00" [ref=e1776]:
+                    - generic [ref=e1777]: "15.00"
+                  - gridcell "0.00" [ref=e1778]
+                  - gridcell "0.00" [ref=e1779]
+                  - gridcell "480.00" [ref=e1780]
+                  - gridcell "$10.00 " [ref=e1781]:
+                    - generic [ref=e1782]:
+                      - text: $10.00
+                      - generic [ref=e1784]: 
+                - row "Batches Premium Flower (S) Skatalite - 7g market G&S GREENERY Available  $18.35 9.00 3.00 0.00 0.00 12.00 $18.35 " [ref=e1785]:
+                  - gridcell "Batches Premium Flower (S) Skatalite - 7g market G&S GREENERY" [ref=e1786]:
+                    - link "Batches" [ref=e1787] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=395"
+                    - link "Premium Flower (S) Skatalite - 7g" [ref=e1788] [cursor=pointer]:
+                      - /url: "#/product/395"
+                    - link "market G&S GREENERY" [ref=e1789] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1790]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1791]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1792]:
+                      - generic [ref=e1793]: 
+                  - gridcell "$18.35" [ref=e1794]
+                  - gridcell "9.00" [ref=e1795]:
+                    - generic [ref=e1796]: "9.00"
+                  - gridcell "3.00" [ref=e1797]:
+                    - generic [ref=e1798]: "3.00"
+                  - gridcell "0.00" [ref=e1799]
+                  - gridcell "0.00" [ref=e1800]
+                  - gridcell "12.00" [ref=e1801]
+                  - gridcell "$18.35 " [ref=e1802]:
+                    - generic [ref=e1803]:
+                      - text: $18.35
+                      - generic [ref=e1805]: 
+                - row "Batches Premium Flower (H) White Fire OG - 14g market G&S GREENERY Available  $33.35 24.00 0.00 0.00 0.00 24.00 $33.35 " [ref=e1806]:
+                  - gridcell "Batches Premium Flower (H) White Fire OG - 14g market G&S GREENERY" [ref=e1807]:
+                    - link "Batches" [ref=e1808] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=401"
+                    - link "Premium Flower (H) White Fire OG - 14g" [ref=e1809] [cursor=pointer]:
+                      - /url: "#/product/401"
+                    - link "market G&S GREENERY" [ref=e1810] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1811]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1812]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1813]:
+                      - generic [ref=e1814]: 
+                  - gridcell "$33.35" [ref=e1815]
+                  - gridcell "24.00" [ref=e1816]:
+                    - generic [ref=e1817]: "24.00"
+                  - gridcell "0.00" [ref=e1818]
+                  - gridcell "0.00" [ref=e1819]
+                  - gridcell "0.00" [ref=e1820]
+                  - gridcell "24.00" [ref=e1821]
+                  - gridcell "$33.35 " [ref=e1822]:
+                    - generic [ref=e1823]:
+                      - text: $33.35
+                      - generic [ref=e1825]: 
+                - row "Batches Premium Flower (H) White Fire OG - 1g Not Available $0.00 0.00 0.00 0.00 0.00 0.00 never" [ref=e1826]:
+                  - gridcell "Batches Premium Flower (H) White Fire OG - 1g" [ref=e1827]:
+                    - link "Batches" [ref=e1828] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=402"
+                    - link "Premium Flower (H) White Fire OG - 1g" [ref=e1829] [cursor=pointer]:
+                      - /url: "#/product/402"
+                  - gridcell "Not Available" [ref=e1830]
+                  - gridcell "$0.00" [ref=e1831]
+                  - gridcell "0.00" [ref=e1832]:
+                    - generic [ref=e1833]: "0.00"
+                  - gridcell "0.00" [ref=e1834]
+                  - gridcell "0.00" [ref=e1835]
+                  - gridcell "0.00" [ref=e1836]
+                  - gridcell "0.00" [ref=e1837]
+                  - gridcell "never" [ref=e1838]:
+                    - generic [ref=e1840]: never
+                - row "Batches Premium Flower (H) White Fire OG - 28g market G&S GREENERY Available  $50.00 12.00 0.00 0.00 0.00 12.00 $50.00 " [ref=e1841]:
+                  - gridcell "Batches Premium Flower (H) White Fire OG - 28g market G&S GREENERY" [ref=e1842]:
+                    - link "Batches" [ref=e1843] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=403"
+                    - link "Premium Flower (H) White Fire OG - 28g" [ref=e1844] [cursor=pointer]:
+                      - /url: "#/product/403"
+                    - link "market G&S GREENERY" [ref=e1845] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1846]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1847]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1848]:
+                      - generic [ref=e1849]: 
+                  - gridcell "$50.00" [ref=e1850]
+                  - gridcell "12.00" [ref=e1851]:
+                    - generic [ref=e1852]: "12.00"
+                  - gridcell "0.00" [ref=e1853]
+                  - gridcell "0.00" [ref=e1854]
+                  - gridcell "0.00" [ref=e1855]
+                  - gridcell "12.00" [ref=e1856]
+                  - gridcell "$50.00 " [ref=e1857]:
+                    - generic [ref=e1858]:
+                      - text: $50.00
+                      - generic [ref=e1860]: 
+                - row "Batches Premium Flower (H) White Fire OG - 3.5g market G&S GREENERY Available  $10.00 480.00 0.00 0.00 0.00 480.00 $10.00 " [ref=e1861]:
+                  - gridcell "Batches Premium Flower (H) White Fire OG - 3.5g market G&S GREENERY" [ref=e1862]:
+                    - link "Batches" [ref=e1863] [cursor=pointer]:
+                      - /url: "#/batch-products?Id=404"
+                    - link "Premium Flower (H) White Fire OG - 3.5g" [ref=e1864] [cursor=pointer]:
+                      - /url: "#/product/404"
+                    - link "market G&S GREENERY" [ref=e1865] [cursor=pointer]:
+                      - /url: "#/catalog-groups/1/Frost---Flower-3.5g-28g"
+                      - img "market" [ref=e1866]
+                      - text: G&S GREENERY
+                  - gridcell "Available " [ref=e1867]:
+                    - text: Available
+                    - generic "Available for Portal" [ref=e1868]:
+                      - generic [ref=e1869]: 
+                  - gridcell "$10.00" [ref=e1870]
+                  - gridcell "480.00" [ref=e1871]:
+                    - generic [ref=e1872]: "480.00"
+                  - gridcell "0.00" [ref=e1873]
+                  - gridcell "0.00" [ref=e1874]
+                  - gridcell "0.00" [ref=e1875]
+                  - gridcell "480.00" [ref=e1876]
+                  - gridcell "$10.00 " [ref=e1877]:
+                    - generic [ref=e1878]:
+                      - text: $10.00
+                      - generic [ref=e1880]: 
+            - generic [ref=e1881]:
+              - link "Go to the first page" [ref=e1882]:
+                - /url: "#"
+                - generic [ref=e1883]: Go to the first page
+              - link "Go to the previous page" [ref=e1884]:
+                - /url: "#"
+                - generic [ref=e1885]: Go to the previous page
+              - list [ref=e1886]:
+                - listitem [ref=e1887]:
+                  - generic [ref=e1888]: "1"
+                - listitem [ref=e1889]:
+                  - link "2" [ref=e1890] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e1891]:
+                  - link "3" [ref=e1892] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e1893]:
+                  - link "4" [ref=e1894] [cursor=pointer]:
+                    - /url: "#"
+              - link "Go to the next page" [ref=e1895] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e1896]: Go to the next page
+              - link "Go to the last page" [ref=e1897] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e1898]: Go to the last page
+              - generic [ref=e1899]:
+                - listbox [ref=e1900] [cursor=pointer]:
+                  - generic [ref=e1901]:
+                    - generic [ref=e1902]: "100"
+                    - generic [ref=e1904]: select
+                - text: items per page
+              - generic [ref=e1905]: 1 - 100 of 365 items
+          - generic: 
+          - text:  
+        - contentinfo [ref=e1906]:
+          - paragraph [ref=e1907]: Powered by Σbolt Solutions ™.
+  - text:                                         

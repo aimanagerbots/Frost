@@ -1,0 +1,198 @@
+{
+  "version": "site-scrape-v2",
+  "url": "https://wa.cultiverapro.com",
+  "tenant": "G&S GREENERY",
+  "crawlDate": "2026-03-12",
+  "status": "complete",
+  "completedAt": "2026-03-12T00:00:00Z",
+
+  "phases": {
+    "auth": "complete",
+    "navDiscovery": "complete",
+    "moduleCrawl": "complete",
+    "interactiveStates": "complete",
+    "designTokens": "complete",
+    "dataModels": "complete",
+    "outputDocs": "complete",
+    "validationGate": "complete"
+  },
+
+  "modules": [
+    {
+      "id": "grow",
+      "path": "/app-grow",
+      "status": "complete",
+      "pagesTotal": 10,
+      "pagesCaptured": 10,
+      "statesCaptured": 1,
+      "screenshots": [
+        "grow/overview.png",
+        "grow/dashboard.png",
+        "grow/grow-cycles.png",
+        "grow/plants.png",
+        "grow/grow-sources.png",
+        "grow/rooms.png",
+        "grow/harvest.png",
+        "grow/qa-lot.png",
+        "grow/qa-sample.png",
+        "grow/disposal.png",
+        "grow/states/disposal-destroyed-tab.png"
+      ],
+      "confidence": "full",
+      "notes": "All 10 pages captured. Disposal Destroyed tab state captured (261 records)."
+    },
+    {
+      "id": "analytics",
+      "path": "/app-analytics",
+      "status": "complete",
+      "pagesTotal": 1,
+      "pagesCaptured": 1,
+      "statesCaptured": 1,
+      "screenshots": [
+        "analytics/overview.png",
+        "analytics/states/client-by-product-report.png"
+      ],
+      "confidence": "partial",
+      "notes": "Overview page (12 report cards) captured. Only 1 of 12 report details captured (Client By Product). Remaining 11 reports not drilled into — limited session time."
+    },
+    {
+      "id": "sales",
+      "path": "/crm",
+      "status": "complete",
+      "pagesTotal": 9,
+      "pagesCaptured": 9,
+      "statesCaptured": 2,
+      "screenshots": [
+        "sales/dashboard.png",
+        "sales/accounts.png",
+        "sales/account-groups.png",
+        "sales/carts.png",
+        "sales/inventory.png",
+        "sales/catalogs.png",
+        "sales/orders.png",
+        "sales/sales-person-report.png",
+        "sales/order-summary.png",
+        "sales/states/cart-detail-prc-conway.png",
+        "sales/states/add-account-group-modal.png"
+      ],
+      "confidence": "full",
+      "notes": "All 9 pages captured. Cart detail drill-down (16 line items, $621.60, PRC Conway) captured. Add Account Group modal captured."
+    },
+    {
+      "id": "inventory",
+      "path": "/inventory/",
+      "status": "complete",
+      "pagesTotal": 19,
+      "pagesCaptured": 19,
+      "statesCaptured": 0,
+      "screenshots": [
+        "inventory/overview.png",
+        "inventory/batches.png",
+        "inventory/non-cannabis-inventory.png",
+        "inventory/production.png",
+        "inventory/categories.png",
+        "inventory/product-lines.png",
+        "inventory/products.png",
+        "inventory/catalog-groups.png",
+        "inventory/strains.png",
+        "inventory/inventory-rooms.png",
+        "inventory/discount-promotion.png",
+        "inventory/backorders.png",
+        "inventory/qa-result.png",
+        "inventory/conversions-for-orders.png",
+        "inventory/product-tag.png",
+        "inventory/qa-lot.png",
+        "inventory/qa-sample.png",
+        "inventory/employee-sample.png",
+        "inventory/disposal.png"
+      ],
+      "confidence": "full",
+      "notes": "All 19 pages captured. QA Result has rich cannabinoid data (THC/CBD/THCA/CBDA). No additional states captured — no interactive modals triggered."
+    },
+    {
+      "id": "fulfillment",
+      "path": "/fulfillment",
+      "status": "complete",
+      "pagesTotal": 8,
+      "pagesCaptured": 8,
+      "statesCaptured": 1,
+      "screenshots": [
+        "fulfillment/overview.png",
+        "fulfillment/vehicles.png",
+        "fulfillment/drivers.png",
+        "fulfillment/delivery-agents.png",
+        "fulfillment/quarantine-schedule.png",
+        "fulfillment/delivery-schedule.png",
+        "fulfillment/transfer-inbound.png",
+        "fulfillment/transfer-outbound.png",
+        "fulfillment/states/transfer-inbound-detail.png"
+      ],
+      "confidence": "partial",
+      "notes": "All 8 pages captured. Most tables empty (demo tenant). Transfer Inbound detail drill-down captured (Richards Packaging Inc, NON-CANNABIS). Delivery Agents has 46 real records."
+    },
+    {
+      "id": "configuration",
+      "path": "/configuration",
+      "status": "complete",
+      "pagesTotal": 14,
+      "pagesCaptured": 14,
+      "statesCaptured": 0,
+      "screenshots": [
+        "configuration/overview.png",
+        "configuration/marketplace-settings.png",
+        "configuration/client-note-attributes.png",
+        "configuration/statuses.png",
+        "configuration/notifications.png",
+        "configuration/routes.png",
+        "configuration/users.png",
+        "configuration/roles.png",
+        "configuration/audit.png",
+        "configuration/sync-settings.png",
+        "configuration/locations.png",
+        "configuration/chart-of-accounts.png",
+        "configuration/quickbooks-setting.png",
+        "configuration/cultivera-api-key.png"
+      ],
+      "confidence": "full",
+      "notes": "All 14 pages captured. Audit log has 2073 real entries. FROST brand logo visible in Marketplace Settings. Chart of Accounts has 51 sub-product-lines."
+    }
+  ],
+
+  "chrome": {
+    "screenshots": [
+      "chrome/post-login.png",
+      "chrome/module-switcher-open.png"
+    ],
+    "capturedOnce": true,
+    "notes": "Top bar and module switcher captured once at session start."
+  },
+
+  "designTokens": {
+    "status": "complete",
+    "pagesAnalyzed": 3,
+    "pages": ["configuration/overview", "inventory/product-menu", "sales/carts"],
+    "colorsExtracted": 26,
+    "typographyVariants": 8,
+    "spacingTokens": 6
+  },
+
+  "outputFiles": {
+    "INDEX.md": "complete",
+    "DESIGN_SYSTEM.md": "complete",
+    "DATA_MODELS.md": "complete",
+    "REBUILD_PLAN.md": "complete",
+    "navigation-graph.json": "complete",
+    "crawl-state.json": "complete"
+  },
+
+  "stats": {
+    "modulesTotal": 6,
+    "modulesComplete": 6,
+    "pagesTotal": 61,
+    "pagesCaptured": 61,
+    "screenshotsTotal": 45,
+    "drillDownTrails": 4,
+    "entitiesModeled": 20,
+    "colorsExtracted": 26
+  }
+}

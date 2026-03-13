@@ -1,0 +1,39 @@
+[
+  {
+    "type": "data-table",
+    "count": 11,
+    "sampleHeaders": [
+      "CLIENT NAME",
+      "HOLDING COMPANY",
+      "Send To",
+      "Contact",
+      "Email",
+      "Product Name",
+      "Status",
+      "Price",
+      "Units For Sale",
+      "Units Allocated"
+    ]
+  },
+  {
+    "type": "form",
+    "formCount": 39,
+    "fieldCount": 40
+  },
+  {
+    "type": "chart",
+    "count": 1
+  },
+  {
+    "type": "modal/dialog",
+    "count": 109
+  },
+  {
+    "type": "list",
+    "count": 17
+  },
+  {
+    "type": "badge/chip",
+    "count": 144
+  }
+]

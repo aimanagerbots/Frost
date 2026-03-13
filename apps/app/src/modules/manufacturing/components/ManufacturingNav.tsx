@@ -28,18 +28,18 @@ export function ManufacturingNav() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Sync URL → store on mount
+  // Sync URL → store on mount/change
   useEffect(() => {
-    const view = searchParams.get('view') as ManufacturingView | null;
-    if (view && TABS.some((t) => t.id === view)) {
-      setView(view);
+    const tab = (searchParams.get('tab') ?? searchParams.get('view')) as ManufacturingView | null;
+    if (tab && TABS.some((t) => t.id === tab)) {
+      setView(tab);
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [searchParams]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Sync store → URL on change
   useEffect(() => {
     const params = new URLSearchParams();
-    params.set('view', activeView);
+    params.set('tab', activeView);
     router.replace(`/manufacturing?${params.toString()}`, { scroll: false });
   }, [activeView, router]);
 

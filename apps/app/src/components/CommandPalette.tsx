@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Plus, MessageSquare, ShoppingCart, Store } from 'lucide-react';
 import { SearchOverlay } from './SearchOverlay';
 import type { SearchGroup, SearchItem } from './SearchOverlay';
-import { navGroups } from './AppShell/nav-data';
+import { categories } from './AppShell/nav-data';
 import { accounts } from '@/mocks/crm';
 import { useCommandPaletteStore } from './AppShell/store';
 
@@ -13,11 +13,11 @@ function useCommandPaletteItems(): SearchGroup[] {
   return useMemo(() => {
     const modules: SearchGroup = {
       label: 'Modules',
-      items: navGroups.flatMap((group) =>
-        group.items.map((item) => ({
+      items: categories.flatMap((cat) =>
+        cat.items.map((item) => ({
           id: `module-${item.href}`,
           title: item.label,
-          subtitle: group.title,
+          subtitle: cat.label,
           icon: item.icon,
           route: item.href,
         })),

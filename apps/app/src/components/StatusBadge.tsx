@@ -17,29 +17,38 @@ type BadgeVariant = keyof typeof VARIANT_STYLES;
 /* ── Domain-aware status system (portal-style color families) ── */
 type DomainStatus =
   | 'delivered' | 'paid' | 'picked-up' | 'compliant' | 'ready'
-  | 'accepted' | 'active' | 'complete' | 'approved' | 'verified'
-  | 'confirmed' | 'shipped' | 'in-transit' | 'scheduled' | 'processing'
-  | 'in-production' | 'packaged' | 'preparing' | 'pending' | 'invoiced'
-  | 'outstanding' | 'approaching' | 'new' | 'review'
+  | 'accepted' | 'active' | 'complete' | 'approved' | 'verified' | 'allocated'
+  | 'released' | 'passed' | 'healthy' | 'reviewed'
+  | 'confirmed' | 'shipped' | 'in-transit' | 'scheduled' | 'processing' | 'open'
+  | 'in-testing' | 'collected'
+  | 'in-production' | 'packaged' | 'preparing' | 'pending' | 'invoiced' | 'submitted'
+  | 'outstanding' | 'approaching' | 'new' | 'review' | 'planned' | 'results-ready'
+  | 'stressed' | 'pending-review' | 'upcoming'
   | 'overdue' | 'cancelled' | 'declined' | 'no-show' | 'failed' | 'expired' | 'rejected'
-  | 'fulfilled' | 'rescheduled' | 'draft' | 'archived' | 'inactive';
+  | 'sick' | 'dead' | 'flagged'
+  | 'fulfilled' | 'rescheduled' | 'draft' | 'archived' | 'inactive'
+  | 'drying' | 'empty' | 'cleaning' | 'transition';
 
 const GREEN_STATUSES = new Set<DomainStatus>([
   'delivered', 'paid', 'picked-up', 'compliant', 'ready',
-  'accepted', 'active', 'complete', 'approved', 'verified',
+  'accepted', 'active', 'complete', 'approved', 'verified', 'allocated',
+  'released', 'passed', 'healthy', 'reviewed',
 ]);
 
 const BLUE_STATUSES = new Set<DomainStatus>([
-  'confirmed', 'shipped', 'in-transit', 'scheduled', 'processing',
+  'confirmed', 'shipped', 'in-transit', 'scheduled', 'processing', 'open',
+  'in-testing', 'collected',
 ]);
 
 const AMBER_STATUSES = new Set<DomainStatus>([
-  'in-production', 'packaged', 'preparing', 'pending', 'invoiced',
-  'outstanding', 'approaching', 'new', 'review',
+  'in-production', 'packaged', 'preparing', 'pending', 'invoiced', 'submitted',
+  'outstanding', 'approaching', 'new', 'review', 'planned', 'results-ready',
+  'stressed', 'pending-review', 'drying', 'upcoming',
 ]);
 
 const RED_STATUSES = new Set<DomainStatus>([
   'overdue', 'cancelled', 'declined', 'no-show', 'failed', 'expired', 'rejected',
+  'sick', 'dead', 'flagged',
 ]);
 
 function getStatusStyles(status: DomainStatus): { bg: string; text: string; dot: string } {

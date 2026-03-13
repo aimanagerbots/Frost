@@ -1,9 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { ShoppingCart } from 'lucide-react';
 import { DrawerPanel, StatusBadge } from '@/components';
+import { PipelineBadge } from '@/modules/pipeline/components/PipelineBadge';
+import { usePipelineRecommendation } from '../../hooks';
 import type { ReorderProposal } from '../../types';
 import { ACCENT as CRM_ACCENT } from '@/design/colors';
+import { useCartStore } from '@/modules/carts/store';
+import type { Cart } from '@/modules/sales/types';
 
 
 function formatCurrency(n: number): string {
@@ -50,14 +55,50 @@ interface ReorderProposalDrawerProps {
 
 export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onReject }: ReorderProposalDrawerProps) {
   const [showRejectMenu, setShowRejectMenu] = useState(false);
+  const [cartCreated, setCartCreated] = useState(false);
+  const setPendingCart = useCartStore((s) => s.setPendingCart);
+  const pipelineRec = usePipelineRecommendation(proposal?.pipelineCode);
 
   if (!proposal) return null;
+
+  const handleCreateCart = () => {
+    const cart: Cart = {
+      id: `cart-ai-${proposal.id}`,
+      name: `AI: Reorder for ${proposal.accountName}`,
+      clientName: proposal.accountName,
+      itemCount: proposal.proposedProducts.length,
+      total: proposal.totalValue,
+      status: 'open',
+      lineItems: proposal.proposedProducts.map((p) => ({
+        id: `cli-${p.sku}`,
+        productName: p.name,
+        strain: '',
+        quantity: p.qty,
+        unitPrice: p.unitPrice,
+        lineTotal: p.qty * p.unitPrice,
+      })),
+    };
+    setPendingCart(cart);
+    setCartCreated(true);
+    setTimeout(() => {
+      setCartCreated(false);
+      onClose();
+    }, 1200);
+  };
 
   const isPending = proposal.status === 'pending';
 
   return (
     <DrawerPanel open={open} onClose={onClose} title="Reorder Proposal" width="lg">
       <div className="space-y-5">
+        {/* Cart created notification */}
+        {cartCreated && (
+          <div className="flex items-center gap-2 rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-2.5 text-sm font-medium text-green-400">
+            <ShoppingCart size={16} />
+            Cart created — navigate to Carts to review
+          </div>
+        )}
+
         {/* Account summary */}
         <div className="flex items-center justify-between">
           <div>
@@ -92,6 +133,25 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
             />
           </div>
         </div>
+
+        {/* Pipeline Strategy */}
+        {proposal.pipelineCode && (
+          <div
+            className={`rounded-lg border p-4 ${
+              proposal.pipelineCode.startsWith('I')
+                ? 'border-blue-500/30 bg-blue-500/5'
+                : proposal.pipelineCode.startsWith('R')
+                  ? 'border-red-500/30 bg-red-500/5'
+                  : 'border-emerald-500/30 bg-emerald-500/5'
+            }`}
+          >
+            <div className="mb-2 flex items-center gap-2">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-text-muted">Pipeline Strategy</h4>
+              <PipelineBadge code={proposal.pipelineCode} size="sm" />
+            </div>
+            <p className="text-sm leading-relaxed text-text-default">{pipelineRec.text}</p>
+          </div>
+        )}
 
         {/* AI Reasoning */}
         <div className="rounded-lg border border-default bg-elevated p-4">
@@ -168,6 +228,14 @@ export function ReorderProposalDrawer({ proposal, open, onClose, onApprove, onRe
               style={{ backgroundColor: CRM_ACCENT }}
             >
               Approve & Send
+            </button>
+            <button
+              onClick={handleCreateCart}
+              disabled={cartCreated}
+              className="flex items-center gap-1.5 rounded-lg border border-default px-4 py-2 text-sm font-medium text-text-default transition-colors hover:bg-card-hover disabled:opacity-50"
+            >
+              <ShoppingCart size={14} />
+              Create Cart
             </button>
             <div className="relative">
               <button

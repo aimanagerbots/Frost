@@ -337,12 +337,120 @@ export interface CultivationMetrics {
   tasksToday: number;
 }
 
+// ─── Grow Cycles ──────────────────────────────────────────────
+
+export type GrowCycleStatus = 'active' | 'completed' | 'planned' | 'cancelled';
+
+export interface GrowCycle {
+  id: string;
+  roomId: string;
+  roomName: string;
+  strainId: string;
+  strainName: string;
+  startDate: string;
+  currentStage: GrowStage;
+  dayInStage: number;
+  totalDays: number;
+  expectedHarvestDate: string;
+  plantCount: number;
+  status: GrowCycleStatus;
+  notes?: string;
+}
+
+// ─── Plants ───────────────────────────────────────────────────
+
+export type PlantHealth = 'healthy' | 'stressed' | 'sick' | 'dead';
+
+export interface Plant {
+  id: string;
+  plantTag: string;
+  strainId: string;
+  strainName: string;
+  roomId: string;
+  roomName: string;
+  stage: GrowStage;
+  health: PlantHealth;
+  daysSinceTransplant: number;
+  sourceType: 'clone' | 'seed' | 'mother';
+  motherId?: string;
+  batchId?: string;
+  notes?: string;
+}
+
+// ─── QA Lot ───────────────────────────────────────────────────
+
+export type QALotStatus = 'pending' | 'in-testing' | 'passed' | 'failed' | 'released';
+
+export interface QALot {
+  id: string;
+  lotNumber: string;
+  strainName: string;
+  harvestDate: string;
+  batchSize: number;
+  unit: string;
+  status: QALotStatus;
+  labName?: string;
+  submittedDate?: string;
+  resultsDate?: string;
+}
+
+// ─── QA Sample ────────────────────────────────────────────────
+
+export type QASampleStatus = 'collected' | 'submitted' | 'in-testing' | 'results-ready' | 'reviewed';
+export type QATestType = 'potency' | 'terpenes' | 'pesticides' | 'microbials' | 'heavy-metals' | 'residual-solvents' | 'moisture';
+
+export interface QASample {
+  id: string;
+  sampleId: string;
+  lotId: string;
+  lotNumber: string;
+  labName: string;
+  testTypes: QATestType[];
+  status: QASampleStatus;
+  collectedDate: string;
+  submittedDate?: string;
+  resultsDate?: string;
+  thc?: number;
+  cbd?: number;
+  totalTerpenes?: number;
+  passedAll?: boolean;
+}
+
+// ─── Disposal ─────────────────────────────────────────────────
+
+export type DisposalMethod = 'compost' | 'incineration' | 'rendering' | 'other';
+export type DisposalReason = 'failed-qa' | 'pest-contamination' | 'mold' | 'expired' | 'damaged' | 'regulatory' | 'other';
+
+export interface DisposalRecord {
+  id: string;
+  itemDescription: string;
+  reason: DisposalReason;
+  method: DisposalMethod;
+  weightGrams: number;
+  disposalDate: string;
+  witness: string;
+  metrcTag?: string;
+  complianceStatus: 'compliant' | 'pending-review' | 'flagged';
+  notes?: string;
+}
+
 // ─── View State ────────────────────────────────────────────────
 
 export type CultivationView =
+  // Frost-original tabs
   | 'environment'
   | 'tasks'
   | 'calendar'
   | 'supplies'
-  | 'genetics'
-  | 'chat';
+  | 'grow-sources'
+  | 'chat'
+  // Cultivera tabs (stubs)
+  | 'overview'
+  | 'dashboard'
+  | 'grow-cycles'
+  | 'plants'
+  | 'rooms'
+  | 'harvest'
+  | 'qa-lot'
+  | 'qa-sample'
+  | 'disposal';

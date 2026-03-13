@@ -1,0 +1,27 @@
+[
+  {
+    "type": "data-table",
+    "count": 1,
+    "sampleHeaders": [
+      "Category",
+      "Your subscriptions"
+    ]
+  },
+  {
+    "type": "form",
+    "formCount": 4,
+    "fieldCount": 2
+  },
+  {
+    "type": "chart",
+    "count": 1
+  },
+  {
+    "type": "modal/dialog",
+    "count": 21
+  },
+  {
+    "type": "list",
+    "count": 1
+  }
+]

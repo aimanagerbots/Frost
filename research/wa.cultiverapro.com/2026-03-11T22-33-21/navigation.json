@@ -1,0 +1,326 @@
+[
+  {
+    "text": "Sales",
+    "href": "",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "btn dropdown-toggle",
+    "selector": "div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle"
+  },
+  {
+    "text": "Grow",
+    "href": "/app-grow",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown > ul.dropdown-menu > li.item:nth-of-type(1) > a"
+  },
+  {
+    "text": "Analytics",
+    "href": "/app-analytics",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown > ul.dropdown-menu > li.item:nth-of-type(2) > a"
+  },
+  {
+    "text": "Sales",
+    "href": "/crm#/",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown > ul.dropdown-menu > li.item.selected:nth-of-type(3) > a"
+  },
+  {
+    "text": "Inventory Management",
+    "href": "/inventory/#/",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown > ul.dropdown-menu > li.item:nth-of-type(4) > a"
+  },
+  {
+    "text": "Fulfillment",
+    "href": "/fulfillment#/",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown > ul.dropdown-menu > li.item:nth-of-type(5) > a"
+  },
+  {
+    "text": "Configuration",
+    "href": "/configuration#/",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown > ul.dropdown-menu > li.item:nth-of-type(6) > a"
+  },
+  {
+    "text": "View all notifications",
+    "href": "#/all-notifications",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown:nth-of-type(2) > ul.dropdown-menu.notifications-list > li.item-footer:nth-of-type(3) > a"
+  },
+  {
+    "text": "0",
+    "href": "#/invitations",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "btn dropdown-toggle",
+    "selector": "div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3) > a.btn.dropdown-toggle"
+  },
+  {
+    "text": "2",
+    "href": "../crm#/open-carts?portalOrder=1",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "btn dropdown-toggle",
+    "selector": "div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4) > a.btn.dropdown-toggle"
+  },
+  {
+    "text": "Profile",
+    "href": "#/user-profile",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown.profile-dropdown:nth-of-type(2) > ul.dropdown-menu.dropdown-menu-right > li:nth-of-type(1) > a"
+  },
+  {
+    "text": "Company Profile",
+    "href": "#/company-profile",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown.profile-dropdown:nth-of-type(2) > ul.dropdown-menu.dropdown-menu-right > li:nth-of-type(2) > a"
+  },
+  {
+    "text": "Notifications",
+    "href": "/configuration#/notifications",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown.profile-dropdown:nth-of-type(2) > ul.dropdown-menu.dropdown-menu-right > li:nth-of-type(3) > a"
+  },
+  {
+    "text": "Settings",
+    "href": "",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown.profile-dropdown:nth-of-type(2) > ul.dropdown-menu.dropdown-menu-right > li:nth-of-type(4) > a"
+  },
+  {
+    "text": "Lock",
+    "href": "",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown.profile-dropdown:nth-of-type(2) > ul.dropdown-menu.dropdown-menu-right > li:nth-of-type(5) > a"
+  },
+  {
+    "text": "Logout",
+    "href": "",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "li.dropdown.profile-dropdown:nth-of-type(2) > ul.dropdown-menu.dropdown-menu-right > li:nth-of-type(6) > a"
+  },
+  {
+    "text": "Michael Perkins",
+    "href": "",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "dropdown-toggle",
+    "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle"
+  },
+  {
+    "text": "G&S GREENERY",
+    "href": "",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "dropdown-toggle",
+    "selector": "#companyName > span.name > a.dropdown-toggle"
+  },
+  {
+    "text": "Marketplace Settings",
+    "href": "#/market-settings",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "span.name > ul.dropdown-menu > li:nth-of-type(2) > a"
+  },
+  {
+    "text": "Settings",
+    "href": "#/setting/sync-setting",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "span.name > ul.dropdown-menu > li:nth-of-type(4) > a"
+  },
+  {
+    "text": "Dashboard",
+    "href": "#/dasboard",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(1) > a"
+  },
+  {
+    "text": "Accounts",
+    "href": "#/accounts",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(2) > a"
+  },
+  {
+    "text": "Account Groups",
+    "href": "#/account-groups",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(3) > a"
+  },
+  {
+    "text": "Carts",
+    "href": "#/open-carts",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(4) > a"
+  },
+  {
+    "text": "Inventory",
+    "href": "#/products",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(5) > a"
+  },
+  {
+    "text": "Catalogs",
+    "href": "#/product-catalogs",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(6) > a"
+  },
+  {
+    "text": "Orders",
+    "href": "#/orders",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(7) > a"
+  },
+  {
+    "text": "Sales Person Report",
+    "href": "#/sales-person-report",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(8) > a"
+  },
+  {
+    "text": "Order Summary",
+    "href": "#/order-summary",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "#sidebar-nav > ul.nav.nav-pills > li:nth-of-type(9) > a"
+  },
+  {
+    "text": "Help",
+    "href": "",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "help-tool-cog s2-tb tb-success",
+    "selector": "div.slide-main-animation > s2s-help-content > div.help-tool.closed > a.help-tool-cog.s2-tb"
+  },
+  {
+    "text": "Client Note Attributes",
+    "href": "https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Configuration_ClientNoteAttributes.mp4",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "venobox vbox-item",
+    "selector": "div.row.help-content-row:nth-of-type(3) > s2s-venobox-player > div.row.help-row:nth-of-type(1) > a.venobox.vbox-item"
+  },
+  {
+    "text": "Start New Cart",
+    "href": "https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Sales_StartNewCart.mp4",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "venobox vbox-item",
+    "selector": "div.row.help-content-row:nth-of-type(4) > s2s-venobox-player > div.row.help-row:nth-of-type(1) > a.venobox.vbox-item"
+  },
+  {
+    "text": "Building an Order",
+    "href": "https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Sales_BuildingAnOrder.mp4",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "venobox vbox-item",
+    "selector": "div.row.help-content-row:nth-of-type(5) > s2s-venobox-player > div.row.help-row:nth-of-type(1) > a.venobox.vbox-item"
+  },
+  {
+    "text": "Home",
+    "href": "",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "",
+    "selector": "div.pull-left:nth-of-type(1) > ol.breadcrumb > li:nth-of-type(1) > a"
+  },
+  {
+    "text": "PRC Conway (PO-949112-339795)",
+    "href": "#/cart/2",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "btn btn-link ng-binding",
+    "selector": "tbody > tr:nth-of-type(1) > td.text-left:nth-of-type(1) > a.btn.btn-link"
+  },
+  {
+    "text": "PRC Arlington (PO-949112-339791)",
+    "href": "#/cart/1",
+    "ariaLabel": "",
+    "tag": "a",
+    "source": "sidebar",
+    "classes": "btn btn-link ng-binding",
+    "selector": "tbody > tr:nth-of-type(2) > td.text-left:nth-of-type(1) > a.btn.btn-link"
+  }
+]

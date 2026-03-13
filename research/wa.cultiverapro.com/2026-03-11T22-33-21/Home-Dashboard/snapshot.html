@@ -1,0 +1,886 @@
+<!DOCTYPE html><html id="s2sapp" ng-controller="mainCtrl" class="k-webkit k-webkit120 js cssanimations no-csstransforms3d csstransitions js no-touch cssanimations ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="expires" content="0">
+    <meta name="description" content="Maximize efficiency with Cultivera Pro, the definitive seed-to-sale software for the cannabis industry. Featuring a built-in CRM system, advanced sales tracking, and precise inventory management, our solution streamlines your operations from cultivation to sale. Embrace comprehensive grow and production management tools, enhanced by top-tier compliance reporting and analytics. Ensure regulatory adherence and make informed decisions with our all-encompassing platform designed for cannabis business success.">
+    <meta name="keywords" content="Seed-to-Sale Software, Cannabis Business CRM, Cannabis Inventory Management, Cannabis Grow Management, Cannabis Production Software, Cannabis Compliance Reporting, Cannabis Business Analytics, Seed-to-Sale Tracking, Cannabis Industry Software, Cannabis Business Management, Cannabis Sales Tracking, Cannabis Fulfillment Solutions, Complete Cannabis Software Solution, Cannabis Regulatory Compliance, Cultivera Pro">
+
+    <title ng-bind="title + ' | Cultivera - CRM'" class="ng-binding">Sales Dashboard | Cultivera - CRM</title>
+
+    <link href="/css/kendo/kendo.common.min.css" rel="stylesheet">
+    <!--<link href="/css/kendo/kendo.material.min.css" rel="stylesheet"/>-->
+    <link href="/css/kendo/kendo.silver.min.css" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.min.css">
+
+    <!-- RTL support - for demo only -->
+    <!-- css for libs -->
+    <!-- select2 -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/select2.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500" rel="stylesheet" type="text/css">
+
+    <!-- libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="/css/libs/font-awesome.css" />-->
+    <link rel="stylesheet" type="text/css" href="/css/libs/nanoscroller.css">
+    <link rel="stylesheet" type="text/css" href="/css/angular.css">
+    <link rel="stylesheet" type="text/css" href="/css/loading-bar.css">
+
+
+    <link href="/bower_components/stretchy-navigation/css/style.css" rel="stylesheet">
+
+
+    <!-- global styles -->
+    <link href="/scss/theme/theme_styles.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/css/libs/bootstrap-editable.css">
+    <!-- jquery-ui -->
+    <link href="/node_modules/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <!-- nouslider -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/jquery.nouislider.css">
+
+    <!-- morris charts -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/morris.css">
+
+    <!-- jVector maps -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/jquery-jvectormap-1.2.2.css">
+
+    <!-- weather icons -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/weather-icons.css">
+
+    <!-- timeline -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/timeline.css">
+
+    <!-- dataTables -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/dataTables.fixedHeader.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/dataTables.tableTools.css">
+
+    <!-- footables -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/footable.core.css">
+
+    <!-- notifications - all types -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-default.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-growl.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-bar.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-attached.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-other.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/ns-style-theme.css">
+
+    <!-- nifty modal windows -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/nifty-component.css">
+
+    <!-- hopscotch - tour plugin -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/hopscotch.css">
+
+    <!-- xcharts -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/xcharts.css">
+
+    <!-- dropzone -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/dropzone.css">
+
+    <!-- gallery -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/gallery-component.css">
+
+    <!-- wizard -->
+    <link rel="stylesheet" type="text/css" href="/css/compiled/wizard.css">
+    <link rel="stylesheet" type="text/css" href="/css/libs/bootstrap-wizard.css">
+
+    <!-- summernote wysiwyg -->
+    <link rel="stylesheet" type="text/css" href="/css/libs/summernote.min.css">
+
+    <!-- s2s -->
+    <link href="/css/s2s.min.css?1" rel="stylesheet">
+    <link href="/css/custom-style.css" rel="stylesheet">
+
+    <!-- sweet alert -->
+    <link href="/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <!-- flip clock -->
+    <link href="/bower_components/flipclock/flipclock.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon">
+
+    <!-- google font libraries -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400" rel="stylesheet" type="text/css">
+
+
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LHR3V8R92H&amp;cx=c&amp;gtm=4e63a1"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-73970432-4"></script>
+    <script src="/app.s2s/appSettings.js?v308"></script>
+    <script src="/js/s2/ga.js?v308"></script>
+    <script>
+        window.__cb = "340216A"
+    </script>
+    <!-- google maps - change the API key for production version -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOQMw0m_mHr8r8fJ-VxCw7WA1PCFRnOo0"></script>
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/64/4d/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/64/4d/util.js"></script></head>
+<!-- theme-white ,  -->
+<body class="theme-whbl fixed-header fixed-leftmenu " ss-pagelayout="">
+    <div id="theme-wrapper">
+        <!-- For Corner Expand effect -->
+        <div class="notification-shape shape-box" id="notification-shape" data-path-to="m 0,0 500,0 0,500 -500,0 z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="none">
+                <path d="m 0,0 500,0 0,500 0,-500 z"></path>
+            </svg>
+        </div>
+        <header class="navbar ng-scope" id="header-navbar" ng-controller="headerController as vm">
+            <div class="container">
+                <div class="navbar-brand hidden-sm hidden-xs hidden-xxs">
+                    <a href="#/dasboard" id="logo" class="navbar-brand log-navbar-xs">
+                        <img src="/img/logo/cultivera-pro-logo-large-white.png" alt="" class="hidden-sm hidden-xs hidden-xxs normal-logo logo-white2" style="height: 47px; margin-top: -5px;">
+                    </a>
+                </div>
+                <div class="navbar-brand hidden-lg hidden-md" style="max-width: 110px">
+                    <a href="#/dasboard" id="logo" class="navbar-brand log-navbar-md">
+                        <img src="/img/logo/cultivera-pro-logo-large-white.png" alt="" class="normal-logo logo-white" style="height: 33px; margin-top: -5px;">
+                    </a>
+                </div>
+
+
+                <div class="clearfix">
+                    <div class="nav-no-collapse navbar-left pull-left ng-isolate-scope" s2s-applist="" selected-app="crm"><ul class="nav navbar-nav pull-left">
+    <li class="dropdown">
+        <a class="btn dropdown-toggle" data-toggle="dropdown">
+            <span style="font-size: 1.6em"><i class="fa fa-cubes"> </i> <span class="ng-binding"> Sales </span> </span>  &nbsp; <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" style="font-size: 1.6em">
+            <!-- ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/app-grow">
+                    <i class="fa fa-tree" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Grow </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/app-analytics">
+                    <i class="fa fa-line-chart" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Analytics </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope selected" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/crm#/">
+                    <i class="fa fa-cubes" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Sales </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/inventory/#/">
+                    <i class="fa fa-th-large" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Inventory Management </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/fulfillment#/">
+                    <i class="fa fa-external-link-square" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Fulfillment </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --><li class="item ng-scope" ng-repeat="a in apps" ng-class="{selected:a.selected}">
+                <a ng-class="a.isDisabled ? 'disabled' : ''" href="/configuration#/">
+                    <i class="fa fa-gears" style="padding-top: 3px"></i>&nbsp;&nbsp;
+                    <span class="content ng-binding"> Configuration </span>
+                </a>
+            </li><!-- end ngRepeat: a in apps --> 
+        </ul>
+    </li>
+</ul>
+<style>
+    a.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+</style></div>
+
+
+                    <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+
+                    <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+                        <ul class="nav navbar-nav pull-left">
+                            <li>
+                                <a class="btn" id="make-small-nav">
+                                    <i class="fa fa-exchange fa-2x"></i>
+                                </a>
+                            </li>
+
+                            <li class="dropdown ng-isolate-scope">
+
+    <a class="btn dropdown-toggle" data-toggle="dropdown" style="color: white;">
+        <i class="fa fa-bell"></i>
+        <!-- ngIf: notification && notification.NotReadCount > 0 -->
+    </a>
+    <ul class="dropdown-menu notifications-list">
+
+        <li class="pointer">
+            <div class="pointer-inner">
+                <div class="arrow"></div>
+            </div>
+        </li>
+
+        <!-- ngIf: notification --><li class="item-header ng-binding ng-scope" ng-if="notification">
+            You have 0 new notifications
+        </li><!-- end ngIf: notification -->
+
+        <!-- ngRepeat: notif in notification.Notifications -->
+
+        <li class="item-footer">
+            <a href="#/all-notifications">
+                View all notifications
+            </a>
+        </li>
+    </ul>
+
+    <div id="notificationModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                
+                    <h4 class="modal-title ng-binding"><i class="fa fa-bell-o"></i> </h4>
+
+                </div>
+                <div class="modal-body">
+                    <div style="overflow-x: auto">
+                    <small style="text-decoration: underline" class="pull-right ng-binding" ng-bind="notificationMessage.Date|date:'MM/dd/yyyy hh:mm'"></small>
+                    <br> <br>
+                        <p ng-bind-html="asHtml(notificationMessage.Body)" class="ng-binding"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .notifications-list li.item a > div.content{
+            display: inline-block;
+            width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .read {
+            color: #777;
+            font-weight: normal !important;
+        }
+
+        .notread {
+            color: #333;
+            font-weight: 700 !important;
+        }
+
+
+
+    </style>
+
+</li>
+                            <li class="dropdown ng-isolate-scope">
+        <a href="#/invitations" class="btn dropdown-toggle" style="color: white;">
+            <i class="fa fa-flag-o"></i>
+            <!-- ngIf: pendingInvitations >= 0 --><span ng-if="pendingInvitations &gt;= 0" class="badge badge-danger ng-binding ng-scope">0</span><!-- end ngIf: pendingInvitations >= 0 -->
+        </a>
+</li>
+                            <li class="dropdown ng-isolate-scope">
+    <a href="../crm#/open-carts?portalOrder=1" class="btn dropdown-toggle" style="color: white;">
+        <i class="fa fa-cart-arrow-down"></i>
+        <!-- ngIf: portalOrdersPendingApproval >= 0 --><span ng-if="portalOrdersPendingApproval &gt;= 0" class="badge badge-danger ng-binding ng-scope">2</span><!-- end ngIf: portalOrdersPendingApproval >= 0 -->
+    </a>
+</li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-no-collapse pull-right" id="header-nav">
+                        <ul class="nav navbar-nav pull-right">
+                            <li class="hidden-xs mobile-search ng-isolate-scope" s-type="sales">
+    <span tabindex="-1" role="presentation" class="k-widget k-autocomplete k-header form-control k-state-default" style="margin-top: 8px; width: 250px;"><input type="text" class="form-control k-input" placeholder="Find Order..." id="order-searchbox" style="margin-top: 8px; width: 100%;" data-role="autocomplete" autocomplete="off" role="textbox" aria-haspopup="true" aria-disabled="false" aria-readonly="false" aria-owns="order-searchbox_listbox" aria-autocomplete="list"><span class="k-icon k-loading" style="display:none"></span></span>
+    <style>
+        .k-list .k-item {
+            margin-bottom: 5px;
+            line-height: 20px;
+            border-bottom: 1px solid #DDD;
+        }
+
+        #order-searchbox {
+            margin-top: 3px !important;
+        }
+
+        #order-searchbox:focus {
+            box-shadow: none;
+        }
+
+        .mobile-search > .k-autocomplete.k-state-default, .mobile-search > .k-autocomplete.k-state-hover {
+            background: #fff !important;
+            border-radius: 2px !important;
+        }
+
+        .mobile-search > .k-autocomplete {
+            border: white solid 1px !important;
+        }
+
+        .mobile-search > .k-autocomplete:hover {
+            border: #bdbdbd solid 1px !important;
+        }
+    </style>
+</li>
+                           <li class="dropdown profile-dropdown">
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="#/user-profile"><i class="fa fa-user"></i>Profile</a></li>
+                                    <li><a href="#/company-profile"><i class="fa fa-group"></i>Company Profile</a></li>
+                                    <li><a href="/configuration#/notifications"><i class="fa fa-bell"></i>Notifications</a></li>
+                                    <li><a href=""><i class="fa fa-cog"></i>Settings</a></li>
+                                    <li><a href="" ng-click="vm.lock()"><i class="fa fa-lock"></i>Lock</a></li>
+                                    <li><a href="" ng-click="vm.logout()"><i class="fa fa-power-off"></i>Logout</a></li>
+                                </ul>
+                                <a class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="/images/user.png" alt="">
+                                    <span class="hidden-md hidden-sm hidden-xs hidden-xxs ng-binding">Michael&nbsp;Perkins</span> <b class="caret"></b>
+                                </a>
+                            </li>
+                            <li class="hidden-sm hidden-xs hidden-xxs">
+                                <a class="btn" href="" ng-click="vm.logout()">
+                                    <i class="fa fa-power-off"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </header>
+        <div id="page-wrapper" class="container">
+            <div class="row">
+
+                <div id="nav-col" ng-controller="sidebarController as vms" style="z-index: 19" class="ng-scope">
+
+                    <section id="col-left" class="col-left-nano">
+                        <div id="col-left-inner" class="col-left-nano-content">
+                            <div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
+                                <!--<img alt="" src="/images/user.png" style="width: 42px;margin-left: auto" />-->
+                                <div id="companyName" class="user-box">
+                                    <span class="name">
+                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                            <span style="text-transform:capitalize" class="ng-binding"> G&amp;S GREENERY </span>
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#/company-profile"><i class="fa fa-group"></i>Company Profile</a></li>
+                                            <li><a href="#/market-settings"><i class="fa fa-shopping-cart"></i>Marketplace Settings</a></li>
+                                            <li><a href="#/user-profile"><i class="fa fa-user"></i>Profile</a></li>
+                                            <li><a href="#/setting/sync-setting"><i class="fa fa-cog"></i>Settings</a></li>
+                                            <li><a href="" ng-click="vms.lock()"><i class="fa fa-lock"></i>Lock</a></li>
+                                            <li><a href="" ng-click="vms.logout()"><i class="fa fa-power-off"></i>Logout</a></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="collapse navbar-collapse navbar-ex1-collapse bigNav" id="sidebar-nav" bs-navbar="">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <!-- ngIf: c.crm.rYfTT8PSVt --><li ng-if="c.crm.rYfTT8PSVt" data-match-route="/dasboard" class="ng-scope">
+                                        <a href="#/dasboard">
+                                            <i class="fa fa-pie-chart"></i>
+                                            <span>Dashboard</span>
+
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.rYfTT8PSVt -->
+
+                                    <!-- ngIf: c.crm.rGCvgxc3NU --><li ng-if="c.crm.rGCvgxc3NU" data-match-route="/accounts" class="ng-scope">
+                                        <a href="#/accounts">
+                                            <i class="fa fa-briefcase"></i>
+                                            <span>Accounts</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.rGCvgxc3NU -->
+
+                                    <!-- ngIf: c.crm.rYfTT8PSVt --><li ng-if="c.crm.rYfTT8PSVt" data-match-route="/accountTiers" class="ng-scope">
+                                        <a href="#/account-groups">
+                                            <i class="fa fa-group"></i>
+                                            <span>Account Groups</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.rYfTT8PSVt -->
+                                    <!-- ngIf: c.crm.r4fmFPfdmk --><li ng-if="c.crm.r4fmFPfdmk" data-match-route="/open-carts" class="ng-scope">
+                                        <a href="#/open-carts">
+                                            <i class="fa fa-cart-arrow-down"></i>
+                                            <span>Carts</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.r4fmFPfdmk -->
+                                    <!-- ngIf: c.crm.rHDg8awt8K --><li ng-if="c.crm.rHDg8awt8K" data-match-route="/inventory-list" class="ng-scope">
+                                        <a href="#/products">
+                                            <i class="fa fa-barcode"></i>
+                                            <span>Inventory</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.rHDg8awt8K -->
+                                    <!-- ngIf: c.crm.rHDg8awt8K --><li ng-if="c.crm.rHDg8awt8K" data-match-route="/inventory-list" class="ng-scope">
+                                        <a href="#/product-catalogs">
+                                            <i class="fa fa-th-large"></i>
+                                            <span>Catalogs</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.rHDg8awt8K -->
+                                    <!-- ngIf: c.crm.rGcoU5pjKK --><li ng-if="c.crm.rGcoU5pjKK" data-match-route="/orders" class="ng-scope">
+                                        <a href="#/orders">
+                                            <i class="fa fa-opencart"></i> &nbsp;
+                                            <span>Orders</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.rGcoU5pjKK -->
+
+                                    <!--<li ng-if="c.crm.rMpXHasvay" data-match-route="/map-view">
+                                        <a href="#/map-view">
+                                            <i class="fa fa-map-o"></i>
+                                            <span>Map View</span>
+                                        </a>
+                                    </li>-->
+                                    <!-- ngIf: c.crm.rpbJ4HlkN3 --><li ng-if="c.crm.rpbJ4HlkN3" data-match-route="/sales-person-report" class="ng-scope">
+                                        <a href="#/sales-person-report">
+                                            <i class="fa fa-th-list"></i>
+                                            <span>Sales Person Report</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.rpbJ4HlkN3 -->
+
+                                    <!-- ngIf: c.crm.rpXcbzpPiA --><li ng-if="c.crm.rpXcbzpPiA" data-match-route="/order-summary" class="ng-scope">
+                                        <a href="#/order-summary">
+                                            <i class="fa fa-list-ul"></i>
+                                            <span>Order Summary</span>
+                                        </a>
+                                    </li><!-- end ngIf: c.crm.rpXcbzpPiA -->
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <div id="nav-col-submenu"></div>
+                </div>
+
+                <div id="content-wrapper" class="white-wrapper">
+                    <div class="row" style="opacity: 1;">
+                        <div class="col-lg-12">
+
+                            <div class="slide-main-container">
+                                <!-- ngView: --><div ng-view="" autoscroll="true" class="slide-main-animation ng-scope"><s2s-help-content s-system-name="sales-accounts" class="ng-scope ng-isolate-scope"><link href="../../../css/venobox/venobox.css" rel="stylesheet">
+<link href="../../../css/help-content-style.css" rel="stylesheet">
+<div class="help-tool closed">
+    <a class="help-tool-cog s2-tb tb-success" style=""> Help</a>
+    <div class="help-tool-options" style="display: none;">
+
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <input id="txtFilterHelp" type="text" class="form-control  ng-pristine ng-untouched ng-valid ng-empty" placeholder="Type keyword here to search for help.." ng-model="helpFilterCriteria.Filter" ng-keyup="$event.keyCode == 13 &amp;&amp; txtFilterChanged()" ng-change="txtFilterChanged()" style="">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button" ng-click="clearSearchBoxClick()" ng-disabled="helpFilterCriteria.Filter===''" disabled="disabled"><i class="fa fa-remove"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="helpContentHr">
+        <div class="row helpListContainer" ng-hide="loading" style="">
+            <div ng-show="helpContentList.length===0 &amp;&amp; userSearchTriggered===false" class="alert alert-info help-cont-alert ng-hide">
+                <i class="fa fa-info-circle fa-fw fa-lg"></i>Sorry, no help available for this section.
+            </div>
+            <div ng-show="userSearchTriggered &amp;&amp; helpContentList.length===0" class="alert alert-danger help-cont-alert ng-hide">
+                <i class="fa fa-times-circle fa-fw fa-lg"></i>Sorry, no result found.
+            </div>
+            <!-- ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope" style="">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="true" class="row help-row">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Configuration_ClientNoteAttributes.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Client Note Attributes</div>
+        </div>
+    </a>
+</div>
+<div ng-show="false" class="row help-row ng-hide" style="">
+    <a target="_blank" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Configuration_ClientNoteAttributes.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Client Note Attributes</div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">Manage client note attributes</div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="true" class="row help-row">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Sales_StartNewCart.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Start New Cart</div>
+        </div>
+    </a>
+</div>
+<div ng-show="false" class="row help-row ng-hide" style="">
+    <a target="_blank" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Sales_StartNewCart.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Start New Cart</div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">Start a new cart</div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id --><div ng-repeat="h in helpContentList track by h.Id" class="row help-content-row ng-scope">
+                <s2s-venobox-player s-help-content="h" class="ng-isolate-scope"><div ng-show="true" class="row help-row">
+    <a class="venobox vbox-item" data-vbtype="video" data-autoplay="true" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Sales_BuildingAnOrder.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Building an Order</div>
+        </div>
+    </a>
+</div>
+<div ng-show="false" class="row help-row ng-hide" style="">
+    <a target="_blank" href="https://d1qcbmikiu5bn3.cloudfront.net/help-resources/Sales_BuildingAnOrder.mp4">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-book fa-2x"></i>
+            </div>
+            <div class="col-md-11 help-link-text ng-binding">Building an Order</div>
+        </div>
+    </a>
+</div>
+<div>
+    <div class="helpDesciption ng-binding">Building an order</div>
+</div></s2s-venobox-player>
+            </div><!-- end ngRepeat: h in helpContentList track by h.Id -->
+        </div>
+        <div ng-show="loading" class="row ng-hide" style="text-align: center;">
+            <i class="fa fa-spinner fa-spin help-load-spinner"></i>
+        </div>
+        <div class="h6 sysNameLable pull-right ng-binding">sales-accounts</div>
+    </div>
+</div>
+</s2s-help-content>
+<div class="row ng-scope">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div id="content-header" class="clearfix">
+            <div class="pull-left">
+                <ol class="breadcrumb">
+                    <li><a href="">Home</a></li>
+                    <li class="active"><span>Dashboard</span></li>
+                </ol>
+            </div>
+            <div class="pull-right">
+                <div class="account-filter onoffswitch">
+                    <input ng-model="vm.criteria.IsOnlySalesPersonData" ng-change="vm.search()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox ng-pristine ng-untouched ng-valid ng-empty" id="myonoffswitch" checked="" style="">
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row ng-scope">
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box colored emerald-bg">
+            <i class="fa fa-dollar"></i>
+            <span class="headline">TODAY SALES</span>
+            <span class="value ng-binding" style="font-size:1.8em">0 <span style="font-size:small">Orders =&nbsp;</span>  $0</span>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box colored " style="background-color:#FF9800">
+            <i class="fa fa-dollar"></i>
+            <span class="headline ng-binding"> MARCH ORDER DELIVERY</span>
+            <span class="value ng-binding" style="font-size:1.8em">0 <span style="font-size:small">Orders =&nbsp;</span> $0</span>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box colored green-bg">
+            <i class="fa fa-dollar"></i>
+            <span class="headline">TOTAL INVOICES MTD</span>
+            <span class="value ng-binding" style="font-size:1.8em">0 <span style="font-size:small">Orders =&nbsp;</span> $0</span>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="main-box infographic-box colored " style="background-color: #3C6298">
+            <i class="fa fa-dollar"></i>
+            <span class="headline">FUTURE SALES</span>
+            <span class="value ng-binding" style="font-size:1.8em">0 <span style="font-size:small">Orders =&nbsp;</span> $0</span>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 ng-scope">
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="main-box">
+                <div class="row">
+                    <div class="main-box-body clearfix">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div kendo-chart="" k-legend="{ position: 'top' }" k-series-colors="vm.options.seriesColors" k-title="{text: 'Weekly Sale - Last 3 Months ',position: 'bottom'}" k-series="vm.options.series" k-value-axis="vm.options.valueAxis" k-tooltip="vm.options.tooltip" k-category-axis="vm.options.categoryAxis" k-data-source="vm.yoyDs" style="height: 300px; position: relative; touch-action: pan-y;" data-role="chart" class="k-chart"><svg style="width: 100%; height: 100%; overflow: hidden;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><defs><clipPath id="kdef2"><path d="M27 46 L 531 46 531 234 27 234Z" stroke="#000" stroke-linejoin="miter" fill="none"></path></clipPath></defs><g><path d="M0 0 L 537 0 537 300 0 300Z" stroke="none" fill="#fff"></path><path d="M27 46 L 531 46 531 234 27 234Z" stroke="none" fill="#fff" fill-opacity="0"></path><g><g></g><g><path d="M27.5 203.5 L 531.5 203.5" stroke="#dfdfdf" stroke-width="1" fill="none"></path><path d="M27.5 171.5 L 531.5 171.5" stroke="#dfdfdf" stroke-width="1" fill="none"></path><path d="M27.5 140.5 L 531.5 140.5" stroke="#dfdfdf" stroke-width="1" fill="none"></path><path d="M27.5 109.5 L 531.5 109.5" stroke="#dfdfdf" stroke-width="1" fill="none"></path><path d="M27.5 77.5 L 531.5 77.5" stroke="#dfdfdf" stroke-width="1" fill="none"></path><path d="M27.5 46.5 L 531.5 46.5" stroke="#dfdfdf" stroke-width="1" fill="none"></path></g><g><g><g><path d="M27.5 234.5 L 531.5 234.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M27.5 234.5 L 27.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M66.5 234.5 L 66.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M105.5 234.5 L 105.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M143.5 234.5 L 143.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M182.5 234.5 L 182.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M221.5 234.5 L 221.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M260.5 234.5 L 260.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M298.5 234.5 L 298.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M337.5 234.5 L 337.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M376.5 234.5 L 376.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M415.5 234.5 L 415.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M453.5 234.5 L 453.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M492.5 234.5 L 492.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M531.5 234.5 L 531.5 238.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path></g></g></g><g clip-path="url(#kdef2)"><g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g><g><g></g></g></g><g transform="matrix(0,-1,1,0,-203.115385,292.384615)" opacity="1"><path d="M35.385 238 L 57.385 238 57.385 261 35.385 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="39.38461538461539" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,-164.346154,331.153846)" opacity="1"><path d="M74.154 238 L 96.154 238 96.154 261 74.154 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="78.15384615384615" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,-125.576923,369.923077)" opacity="1"><path d="M112.923 238 L 134.923 238 134.923 261 112.923 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="116.92307692307693" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,-86.807692,408.692308)" opacity="1"><path d="M151.692 238 L 173.692 238 173.692 261 151.692 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="155.69230769230768" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,-48.038462,447.461538)" opacity="1"><path d="M190.462 238 L 212.462 238 212.462 261 190.462 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="194.46153846153845" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,-9.269231,486.230769)" opacity="1"><path d="M229.231 238 L 251.231 238 251.231 261 229.231 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="233.23076923076923" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,29.5,525)" opacity="1"><path d="M268 238 L 290 238 290 261 268 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="272" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,68.269231,563.769231)" opacity="1"><path d="M306.769 238 L 328.769 238 328.769 261 306.769 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="310.7692307692307" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,107.038462,602.538462)" opacity="1"><path d="M345.538 238 L 367.538 238 367.538 261 345.538 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="349.53846153846155" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,145.807692,641.307692)" opacity="1"><path d="M384.308 238 L 406.308 238 406.308 261 384.308 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="388.30769230769226" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,184.576923,680.076923)" opacity="1"><path d="M423.077 238 L 445.077 238 445.077 261 423.077 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="427.0769230769231" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,223.346154,718.846154)" opacity="1"><path d="M461.846 238 L 483.846 238 483.846 261 461.846 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="465.8461538461538" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g><g transform="matrix(0,-1,1,0,262.115385,757.615385)" opacity="1"><path d="M500.615 238 L 522.615 238 522.615 261 500.615 261Z" stroke="none" fill="none"></path><text style="font:13px sans-serif;" x="504.61538461538464" y="254" stroke="none" fill="#fff" fill-opacity="1">$0</text></g></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="27.384500000000003" y="254" stroke="none" fill="#232323" fill-opacity="1">Dec/08</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="104.923" y="254" stroke="none" fill="#232323" fill-opacity="1">Dec/22</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="183.4615" y="254" stroke="none" fill="#232323" fill-opacity="1">Jan/05</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="261" y="254" stroke="none" fill="#232323" fill-opacity="1">Jan/19</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="338.0385" y="254" stroke="none" fill="#232323" fill-opacity="1">Feb/02</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="415.577" y="254" stroke="none" fill="#232323" fill-opacity="1">Feb/16</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="493.1155" y="254" stroke="none" fill="#232323" fill-opacity="1">Mar/02</text></g><g><g><path d="M27.5 46.5 L 27.5 234.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M23.5 234.5 L 27.5 234.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M23.5 203.5 L 27.5 203.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M23.5 171.5 L 27.5 171.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M23.5 140.5 L 27.5 140.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M23.5 109.5 L 27.5 109.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M23.5 77.5 L 27.5 77.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path><path d="M23.5 46.5 L 27.5 46.5" stroke="#8e8e8e" stroke-width="1" fill="none"></path></g></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="5" y="175.333" stroke="none" fill="#232323" fill-opacity="1">$0</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="5" y="144" stroke="none" fill="#232323" fill-opacity="1">$1</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="5" y="112.667" stroke="none" fill="#232323" fill-opacity="1">$1</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="5" y="81.333" stroke="none" fill="#232323" fill-opacity="1">$1</text></g><g><text style="font:12px Arial,Helvetica,sans-serif;" x="5" y="50" stroke="none" fill="#232323" fill-opacity="1">$1</text></g></g><g><g><text style="font:16px Arial,Helvetica,sans-serif;" x="167" y="281" stroke="none" fill="#8e8e8e" fill-opacity="1">Weekly Sale - Last 3 Months</text></g></g><g></g><g><g><g transform="matrix(1,0,0,1,228,15)"><path d="M1 3.5 L 8 3.5 8 10.5 1 10.5Z" stroke="#8BC34A" stroke-width="1" fill="#8BC34A"></path><g><text style="font:12px Arial,Helvetica,sans-serif;" x="15" y="11" stroke="none" fill="#232323" fill-opacity="1">Weekly Sale</text></g><path style="cursor:pointer;" d="M0 0 L 81 0 81 14 0 14Z" stroke="none" fill="#fff" fill-opacity="0"></path></g></g></g><g></g></g></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="main-box">
+
+                <div class="main-box-body clearfix" style="padding-bottom: 0">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="map-stats">
+                                <table class="table table-hover dashboardtable">
+                                    <caption class="text-center s2-text-1x">Recent Orders</caption>
+                                    <thead>
+                                        <tr class="text-left">
+                                            <th>Order #</th>
+                                            <th>Client</th>
+                                            <th class="hidden-xs">Date</th>
+                                            <th class="text-left hidden-xs">Status</th>
+                                            <th class="text-right">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- ngRepeat: ro in vm.recentOrders -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="map-stats">
+                                <table class="table table-hover dashboardtable">
+                                    <caption class="s2-text-2x">Recent Clients </caption>
+                                    <thead><tr><th>Client</th></tr></thead>
+                                    <tbody>
+                                        <!-- ngRepeat: ts in vm.recentClients -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="main-box">
+
+                <div class="main-box-body clearfix" style="padding-bottom: 0">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-condensed dashboardtable">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" class="text-left">
+                                        <span> Top Accounts up for Reorder</span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Account </th>
+                                    <th class="hidden-sm hidden-xs hidden-xxs">No# Orders</th>
+                                    <th class="hidden-sm hidden-xs hidden-xxs">Last Order</th>
+                                </tr>
+                                <tr class="hidden-md hidden-lg">
+                                    <th>
+                                        <span class="pull-left"> No# Orders</span>
+                                        <span class="pull-right"> Last Order</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                <!-- ngRepeat: ts in vm.frequentlyOrderingClients -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table table-condensed dashboardtable" width="80%">
+                                <thead>
+                                <tr>
+                                    <th colspan="2" class="text-left"><span>Top Ordering Clients</span></th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>Account</span>
+                                        <span class="text-right" style="float:right;">Total</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <!-- ngRepeat: ts in vm.topOrderingClients -->
+                                </tbody>
+                            </table>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="main-box">
+
+                <div class="main-box-body clearfix" style="padding-bottom: 0">
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="main-box-body clearfix">
+                                <div class="table-responsive clearfix">
+                                <table class="table table-hover dashboardtable">
+                                    <caption class="text-center s2-text-1x">Active Carts</caption>
+                                    <thead>
+                                        <tr class="text-left">
+                                            <th>Client/Started Date</th>
+                                            <th>Items</th>
+                                            <th class="text-right">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- ngRepeat: rc in vm.activeCarts --><tr ng-repeat="rc in vm.activeCarts" class="ng-scope" style="">
+                                            <td class="text-left ng-binding">
+                                                <a class="btn btn-link ng-binding" href="#/cart/2" style="padding-left: 0">
+                                                    <i class="fa fa-shopping-cart"></i>  PRC Conway <!-- ngIf: rc.PortalOrderRefNo --><span ng-if="rc.PortalOrderRefNo" class="ng-binding ng-scope">   (PO-949112-339795) </span><!-- end ngIf: rc.PortalOrderRefNo -->
+                                           
+                                                </a>
+                                                <br> <i class="fa fa-calendar"></i> Tue 03/10/26
+                                                10:44 AM
+                                            </td>
+                                            <td class="text-left ng-binding">
+                                                16
+                                            </td>
+                                            <td class="text-right " style="font-size: 14px; color: #545090;">
+                                                <span class="s2-number s2-text-1x ng-binding">$621.60</span>
+                                            </td>
+                                        </tr><!-- end ngRepeat: rc in vm.activeCarts --><tr ng-repeat="rc in vm.activeCarts" class="ng-scope">
+                                            <td class="text-left ng-binding">
+                                                <a class="btn btn-link ng-binding" href="#/cart/1" style="padding-left: 0">
+                                                    <i class="fa fa-shopping-cart"></i>  PRC Arlington <!-- ngIf: rc.PortalOrderRefNo --><span ng-if="rc.PortalOrderRefNo" class="ng-binding ng-scope">   (PO-949112-339791) </span><!-- end ngIf: rc.PortalOrderRefNo -->
+                                           
+                                                </a>
+                                                <br> <i class="fa fa-calendar"></i> Tue 03/10/26
+                                                10:42 AM
+                                            </td>
+                                            <td class="text-left ng-binding">
+                                                24
+                                            </td>
+                                            <td class="text-right " style="font-size: 14px; color: #545090;">
+                                                <span class="s2-number s2-text-1x ng-binding">$1,613.20</span>
+                                            </td>
+                                        </tr><!-- end ngRepeat: rc in vm.activeCarts -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style class="ng-scope">
+    table.dashboardtable tr > td {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+</style></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ngInclude: "/app/views/common/footer.html" --><div ng-include="&quot;/app/views/common/footer.html&quot;" class="ng-scope"><footer id="footer-bar" class="row ng-scope">
+	<p id="footer-copyright" class="col-xs-12">
+		Powered by Σbolt Solutions ™.
+	</p>
+</footer></div>
+                </div>
+            </div>
+
+            <div data-terms-and-conditions="" class="ng-scope"><div id="termsAndConditionsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Terms and Conditions</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    We've recently update our terms and conditions. <br>
+                    Please read and accept them.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="ignoreTermsAndConditions();" data-dismiss="modal">Maybe Later</button>
+                <button type="button" class="btn btn-success" ng-click="viewTermsAndConditions();">View Terms and Conditions</button>
+            </div>
+        </div>
+    </div>
+</div></div>
+            <div data-refresh-jwt="" class="ng-scope"><div id="refreshJwtModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Your Session Token is About to Expire</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Your session is about to expire. <br>
+                    Would you like to refresh it now?
+                </p>
+                <div id="refreshJwtTextClock" style="font-size:300%">
+                    <span id="refreshJwtHoursSpan">12</span> h
+                    <span id="refreshJwtMinutesSpan">00</span> m
+                    <span id="refreshJwtSecondsSpan">00</span> s
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="vm.hideModal();" data-dismiss="modal"> No </button>
+                <button type="button" class="btn btn-success" ng-click="vm.refreshJwt();"> Yes </button>
+            </div>
+        </div>
+    </div>
+</div></div>
+        </div>
+    </div>
+
+    <script src="/js/s2/vendor.js"></script>
+    <script src="/js/s2/utils.js"></script>
+    <script src="/app.sales/s2-module-dependencies.js?v307-6"></script>
+    <script src="/js/s2/app-support.js?v307-6"></script>
+    <script src="/app.sales/app.js?v307-6"></script>
+    <s2s-system-notification></s2s-system-notification>
+
+
+
+<div class="k-list-container k-popup k-group k-reset" id="order-searchbox-list" data-role="popup" style="display: none; position: absolute;"><div class="k-group-header" style="display:none"></div><div class="k-list-scroller" unselectable="on"><ul unselectable="on" class="k-list k-reset" tabindex="-1" aria-hidden="true" id="order-searchbox_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div></div></body></html>

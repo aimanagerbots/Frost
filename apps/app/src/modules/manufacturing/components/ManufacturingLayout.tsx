@@ -1,16 +1,17 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Factory } from 'lucide-react';
 import { SectionHeader, LoadingSkeleton } from '@/components';
 import { useManufacturingStore } from '../store';
-import { ManufacturingNav } from './ManufacturingNav';
 import { ManufacturingDashboard } from './dashboard';
 import { WorkOrderBoard } from './work-orders';
 import { ProductionLines } from './production-lines';
 import { BatchTracker } from './batch-tracker';
 import { EquipmentList } from './equipment';
 import { ACCENT } from '@/design/colors';
+import type { ManufacturingView } from '../types';
 
 
 const ROUTES: Record<string, React.ComponentType> = {
@@ -22,8 +23,16 @@ const ROUTES: Record<string, React.ComponentType> = {
 };
 
 function ManufacturingContent() {
-  const { activeView } = useManufacturingStore();
-  const Component = ROUTES[activeView];
+  const searchParams = useSearchParams();
+  const tab = (searchParams.get('tab') ?? 'dashboard') as ManufacturingView;
+  const { setView } = useManufacturingStore();
+
+  // Sync URL tab to store so child components can read activeView
+  useEffect(() => {
+    setView(tab);
+  }, [tab, setView]);
+
+  const Component = ROUTES[tab];
   return Component ? <Component /> : null;
 }
 
@@ -37,9 +46,8 @@ export function ManufacturingLayout() {
         accentColor={ACCENT}
       />
       <Suspense fallback={<LoadingSkeleton variant="list" />}>
-        <ManufacturingNav />
+        <ManufacturingContent />
       </Suspense>
-      <ManufacturingContent />
     </div>
   );
 }

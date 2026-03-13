@@ -105,7 +105,7 @@ export default function HomePage() {
   return (
     <div>
       {/* ── 1. Hero ── */}
-      <section className="relative overflow-hidden bg-black">
+      <section className="relative overflow-hidden bg-black -mt-[88px]">
         {/* Mobile hero (9:16) — shown below 640px */}
         <div className="relative block sm:hidden aspect-[9/16]">
           <Image
@@ -118,7 +118,7 @@ export default function HomePage() {
           />
         </div>
         {/* Desktop hero (16:9) — shown at 640px+ */}
-        <div className="relative hidden sm:block sm:aspect-[2/1] lg:aspect-auto lg:h-[calc(100vh-56px)]">
+        <div className="relative hidden sm:block sm:aspect-[2/1] lg:aspect-auto lg:h-screen">
           <Image
             src="/Frost-hero-desktop.png"
             alt="Frosty Nugs"

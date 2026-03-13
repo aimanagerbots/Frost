@@ -1,0 +1,23 @@
+[
+  {
+    "type": "data-table",
+    "count": 1,
+    "sampleHeaders": [
+      "Name",
+      "Assigned Clients"
+    ]
+  },
+  {
+    "type": "form",
+    "formCount": 2,
+    "fieldCount": 1
+  },
+  {
+    "type": "chart",
+    "count": 1
+  },
+  {
+    "type": "modal/dialog",
+    "count": 21
+  }
+]

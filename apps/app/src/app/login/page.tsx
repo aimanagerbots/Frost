@@ -3,13 +3,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { useAuthStore } from '@/modules/auth/store';
 
 export default function LoginPage() {
   const router = useRouter();
-  const { loginWithEmail, enterDemoMode, isLoading, error, clearError } = useAuthStore();
+  const { loginWithEmail, isLoading, error, clearError } = useAuthStore();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,11 +21,6 @@ export default function LoginPage() {
     if (state.isAuthenticated) {
       router.push('/dashboard');
     }
-  }
-
-  function handleDemoMode() {
-    enterDemoMode();
-    router.push('/dashboard?demo=true');
   }
 
   return (
@@ -44,24 +38,9 @@ export default function LoginPage() {
           alt="Frost"
           width={240}
           height={240}
-          className="h-[120px] w-[120px] mb-8"
+          className="h-[120px] w-[120px] mb-10"
           priority
         />
-
-        {/* Demo Mode Button — prominent, above the form */}
-        <button
-          onClick={handleDemoMode}
-          className="mb-6 w-full rounded-lg bg-[#5BB8E6] py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110"
-        >
-          Explore Demo
-        </button>
-
-        {/* Divider */}
-        <div className="flex w-full items-center gap-3 mb-6">
-          <div className="flex-1 h-px bg-white/10" />
-          <span className="text-xs text-white/30 uppercase tracking-wider">or sign in</span>
-          <div className="flex-1 h-px bg-white/10" />
-        </div>
 
         {/* Error message */}
         {error && (
@@ -112,7 +91,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-white/10 border border-white/10 py-3 text-sm font-semibold text-white/70 transition-all hover:bg-white/15 hover:text-white disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#5BB8E6] py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110 disabled:opacity-60"
           >
             {isLoading ? (
               <>
@@ -124,14 +103,6 @@ export default function LoginPage() {
             )}
           </button>
         </form>
-
-        {/* Sign up link */}
-        <p className="mt-6 text-sm text-white/40">
-          Don&apos;t have an account?{' '}
-          <Link href="/signup" className="text-[#5BB8E6]/80 hover:text-[#5BB8E6] transition-colors">
-            Sign up
-          </Link>
-        </p>
       </div>
 
       <style jsx>{`

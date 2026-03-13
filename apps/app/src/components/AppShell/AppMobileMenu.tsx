@@ -1,13 +1,12 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { Fragment, useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { X, ChevronDown } from 'lucide-react';
 import { cn } from '@frost/ui';
-import { navGroups } from './nav-data';
-import { getSubCategories } from './sub-nav-data';
+import { categories, getCategoryForPath } from './nav-data';
 import { usePermissions } from '@/modules/auth/hooks/usePermissions';
 import { useTeamDMs } from '@/modules/chat/hooks/useTeamChat';
 
@@ -18,30 +17,32 @@ interface AppMobileMenuProps {
 
 export function AppMobileMenu({ isOpen, onClose }: AppMobileMenuProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [rawExpandedIndex, setRawExpandedIndex] = useState<number | null>(null);
   const expandedIndex = isOpen ? rawExpandedIndex : null;
   const { allowedModules } = usePermissions();
   const { data: dms } = useTeamDMs();
   const dmUnreadCount = (dms ?? []).reduce((sum, dm) => sum + dm.unreadCount, 0);
 
-  const filteredGroups = useMemo(
-    () =>
-      navGroups
-        .map((group) => ({
-          ...group,
-          items: group.items.filter((item) => allowedModules.has(item.slug)),
-        }))
-        .filter((group) => group.items.length > 0),
-    [allowedModules]
-  );
+  const activeCategory = getCategoryForPath(pathname);
 
-  const subCats = getSubCategories(pathname);
+  const visibleCategories = useMemo(
+    () =>
+      categories.filter((cat) => {
+        if (cat.tabRoute && cat.items.length === 0) {
+          const moduleSlug = cat.tabRoute.replace('/', '');
+          return allowedModules.has(moduleSlug);
+        }
+        return cat.items.some((item) => allowedModules.has(item.slug));
+      }),
+    [allowedModules],
+  );
 
   const handleEscape = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     },
-    [onClose]
+    [onClose],
   );
 
   useEffect(() => {
@@ -61,18 +62,26 @@ export function AppMobileMenu({ isOpen, onClose }: AppMobileMenuProps) {
     setRawExpandedIndex(expandedIndex === i ? null : i);
   };
 
+  function handleTabClick(tabRoute: string, tab: string, sub?: string) {
+    const params = new URLSearchParams();
+    params.set('tab', tab);
+    if (sub) params.set('sub', sub);
+    router.push(`${tabRoute}?${params.toString()}`);
+    onClose();
+  }
+
   return (
     <div
       className={cn(
         'fixed inset-0 z-[60] lg:hidden',
-        isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+        isOpen ? 'pointer-events-auto' : 'pointer-events-none',
       )}
     >
       {/* Backdrop */}
       <div
         className={cn(
           'absolute inset-0 bg-black/40 transition-opacity duration-300',
-          isOpen ? 'opacity-100' : 'opacity-0'
+          isOpen ? 'opacity-100' : 'opacity-0',
         )}
         onClick={onClose}
         aria-hidden="true"
@@ -82,7 +91,7 @@ export function AppMobileMenu({ isOpen, onClose }: AppMobileMenuProps) {
       <div
         className={cn(
           'absolute inset-0 flex flex-col bg-base h-dvh transition-transform duration-300 ease-out',
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? 'translate-x-0' : 'translate-x-full',
         )}
         role="dialog"
         aria-modal="true"
@@ -108,133 +117,143 @@ export function AppMobileMenu({ isOpen, onClose }: AppMobileMenuProps) {
           </button>
         </div>
 
-        {/* Sub-categories for current module */}
-        {subCats && (
-          <div className="shrink-0 border-b border-border-default px-6 pb-4">
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-text-muted">
-              Current Module
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {subCats.items.map((item) => (
-                <Link
-                  key={item.tab}
-                  href={`${subCats.basePath}?tab=${item.tab}${item.sub ? `&sub=${item.sub}` : ''}`}
-                  onClick={onClose}
-                  className="rounded-full bg-white/[0.04] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.04em] text-text-default transition-colors hover:bg-accent-primary/15 hover:text-accent-primary"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Nav sections */}
         <nav className="flex-1 overflow-y-auto px-6 pb-6">
-          {filteredGroups.map((group, i) => {
-            // MAIN items (Chat, Dashboard) as direct links
-            if (group.title === 'MAIN') {
-              return group.items.map((item) => {
-                const Icon = item.icon;
-                const active =
-                  pathname === item.href ||
-                  pathname.startsWith(item.href + '/');
-                const showBadge = item.href === '/chat' && dmUnreadCount > 0;
+          {/* Dashboard link */}
+          <Link
+            href="/dashboard"
+            onClick={onClose}
+            className={cn(
+              'flex items-center gap-3 border-b border-border-default py-4 text-lg font-semibold transition-colors',
+              pathname === '/dashboard'
+                ? 'text-accent-primary'
+                : 'text-text-default hover:text-accent-primary',
+            )}
+          >
+            Dashboard
+          </Link>
 
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={onClose}
-                    className={cn(
-                      'flex items-center gap-3 border-b border-border-default py-4 text-lg font-semibold transition-colors',
-                      active
-                        ? 'text-accent-primary'
-                        : 'text-text-default hover:text-accent-primary'
-                    )}
-                  >
-                    <Icon className="h-5 w-5" />
-                    {item.label}
-                    {showBadge && (
-                      <span className="ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-accent-primary px-1.5 text-[10px] font-bold text-white">
-                        {dmUnreadCount}
-                      </span>
-                    )}
-                  </Link>
-                );
-              });
-            }
-
-            // Other groups as accordion sections
+          {/* Category accordions */}
+          {visibleCategories.map((cat, i) => {
+            const Icon = cat.icon;
             const isExpanded = expandedIndex === i;
-            const hasActiveItem = group.items.some(
-              (item) =>
-                pathname === item.href ||
-                pathname.startsWith(item.href + '/')
-            );
+            const isActive = activeCategory?.key === cat.key;
+            const hasTabs = cat.tabs && cat.tabs.length > 0;
+            const hasExtraTabs = cat.extraTabs && cat.extraTabs.length > 0;
+            const hasItems = cat.items.length > 0;
+            const prevCat = visibleCategories[i - 1];
+            const showDivider = cat.cultivera === false && prevCat?.cultivera === true;
 
             return (
-              <div key={group.title} className="border-b border-border-default">
+              <Fragment key={cat.key}>
+              {showDivider && (
+                <div className="border-b border-border-default py-2">
+                  <span className="block px-0 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                    More
+                  </span>
+                </div>
+              )}
+              <div className="border-b border-border-default">
                 <button
                   type="button"
                   onClick={() => toggle(i)}
                   className={cn(
-                    'flex w-full items-center justify-between py-4 text-lg font-semibold transition-colors',
-                    hasActiveItem
+                    'flex w-full items-center gap-3 justify-between py-4 text-lg font-semibold transition-colors',
+                    isActive
                       ? 'text-accent-primary'
-                      : 'text-text-default hover:text-accent-primary'
+                      : 'text-text-default hover:text-accent-primary',
                   )}
                 >
-                  {group.title === 'SALES & CRM'
-                    ? 'Sales & CRM'
-                    : group.title === 'AI & KNOWLEDGE'
-                      ? 'AI & Knowledge'
-                      : group.title.charAt(0) + group.title.slice(1).toLowerCase()}
+                  <div className="flex items-center gap-3">
+                    <Icon className="h-5 w-5" />
+                    {cat.label}
+                  </div>
                   <ChevronDown
                     className={cn(
                       'h-4 w-4 text-text-muted transition-transform duration-200',
-                      isExpanded && 'rotate-180'
+                      isExpanded && 'rotate-180',
                     )}
                   />
                 </button>
                 <div
                   className={cn(
                     'overflow-hidden transition-all duration-200',
-                    isExpanded ? 'max-h-[600px] pb-4' : 'max-h-0'
+                    isExpanded ? 'max-h-[800px] pb-4' : 'max-h-0',
                   )}
                 >
-                  {group.items.map((item) => {
-                    const Icon = item.icon;
-                    const active =
-                      pathname === item.href ||
-                      pathname.startsWith(item.href + '/');
-                    const showBadge =
-                      item.href === '/chat' && dmUnreadCount > 0;
-
-                    return (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={onClose}
-                        className={cn(
-                          'flex items-center gap-3 py-2 pl-3 text-sm transition-colors',
-                          active
-                            ? 'text-accent-primary'
-                            : 'text-text-default hover:text-accent-primary'
-                        )}
+                  {/* Tab-based sub-items */}
+                  {hasTabs &&
+                    cat.tabs!.map((tab) => (
+                      <button
+                        key={tab.tab}
+                        type="button"
+                        onClick={() =>
+                          handleTabClick(cat.tabRoute!, tab.tab, tab.sub)
+                        }
+                        className="flex w-full items-center gap-3 py-2 pl-3 text-sm text-text-default transition-colors hover:text-accent-primary text-left"
                       >
-                        <Icon className="h-4 w-4 shrink-0" />
-                        {item.label}
-                        {showBadge && (
-                          <span className="ml-auto flex h-4 min-w-4 items-center justify-center rounded-full bg-accent-primary px-1 text-[10px] font-bold text-white">
-                            {dmUnreadCount}
-                          </span>
-                        )}
-                      </Link>
-                    );
-                  })}
+                        {tab.label}
+                      </button>
+                    ))}
+
+                  {/* Extra tabs separator + items */}
+                  {hasExtraTabs && (
+                    <>
+                      <div className="px-3 pt-2 pb-1">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">— More —</span>
+                      </div>
+                      {cat.extraTabs!.map((tab) => (
+                        <button
+                          key={tab.tab}
+                          type="button"
+                          onClick={() =>
+                            handleTabClick(cat.tabRoute!, tab.tab, tab.sub)
+                          }
+                          className="flex w-full items-center gap-3 py-2 pl-3 text-sm text-text-default transition-colors hover:text-accent-primary text-left"
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
+                    </>
+                  )}
+
+                  {/* Route-based sub-items */}
+                  {hasItems &&
+                    cat.items
+                      .filter((item) => allowedModules.has(item.slug))
+                      .map((item) => {
+                        const ItemIcon = item.icon;
+                        const active =
+                          pathname === item.href ||
+                          pathname.startsWith(item.href + '/');
+                        const showBadge =
+                          item.href === '/chat' && dmUnreadCount > 0;
+
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={onClose}
+                            className={cn(
+                              'flex items-center gap-3 py-2 pl-3 text-sm transition-colors',
+                              active
+                                ? 'text-accent-primary'
+                                : 'text-text-default hover:text-accent-primary',
+                            )}
+                          >
+                            <ItemIcon className="h-4 w-4 shrink-0" />
+                            {item.label}
+                            {showBadge && (
+                              <span className="ml-auto flex h-4 min-w-4 items-center justify-center rounded-full bg-accent-primary px-1 text-[10px] font-bold text-white">
+                                {dmUnreadCount}
+                              </span>
+                            )}
+                          </Link>
+                        );
+                      })}
                 </div>
               </div>
+              </Fragment>
             );
           })}
         </nav>

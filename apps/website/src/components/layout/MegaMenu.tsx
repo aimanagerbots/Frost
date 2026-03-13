@@ -164,11 +164,13 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
     return pathname.startsWith(prefix);
   }
 
+  const glowStyle = { textShadow: '0 0 6px rgba(255,255,255,0.65), 0 0 16px rgba(255,255,255,0.3)' };
+
   const baseTrigger =
-    'group inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.04em] transition-all duration-200 outline-none';
+    'group inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-1.5 text-[14px] font-semibold uppercase tracking-[0.04em] transition-colors duration-200 outline-none';
 
   const baseLink =
-    'whitespace-nowrap rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.04em] transition-all duration-200 outline-none';
+    'whitespace-nowrap rounded-full px-3 py-1.5 text-[14px] font-semibold uppercase tracking-[0.04em] transition-colors duration-200 outline-none';
 
   function triggerClass(label: string) {
     const active = isActive(label);
@@ -203,6 +205,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
         <NavigationMenu.Item key={item.label} className="relative">
           <NavigationMenu.Trigger
             className={triggerClass(item.label)}
+            style={glowStyle}
             onClick={(e) => {
               e.preventDefault();
               router.push(`/${item.category.route}`);
@@ -233,6 +236,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
         <NavigationMenu.Item key={item.label} className="relative">
           <NavigationMenu.Trigger
             className={triggerClass(item.label)}
+            style={glowStyle}
             onClick={clickHref ? (e) => {
               e.preventDefault();
               router.push(clickHref);
@@ -259,7 +263,7 @@ export function MegaMenu({ isScrolled }: MegaMenuProps) {
       return (
         <NavigationMenu.Item key={item.label}>
           <NavigationMenu.Link asChild>
-            <Link href={item.href} className={linkClassFor(item.label)}>
+            <Link href={item.href} className={linkClassFor(item.label)} style={glowStyle}>
               {item.label}
             </Link>
           </NavigationMenu.Link>

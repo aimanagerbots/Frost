@@ -21,6 +21,7 @@ interface AuthState {
 
   // Demo mode (existing behavior — unchanged)
   enterDemoMode: () => void;
+  toggleDemoMode: () => void;
 
   // Real auth via Supabase
   loginWithEmail: (email: string, password: string) => Promise<void>;
@@ -42,7 +43,7 @@ export const useAuthStore = create<AuthState>()(
   session: null,
   error: null,
 
-  // --- Demo mode (preserved exactly as before) ---
+  // --- Demo mode ---
   enterDemoMode: () => {
     set({
       isAuthenticated: true,
@@ -52,6 +53,11 @@ export const useAuthStore = create<AuthState>()(
       session: null,
       error: null,
     });
+  },
+
+  // Toggle demo mode without touching user/session (for logged-in admin)
+  toggleDemoMode: () => {
+    set((state) => ({ isDemoMode: !state.isDemoMode }));
   },
 
   // --- Real Supabase auth ---

@@ -1,0 +1,2471 @@
+[
+  {
+    "url": "https://wa.cultiverapro.com/sales#/dashboard",
+    "folder": "Home-Dashboard",
+    "title": "Sales Dashboard | Cultivera - CRM",
+    "heading": "",
+    "components": [
+      {
+        "type": "data-table",
+        "count": 6,
+        "sampleHeaders": [
+          "Order #",
+          "Client",
+          "Date",
+          "Status",
+          "Total",
+          "Client",
+          "Top Accounts up for Reorder",
+          "Account",
+          "No# Orders",
+          "Last Order"
+        ]
+      },
+      {
+        "type": "form",
+        "formCount": 8,
+        "fieldCount": 3
+      },
+      {
+        "type": "chart",
+        "count": 7
+      },
+      {
+        "type": "modal/dialog",
+        "count": 21
+      },
+      {
+        "type": "list",
+        "count": 1
+      },
+      {
+        "type": "badge/chip",
+        "count": 2
+      }
+    ],
+    "interactiveStates": [
+      {
+        "index": 0,
+        "type": "dropdown",
+        "text": "Sales Grow Analytics Sales Inventory Management Fulfillment Configuration",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+        "screenshot": "states/000-dropdown-Sales-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configurati.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 1,
+        "type": "dropdown",
+        "text": "Sales",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/001-dropdown-Sales.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 2,
+        "type": "dropdown",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+        "screenshot": "states/002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 3,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/003-dropdown-3.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 4,
+        "type": "dropdown",
+        "text": "0",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3)",
+        "screenshot": "states/004-dropdown-0.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/sales#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 5,
+        "type": "dropdown",
+        "text": "0",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3) > a.btn.dropdown-toggle",
+        "screenshot": "states/005-dropdown-0.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/sales#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 6,
+        "type": "dropdown",
+        "text": "2",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4)",
+        "screenshot": "states/006-dropdown-2.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 7,
+        "type": "dropdown",
+        "text": "2",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4) > a.btn.dropdown-toggle",
+        "screenshot": "states/007-dropdown-2.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 8,
+        "type": "dropdown",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2)",
+        "screenshot": "states/008-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 9,
+        "type": "dropdown",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle",
+        "screenshot": "states/009-dropdown-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 10,
+        "type": "dropdown",
+        "text": "G&S GREENERY Company Profile Marketplace Settings Profile Settings Lock Logout",
+        "selector": "#user-left-box",
+        "screenshot": "states/010-dropdown-G-S-GREENERY-Company-Profile-Marketplace-Settings-Profile-Settings-Lock.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 11,
+        "type": "dropdown",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/011-dropdown-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 12,
+        "type": "expandable",
+        "text": "Sales Grow Analytics Sales Inventory Management Fulfillment Configuration a.disa",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+        "screenshot": "states/012-expandable-Sales-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configura.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 13,
+        "type": "expandable",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+        "screenshot": "states/013-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/sales#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 14,
+        "type": "expandable",
+        "text": ".k-list .k-item { margin-bottom: 5px; line-height: 20px; border-bottom: 1px soli",
+        "selector": "#header-nav",
+        "screenshot": "states/014-expandable-k-list-k-item-margin-bottom-5px-line-height-20px-border-bottom-1px-so.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 15,
+        "type": "expandable",
+        "text": "Dashboard Accounts Account Groups Carts Inventory Catalogs Orders Sales Person R",
+        "selector": "#sidebar-nav",
+        "screenshot": "states/015-expandable-Dashboard-Accounts-Account-Groups-Carts-Inventory-Catalogs-Orders-Sal.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/sales#/products",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 16,
+        "type": "button",
+        "text": "Sales",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/016-button-Sales.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 17,
+        "type": "button",
+        "text": "0",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3) > a.btn.dropdown-toggle",
+        "screenshot": "states/017-button-0.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/sales#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 18,
+        "type": "button",
+        "text": "2",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4) > a.btn.dropdown-toggle",
+        "screenshot": "states/018-button-2.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 19,
+        "type": "button",
+        "text": "PRC Conway (PO-949112-339795)",
+        "selector": "table.table.dashboardtable > tbody > tr:nth-of-type(1) > td.text-left:nth-of-type(1) > a.btn.btn-link",
+        "screenshot": "states/019-button-PRC-Conway-PO-949112-339795-.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/sales#/cart/2",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 20,
+        "type": "button",
+        "text": "PRC Arlington (PO-949112-339791)",
+        "selector": "table.table.dashboardtable > tbody > tr:nth-of-type(2) > td.text-left:nth-of-type(1) > a.btn.btn-link",
+        "screenshot": "states/020-button-PRC-Arlington-PO-949112-339791-.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/sales#/cart/1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 21,
+        "type": "toggle",
+        "text": "Sales",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/021-toggle-Sales.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 22,
+        "type": "toggle",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/022-toggle-22.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 23,
+        "type": "toggle",
+        "text": "0",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3) > a.btn.dropdown-toggle",
+        "screenshot": "states/023-toggle-0.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/sales#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 24,
+        "type": "toggle",
+        "text": "2",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4) > a.btn.dropdown-toggle",
+        "screenshot": "states/024-toggle-2.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 25,
+        "type": "toggle",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle",
+        "screenshot": "states/025-toggle-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 26,
+        "type": "toggle",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/026-toggle-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 27,
+        "type": "toggle",
+        "text": "",
+        "selector": "#content-header > div.pull-right:nth-of-type(2) > div.account-filter.onoffswitch",
+        "screenshot": "states/027-toggle-27.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 28,
+        "type": "toggle",
+        "text": "",
+        "selector": "#content-header > div.pull-right:nth-of-type(2) > div.account-filter.onoffswitch > label.onoffswitch-label",
+        "screenshot": "states/028-toggle-28.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 29,
+        "type": "toggle",
+        "text": "",
+        "selector": "#content-header > div.pull-right:nth-of-type(2) > div.account-filter.onoffswitch > label.onoffswitch-label > span.onoffswitch-switch:nth-of-type(2)",
+        "screenshot": "states/029-toggle-29.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      }
+    ]
+  },
+  {
+    "url": "https://wa.cultiverapro.com/app-grow",
+    "folder": "Grow",
+    "title": "Grow Board | Grow",
+    "heading": "",
+    "components": [
+      {
+        "type": "card",
+        "count": 1759
+      },
+      {
+        "type": "form",
+        "formCount": 56,
+        "fieldCount": 39
+      },
+      {
+        "type": "chart",
+        "count": 2
+      },
+      {
+        "type": "modal/dialog",
+        "count": 99
+      },
+      {
+        "type": "list",
+        "count": 12
+      },
+      {
+        "type": "badge/chip",
+        "count": 164
+      }
+    ],
+    "interactiveStates": [
+      {
+        "index": 0,
+        "type": "dropdown",
+        "text": "Grow Grow Analytics Sales Inventory Management Fulfillment Configuration",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+        "screenshot": "states/000-dropdown-Grow-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configuratio.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Grow      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                     "
+      },
+      {
+        "index": 1,
+        "type": "dropdown",
+        "text": "Grow",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/001-dropdown-Grow.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Grow      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                     "
+      },
+      {
+        "index": 2,
+        "type": "dropdown",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+        "screenshot": "states/002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 3,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/003-dropdown-3.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 4,
+        "type": "dropdown",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1)",
+        "screenshot": "states/004-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 5,
+        "type": "dropdown",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/005-dropdown-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 6,
+        "type": "dropdown",
+        "text": "G&S GREENERY Company Profile Profile Settings Lock Logout",
+        "selector": "#user-left-box",
+        "screenshot": "states/006-dropdown-G-S-GREENERY-Company-Profile-Profile-Settings-Lock-Logout.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 7,
+        "type": "dropdown",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/007-dropdown-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 8,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.k-toolbar.k-widget > div:nth-of-type(3) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+        "screenshot": "states/008-dropdown-8.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 9,
+        "type": "expandable",
+        "text": "Grow Grow Analytics Sales Inventory Management Fulfillment Configuration a.disab",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+        "screenshot": "states/009-expandable-Grow-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configurat.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Grow      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                     "
+      },
+      {
+        "index": 10,
+        "type": "expandable",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+        "screenshot": "states/010-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 11,
+        "type": "expandable",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav",
+        "screenshot": "states/011-expandable-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Pe.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 12,
+        "type": "expandable",
+        "text": "Grow Board Dashboard equalizer Grow Cycles Plants grain Grow Sources dashboard R",
+        "selector": "#sidebar-nav",
+        "screenshot": "states/012-expandable-Grow-Board-Dashboard-equalizer-Grow-Cycles-Plants-grain-Grow-Sources-.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/app-grow/#/rooms",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 13,
+        "type": "expandable",
+        "text": "",
+        "selector": "div.k-toolbar.k-widget > div:nth-of-type(3) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+        "screenshot": "states/013-expandable-13.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 14,
+        "type": "button",
+        "text": "Grow",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/014-button-Grow.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Grow      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                     "
+      },
+      {
+        "index": 15,
+        "type": "toggle",
+        "text": "Grow",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/015-toggle-Grow.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Grow      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                     "
+      },
+      {
+        "index": 16,
+        "type": "toggle",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/016-toggle-16.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 17,
+        "type": "toggle",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/017-toggle-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 18,
+        "type": "toggle",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/018-toggle-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      }
+    ]
+  },
+  {
+    "url": "https://wa.cultiverapro.com/app-analytics",
+    "folder": "Analytics",
+    "title": "Dashboard | Cultivera - Analytics",
+    "heading": "Dashboard",
+    "components": [
+      {
+        "type": "card",
+        "count": 12
+      },
+      {
+        "type": "form",
+        "formCount": 2,
+        "fieldCount": 1
+      },
+      {
+        "type": "chart",
+        "count": 2
+      },
+      {
+        "type": "modal/dialog",
+        "count": 21
+      }
+    ],
+    "interactiveStates": [
+      {
+        "index": 0,
+        "type": "dropdown",
+        "text": "Analytics Grow Analytics Sales Inventory Management Fulfillment Configuration",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+        "screenshot": "states/000-dropdown-Analytics-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configu.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Analytics      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                "
+      },
+      {
+        "index": 1,
+        "type": "dropdown",
+        "text": "Analytics",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/001-dropdown-Analytics.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Analytics      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                "
+      },
+      {
+        "index": 2,
+        "type": "dropdown",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+        "screenshot": "states/002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 3,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/003-dropdown-3.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 4,
+        "type": "dropdown",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1)",
+        "screenshot": "states/004-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 5,
+        "type": "dropdown",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/005-dropdown-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 6,
+        "type": "dropdown",
+        "text": "G&S GREENERY Company Profile Profile Settings Lock Logout",
+        "selector": "#user-left-box",
+        "screenshot": "states/006-dropdown-G-S-GREENERY-Company-Profile-Profile-Settings-Lock-Logout.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 7,
+        "type": "dropdown",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/007-dropdown-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 8,
+        "type": "expandable",
+        "text": "Analytics Grow Analytics Sales Inventory Management Fulfillment Configuration a.",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+        "screenshot": "states/008-expandable-Analytics-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Confi.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Analytics      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                "
+      },
+      {
+        "index": 9,
+        "type": "expandable",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+        "screenshot": "states/009-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 10,
+        "type": "expandable",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav",
+        "screenshot": "states/010-expandable-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Pe.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 11,
+        "type": "expandable",
+        "text": "equalizer Dashboard",
+        "selector": "#sidebar-nav",
+        "screenshot": "states/011-expandable-equalizer-Dashboard.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 12,
+        "type": "button",
+        "text": "Analytics",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/012-button-Analytics.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Analytics      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                "
+      },
+      {
+        "index": 13,
+        "type": "toggle",
+        "text": "Analytics",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/013-toggle-Analytics.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Analytics      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                "
+      },
+      {
+        "index": 14,
+        "type": "toggle",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/014-toggle-14.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 15,
+        "type": "toggle",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/015-toggle-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 16,
+        "type": "toggle",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/016-toggle-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      }
+    ]
+  },
+  {
+    "url": "https://wa.cultiverapro.com/crm#/",
+    "folder": "Sales",
+    "title": "Sales Dashboard | Cultivera - CRM",
+    "heading": "",
+    "components": [
+      {
+        "type": "data-table",
+        "count": 6,
+        "sampleHeaders": [
+          "Order #",
+          "Client",
+          "Date",
+          "Status",
+          "Total",
+          "Client",
+          "Top Accounts up for Reorder",
+          "Account",
+          "No# Orders",
+          "Last Order"
+        ]
+      },
+      {
+        "type": "form",
+        "formCount": 8,
+        "fieldCount": 3
+      },
+      {
+        "type": "chart",
+        "count": 7
+      },
+      {
+        "type": "modal/dialog",
+        "count": 21
+      },
+      {
+        "type": "list",
+        "count": 1
+      },
+      {
+        "type": "badge/chip",
+        "count": 2
+      }
+    ],
+    "interactiveStates": [
+      {
+        "index": 0,
+        "type": "dropdown",
+        "text": "Sales Grow Analytics Sales Inventory Management Fulfillment Configuration",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+        "screenshot": "states/000-dropdown-Sales-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configurati.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 1,
+        "type": "dropdown",
+        "text": "Sales",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/001-dropdown-Sales.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 2,
+        "type": "dropdown",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+        "screenshot": "states/002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 3,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/003-dropdown-3.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 4,
+        "type": "dropdown",
+        "text": "0",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3)",
+        "screenshot": "states/004-dropdown-0.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 5,
+        "type": "dropdown",
+        "text": "0",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3) > a.btn.dropdown-toggle",
+        "screenshot": "states/005-dropdown-0.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 6,
+        "type": "dropdown",
+        "text": "2",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4)",
+        "screenshot": "states/006-dropdown-2.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 7,
+        "type": "dropdown",
+        "text": "2",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4) > a.btn.dropdown-toggle",
+        "screenshot": "states/007-dropdown-2.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 8,
+        "type": "dropdown",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2)",
+        "screenshot": "states/008-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 9,
+        "type": "dropdown",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle",
+        "screenshot": "states/009-dropdown-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 10,
+        "type": "dropdown",
+        "text": "G&S GREENERY Company Profile Marketplace Settings Profile Settings Lock Logout",
+        "selector": "#user-left-box",
+        "screenshot": "states/010-dropdown-G-S-GREENERY-Company-Profile-Marketplace-Settings-Profile-Settings-Lock.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 11,
+        "type": "dropdown",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/011-dropdown-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 12,
+        "type": "expandable",
+        "text": "Sales Grow Analytics Sales Inventory Management Fulfillment Configuration a.disa",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+        "screenshot": "states/012-expandable-Sales-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Configura.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 13,
+        "type": "expandable",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+        "screenshot": "states/013-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 14,
+        "type": "expandable",
+        "text": ".k-list .k-item { margin-bottom: 5px; line-height: 20px; border-bottom: 1px soli",
+        "selector": "#header-nav",
+        "screenshot": "states/014-expandable-k-list-k-item-margin-bottom-5px-line-height-20px-border-bottom-1px-so.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 15,
+        "type": "expandable",
+        "text": "Dashboard Accounts Account Groups Carts Inventory Catalogs Orders Sales Person R",
+        "selector": "#sidebar-nav",
+        "screenshot": "states/015-expandable-Dashboard-Accounts-Account-Groups-Carts-Inventory-Catalogs-Orders-Sal.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/products",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 16,
+        "type": "button",
+        "text": "Sales",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/016-button-Sales.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 17,
+        "type": "button",
+        "text": "0",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3) > a.btn.dropdown-toggle",
+        "screenshot": "states/017-button-0.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 18,
+        "type": "button",
+        "text": "2",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4) > a.btn.dropdown-toggle",
+        "screenshot": "states/018-button-2.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 19,
+        "type": "button",
+        "text": "PRC Conway (PO-949112-339795)",
+        "selector": "table.table.dashboardtable > tbody > tr:nth-of-type(1) > td.text-left:nth-of-type(1) > a.btn.btn-link",
+        "screenshot": "states/019-button-PRC-Conway-PO-949112-339795-.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/cart/2",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 20,
+        "type": "button",
+        "text": "PRC Arlington (PO-949112-339791)",
+        "selector": "table.table.dashboardtable > tbody > tr:nth-of-type(2) > td.text-left:nth-of-type(1) > a.btn.btn-link",
+        "screenshot": "states/020-button-PRC-Arlington-PO-949112-339791-.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/cart/1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 21,
+        "type": "toggle",
+        "text": "Sales",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/021-toggle-Sales.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Sales      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n                    "
+      },
+      {
+        "index": 22,
+        "type": "toggle",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/022-toggle-22.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 23,
+        "type": "toggle",
+        "text": "0",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(3) > a.btn.dropdown-toggle",
+        "screenshot": "states/023-toggle-0.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/invitations",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 24,
+        "type": "toggle",
+        "text": "2",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(4) > a.btn.dropdown-toggle",
+        "screenshot": "states/024-toggle-2.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/crm#/open-carts?portalOrder=1",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 25,
+        "type": "toggle",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle",
+        "screenshot": "states/025-toggle-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 26,
+        "type": "toggle",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/026-toggle-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 27,
+        "type": "toggle",
+        "text": "",
+        "selector": "#content-header > div.pull-right:nth-of-type(2) > div.account-filter.onoffswitch",
+        "screenshot": "states/027-toggle-27.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 28,
+        "type": "toggle",
+        "text": "",
+        "selector": "#content-header > div.pull-right:nth-of-type(2) > div.account-filter.onoffswitch > label.onoffswitch-label",
+        "screenshot": "states/028-toggle-28.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 29,
+        "type": "toggle",
+        "text": "",
+        "selector": "#content-header > div.pull-right:nth-of-type(2) > div.account-filter.onoffswitch > label.onoffswitch-label > span.onoffswitch-switch:nth-of-type(2)",
+        "screenshot": "states/029-toggle-29.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      }
+    ]
+  },
+  {
+    "url": "https://wa.cultiverapro.com/inventory/#/",
+    "folder": "Inventory-Management",
+    "title": "Manage Menu | Cultivera - Inventory",
+    "heading": "Manage Menu",
+    "components": [
+      {
+        "type": "data-table",
+        "count": 11,
+        "sampleHeaders": [
+          "CLIENT NAME",
+          "HOLDING COMPANY",
+          "Send To",
+          "Contact",
+          "Email",
+          "Product Name",
+          "Status",
+          "Price",
+          "Units For Sale",
+          "Units Allocated"
+        ]
+      },
+      {
+        "type": "form",
+        "formCount": 39,
+        "fieldCount": 40
+      },
+      {
+        "type": "chart",
+        "count": 1
+      },
+      {
+        "type": "modal/dialog",
+        "count": 109
+      },
+      {
+        "type": "list",
+        "count": 17
+      },
+      {
+        "type": "badge/chip",
+        "count": 144
+      }
+    ],
+    "interactiveStates": [
+      {
+        "index": 0,
+        "type": "dropdown",
+        "text": "Inventory Management Grow Analytics Sales Inventory Management Fulfillment Confi",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+        "screenshot": "states/000-dropdown-Inventory-Management-Grow-Analytics-Sales-Inventory-Management-Fulfillm.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Inventory Management      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n     "
+      },
+      {
+        "index": 1,
+        "type": "dropdown",
+        "text": "Inventory Management",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/001-dropdown-Inventory-Management.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Inventory Management      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n     "
+      },
+      {
+        "index": 2,
+        "type": "dropdown",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+        "screenshot": "states/002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 3,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/003-dropdown-3.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 4,
+        "type": "dropdown",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1)",
+        "screenshot": "states/004-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 5,
+        "type": "dropdown",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/005-dropdown-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 6,
+        "type": "dropdown",
+        "text": "G&S GREENERY Company Profile Marketplace Settings Profile Settings Lock Logout",
+        "selector": "#user-left-box",
+        "screenshot": "states/006-dropdown-G-S-GREENERY-Company-Profile-Marketplace-Settings-Profile-Settings-Lock.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 7,
+        "type": "dropdown",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/007-dropdown-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 8,
+        "type": "dropdown",
+        "text": "Product-Line",
+        "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(4) > div.k-widget.k-multiselect",
+        "screenshot": "states/008-dropdown-Product-Line.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 9,
+        "type": "dropdown",
+        "text": "",
+        "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(4) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap",
+        "screenshot": "states/009-dropdown-9.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 10,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(4) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+        "screenshot": "states/010-dropdown-10.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 11,
+        "type": "dropdown",
+        "text": "Sub Product-Line",
+        "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > div.k-widget.k-multiselect",
+        "screenshot": "states/011-dropdown-Sub-Product-Line.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 12,
+        "type": "dropdown",
+        "text": "",
+        "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap",
+        "screenshot": "states/012-dropdown-12.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 13,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+        "screenshot": "states/013-dropdown-13.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 14,
+        "type": "dropdown",
+        "text": "Product-tag",
+        "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > div.k-widget.k-multiselect",
+        "screenshot": "states/014-dropdown-Product-tag.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 15,
+        "type": "dropdown",
+        "text": "",
+        "selector": "#gridmenuList > div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap",
+        "screenshot": "states/015-dropdown-15.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 16,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+        "screenshot": "states/016-dropdown-16.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 17,
+        "type": "dropdown",
+        "text": "Batches RTM | Extraction Material - Placeholder Not Available $0.00 0.00 0.00 0.",
+        "selector": "#gridmenuList > div.k-grid-content.k-auto-scrollable:nth-of-type(4) > table.k-selectable",
+        "screenshot": "states/017-dropdown-Batches-RTM-Extraction-Material-Placeholder-Not-Available-0-00-0-00-0-0.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 18,
+        "type": "expandable",
+        "text": "Inventory Management Grow Analytics Sales Inventory Management Fulfillment Confi",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+        "screenshot": "states/018-expandable-Inventory-Management-Grow-Analytics-Sales-Inventory-Management-Fulfil.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Inventory Management      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n     "
+      },
+      {
+        "index": 19,
+        "type": "expandable",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+        "screenshot": "states/019-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 20,
+        "type": "expandable",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav",
+        "screenshot": "states/020-expandable-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Pe.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 21,
+        "type": "expandable",
+        "text": "style Manage Menu library_books Batches library_books Non-Cannabis Inventory tra",
+        "selector": "#sidebar-nav",
+        "screenshot": "states/021-expandable-style-Manage-Menu-library_books-Batches-library_books-Non-Cannabis-In.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/inventory/#/strains",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 22,
+        "type": "expandable",
+        "text": "",
+        "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(4) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+        "screenshot": "states/022-expandable-22.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 23,
+        "type": "expandable",
+        "text": "",
+        "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(5) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+        "screenshot": "states/023-expandable-23.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 24,
+        "type": "expandable",
+        "text": "",
+        "selector": "div.k-toolbar.k-widget:nth-of-type(2) > div:nth-of-type(6) > div.k-widget.k-multiselect > div.k-multiselect-wrap.k-floatwrap > input.k-input.k-readonly",
+        "screenshot": "states/024-expandable-24.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 25,
+        "type": "button",
+        "text": "Inventory Management",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/025-button-Inventory-Management.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Inventory Management      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n     "
+      },
+      {
+        "index": 26,
+        "type": "button",
+        "text": "Share Menu",
+        "selector": "#content-header > div.pull-right:nth-of-type(2) > s2s-share-inventory > button.s2-tb.tb-generate",
+        "screenshot": "states/026-button-Share-Menu.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Inventory Management      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n     "
+      },
+      {
+        "index": 27,
+        "type": "button",
+        "text": "Save Price Changes",
+        "selector": "#savePrice",
+        "screenshot": "states/027-button-Save-Price-Changes.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Inventory Management      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n     "
+      },
+      {
+        "index": 28,
+        "type": "toggle",
+        "text": "Inventory Management",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/028-toggle-Inventory-Management.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Inventory Management      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n     "
+      },
+      {
+        "index": 29,
+        "type": "toggle",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/029-toggle-29.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Inventory Management      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n     "
+      }
+    ]
+  },
+  {
+    "url": "https://wa.cultiverapro.com/fulfillment#/",
+    "folder": "Fulfillment",
+    "title": "Order List | Cultivera - CRM",
+    "heading": "Quick filters",
+    "components": [
+      {
+        "type": "data-table",
+        "count": 2,
+        "sampleHeaders": [
+          "Partner Name",
+          "Order #",
+          "Manifest Date",
+          "Delivery Date",
+          "Status"
+        ]
+      },
+      {
+        "type": "form",
+        "formCount": 18,
+        "fieldCount": 20
+      },
+      {
+        "type": "chart",
+        "count": 5
+      },
+      {
+        "type": "modal/dialog",
+        "count": 53
+      },
+      {
+        "type": "list",
+        "count": 4
+      }
+    ],
+    "interactiveStates": [
+      {
+        "index": 0,
+        "type": "dropdown",
+        "text": "Fulfillment Grow Analytics Sales Inventory Management Fulfillment Configuration",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+        "screenshot": "states/000-dropdown-Fulfillment-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Confi.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Fulfillment      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n              "
+      },
+      {
+        "index": 1,
+        "type": "dropdown",
+        "text": "Fulfillment",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/001-dropdown-Fulfillment.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Fulfillment      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n              "
+      },
+      {
+        "index": 2,
+        "type": "dropdown",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+        "screenshot": "states/002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 3,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/003-dropdown-3.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 4,
+        "type": "dropdown",
+        "text": "Profile Company Profile Notifications Settings Lock Logout Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2)",
+        "screenshot": "states/004-dropdown-Profile-Company-Profile-Notifications-Settings-Lock-Logout-Michael-Perk.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 5,
+        "type": "dropdown",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle",
+        "screenshot": "states/005-dropdown-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 6,
+        "type": "dropdown",
+        "text": "G&S GREENERY Company Profile Marketplace Settings Profile Settings Logout",
+        "selector": "#user-left-box",
+        "screenshot": "states/006-dropdown-G-S-GREENERY-Company-Profile-Marketplace-Settings-Profile-Settings-Logo.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 7,
+        "type": "dropdown",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/007-dropdown-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 8,
+        "type": "dropdown",
+        "text": "0",
+        "selector": "#grdOrders > div.k-pager-wrap.k-grid-pager:nth-of-type(5) > ul.k-pager-numbers.k-reset > li:nth-of-type(2) > span.k-state-selected",
+        "screenshot": "states/008-dropdown-0.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 9,
+        "type": "dropdown",
+        "text": "20selectAll510202550100",
+        "selector": "#grdOrders > div.k-pager-wrap.k-grid-pager:nth-of-type(5) > span.k-pager-sizes.k-label:nth-of-type(1) > span.k-widget.k-dropdown",
+        "screenshot": "states/009-dropdown-20selectAll510202550100.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 10,
+        "type": "dropdown",
+        "text": "20select",
+        "selector": "#grdOrders > div.k-pager-wrap.k-grid-pager:nth-of-type(5) > span.k-pager-sizes.k-label:nth-of-type(1) > span.k-widget.k-dropdown > span.k-dropdown-wrap.k-state-default",
+        "screenshot": "states/010-dropdown-20select.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 11,
+        "type": "dropdown",
+        "text": "select",
+        "selector": "div.k-pager-wrap.k-grid-pager:nth-of-type(5) > span.k-pager-sizes.k-label:nth-of-type(1) > span.k-widget.k-dropdown > span.k-dropdown-wrap.k-state-default > span.k-select:nth-of-type(2)",
+        "screenshot": "states/011-dropdown-select.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 12,
+        "type": "expandable",
+        "text": "Fulfillment Grow Analytics Sales Inventory Management Fulfillment Configuration ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+        "screenshot": "states/012-expandable-Fulfillment-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Con.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Fulfillment      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n              "
+      },
+      {
+        "index": 13,
+        "type": "expandable",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+        "screenshot": "states/013-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 14,
+        "type": "expandable",
+        "text": ".k-list .k-item { margin-bottom: 5px; line-height: 20px; border-bottom: 1px soli",
+        "selector": "#header-nav",
+        "screenshot": "states/014-expandable-k-list-k-item-margin-bottom-5px-line-height-20px-border-bottom-1px-so.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 15,
+        "type": "expandable",
+        "text": "Orders Vehicles Drivers Delivery Agents Quarantine Schedule Delivery Schedule Tr",
+        "selector": "#sidebar-nav",
+        "screenshot": "states/015-expandable-Orders-Vehicles-Drivers-Delivery-Agents-Quarantine-Schedule-Delivery-.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/fulfillment#/fulfillment/quarantine-release-schedule",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 16,
+        "type": "expandable",
+        "text": "20selectAll510202550100",
+        "selector": "#grdOrders > div.k-pager-wrap.k-grid-pager:nth-of-type(5) > span.k-pager-sizes.k-label:nth-of-type(1) > span.k-widget.k-dropdown",
+        "screenshot": "states/016-expandable-20selectAll510202550100.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 17,
+        "type": "button",
+        "text": "Fulfillment",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/017-button-Fulfillment.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Fulfillment      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n              "
+      },
+      {
+        "index": 18,
+        "type": "button",
+        "text": "Search",
+        "selector": "#grdOrders > div.k-toolbar.k-widget:nth-of-type(1) > div:nth-of-type(5) > button.btn.btn-sm",
+        "screenshot": "states/018-button-Search.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 19,
+        "type": "toggle",
+        "text": "Fulfillment",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/019-toggle-Fulfillment.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Fulfillment      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n              "
+      },
+      {
+        "index": 20,
+        "type": "toggle",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/020-toggle-20.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 21,
+        "type": "toggle",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(2) > a.dropdown-toggle",
+        "screenshot": "states/021-toggle-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 22,
+        "type": "toggle",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/022-toggle-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 23,
+        "type": "toggle",
+        "text": "Submitted",
+        "selector": "#ShowSubmitted",
+        "screenshot": "states/023-toggle-Submitted.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 24,
+        "type": "toggle",
+        "text": "Partially Sublotted",
+        "selector": "#ShowPartiallySublotted",
+        "screenshot": "states/024-toggle-Partially-Sublotted.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 25,
+        "type": "toggle",
+        "text": "Sublotted",
+        "selector": "#ShowSublotted",
+        "screenshot": "states/025-toggle-Sublotted.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 26,
+        "type": "toggle",
+        "text": "Ready For Manifest",
+        "selector": "#ShowReadyForManifest",
+        "screenshot": "states/026-toggle-Ready-For-Manifest.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 27,
+        "type": "toggle",
+        "text": "Manifested",
+        "selector": "#ShowManifested",
+        "screenshot": "states/027-toggle-Manifested.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 28,
+        "type": "toggle",
+        "text": "Quarantined",
+        "selector": "#ShowQuarantined",
+        "screenshot": "states/028-toggle-Quarantined.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 29,
+        "type": "toggle",
+        "text": "Invoiced",
+        "selector": "#ShowInvoiced",
+        "screenshot": "states/029-toggle-Invoiced.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      }
+    ]
+  },
+  {
+    "url": "https://wa.cultiverapro.com/configuration#/",
+    "folder": "Configuration",
+    "title": "Account Assignments | Cultivera - Configurations",
+    "heading": "Manage Accounts",
+    "components": [
+      {
+        "type": "data-table",
+        "count": 1,
+        "sampleHeaders": [
+          "Name",
+          "Assigned Clients"
+        ]
+      },
+      {
+        "type": "form",
+        "formCount": 2,
+        "fieldCount": 1
+      },
+      {
+        "type": "chart",
+        "count": 1
+      },
+      {
+        "type": "modal/dialog",
+        "count": 21
+      }
+    ],
+    "interactiveStates": [
+      {
+        "index": 0,
+        "type": "dropdown",
+        "text": "Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+        "screenshot": "states/000-dropdown-Configuration-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Con.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 1,
+        "type": "dropdown",
+        "text": "Configuration",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/001-dropdown-Configuration.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 2,
+        "type": "dropdown",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+        "screenshot": "states/002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 3,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/003-dropdown-3.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 4,
+        "type": "dropdown",
+        "text": "Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1)",
+        "screenshot": "states/004-dropdown-Profile-Company-Profile-Marketplace-Settings-Notifications-Settings-Log.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 5,
+        "type": "dropdown",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/005-dropdown-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 6,
+        "type": "dropdown",
+        "text": "G&S GREENERY Customer Profile Marketplace Settings Profile Settings Lock Logout",
+        "selector": "#user-left-box",
+        "screenshot": "states/006-dropdown-G-S-GREENERY-Customer-Profile-Marketplace-Settings-Profile-Settings-Loc.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 7,
+        "type": "dropdown",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/007-dropdown-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 8,
+        "type": "expandable",
+        "text": "Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+        "screenshot": "states/008-expandable-Configuration-Grow-Analytics-Sales-Inventory-Management-Fulfillment-C.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 9,
+        "type": "expandable",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+        "screenshot": "states/009-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 10,
+        "type": "expandable",
+        "text": "Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+        "selector": "#header-nav",
+        "screenshot": "states/010-expandable-Profile-Company-Profile-Marketplace-Settings-Notifications-Settings-L.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 11,
+        "type": "expandable",
+        "text": "Account Management Marketplace Settings Client Note Attributes Statuses Notifica",
+        "selector": "#sidebar-nav",
+        "screenshot": "states/011-expandable-Account-Management-Marketplace-Settings-Client-Note-Attributes-Status.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/configuration#/roles",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 12,
+        "type": "button",
+        "text": "Configuration",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/012-button-Configuration.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 13,
+        "type": "button",
+        "text": "Add New Sales Person",
+        "selector": "div.slide-main-container > div.slide-main-animation > div.row:nth-of-type(2) > div.col-lg-12 > a.btn.btn-success",
+        "screenshot": "states/013-button-Add-New-Sales-Person.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/configuration#/new-user",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 14,
+        "type": "toggle",
+        "text": "Configuration",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/014-toggle-Configuration.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 15,
+        "type": "toggle",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/015-toggle-15.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 16,
+        "type": "toggle",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/016-toggle-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 17,
+        "type": "toggle",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/017-toggle-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      }
+    ]
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/all-notifications",
+    "folder": "View-all-notifications",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/invitations",
+    "folder": "0",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/../crm#/open-carts?portalOrder=1",
+    "folder": "2",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/user-profile",
+    "folder": "Profile",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/company-profile",
+    "folder": "Company-Profile",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/configuration#/notifications",
+    "folder": "Notifications",
+    "title": "Notifications | Cultivera - Configurations",
+    "heading": "Notifications",
+    "components": [
+      {
+        "type": "data-table",
+        "count": 1,
+        "sampleHeaders": [
+          "Category",
+          "Your subscriptions"
+        ]
+      },
+      {
+        "type": "form",
+        "formCount": 4,
+        "fieldCount": 2
+      },
+      {
+        "type": "chart",
+        "count": 1
+      },
+      {
+        "type": "modal/dialog",
+        "count": 21
+      },
+      {
+        "type": "list",
+        "count": 1
+      }
+    ],
+    "interactiveStates": [
+      {
+        "index": 0,
+        "type": "dropdown",
+        "text": "Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown",
+        "screenshot": "states/000-dropdown-Configuration-Grow-Analytics-Sales-Inventory-Management-Fulfillment-Con.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 1,
+        "type": "dropdown",
+        "text": "Configuration",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/001-dropdown-Configuration.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 2,
+        "type": "dropdown",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2)",
+        "screenshot": "states/002-dropdown-You-have-0-new-notifications-View-all-notifications-Close-notifications.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 3,
+        "type": "dropdown",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/003-dropdown-3.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 4,
+        "type": "dropdown",
+        "text": "Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1)",
+        "screenshot": "states/004-dropdown-Profile-Company-Profile-Marketplace-Settings-Notifications-Settings-Log.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 5,
+        "type": "dropdown",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/005-dropdown-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 6,
+        "type": "dropdown",
+        "text": "G&S GREENERY Customer Profile Marketplace Settings Profile Settings Lock Logout",
+        "selector": "#user-left-box",
+        "screenshot": "states/006-dropdown-G-S-GREENERY-Customer-Profile-Marketplace-Settings-Profile-Settings-Loc.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 7,
+        "type": "dropdown",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/007-dropdown-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 8,
+        "type": "expandable",
+        "text": "Configuration Grow Analytics Sales Inventory Management Fulfillment Configuratio",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1)",
+        "screenshot": "states/008-expandable-Configuration-Grow-Analytics-Sales-Inventory-Management-Fulfillment-C.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 9,
+        "type": "expandable",
+        "text": "You have 0 new notifications View all notifications × Close .notifications-list ",
+        "selector": "#header-navbar > div.container > div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2)",
+        "screenshot": "states/009-expandable-You-have-0-new-notifications-View-all-notifications-Close-notificatio.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 10,
+        "type": "expandable",
+        "text": "Profile Company Profile Marketplace Settings Notifications Settings Logout Micha",
+        "selector": "#header-nav",
+        "screenshot": "states/010-expandable-Profile-Company-Profile-Marketplace-Settings-Notifications-Settings-L.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 11,
+        "type": "expandable",
+        "text": "Account Management Marketplace Settings Client Note Attributes Statuses Notifica",
+        "selector": "#sidebar-nav",
+        "screenshot": "states/011-expandable-Account-Management-Marketplace-Settings-Client-Note-Attributes-Status.png",
+        "urlChanged": true,
+        "newUrl": "https://wa.cultiverapro.com/configuration#/roles",
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 12,
+        "type": "button",
+        "text": "Configuration",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/012-button-Configuration.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 13,
+        "type": "toggle",
+        "text": "Configuration",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(1) > ul.nav.navbar-nav > li.dropdown > a.btn.dropdown-toggle",
+        "screenshot": "states/013-toggle-Configuration.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "Configuration      \n        \n        \n            \n                \n                      \n                     Grow \n                \n            \n                \n                      \n            "
+      },
+      {
+        "index": 14,
+        "type": "toggle",
+        "text": "",
+        "selector": "div.clearfix:nth-of-type(3) > div.nav-no-collapse.navbar-left:nth-of-type(2) > ul.nav.navbar-nav > li.dropdown:nth-of-type(2) > a.btn.dropdown-toggle",
+        "screenshot": "states/014-toggle-14.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "You have 0 new notifications\n        \n\n        \n\n        \n            \n                View all notifications\n            \n        \n    \n\n    \n        \n            \n                \n                  "
+      },
+      {
+        "index": 15,
+        "type": "toggle",
+        "text": "Michael Perkins",
+        "selector": "#header-nav > ul.nav.navbar-nav > li.dropdown.profile-dropdown:nth-of-type(1) > a.dropdown-toggle",
+        "screenshot": "states/015-toggle-Michael-Perkins.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      },
+      {
+        "index": 16,
+        "type": "toggle",
+        "text": "G&S GREENERY",
+        "selector": "#companyName > span.name > a.dropdown-toggle",
+        "screenshot": "states/016-toggle-G-S-GREENERY.png",
+        "urlChanged": false,
+        "newUrl": null,
+        "overlayContent": "×\n                \n                     \n\n                \n                \n                    \n                    \n                     \n                        \n                    \n              "
+      }
+    ]
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/market-settings",
+    "folder": "Marketplace-Settings",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/setting/sync-setting",
+    "folder": "Settings",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/dasboard",
+    "folder": "Dashboard",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/accounts",
+    "folder": "Accounts",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/account-groups",
+    "folder": "Account-Groups",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/open-carts",
+    "folder": "Carts",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/products",
+    "folder": "Inventory",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/product-catalogs",
+    "folder": "Catalogs",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/orders",
+    "folder": "Orders",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/sales-person-report",
+    "folder": "Sales-Person-Report",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/order-summary",
+    "folder": "Order-Summary",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/cart/2",
+    "folder": "PRC-Conway-PO-949112-339795-",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  },
+  {
+    "url": "https://wa.cultiverapro.com/#/cart/1",
+    "folder": "PRC-Arlington-PO-949112-339791-",
+    "title": "| Cultivera Pro",
+    "heading": "",
+    "components": [
+      {
+        "type": "form",
+        "formCount": 1,
+        "fieldCount": 0
+      }
+    ],
+    "interactiveStates": []
+  }
+]

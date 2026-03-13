@@ -1,0 +1,39 @@
+[
+  {
+    "type": "data-table",
+    "count": 6,
+    "sampleHeaders": [
+      "Order #",
+      "Client",
+      "Date",
+      "Status",
+      "Total",
+      "Client",
+      "Top Accounts up for Reorder",
+      "Account",
+      "No# Orders",
+      "Last Order"
+    ]
+  },
+  {
+    "type": "form",
+    "formCount": 8,
+    "fieldCount": 3
+  },
+  {
+    "type": "chart",
+    "count": 7
+  },
+  {
+    "type": "modal/dialog",
+    "count": 21
+  },
+  {
+    "type": "list",
+    "count": 1
+  },
+  {
+    "type": "badge/chip",
+    "count": 2
+  }
+]

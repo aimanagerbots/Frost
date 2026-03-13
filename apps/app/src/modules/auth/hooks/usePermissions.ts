@@ -23,9 +23,11 @@ export function usePermissions() {
 
   const allowedModules = useMemo(() => {
     if (isDemoMode) return ALL_MODULE_SLUGS;
+    // When no API is available (frontend-only scaffold), grant full access
+    if (!session || query.isError || (!query.data && !query.isLoading)) return ALL_MODULE_SLUGS;
     if (!query.data) return new Set<string>();
     return new Set(query.data.allowed_modules);
-  }, [isDemoMode, query.data]);
+  }, [isDemoMode, session, query.data, query.isError, query.isLoading]);
 
   return {
     allowedModules,

@@ -2,18 +2,21 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { Menu, Search, Bell, LogOut, ChevronDown } from 'lucide-react';
+import { Menu, Search, Bell, LogOut, ChevronDown, FlaskConical } from 'lucide-react';
 import { cn } from '@frost/ui';
 import { useSidebarStore, useCommandPaletteStore } from './store';
 import { useAuthStore } from '@/modules/auth/store';
-import { navGroups } from './nav-data';
+import { categories } from './nav-data';
 
 function pageLabelFromPathname(pathname: string): string {
-  for (const group of navGroups) {
-    for (const item of group.items) {
+  for (const cat of categories) {
+    for (const item of cat.items) {
       if (pathname === item.href || pathname.startsWith(item.href + '/')) {
         return item.label;
       }
+    }
+    if (cat.tabRoute && (pathname === cat.tabRoute || pathname.startsWith(cat.tabRoute + '/'))) {
+      return cat.label;
     }
   }
   return 'Frost';
@@ -24,7 +27,7 @@ export function Topbar() {
   const pathname = usePathname();
   const { setMobileOpen } = useSidebarStore();
   const { setCommandPaletteOpen } = useCommandPaletteStore();
-  const { user, logout } = useAuthStore();
+  const { user, logout, isDemoMode, toggleDemoMode } = useAuthStore();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -106,6 +109,21 @@ export function Topbar() {
                     <p className="text-sm font-medium text-text-bright">{user.name}</p>
                     <p className="text-xs text-text-muted">{user.role}</p>
                   </div>
+                  <div className="my-1 h-px bg-border-default" />
+                </>
+              )}
+              {user?.role === 'admin' && (
+                <>
+                  <button
+                    onClick={() => {
+                      toggleDemoMode();
+                      setUserMenuOpen(false);
+                    }}
+                    className="flex w-full items-center gap-2 px-4 py-2.5 text-sm text-text-muted hover:bg-white/[0.04] hover:text-text-default transition-colors"
+                  >
+                    <FlaskConical className="h-4 w-4" />
+                    {isDemoMode ? 'Exit Demo Mode' : 'Enter Demo Mode'}
+                  </button>
                   <div className="my-1 h-px bg-border-default" />
                 </>
               )}

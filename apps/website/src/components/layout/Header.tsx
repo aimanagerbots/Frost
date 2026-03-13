@@ -28,8 +28,12 @@ export function Header() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 border-none"
-        style={{ backgroundColor: '#000000' }}
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 border-none transition-all duration-300',
+          isScrolled
+            ? 'bg-black/80 backdrop-blur-xl'
+            : 'bg-transparent'
+        )}
       >
         {/* Desktop header */}
         <div className="relative hidden lg:flex items-center justify-center py-8 px-6">
@@ -126,11 +130,12 @@ function CartIconButton() {
         'relative shrink-0 p-2 rounded-full transition-colors duration-200',
         hasItems
           ? 'text-[#5BB8E6] cart-glow'
-          : 'text-text-muted hover:text-text-default',
+          : 'text-white hover:text-white/80',
       )}
+      style={hasItems ? undefined : { filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.5)) drop-shadow(0 0 10px rgba(255,255,255,0.2))' }}
       aria-label={hasItems ? `Open cart (${itemCount} items)` : 'Open cart'}
     >
-      <ShoppingBag className="h-5 w-5" />
+      <ShoppingBag className="h-6 w-6" />
 
       {/* Badge */}
       {hasItems && (

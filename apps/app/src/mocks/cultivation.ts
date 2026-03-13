@@ -13,6 +13,14 @@ import type {
   NutrientRecipe,
   IrrigationData,
   HvacData,
+  GrowCycle,
+  Plant,
+  QALot,
+  QASample,
+  DisposalRecord,
+  GrowStage,
+  PlantHealth,
+  QATestType,
 } from '@/modules/cultivation/types';
 
 // ─── Helpers ───────────────────────────────────────────────────
@@ -1118,4 +1126,138 @@ export async function getNutrientRecipeForRoom(roomId: string): Promise<Nutrient
     return nutrientRecipes[0];
   }
   return undefined;
+}
+
+// ─── Grow Cycles ──────────────────────────────────────────────
+
+const STRAIN_NAMES = [
+  'Wedding Cake', 'Blue Dream', 'Zkittlez', 'OG Kush', 'Gelato',
+  'Purple Punch', 'GSC', 'Jack Herer', 'Runtz', 'Gorilla Glue',
+  'Mimosa', 'Tropicana Cookies', 'MAC', 'Ice Cream Cake', 'Cherry Pie',
+];
+
+const ROOM_NAMES = [
+  'Flower Room A', 'Flower Room B', 'Veg Room', 'Veg Room 2',
+  'Clone Room', 'Mother Room', 'Dry Room', 'Cure Room',
+];
+
+const growCycles: GrowCycle[] = [
+  { id: 'gc-1', roomId: 'room-1', roomName: 'Flower Room A', strainId: 'strain-1', strainName: 'Wedding Cake', startDate: getDateOffset(-70), currentStage: 'flower', dayInStage: 42, totalDays: 70, expectedHarvestDate: getDateOffset(21), plantCount: 48, status: 'active' },
+  { id: 'gc-2', roomId: 'room-2', roomName: 'Flower Room B', strainId: 'strain-2', strainName: 'Blue Dream', startDate: getDateOffset(-49), currentStage: 'flower', dayInStage: 21, totalDays: 56, expectedHarvestDate: getDateOffset(35), plantCount: 48, status: 'active' },
+  { id: 'gc-3', roomId: 'room-3', roomName: 'Veg Room', strainId: 'strain-5', strainName: 'Zkittlez', startDate: getDateOffset(-28), currentStage: 'veg', dayInStage: 28, totalDays: 35, expectedHarvestDate: getDateOffset(63), plantCount: 64, status: 'active' },
+  { id: 'gc-4', roomId: 'room-4', roomName: 'Veg Room 2', strainId: 'strain-6', strainName: 'OG Kush', startDate: getDateOffset(-14), currentStage: 'veg', dayInStage: 14, totalDays: 35, expectedHarvestDate: getDateOffset(77), plantCount: 36, status: 'active' },
+  { id: 'gc-5', roomId: 'room-5', roomName: 'Clone Room', strainId: 'strain-3', strainName: 'Gelato', startDate: getDateOffset(-10), currentStage: 'clone', dayInStage: 10, totalDays: 14, expectedHarvestDate: getDateOffset(90), plantCount: 120, status: 'active' },
+  { id: 'gc-6', roomId: 'room-1', roomName: 'Flower Room A', strainId: 'strain-4', strainName: 'Purple Punch', startDate: getDateOffset(-140), currentStage: 'harvest', dayInStage: 0, totalDays: 65, expectedHarvestDate: getDateOffset(-75), plantCount: 48, status: 'completed', notes: 'Yielded 5.1 kg. Great trichome density.' },
+  { id: 'gc-7', roomId: 'room-2', roomName: 'Flower Room B', strainId: 'strain-7', strainName: 'Jack Herer', startDate: getDateOffset(-160), currentStage: 'harvest', dayInStage: 0, totalDays: 60, expectedHarvestDate: getDateOffset(-100), plantCount: 48, status: 'completed', notes: 'Slightly below expected yield due to heat spike in week 6.' },
+  { id: 'gc-8', roomId: 'room-3', roomName: 'Veg Room', strainId: 'strain-8', strainName: 'Runtz', startDate: getDateOffset(7), currentStage: 'clone', dayInStage: 0, totalDays: 35, expectedHarvestDate: getDateOffset(98), plantCount: 64, status: 'planned', notes: 'Clones ordered from nursery. Expected delivery next week.' },
+  { id: 'gc-9', roomId: 'room-4', roomName: 'Veg Room 2', strainId: 'strain-9', strainName: 'Gorilla Glue', startDate: getDateOffset(-200), currentStage: 'harvest', dayInStage: 0, totalDays: 70, expectedHarvestDate: getDateOffset(-130), plantCount: 36, status: 'completed' },
+  { id: 'gc-10', roomId: 'room-1', roomName: 'Flower Room A', strainId: 'strain-10', strainName: 'Mimosa', startDate: getDateOffset(-250), currentStage: 'harvest', dayInStage: 0, totalDays: 58, expectedHarvestDate: getDateOffset(-192), plantCount: 48, status: 'completed' },
+  { id: 'gc-11', roomId: 'room-5', roomName: 'Clone Room', strainId: 'strain-11', strainName: 'Tropicana Cookies', startDate: getDateOffset(-180), currentStage: 'clone', dayInStage: 0, totalDays: 14, expectedHarvestDate: getDateOffset(-100), plantCount: 100, status: 'cancelled', notes: 'Cancelled — root rot detected in source mother.' },
+];
+
+// ─── Plants ───────────────────────────────────────────────────
+
+const HEALTH_OPTIONS: PlantHealth[] = ['healthy', 'healthy', 'healthy', 'healthy', 'stressed', 'sick'];
+
+function generatePlants(): Plant[] {
+  const plants: Plant[] = [];
+  let id = 1;
+  for (const room of growRooms) {
+    const count = Math.min(room.plantCount, 12);
+    for (let i = 0; i < count; i++) {
+      plants.push({
+        id: `plant-${id}`,
+        plantTag: `1A406${String(id).padStart(10, '0')}${Math.floor(Math.random() * 9000 + 1000)}`,
+        strainId: room.strainId,
+        strainName: room.strainName.split(' + ')[0],
+        roomId: room.id,
+        roomName: room.name,
+        stage: room.stage as GrowStage,
+        health: HEALTH_OPTIONS[Math.floor(Math.random() * HEALTH_OPTIONS.length)],
+        daysSinceTransplant: room.dayInStage + Math.floor(Math.random() * 5),
+        sourceType: room.stage === 'clone' || room.stage === 'propagation' ? 'clone' : room.stage === 'mother' ? 'mother' : (Math.random() > 0.2 ? 'clone' : 'seed'),
+      });
+      id++;
+    }
+  }
+  return plants;
+}
+
+const mockPlants = generatePlants();
+
+// ─── QA Lots ──────────────────────────────────────────────────
+
+const LAB_NAMES = ['Confidence Analytics', 'Green Leaf Lab', 'Pacific Agricultural Lab', 'Kaycha Labs WA'];
+
+const qaLots: QALot[] = [
+  { id: 'lot-1', lotNumber: 'LOT-2026-001', strainName: 'Wedding Cake', harvestDate: getDateOffset(-30), batchSize: 2400, unit: 'grams', status: 'released', labName: LAB_NAMES[0], submittedDate: getDateOffset(-28), resultsDate: getDateOffset(-21) },
+  { id: 'lot-2', lotNumber: 'LOT-2026-002', strainName: 'Purple Punch', harvestDate: getDateOffset(-25), batchSize: 3100, unit: 'grams', status: 'passed', labName: LAB_NAMES[1], submittedDate: getDateOffset(-23), resultsDate: getDateOffset(-16) },
+  { id: 'lot-3', lotNumber: 'LOT-2026-003', strainName: 'Blue Dream', harvestDate: getDateOffset(-18), batchSize: 2800, unit: 'grams', status: 'in-testing', labName: LAB_NAMES[2], submittedDate: getDateOffset(-15) },
+  { id: 'lot-4', lotNumber: 'LOT-2026-004', strainName: 'Jack Herer', harvestDate: getDateOffset(-12), batchSize: 1900, unit: 'grams', status: 'pending' },
+  { id: 'lot-5', lotNumber: 'LOT-2026-005', strainName: 'OG Kush', harvestDate: getDateOffset(-45), batchSize: 2200, unit: 'grams', status: 'failed', labName: LAB_NAMES[3], submittedDate: getDateOffset(-43), resultsDate: getDateOffset(-36) },
+  { id: 'lot-6', lotNumber: 'LOT-2026-006', strainName: 'Gorilla Glue', harvestDate: getDateOffset(-60), batchSize: 3500, unit: 'grams', status: 'released', labName: LAB_NAMES[0], submittedDate: getDateOffset(-58), resultsDate: getDateOffset(-50) },
+  { id: 'lot-7', lotNumber: 'LOT-2026-007', strainName: 'Gelato', harvestDate: getDateOffset(-8), batchSize: 2100, unit: 'grams', status: 'pending' },
+  { id: 'lot-8', lotNumber: 'LOT-2026-008', strainName: 'Zkittlez', harvestDate: getDateOffset(-55), batchSize: 2700, unit: 'grams', status: 'released', labName: LAB_NAMES[1], submittedDate: getDateOffset(-53), resultsDate: getDateOffset(-45) },
+];
+
+// ─── QA Samples ───────────────────────────────────────────────
+
+const qaSamples: QASample[] = [
+  { id: 'qs-1', sampleId: 'SMP-001', lotId: 'lot-1', lotNumber: 'LOT-2026-001', labName: LAB_NAMES[0], testTypes: ['potency', 'terpenes', 'pesticides', 'microbials'], status: 'reviewed', collectedDate: getDateOffset(-29), submittedDate: getDateOffset(-28), resultsDate: getDateOffset(-21), thc: 28.4, cbd: 0.12, totalTerpenes: 3.8, passedAll: true },
+  { id: 'qs-2', sampleId: 'SMP-002', lotId: 'lot-2', lotNumber: 'LOT-2026-002', labName: LAB_NAMES[1], testTypes: ['potency', 'terpenes', 'pesticides'], status: 'reviewed', collectedDate: getDateOffset(-24), submittedDate: getDateOffset(-23), resultsDate: getDateOffset(-16), thc: 24.1, cbd: 0.08, totalTerpenes: 2.9, passedAll: true },
+  { id: 'qs-3', sampleId: 'SMP-003', lotId: 'lot-3', lotNumber: 'LOT-2026-003', labName: LAB_NAMES[2], testTypes: ['potency', 'terpenes', 'pesticides', 'microbials', 'heavy-metals'], status: 'in-testing', collectedDate: getDateOffset(-16), submittedDate: getDateOffset(-15) },
+  { id: 'qs-4', sampleId: 'SMP-004', lotId: 'lot-4', lotNumber: 'LOT-2026-004', labName: LAB_NAMES[3], testTypes: ['potency', 'pesticides'], status: 'collected', collectedDate: getDateOffset(-11) },
+  { id: 'qs-5', sampleId: 'SMP-005', lotId: 'lot-5', lotNumber: 'LOT-2026-005', labName: LAB_NAMES[3], testTypes: ['potency', 'pesticides', 'microbials'], status: 'reviewed', collectedDate: getDateOffset(-44), submittedDate: getDateOffset(-43), resultsDate: getDateOffset(-36), thc: 19.2, cbd: 0.3, totalTerpenes: 1.4, passedAll: false },
+  { id: 'qs-6', sampleId: 'SMP-006', lotId: 'lot-6', lotNumber: 'LOT-2026-006', labName: LAB_NAMES[0], testTypes: ['potency', 'terpenes', 'pesticides', 'microbials', 'residual-solvents'], status: 'reviewed', collectedDate: getDateOffset(-59), submittedDate: getDateOffset(-58), resultsDate: getDateOffset(-50), thc: 30.2, cbd: 0.05, totalTerpenes: 4.1, passedAll: true },
+  { id: 'qs-7', sampleId: 'SMP-007', lotId: 'lot-3', lotNumber: 'LOT-2026-003', labName: LAB_NAMES[2], testTypes: ['moisture'], status: 'submitted', collectedDate: getDateOffset(-16), submittedDate: getDateOffset(-14) },
+  { id: 'qs-8', sampleId: 'SMP-008', lotId: 'lot-7', lotNumber: 'LOT-2026-007', labName: LAB_NAMES[1], testTypes: ['potency', 'terpenes'], status: 'collected', collectedDate: getDateOffset(-7) },
+];
+
+// ─── Disposal Records ─────────────────────────────────────────
+
+const WITNESSES = ['Michael Perkins', 'Sarah Chen', 'James Rodriguez', 'Emily Frost'];
+
+const disposalRecords: DisposalRecord[] = [
+  { id: 'disp-1', itemDescription: 'OG Kush trim — failed pesticide screen', reason: 'failed-qa', method: 'compost', weightGrams: 2200, disposalDate: getDateOffset(-35), witness: WITNESSES[0], metrcTag: '1A40603000012345001', complianceStatus: 'compliant' },
+  { id: 'disp-2', itemDescription: 'Veg Room dead plants — root rot', reason: 'pest-contamination', method: 'compost', weightGrams: 850, disposalDate: getDateOffset(-22), witness: WITNESSES[1], metrcTag: '1A40603000012345002', complianceStatus: 'compliant' },
+  { id: 'disp-3', itemDescription: 'Blue Dream larf — mold discovered post-dry', reason: 'mold', method: 'incineration', weightGrams: 1400, disposalDate: getDateOffset(-14), witness: WITNESSES[2], metrcTag: '1A40603000012345003', complianceStatus: 'compliant', notes: 'Isolated incident. Room sanitized.' },
+  { id: 'disp-4', itemDescription: 'Expired nutrient stock — General Hydroponics', reason: 'expired', method: 'rendering', weightGrams: 5000, disposalDate: getDateOffset(-8), witness: WITNESSES[3], complianceStatus: 'compliant' },
+  { id: 'disp-5', itemDescription: 'Clone Room runts — stunted growth batch', reason: 'damaged', method: 'compost', weightGrams: 320, disposalDate: getDateOffset(-5), witness: WITNESSES[0], metrcTag: '1A40603000012345005', complianceStatus: 'pending-review', notes: 'Awaiting manager sign-off.' },
+  { id: 'disp-6', itemDescription: 'Purple Punch stems — post-harvest waste', reason: 'regulatory', method: 'compost', weightGrams: 3200, disposalDate: getDateOffset(-42), witness: WITNESSES[1], metrcTag: '1A40603000012345006', complianceStatus: 'compliant' },
+  { id: 'disp-7', itemDescription: 'Mother plant removal — Tropicana Cookies', reason: 'pest-contamination', method: 'incineration', weightGrams: 1100, disposalDate: getDateOffset(-60), witness: WITNESSES[2], metrcTag: '1A40603000012345007', complianceStatus: 'compliant', notes: 'Mother retired after root rot spread. All clones from this mother quarantined.' },
+];
+
+// ─── New Getters ──────────────────────────────────────────────
+
+export async function getGrowCycles(): Promise<GrowCycle[]> {
+  await delay(350);
+  return [...growCycles];
+}
+
+export async function getPlants(filters?: { roomId?: string; stage?: string; health?: string; search?: string }): Promise<Plant[]> {
+  await delay(350);
+  let result = [...mockPlants];
+  if (filters?.roomId) result = result.filter((p) => p.roomId === filters.roomId);
+  if (filters?.stage) result = result.filter((p) => p.stage === filters.stage);
+  if (filters?.health) result = result.filter((p) => p.health === filters.health);
+  if (filters?.search) {
+    const q = filters.search.toLowerCase();
+    result = result.filter((p) => p.strainName.toLowerCase().includes(q) || p.plantTag.includes(q) || p.roomName.toLowerCase().includes(q));
+  }
+  return result;
+}
+
+export async function getQALots(): Promise<QALot[]> {
+  await delay(300);
+  return [...qaLots];
+}
+
+export async function getQASamples(): Promise<QASample[]> {
+  await delay(300);
+  return [...qaSamples];
+}
+
+export async function getDisposalRecords(): Promise<DisposalRecord[]> {
+  await delay(300);
+  return [...disposalRecords];
 }

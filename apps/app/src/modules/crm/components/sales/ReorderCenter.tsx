@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useMemo, useCallback } from 'react';
-import { RefreshCw } from 'lucide-react';
+import { RefreshCw, TrendingDown } from 'lucide-react';
 import { MetricCard, DataTable, StatusBadge, LoadingSkeleton, EmptyState } from '@/components';
-import { useReorderProposals } from '../../hooks';
+import { PipelineBadge } from '@/modules/pipeline/components/PipelineBadge';
+import { useReorderProposals, useOrderFrequency } from '../../hooks';
 import type { ReorderProposal } from '../../types';
 import { ReorderProposalDrawer } from './ReorderProposalDrawer';
 import { ACCENT as CRM_ACCENT } from '@/design/colors';
@@ -46,6 +47,13 @@ type SortField = 'confidence' | 'totalValue' | 'daysSinceLastOrder';
 
 export function ReorderCenter() {
   const { data: proposals, isLoading } = useReorderProposals();
+  const { data: frequencyData } = useOrderFrequency();
+
+  const decliningAccounts = useMemo(() => {
+    if (!frequencyData) return [];
+    // trendDirection === 'increasing' means longer gaps = declining order frequency
+    return frequencyData.filter((a) => a.trendDirection === 'increasing');
+  }, [frequencyData]);
   const [filterStatus, setFilterStatus] = useState<FilterStatus>('all');
   const [filterSource, setFilterSource] = useState<FilterSource>('all');
   const [sortBy, setSortBy] = useState<SortField>('confidence');
@@ -113,6 +121,14 @@ export function ReorderCenter() {
       render: (row) => (
         <span className="font-medium text-text-bright">{row.accountName as string}</span>
       ),
+    },
+    {
+      header: 'Pipeline',
+      accessor: 'pipelineCode' as const,
+      render: (row) => {
+        const code = row.pipelineCode as string | undefined;
+        return code ? <PipelineBadge code={code} size="sm" /> : <span className="text-text-muted">—</span>;
+      },
     },
     {
       header: 'Products',
@@ -190,6 +206,32 @@ export function ReorderCenter() {
         <MetricCard label="Avg Confidence" value={`${metrics.avgConf}%`} accentColor="#5BB8E6" />
         <MetricCard label="Acceptance Rate" value={`${metrics.acceptRate}%`} accentColor="#5BB8E6" />
       </div>
+
+      {/* Order Frequency Intelligence */}
+      {decliningAccounts.length > 0 && (
+        <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
+          <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-text-bright">
+            <TrendingDown className="h-4 w-4 text-amber-400" />
+            Declining Order Frequency ({decliningAccounts.length})
+          </h3>
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {decliningAccounts.slice(0, 6).map((acct) => (
+              <div key={acct.accountId} className="rounded-lg bg-card/50 p-3">
+                <p className="text-sm font-medium text-text-bright">{acct.accountName}</p>
+                <div className="mt-1 flex items-center gap-2">
+                  <span className="text-xs text-amber-400">&darr; {acct.frequencyDecline}% slower</span>
+                  {acct.isOverdue && (
+                    <StatusBadge variant="danger" label={`${Math.abs(acct.daysUntilPredicted)}d overdue`} size="xs" />
+                  )}
+                </div>
+                <p className="mt-1 text-[11px] text-text-muted">
+                  Next expected: {new Date(acct.predictedNextOrderDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Filters */}
       <div className="flex flex-wrap gap-3">
