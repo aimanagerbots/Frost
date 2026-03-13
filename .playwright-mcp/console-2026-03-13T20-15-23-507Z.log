@@ -1,0 +1,36 @@
+[    4204ms] [WARNING] Google Maps JavaScript API has been loaded directly without loading=async. This can result in suboptimal performance. For best-practice loading patterns please see https://goo.gle/js-api-loading @ https://maps.googleapis.com/maps/api/js?key=AIzaSyCOQMw0m_mHr8r8fJ-VxCw7WA1PCFRnOo0:337
+[    4239ms] [ERROR] TypeError: Cannot read properties of null (reading 'split')
+    at Object.decodeToken (https://wa.cultiverapro.com/js/angular-jwt/angular-jwt.min.js:1:1169)
+    at Object.getTokenExpirationDate (https://wa.cultiverapro.com/js/angular-jwt/angular-jwt.min.js:1:1397)
+    at Object.timeUntilTokenExpiry (https://wa.cultiverapro.com/app.s2s/security/tokenStore.factory.js?_0_:57:38)
+    at userActivityHandler (https://wa.cultiverapro.com/app.s2s/security/authservice.factory.js?_0_:21:51)
+    at Scope.$broadcast (https://wa.cultiverapro.com/node_modules/angular/angular.js:18005:28)
+    at Object.recordUserActivity (https://wa.cultiverapro.com/app.s2s/util/userActivity.Factory.js:23:28)
+    at amendRequest (https://wa.cultiverapro.com/app.s2s/security/authInterceptor.factory.js?_0_:58:37)
+    at processQueue (https://wa.cultiverapro.com/node_modules/angular/angular.js:16383:28)
+    at https://wa.cultiverapro.com/node_modules/angular/angular.js:16399:27
+    at Scope.$eval (https://wa.cultiverapro.com/node_modules/angular/angular.js:17682:28) @ https://wa.cultiverapro.com/node_modules/angular/angular.js:13919
+[    4241ms] [ERROR] TypeError: Cannot read properties of null (reading 'split')
+    at Object.decodeToken (https://wa.cultiverapro.com/js/angular-jwt/angular-jwt.min.js:1:1169)
+    at Object.getTokenExpirationDate (https://wa.cultiverapro.com/js/angular-jwt/angular-jwt.min.js:1:1397)
+    at Object.timeUntilTokenExpiry (https://wa.cultiverapro.com/app.s2s/security/tokenStore.factory.js?_0_:57:38)
+    at userActivityHandler (https://wa.cultiverapro.com/app.s2s/security/authservice.factory.js?_0_:21:51)
+    at Scope.$broadcast (https://wa.cultiverapro.com/node_modules/angular/angular.js:18005:28)
+    at Object.recordUserActivity (https://wa.cultiverapro.com/app.s2s/util/userActivity.Factory.js:23:28)
+    at amendRequest (https://wa.cultiverapro.com/app.s2s/security/authInterceptor.factory.js?_0_:58:37)
+    at processQueue (https://wa.cultiverapro.com/node_modules/angular/angular.js:16383:28)
+    at https://wa.cultiverapro.com/node_modules/angular/angular.js:16399:27
+    at Scope.$eval (https://wa.cultiverapro.com/node_modules/angular/angular.js:17682:28) @ https://wa.cultiverapro.com/node_modules/angular/angular.js:13919
+[    4275ms] [ERROR] TypeError: Cannot read properties of null (reading 'split')
+    at Object.decodeToken (https://wa.cultiverapro.com/js/angular-jwt/angular-jwt.min.js:1:1169)
+    at Object.getTokenExpirationDate (https://wa.cultiverapro.com/js/angular-jwt/angular-jwt.min.js:1:1397)
+    at Object.timeUntilTokenExpiry (https://wa.cultiverapro.com/app.s2s/security/tokenStore.factory.js?_0_:57:38)
+    at userActivityHandler (https://wa.cultiverapro.com/app.s2s/security/authservice.factory.js?_0_:21:51)
+    at Scope.$broadcast (https://wa.cultiverapro.com/node_modules/angular/angular.js:18005:28)
+    at Object.recordUserActivity (https://wa.cultiverapro.com/app.s2s/util/userActivity.Factory.js:23:28)
+    at amendRequest (https://wa.cultiverapro.com/app.s2s/security/authInterceptor.factory.js?_0_:58:37)
+    at processQueue (https://wa.cultiverapro.com/node_modules/angular/angular.js:16383:28)
+    at https://wa.cultiverapro.com/node_modules/angular/angular.js:16399:27
+    at Scope.$eval (https://wa.cultiverapro.com/node_modules/angular/angular.js:17682:28) @ https://wa.cultiverapro.com/node_modules/angular/angular.js:13919
+[   27020ms] [WARNING] Google Maps JavaScript API has been loaded directly without loading=async. This can result in suboptimal performance. For best-practice loading patterns please see https://goo.gle/js-api-loading @ https://maps.googleapis.com/maps/api/js?key=AIzaSyCOQMw0m_mHr8r8fJ-VxCw7WA1PCFRnOo0:337
+[   42255ms] [WARNING] Google Maps JavaScript API has been loaded directly without loading=async. This can result in suboptimal performance. For best-practice loading patterns please see https://goo.gle/js-api-loading @ https://maps.googleapis.com/maps/api/js?key=AIzaSyCOQMw0m_mHr8r8fJ-VxCw7WA1PCFRnOo0:337

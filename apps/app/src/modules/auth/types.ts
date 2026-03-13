@@ -27,6 +27,7 @@ export interface UserProfile {
   full_name: string;
   role: UserRole;
   department: Department | null;
+  departments?: string[];
   title: string | null;
   avatar_url: string | null;
   language_preference: string;

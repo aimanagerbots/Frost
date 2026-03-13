@@ -92,7 +92,10 @@
       "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | tail -40)",
       "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | grep -E \"error|Error|failed|auth/set\")",
       "mcp__claude_ai_Supabase__get_project",
-      "mcp__claude_ai_Supabase__search_docs"
+      "mcp__claude_ai_Supabase__search_docs",
+      "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | grep -iE \"error|Error|failed\" | head -10)",
+      "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | grep -iE \"error|Error|failed\" | head -5)",
+      "mcp__plugin_playwright_playwright__browser_snapshot"
     ]
   }
 }

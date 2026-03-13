@@ -4,10 +4,10 @@ export type { UserProfile, UserPermissions, ModuleDefinition, ModuleOverride };
 
 export interface UserFormData {
   email: string;
-  password?: string;
   full_name: string;
   role: string;
   department: string | null;
+  departments?: string[];
   title: string | null;
 }
 
