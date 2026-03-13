@@ -95,7 +95,9 @@
       "mcp__claude_ai_Supabase__search_docs",
       "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | grep -iE \"error|Error|failed\" | head -10)",
       "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | grep -iE \"error|Error|failed\" | head -5)",
-      "mcp__plugin_playwright_playwright__browser_snapshot"
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(curl -s \"https://xujvrkrkzousllsprapg.supabase.co/functions/v1/set-admin-password\")",
+      "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | grep -iE \"error|failed\" | head -5)"
     ]
   }
 }

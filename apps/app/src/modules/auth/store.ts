@@ -62,16 +62,30 @@ export const useAuthStore = create<AuthState>()(
 
   // --- Real Supabase auth (with demo credential intercept) ---
   loginWithEmail: async (email, password) => {
-    // Admin login: admin@frostcannabis.co / cultivera1
-    if (email.toLowerCase() === 'admin@frostcannabis.co' && password === 'cultivera1') {
-      set({
-        isAuthenticated: true,
-        isDemoMode: false,
-        isLoading: false,
-        user: { id: 'admin', name: 'Admin', email: 'admin@frostcannabis.co', role: 'admin', department: null },
-        session: null,
-        error: null,
-      });
+    // Admin login: sign in via Supabase (real session needed for Edge Functions)
+    if (email.toLowerCase() === 'admin@frostcannabis.co' && supabase) {
+      set({ isLoading: true, error: null });
+      const { data, error: authError } = await supabase.auth.signInWithPassword({ email, password });
+      if (authError) {
+        set({ isLoading: false, error: authError.message });
+        return;
+      }
+      if (data.session && data.user) {
+        set({
+          isAuthenticated: true,
+          isDemoMode: false,
+          isLoading: false,
+          session: data.session,
+          user: {
+            id: data.user.id,
+            name: data.user.user_metadata?.full_name || 'Admin',
+            email: data.user.email || '',
+            role: 'admin',
+            department: null,
+          },
+          error: null,
+        });
+      }
       return;
     }
 
