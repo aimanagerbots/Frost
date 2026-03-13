@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, Save, Trash2, Loader2, X } from 'lucide-react';
-import { useCreateUser, useUpdateUser, useDeactivateUser } from '@/modules/users/hooks/useUserMutations';
+import { Send, Save, Trash2, Archive, Power, Loader2, X } from 'lucide-react';
+import { useCreateUser, useUpdateUser, useDeactivateUser, useArchiveUser, useDeleteUser } from '@/modules/users/hooks/useUserMutations';
 import { ROLE_LABELS, DEPARTMENT_LABELS } from '@/modules/auth/types';
 import type { UserRole, Department } from '@/modules/auth/types';
 import type { UserProfile } from '@/modules/users/types';
@@ -41,6 +41,9 @@ export function UserForm({ user, isCreating, onSuccess }: UserFormProps) {
   const createUser = useCreateUser();
   const updateUser = useUpdateUser();
   const deactivateUser = useDeactivateUser();
+  const archiveUser = useArchiveUser();
+  const deleteUser = useDeleteUser();
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   const isSaving = createUser.isPending || updateUser.isPending;
 
@@ -224,31 +227,87 @@ export function UserForm({ user, isCreating, onSuccess }: UserFormProps) {
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-3 pt-4 border-t border-border-default">
-        <button
-          type="submit"
-          disabled={isSaving}
-          className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors hover:brightness-110 disabled:opacity-50"
-          style={{ backgroundColor: '#94A3B8' }}
-        >
-          {isSaving ? <Loader2 size={16} className="animate-spin" /> : isCreating ? <Send size={16} /> : <Save size={16} />}
-          {isCreating ? 'Send Invite' : 'Save Changes'}
-        </button>
-
-        {!isCreating && user?.is_active && (
+      <div className="space-y-3 pt-4 border-t border-border-default">
+        <div className="flex items-center gap-3">
           <button
-            type="button"
-            onClick={handleDeactivate}
-            disabled={deactivateUser.isPending}
-            className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-red-400 transition-colors hover:bg-red-500/10 disabled:opacity-50"
+            type="submit"
+            disabled={isSaving}
+            className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors hover:brightness-110 disabled:opacity-50"
+            style={{ backgroundColor: '#94A3B8' }}
           >
-            {deactivateUser.isPending ? (
-              <Loader2 size={16} className="animate-spin" />
-            ) : (
-              <Trash2 size={16} />
-            )}
-            Deactivate
+            {isSaving ? <Loader2 size={16} className="animate-spin" /> : isCreating ? <Send size={16} /> : <Save size={16} />}
+            {isCreating ? 'Send Invite' : 'Save Changes'}
           </button>
+        </div>
+
+        {!isCreating && user && (
+          <div className="flex items-center gap-2 flex-wrap">
+            {user.is_active && (
+              <button
+                type="button"
+                onClick={handleDeactivate}
+                disabled={deactivateUser.isPending}
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-amber-400 border border-amber-500/20 transition-colors hover:bg-amber-500/10 disabled:opacity-50"
+              >
+                {deactivateUser.isPending ? <Loader2 size={14} className="animate-spin" /> : <Power size={14} />}
+                Deactivate
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  await archiveUser.mutateAsync(user.id);
+                  onSuccess();
+                } catch (err) {
+                  setError(err instanceof Error ? err.message : 'Failed to archive user.');
+                }
+              }}
+              disabled={archiveUser.isPending}
+              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-text-muted border border-border-default transition-colors hover:bg-card-hover disabled:opacity-50"
+            >
+              {archiveUser.isPending ? <Loader2 size={14} className="animate-spin" /> : <Archive size={14} />}
+              Archive
+            </button>
+
+            {!showDeleteConfirm ? (
+              <button
+                type="button"
+                onClick={() => setShowDeleteConfirm(true)}
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-red-400 border border-red-500/20 transition-colors hover:bg-red-500/10"
+              >
+                <Trash2 size={14} />
+                Delete
+              </button>
+            ) : (
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-red-400">Permanently delete?</span>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      await deleteUser.mutateAsync(user.id);
+                      onSuccess();
+                    } catch (err) {
+                      setError(err instanceof Error ? err.message : 'Failed to delete user.');
+                    }
+                  }}
+                  disabled={deleteUser.isPending}
+                  className="rounded-lg px-3 py-1.5 text-xs font-medium text-white bg-red-600 hover:bg-red-700 transition-colors disabled:opacity-50"
+                >
+                  {deleteUser.isPending ? <Loader2 size={14} className="animate-spin" /> : 'Yes, Delete'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowDeleteConfirm(false)}
+                  className="rounded-lg px-3 py-1.5 text-xs font-medium text-text-muted hover:text-text-default transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+            )}
+          </div>
         )}
       </div>
     </form>

@@ -91,6 +91,50 @@ export function useDeactivateUser() {
         return { user_id: userId };
       }
       return edgeFn('manage-users', {
+        method: 'PATCH',
+        path: `/${userId}`,
+        body: { is_active: false },
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['users'] });
+    },
+  });
+}
+
+export function useArchiveUser() {
+  const queryClient = useQueryClient();
+  const isDemoMode = useAuthStore((s) => s.isDemoMode);
+
+  return useMutation({
+    mutationFn: async (userId: string) => {
+      if (isDemoMode) {
+        await new Promise((r) => setTimeout(r, 500));
+        return { user_id: userId };
+      }
+      return edgeFn('manage-users', {
+        method: 'PATCH',
+        path: `/${userId}`,
+        body: { is_active: false, invite_status: 'archived' },
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['users'] });
+    },
+  });
+}
+
+export function useDeleteUser() {
+  const queryClient = useQueryClient();
+  const isDemoMode = useAuthStore((s) => s.isDemoMode);
+
+  return useMutation({
+    mutationFn: async (userId: string) => {
+      if (isDemoMode) {
+        await new Promise((r) => setTimeout(r, 500));
+        return { user_id: userId };
+      }
+      return edgeFn('manage-users', {
         method: 'DELETE',
         path: `/${userId}`,
       });
