@@ -7,17 +7,26 @@ import type { UserFormData, ModuleOverride } from '@/modules/users/types';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
 
+/** Get a fresh access token from Supabase */
+async function getAccessToken(): Promise<string> {
+  if (!supabase) throw new Error('Supabase not configured');
+  const { data, error } = await supabase.auth.getSession();
+  if (error || !data.session) throw new Error('No active session — please log in again');
+  return data.session.access_token;
+}
+
 /** Call a Supabase Edge Function with the user's JWT */
 async function edgeFn(
   fnName: string,
-  opts: { method: string; path?: string; body?: unknown; token: string },
+  opts: { method: string; path?: string; body?: unknown },
 ) {
+  const token = await getAccessToken();
   const url = `${SUPABASE_URL}/functions/v1/${fnName}${opts.path ?? ''}`;
   const res = await fetch(url, {
     method: opts.method,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${opts.token}`,
+      Authorization: `Bearer ${token}`,
     },
     body: opts.body ? JSON.stringify(opts.body) : undefined,
   });
@@ -30,7 +39,6 @@ async function edgeFn(
 
 export function useCreateUser() {
   const queryClient = useQueryClient();
-  const session = useAuthStore((s) => s.session);
   const isDemoMode = useAuthStore((s) => s.isDemoMode);
 
   return useMutation({
@@ -42,7 +50,6 @@ export function useCreateUser() {
       return edgeFn('manage-users', {
         method: 'POST',
         body: data,
-        token: session!.access_token,
       });
     },
     onSuccess: () => {
@@ -53,7 +60,6 @@ export function useCreateUser() {
 
 export function useUpdateUser() {
   const queryClient = useQueryClient();
-  const session = useAuthStore((s) => s.session);
   const isDemoMode = useAuthStore((s) => s.isDemoMode);
 
   return useMutation({
@@ -66,7 +72,6 @@ export function useUpdateUser() {
         method: 'PATCH',
         path: `/${userId}`,
         body: data,
-        token: session!.access_token,
       });
     },
     onSuccess: () => {
@@ -77,7 +82,6 @@ export function useUpdateUser() {
 
 export function useDeactivateUser() {
   const queryClient = useQueryClient();
-  const session = useAuthStore((s) => s.session);
   const isDemoMode = useAuthStore((s) => s.isDemoMode);
 
   return useMutation({
@@ -89,7 +93,6 @@ export function useDeactivateUser() {
       return edgeFn('manage-users', {
         method: 'DELETE',
         path: `/${userId}`,
-        token: session!.access_token,
       });
     },
     onSuccess: () => {
@@ -100,7 +103,6 @@ export function useDeactivateUser() {
 
 export function useSetUserOverrides() {
   const queryClient = useQueryClient();
-  const session = useAuthStore((s) => s.session);
   const isDemoMode = useAuthStore((s) => s.isDemoMode);
 
   return useMutation({
@@ -116,7 +118,6 @@ export function useSetUserOverrides() {
         method: 'PUT',
         path: `/${userId}`,
         body: { overrides },
-        token: session!.access_token,
       });
     },
     onSuccess: (_data, variables) => {
