@@ -13,6 +13,7 @@
     "dev:app": "npm -w @frost/app run dev",
     "dev:website": "npm -w @frost/website run dev",
     "dev:portal": "npm -w @frost/portal run dev",
+    "dev:mobile": "npm -w @frost/mobile-website run start",
     "lint": "turbo lint",
     "type-check": "turbo type-check"
   },
