@@ -12,7 +12,7 @@ import { usePermissions } from '@/modules/auth/hooks/usePermissions';
 export function AppShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const { isDemoMode, initSession } = useAuthStore();
+  const { initSession } = useAuthStore();
   const { canAccess, isLoading: permissionsLoading } = usePermissions();
 
   // Restore Supabase session on app load (needed for API calls)
@@ -22,14 +22,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   // Route protection: redirect to dashboard if user lacks permission
   useEffect(() => {
-    if (permissionsLoading || isDemoMode) return;
+    if (permissionsLoading) return;
 
     // Extract module slug from pathname (e.g. '/crm/accounts' → 'crm')
     const slug = pathname.split('/').filter(Boolean)[0];
     if (slug && !canAccess(slug)) {
       router.replace('/dashboard');
     }
-  }, [pathname, canAccess, permissionsLoading, isDemoMode, router]);
+  }, [pathname, canAccess, permissionsLoading, router]);
 
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-base">
@@ -39,7 +39,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* Sidebar + Content area */}
       <div
         className="flex flex-1 overflow-hidden"
-        style={{ paddingTop: isDemoMode ? 'calc(var(--header-height) + 24px)' : 'var(--header-height)' }}
+        style={{ paddingTop: 'var(--header-height)' }}
       >
         <Sidebar />
         <main className="flex-1 overflow-y-auto px-6 pt-3 pb-6 bg-base">

@@ -9,8 +9,6 @@ import {
 } from '@/mocks/sales';
 import type { AccountListTab, AccountDiscount } from '../types';
 import type { SalesAccount } from '@/modules/sales/types';
-import { useAuthStore } from '@/modules/auth/store';
-import { supabase } from '@/lib/supabase';
 
 // ── DB row → SalesAccount mapper ────────────────────────────────
 
@@ -68,30 +66,12 @@ function delay(ms = 400): Promise<void> {
 // ── useAccounts — list filtered by tab ──────────────────────────
 
 export function useAccounts(tab: AccountListTab) {
-  const { isDemoMode } = useAuthStore();
-
   return useQuery({
-    queryKey: ['accounts', tab, isDemoMode],
+    queryKey: ['accounts', tab],
     queryFn: async () => {
-      if (isDemoMode) {
-        await delay();
-        if (tab === 'all') return MOCK_ACCOUNTS;
-        return MOCK_ACCOUNTS.filter((a) => a.status === tab);
-      }
-
-      if (!supabase) return [];
-
-      const { data, error } = await supabase
-        .from('accounts')
-        .select('id, name, license_number, address_street, address_city, address_state, address_zip, pipeline_status, pipeline_code, health_score, total_revenue, total_orders, average_order_value, assigned_rep_id, is_active')
-        .eq('is_active', true)
-        .order('name');
-
-      if (error) throw new Error(error.message);
-
-      const mapped = (data as DBAccount[]).map(mapToSalesAccount);
-      if (tab === 'all') return mapped;
-      return mapped.filter((a) => a.status === tab);
+      await delay();
+      if (tab === 'all') return MOCK_ACCOUNTS;
+      return MOCK_ACCOUNTS.filter((a) => a.status === tab);
     },
     enabled: true,
   });
@@ -100,26 +80,11 @@ export function useAccounts(tab: AccountListTab) {
 // ── useAccount — single account by id ───────────────────────────
 
 export function useAccount(id: string | null) {
-  const { isDemoMode } = useAuthStore();
-
   return useQuery({
-    queryKey: ['account', id, isDemoMode],
+    queryKey: ['account', id],
     queryFn: async () => {
-      if (isDemoMode) {
-        await delay(300);
-        return MOCK_ACCOUNTS.find((a) => a.id === id) ?? null;
-      }
-
-      if (!supabase) return null;
-
-      const { data, error } = await supabase
-        .from('accounts')
-        .select('id, name, license_number, address_street, address_city, address_state, address_zip, pipeline_status, pipeline_code, health_score, total_revenue, total_orders, average_order_value, assigned_rep_id, is_active')
-        .eq('id', id!)
-        .single();
-
-      if (error) throw new Error(error.message);
-      return mapToSalesAccount(data as DBAccount);
+      await delay(300);
+      return MOCK_ACCOUNTS.find((a) => a.id === id) ?? null;
     },
     enabled: !!id,
   });
@@ -128,26 +93,11 @@ export function useAccount(id: string | null) {
 // ── useAccountContacts ──────────────────────────────────────────
 
 export function useAccountContacts(accountId: string | null) {
-  const { isDemoMode } = useAuthStore();
-
   return useQuery({
-    queryKey: ['account-contacts', accountId, isDemoMode],
+    queryKey: ['account-contacts', accountId],
     queryFn: async () => {
-      if (isDemoMode) {
-        await delay(300);
-        return MOCK_CONTACTS.filter((c) => c.accountId === accountId);
-      }
-
-      if (!supabase) return [];
-
-      const { data, error } = await supabase
-        .from('contacts')
-        .select('*')
-        .eq('account_id', accountId!)
-        .eq('is_active', true);
-
-      if (error) throw new Error(error.message);
-      return data ?? [];
+      await delay(300);
+      return MOCK_CONTACTS.filter((c) => c.accountId === accountId);
     },
     enabled: !!accountId,
   });

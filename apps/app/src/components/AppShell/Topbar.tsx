@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { Menu, Search, Bell, LogOut, ChevronDown, FlaskConical } from 'lucide-react';
+import { Menu, Search, Bell, LogOut, ChevronDown } from 'lucide-react';
 import { cn } from '@frost/ui';
 import { useSidebarStore, useCommandPaletteStore } from './store';
 import { useAuthStore } from '@/modules/auth/store';
@@ -27,7 +27,7 @@ export function Topbar() {
   const pathname = usePathname();
   const { setMobileOpen } = useSidebarStore();
   const { setCommandPaletteOpen } = useCommandPaletteStore();
-  const { user, logout, isDemoMode, toggleDemoMode } = useAuthStore();
+  const { user, logout } = useAuthStore();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -109,21 +109,6 @@ export function Topbar() {
                     <p className="text-sm font-medium text-text-bright">{user.name}</p>
                     <p className="text-xs text-text-muted">{user.role}</p>
                   </div>
-                  <div className="my-1 h-px bg-border-default" />
-                </>
-              )}
-              {user?.role === 'admin' && (
-                <>
-                  <button
-                    onClick={() => {
-                      toggleDemoMode();
-                      setUserMenuOpen(false);
-                    }}
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-sm text-text-muted hover:bg-white/[0.04] hover:text-text-default transition-colors"
-                  >
-                    <FlaskConical className="h-4 w-4" />
-                    {isDemoMode ? 'Exit Demo Mode' : 'Enter Demo Mode'}
-                  </button>
                   <div className="my-1 h-px bg-border-default" />
                 </>
               )}

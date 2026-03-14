@@ -19,7 +19,7 @@ export default function SetPasswordPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [userName, setUserName] = useState('');
 
-  // On mount, listen for Supabase to exchange the URL hash token for a session
+  // On mount, parse the invite token from the URL hash and establish a session
   useEffect(() => {
     if (!supabase) {
       setState('error');
@@ -27,39 +27,39 @@ export default function SetPasswordPage() {
       return;
     }
 
-    // Supabase client detects the hash fragment and fires onAuthStateChange
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-        if (session?.user) {
-          setUserName(session.user.user_metadata?.full_name || '');
-          setState('ready');
-        }
+    async function exchangeToken() {
+      const hash = window.location.hash.substring(1);
+      if (!hash) {
+        setState('expired');
+        return;
       }
-      if (event === 'INITIAL_SESSION') {
-        if (session?.user) {
-          setUserName(session.user.user_metadata?.full_name || '');
-          setState('ready');
-        } else {
-          // No session from hash — check if hash params exist
-          const hash = window.location.hash;
-          if (!hash || !hash.includes('access_token')) {
-            setState('expired');
-          }
-          // If hash exists but no session yet, wait for SIGNED_IN event
-        }
+
+      const params = new URLSearchParams(hash);
+      const accessToken = params.get('access_token');
+      const refreshToken = params.get('refresh_token');
+
+      if (!accessToken || !refreshToken) {
+        setState('expired');
+        return;
       }
-    });
 
-    // Timeout fallback — if no auth event fires in 5s, show expired
-    const timeout = setTimeout(() => {
-      if (state === 'loading') setState('expired');
-    }, 5000);
+      // Set the session manually from the hash tokens
+      if (!supabase) { setState('error'); return; }
+      const { data, error: sessionError } = await supabase.auth.setSession({
+        access_token: accessToken,
+        refresh_token: refreshToken,
+      });
 
-    return () => {
-      subscription.unsubscribe();
-      clearTimeout(timeout);
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+      if (sessionError || !data.session) {
+        setState('expired');
+        return;
+      }
+
+      setUserName(data.session.user.user_metadata?.full_name || '');
+      setState('ready');
+    }
+
+    exchangeToken();
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {

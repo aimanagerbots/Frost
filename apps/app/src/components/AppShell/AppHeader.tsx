@@ -16,7 +16,7 @@ function AppHeaderInner() {
   const router = useRouter();
   const { setCommandPaletteOpen } = useCommandPaletteStore();
   const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenuStore();
-  const { user, logout, isDemoMode } = useAuthStore();
+  const { user, logout } = useAuthStore();
   const { theme, toggleTheme } = useThemeStore();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -36,11 +36,6 @@ function AppHeaderInner() {
 
   function handleLogout() {
     setUserMenuOpen(false);
-    logout();
-    router.push('/login');
-  }
-
-  function handleExitDemo() {
     logout();
     router.push('/login');
   }

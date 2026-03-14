@@ -2,7 +2,6 @@
 export { Header } from "./layout/Header";
 export { Footer } from "./layout/Footer";
 export { MobileMenu } from "./layout/MobileMenu";
-export { AgeGateModal } from "./layout/AgeGateModal";
 
 /* UI */
 export { CTAButton } from "./ui/CTAButton";

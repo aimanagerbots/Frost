@@ -8,7 +8,6 @@ import { ALL_MODULE_SLUGS } from '@/components/AppShell/nav-data';
 import type { ResolvedPermissions } from '@/modules/auth/types';
 
 export function usePermissions() {
-  const isDemoMode = useAuthStore((s) => s.isDemoMode);
   const user = useAuthStore((s) => s.user);
 
   const query = useQuery({
@@ -63,21 +62,20 @@ export function usePermissions() {
 
       return { allowed_modules: Array.from(allowed) };
     },
-    enabled: !isDemoMode && !!user,
+    enabled: !!user,
     staleTime: 5 * 60 * 1000,
     retry: false,
   });
 
   const allowedModules = useMemo(() => {
-    if (isDemoMode) return ALL_MODULE_SLUGS;
     if (!user || query.isError || (!query.data && !query.isLoading)) return ALL_MODULE_SLUGS;
     if (!query.data) return new Set<string>();
     return new Set(query.data.allowed_modules);
-  }, [isDemoMode, user, query.data, query.isError, query.isLoading]);
+  }, [user, query.data, query.isError, query.isLoading]);
 
   return {
     allowedModules,
-    isLoading: !isDemoMode && query.isLoading,
+    isLoading: query.isLoading,
     canAccess: (slug: string) => allowedModules instanceof Set ? allowedModules.has(slug) : true,
   };
 }

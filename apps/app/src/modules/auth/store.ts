@@ -13,22 +13,14 @@ interface AuthUser {
 
 interface AuthState {
   isAuthenticated: boolean;
-  isDemoMode: boolean;
   isLoading: boolean;
   user: AuthUser | null;
   session: Session | null;
   error: string | null;
 
-  // Demo mode (existing behavior — unchanged)
-  enterDemoMode: () => void;
-  toggleDemoMode: () => void;
-
-  // Real auth via Supabase
   loginWithEmail: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string, fullName: string) => Promise<void>;
   initSession: () => Promise<void>;
-
-  // Shared
   logout: () => void;
   clearError: () => void;
 }
@@ -37,73 +29,14 @@ export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
   isAuthenticated: false,
-  isDemoMode: false,
   isLoading: false,
   user: null,
   session: null,
   error: null,
 
-  // --- Demo mode ---
-  enterDemoMode: () => {
-    set({
-      isAuthenticated: true,
-      isDemoMode: true,
-      isLoading: false,
-      user: { id: 'demo', name: 'Demo User', email: 'demo@frostcannabis.co', role: 'admin', department: null },
-      session: null,
-      error: null,
-    });
-  },
-
-  // Toggle demo mode without touching user/session (for logged-in admin)
-  toggleDemoMode: () => {
-    set((state) => ({ isDemoMode: !state.isDemoMode }));
-  },
-
-  // --- Real Supabase auth (with demo credential intercept) ---
   loginWithEmail: async (email, password) => {
-    // Admin login: sign in via Supabase (real session needed for Edge Functions)
-    if (email.toLowerCase() === 'admin@frostcannabis.co' && supabase) {
-      set({ isLoading: true, error: null });
-      const { data, error: authError } = await supabase.auth.signInWithPassword({ email, password });
-      if (authError) {
-        set({ isLoading: false, error: authError.message });
-        return;
-      }
-      if (data.session && data.user) {
-        set({
-          isAuthenticated: true,
-          isDemoMode: false,
-          isLoading: false,
-          session: data.session,
-          user: {
-            id: data.user.id,
-            name: data.user.user_metadata?.full_name || 'Admin',
-            email: data.user.email || '',
-            role: 'admin',
-            department: null,
-          },
-          error: null,
-        });
-      }
-      return;
-    }
-
-    // Demo login: demo@frostcannabis.co / frost2026
-    if (email.toLowerCase() === 'demo@frostcannabis.co' && password === 'frost2026') {
-      set({
-        isAuthenticated: true,
-        isDemoMode: true,
-        isLoading: false,
-        user: { id: 'demo', name: 'Demo User', email: 'demo@frostcannabis.co', role: 'admin', department: null },
-        session: null,
-        error: null,
-      });
-      return;
-    }
-
     if (!supabase) {
-      set({ error: 'Supabase not configured. Use demo mode or set environment variables.' });
+      set({ error: 'Supabase not configured.' });
       return;
     }
 
@@ -122,7 +55,6 @@ export const useAuthStore = create<AuthState>()(
     if (data.session && data.user) {
       set({
         isAuthenticated: true,
-        isDemoMode: false,
         isLoading: false,
         session: data.session,
         user: {
@@ -139,7 +71,7 @@ export const useAuthStore = create<AuthState>()(
 
   signUp: async (email, password, fullName) => {
     if (!supabase) {
-      set({ error: 'Supabase not configured. Use demo mode or set environment variables.' });
+      set({ error: 'Supabase not configured.' });
       return;
     }
 
@@ -162,10 +94,6 @@ export const useAuthStore = create<AuthState>()(
   },
 
   initSession: async () => {
-    // Don't touch Supabase if already in demo mode
-    const current = useAuthStore.getState();
-    if (current.isDemoMode) return;
-
     if (!supabase) return;
 
     set({ isLoading: true });
@@ -176,7 +104,6 @@ export const useAuthStore = create<AuthState>()(
       const user = data.session.user;
       set({
         isAuthenticated: true,
-        isDemoMode: false,
         isLoading: false,
         session: data.session,
         user: {
@@ -198,7 +125,6 @@ export const useAuthStore = create<AuthState>()(
     }
     set({
       isAuthenticated: false,
-      isDemoMode: false,
       isLoading: false,
       user: null,
       session: null,
@@ -212,7 +138,6 @@ export const useAuthStore = create<AuthState>()(
       name: 'frost-auth',
       partialize: (state) => ({
         isAuthenticated: state.isAuthenticated,
-        isDemoMode: state.isDemoMode,
         user: state.user,
       }),
     },

@@ -4,38 +4,28 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Loader2 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
-import { usePortalAuth } from '@/modules/portal/shared/hooks';
+import { verifyPassword } from '@/app/(site)/actions';
 
-export default function PortalLoginPage() {
+export default function LoginPage() {
   const router = useRouter();
-  const { login } = usePortalAuth();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState('');
 
   async function handleSignIn(e: React.FormEvent) {
     e.preventDefault();
-    setError(null);
+    setError('');
     setIsLoading(true);
 
-    if (!supabase) {
-      setError('Authentication not configured.');
+    const result = await verifyPassword(password);
+    if (result.success) {
+      router.push('/');
+      router.refresh();
+    } else {
+      setError('Incorrect password');
       setIsLoading(false);
-      return;
     }
-
-    const { error: authError } = await supabase.auth.signInWithPassword({ email, password });
-    if (authError) {
-      setError(authError.message);
-      setIsLoading(false);
-      return;
-    }
-
-    login('acct-1');
-    router.push('/dashboard');
   }
 
   return (
@@ -51,7 +41,7 @@ export default function PortalLoginPage() {
           {error && (
             <div style={{ marginBottom: 16, width: '100%', borderRadius: 10, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', padding: '10px 16px', fontSize: 13, color: '#f87171', textAlign: 'center' }}>
               {error}
-              <button onClick={() => setError(null)} style={{ marginLeft: 8, color: 'rgba(248,113,113,0.6)', background: 'none', border: 'none', cursor: 'pointer' }}>&times;</button>
+              <button onClick={() => setError('')} style={{ marginLeft: 8, color: 'rgba(248,113,113,0.6)', background: 'none', border: 'none', cursor: 'pointer' }}>&times;</button>
             </div>
           )}
 
