@@ -28,7 +28,7 @@ import {
 } from '@expo-google-fonts/space-grotesk';
 import { useAgeGate } from '@/hooks/useAgeGate';
 import { Text } from '@/components';
-import '../src/global.css';
+// import '../src/global.css'; // NativeWind disabled for now
 
 SplashScreen.preventAutoHideAsync();
 

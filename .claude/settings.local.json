@@ -101,7 +101,17 @@
       "Bash(start \"\" \"c:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost\\\\email-signature.html\")",
       "mcp__plugin_playwright_playwright__browser_console_messages",
       "mcp__plugin_playwright_playwright__browser_evaluate",
-      "mcp__plugin_playwright_playwright__browser_run_code"
+      "mcp__plugin_playwright_playwright__browser_run_code",
+      "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npm install 2>&1 | tail -5)",
+      "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | grep -B2 \"module_slug\")",
+      "Bash(cd \"C:\\\\Users\\\\seatt\\\\OneDrive\\\\Frost 2\\\\Frost/apps/app\" && npx next build 2>&1 | grep -A2 \"module_slug\\\\|Type error\")",
+      "Bash(find '/c/Users/seatt/OneDrive/Frost 2/Frost' -type f \\\\\\(-name *.png -o -name *.jpg -o -name *.jpeg \\\\\\))",
+      "Bash(grep -r \"cultivera\\\\|Cultivera\" '/c/Users/seatt/OneDrive/Frost 2/Frost' --include=*.md)",
+      "Bash(find '/c/Users/seatt/OneDrive/Frost 2/Frost/research/wa.cultiverapro.com' -name *.png -type f)",
+      "Bash(find '/c/Users/seatt/OneDrive/Frost 2/Frost/research/wa.cultiverapro.com/2026-03-12-v3' -type f -name *.png)",
+      "Bash(gh search:*)",
+      "Read(//c/Users/seatt/OneDrive/Frost 2/Frost-Mobile/**)",
+      "Bash(npx expo:*)"
     ]
   }
 }

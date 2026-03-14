@@ -48,3 +48,15 @@ yarn-debug.log*
 
 # Obsidian vault (personal knowledge base)
 Frost-Vault/
+
+# Playwright MCP logs
+.playwright-mcp/
+
+# Superpowers plugin artifacts
+.superpowers/
+
+# Screenshots (local reference only)
+login-*.png
+
+# Sample data files
+*.xlsx

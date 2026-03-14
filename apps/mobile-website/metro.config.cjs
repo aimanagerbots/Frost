@@ -1,5 +1,4 @@
 const { getDefaultConfig } = require('expo/metro-config');
-const { withNativeWind } = require('nativewind/metro');
 const path = require('path');
 
 // Set EXPO_ROUTER_APP_ROOT for monorepo compatibility
@@ -10,20 +9,28 @@ const monorepoRoot = path.resolve(projectRoot, '../..');
 
 const config = getDefaultConfig(projectRoot);
 
-// Only watch specific monorepo packages, not the entire root
+// Watch shared packages
 config.watchFolders = [
-  path.resolve(monorepoRoot, 'packages/types'),
-  path.resolve(monorepoRoot, 'packages/tokens'),
-  path.resolve(monorepoRoot, 'packages/ui'),
+  path.resolve(monorepoRoot, 'packages'),
 ];
 
-// Resolve packages from both project and monorepo root
+// Resolve packages: local first, then root (hoisted)
 config.resolver.nodeModulesPaths = [
   path.resolve(projectRoot, 'node_modules'),
   path.resolve(monorepoRoot, 'node_modules'),
 ];
 
-// Ensure project root is correctly set for expo-router
+// Prevent Metro from scanning other apps
+config.resolver.blockList = [
+  /apps[\\/]app[\\/].*/,
+  /apps[\\/]website[\\/].*/,
+  /apps[\\/]portal[\\/].*/,
+  /apps[\\/]api[\\/].*/,
+  /\.next[\\/].*/,
+  /\.git[\\/].*/,
+  /Frost-Vault[\\/].*/,
+];
+
 config.projectRoot = projectRoot;
 
-module.exports = withNativeWind(config, { input: './src/global.css' });
+module.exports = config;
